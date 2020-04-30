@@ -72,7 +72,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " Plug 'morhetz/gruvbox'
 " Plug 'schickele/vim-nachtleben'
 " Plug 'jschmold/sweet-dark.vim'
-Plug 'b3nj5m1n/dotfiles.git'
+Plug 'b3nj5m1n/dotfiles'
 
 call plug#end()
 
