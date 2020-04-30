@@ -18,5 +18,4 @@ git clone --depth 1 "https://github.com/ryanoasis/nerd-fonts.git"
 # Move to nerd-fonts dir
 cd ~/Documents/Github/nerd-fonts/
 # Install Ubuntu and Ubuntu Mono fonts
-./install.sh UbuntuNerdFont
-./install.sh UbuntuMonoNerdFont
+./install.sh UbuntuMono
