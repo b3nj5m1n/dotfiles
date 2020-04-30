@@ -124,6 +124,7 @@ PS1=$PS1$RESET
 
 export PS1=$PS1
 
-
-
-export EDITOR=vim
+# Use nvim when typing vim
+alias vim='nvim'
+# Use neovim as default editor
+export EDITOR=nvim
