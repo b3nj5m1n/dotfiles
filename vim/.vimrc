@@ -67,11 +67,12 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " Plug 'vim-fugitive'
 
 " Color Schemes
-Plug 'chuling/vim-equinusocio-material'
-Plug 'flazz/vim-colorschemes'
-Plug 'morhetz/gruvbox'
-Plug 'schickele/vim-nachtleben'
-Plug 'jschmold/sweet-dark.vim'
+" Plug 'chuling/vim-equinusocio-material'
+" Plug 'flazz/vim-colorschemes'
+" Plug 'morhetz/gruvbox'
+" Plug 'schickele/vim-nachtleben'
+" Plug 'jschmold/sweet-dark.vim'
+Plug 'b3nj5m1n/dotfiles.git'
 
 call plug#end()
 
