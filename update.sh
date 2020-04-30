@@ -56,6 +56,12 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     fi
 fi
 
+# Needs not to be run as root
+if [ ! "$EUID" -ne 0 ]
+  then echo "The next part of this script requires you to run without sudo to copy to the correct dirs."
+  exit
+fi
+
 # Update .files
 cd "$DOTFILES_DIR"
 # Update .bashrc
