@@ -76,7 +76,7 @@ Plug 'jschmold/sweet-dark.vim'
 call plug#end()
 
 
-colorscheme nachtleben
+colorscheme Pinky
 
 if executable('rg')
     let g:rg_derive_root='true'
