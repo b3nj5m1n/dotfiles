@@ -62,8 +62,11 @@ cd "$DOTFILES_DIR"
 cp -f -p -v ./bash/.bashrc ~/
 # Update konsole
 cp -f -p -v -r ./konsole/* ~/.local/share/konsole/
-# Update .vimrc
+# Update .vimrc (vim)
 cp -f -p -v ./vim/.vimrc ~/
+# Update .init.vim (neovim) (And make sure the dir exists)
+mkdir -p ~/.config/nvim/
+cp -f -p -v ./vim/init.vim ~/.config/nvim/init.vim
 
 # Make sure vim plug is installed for vim
 if [ ! -f ~/.vim/autoload/plug.vim ]; then
