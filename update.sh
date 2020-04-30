@@ -34,6 +34,8 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         apt install --yes python
         apt install --yes python3
         apt install --yes cmake
+        apt install --yes curl
+        apt install --yes wget
 
         # Dev
         apt install --yes vim
@@ -49,6 +51,8 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         pacman -S --noconfirm --needed sudo
         pacman -S --noconfirm --needed git
         pacman -S --noconfirm --needed makepkg
+        pacman -S --noconfirm --needed curl
+        pacman -S --noconfirm --needed wget
         if hash yay 2>/dev/null; then
             mkdir -p ~/Documents/Github
             git clone https://aur.archlinux.org/yay.git
