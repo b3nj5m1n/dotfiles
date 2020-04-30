@@ -40,7 +40,9 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         apt install --yes neovim
     elif hash pacman 2>/dev/null; then
         # Using pacman
-
+        
+        # Update
+        pacman -Syy
         # Essential
         pacman -S --noconfirm --needed sudo
         pacman -S --noconfirm --needed git
