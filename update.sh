@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Get args in an array
 args=("$@")
 
