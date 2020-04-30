@@ -61,6 +61,9 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         # Dev
         pacman -S --noconfirm vim
         pacman -S --noconfirm neovim
+
+        # Upgrade all packs
+        pacman -Syu
     fi
 fi
 
