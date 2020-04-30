@@ -31,6 +31,8 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         # Essential
         apt install --yes sudo
         apt install --yes git
+        apt install --yes python
+        apt install --yes python3
 
         # Dev
         apt install --yes vim
@@ -49,6 +51,8 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
             makepkg -si
             mkdir -p ~/Documents/Github
         fi
+        pacman -S --noconfirm python
+        pacman -S --noconfirm python2
 
         # Dev
         pacman -S --noconfirm vim
