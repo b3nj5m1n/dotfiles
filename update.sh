@@ -68,7 +68,7 @@ cp -f -p -v ./vim/.vimrc ~/
 # Make sure vim plug is installed for vim
 if [ ! -f ~/.vim/autoload/plug.vim ]; then
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.neovim
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 # Make sure vim plug is installed for neovim
 if [ ! -f  ~/.local/share/nvim/site/autoload/plug.vim ]; then
