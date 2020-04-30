@@ -33,6 +33,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         apt install --yes git
         apt install --yes python
         apt install --yes python3
+        apt install --yes cmake
 
         # Dev
         apt install --yes vim
@@ -53,6 +54,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         fi
         pacman -S --noconfirm python
         pacman -S --noconfirm python2
+        pacman -S --noconfirm cmake
 
         # Dev
         pacman -S --noconfirm vim
