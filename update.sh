@@ -42,9 +42,9 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         # Using pacman
 
         # Essential
-        pacman -S --noconfirm sudo
-        pacman -S --noconfirm git
-        pacman -S --noconfirm makepkg
+        pacman -S --noconfirm --needed sudo
+        pacman -S --noconfirm --needed git
+        pacman -S --noconfirm --needed makepkg
         if hash yay 2>/dev/null; then
             mkdir -p ~/Documents/Github
             git clone https://aur.archlinux.org/yay.git
@@ -52,9 +52,9 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
             makepkg -si
             mkdir -p ~/Documents/Github
         fi
-        pacman -S --noconfirm python
-        pacman -S --noconfirm python2
-        pacman -S --noconfirm cmake
+        pacman -S --noconfirm --needed python
+        pacman -S --noconfirm --needed python2
+        pacman -S --noconfirm --needed cmake
 
         # Dev
         pacman -S --noconfirm vim
