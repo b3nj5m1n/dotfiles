@@ -114,6 +114,8 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     fi
+    # Make sure YouCompleteMe is installed
+    python ~/.vim/plugged/YouCompleteMe/install.py
 fi
 
 match="--nerd-fonts"

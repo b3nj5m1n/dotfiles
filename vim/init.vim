@@ -114,5 +114,5 @@ nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
 map <C-n> :NERDTreeToggle<CR>
 " Leader key + u to switch between open split screens
 nnoremap <leader>u <c-w>w
-
+" Use tab to indent selection & keep selection
 vmap <tab> >gvolloll
