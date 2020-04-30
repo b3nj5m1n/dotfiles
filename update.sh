@@ -65,6 +65,9 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         # Upgrade all packs
         pacman -Syu
     fi
+    # Use pip to install neovim to enable python support
+    pip install --no-cache neovim
+    pip3 install --no-cache neovim
 fi
 
 # Needs not to be run as root
