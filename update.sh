@@ -34,6 +34,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         apt install --yes git
         apt install --yes python
         apt install --yes python3
+        apt install --yes make
         apt install --yes cmake
         apt install --yes curl
         apt install --yes wget
@@ -63,6 +64,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         fi
         pacman -S --noconfirm --needed python
         pacman -S --noconfirm --needed python2
+        pacman -S --noconfirm --needed make
         pacman -S --noconfirm --needed cmake
 
         # Dev
