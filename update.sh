@@ -6,6 +6,7 @@ args=("$@")
 # Display help
 match="-h"
 if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
+    echo '-u            Update all config files'
     echo '-h            Display help'
     echo '-p            Install/Update packages'
     echo '--nerd-fonts  Install nerd fonts'
@@ -44,7 +45,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         apt install --yes python-pip
     elif hash pacman 2>/dev/null; then
         # Using pacman
-        
+
         # Update
         pacman -Syy
         # Essential
@@ -78,33 +79,39 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     pip3 install --no-cache neovim
 fi
 
-# Needs not to be run as root
-if [ ! "$EUID" -ne 0 ]
-  then echo "The next part of this script requires you to run without sudo to copy to the correct dirs."
-  exit
-fi
 
-# Update .files
-cd "$DOTFILES_DIR"
-# Update .bashrc
-cp -f -p -v ./bash/.bashrc ~/
-# Update konsole
-cp -f -p -v -r ./konsole/* ~/.local/share/konsole/
-# Update .vimrc (vim)
-cp -f -p -v ./vim/.vimrc ~/
-# Update .init.vim (neovim) (And make sure the dir exists)
-mkdir -p ~/.config/nvim/
-cp -f -p -v ./vim/init.vim ~/.config/nvim/init.vim
 
-# Make sure vim plug is installed for vim
-if [ ! -f ~/.vim/autoload/plug.vim ]; then
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-fi
-# Make sure vim plug is installed for neovim
-if [ ! -f  ~/.local/share/nvim/site/autoload/plug.vim ]; then
-    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+match="-u"
+# Only do this if argument --nerd-fonts is supplied
+if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
+    # Needs not to be run as root
+    if [ ! "$EUID" -ne 0 ]
+    then echo "The next part of this script requires you to run without sudo to copy to the correct dirs."
+        exit
+    fi
+
+    # Update .files
+    cd "$DOTFILES_DIR"
+    # Update .bashrc
+    cp -f -p -v ./bash/.bashrc ~/
+    # Update konsole
+    cp -f -p -v -r ./konsole/* ~/.local/share/konsole/
+    # Update .vimrc (vim)
+    cp -f -p -v ./vim/.vimrc ~/
+    # Update .init.vim (neovim) (And make sure the dir exists)
+    mkdir -p ~/.config/nvim/
+    cp -f -p -v ./vim/init.vim ~/.config/nvim/init.vim
+
+    # Make sure vim plug is installed for vim
+    if [ ! -f ~/.vim/autoload/plug.vim ]; then
+        curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    fi
+    # Make sure vim plug is installed for neovim
+    if [ ! -f  ~/.local/share/nvim/site/autoload/plug.vim ]; then
+        curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    fi
 fi
 
 match="--nerd-fonts"
