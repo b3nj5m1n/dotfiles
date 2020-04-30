@@ -38,6 +38,8 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         # Dev
         apt install --yes vim
         apt install --yes neovim
+        apt install --yes python3-pip
+        apt install --yes python-pip
     elif hash pacman 2>/dev/null; then
         # Using pacman
         
@@ -61,6 +63,8 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         # Dev
         pacman -S --noconfirm vim
         pacman -S --noconfirm neovim
+        pacman -S --noconfirm --needed python2-pip
+        pacman -S --noconfirm --needed python-pip
 
         # Upgrade all packs
         pacman -Syu
