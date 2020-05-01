@@ -78,6 +78,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
             apt install --yes i3-gaps
             # Install i3 util
 	    apt install --yes i3bar
+            apt install --yes i3blocks
 	    apt install --yes dmenu
 	    apt install --yes rofi
 	    apt install --yes feh
@@ -87,6 +88,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
             cd picom
             meson --buildtype=release . build
             ninja -C build install
+
 	fi
 
 
