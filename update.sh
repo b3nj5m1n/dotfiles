@@ -109,6 +109,8 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     cp -f -p -v ./bash/.bashrc ~/
     # Update i3 config file
     cp -f -p -v ./i3/config ~/.config/i3
+    # Update picom config file
+    cp -f -p -v ./picom/picom.conf ~/.config/
     # Update konsole
     cp -f -p -v -r ./konsole/* ~/.local/share/konsole/
     # Update .vimrc (vim)
