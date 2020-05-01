@@ -189,17 +189,23 @@ set $transparent #00000000
 set $white       #f5f5f5
 
 # ----------------------- Windows -----------------------  #
-client.focused              $pri1 $pri1 $sec1 $sec1 $pri1
-client.focused_inactive     $pri2 $pri2 $sec2 $sec2 $pri2
-client.unfocused            $sec3 $sec3 $pri3 $pri3 $sec3
-client.urgent               $acct $acct $sec4 $sec4 $acct 
-client.placeholder          $sec3 $sec3 $pri3 $pri3 $sec3
+client.focused              $pri1 $pri1 $sec1 $pri1 $pri1
+client.focused_inactive     $pri2 $pri2 $sec2 $pri2 $pri2
+client.unfocused            $sec3 $sec3 $pri3 $sec3 $sec3
+client.urgent               $acct $acct $sec4 $acct $acct 
+client.placeholder          $transparent $transparent $transparent $transparent $transparent         
+# client.placeholder          $sec3 $sec3 $pri3 $sec3 $sec3
 client.background           $black
+# Hide border & titlebar for i3-gaps
+# new_window none
+for_window [class=".*"] border pixel 2
+
 
 # ----------------------- Gaps -----------------------  #
 gaps inner 5
-gaps outer 25
-smart_gaps on
+gaps outer 15
+# This removes gaps when there is only one window on the screen
+# smart_gaps on
 
 # ----------------------- Bar -----------------------  #
 # Hide the status bar to use a different one
