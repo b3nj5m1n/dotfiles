@@ -22,8 +22,9 @@ mkdir -p ~/Documents/Github
 # Cd into github dir
 cd ~/Documents/Github
 
+match="--yay"
 # Only do this if argument --yay is given
-if ! hash yay 2>/dev/null; then
+if ! hash yay 2>/dev/null; thhen
     mkdir -p ~/Documents/Github
     git clone https://aur.archlinux.org/yay.git
     cd yay
@@ -68,6 +69,10 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         pacman -S --noconfirm --needed python2
         pacman -S --noconfirm --needed make
         pacman -S --noconfirm --needed cmake
+        pacman -S --noconfirm --needed binutils
+        pacman -S --noconfirm --needed gcc
+        pacman -S --noconfirm --needed pkg-config
+        pacman -S --noconfirm --needed fakeroot
 
         # Dev
         pacman -S --noconfirm vim
