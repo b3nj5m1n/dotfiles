@@ -5,7 +5,7 @@
 # Mod key set to alt
 set $mod Mod1
 # Set font
-font pango:monospace 8
+# font pango:monospace 8
 # Start up some basic stuff
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
@@ -198,6 +198,7 @@ client.placeholder          $transparent $transparent $transparent $transparent 
 client.background           $black
 # Hide border & titlebar for i3-gaps
 # new_window none
+# Hide titlebar
 for_window [class=".*"] border pixel 2
 
 
