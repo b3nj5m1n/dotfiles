@@ -10,7 +10,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     echo '-h            Display help'
     echo '-p            Install/Update packages'
     echo '--yay         Install yay'
-    echo '--i3          Install i3'
+    echo '--i3          Install i3 gaps and picom'
     echo '--ycp         Install You Complete Me'
     echo '--nerd-fonts  Install nerd fonts'
     exit 0
@@ -58,6 +58,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         apt install --yes wget
         apt install --yes autoconf
         apt install --yes automake
+        apt install --yes ninja
 
         # Dev
         apt install --yes vim
@@ -71,7 +72,8 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
             add-apt-repository ppa:regolith-linux/stable -y
             apt-get update
 	    apt install --yes libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev xutils-dev libxcb-shape0-dev autoconf
-	    apt install --yes i3
+            apt install --yes libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev  libpcre2-dev  libevdev-dev uthash-dev libev-dev libx11-xcb-dev
+	    # apt install --yes i3
             apt install --yes i3-gaps-wm i3-gaps-session
             apt install --yes i3-gaps
             # Install i3 util
@@ -79,6 +81,12 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
 	    apt install --yes dmenu
 	    apt install --yes rofi
 	    apt install --yes feh
+            # Install picom
+            cd /tmp/
+            git clone "https://github.com/yshui/picom.git" 
+            cd picom
+            meson --buildtype=release . build
+            ninja -C build install
 	fi
 
 
