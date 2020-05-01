@@ -54,9 +54,9 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+Shift+h split h
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+Shift+v split v
 
 
 # ------------------------------ Workspace Keybindings ------------------------------  #
