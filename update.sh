@@ -55,7 +55,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         pacman -S --noconfirm --needed makepkg
         pacman -S --noconfirm --needed curl
         pacman -S --noconfirm --needed wget
-        if hash yay 2>/dev/null; then
+        if ! hash yay 2>/dev/null; then
             mkdir -p ~/Documents/Github
             git clone https://aur.archlinux.org/yay.git
             cd yay
