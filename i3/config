@@ -15,10 +15,12 @@ exec --no-startup-id setxkbmap de
 set $refresh_i3status killall -SIGUSR1 i3status
 
 
-# Start polybar
-exec ~/.config/polybar/launch.sh
 # Set wallpaper
 exec --no-startup-id feh --bg-scale .wallpapers/1.png
+# Start picom
+exec --no-startup-id picom
+# Start polybar
+exec ~/.config/polybar/launch.sh
 
 
 # ------------------------------ Essential Keybindings ------------------------------  #
@@ -54,9 +56,9 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 # split in horizontal orientation
-bindsym $mod+Shift+h split h
+bindsym $mod+Ctrl+h split h
 # split in vertical orientation
-bindsym $mod+Shift+v split v
+bindsym $mod+Ctrl+v split v
 
 
 # ------------------------------ Workspace Keybindings ------------------------------  #
