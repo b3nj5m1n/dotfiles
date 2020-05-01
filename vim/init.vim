@@ -1,7 +1,7 @@
 syntax on
 
 set noerrorbells
-set tabstop=4 softtabstop=4                                                               
+" set tabstop=4 softtabstop=4                                                               
 set shiftwidth=4
 set expandtab
 set smartindent
@@ -62,6 +62,11 @@ Plug 'ycm-core/YouCompleteMe'
 Plug 'ryanoasis/vim-devicons'
 " I think this changes the color of the icons and stuff in nerdtree 
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Custom status/tabline
+Plug 'vim-airline/vim-airline'
+" Themes for airline
+Plug 'vim-airline/vim-airline-themes'
+
 
 " Git wrapper
 " Plug 'vim-fugitive'
