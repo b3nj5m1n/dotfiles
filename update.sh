@@ -9,6 +9,8 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     echo '-u            Update all config files'
     echo '-h            Display help'
     echo '-p            Install/Update packages'
+    echo '--yay         Install yay'
+    echo '--ycp         Install You Complete Me'
     echo '--nerd-fonts  Install nerd fonts'
     exit 0
 fi
