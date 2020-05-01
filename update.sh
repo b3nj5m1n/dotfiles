@@ -22,14 +22,16 @@ mkdir -p ~/Documents/Github
 # Cd into github dir
 cd ~/Documents/Github
 
-match="--yay"
 # Only do this if argument --yay is given
-if ! hash yay 2>/dev/null; then
-    mkdir -p ~/Documents/Github
-    git clone https://aur.archlinux.org/yay.git
-    cd yay
-    makepkg -si
-    mkdir -p ~/Documents/Github
+match="--yay"
+if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
+    if ! hash yay 2>/dev/null; then
+        mkdir -p ~/Documents/Github
+        git clone https://aur.archlinux.org/yay.git
+        cd yay
+        makepkg -si
+        mkdir -p ~/Documents/Github
+    fi
 fi
 
 # Only do this if argument -p is given
