@@ -5,7 +5,7 @@
 # Mod key set to alt
 set $mod Mod1
 # Set font
-# font pango:monospace 8
+font pango:monospace 8
 # Start up some basic stuff
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet

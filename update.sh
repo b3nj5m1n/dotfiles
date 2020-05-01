@@ -10,6 +10,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     echo '-h            Display help'
     echo '-p            Install/Update packages'
     echo '--yay         Install yay'
+    echo '--i3          Install i3'
     echo '--ycp         Install You Complete Me'
     echo '--nerd-fonts  Install nerd fonts'
     exit 0
@@ -18,6 +19,8 @@ fi
 
 # Store current dir to go back to later
 DOTFILES_DIR=$PWD
+# Get dir of script
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 # Ensure github directory exists in documents dir
 mkdir -p ~/Documents/Github
@@ -42,7 +45,8 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     # Package installation
     if hash apt 2>/dev/null; then
         # Using apt
-
+        apt-get update -y
+        apt-get upgrade -y
         # Essential
         apt install --yes sudo
         apt install --yes git
@@ -52,12 +56,32 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         apt install --yes cmake
         apt install --yes curl
         apt install --yes wget
+        apt install --yes autoconf
+        apt install --yes automake
 
         # Dev
         apt install --yes vim
         apt install --yes neovim
         apt install --yes python3-pip
         apt install --yes python-pip
+
+	# Only do this if argument --i3 is given
+	match="--i3"
+	if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
+            add-apt-repository ppa:regolith-linux/stable -y
+            apt-get update
+	    apt install --yes libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev xutils-dev libxcb-shape0-dev autoconf
+	    apt install --yes i3
+            apt install --yes i3-gaps-wm i3-gaps-session
+            apt install --yes i3-gaps
+            # Install i3 util
+	    apt install --yes i3bar
+	    apt install --yes dmenu
+	    apt install --yes rofi
+	    apt install --yes feh
+	fi
+
+
     elif hash pacman 2>/dev/null; then
         # Using pacman
 
