@@ -125,6 +125,11 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     fi
+fi
+
+match="--ycp"
+# Only do this if argument --ycp is supplied
+if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
     # Make sure YouCompleteMe is installed
     python ~/.vim/plugged/YouCompleteMe/install.py
 fi
