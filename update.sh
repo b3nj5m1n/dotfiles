@@ -118,6 +118,9 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     # Update init.vim (neovim) (And make sure the dir exists)
     mkdir -p ~/.config/nvim/
     cp -f -p -v ./vim/init.vim ~/.config/nvim/init.vim
+    # Update polybar
+    mkdir -p ~/.config/polybar/
+    cp -r -u -f -p -v ./polybar/* ~/.config/polybar/
 
     # Make sure vim plug is installed for vim
     if [ ! -f ~/.vim/autoload/plug.vim ]; then
@@ -132,7 +135,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
 
     # Update wallpapers
     mkdir -p ~/.wallpapers/
-    cp -u -f -p -v ./wallpapers/* ~/.wallpapers/
+    cp -r -u -f -p -v ./wallpapers/* ~/.wallpapers/
 fi
 
 match="--ycp"
