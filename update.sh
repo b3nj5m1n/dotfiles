@@ -129,6 +129,10 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     fi
+
+    # Update wallpapers
+    mkdir -p ~/.wallpapers/
+    cp -u -f -p -v ./wallpapers/* ~/.wallpapers/
 fi
 
 match="--ycp"
