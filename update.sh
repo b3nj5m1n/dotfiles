@@ -24,7 +24,7 @@ cd ~/Documents/Github
 
 match="--yay"
 # Only do this if argument --yay is given
-if ! hash yay 2>/dev/null; thhen
+if ! hash yay 2>/dev/null; then
     mkdir -p ~/Documents/Github
     git clone https://aur.archlinux.org/yay.git
     cd yay
