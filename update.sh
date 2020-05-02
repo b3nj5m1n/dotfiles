@@ -67,6 +67,10 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         apt install --yes python3-pip
         apt install --yes python-pip
 
+        # Other
+        apt install --yes vlc
+        apt install --yes libreoffice
+
         # Only do this if argument --pp is given
         match="--pp"
         if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    

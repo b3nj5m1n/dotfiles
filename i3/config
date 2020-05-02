@@ -5,7 +5,7 @@
 # Mod key set to alt
 set $mod Mod1
 # Set font
-font pango:monospace 8
+font pango:Ubuntu Nerd Font 10
 # Start up some basic stuff
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
@@ -63,40 +63,30 @@ bindsym $mod+Ctrl+v split v
 
 # ------------------------------ Workspace Keybindings ------------------------------  #
 
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
 # switch to workspace
-bindsym $mod+1 workspace number $ws1
-bindsym $mod+2 workspace number $ws2
-bindsym $mod+3 workspace number $ws3
-bindsym $mod+4 workspace number $ws4
-bindsym $mod+5 workspace number $ws5
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+# Cycle workspaces
+bindsym $mod+Tab workspace next
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
 
 
 # ------------------------------ Audio/Brightness Control etc. ------------------------------  #
@@ -119,32 +109,11 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # ------------------------------ Resizing Keybindings ------------------------------  #
 
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
-}
-
-bindsym $mod+r mode "resize"
+# Move fingers up one row from vim keybindings to resize windows
+bindsym $mod+Shift+z resize shrink width 10 px or 10 ppt
+bindsym $mod+Shift+u resize grow height 10 px or 10 ppt
+bindsym $mod+Shift+i resize shrink height 10 px or 10 ppt
+bindsym $mod+Shift+o resize grow width 10 px or 10 ppt
 
 # ------------------------------ Other Keybindings ------------------------------  #
 
@@ -169,6 +138,39 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+
+# ------------------------------ Workspaces ------------------------------  #
+
+# Labeling workspaces (Number before the icon to ensure proper sorting, wont's show up in bar)
+# Workspace 1 is reserved for terminals
+set $ws1 "1"
+# Workspace 2 is reserved for webbrowser/vlc
+set $ws2 "2"
+# Workspace 1 is reserved for vim
+set $ws3 "3"
+# Workspace 4 is reserved for terminals
+set $ws4 "4"
+set $ws5 "5"
+# Workspace 6 is reserved for anki
+set $ws6 "6"
+# Workspace 7 is reserved for text editors (Mainly VS code or Libre Office Writer)
+set $ws7 "7"
+# Workspace 8 is reserved for chatting (Mainly Discord)
+set $ws8 "8ﭮ"
+# Workspace 9 is reserved for music (Mainly Clementine)
+set $ws9 "9"
+# Workspace 10 is reserved for crap (Like music visualizer or something like that)
+set $ws10 "10"
+
+# Default workspace for certain programs
+for_window [instance="firefox"] move to workspace $ws2
+for_window [instance="vlc"] move to workspace $ws2
+for_window [instance="anki"] move to workspace $ws6
+for_window [instance="code"] move to workspace $ws7
+for_window [instance="libreoffice-writer"] move to workspace $ws7
+for_window [instance="libreoffice-calc"] move to workspace $ws7
+for_window [instance="discord"] move to workspace $ws8
+for_window [instance="clementine"] move to workspace $ws9
 
 # ------------------------------ Styling ------------------------------  #
 # ----------------------- Color Variables -----------------------  #
