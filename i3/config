@@ -124,6 +124,18 @@ bindsym $mod+Shift+z resize shrink width 10 px or 10 ppt
 bindsym $mod+Shift+u resize grow height 10 px or 10 ppt
 bindsym $mod+Shift+i resize shrink height 10 px or 10 ppt
 bindsym $mod+Shift+o resize grow width 10 px or 10 ppt
+# Resize gaps on the fly
+# Resize outer gaps
+bindsym $mod+Ctrl+o gaps outer current plus 5
+bindsym $mod+Ctrl+Shift+o gaps outer current minus 5
+# Resize inner gaps
+bindsym $mod+Ctrl+i gaps inner current plus 5
+bindsym $mod+Ctrl+Shift+i gaps inner current minus 5
+# Get rid of all gaps
+bindsym $mod+Ctrl+r gaps outer all set 0; gaps inner all set 0
+# Reset gaps to default
+bindsym $mod+Ctrl+d gaps outer all set 15; gaps inner all set 5
+
 
 # ------------------------------ Other Keybindings ------------------------------  #
 
@@ -141,6 +153,10 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
+# Get rid of borders
+bindsym $mod+Shift+b border pixel 0 
+# Get borders back
+bindsym $mod+Shift+Ctrl+b border pixel 2 
 
 
 # ------------------------------ Workspaces ------------------------------  #
