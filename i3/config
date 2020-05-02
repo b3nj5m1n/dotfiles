@@ -120,10 +120,10 @@ bindsym XF86AudioPrev exec playerctl previous
 # ------------------------------ Resizing Keybindings ------------------------------  #
 
 # Move fingers up one row from vim keybindings to resize windows
-bindsym $mod+Shift+z resize shrink width 10 px or 10 ppt
+bindsym $mod+Shift+o resize shrink width 10 px or 10 ppt
 bindsym $mod+Shift+u resize grow height 10 px or 10 ppt
 bindsym $mod+Shift+i resize shrink height 10 px or 10 ppt
-bindsym $mod+Shift+o resize grow width 10 px or 10 ppt
+bindsym $mod+Shift+z resize grow width 10 px or 10 ppt
 # Resize gaps on the fly
 # Resize outer gaps
 bindsym $mod+Ctrl+o gaps outer current plus 5
