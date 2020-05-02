@@ -170,7 +170,8 @@ set $ws2 "2"
 set $ws3 "3"
 # Workspace 4 is reserved for terminals
 set $ws4 "4"
-set $ws5 "5"
+# Workspace 5 is reserved for thunderbird
+set $ws5 "5"
 # Workspace 6 is reserved for anki
 set $ws6 "6"
 # Workspace 7 is reserved for text editors (Mainly VS code or Libre Office Writer)
@@ -183,7 +184,7 @@ set $ws9 "9"
 set $ws10 "10"
 
 # Default workspace for certain programs
-for_window [instance="firefox"] move to workspace $ws2
+# for_window [instance="firefox"] move to workspace $ws2
 for_window [instance="vlc"] move to workspace $ws2
 for_window [instance="anki"] move to workspace $ws6
 for_window [instance="code"] move to workspace $ws7
@@ -261,7 +262,8 @@ bar {
 
 # ------------------------------ Autostart programs ------------------------------  #
 
-exec firefox
+exec --no-startup-id i3-msg 'workspace 2; exec firefox'
+exec --no-startup-id i3-msg 'workspace 4; exec thunderbird'
 exec clementine
 exec anki
 exec discord
