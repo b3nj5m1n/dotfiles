@@ -71,6 +71,9 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         apt install --yes vlc
         apt install --yes libreoffice
         apt install --yes ffmpeg
+        apt install --yes playerctl
+        apt install --yes amixer
+        apt install --yes cmus
 
         # Only do this if argument --pp is given
         match="--pp"
