@@ -32,6 +32,16 @@ bindsym $mod+Shift+q kill
 # Mod + d to open application launcher
 bindsym $mod+d exec rofi -show run
 
+# Session control
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# Lock i3
+bindsym $mod+q exec ~/lock.sh
+
 
 # ------------------------------ Tiling Keybindings ------------------------------  #
 
@@ -131,12 +141,6 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 
 # ------------------------------ Workspaces ------------------------------  #
@@ -237,3 +241,13 @@ bar {
         binding_mode        #229c56 #229c56 #ffffff
     }
 }
+
+
+# ------------------------------ Autostart programs ------------------------------  #
+
+exec firefox
+exec clementine
+exec anki
+exec discord
+
+

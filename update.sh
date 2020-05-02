@@ -59,7 +59,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         apt install --yes wget
         apt install --yes autoconf
         apt install --yes automake
-        apt install --yes ninja
+        apt install --yes ninja-build
 
         # Dev
         apt install --yes vim
@@ -70,6 +70,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         # Other
         apt install --yes vlc
         apt install --yes libreoffice
+        apt install --yes ffmpeg
 
         # Only do this if argument --pp is given
         match="--pp"
@@ -92,6 +93,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
             # Install i3 util
             apt install --yes i3bar
             apt install --yes i3blocks
+            apt install --yes i3lock
             apt install --yes dmenu
             apt install --yes rofi
             apt install --yes feh
@@ -170,6 +172,8 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     # Update polybar
     mkdir -p ~/.config/polybar/
     cp -r -u -f -p -v ./polybar/* ~/.config/polybar/
+    # Update i3 lock script
+    cp -f -p -v ./scripts/lock.sh ~/
 
     # Make sure vim plug is installed for vim
     if [ ! -f ~/.vim/autoload/plug.vim ]; then
@@ -185,6 +189,8 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     # Update wallpapers
     mkdir -p ~/.wallpapers/
     cp -r -u -f -p -v ./wallpapers/* ~/.wallpapers/
+    # Update lock pic
+    cp -u -f -p -v ./assets/lock.png ~/
 fi
 
 match="--ycp"
