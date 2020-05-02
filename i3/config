@@ -129,8 +129,8 @@ bindsym $mod+Shift+z resize grow width 10 px or 10 ppt
 bindsym $mod+Ctrl+o gaps outer current plus 5
 bindsym $mod+Ctrl+Shift+o gaps outer current minus 5
 # Resize inner gaps
-bindsym $mod+Ctrl+i gaps inner current plus 5
-bindsym $mod+Ctrl+Shift+i gaps inner current minus 5
+bindsym $mod+Ctrl+u gaps inner current plus 5
+bindsym $mod+Ctrl+Shift+u gaps inner current minus 5
 # Get rid of all gaps
 bindsym $mod+Ctrl+r gaps outer all set 0; gaps inner all set 0
 # Reset gaps to default
@@ -186,6 +186,7 @@ set $ws10 "10"
 # Default workspace for certain programs
 # for_window [instance="firefox"] move to workspace $ws2
 for_window [instance="vlc"] move to workspace $ws2
+for_window [instance="Mail"] move to workspace $ws5
 for_window [instance="anki"] move to workspace $ws6
 for_window [instance="code"] move to workspace $ws7
 for_window [instance="libreoffice-writer"] move to workspace $ws7
