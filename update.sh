@@ -9,6 +9,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     echo '-u            Update all config files'
     echo '-h            Display help'
     echo '-p            Install/Update packages'
+    echo '--pp          Install/Update non essential packages'
     echo '--yay         Install yay'
     echo '--i3          Install i3 gaps and picom'
     echo '--ycp         Install You Complete Me'
@@ -66,22 +67,30 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         apt install --yes python3-pip
         apt install --yes python-pip
 
-	# Only do this if argument --i3 is given
-	match="--i3"
-	if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
+        # Only do this if argument --pp is given
+        match="--pp"
+        if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
+            apt install --yes deepin-calculator
+            apt install --yes mc
+            apt install --yes vifm
+        fi
+
+        # Only do this if argument --i3 is given
+        match="--i3"
+        if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
             add-apt-repository ppa:regolith-linux/stable -y
             apt-get update
-	    apt install --yes libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev xutils-dev libxcb-shape0-dev autoconf
+            apt install --yes libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev xutils-dev libxcb-shape0-dev autoconf
             apt install --yes libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev  libpcre2-dev  libevdev-dev uthash-dev libev-dev libx11-xcb-dev
-	    # apt install --yes i3
+            # apt install --yes i3
             apt install --yes i3-gaps-wm i3-gaps-session
             apt install --yes i3-gaps
             # Install i3 util
-	    apt install --yes i3bar
+            apt install --yes i3bar
             apt install --yes i3blocks
-	    apt install --yes dmenu
-	    apt install --yes rofi
-	    apt install --yes feh
+            apt install --yes dmenu
+            apt install --yes rofi
+            apt install --yes feh
             # Install picom
             cd /tmp/
             git clone "https://github.com/yshui/picom.git" 
@@ -89,7 +98,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
             meson --buildtype=release . build
             ninja -C build install
 
-	fi
+        fi
 
 
     elif hash pacman 2>/dev/null; then
