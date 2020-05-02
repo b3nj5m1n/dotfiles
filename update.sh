@@ -129,12 +129,44 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         pacman -S --noconfirm --needed gcc
         pacman -S --noconfirm --needed pkg-config
         pacman -S --noconfirm --needed fakeroot
+        pacman -S --noconfirm --needed autoconf
+        pacman -S --noconfirm --needed automake
+        pacman -S --noconfirm --needed ninja
 
         # Dev
         pacman -S --noconfirm vim
         pacman -S --noconfirm neovim
         pacman -S --noconfirm --needed python2-pip
         pacman -S --noconfirm --needed python-pip
+
+        # Other
+        pacman -S --noconfirm --needed vlc
+        pacman -S --noconfirm --needed libreoffice-still
+        pacman -S --noconfirm --needed ffmpeg
+        pacman -S --noconfirm --needed playerctl
+        pacman -S --noconfirm --needed alsa-utils
+        pacman -S --noconfirm --needed cmus
+
+        match="--pp"
+        # Only do this if argument --pp is supplied
+        if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
+            pacman -S --noconfirm --needed deepin-calculator
+            pacman -S --noconfirm --needed mc
+            pacman -S --noconfirm --needed vifm
+        fi
+
+        match="--i3"
+        # Only do this if argument --i3 is supplied
+        if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
+            pacman -S --noconfirm --needed i3-gaps
+            pacman -S --noconfirm --needed i3blocks
+            pacman -S --noconfirm --needed i3status
+            pacman -S --noconfirm --needed i3lock
+            pacman -S --noconfirm --needed dmenu
+            pacman -S --noconfirm --needed rofi
+            pacman -S --noconfirm --needed feh
+            pacman -S --noconfirm --needed picom
+        fi
 
         # Upgrade all packs
         pacman -Syu
