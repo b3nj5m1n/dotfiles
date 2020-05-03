@@ -74,6 +74,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         apt install --yes playerctl
         apt install --yes amixer
         apt install --yes cmus
+        apt install --yes polybar
 
         # Only do this if argument --pp is given
         match="--pp"
@@ -107,7 +108,6 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
             cd picom
             meson --buildtype=release . build
             ninja -C build install
-
         fi
 
 
@@ -206,6 +206,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     # Update picom config file
     cp -f -p -v ./picom/picom.conf ~/.config/
     # Update alacritty
+    mkdir -p ~/.config/alacritty/
     cp -f -p -v -r ./alacritty/alacritty.yml ~/.config/alacritty/
     # Update konsole
     cp -f -p -v -r ./konsole/* ~/.local/share/konsole/
