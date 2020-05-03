@@ -233,9 +233,9 @@ gaps outer 15
 
 # ----------------------- Bar -----------------------  #
 # Hide the status bar to use a different one
-bar {
-    mode hide
-}
+# bar {
+#     mode hide
+# }
 # bar {
 #     status_command          i3blocks
 #     bindsym button4         nop
