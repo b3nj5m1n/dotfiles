@@ -160,6 +160,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         pacman -S --noconfirm --needed alsa-utils
         pacman -S --noconfirm --needed cmus
         pacman -S --noconfirm --needed alacritty
+        pacman -S --noconfirm --needed youtube-dl
 
         match="--pp"
         # Only do this if argument --pp is supplied
