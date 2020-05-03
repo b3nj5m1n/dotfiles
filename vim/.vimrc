@@ -81,8 +81,8 @@ Plug 'b3nj5m1n/dotfiles'
 
 call plug#end()
 
-
 colorscheme Pinky
+let g:airline_theme='luna'
 
 if executable('rg')
     let g:rg_derive_root='true'
