@@ -6,6 +6,12 @@ args=("$@")
 # Display help
 match="-h"
 if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
+    echo 'This script helps me sync my linux installs'
+    echo ''
+    echo ''
+    figlet -f slant "Currently at $(git rev-list --count HEAD) commits" | lolcat
+    echo ''
+    echo ''
     echo '-u            Update all config files'
     echo '-h            Display help'
     echo '-p            Install/Update packages'
@@ -85,6 +91,8 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
             apt install --yes mc
             apt install --yes vifm
             apt install --yes cmatrix
+            apt install --yes figlet
+            apt install --yes lolcat
             cargo install viu
         fi
 
@@ -160,6 +168,8 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
             pacman -S --noconfirm --needed mc
             pacman -S --noconfirm --needed vifm
             pacman -s --noconfirm --needed cmatrix
+            pacman -S --noconfirm --needed figlet
+            pacman -S --noconfirm --needed lolcat
             yay -S no-more-secrets-git
         fi
 
