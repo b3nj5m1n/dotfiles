@@ -173,7 +173,7 @@ draw_bold_text_with_bright_colors: false
 # Colors (Pinky)
 colors:
   # Default colors
-  #primary:
+  primary:
    background: '#171517'
    foreground: '#f5f5f5'
 
@@ -182,8 +182,8 @@ colors:
     # The dimmed foreground color is calculated automatically if it is not present.
     # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
     # is `false`, the normal foreground color will be used.
-    dim_foreground: '#f2f2f2'
-    bright_foreground: '#f8f8f8'
+    # dim_foreground: '#f2f2f2'
+    # bright_foreground: '#f8f8f8'
 
   # Cursor colors
   #
@@ -228,7 +228,7 @@ colors:
   #
   # If the dim colors are not set, they will be calculated automatically based
   # on the `normal` colors.
-  #dim:
+  dim:
    black:   '#242124'
    red:     '#ff3535'
    green:   '#00ff94'
