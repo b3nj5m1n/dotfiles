@@ -201,6 +201,8 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     # Update gtk 2 & 4 config files
     cp -f -p -v ./gtk/.gtkrc-2.0 ~/
     cp -f -p -v ./gtk/settings.ini ~/.config/gtk-3.0/
+    # Update gtk themes
+    cp -r -u -f -p -v ./.themes/* ~/.themes/
     # Update picom config file
     cp -f -p -v ./picom/picom.conf ~/.config/
     # Update alacritty
