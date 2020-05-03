@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Packaging Polybar &#8212; Polybar User Manual 3.4.0-96-gfc42da81 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="polybar(5)" href="../man/polybar.5.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="packaging-polybar">
+<h1>Packaging Polybar<a class="headerlink" href="#packaging-polybar" title="Permalink to this headline">¶</a></h1>
+<p>Do you want to package polybar for a distro? Great! Read this page to get
+started.</p>
+<div class="section" id="first-steps">
+<h2>First Steps<a class="headerlink" href="#first-steps" title="Permalink to this headline">¶</a></h2>
+<p>Before you get started, have a look at the <a class="reference external" href="https://github.com/polybar/polybar/issues?q=label%3APackaging">Packaging Label</a> on our GitHub
+repo and <a class="reference external" href="https://repology.org/project/polybar/versions">Repology</a> to see if
+polybar is already packaged for that distro or if there are efforts to do so.</p>
+<p>Even if a package already exists, it might still make sense for you to package
+polybar in some cases. Some of these cases are:</p>
+<ul class="simple">
+<li><p>The existing package is out-of-date and the packager is no longer able/willing
+to continue maintaining the package (or they are simply not reachable
+anymore).</p></li>
+<li><p>The existing package exist in some non-official repository and you are able to
+introduce the package into the official package repository for the
+distro/package manager. For example if there is a PPA providing polybar for
+Ubuntu and you can add polybar to the official Ubuntu repositories, please do
+:)</p></li>
+</ul>
+<p>The list above is not exhaustive, if you are unsure, feel free to ask in a new
+GitHub issue or on <a class="reference external" href="https://gitter.im/polybar">Gitter</a>. Please also ask if you
+run into any polybar related issues while packaging.</p>
+</div>
+<div class="section" id="packaging">
+<h2>Packaging<a class="headerlink" href="#packaging" title="Permalink to this headline">¶</a></h2>
+<p>If you haven’t already, carefully read the <a class="reference external" href="https://github.com/polybar/polybar/wiki/Compiling">Compiling</a> wiki page to make sure you
+fully understand all the dependencies involved and how to build polybar
+manually.</p>
+<p>We can’t really tell you how to create a package for your distro, you need to
+figure that out yourself. But we can give you some guidance on building polybar
+for a package</p>
+<div class="section" id="gathering-the-source-code">
+<h3>Gathering the Source Code<a class="headerlink" href="#gathering-the-source-code" title="Permalink to this headline">¶</a></h3>
+<p>Unless you are creating a package that tracks the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch, don’t clone
+the git repository. We provide a tarball with all the required source code on
+our <a class="reference external" href="https://github.com/polybar/polybar/releases">Release Page</a>, use that in
+your build.</p>
+</div>
+<div class="section" id="configuring-and-compiling">
+<h3>Configuring and Compiling<a class="headerlink" href="#configuring-and-compiling" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Do not use the <code class="docutils literal notranslate"><span class="pre">build.sh</span></code> script for building polybar for your package. The
+usage and flags of the script may change without notice and we don’t consider
+that a breaking change.</p>
+</div>
+<p>You can mostly follow the instructions on the <a class="reference external" href="https://github.com/polybar/polybar/wiki/Compiling#compiling">wiki</a> for how to
+compile polybar, but there are some additional <code class="docutils literal notranslate"><span class="pre">cmake</span></code> arguments you might
+want to use:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-DCMAKE_BUILD_TYPE=Release</span></code>: As of writing this is already the default, but
+use it just to be on the safe side.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-DCMAKE_INSTALL_PREFIX=/usr</span></code>: Without this all the polybar files will be
+installed under <code class="docutils literal notranslate"><span class="pre">/usr/local</span></code>. However, for packages it is often recommended
+they directly install to <code class="docutils literal notranslate"><span class="pre">/usr</span></code>. So this flag will install polybar to
+<code class="docutils literal notranslate"><span class="pre">/usr/bin/polybar</span></code> instead of <code class="docutils literal notranslate"><span class="pre">/usr/local/bin/polybar</span></code>. The packaging
+guidelines for your distro may disagree with this, in that case be sure to
+follow your distro’s guidelines.</p></li>
+</ul>
+<p>Instead of <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">make</span> <span class="pre">install</span></code>, you will most likely want to use
+<code class="docutils literal notranslate"><span class="pre">DESTDIR=&lt;dir&gt;</span> <span class="pre">make</span> <span class="pre">install</span></code>. That way the files will be installed into
+<code class="docutils literal notranslate"><span class="pre">&lt;dir&gt;</span></code> instead of your filesystem root.</p>
+</div>
+</div>
+<div class="section" id="finishing-up">
+<h2>Finishing Up<a class="headerlink" href="#finishing-up" title="Permalink to this headline">¶</a></h2>
+<p>Finally, subscribe to our <a class="reference external" href="https://github.com/polybar/polybar/issues/1971">GitHub thread for package maintainers</a> to get notified about new
+releases and changes to how polybar is built.
+If you want to, you can also open a PR to add your package to the <a class="reference external" href="https://github.com/polybar/polybar#getting-started">Getting
+Started</a> section of our
+README.</p>
+<p>Thank you very much for maintaining a polybar package! 🎉</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Polybar User Manual</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Manual Pages:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../man/polybar.1.html">polybar(1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../man/polybar.5.html">polybar(5)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">For Contributors:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Packaging Polybar</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../man/polybar.5.html" title="previous chapter">polybar(5)</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016-2020, Michael Carlberg & contributors.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/dev/packaging.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

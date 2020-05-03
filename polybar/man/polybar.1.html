@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>polybar(1) &#8212; Polybar User Manual 3.4.0-96-gfc42da81 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="polybar(5)" href="polybar.5.html" />
+    <link rel="prev" title="Polybar Documentation" href="../index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="polybar-1">
+<h1>polybar(1)<a class="headerlink" href="#polybar-1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><strong>polybar</strong> [<em>OPTIONS</em>]… <em>BAR</em></p>
+</div>
+<div class="section" id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Polybar aims to help users build beautiful and highly customizable status bars for their desktop environment, without the need of having a black belt in shell scripting.</p>
+</div>
+<div class="section" id="options">
+<h2>OPTIONS<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<dl class="std option">
+<dt id="cmdoption-polybar-h">
+<span id="cmdoption-polybar-help"></span><code class="sig-name descname">-h</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--help</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-polybar-h" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display help text and exit</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-polybar-v">
+<span id="cmdoption-polybar-version"></span><code class="sig-name descname">-v</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--version</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-polybar-v" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display build details and exit</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-polybar-l">
+<span id="cmdoption-polybar-log"></span><code class="sig-name descname">-l</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--log</code><code class="sig-prename descclassname">=LEVEL</code><a class="headerlink" href="#cmdoption-polybar-l" title="Permalink to this definition">¶</a></dt>
+<dd><div class="line-block">
+<div class="line">Set the logging verbosity (default: <strong>notice</strong>)</div>
+<div class="line"><em>LEVEL</em> is one of: error, warning, notice, info, trace</div>
+</div>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-polybar-q">
+<span id="cmdoption-polybar-quiet"></span><code class="sig-name descname">-q</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--quiet</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-polybar-q" title="Permalink to this definition">¶</a></dt>
+<dd><p>Be quiet (will override -l)</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-polybar-c">
+<span id="cmdoption-polybar-config"></span><code class="sig-name descname">-c</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--config</code><code class="sig-prename descclassname">=FILE</code><a class="headerlink" href="#cmdoption-polybar-c" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify the path to the configuration file. By default, the configuration file is loaded from:</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><strong>$XDG_CONFIG_HOME/polybar/config</strong></div>
+<div class="line"><strong>$HOME/.config/polybar/config</strong></div>
+</div>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-polybar-r">
+<span id="cmdoption-polybar-reload"></span><code class="sig-name descname">-r</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--reload</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-polybar-r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reload the application when the config file has been modified</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-polybar-d">
+<span id="cmdoption-polybar-dump"></span><code class="sig-name descname">-d</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--dump</code><code class="sig-prename descclassname">=PARAM</code><a class="headerlink" href="#cmdoption-polybar-d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print the value of the specified parameter <em>PARAM</em> in bar section and exit</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-polybar-m">
+<span id="cmdoption-polybar-list-monitors"></span><code class="sig-name descname">-m</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--list-monitors</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-polybar-m" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print list of available monitors and exit</p>
+<p>If some monitors are cloned, this will exclude all but one of them</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-polybar-M">
+<span id="cmdoption-polybar-list-all-monitors"></span><code class="sig-name descname">-M</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--list-all-monitors</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-polybar-M" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print list of available monitors and exit</p>
+<p>This will also include all cloned monitors.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-polybar-w">
+<span id="cmdoption-polybar-print-wmname"></span><code class="sig-name descname">-w</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--print-wmname</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-polybar-w" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print the generated <em>WM_NAME</em> and exit</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-polybar-s">
+<span id="cmdoption-polybar-stdout"></span><code class="sig-name descname">-s</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--stdout</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-polybar-s" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output the data to stdout instead of drawing it to the X window</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-polybar-p">
+<span id="cmdoption-polybar-png"></span><code class="sig-name descname">-p</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--png</code><code class="sig-prename descclassname">=FILE</code><a class="headerlink" href="#cmdoption-polybar-p" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save png snapshot to <em>FILE</em> after running for 3 seconds</p>
+</dd></dl>
+
+</div>
+<div class="section" id="author">
+<h2>AUTHOR<a class="headerlink" href="#author" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">Michael Carlberg &lt;<a class="reference external" href="mailto:c&#37;&#52;&#48;rlberg&#46;se">c<span>&#64;</span>rlberg<span>&#46;</span>se</a>&gt;</div>
+<div class="line">Contributors can be listed on GitHub.</div>
+</div>
+</div>
+<div class="section" id="reporting-bugs">
+<h2>REPORTING BUGS<a class="headerlink" href="#reporting-bugs" title="Permalink to this headline">¶</a></h2>
+<p>Report issues on GitHub &lt;<a class="reference external" href="https://github.com/polybar/polybar">https://github.com/polybar/polybar</a>&gt;</p>
+</div>
+<div class="section" id="see-also">
+<h2>SEE ALSO<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">Full documentation at: &lt;<a class="reference external" href="https://github.com/polybar/polybar">https://github.com/polybar/polybar</a>&gt;</div>
+<div class="line">Project wiki: &lt;<a class="reference external" href="https://github.com/polybar/polybar/wiki">https://github.com/polybar/polybar/wiki</a>&gt;</div>
+</div>
+<p><a class="reference internal" href="polybar.5.html"><span class="doc">polybar(5)</span></a></p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Polybar User Manual</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Manual Pages:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">polybar(1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="polybar.5.html">polybar(5)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">For Contributors:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev/packaging.html">Packaging Polybar</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../index.html" title="previous chapter">Polybar Documentation</a></li>
+      <li>Next: <a href="polybar.5.html" title="next chapter">polybar(5)</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016-2020, Michael Carlberg & contributors.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/man/polybar.1.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
