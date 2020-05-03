@@ -170,20 +170,20 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: false
 
-# Colors (Tomorrow Night Bright)
-#colors:
+# Colors (Pinky)
+colors:
   # Default colors
   #primary:
-  #  background: '#000000'
-  #  foreground: '#eaeaea'
+   background: '#171517'
+   foreground: '#f5f5f5'
 
     # Bright and dim foreground colors
     #
     # The dimmed foreground color is calculated automatically if it is not present.
     # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
     # is `false`, the normal foreground color will be used.
-    #dim_foreground: '#9a9a9a'
-    #bright_foreground: '#ffffff'
+    dim_foreground: '#f2f2f2'
+    bright_foreground: '#f8f8f8'
 
   # Cursor colors
   #
@@ -203,40 +203,40 @@ draw_bold_text_with_bright_colors: false
   #  background: '#404040'
 
   # Normal colors
-  #normal:
-  #  black:   '#000000'
-  #  red:     '#d54e53'
-  #  green:   '#b9ca4a'
-  #  yellow:  '#e6c547'
-  #  blue:    '#7aa6da'
-  #  magenta: '#c397d8'
-  #  cyan:    '#70c0ba'
-  #  white:   '#eaeaea'
+  normal:
+   black:   '#000000'
+   red:     '#ff1b1c'
+   green:   '#00ff99'
+   yellow:  '#f0e100'
+   blue:    '#00b4d8'
+   magenta: '#ff0066'
+   cyan:    '#700353'
+   white:   '#f5f5f5'
 
   # Bright colors
-  #bright:
-  #  black:   '#666666'
-  #  red:     '#ff3334'
-  #  green:   '#9ec400'
-  #  yellow:  '#e7c547'
-  #  blue:    '#7aa6da'
-  #  magenta: '#b77ee0'
-  #  cyan:    '#54ced6'
-  #  white:   '#ffffff'
+  bright:
+    black:   '#0a090a'
+    red:     '#ff0103'
+    green:   '#00ffae'
+    yellow:  '#fff00b'
+    blue:    '#26dbff'
+    magenta: '#ff0096'
+    cyan:    '#bb058a'
+    white:   '#f8f8f8'
 
   # Dim colors
   #
   # If the dim colors are not set, they will be calculated automatically based
   # on the `normal` colors.
   #dim:
-  #  black:   '#000000'
-  #  red:     '#8c3336'
-  #  green:   '#7a8530'
-  #  yellow:  '#97822e'
-  #  blue:    '#506d8f'
-  #  magenta: '#80638e'
-  #  cyan:    '#497e7a'
-  #  white:   '#9a9a9a'
+   black:   '#242124'
+   red:     '#ff3535'
+   green:   '#00ff94'
+   yellow:  '#ebf000'
+   blue:    '#009fbf'
+   magenta: '#ff007b'
+   cyan:    '#700365'
+   white:   '#f2f2f2'
 
   # Indexed Colors
   #
