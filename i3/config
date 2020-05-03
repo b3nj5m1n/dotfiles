@@ -115,6 +115,14 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
+# Cmus controls
+# Toggle Play/Pause
+bindsym $mod+p exec cmus-remote -u
+# Next Song
+bindsym $mod+n exec cmus-remote -n
+# Previous Song
+bindsym $mod+m exec cmus-remote -r
+
 # ------------------------------ Resizing Keybindings ------------------------------  #
 
 # Move fingers up one row from vim keybindings to resize windows
