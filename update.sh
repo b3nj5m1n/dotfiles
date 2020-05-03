@@ -213,6 +213,8 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     cp -f -p -v ./vim/.vimrc ~/
     # Copy .vimrc to init.vim (Use the same file for both vim and nvim
     cp -f -p -v ./vim/.vimrc ./vim/init.vim
+    # Copy icons
+    cp -r -u -f -p -v ./icons/* ~/.local/share/icons/
     # Update init.vim (neovim) (And make sure the dir exists)
     mkdir -p ~/.config/nvim/
     cp -f -p -v ./vim/init.vim ~/.config/nvim/init.vim
