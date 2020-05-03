@@ -128,3 +128,8 @@ export PS1=$PS1
 alias vim='nvim'
 # Use neovim as default editor
 export EDITOR=nvim
+
+# Some more aliases
+alias ..='cd ..'
+alias la='ls -a'
+alias ga='git add .'
