@@ -233,31 +233,31 @@ gaps outer 15
 
 # ----------------------- Bar -----------------------  #
 # Hide the status bar to use a different one
-# bar {
-#     mode hide
-# }
 bar {
-    status_command          i3blocks
-    bindsym button4         nop
-    bindsym button5         nop
-    position                bottom
-    tray_output             primary
-    separator_symbol        "·"
-    workspace_buttons       yes
-    strip_workspace_numbers yes
-
-    colors {
-        background  #212121
-        statusline  #dddddd
-        separator   #666666
-        # class             border  backgr. text
-        focused_workspace   #2b83a6 #2b83a6 #ffffff
-        active_workspace    #212121 #212121 #ffffff
-        inactive_workspace  #212121 #212121 #86888c
-        urgent_workspace    #d64e4e #d64e4e #ffffff
-        binding_mode        #229c56 #229c56 #ffffff
-    }
+    mode hide
 }
+# bar {
+#     status_command          i3blocks
+#     bindsym button4         nop
+#     bindsym button5         nop
+#     position                bottom
+#     tray_output             primary
+#     separator_symbol        "·"
+#     workspace_buttons       yes
+#     strip_workspace_numbers yes
+
+#     colors {
+#         background  #212121
+#         statusline  #dddddd
+#         separator   #666666
+#         # class             border  backgr. text
+#         focused_workspace   #2b83a6 #2b83a6 #ffffff
+#         active_workspace    #212121 #212121 #ffffff
+#         inactive_workspace  #212121 #212121 #86888c
+#         urgent_workspace    #d64e4e #d64e4e #ffffff
+#         binding_mode        #229c56 #229c56 #ffffff
+#     }
+# }
 
 
 # ------------------------------ Autostart programs ------------------------------  #
