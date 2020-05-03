@@ -81,6 +81,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
             apt install --yes deepin-calculator
             apt install --yes mc
             apt install --yes vifm
+            apt install --yes cmatrix
         fi
 
         # Only do this if argument --i3 is given
@@ -155,6 +156,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
             pacman -S --noconfirm --needed deepin-calculator
             pacman -S --noconfirm --needed mc
             pacman -S --noconfirm --needed vifm
+            pacman -s --noconfirm --needed cmatrix
         fi
 
         match="--i3"
