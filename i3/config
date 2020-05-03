@@ -230,6 +230,7 @@ gaps outer 15
 # This removes gaps when there is only one window on the screen
 # smart_gaps on
 
+
 # ----------------------- Bar -----------------------  #
 # Hide the status bar to use a different one
 # bar {
