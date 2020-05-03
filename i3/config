@@ -26,7 +26,8 @@ exec ~/.config/polybar/launch.sh
 # ------------------------------ Essential Keybindings ------------------------------  #
 
 # Mod + Return to open a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 # Mod + Shift + q to close focused window
 bindsym $mod+Shift+q kill
 # Mod + d to open application launcher

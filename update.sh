@@ -138,6 +138,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         pacman -S --noconfirm neovim
         pacman -S --noconfirm --needed python2-pip
         pacman -S --noconfirm --needed python-pip
+        pacman -S --noconfirm --needed xclip
 
         # Other
         pacman -S --noconfirm --needed vlc
@@ -146,6 +147,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         pacman -S --noconfirm --needed playerctl
         pacman -S --noconfirm --needed alsa-utils
         pacman -S --noconfirm --needed cmus
+        pacman -S --noconfirm --needed alacritty
 
         match="--pp"
         # Only do this if argument --pp is supplied
@@ -195,6 +197,8 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     cp -f -p -v ./i3/config ~/.config/i3
     # Update picom config file
     cp -f -p -v ./picom/picom.conf ~/.config/
+    # Update alacritty
+    cp -f -p -v -r ./alacritty/alacritty.yml ~/.config/alacritty/
     # Update konsole
     cp -f -p -v -r ./konsole/* ~/.local/share/konsole/
     # Update .vimrc (vim)
