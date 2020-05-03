@@ -229,6 +229,9 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     cp -f -p -v ./scripts/polybar.sh ~/.config/polybar/
     # Update i3 lock script
     cp -f -p -v ./scripts/lock.sh ~/
+    # Update anki config
+    mkdir -p /usr/local/share/anki/bin/aqt_data/web/
+    cp -r -u -f -p -v ./anki/bin/aqt_data/web/* /usr/local/share/anki/bin/aqt_data/web/
 
     # Make sure vim plug is installed for vim
     if [ ! -f ~/.vim/autoload/plug.vim ]; then
