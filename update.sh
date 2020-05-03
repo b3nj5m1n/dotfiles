@@ -221,6 +221,8 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     # Update polybar
     mkdir -p ~/.config/polybar/
     cp -r -u -f -p -v ./polybar/* ~/.config/polybar/
+    # Update polybar script
+    cp -f -p -v ./scripts/polybar.sh ~/.config/polybar/
     # Update i3 lock script
     cp -f -p -v ./scripts/lock.sh ~/
 

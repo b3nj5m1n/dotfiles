@@ -20,7 +20,7 @@ exec --no-startup-id feh --bg-scale .wallpapers/1.png
 # Start picom
 exec --no-startup-id picom
 # Start polybar
-exec ~/.config/polybar/launch.sh
+exec ~/.config/polybar/polybar.sh
 
 
 # ------------------------------ Essential Keybindings ------------------------------  #
