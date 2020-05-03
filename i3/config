@@ -169,15 +169,15 @@ set $ws3 "3"
 # Workspace 4 is reserved for terminals
 set $ws4 "4"
 # Workspace 5 is reserved for thunderbird
-set $ws5 "5"
+set $ws5 "5 - "
 # Workspace 6 is reserved for anki
-set $ws6 "6"
+set $ws6 "6 - "
 # Workspace 7 is reserved for text editors (Mainly VS code or Libre Office Writer)
-set $ws7 "7"
+set $ws7 "7 - "
 # Workspace 8 is reserved for chatting (Mainly Discord)
-set $ws8 "8ﭮ"
+set $ws8 "8 - ﭮ"
 # Workspace 9 is reserved for music (Mainly Clementine)
-set $ws9 "9"
+set $ws9 "9 - "
 # Workspace 10 is reserved for crap (Like music visualizer or something like that)
 set $ws10 "10"
 
