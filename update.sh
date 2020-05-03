@@ -66,6 +66,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         apt install --yes neovim
         apt install --yes python3-pip
         apt install --yes python-pip
+        apt install --yes cargo
 
         # Other
         apt install --yes vlc
@@ -75,6 +76,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         apt install --yes amixer
         apt install --yes cmus
         apt install --yes polybar
+        apt install --yes imagemagick
 
         # Only do this if argument --pp is given
         match="--pp"
@@ -83,6 +85,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
             apt install --yes mc
             apt install --yes vifm
             apt install --yes cmatrix
+            cargo install viu
         fi
 
         # Only do this if argument --i3 is given
