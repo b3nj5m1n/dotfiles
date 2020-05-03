@@ -157,6 +157,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
             pacman -S --noconfirm --needed mc
             pacman -S --noconfirm --needed vifm
             pacman -s --noconfirm --needed cmatrix
+            yay -S no-more-secrets-git
         fi
 
         match="--i3"
