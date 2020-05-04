@@ -17,6 +17,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     echo '-p            Install/Update packages'
     echo '--pp          Install/Update non essential packages'
     echo '--yay         Install yay'
+    echo '--lightdm     Install lightdm'
     echo '--i3          Install i3 gaps and picom'
     echo '--ycp         Install You Complete Me'
     echo '--nerd-fonts  Install nerd fonts'
@@ -94,6 +95,13 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
             apt install --yes figlet
             apt install --yes lolcat
             cargo install viu
+        fi
+
+        # Only do this if argument --lightdm is given
+        match="--lightdm"
+        if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
+            apt install --yes lightdm
+            apt install --yes lightdm-gtk-greeter
         fi
 
         # Only do this if argument --i3 is given
@@ -210,6 +218,8 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     cd "$DOTFILES_DIR"
     # Update .bashrc
     cp -f -p -v ./bash/.bashrc ~/
+    # Update lightdm config files
+    sudo cp -r -r -f -p -v ./lightdm/* /etc/lightdm/
     # Update i3 config file
     cp -f -p -v ./i3/config ~/.config/i3
     # Update gtk 2 & 4 config files
