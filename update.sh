@@ -268,6 +268,8 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     if [ -d /usr/share/aqt_data/web/ ]; then
         cp -r -u -f -p -v ./anki/bin/aqt_data/web/* /usr/share/aqt_data/web/
     fi
+    # Update anki addons
+    cp -r -u -f -p -v ./Anki2/* $USER/.local/share/Anki2/
 
 
     # Make sure vim plug is installed for vim

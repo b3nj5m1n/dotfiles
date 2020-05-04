@@ -133,3 +133,4 @@ export EDITOR=nvim
 alias ..='cd ..'
 alias la='ls -a'
 alias ga='git add .'
+alias cpy='xclip -selection clipboard'
