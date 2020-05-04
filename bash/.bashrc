@@ -66,8 +66,8 @@ export NVM_DIR="$HOME/.nvm"
 # Prompt
 
 # Colors
-PINK="\[\033[38;5;201m\]"
-AQUA="\[\033[38;5;44m\]"
+PINK="\[\033[38;5;13m\]"
+AQUA="\[\033[38;5;49m\]"
 RED="\[\033[38;5;197m\]"
 # Modifiers
 RESET="\[$(tput sgr0)\]"
