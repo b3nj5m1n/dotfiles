@@ -243,8 +243,13 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     # Update i3 lock script
     cp -f -p -v ./scripts/lock.sh ~/
     # Update anki config
-    mkdir -p /usr/local/share/anki/bin/aqt_data/web/
-    cp -r -u -f -p -v ./anki/bin/aqt_data/web/* /usr/local/share/anki/bin/aqt_data/web/
+    if [ ~/usr/local/share/anki/bin/aqt_data/web/ ]; then
+        sudo cp -r -u -f -p -v ./anki/bin/aqt_data/web/* /usr/local/share/anki/bin/aqt_data/web/
+    fi
+    if [ ~/usr/share/aqt_data/web/ ]; then
+        sudo cp -r -u -f -p -v ./anki/bin/aqt_data/web/* /usr/share/aqt_data/web/
+    fi
+
 
     # Make sure vim plug is installed for vim
     if [ ! -f ~/.vim/autoload/plug.vim ]; then
