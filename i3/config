@@ -270,14 +270,13 @@ gaps outer 15
 
 # ------------------------------ Autostart programs ------------------------------  #
 
-exec --no-startup-id i3-msg 'workspace $ws2; exec firefox --class="inital_firefox"'
-for_window [instance="inital_firefox"] move to workspace $ws9
+exec --no-startup-id i3-msg 'exec firefox --class="init_firefox"'
+for_window [class="init_firefox"] move to workspace $ws2
 exec --no-startup-id i3-msg 'workspace $ws5; exec thunderbird'
 exec --no-startup-id i3-msg 'workspace $ws6; exec anki'
 exec --no-startup-id i3-msg 'workspace $ws8; exec discord'
-exec --no-startup-id i3-msg 'workspace $ws9; exec alacritty --class cmus -e "cmus"'
+exec --no-startup-id i3-msg 'exec alacritty --class cmus -e "cmus"'
 for_window [instance="cmus"] move to workspace $ws9
-# exec --no-startup-id i3-msg 'workspace $ws9; exec alacritty; workspace $ws1'
 
 # Move to workspace 1
 exec --no-startup-id i3-msg 'workspace $ws1'
