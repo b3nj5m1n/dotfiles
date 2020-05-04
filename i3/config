@@ -160,9 +160,9 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 # Get rid of borders
-bindsym $mod+Shift+b border pixel 0 
+bindsym $mod+Shift+b border pixel 0
 # Get borders back
-bindsym $mod+Shift+Ctrl+b border pixel 2 
+bindsym $mod+Shift+Ctrl+b border pixel 2
 
 
 # ------------------------------ Workspaces ------------------------------  #
@@ -192,7 +192,7 @@ set $ws10 "10"
 # Default workspace for certain programs
 # for_window [instance="firefox"] move to workspace $ws2
 for_window [instance="vlc"] move to workspace $ws2
-for_window [instance="Mail"] move to workspace $ws5
+# for_window [instance="Mail"] move to workspace $ws5
 for_window [instance="anki"] move to workspace $ws6
 for_window [instance="code"] move to workspace $ws7
 for_window [instance="libreoffice-writer"] move to workspace $ws7
@@ -222,8 +222,8 @@ set $white       #f5f5f5
 client.focused              $pri1 $pri1 $sec1 $pri1 $pri1
 client.focused_inactive     $pri2 $pri2 $sec2 $pri2 $pri2
 client.unfocused            $sec3 $sec3 $pri3 $sec3 $sec3
-client.urgent               $acct $acct $sec4 $acct $acct 
-client.placeholder          $transparent $transparent $transparent $transparent $transparent         
+client.urgent               $acct $acct $sec4 $acct $acct
+client.placeholder          $transparent $transparent $transparent $transparent $transparent
 # client.placeholder          $sec3 $sec3 $pri3 $sec3 $sec3
 client.background           $black
 # Hide border & titlebar for i3-gaps
@@ -270,10 +270,14 @@ gaps outer 15
 
 # ------------------------------ Autostart programs ------------------------------  #
 
-exec --no-startup-id i3-msg 'workspace 2; exec firefox'
-exec --no-startup-id i3-msg 'workspace 4; exec thunderbird'
-exec clementine
-exec anki
-exec discord
+exec --no-startup-id i3-msg 'workspace $ws2; exec firefox --class="inital_firefox"'
+for_window [instance="inital_firefox"] move to workspace $ws9
+exec --no-startup-id i3-msg 'workspace $ws5; exec thunderbird'
+exec --no-startup-id i3-msg 'workspace $ws6; exec anki'
+exec --no-startup-id i3-msg 'workspace $ws8; exec discord'
+exec --no-startup-id i3-msg 'workspace $ws9; exec alacritty --class cmus -e "cmus"'
+for_window [instance="cmus"] move to workspace $ws9
+# exec --no-startup-id i3-msg 'workspace $ws9; exec alacritty; workspace $ws1'
 
-
+# Move to workspace 1
+exec --no-startup-id i3-msg 'workspace $ws1'
