@@ -179,6 +179,15 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         pacman -S --noconfirm --needed alacritty
         pacman -S --noconfirm --needed youtube-dl
 
+
+        match="--lightdm"
+        # Only do this if argument --lightdm is supplied
+        if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
+            pacman -S --noconfirm --needed lightdm
+            pacman -S --noconfirm --needed lightdm-gtk-greeter
+            pacman -S --noconfirm --needed lightdm-webkit2-greeter
+        fi
+
         match="--pp"
         # Only do this if argument --pp is supplied
         if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
@@ -210,6 +219,15 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     # Use pip to install neovim to enable python support
     pip install --no-cache neovim
     pip3 install --no-cache neovim
+fi
+
+
+match="--lightdm"
+# Only do this if argument --lightdm is supplied
+if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
+    systemctl disable sddm
+    systemctl disable gdm
+    systemctl enable lightdm
 fi
 
 
@@ -284,8 +302,8 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     fi
 
     # Update wallpapers
-    mkdir -p $USER/.wallpapers/
-    cp -r -u -f -p -v ./wallpapers/* $USER/.wallpapers/
+    mkdir -p /usr/share/wallpapers
+    cp -r -u -f -p -v ./wallpapers/* /usr/share/wallpapers
     # Update lock pic
     cp -u -f -p -v ./assets/lock.png $USER/
 fi
