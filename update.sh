@@ -107,7 +107,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
             cd $USER/Documents/Github
             git clone "https://github.com/dpayne/cli-visualizer.git"
             cd cli-visualizer
-            install.sh
+            ./install.sh
             cargo install viu
         fi
 
