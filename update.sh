@@ -29,21 +29,30 @@ fi
 DOTFILES_DIR=$PWD
 # Get dir of script
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+# Get the user dir
+USER=/home/$(echo $DIR | cut -d/ -f3)
+echo $USER
+
+# Ensure root
+if [ "$EUID" -ne 0 ]
+then echo "Please run this script as root"
+    exit
+fi
 
 # Ensure github directory exists in documents dir
-mkdir -p ~/Documents/Github
+mkdir -p $USER/Documents/Github
 # Cd into github dir
-cd ~/Documents/Github
+cd $USER/Documents/Github
 
 # Only do this if argument --yay is given
 match="--yay"
 if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
     if ! hash yay 2>/dev/null; then
-        mkdir -p ~/Documents/Github
+        mkdir -p $USER/Documents/Github
         git clone https://aur.archlinux.org/yay.git
         cd yay
         makepkg -si
-        mkdir -p ~/Documents/Github
+        mkdir -p $USER/Documents/Github
     fi
 fi
 
@@ -208,82 +217,76 @@ fi
 match="-u"
 # Only do this if argument --nerd-fonts is supplied
 if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
-    # Needs not to be run as root
-    if [ ! "$EUID" -ne 0 ]
-    then echo "The next part of this script requires you to run without sudo to copy to the correct dirs."
-        exit
-    fi
-
     # Update .files
     cd "$DOTFILES_DIR"
     # Update .bashrc
-    cp -f -p -v ./bash/.bashrc ~/
+    cp -f -p -v ./bash/.bashrc $USER/
     # Update lightdm config files
     sudo cp -r -r -f -p -v ./lightdm/* /etc/lightdm/
     # Update i3 config file
-    cp -f -p -v ./i3/config ~/.config/i3
+    cp -f -p -v ./i3/config $USER/.config/i3
     # Update gtk 2 & 4 config files
-    cp -f -p -v ./gtk/.gtkrc-2.0 ~/
-    cp -f -p -v ./gtk/settings.ini ~/.config/gtk-3.0/
+    cp -f -p -v ./gtk/.gtkrc-2.0 i$USER/
+    cp -f -p -v ./gtk/settings.ini $USER/.config/gtk-3.0/
     # Update gtk themes
-    cp -r -u -f -p -v ./.themes/* ~/.themes/
+    cp -r -u -f -p -v ./.themes/* $USER/.themes/
     # Update picom config file
-    cp -f -p -v ./picom/picom.conf ~/.config/
+    cp -f -p -v ./picom/picom.conf $USER/.config/
     # Update alacritty
-    mkdir -p ~/.config/alacritty/
-    cp -f -p -v -r ./alacritty/alacritty.yml ~/.config/alacritty/
+    mkdir -p $USER/.config/alacritty/
+    cp -f -p -v -r ./alacritty/alacritty.yml $USER/.config/alacritty/
     # Update konsole
-    cp -f -p -v -r ./konsole/* ~/.local/share/konsole/
+    cp -f -p -v -r ./konsole/* $USER/.local/share/konsole/
     # Update .vimrc (vim)
-    cp -f -p -v ./vim/.vimrc ~/
+    cp -f -p -v ./vim/.vimrc $USER/
     # Copy .vimrc to init.vim (Use the same file for both vim and nvim
-    cp -f -p -v ./vim/.vimrc ./vim/init.vim
+    cp -f -p -v ./vim/.vimrc $USER/vim/init.vim
     # Copy vim airline theme
-    cp -f -p -v ./vim/pinky_airline.vim ~/.vim/plugged/vim-airline-themes/autoload/airline/themes/
+    cp -f -p -v ./vim/pinky_airline.vim $USER/.vim/plugged/vim-airline-themes/autoload/airline/themes/
     # Copy icons
-    cp -r -u -f -p -v ./icons/* ~/.local/share/icons/
+    cp -r -u -f -p -v ./icons/* $USER/.local/share/icons/
     # Update init.vim (neovim) (And make sure the dir exists)
-    mkdir -p ~/.config/nvim/
-    cp -f -p -v ./vim/init.vim ~/.config/nvim/init.vim
+    mkdir -p $USER/.config/nvim/
+    cp -f -p -v ./vim/init.vim $USER/.config/nvim/init.vim
     # Update polybar
-    mkdir -p ~/.config/polybar/
-    cp -r -u -f -p -v ./polybar/* ~/.config/polybar/
+    mkdir -p $USER/.config/polybar/
+    cp -r -u -f -p -v ./polybar/* $USER/.config/polybar/
     # Update polybar script
-    cp -f -p -v ./scripts/polybar.sh ~/.config/polybar/
+    cp -f -p -v ./scripts/polybar.sh $USER/.config/polybar/
     # Update i3 lock script
-    cp -f -p -v ./scripts/lock.sh ~/
+    cp -f -p -v ./scripts/lock.sh $USER/
     # Update anki config
-    if [ -d ~/usr/local/share/anki/bin/aqt_data/web/ ]; then
+    if [ -d /usr/local/share/anki/bin/aqt_data/web/ ]; then
         cp -r -u -f -p -v ./anki/bin/aqt_data/web/* /usr/local/share/anki/bin/aqt_data/web/
     fi
-    if [ -d ~/usr/share/aqt_data/web/ ]; then
+    if [ -d /usr/share/aqt_data/web/ ]; then
         sudo cp -r -u -f -p -v ./anki/bin/aqt_data/web/* /usr/share/aqt_data/web/
     fi
 
 
     # Make sure vim plug is installed for vim
-    if [ ! -f ~/.vim/autoload/plug.vim ]; then
-        curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    if [ ! -f $USER/.vim/autoload/plug.vim ]; then
+        curl -fLo $USER/.vim/autoload/plug.vim --create-dirs \
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     fi
     # Make sure vim plug is installed for neovim
-    if [ ! -f  ~/.local/share/nvim/site/autoload/plug.vim ]; then
-        curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    if [ ! -f  $USER/.local/share/nvim/site/autoload/plug.vim ]; then
+        curl -fLo $USER/.local/share/nvim/site/autoload/plug.vim --create-dirs \
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     fi
 
     # Update wallpapers
-    mkdir -p ~/.wallpapers/
-    cp -r -u -f -p -v ./wallpapers/* ~/.wallpapers/
+    mkdir -p $USER/.wallpapers/
+    cp -r -u -f -p -v ./wallpapers/* $USER/.wallpapers/
     # Update lock pic
-    cp -u -f -p -v ./assets/lock.png ~/
+    cp -u -f -p -v ./assets/lock.png $USER/
 fi
 
 match="--ycp"
 # Only do this if argument --ycp is supplied
 if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
     # Make sure YouCompleteMe is installed
-    python ~/.vim/plugged/YouCompleteMe/install.py
+    python $USER/.vim/plugged/YouCompleteMe/install.py
 fi
 
 match="--nerd-fonts"
@@ -291,14 +294,14 @@ match="--nerd-fonts"
 if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
     # Install Nerd Font
     # Go back to Github dir
-    cd ~/Documents/Github
+    cd $USER/Documents/Github
     # Clone nerd font repo, this might take a while
     git clone --depth 1 "https://github.com/ryanoasis/nerd-fonts.git"
     # Move to nerd-fonts dir
-    cd ~/Documents/Github/nerd-fonts/
+    cd $USER/Documents/Github/nerd-fonts/
     # Install Ubuntu and Ubuntu Mono fonts
     ./install.sh UbuntuMono
 fi
 
 # Go back to Github dir
-cd ~/Documents/Github
+cd $USER/Documents/Github
