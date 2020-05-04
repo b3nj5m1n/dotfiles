@@ -256,6 +256,8 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     # Update polybar scripts
     mkdir $USER/.config/polybar/scripts/
     cp -a -u -f -v ./scripts/polybar/* $USER/.config/polybar/scripts/
+    # Update cmus config
+    cp -f -p -v ./cmus/* $USER/.config/cmus/
 
     # Update i3 lock script
     cp -f -p -v ./scripts/lock.sh $USER/
