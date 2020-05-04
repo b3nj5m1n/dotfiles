@@ -243,10 +243,10 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     # Update i3 lock script
     cp -f -p -v ./scripts/lock.sh ~/
     # Update anki config
-    if [ ~/usr/local/share/anki/bin/aqt_data/web/ ]; then
-        sudo cp -r -u -f -p -v ./anki/bin/aqt_data/web/* /usr/local/share/anki/bin/aqt_data/web/
+    if [ -d ~/usr/local/share/anki/bin/aqt_data/web/ ]; then
+        cp -r -u -f -p -v ./anki/bin/aqt_data/web/* /usr/local/share/anki/bin/aqt_data/web/
     fi
-    if [ ~/usr/share/aqt_data/web/ ]; then
+    if [ -d ~/usr/share/aqt_data/web/ ]; then
         sudo cp -r -u -f -p -v ./anki/bin/aqt_data/web/* /usr/share/aqt_data/web/
     fi
 
