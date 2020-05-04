@@ -1,0 +1,1 @@
+echo $(cmus-remote -Q)
