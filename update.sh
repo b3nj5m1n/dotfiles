@@ -103,6 +103,11 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
             apt install --yes cmatrix
             apt install --yes figlet
             apt install --yes lolcat
+            # Install cli-visualizer
+            cd $USER/Documents/Github
+            git clone "https://github.com/dpayne/cli-visualizer.git"
+            cd cli-visualizer
+            install.sh
             cargo install viu
         fi
 
@@ -197,6 +202,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
             pacman -s --noconfirm --needed cmatrix
             pacman -S --noconfirm --needed figlet
             pacman -S --noconfirm --needed lolcat
+            yay -S cli-visualizer
             yay -S no-more-secrets-git
         fi
 
@@ -276,6 +282,8 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     cp -a -u -f -v ./scripts/polybar/* $USER/.config/polybar/scripts/
     # Update cmus config
     cp -f -p -v ./cmus/* $USER/.config/cmus/
+    # Update cli-visualizer config
+    cp -r -u -f -p -v ./cli-visualizer/* $USER/.config/vis/
 
     # Update i3 lock script
     cp -f -p -v ./scripts/lock.sh $USER/
