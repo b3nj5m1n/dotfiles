@@ -25,7 +25,7 @@ foreground = #f5f5f5
 foreground-alt = #f2f2f2
 primary = #ff0066
 secondary = #00ff99
-alert = #ff1b1c
+alert = #ff0055
 
 [bar/bar]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -37,8 +37,8 @@ radius = 0.0
 fixed-center = false
 
 enable-ipc = true
-bottom = false
-separator = 
+bottom = true
+separator =  
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -60,8 +60,8 @@ font-0 = "UbuntuMono Nerd Font:style=Regular:pixelsize=10"
 ; font-2 = siji:pixelsize=10;1
 
 modules-left = i3
-modules-center = mpd
-modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-center = 
+modules-right = xbacklight pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu 
 
 tray-position = right
 tray-padding = 2
@@ -91,15 +91,15 @@ blacklist-0 = num lock
 
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.secondary}
+format-prefix-underline = ${colors.primary}
 
 label-layout = %layout%
-label-layout-underline = ${colors.secondary}
+label-layout-underline = ${colors.primary}
 
 label-indicator-padding = 2
 label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
+label-indicator-underline = ${colors.primary}
 
 [module/filesystem]
 type = internal/fs
@@ -211,7 +211,7 @@ type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
+format-underline = ${colors.primary}
 label = %percentage:2%%
 
 [module/memory]
@@ -219,7 +219,7 @@ type = internal/memory
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
+format-underline = ${colors.primary}
 label = %percentage_used%%
 
 [module/wlan]
@@ -228,7 +228,7 @@ interface = wlp2s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
+format-connected-underline = ${colors.primary}
 label-connected = %essid%
 
 format-disconnected =
@@ -249,7 +249,7 @@ type = internal/network
 interface = enp1s0
 interval = 3.0
 
-format-connected-underline = #55aa55
+format-connected-underline = ${colors.primary}
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
@@ -264,15 +264,15 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date =
-date-alt = " %Y-%m-%d"
+date = " %d.%m"
+date-alt = " %d-%m-%Y"
 
 time = %H:%M
 time-alt = %H:%M:%S
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
+format-underline = ${colors.primary}
 
 label = %date% %time%
 
@@ -283,18 +283,18 @@ format-volume = <label-volume> <bar-volume>
 label-volume = VOL %percentage%%
 label-volume-foreground = ${root.foreground}
 
-label-muted = 🔇 muted
+label-muted = muted
 label-muted-foreground = #666
 
 bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
+bar-volume-foreground-0 = #ff76ad
+bar-volume-foreground-1 = #ff62a1
+bar-volume-foreground-2 = #ff4e95
+bar-volume-foreground-3 = #ff3b89
+bar-volume-foreground-4 = #ff277e
+bar-volume-foreground-5 = #ff1472
+bar-volume-foreground-6 = #ff0066
+bar-volume-gradient = true
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
 bar-volume-fill = ─
@@ -390,10 +390,10 @@ expand-right = true
 
 format-spacing = 1
 
-label-open = 
-label-open-foreground = ${colors.secondary}
+label-open = 
+label-open-foreground = ${colors.primary}
 label-close =  cancel
-label-close-foreground = ${colors.secondary}
+label-close-foreground = ${colors.primary}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
 
