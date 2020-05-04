@@ -277,6 +277,8 @@ exec --no-startup-id i3-msg 'workspace $ws6; exec anki'
 exec --no-startup-id i3-msg 'workspace $ws8; exec discord'
 exec --no-startup-id i3-msg 'exec alacritty --class cmus -e "cmus"'
 for_window [instance="cmus"] move to workspace $ws9
+exec --no-startup-id i3-msg 'exec alacritty --class cli_vis -e "vis"'
+for_window [instance="cli_vis"] move to workspace $ws10
 
 # Move to workspace 1
 exec --no-startup-id i3-msg 'workspace $ws1'

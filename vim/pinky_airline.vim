@@ -4,13 +4,13 @@
 " Colors {{{
 let s:dark_gray       = ['#242124', 236]
 let s:med_gray_hi     = ['#444444', 238]
-let s:med_gray_lo     = ['#3a3a3a', 237]
+let s:med_gray_lo     = ['#3a3a3a', 237] 
 let s:light_gray      = ['#b2b2b2', 249]
 let s:pretty_pink     = ['#ff0066', 217]
 let s:banana_smoothie = ['#1affa3', 222]
 let s:faded_red       = ['#ff1b1c', 203]
 let s:icy_sky         = ['#26dbff', 116]
-let s:orangarine      = ['#ef4110', 179]
+let s:orangarine      = ['#700253', 179]
 " }}}
 
 " Init {{{
