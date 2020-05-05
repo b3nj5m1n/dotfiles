@@ -67,9 +67,10 @@ Plug 'vim-airline/vim-airline'
 " Themes for airline
 Plug 'vim-airline/vim-airline-themes'
 
-
-" Git wrapper
-" Plug 'vim-fugitive'
+Plug 'mhinz/vim-signify'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'junegunn/gv.vim'
 
 " Color Schemes
 " Plug 'chuling/vim-equinusocio-material'
