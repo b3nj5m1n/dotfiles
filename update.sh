@@ -93,6 +93,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         apt install --yes cmus
         apt install --yes polybar
         apt install --yes imagemagick
+        apt install --yes xdotool
 
         # Only do this if argument --pp is given
         match="--pp"
