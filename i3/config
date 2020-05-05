@@ -4,6 +4,8 @@
 
 # Mod key set to alt
 set $mod Mod1
+# Super set to super
+set $sup Mod4
 # Set font
 font pango:Ubuntu Nerd Font 10
 # Start up some basic stuff
@@ -165,6 +167,15 @@ bindsym $mod+a focus parent
 bindsym $mod+Shift+b border pixel 0
 # Get borders back
 bindsym $mod+Shift+Ctrl+b border pixel 2
+# Vim arrow keys everywhere
+# Left
+bindsym --release $sup+h exec --no-startup-id xdotool key --clearmodifiers 0xff51
+# Down
+bindsym --release $sup+j exec --no-startup-id xdotool key --clearmodifiers 0xff54
+# Up
+bindsym --release $sup+k exec --no-startup-id xdotool key --clearmodifiers 0xff52
+# Right
+bindsym --release $sup+l exec --no-startup-id xdotool key --clearmodifiers 0xff53
 
 
 # ------------------------------ Workspaces ------------------------------  #
