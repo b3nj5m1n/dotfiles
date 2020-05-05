@@ -103,6 +103,9 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
             apt install --yes cmatrix
             apt install --yes figlet
             apt install --yes lolcat
+            apt install --yes tty-clock
+            apt insatll --yes libaa-bin
+            apt install --yes bb
             # Install cli-visualizer
             cd $USER/Documents/Github
             git clone "https://github.com/dpayne/cli-visualizer.git"
