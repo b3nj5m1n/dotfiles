@@ -39,6 +39,7 @@ echo $USER
 match="--fish"
 if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
     chsh -s /usr/bin/fish
+    curl -L https://get.oh-my.fish | fish
 fi
 
 
