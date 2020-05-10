@@ -34,6 +34,16 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 USER=/home/$(echo $DIR | cut -d/ -f3)
 echo $USER
 
+
+# Only do this if argument --fish is given
+match="--fish"
+if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
+    chsh -s /usr/bin/fish
+fi
+
+
+
+
 # Ensure root
 if [ "$EUID" -ne 0 ]
 then echo "Please run this script as root"
@@ -57,6 +67,8 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     fi
 fi
 
+
+
 # Only do this if argument -p is given
 match="-p"
 if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
@@ -77,6 +89,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         apt install --yes autoconf
         apt install --yes automake
         apt install --yes ninja-build
+        apt install --yes fish
 
         # Dev
         apt install --yes vim
@@ -171,6 +184,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
         pacman -S --noconfirm --needed autoconf
         pacman -S --noconfirm --needed automake
         pacman -S --noconfirm --needed ninja
+        pacman -S --noconfirm --needed fish
 
         # Dev
         pacman -S --noconfirm vim
@@ -327,6 +341,7 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     # Make sure YouCompleteMe is installed
     python $USER/.vim/plugged/YouCompleteMe/install.py
 fi
+
 
 match="--nerd-fonts"
 # Only do this if argument --nerd-fonts is supplied
