@@ -20,8 +20,6 @@ set number
 
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
-SignifiyEnable
-
 call plug#begin('~/.vim/plugged')
 
 " Textobject for the current line 
@@ -37,6 +35,8 @@ Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/ReplaceWithRegister'
 " Title Case example: gt title cases selection, gT titlecases current line
 Plug 'christoomey/vim-titlecase'
+" Indent Text object
+Plug 'michaeljsmith/vim-indent-object'
 " Sort text example: gsip sort the current pararaph
 Plug 'christoomey/vim-sort-motion'
 " Copy/Paste to/from system clipboard example: cpiw copy current word to
