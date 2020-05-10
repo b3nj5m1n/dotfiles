@@ -20,6 +20,8 @@ set number
 
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
+SignifiyEnable
+
 call plug#begin('~/.vim/plugged')
 
 " Textobject for the current line 
