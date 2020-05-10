@@ -276,6 +276,8 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     cp -r -u -f -p -v ./.themes/* $USER/.themes/
     # Update picom config file
     cp -f -p -v ./picom/picom.conf $USER/.config/
+    # Update fish
+    cp -f -p -v ./fish/config.fish $USER/.config/fish/
     # Update alacritty
     mkdir -p $USER/.config/alacritty/
     cp -f -p -v -r ./alacritty/alacritty.yml $USER/.config/alacritty/
