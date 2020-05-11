@@ -35,12 +35,12 @@ USER=/home/$(echo $DIR | cut -d/ -f3)
 echo $USER
 
 
-# Only do this if argument --fish is given
-match="--fish"
-if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
-    chsh -s /usr/bin/fish
-    curl -L https://get.oh-my.fish | fish
-fi
+# # Only do this if argument --fish is given
+# match="--fish"
+# if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
+#     chsh -s /usr/bin/fish
+#     curl -L https://get.oh-my.fish | fish
+# fi
 
 
 
@@ -56,196 +56,196 @@ mkdir -p $USER/Documents/Github
 # Cd into github dir
 cd $USER/Documents/Github
 
-# Only do this if argument --yay is given
-match="--yay"
-if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
-    if ! hash yay 2>/dev/null; then
-        mkdir -p $USER/Documents/Github
-        git clone https://aur.archlinux.org/yay.git
-        cd yay
-        makepkg -si
-        mkdir -p $USER/Documents/Github
-    fi
-fi
+# # Only do this if argument --yay is given
+# match="--yay"
+# if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
+#     if ! hash yay 2>/dev/null; then
+#         mkdir -p $USER/Documents/Github
+#         git clone https://aur.archlinux.org/yay.git
+#         cd yay
+#         makepkg -si
+#         mkdir -p $USER/Documents/Github
+#     fi
+# fi
 
 
 
-# Only do this if argument -p is given
-match="-p"
-if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
-    # Package installation
-    if hash apt 2>/dev/null; then
-        # Using apt
-        apt-get update -y
-        apt-get upgrade -y
-        # Essential
-        apt install --yes sudo
-        apt install --yes git
-        apt install --yes python
-        apt install --yes python3
-        apt install --yes make
-        apt install --yes cmake
-        apt install --yes curl
-        apt install --yes wget
-        apt install --yes autoconf
-        apt install --yes automake
-        apt install --yes ninja-build
-        apt install --yes fish
+# # Only do this if argument -p is given
+# match="-p"
+# if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
+#     # Package installation
+#     if hash apt 2>/dev/null; then
+#         # Using apt
+#         apt-get update -y
+#         apt-get upgrade -y
+#         # Essential
+#         apt install --yes sudo
+#         apt install --yes git
+#         apt install --yes python
+#         apt install --yes python3
+#         apt install --yes make
+#         apt install --yes cmake
+#         apt install --yes curl
+#         apt install --yes wget
+#         apt install --yes autoconf
+#         apt install --yes automake
+#         apt install --yes ninja-build
+#         apt install --yes fish
 
-        # Dev
-        apt install --yes vim
-        apt install --yes neovim
-        apt install --yes python3-pip
-        apt install --yes python-pip
-        apt install --yes cargo
+#         # Dev
+#         apt install --yes vim
+#         apt install --yes neovim
+#         apt install --yes python3-pip
+#         apt install --yes python-pip
+#         apt install --yes cargo
 
-        # Other
-        apt install --yes vlc
-        apt install --yes libreoffice
-        apt install --yes ffmpeg
-        apt install --yes playerctl
-        apt install --yes amixer
-        apt install --yes cmus
-        apt install --yes polybar
-        apt install --yes imagemagick
-        apt install --yes xdotool
+#         # Other
+#         apt install --yes vlc
+#         apt install --yes libreoffice
+#         apt install --yes ffmpeg
+#         apt install --yes playerctl
+#         apt install --yes amixer
+#         apt install --yes cmus
+#         apt install --yes polybar
+#         apt install --yes imagemagick
+#         apt install --yes xdotool
 
-        # Only do this if argument --pp is given
-        match="--pp"
-        if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
-            apt install --yes deepin-calculator
-            apt install --yes mc
-            apt install --yes vifm
-            apt install --yes cmatrix
-            apt install --yes figlet
-            apt install --yes lolcat
-            apt install --yes tty-clock
-            apt insatll --yes libaa-bin
-            apt install --yes bb
-            # Install cli-visualizer
-            cd $USER/Documents/Github
-            git clone "https://github.com/dpayne/cli-visualizer.git"
-            cd cli-visualizer
-            ./install.sh
-            cargo install viu
-        fi
+#         # Only do this if argument --pp is given
+#         match="--pp"
+#         if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
+#             apt install --yes deepin-calculator
+#             apt install --yes mc
+#             apt install --yes vifm
+#             apt install --yes cmatrix
+#             apt install --yes figlet
+#             apt install --yes lolcat
+#             apt install --yes tty-clock
+#             apt insatll --yes libaa-bin
+#             apt install --yes bb
+#             # Install cli-visualizer
+#             cd $USER/Documents/Github
+#             git clone "https://github.com/dpayne/cli-visualizer.git"
+#             cd cli-visualizer
+#             ./install.sh
+#             cargo install viu
+#         fi
 
-        # Only do this if argument --lightdm is given
-        match="--lightdm"
-        if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
-            apt install --yes lightdm
-            apt install --yes lightdm-gtk-greeter
-        fi
+#         # Only do this if argument --lightdm is given
+#         match="--lightdm"
+#         if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
+#             apt install --yes lightdm
+#             apt install --yes lightdm-gtk-greeter
+#         fi
 
-        # Only do this if argument --i3 is given
-        match="--i3"
-        if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
-            add-apt-repository ppa:regolith-linux/stable -y
-            apt-get update
-            apt install --yes libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev xutils-dev libxcb-shape0-dev autoconf
-            apt install --yes libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev  libpcre2-dev  libevdev-dev uthash-dev libev-dev libx11-xcb-dev
-            # apt install --yes i3
-            apt install --yes i3-gaps-wm i3-gaps-session
-            apt install --yes i3-gaps
-            # Install i3 util
-            apt install --yes i3bar
-            apt install --yes i3blocks
-            apt install --yes i3lock
-            apt install --yes dmenu
-            apt install --yes rofi
-            apt install --yes feh
-            # Install picom
-            cd /tmp/
-            git clone "https://github.com/yshui/picom.git" 
-            cd picom
-            meson --buildtype=release . build
-            ninja -C build install
-        fi
-
-
-    elif hash pacman 2>/dev/null; then
-        # Using pacman
-
-        # Update
-        pacman -Syy
-        # Essential
-        pacman -S --noconfirm --needed sudo
-        pacman -S --noconfirm --needed git
-        pacman -S --noconfirm --needed makepkg
-        pacman -S --noconfirm --needed curl
-        pacman -S --noconfirm --needed wget
-        pacman -S --noconfirm --needed python
-        pacman -S --noconfirm --needed python2
-        pacman -S --noconfirm --needed make
-        pacman -S --noconfirm --needed cmake
-        pacman -S --noconfirm --needed binutils
-        pacman -S --noconfirm --needed gcc
-        pacman -S --noconfirm --needed pkg-config
-        pacman -S --noconfirm --needed fakeroot
-        pacman -S --noconfirm --needed autoconf
-        pacman -S --noconfirm --needed automake
-        pacman -S --noconfirm --needed ninja
-        pacman -S --noconfirm --needed fish
-
-        # Dev
-        pacman -S --noconfirm vim
-        pacman -S --noconfirm neovim
-        pacman -S --noconfirm --needed python2-pip
-        pacman -S --noconfirm --needed python-pip
-        pacman -S --noconfirm --needed xclip
-
-        # Other
-        pacman -S --noconfirm --needed vlc
-        pacman -S --noconfirm --needed libreoffice-still
-        pacman -S --noconfirm --needed ffmpeg
-        pacman -S --noconfirm --needed playerctl
-        pacman -S --noconfirm --needed alsa-utils
-        pacman -S --noconfirm --needed cmus
-        pacman -S --noconfirm --needed alacritty
-        pacman -S --noconfirm --needed youtube-dl
+#         # Only do this if argument --i3 is given
+#         match="--i3"
+#         if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
+#             add-apt-repository ppa:regolith-linux/stable -y
+#             apt-get update
+#             apt install --yes libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev xutils-dev libxcb-shape0-dev autoconf
+#             apt install --yes libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev  libpcre2-dev  libevdev-dev uthash-dev libev-dev libx11-xcb-dev
+#             # apt install --yes i3
+#             apt install --yes i3-gaps-wm i3-gaps-session
+#             apt install --yes i3-gaps
+#             # Install i3 util
+#             apt install --yes i3bar
+#             apt install --yes i3blocks
+#             apt install --yes i3lock
+#             apt install --yes dmenu
+#             apt install --yes rofi
+#             apt install --yes feh
+#             # Install picom
+#             cd /tmp/
+#             git clone "https://github.com/yshui/picom.git" 
+#             cd picom
+#             meson --buildtype=release . build
+#             ninja -C build install
+#         fi
 
 
-        match="--lightdm"
-        # Only do this if argument --lightdm is supplied
-        if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
-            pacman -S --noconfirm --needed lightdm
-            pacman -S --noconfirm --needed lightdm-gtk-greeter
-            pacman -S --noconfirm --needed lightdm-webkit2-greeter
-        fi
+#     elif hash pacman 2>/dev/null; then
+#         # Using pacman
 
-        match="--pp"
-        # Only do this if argument --pp is supplied
-        if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
-            pacman -S --noconfirm --needed deepin-calculator
-            pacman -S --noconfirm --needed mc
-            pacman -S --noconfirm --needed vifm
-            pacman -s --noconfirm --needed cmatrix
-            pacman -S --noconfirm --needed figlet
-            pacman -S --noconfirm --needed lolcat
-            yay -S cli-visualizer
-            yay -S no-more-secrets-git
-        fi
+#         # Update
+#         pacman -Syy
+#         # Essential
+#         pacman -S --noconfirm --needed sudo
+#         pacman -S --noconfirm --needed git
+#         pacman -S --noconfirm --needed makepkg
+#         pacman -S --noconfirm --needed curl
+#         pacman -S --noconfirm --needed wget
+#         pacman -S --noconfirm --needed python
+#         pacman -S --noconfirm --needed python2
+#         pacman -S --noconfirm --needed make
+#         pacman -S --noconfirm --needed cmake
+#         pacman -S --noconfirm --needed binutils
+#         pacman -S --noconfirm --needed gcc
+#         pacman -S --noconfirm --needed pkg-config
+#         pacman -S --noconfirm --needed fakeroot
+#         pacman -S --noconfirm --needed autoconf
+#         pacman -S --noconfirm --needed automake
+#         pacman -S --noconfirm --needed ninja
+#         pacman -S --noconfirm --needed fish
 
-        match="--i3"
-        # Only do this if argument --i3 is supplied
-        if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
-            pacman -S --noconfirm --needed i3-gaps
-            pacman -S --noconfirm --needed i3blocks
-            pacman -S --noconfirm --needed i3status
-            pacman -S --noconfirm --needed i3lock
-            pacman -S --noconfirm --needed dmenu
-            pacman -S --noconfirm --needed rofi
-            pacman -S --noconfirm --needed feh
-            pacman -S --noconfirm --needed picom
-        fi
+#         # Dev
+#         pacman -S --noconfirm vim
+#         pacman -S --noconfirm neovim
+#         pacman -S --noconfirm --needed python2-pip
+#         pacman -S --noconfirm --needed python-pip
+#         pacman -S --noconfirm --needed xclip
 
-        # Upgrade all packs
-        pacman -Syu
-    fi
-    # Use pip to install neovim to enable python support
-    pip install --no-cache neovim
-    pip3 install --no-cache neovim
-fi
+#         # Other
+#         pacman -S --noconfirm --needed vlc
+#         pacman -S --noconfirm --needed libreoffice-still
+#         pacman -S --noconfirm --needed ffmpeg
+#         pacman -S --noconfirm --needed playerctl
+#         pacman -S --noconfirm --needed alsa-utils
+#         pacman -S --noconfirm --needed cmus
+#         pacman -S --noconfirm --needed alacritty
+#         pacman -S --noconfirm --needed youtube-dl
+
+
+#         match="--lightdm"
+#         # Only do this if argument --lightdm is supplied
+#         if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
+#             pacman -S --noconfirm --needed lightdm
+#             pacman -S --noconfirm --needed lightdm-gtk-greeter
+#             pacman -S --noconfirm --needed lightdm-webkit2-greeter
+#         fi
+
+#         match="--pp"
+#         # Only do this if argument --pp is supplied
+#         if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
+#             pacman -S --noconfirm --needed deepin-calculator
+#             pacman -S --noconfirm --needed mc
+#             pacman -S --noconfirm --needed vifm
+#             pacman -s --noconfirm --needed cmatrix
+#             pacman -S --noconfirm --needed figlet
+#             pacman -S --noconfirm --needed lolcat
+#             yay -S cli-visualizer
+#             yay -S no-more-secrets-git
+#         fi
+
+#         match="--i3"
+#         # Only do this if argument --i3 is supplied
+#         if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
+#             pacman -S --noconfirm --needed i3-gaps
+#             pacman -S --noconfirm --needed i3blocks
+#             pacman -S --noconfirm --needed i3status
+#             pacman -S --noconfirm --needed i3lock
+#             pacman -S --noconfirm --needed dmenu
+#             pacman -S --noconfirm --needed rofi
+#             pacman -S --noconfirm --needed feh
+#             pacman -S --noconfirm --needed picom
+#         fi
+
+#         # Upgrade all packs
+#         pacman -Syu
+#     fi
+#     # Use pip to install neovim to enable python support
+#     pip install --no-cache neovim
+#     pip3 install --no-cache neovim
+# fi
 
 
 match="--lightdm"
