@@ -102,6 +102,16 @@ declare -A loc19=(
     [local]="./wallpapers/.wallpapers/*"
     [remote]="/usr/share/wallpapers/custom/"
 )
+declare -A loc20=(
+    [name]="wally script"
+    [local]="./scripts/wally.sh"
+    [remote]="$USER"
+)
+declare -A loc21=(
+    [name]="i3"
+    [local]="./i3/config"
+    [remote]="$USER/.config/i3/"
+)
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
