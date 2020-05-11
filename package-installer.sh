@@ -351,4 +351,11 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
 fi
 
 
+######################### Configs ########################
+
+match="--set-fish"
+if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
+    chsh -s /usr/bin/fish
+fi
+
 
