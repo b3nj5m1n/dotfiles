@@ -258,85 +258,85 @@ fi
 
 
 
-match="-u"
-# Only do this if argument --nerd-fonts is supplied
-if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
-    # Update .files
-    cd "$DOTFILES_DIR"
-    # Update .bashrc
-    cp -f -p -v ./bash/.bashrc $USER/
-    # Update lightdm config files
-    cp -r -r -f -p -v ./lightdm/* /etc/lightdm/
-    # Update i3 config file
-    cp -f -p -v ./i3/config $USER/.config/i3
-    # Update gtk 2 & 4 config files
-    cp -f -p -v ./gtk/.gtkrc-2.0 $USER/
-    cp -f -p -v ./gtk/settings.ini $USER/.config/gtk-3.0/
-    # Update gtk themes
-    cp -r -u -f -p -v ./.themes/* $USER/.themes/
-    # Update picom config file
-    cp -f -p -v ./picom/picom.conf $USER/.config/
-    # Update fish
-    cp -f -p -v ./fish/config.fish $USER/.config/fish/
-    # Update alacritty
-    mkdir -p $USER/.config/alacritty/
-    cp -f -p -v -r ./alacritty/alacritty.yml $USER/.config/alacritty/
-    # Update konsole
-    cp -f -p -v -r ./konsole/* $USER/.local/share/konsole/
-    # Update .vimrc (vim)
-    cp -f -p -v ./vim/.vimrc $USER/
-    # Copy .vimrc to init.vim (Use the same file for both vim and nvim
-    cp -f -p -v ./vim/.vimrc ./vim/init.vim
-    # Copy vim airline theme
-    cp -f -p -v ./vim/pinky_airline.vim $USER/.vim/plugged/vim-airline-themes/autoload/airline/themes/
-    # Copy icons
-    cp -r -u -f -p -v ./icons/* $USER/.local/share/icons/
-    # Update init.vim (neovim) (And make sure the dir exists)
-    mkdir -p $USER/.config/nvim/
-    cp -f -p -v ./vim/init.vim $USER/.config/nvim/init.vim
-    # Update polybar
-    mkdir -p $USER/.config/polybar/
-    cp -r -u -f -p -v ./polybar/* $USER/.config/polybar/
-    # Update polybar script
-    cp -f -p -v ./scripts/polybar.sh $USER/.config/polybar/
-    # Update polybar scripts
-    mkdir $USER/.config/polybar/scripts/
-    cp -a -u -f -v ./scripts/polybar/* $USER/.config/polybar/scripts/
-    # Update cmus config
-    cp -f -p -v ./cmus/* $USER/.config/cmus/
-    # Update cli-visualizer config
-    cp -r -u -f -p -v ./cli-visualizer/* $USER/.config/vis/
+# match="-u"
+# # Only do this if argument --nerd-fonts is supplied
+# if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then    
+#     # Update .files
+#     cd "$DOTFILES_DIR"
+#     # Update .bashrc
+#     cp -f -p -v ./bash/.bashrc $USER/
+#     # Update lightdm config files
+#     cp -r -r -f -p -v ./lightdm/* /etc/lightdm/
+#     # Update i3 config file
+#     cp -f -p -v ./i3/config $USER/.config/i3
+#     # Update gtk 2 & 4 config files
+#     cp -f -p -v ./gtk/.gtkrc-2.0 $USER/
+#     cp -f -p -v ./gtk/settings.ini $USER/.config/gtk-3.0/
+#     # Update gtk themes
+#     cp -r -u -f -p -v ./.themes/* $USER/.themes/
+#     # Update picom config file
+#     cp -f -p -v ./picom/picom.conf $USER/.config/
+#     # Update fish
+#     cp -f -p -v ./fish/config.fish $USER/.config/fish/
+#     # Update alacritty
+#     mkdir -p $USER/.config/alacritty/
+#     cp -f -p -v -r ./alacritty/alacritty.yml $USER/.config/alacritty/
+#     # Update konsole
+#     cp -f -p -v -r ./konsole/* $USER/.local/share/konsole/
+#     # Update .vimrc (vim)
+#     cp -f -p -v ./vim/.vimrc $USER/
+#     # Copy .vimrc to init.vim (Use the same file for both vim and nvim
+#     cp -f -p -v ./vim/.vimrc ./vim/init.vim
+#     # Copy vim airline theme
+#     cp -f -p -v ./vim/pinky_airline.vim $USER/.vim/plugged/vim-airline-themes/autoload/airline/themes/
+#     # Copy icons
+#     cp -r -u -f -p -v ./icons/* $USER/.local/share/icons/
+#     # Update init.vim (neovim) (And make sure the dir exists)
+#     mkdir -p $USER/.config/nvim/
+#     cp -f -p -v ./vim/init.vim $USER/.config/nvim/init.vim
+#     # Update polybar
+#     mkdir -p $USER/.config/polybar/
+#     cp -r -u -f -p -v ./polybar/* $USER/.config/polybar/
+#     # Update polybar script
+#     cp -f -p -v ./scripts/polybar.sh $USER/.config/polybar/
+#     # Update polybar scripts
+#     mkdir $USER/.config/polybar/scripts/
+#     cp -a -u -f -v ./scripts/polybar/* $USER/.config/polybar/scripts/
+#     # Update cmus config
+#     cp -f -p -v ./cmus/* $USER/.config/cmus/
+#     # Update cli-visualizer config
+#     cp -r -u -f -p -v ./cli-visualizer/* $USER/.config/vis/
 
-    # Update i3 lock script
-    cp -f -p -v ./scripts/lock.sh $USER/
-    # Update anki config
-    if [ -d /usr/local/share/anki/bin/aqt_data/web/ ]; then
-        cp -r -u -f -p -v ./anki/bin/aqt_data/web/* /usr/local/share/anki/bin/aqt_data/web/
-    fi
-    if [ -d /usr/share/aqt_data/web/ ]; then
-        cp -r -u -f -p -v ./anki/bin/aqt_data/web/* /usr/share/aqt_data/web/
-    fi
-    # Update anki addons
-    cp -r -u -f -p -v ./Anki2/* $USER/.local/share/Anki2/
+#     # Update i3 lock script
+#     cp -f -p -v ./scripts/lock.sh $USER/
+#     # Update anki config
+#     if [ -d /usr/local/share/anki/bin/aqt_data/web/ ]; then
+#         cp -r -u -f -p -v ./anki/bin/aqt_data/web/* /usr/local/share/anki/bin/aqt_data/web/
+#     fi
+#     if [ -d /usr/share/aqt_data/web/ ]; then
+#         cp -r -u -f -p -v ./anki/bin/aqt_data/web/* /usr/share/aqt_data/web/
+#     fi
+#     # Update anki addons
+#     cp -r -u -f -p -v ./Anki2/* $USER/.local/share/Anki2/
 
 
-    # Make sure vim plug is installed for vim
-    if [ ! -f $USER/.vim/autoload/plug.vim ]; then
-        curl -fLo $USER/.vim/autoload/plug.vim --create-dirs \
-            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    fi
-    # Make sure vim plug is installed for neovim
-    if [ ! -f  $USER/.local/share/nvim/site/autoload/plug.vim ]; then
-        curl -fLo $USER/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    fi
+#     # Make sure vim plug is installed for vim
+#     if [ ! -f $USER/.vim/autoload/plug.vim ]; then
+#         curl -fLo $USER/.vim/autoload/plug.vim --create-dirs \
+#             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+#     fi
+#     # Make sure vim plug is installed for neovim
+#     if [ ! -f  $USER/.local/share/nvim/site/autoload/plug.vim ]; then
+#         curl -fLo $USER/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+#             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+#     fi
 
-    # Update wallpapers
-    mkdir -p /usr/share/wallpapers/custom
-    cp -r -u -f -p -v ./wallpapers/.wallpapers/* /usr/share/wallpapers/custom
-    # Update lock pic
-    cp -u -f -p -v ./assets/lock.png $USER/
-fi
+#     # Update wallpapers
+#     mkdir -p /usr/share/wallpapers/custom
+#     cp -r -u -f -p -v ./wallpapers/.wallpapers/* /usr/share/wallpapers/custom
+#     # Update lock pic
+#     cp -u -f -p -v ./assets/lock.png $USER/
+# fi
 
 match="--ycp"
 # Only do this if argument --ycp is supplied
