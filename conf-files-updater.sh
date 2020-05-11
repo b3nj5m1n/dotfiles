@@ -116,7 +116,7 @@ for loc in ${!loc@}; do
     if [ $? -eq 0 ]; then
         printf "${GREEN} OK"
     else
-        printf "${RED} OK"
+        printf "${RED} ERROR"
     fi
     printf "\n"
 done

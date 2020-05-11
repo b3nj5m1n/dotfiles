@@ -294,6 +294,15 @@ declare -A pac58=(
 )
 
 
+######################## Codes ########################
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+PURPLE='\033[1;35m'
+YELLOW='\033[0;33m'
+GRAY='\033[0;90m'
+REVERSE='\033[7m'
+RESET='\033[0m'
 
 
 ######################## Auto Install ########################
@@ -310,8 +319,15 @@ fi
 
 declare -n pac
 for pac in ${!pac@}; do
-    echo "Package: ${pac[$pacmgr]} | Package Manager: $pacmgr"
+    printf "${RESET}${YELLOW}Installing/Updating ${PURPLE}${REVERSE}${pac[$pacmgr]}${RESET}${YELLOW} using package manager $pacmgr"
+    printf "${RESET}\n${GRAY}"
     $pacmgr$suffix${pac[$pacmgr]}
+    if [ $? -eq 0 ]; then
+        printf "${GREEN} OK"
+    else
+        printf "${RED} ERROR"
+    fi
+    printf "\n"
 done
 
 
