@@ -176,7 +176,8 @@ bindsym --release $sup+j exec --no-startup-id xdotool key --clearmodifiers 0xff5
 bindsym --release $sup+k exec --no-startup-id xdotool key --clearmodifiers 0xff52
 # Right
 bindsym --release $sup+l exec --no-startup-id xdotool key --clearmodifiers 0xff53
-
+# Change wallpaper
+bindsym $sup+w exec "~/wally.sh -r -t all"
 
 # ------------------------------ Workspaces ------------------------------  #
 

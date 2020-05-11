@@ -132,7 +132,7 @@ for wallpaper in ${!wallpaper@}; do
         CURRENT_TAGS=""
         IFS=", " read -ra CURRENT_TAGS <<< "${wallpaper[tag]}"
         match=$TAGS
-        if printf '%s\n' ${CURRENT_TAGS[@]} | grep -q -P '^'$match'$'; then
+        if printf '%s\n' ${CURRENT_TAGS[@]} | grep -q -P '^'$match'$' || [ $TAGS = "all" ]; then
             (( COUNT++ ))
             PATHS+=($BASE_DIR${wallpaper[path]})
         fi
