@@ -288,31 +288,12 @@ declare -A pac57=(
     [pacman]='tmux'
     [tag]='dev'
 )
+declare -A pac58=(
+    [yay]='cli-visualizer'
+    [tag]='fluff'
+)
 
 
-
-
-# ######################## Manual Install ########################
-# # Yay
-# mkdir -p $USER/Documents/Github
-# git clone https://aur.archlinux.org/yay.git
-# cd yay
-# makepkg -si
-# mkdir -p $USER/Documents/Github
-# # picom
-# cd /tmp/
-# git clone "https://github.com/yshui/picom.git"
-# cd picom
-# meson --buildtype=release . build
-# ninja -C build install
-# # Oh My Fish
-# curl -L https://get.oh-my.fish | fish
-# # cli-visualizer
-# cd $USER/Documents/Github
-# git clone "https://github.com/dpayne/cli-visualizer.git"
-# cd cli-visualizer
-# ./install.sh
-# cargo install viu
 
 
 ######################## Auto Install ########################
@@ -332,3 +313,42 @@ for pac in ${!pac@}; do
     echo "Package: ${pac[$pacmgr]} | Package Manager: $pacmgr"
     $pacmgr$suffix${pac[$pacmgr]}
 done
+
+
+# ######################## Manual Install ########################
+
+match="--yay"
+if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
+    # Yay
+    mkdir -p $USER/Documents/Github
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si
+    mkdir -p $USER/Documents/Github
+fi
+match="--picom"
+if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
+    # picom
+    cd /tmp/
+    git clone "https://github.com/yshui/picom.git"
+    cd picom
+    meson --buildtype=release . build
+    ninja -C build install
+fi
+match="--omf"
+if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
+    # Oh My Fish
+    curl -L https://get.oh-my.fish | fish
+fi
+match="--cli-visualizer"
+if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
+    # cli-visualizer
+    cd $USER/Documents/Github
+    git clone "https://github.com/dpayne/cli-visualizer.git"
+    cd cli-visualizer
+    ./install.sh
+    cargo install viu
+fi
+
+
+
