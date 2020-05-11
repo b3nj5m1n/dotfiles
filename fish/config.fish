@@ -12,3 +12,6 @@ end
 #     set_color FF0
 #     echo (pwd) '>' (set_color normal)
 # end
+
+######################## Aliases ########################
+alias vim "nvim"

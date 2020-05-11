@@ -332,8 +332,8 @@ if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     fi
 
     # Update wallpapers
-    mkdir -p /usr/share/wallpapers
-    cp -r -u -f -p -v ./wallpapers/* /usr/share/wallpapers
+    mkdir -p /usr/share/wallpapers/custom
+    cp -r -u -f -p -v ./wallpapers/.wallpapers/* /usr/share/wallpapers/custom
     # Update lock pic
     cp -u -f -p -v ./assets/lock.png $USER/
 fi
