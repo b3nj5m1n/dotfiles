@@ -18,7 +18,7 @@ set $refresh_i3status killall -SIGUSR1 i3status
 
 
 # Set wallpaper
-exec --no-startup-id feh --bg-scale /usr/share/wallpapers/1.png
+exec --no-startup-id feh --bg-scale /usr/share/wallpapers/custom/8bsf1dtgcs441.jpg
 # Start picom
 exec --no-startup-id picom
 # Start polybar
