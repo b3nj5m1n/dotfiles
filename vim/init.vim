@@ -113,8 +113,8 @@ let mapleader = "ö"
 map <C-a> <esc>ggVG<CR>
 
 " Ctrl + left/right switch current tab to previous/next
-nnoremap <C-Left> :tabprevious<CR>
-nnoremap <C-Right> :tabnext<CR>
+nnoremap <C-h> :tabprevious<CR>
+nnoremap <C-l> :tabnext<CR>
 " Alt + left/right moves the current tab to the left/right
 nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
