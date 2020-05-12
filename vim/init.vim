@@ -139,4 +139,5 @@ nnoremap <leader>u <c-w>w
 " Disable tab for youcompleteme
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
-
+" Press ctrl + j to select a completion (First select with arrow keys)
+nnoremap <C-j> g:ycm_key_list_select_completion
