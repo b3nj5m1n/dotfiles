@@ -48,6 +48,17 @@ Plug 'christoomey/vim-system-copy'
 " Highlight color codes
 Plug 'ap/vim-css-color'
 
+" Track the engine.
+Plug 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
 
 Plug 'jremmen/vim-ripgrep'
 Plug 'kien/ctrlp.vim'
@@ -59,7 +70,7 @@ Plug 'mbbill/undotree'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-utils/vim-man'
-Plug 'ycm-core/YouCompleteMe'
+" Plug 'ycm-core/YouCompleteMe'
 " Icons in nerd tree
 Plug 'ryanoasis/vim-devicons'
 " I think this changes the color of the icons and stuff in nerdtree 
@@ -123,4 +134,7 @@ map <C-n> :NERDTreeToggle<CR>
 " Leader key + u to switch between open split screens
 nnoremap <leader>u <c-w>w
 " Use tab to indent selection & keep selection
-vmap <tab> >gvolloll
+" vmap <tab> >gvolloll
+
+" Tab for snippet completion
+" nnoremap <tab> <Plug>snipMateTrigger

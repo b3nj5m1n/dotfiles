@@ -112,6 +112,11 @@ declare -A loc21=(
     [local]="./i3/config"
     [remote]="$USER/.config/i3/"
 )
+declare -A loc22=(
+    [name]="vim snippets"
+    [local]="./vim/snippets/*"
+    [remote]="$USER/.config/nvim/snippets/"
+)
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -122,6 +127,7 @@ RESET='\033[0m'
 declare -n loc
 for loc in ${!loc@}; do
     printf "${PURPLE} Transfering ${REVERSE}${loc[name]}${RESET}"
+    mkdir -p ${loc[remote]}
     cp -f -u -r -p ${loc[local]} ${loc[remote]}
     if [ $? -eq 0 ]; then
         printf "${GREEN} OK"
