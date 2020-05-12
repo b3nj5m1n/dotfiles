@@ -17,6 +17,10 @@ set encoding=UTF-8
 set termguicolors
 set relativenumber
 set number
+set fdm=syntax
+set foldnestmax=20
+set nofoldenable
+set foldlevel=2
 
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
@@ -141,3 +145,7 @@ let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
 " Press ctrl + j to select a completion (First select with arrow keys)
 nnoremap <C-j> g:ycm_key_list_select_completion
+
+" Fold navigation
+nnoremap <leader>o zo
+nnoremap <leader>c zc
