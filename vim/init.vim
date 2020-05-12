@@ -70,7 +70,7 @@ Plug 'mbbill/undotree'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-utils/vim-man'
-" Plug 'ycm-core/YouCompleteMe'
+Plug 'ycm-core/YouCompleteMe'
 " Icons in nerd tree
 Plug 'ryanoasis/vim-devicons'
 " I think this changes the color of the icons and stuff in nerdtree 
@@ -136,5 +136,7 @@ nnoremap <leader>u <c-w>w
 " Use tab to indent selection & keep selection
 " vmap <tab> >gvolloll
 
-" Tab for snippet completion
-" nnoremap <tab> <Plug>snipMateTrigger
+" Disable tab for youcompleteme
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
+
