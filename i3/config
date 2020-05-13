@@ -299,5 +299,20 @@ exec --no-startup-id i3-msg 'workspace $ws1'
 
 
 # ------------------------------ Start programm keybindings ------------------------------  #
-bindsym $mod+Shift+n exec nautilus
-bindsym $mod+Shift+v exec exec alacritty -e "vis" 
+
+
+# Press $mod+o followed by either f, t, Escape or Return to launch firefox,
+# thunderbird or return to the default mode, respectively.
+set $mode_launcher Launch
+bindsym $mod+g mode "$mode_launcher"
+
+mode "$mode_launcher" {
+    bindsym f exec firefox; mode "default"
+    bindsym n exec nautilus; mode "default"
+    bindsym v exec exec alacritty -e "vis"; mode "default"
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+
+
