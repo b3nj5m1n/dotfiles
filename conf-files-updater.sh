@@ -117,6 +117,11 @@ declare -A loc22=(
     [local]="./vim/snippets/*"
     [remote]="$USER/.config/nvim/snippets/"
 )
+declare -A loc23=(
+    [name]="rofi config"
+    [local]="./rofi/config.rasi"
+    [remote]="$USER/.config/rofi/"
+)
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
