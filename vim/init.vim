@@ -52,6 +52,9 @@ Plug 'christoomey/vim-system-copy'
 " Highlight color codes
 Plug 'ap/vim-css-color'
 
+" Better search with f and t
+Plug 'unblevable/quick-scope'
+
 " Track the engine.
 Plug 'SirVer/ultisnips'
 
@@ -164,3 +167,11 @@ function! NextClosedFold(dir)
         call winrestview(view)
     endif
 endfunction
+
+" Quick scope config
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+highlight QuickScopePrimary guifg='#00C7DF' gui=underline ctermfg=155 cterm=underline
+highlight QuickScopeSecondary guifg='#eF5F70' gui=underline ctermfg=81 cterm=underline
+
+let g:qs_max_chars=150
