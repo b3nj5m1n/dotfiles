@@ -55,6 +55,9 @@ Plug 'ap/vim-css-color'
 " Better search with f and t
 Plug 'unblevable/quick-scope'
 
+" Better vertical motion
+Plug 'justinmk/vim-sneak'
+
 " Track the engine.
 Plug 'SirVer/ultisnips'
 
@@ -175,3 +178,7 @@ highlight QuickScopePrimary guifg='#00C7DF' gui=underline ctermfg=155 cterm=unde
 highlight QuickScopeSecondary guifg='#eF5F70' gui=underline ctermfg=81 cterm=underline
 
 let g:qs_max_chars=150
+
+" Sneak config
+highlight Sneak guifg=black guibg=#00C7DF ctermfg=black ctermbg=cyan
+highlight SneakScope guifg=red guibg=yellow ctermfg=red ctermbg=yellow
