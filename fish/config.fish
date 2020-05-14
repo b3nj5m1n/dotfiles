@@ -14,4 +14,23 @@ end
 # end
 
 ######################## Aliases ########################
-alias vim "nvim"
+##### Auto Color #####
+alias ls='ls --color=auto'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+##### Other #####
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+alias ..='cd ..'
+alias la='ls -a'
+alias ga='git add .'
+
+
+######################## Abbreviations ########################
+abbr -a cpy='xclip -selection clipboard'
