@@ -292,6 +292,11 @@ declare -A pac58=(
     [yay]='cli-visualizer'
     [tag]='fluff'
 )
+declare -A pac57=(
+    [apt]='lxqt-notificationd'
+    [pacman]=''
+    [tag]='i3'
+)
 
 
 ######################## Codes ########################
