@@ -58,6 +58,9 @@ Plug 'unblevable/quick-scope'
 " Better vertical motion
 Plug 'justinmk/vim-sneak'
 
+" Auto pairs for ( and so on
+Plug 'jiangmiao/auto-pairs'
+
 " Track the engine.
 Plug 'SirVer/ultisnips'
 
