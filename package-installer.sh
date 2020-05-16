@@ -297,6 +297,11 @@ declare -A pac57=(
     [pacman]=''
     [tag]='i3'
 )
+declare -A pac58=(
+    [apt]='syncthing'
+    [pacman]=''
+    [tag]='i3'
+)
 
 
 ######################## Codes ########################
