@@ -525,8 +525,12 @@ format-underline = ${colors.primary}
 type = custom/script
 
 format = <label>
-format-prefix = "  "
-format-prefix-foreground = ${colors.primary}
 # format-underline = ${colors.primary}
-exec = echo $(cmus-remote -Q 2>/dev/null | sed -r "s/tag \w+\s//;t;d" | awk 'BEGIN{ RS = "" ; FS = "\\n" }{print $1" - "$2}')
+exec = echo $(if cmus-remote -Q 2>/dev/null | grep -q "status playing"; then echo "  "; else echo "  "; fi) $(cmus-remote -Q 2>/dev/null | sed -r "s/tag \w+\s//;t;d" | awk 'BEGIN{ RS = "" ; FS = "\\n" }{print $1" - "$2}')
+
+click-left = "cmus-remote -u"
+scroll-up = "cmus-remote -v +1%"
+scroll-down = "cmus-remote -v -1%"
+
+interval = 1
 
