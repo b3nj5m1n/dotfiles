@@ -30,6 +30,7 @@ call plug#begin('~/.vim/plugged')
 " Plug 'kana/vim-textobj-line'
 " Insert surrounding chars (Like ' or <p>) example: cs"' to change " to '
 " S to insert around selection
+" ysiw to insert around inner word
 Plug 'tpope/vim-surround'
 " Comment out text example: gcc to comment out line, gc to comment out
 " visual selection

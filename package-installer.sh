@@ -128,7 +128,7 @@ declare -A pac24=(
     [tag]='other'
 )
 declare -A pac25=(
-    [apt]='ffmpeg'@
+    [apt]='ffmpeg'
     [pacman]='ffmpeg'
     [tag]='other'
 )
