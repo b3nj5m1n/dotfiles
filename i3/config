@@ -318,3 +318,17 @@ mode "$mode_launcher" {
 }
 
 
+# ------------------------------ Cmus control ------------------------------  #
+
+
+set $mode_cmus cmus
+bindsym $mod+c mode "$mode_cmus"
+
+mode "$mode_cmus" {
+    bindsym r exec bash ~/dotfiles/scripts/reimport-playlists-cmus.sh; mode "default"
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+
+
