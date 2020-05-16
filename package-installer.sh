@@ -299,7 +299,7 @@ declare -A pac57=(
 )
 declare -A pac58=(
     [apt]='syncthing'
-    [pacman]=''
+    [pacman]='syncthing'
     [tag]='i3'
 )
 
