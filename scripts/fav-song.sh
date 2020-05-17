@@ -7,17 +7,17 @@
 args=("$@")
 
 # Playlist to which the song will be written if no args are given
-filename="/mnt/Vault/music/favs.m3u"
+filename="/mnt/Vault/music/a.favs.m3u"
 
 # Chill playlist
 match="--chill"
 if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
-    filename="/mnt/Vault/music/chill.m3u"
+    filename="/mnt/Vault/music/a.chill.m3u"
 fi
 # Metal playlist
 match="--metal"
 if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
-    filename="/mnt/Vault/music/metal.m3u"
+    filename="/mnt/Vault/music/a.metal.m3u"
 fi
 
 # Get relative path to song and write it to the file
