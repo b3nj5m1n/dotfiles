@@ -18,6 +18,8 @@ sleep 1
 alacritty --class cmus -e "cmus" &
 sleep 1
 
+# Import mp3s
+cmus-remote -C "add $dirname"
 # Import all m3u files
 for filename in $dirname/*.m3u; do
     cmus-remote -C "pl-import $filename"
