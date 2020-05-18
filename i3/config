@@ -320,6 +320,9 @@ mode "$mode_launcher" {
     bindsym Return mode "default"
 }
 
+bindsym $mod+u exec bash ~/dotfiles/scripts/dmenuautotype.sh
+
+
 
 # ------------------------------ Cmus control ------------------------------  #
 
