@@ -2,6 +2,9 @@
 
 # This script opens up dmenu and lists available passwords, the selection will then be autotyped
 
+# Id of active window
+active_id=sdotool getactivewindow
+
 # Path to database file
 filename="/home/b3nj4m1n/keeweb/b3n4m1n.kdbx"
 
@@ -48,10 +51,10 @@ else
         # echo Password: $pw
 
         # Type Username
-        xdotool type --delay 100 "$un"
-        xdotool key Tab
-        xdotool type --delay 100 "$pw"
-        xdotool key Return
+        xdotool type --window "$active_id" --delay 100 "$un"
+        xdotool key --window "$active_id" Tab
+        xdotool type --window "$active_id" --delay 100 "$pw"
+        xdotool key --window "$active_id" Return
     else
         exit
     fi
