@@ -62,6 +62,9 @@ Plug 'justinmk/vim-sneak'
 " Auto pairs for ( and so on
 Plug 'jiangmiao/auto-pairs'
 
+" Editor config
+Plug 'editorconfig/editorconfig-vim'
+
 " Track the engine.
 Plug 'SirVer/ultisnips'
 
