@@ -302,6 +302,11 @@ declare -A pac58=(
     [pacman]='syncthing'
     [tag]='i3'
 )
+declare -A pac59=(
+    [apt]='dunst'
+    [pacman]=''
+    [tag]='i3'
+)
 
 
 ######################## Codes ########################

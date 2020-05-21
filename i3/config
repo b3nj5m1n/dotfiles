@@ -21,8 +21,8 @@ set $refresh_i3status killall -SIGUSR1 i3status
 exec "~/wally.sh -r -t nature"
 # Start picom
 exec --no-startup-id picom
-# Start lxqt-notificaitond
-exec --no-startup-id lxqt-notificationd
+# Start dunst
+exec --no-startup-id dunst
 # Start polybar
 exec ~/.config/polybar/polybar.sh
 
