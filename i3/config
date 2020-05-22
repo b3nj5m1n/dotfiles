@@ -35,7 +35,7 @@ bindsym $mod+Return exec alacritty
 # Mod + Shift + q to close focused window
 bindsym $mod+Shift+q kill
 # Mod + d to open application launcher
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec dmenu_run
 
 # Session control
 # reload the configuration file

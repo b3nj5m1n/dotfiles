@@ -11,13 +11,13 @@ filename="/home/b3nj4m1n/keeweb/b3n4m1n.kdbx"
 ### There is no session password
 if [ ! -f /tmp/inconspicuous.txt ]; then
     # Get the master password to the database
-    password=$(rofi -dmenu -password  -p "Enter Master Password: " -l 0)
+    password=$(dmenu -P -p "Enter Master Password: ")
     # Get all entrys from the database
     entrys=$(echo "$password" | keepassxc-cli locate "$filename" "")
     # If the command was successful (The master password is correct)
     if [ $? -eq 0 ]; then
         ### Ask for a password for the current session
-        s_password=$(rofi -dmenu -password  -p "Enter Session Password: " -l 0)
+        s_password=$(dmenu -P -p "Enter Session Password: ")
         ### Encrypt master password using session password
         e_password=$(echo "$password" | openssl enc -aes-128-cbc -a -pbkdf2 -iter 1000000 -salt -pass pass:"$s_password")
         ### Store encrypted master password
@@ -29,7 +29,7 @@ if [ ! -f /tmp/inconspicuous.txt ]; then
 ### There is a session password
 else
     ### Ask for the password for the current session
-    s_password=$(rofi -dmenu -password  -p "Enter Session Password: " -l 0)
+    s_password=$(dmenu -P -p "Enter Session Password: ")
     ### Decrypt master password using session password
     password=$(cat /tmp/inconspicuous.txt | openssl enc -aes-128-cbc -d -a -pbkdf2 -iter 1000000 -salt -pass pass:"$s_password")
     # Get all entrys from the database
@@ -38,7 +38,7 @@ else
     if [ $? -eq 0 ]; then
 
         # Let the user select one of the entrys
-        selection=$(echo "$entrys" | tail -n +2 | rofi -dmenu -p "> " )
+        selection=$(echo "$entrys" | tail -n +2 | dmenu -p "> " )
         # Get all the data of that entry
         result=$(echo "$password" | keepassxc-cli show "$filename" "$selection")
 
