@@ -4,7 +4,8 @@
 # Taken from here: https://github.com/LukeSmithxyz/voidrice
 
 # Get user selection via dmenu from emoji file.
-chosen=$(cut -d ';' -f1 ./assets/emoji.txt | dmenu -i -l 10 -fn "UbuntuMono Nerd Font Mono" -nf "#ff0066" | sed "s/ .*//")
+# chosen=$(cut -d ';' -f1 ./assets/emoji.txt | dmenu -i -l 10 -fn "UbuntuMono Nerd Font Mono" -nf "#ff0066" | sed "s/ .*//")
+chosen=$(cut -d ';' -f1 ~/dotfiles/assets/emoji.txt | rofi -dmenu -p "> " | sed "s/ .*//")
 
 # Exit if none chosen.
 [ -z "$chosen" ] && exit

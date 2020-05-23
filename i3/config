@@ -321,6 +321,7 @@ mode "$mode_launcher" {
 }
 
 bindsym $mod+u exec bash ~/dotfiles/scripts/dmenuautotype.sh
+bindsym $sup+u exec bash ~/dotfiles/scripts/dmenuunicode.sh
 
 
 
