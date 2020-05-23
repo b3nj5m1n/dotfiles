@@ -2,7 +2,7 @@
 
 Collection of my dotfiles as well as a bunch of scripts.
 
-![](./imgs/screenshot.png)
+![](https://i.imgur.com/s18UaNz.png)
 
 # Scripts
 ## ./conf-files-updater.sh
