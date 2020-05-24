@@ -16,6 +16,7 @@ exec --no-startup-id setxkbmap de
 # I have no idea what this does but it look important
 set $refresh_i3status killall -SIGUSR1 i3status
 
+exec bash eval $(/usr/bin/gnome-keyring-daemon --start --components=secrets)
 
 # Set wallpaper
 exec "~/wally.sh -r -t nature"
