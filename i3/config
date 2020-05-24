@@ -329,11 +329,12 @@ bindsym $sup+u exec bash ~/dotfiles/scripts/dmenuunicode.sh
 # ------------------------------ Cmus control ------------------------------  #
 
 
-set $mode_cmus cmus: [r]estart [f]av [c]hill [m]etal
+set $mode_cmus cmus: [r]estart [o]pen [f]av [c]hill [m]etal
 bindsym $mod+c mode "$mode_cmus"
 
 mode "$mode_cmus" {
     bindsym r exec bash ~/dotfiles/scripts/reimport-playlists-cmus.sh; mode "default"
+    bindsym o exec bash ~/dotfiles/scripts/dmenuplaysong.sh; mode "default"
     # Bindings for auto adding current song to playlist
     bindsym f exec bash ~/dotfiles/scripts/fav-song.sh; mode "default"
     bindsym c exec bash ~/dotfiles/scripts/fav-song.sh --chill; mode "default"
