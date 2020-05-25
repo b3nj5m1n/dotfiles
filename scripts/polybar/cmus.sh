@@ -18,6 +18,7 @@ else
         printf "  ";
     else
         printf "  ";
+        exit
     fi
 fi
 
