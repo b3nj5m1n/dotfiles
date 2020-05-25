@@ -246,7 +246,8 @@ client.background           $black
 # Hide border & titlebar for i3-gaps
 # new_window none
 # Hide titlebar
-for_window [class=".*"] border pixel 2
+# for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 0
 
 
 # ----------------------- Gaps -----------------------  #
