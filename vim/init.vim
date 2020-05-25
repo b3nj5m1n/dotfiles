@@ -19,7 +19,7 @@ set relativenumber
 set number
 set fdm=syntax
 set foldnestmax=20
-set nofoldenable
+" set nofoldenable
 set foldlevel=2
 
 highlight ColorColumn ctermbg=0 guibg=lightgrey
