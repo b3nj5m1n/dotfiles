@@ -526,7 +526,7 @@ type = custom/script
 
 format = <label>
 # format-underline = ${colors.primary}
-exec = echo $(if cmus-remote -Q 2>/dev/null | grep -q "status playing"; then echo "  "; else echo "  "; fi) $(cmus-remote -Q 2>/dev/null | sed -r "s/tag \w+\s//;t;d" | awk 'BEGIN{ RS = "" ; FS = "\\n" }{print $1" - "$3}')
+exec = bash /home/$USER/polybar-scripts/cmus.sh
 
 click-left = "cmus-remote -u"
 scroll-up = "cmus-remote -v +1%"
