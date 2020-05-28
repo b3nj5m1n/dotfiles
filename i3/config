@@ -345,4 +345,15 @@ mode "$mode_cmus" {
     bindsym Return mode "default"
 }
 
+# ------------------------------ Keyboard layout control ------------------------------  #
 
+set $keyboard_layout Keyboard Layout: [g]erman [d]vorak [e]nglish
+bindsym $mod+shift+x mode "$keyboard_layout"
+
+mode "$keyboard_layout" {
+    bindsym e exec --no-startup-id setxkbmap gb; mode "default"
+    bindsym d exec --no-startup-id setxkbmap gb dvorak; mode "default"
+    bindsym g exec --no-startup-id setxkbmap de; mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
