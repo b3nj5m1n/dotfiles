@@ -307,6 +307,19 @@ declare -A pac59=(
     [pacman]=''
     [tag]='i3'
 )
+declare -A pac60=(
+    [apt]='ruby-dev'
+    [pacman]=''
+    [tag]='vim'
+)
+declare -A pac61=(
+    [gem]='neovim'
+    [tag]='vim'
+)
+declare -A pac62=(
+    [npm]='neovim'
+    [tag]='vim'
+)
 
 
 ######################## Codes ########################
