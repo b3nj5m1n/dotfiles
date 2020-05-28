@@ -26,7 +26,7 @@ filter="a.*.m3u"
 # fi
 
 # Get selection
-files=$(find $dirname -name $filter)
+files=$(find $dirname -name $filter -maxdepth 1)
 filename=$(printf "$files" | dmenu -c)
 
 # Get relative path to song and write it to the file
