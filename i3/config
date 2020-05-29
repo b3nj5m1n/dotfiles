@@ -368,7 +368,7 @@ mode "$keyboard_layout" {
     # d
     bindcode 40 exec --no-startup-id setxkbmap gb dvorak; mode "default"
     # p
-    bindcode 33 exec --no-startup-id setxkbmap -layout us -variant dvp -option compose:102 -option numpad:shift3 -option kpdl:semi -option keypad:atm -option caps:shift; mode "default"
+    bindcode 33 exec --no-startup-id setxkbmap -layout us -variant dvp -e "keycode 94=0x007c" -option compose:102 -option numpad:shift3 -option kpdl:semi -option keypad:atm -option caps:shift; mode "default"
     # g
     bindcode 42 exec --no-startup-id setxkbmap de; mode "default"
     bindsym Return mode "default"
