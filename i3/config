@@ -15,7 +15,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id setxkbmap de
 # I have no idea what this does but it look important
 set $refresh_i3status killall -SIGUSR1 i3status
-
+# Start keyring
 exec bash eval $(/usr/bin/gnome-keyring-daemon --start --components=secrets)
 
 # Set wallpaper
@@ -34,75 +34,75 @@ exec ~/.config/polybar/polybar.sh
 # bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec alacritty
 # Mod + Shift + q to close focused window
-bindsym $mod+Shift+q kill
+bindcode $mod+Shift+24 kill
 # Mod + d to open application launcher
-bindsym $mod+d exec dmenu_run
+bindcode $mod+40 exec dmenu_run
 
 # Session control
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-# Lock i3
-bindsym $mod+q exec ~/lock.sh
+# Mod + Shift + c reload the configuration file
+bindcode $mod+Shift+54 reload
+# Mod + Shift + r restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindcode $mod+Shift+27 restart
+# Mod + Shift + e exit i3 (logs you out of your X session)
+bindcode $mod+Shift+26 exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# Mod + q Lock i3
+bindcode $mod+24 exec ~/lock.sh
 
 
 # ------------------------------ Tiling Keybindings ------------------------------  #
 
-# change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+# hjkl change focus
+bindcode $mod+43 focus left
+bindcode $mod+44 focus down
+bindcode $mod+45 focus up
+bindcode $mod+46 focus right
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-# move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+# hjkl move focused window
+bindcode $mod+Shift+43 move left
+bindcode $mod+Shift+44 move down
+bindcode $mod+Shift+45 move up
+bindcode $mod+Shift+46 move right
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
-# split in horizontal orientation
-bindsym $mod+Ctrl+h split h
-# split in vertical orientation
-bindsym $mod+Ctrl+v split v
+# Mod + Ctrl + h split in horizontal orientation
+bindcode $mod+Ctrl+43 split h
+# Mod + Ctrl + v split in vertical orientation
+bindcode $mod+Ctrl+55 split v
 
 
 # ------------------------------ Workspace Keybindings ------------------------------  #
 
-# switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
+# 1-0 switch to workspace
+bindcode $mod+10 workspace $ws1
+bindcode $mod+11 workspace $ws2
+bindcode $mod+12 workspace $ws3
+bindcode $mod+13 workspace $ws4
+bindcode $mod+14 workspace $ws5
+bindcode $mod+15 workspace $ws6
+bindcode $mod+16 workspace $ws7
+bindcode $mod+17 workspace $ws8
+bindcode $mod+18 workspace $ws9
+bindcode $mod+19 workspace $ws10
 # Cycle workspaces
 bindsym $mod+Tab workspace next
-# move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10
+# 1-0 move focused container to workspace
+bindcode $mod+Shift+10 move container to workspace $ws1
+bindcode $mod+Shift+11 move container to workspace $ws2
+bindcode $mod+Shift+12 move container to workspace $ws3
+bindcode $mod+Shift+13 move container to workspace $ws4
+bindcode $mod+Shift+14 move container to workspace $ws5
+bindcode $mod+Shift+15 move container to workspace $ws6
+bindcode $mod+Shift+16 move container to workspace $ws7
+bindcode $mod+Shift+17 move container to workspace $ws8
+bindcode $mod+Shift+18 move container to workspace $ws9
+bindcode $mod+Shift+19 move container to workspace $ws10
 
 
 # ------------------------------ Audio/Brightness Control etc. ------------------------------  #
@@ -123,64 +123,64 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 # Cmus controls
-# Toggle Play/Pause
-bindsym $mod+p exec cmus-remote -u
-# Next Song
-bindsym $mod+n exec cmus-remote -n
-# Previous Song
-bindsym $mod+m exec cmus-remote -r
+# Mod + p Toggle Play/Pause
+bindcode $mod+33 exec cmus-remote -u
+# Mod + n Next Song
+bindcode $mod+57 exec cmus-remote -n
+# Mod + m Previous Song
+bindcode $mod+58 exec cmus-remote -r
 
 # ------------------------------ Resizing Keybindings ------------------------------  #
 
-# Move fingers up one row from vim keybindings to resize windows
-bindsym $mod+Shift+o resize shrink width 10 px or 10 ppt
-bindsym $mod+Shift+u resize grow height 10 px or 10 ppt
-bindsym $mod+Shift+i resize shrink height 10 px or 10 ppt
-bindsym $mod+Shift+z resize grow width 10 px or 10 ppt
+# zuio Move fingers up one row from vim keybindings to resize windows
+bindcode $mod+Shift+32 resize shrink width 10 px or 10 ppt
+bindcode $mod+Shift+30 resize grow height 10 px or 10 ppt
+bindcode $mod+Shift+31 resize shrink height 10 px or 10 ppt
+bindcode $mod+Shift+29 resize grow width 10 px or 10 ppt
 # Resize gaps on the fly
 # Resize outer gaps
-bindsym $mod+Ctrl+o gaps outer current plus 5
-bindsym $mod+Ctrl+Shift+o gaps outer current minus 5
+# bindsym $mod+Ctrl+o gaps outer current plus 5
+# bindsym $mod+Ctrl+Shift+o gaps outer current minus 5
 # Resize inner gaps
-bindsym $mod+Ctrl+u gaps inner current plus 5
-bindsym $mod+Ctrl+Shift+u gaps inner current minus 5
-# Get rid of all gaps
-bindsym $mod+Ctrl+r gaps outer all set 0; gaps inner all set 0
-# Reset gaps to default
-bindsym $mod+Ctrl+d gaps outer all set 15; gaps inner all set 5
+# bindsym $mod+Ctrl+u gaps inner current plus 5
+# bindsym $mod+Ctrl+Shift+u gaps inner current minus 5
+# Mod + Ctrl + r Get rid of all gaps
+bindcode $mod+Ctrl+27 gaps outer all set 0; gaps inner all set 0
+# Mod + Ctrl + d Reset gaps to default
+bindcode $mod+Ctrl+40 gaps outer all set 15; gaps inner all set 5
 
 
 # ------------------------------ Other Keybindings ------------------------------  #
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# Mod + f enter fullscreen mode for the focused container
+bindcode $mod+41 fullscreen toggle
+# Mod + s/w/e change container layout (stacked, tabbed, toggle split)
+bindcode $mod+39 layout stacking
+bindcode $mod+25 layout tabbed
+bindcode $mod+26 layout toggle split
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
-# focus the parent container
-bindsym $mod+a focus parent
-# Get rid of borders
-bindsym $mod+Shift+b border pixel 0
-# Get borders back
-bindsym $mod+Shift+Ctrl+b border pixel 2
-# Vim arrow keys everywhere
+# Mod + a focus the parent container
+bindcode $mod+38 focus parent
+# Mod + b Get rid of borders
+# bindsym $mod+Shift+56 border pixel 0
+# Mod + Shift + Ctrl + b Get borders back
+# bindsym $mod+Shift+Ctrl+56 border pixel 2
+# hjkl Vim arrow keys everywhere
 # Left
-bindsym --release $sup+h exec --no-startup-id xdotool key --clearmodifiers 0xff51
+bindcode --release $sup+43 exec --no-startup-id xdotool key --clearmodifiers 0xff51
 # Down
-bindsym --release $sup+j exec --no-startup-id xdotool key --clearmodifiers 0xff54
+bindcode --release $sup+44 exec --no-startup-id xdotool key --clearmodifiers 0xff54
 # Up
-bindsym --release $sup+k exec --no-startup-id xdotool key --clearmodifiers 0xff52
+bindcode --release $sup+45 exec --no-startup-id xdotool key --clearmodifiers 0xff52
 # Right
-bindsym --release $sup+l exec --no-startup-id xdotool key --clearmodifiers 0xff53
-# Change wallpaper
-bindsym $sup+w exec "~/wally.sh -r -t all"
+bindcode --release $sup+46 exec --no-startup-id xdotool key --clearmodifiers 0xff53
+# Sup + w Change wallpaper
+bindcode $sup+25 exec "~/wally.sh -r -t all"
 
 # ------------------------------ Workspaces ------------------------------  #
 
@@ -310,20 +310,27 @@ exec --no-startup-id i3-msg 'workspace $ws1'
 # Press $mod+o followed by either f, t, Escape or Return to launch firefox,
 # thunderbird or return to the default mode, respectively.
 set $mode_launcher Launch: [k]eeweb [n]autilus [v]isualizer [f]irefox
-bindsym $mod+v mode "$mode_launcher"
+# Mod + v
+bindcode $mod+55 mode "$mode_launcher"
 
 mode "$mode_launcher" {
-    bindsym f exec firefox; mode "default"
-    bindsym n exec nautilus; mode "default"
-    bindsym v exec exec alacritty -e "vis"; mode "default"
-    bindsym k exec exec keeweb; mode "default"
+    # f
+    bindcode 41 exec firefox; mode "default"
+    # n
+    bindcode 57 exec nautilus; mode "default"
+    # v
+    bindcode 55 exec exec alacritty -e "vis"; mode "default"
+    # k
+    bindcode 45 exec exec keeweb; mode "default"
 
-    bindsym Escape mode "default"
-    bindsym Return mode "default"
+    bindcode Escape mode "default"
+    bindcode Return mode "default"
 }
 
-bindsym $mod+u exec bash ~/dotfiles/scripts/dmenuautotype.sh
-bindsym $sup+u exec bash ~/dotfiles/scripts/dmenuunicode.sh
+# Mod + u autotype
+bindcode $mod+30 exec bash ~/dotfiles/scripts/dmenuautotype.sh
+# Sup + u unicode
+bindcode $sup+30 exec bash ~/dotfiles/scripts/dmenuunicode.sh
 
 
 
@@ -331,13 +338,17 @@ bindsym $sup+u exec bash ~/dotfiles/scripts/dmenuunicode.sh
 
 
 set $mode_cmus cmus: [r]estart [o]pen [f]av
-bindsym $mod+c mode "$mode_cmus"
+# Mod + c
+bindcode $mod+54 mode "$mode_cmus"
 
 mode "$mode_cmus" {
-    bindsym r exec bash ~/dotfiles/scripts/reimport-playlists-cmus.sh; mode "default"
-    bindsym o exec bash ~/dotfiles/scripts/dmenuplaysong.sh; mode "default"
+    # r
+    bindcode 27 exec bash ~/dotfiles/scripts/reimport-playlists-cmus.sh; mode "default"
+    # o
+    bindcode 32 exec bash ~/dotfiles/scripts/dmenuplaysong.sh; mode "default"
     # Bindings for auto adding current song to playlist
-    bindsym f exec bash ~/dotfiles/scripts/fav-song.sh; mode "default"
+    # f
+    bindcode 41 exec bash ~/dotfiles/scripts/fav-song.sh; mode "default"
     # bindsym c exec bash ~/dotfiles/scripts/fav-song.sh --chill; mode "default"
     # bindsym m exec bash ~/dotfiles/scripts/fav-song.sh --metal; mode "default"
 
@@ -348,13 +359,18 @@ mode "$mode_cmus" {
 # ------------------------------ Keyboard layout control ------------------------------  #
 
 set $keyboard_layout Keyboard Layout: [g]erman [d]vorak [p]rogrammer dvorak [e]nglish
-bindsym $mod+shift+x mode "$keyboard_layout"
+# Sup + Shift + i
+bindcode $sup+shift+31 mode "$keyboard_layout"
 
 mode "$keyboard_layout" {
-    bindsym e exec --no-startup-id setxkbmap gb; mode "default"
-    bindsym d exec --no-startup-id setxkbmap gb dvorak; mode "default"
-    bindsym p exec --no-startup-id setxkbmap setxkbmap -layout us -variant dvp -option compose:102 -option numpad:shift3 -option kpdl:semi -option keypad:atm -option caps:shift; mode "default"
-    bindsym g exec --no-startup-id setxkbmap de; mode "default"
+    # e
+    bindcode 26 exec --no-startup-id setxkbmap gb; mode "default"
+    # d
+    bindcode 40 exec --no-startup-id setxkbmap gb dvorak; mode "default"
+    # p
+    bindcode 33 exec --no-startup-id setxkbmap setxkbmap -layout us -variant dvp -option compose:102 -option numpad:shift3 -option kpdl:semi -option keypad:atm -option caps:shift; mode "default"
+    # g
+    bindcode 42 exec --no-startup-id setxkbmap de; mode "default"
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
