@@ -122,6 +122,11 @@ declare -A loc23=(
     [local]="./rofi/config.rasi"
     [remote]="$USER/.config/rofi/"
 )
+declare -A loc24=(
+    [name]="Desktop entries"
+    [local]="./xsessions/*"
+    [remote]="/usr/share/xsessions/"
+)
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
