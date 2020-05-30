@@ -110,8 +110,8 @@ bindcode $mod+Shift+19 move container to workspace $ws10
 # Volume Control
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset 'Master' 3%+ #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset 'Master' 3%- #decrease sound volume
-bindsym $mod+Shift+plus exec --no-startup-id amixer sset 'Master' 1%+ #increase sound volume
-bindsym $mod+Shift+minus exec --no-startup-id amixer sset 'Master' 1%- #increase sound volume
+bindcode $mod+Shift+35 exec --no-startup-id amixer sset 'Master' 1%+ #increase sound volume
+bindcode $mod+Shift+28 exec --no-startup-id amixer sset 'Master' 1%- #increase sound volume
 bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set 'Master' toggle # mute sound
 # Player Control
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -323,8 +323,8 @@ mode "$mode_launcher" {
     # k
     bindcode 45 exec exec keeweb; mode "default"
 
-    bindcode Escape mode "default"
-    bindcode Return mode "default"
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
 }
 
 # Mod + u autotype
