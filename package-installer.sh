@@ -320,6 +320,10 @@ declare -A pac62=(
     [npm]='neovim'
     [tag]='vim'
 )
+declare -A pac63=(
+    [apt]='sxhkd'
+    [tag]='essential'
+)
 
 
 ######################## Codes ########################
