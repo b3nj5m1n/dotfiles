@@ -1,5 +1,5 @@
 #!/bin/bash
 
-date=$(date "+%d/%m/%y %H:%M:%S")
+date=$(date "+%d/%m/%y %H:%M")
 
 echo "$date"
