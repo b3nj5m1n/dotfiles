@@ -77,8 +77,8 @@ alt + v: {r,o,f}
 ############### Keyboard Layout ###############
 
 # german, dvorak, programmer dvorak, english
-alt + v: {g,d,p,e}
-    {setxkbmap de,setxkbmap gb dvorak,setxkbmap -layout us -variant dvp -option compose:102 -option numpad:shift3 -option kpdl:semi -option keypad:atm -option caps:shift,setxkbmap gb}
+alt + shift + i: {g,d,p,e}
+    setxkbmap -option; {setxkbmap de,setxkbmap gb dvorak,setxkbmap -layout us -variant dvp -option compose:102 -option numpad:shift3 -option kpdl:semi -option keypad:atm -option caps:shift,setxkbmap gb}
 
 
 
