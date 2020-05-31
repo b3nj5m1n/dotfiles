@@ -127,6 +127,16 @@ declare -A loc24=(
     [local]="./xsessions/*"
     [remote]="/usr/share/xsessions/"
 )
+declare -A loc25=(
+    [name]="Hotkey daemon"
+    [local]="./sxhkd/*"
+    [remote]="$USER/.config/sxhkd/"
+)
+declare -A loc26=(
+    [name]="dwm autostart"
+    [local]="./dwm/*"
+    [remote]="$USER/.dwm/"
+)
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'

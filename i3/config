@@ -46,7 +46,7 @@ bindcode $mod+Shift+27 restart
 # Mod + Shift + e exit i3 (logs you out of your X session)
 bindcode $mod+Shift+26 exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 # Mod + q Lock i3
-bindcode $mod+24 exec ~/lock.sh
+# bindcode $mod+24 exec ~/lock.sh
 
 
 # ------------------------------ Tiling Keybindings ------------------------------  #
@@ -108,27 +108,27 @@ bindcode $mod+Shift+19 move container to workspace $ws10
 # ------------------------------ Audio/Brightness Control etc. ------------------------------  #
 
 # Volume Control
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset 'Master' 3%+ #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset 'Master' 3%- #decrease sound volume
-bindcode $mod+Shift+35 exec --no-startup-id amixer sset 'Master' 1%+ #increase sound volume
-bindcode $mod+Shift+28 exec --no-startup-id amixer sset 'Master' 1%- #increase sound volume
-bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set 'Master' toggle # mute sound
-# Player Control
-bindsym XF86AudioPlay exec playerctl play-pause
-# bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+# bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset 'Master' 3%+ #increase sound volume
+# bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset 'Master' 3%- #decrease sound volume
+# bindcode $mod+Shift+35 exec --no-startup-id amixer sset 'Master' 1%+ #increase sound volume
+# bindcode $mod+Shift+28 exec --no-startup-id amixer sset 'Master' 1%- #increase sound volume
+# bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set 'Master' toggle # mute sound
+# # Player Control
+# bindsym XF86AudioPlay exec playerctl play-pause
+# # bindsym XF86AudioPause exec playerctl pause
+# bindsym XF86AudioNext exec playerctl next
+# bindsym XF86AudioPrev exec playerctl previous
 # Brightness Control
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
-# Cmus controls
-# Mod + p Toggle Play/Pause
-bindcode $mod+33 exec cmus-remote -u
-# Mod + n Next Song
-bindcode $mod+57 exec cmus-remote -n
-# Mod + m Previous Song
-bindcode $mod+58 exec cmus-remote -r
+# # Cmus controls
+# # Mod + p Toggle Play/Pause
+# bindcode $mod+33 exec cmus-remote -u
+# # Mod + n Next Song
+# bindcode $mod+57 exec cmus-remote -n
+# # Mod + m Previous Song
+# bindcode $mod+58 exec cmus-remote -r
 
 # ------------------------------ Resizing Keybindings ------------------------------  #
 
@@ -180,7 +180,7 @@ bindcode --release $sup+45 exec --no-startup-id xdotool key --clearmodifiers 0xf
 # Right
 bindcode --release $sup+46 exec --no-startup-id xdotool key --clearmodifiers 0xff53
 # Sup + w Change wallpaper
-bindcode $sup+25 exec "~/wally.sh -r -t all"
+# bindcode $sup+25 exec "~/wally.sh -r -t all"
 
 # ------------------------------ Workspaces ------------------------------  #
 
