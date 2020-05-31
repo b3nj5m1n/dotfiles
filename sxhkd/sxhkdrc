@@ -62,7 +62,7 @@ alt + m
 
 ############### Launch Programms ###############
 
-# firefox, nautilus, cli-visualizer, keeweb
+firefox, nautilus, cli-visualizer, keeweb
 alt + v: {f,n,v,k}
     {firefox,nautilus,alacritty -e "vis",keeweb}
 
@@ -70,16 +70,15 @@ alt + v: {f,n,v,k}
 ############### Cmus Control ###############
 
 # restart, open, fav
-alt + v: {r,o,f}
+alt + c: {r,o,f}
     {bash ~/dotfiles/scripts/reimport-playlists-cmus.sh,bash ~/dotfiles/scripts/dmenuplaysong.sh,bash ~/dotfiles/scripts/fav-song.sh}
 
 
 ############### Keyboard Layout ###############
 
 # german, dvorak, programmer dvorak, english
-alt + shift + i: {g,d,p,e}
-    setxkbmap -option; {setxkbmap de,setxkbmap gb dvorak,setxkbmap -layout us -variant dvp -option compose:102 -option numpad:shift3 -option kpdl:semi -option keypad:atm -option caps:shift,setxkbmap gb}
-
+super + shift + i
+    bash ~/dotfiles/scripts/keyboard-layout-switcher.sh
 
 
 

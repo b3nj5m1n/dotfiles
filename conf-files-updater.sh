@@ -137,6 +137,11 @@ declare -A loc26=(
     [local]="./dwm/*"
     [remote]="$USER/.dwm/"
 )
+declare -A loc27=(
+    [name]="dwmblocks scripts"
+    [local]="./scripts/dwmblocks/*"
+    [remote]="$USER/dwmblocks/"
+)
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'

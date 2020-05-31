@@ -22,6 +22,8 @@ exec bash eval $(/usr/bin/gnome-keyring-daemon --start --components=secrets)
 exec "~/wally.sh -r -t nature"
 # Start picom
 exec --no-startup-id picom
+# Start hotkey daemon
+exec --no-startup-id sxhkd
 # Start dunst
 exec --no-startup-id dunst
 # Start polybar
@@ -304,73 +306,73 @@ for_window [instance="snycthing_host"] move to workspace $ws10
 exec --no-startup-id i3-msg 'workspace $ws1'
 
 
-# ------------------------------ Start programm keybindings ------------------------------  #
+# # ------------------------------ Start programm keybindings ------------------------------  #
 
 
-# Press $mod+o followed by either f, t, Escape or Return to launch firefox,
-# thunderbird or return to the default mode, respectively.
-set $mode_launcher Launch: [k]eeweb [n]autilus [v]isualizer [f]irefox
-# Mod + v
-bindcode $mod+55 mode "$mode_launcher"
+# # Press $mod+o followed by either f, t, Escape or Return to launch firefox,
+# # thunderbird or return to the default mode, respectively.
+# set $mode_launcher Launch: [k]eeweb [n]autilus [v]isualizer [f]irefox
+# # Mod + v
+# bindcode $mod+55 mode "$mode_launcher"
 
-mode "$mode_launcher" {
-    # f
-    bindcode 41 exec firefox; mode "default"
-    # n
-    bindcode 57 exec nautilus; mode "default"
-    # v
-    bindcode 55 exec exec alacritty -e "vis"; mode "default"
-    # k
-    bindcode 45 exec exec keeweb; mode "default"
+# mode "$mode_launcher" {
+#     # f
+#     bindcode 41 exec firefox; mode "default"
+#     # n
+#     bindcode 57 exec nautilus; mode "default"
+#     # v
+#     bindcode 55 exec exec alacritty -e "vis"; mode "default"
+#     # k
+#     bindcode 45 exec exec keeweb; mode "default"
 
-    bindsym Escape mode "default"
-    bindsym Return mode "default"
-}
+#     bindsym Escape mode "default"
+#     bindsym Return mode "default"
+# }
 
-# Mod + u autotype
-bindcode $mod+30 exec bash ~/dotfiles/scripts/dmenuautotype.sh
-# Sup + u unicode
-bindcode $sup+30 exec bash ~/dotfiles/scripts/dmenuunicode.sh
-
-
-
-# ------------------------------ Cmus control ------------------------------  #
+# # Mod + u autotype
+# bindcode $mod+30 exec bash ~/dotfiles/scripts/dmenuautotype.sh
+# # Sup + u unicode
+# bindcode $sup+30 exec bash ~/dotfiles/scripts/dmenuunicode.sh
 
 
-set $mode_cmus cmus: [r]estart [o]pen [f]av
-# Mod + c
-bindcode $mod+54 mode "$mode_cmus"
 
-mode "$mode_cmus" {
-    # r
-    bindcode 27 exec bash ~/dotfiles/scripts/reimport-playlists-cmus.sh; mode "default"
-    # o
-    bindcode 32 exec bash ~/dotfiles/scripts/dmenuplaysong.sh; mode "default"
-    # Bindings for auto adding current song to playlist
-    # f
-    bindcode 41 exec bash ~/dotfiles/scripts/fav-song.sh; mode "default"
-    # bindsym c exec bash ~/dotfiles/scripts/fav-song.sh --chill; mode "default"
-    # bindsym m exec bash ~/dotfiles/scripts/fav-song.sh --metal; mode "default"
+# # ------------------------------ Cmus control ------------------------------  #
 
-    bindsym Escape mode "default"
-    bindsym Return mode "default"
-}
 
-# ------------------------------ Keyboard layout control ------------------------------  #
+# set $mode_cmus cmus: [r]estart [o]pen [f]av
+# # Mod + c
+# bindcode $mod+54 mode "$mode_cmus"
 
-set $keyboard_layout Keyboard Layout: [g]erman [d]vorak [p]rogrammer dvorak [e]nglish
-# Sup + Shift + i
-bindcode $sup+shift+31 mode "$keyboard_layout"
+# mode "$mode_cmus" {
+#     # r
+#     bindcode 27 exec bash ~/dotfiles/scripts/reimport-playlists-cmus.sh; mode "default"
+#     # o
+#     bindcode 32 exec bash ~/dotfiles/scripts/dmenuplaysong.sh; mode "default"
+#     # Bindings for auto adding current song to playlist
+#     # f
+#     bindcode 41 exec bash ~/dotfiles/scripts/fav-song.sh; mode "default"
+#     # bindsym c exec bash ~/dotfiles/scripts/fav-song.sh --chill; mode "default"
+#     # bindsym m exec bash ~/dotfiles/scripts/fav-song.sh --metal; mode "default"
 
-mode "$keyboard_layout" {
-    # e
-    bindcode 26 exec --no-startup-id setxkbmap gb; mode "default"
-    # d
-    bindcode 40 exec --no-startup-id setxkbmap gb dvorak; mode "default"
-    # p
-    bindcode 33 exec --no-startup-id setxkbmap -layout us -variant dvp -option compose:102 -option numpad:shift3 -option kpdl:semi -option keypad:atm -option caps:shift; exec --no-startup-id xmodmap -e "keycode 94=0x007c"; mode "default"
-    # g
-    bindcode 42 exec --no-startup-id setxkbmap de; mode "default"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
+#     bindsym Escape mode "default"
+#     bindsym Return mode "default"
+# }
+
+# # ------------------------------ Keyboard layout control ------------------------------  #
+
+# set $keyboard_layout Keyboard Layout: [g]erman [d]vorak [p]rogrammer dvorak [e]nglish
+# # Sup + Shift + i
+# bindcode $sup+shift+31 mode "$keyboard_layout"
+
+# mode "$keyboard_layout" {
+#     # e
+#     bindcode 26 exec --no-startup-id setxkbmap gb; mode "default"
+#     # d
+#     bindcode 40 exec --no-startup-id setxkbmap gb dvorak; mode "default"
+#     # p
+#     bindcode 33 exec --no-startup-id setxkbmap -layout us -variant dvp -option compose:102 -option numpad:shift3 -option kpdl:semi -option keypad:atm -option caps:shift; exec --no-startup-id xmodmap -e "keycode 94=0x007c"; mode "default"
+#     # g
+#     bindcode 42 exec --no-startup-id setxkbmap de; mode "default"
+#     bindsym Return mode "default"
+#     bindsym Escape mode "default"
+# }
