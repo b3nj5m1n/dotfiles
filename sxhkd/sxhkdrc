@@ -1,0 +1,87 @@
+############### General ###############
+
+# Change wallpaper
+super + w
+    bash ~/wally.sh -r -t nature
+
+# Lock input
+alt + q
+    bash ~/lock.sh
+
+# Emoji menu
+super + u
+    bash ~/dotfiles/scripts/dmenuunicode.sh
+
+############### Volume Control ###############
+
+# Increase volume
+XF86AudioRaiseVolume
+    amixer sset 'Master' 3%+
+
+alt + shift + plus
+    amixer sset 'Master' 1%+
+
+
+# Decrease volume
+XF86AudioLowerVolume
+    amixer sset 'Master' 3%-
+
+alt + shift + minus
+    amixer sset 'Master' 1%-
+
+
+# Mute
+XF86AudioMute
+    amixer -D pulse set 'Master' toggle
+
+############### Player Control ###############
+
+# Pause playback
+XF86AudioPlay
+    cmus-remote -u
+
+alt + p
+    cmus-remote -u
+
+
+# Next song
+XF86AudioNext
+    cmus-remote -n
+
+alt + n
+    cmus-remote -n
+
+
+# Previous song
+XF86AudioPrev
+    cmus-remote -r
+
+alt + m
+    cmus-remote -r
+
+
+############### Launch Programms ###############
+
+# firefox, nautilus, cli-visualizer, keeweb
+alt + v: {f,n,v,k}
+    {firefox,nautilus,alacritty -e "vis",keeweb}
+
+
+############### Cmus Control ###############
+
+# restart, open, fav
+alt + v: {r,o,f}
+    {bash ~/dotfiles/scripts/reimport-playlists-cmus.sh,bash ~/dotfiles/scripts/dmenuplaysong.sh,bash ~/dotfiles/scripts/fav-song.sh}
+
+
+############### Keyboard Layout ###############
+
+# german, dvorak, programmer dvorak, english
+alt + v: {g,d,p,e}
+    {setxkbmap de,setxkbmap gb dvorak,setxkbmap -layout us -variant dvp -option compose:102 -option numpad:shift3 -option kpdl:semi -option keypad:atm -option caps:shift,setxkbmap gb}
+
+
+
+
+
+
