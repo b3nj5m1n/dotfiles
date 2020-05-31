@@ -3,4 +3,5 @@
 picom &
 dunst &
 sxhkd &
+dwmblocks &
 # ~/.config/polybar/polybar.sh
