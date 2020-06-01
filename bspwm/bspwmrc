@@ -6,6 +6,7 @@ sxhkd &
 picom &
 dunst &
 ~/wally.sh -r -t nature &
+~/.config/polybar/polybar.sh
 setxkbmap de
 # Programms
 
