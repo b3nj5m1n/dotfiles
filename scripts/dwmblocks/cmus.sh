@@ -24,8 +24,9 @@ fi
 
 # Parse the info to get the current playing song in a {Artist} - {Title} format
 song=$(echo "$info" | sed -r "s/tag \w+\s//;t;d" | awk 'BEGIN{ RS = "" ; FS = "\\n" }{print $1" - "$3}')
+song=${song:0:30}
 
-# Parse the info to get the progress in %
+Parse the info to get the progress in %
 total=$(echo "$info" | sed -r "s/duration //;t;d")
 progr=$(echo "$info" | sed -r "s/position //;t;d")
 perc=$(awk -v n="$total" -v m="$progr" 'BEGIN{ print int(( m/n )*100) }')
@@ -40,9 +41,9 @@ b="^c#ff0066^"
 m="^d^"
 # What to put at the end of the string
 # e="\e[0m"
-e=""
+e="^d^"
 
 song="$b"${song:0:$perc_chr}"$m"${song:$perc_chr:$chrlen}"$e"
 printf "$song"
 
-printf "\n"
+# printf "\n"

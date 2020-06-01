@@ -1,10 +1,26 @@
+############### Bspwm ###############
+
+############### Essential Keybindings ###############
+
+# Open terminal
+alt + return
+    alacritty
+
+# Open application launcher
+# Alt + d
+alt + c:40
+    dmenu_run
+
+
 ############### General ###############
 
 # Change wallpaper
-super + w
+# Super + w
+super + c:25
     bash ~/wally.sh -r -t nature
 
 # Lock input
+# Alt + q
 alt + q
     bash ~/lock.sh
 
@@ -17,7 +33,6 @@ super + u
 # Increase volume
 XF86AudioRaiseVolume
     amixer sset 'Master' 3%+
-
 alt + shift + plus
     amixer sset 'Master' 1%+
 
@@ -25,7 +40,6 @@ alt + shift + plus
 # Decrease volume
 XF86AudioLowerVolume
     amixer sset 'Master' 3%-
-
 alt + shift + minus
     amixer sset 'Master' 1%-
 
@@ -39,45 +53,48 @@ XF86AudioMute
 # Pause playback
 XF86AudioPlay
     cmus-remote -u
-
-alt + p
+# Alt + p
+alt + c:33
     cmus-remote -u
 
 
 # Next song
 XF86AudioNext
     cmus-remote -n
-
-alt + n
+# Alt + n
+alt + c:57
     cmus-remote -n
 
 
 # Previous song
 XF86AudioPrev
     cmus-remote -r
-
-alt + m
+# Alt + m
+alt + c:58
     cmus-remote -r
 
 
 ############### Launch Programms ###############
 
-firefox, nautilus, cli-visualizer, keeweb
-alt + v: {f,n,v,k}
+# firefox, nautilus, cli-visualizer, keeweb
+# Alt + v | f n v k
+alt + 55: {41,57,55,45}
     {firefox,nautilus,alacritty -e "vis",keeweb}
 
 
 ############### Cmus Control ###############
 
 # restart, open, fav
-alt + c: {r,o,f}
+# Alt + c | r o f
+alt + 54: {27,32,41}
     {bash ~/dotfiles/scripts/reimport-playlists-cmus.sh,bash ~/dotfiles/scripts/dmenuplaysong.sh,bash ~/dotfiles/scripts/fav-song.sh}
 
 
 ############### Keyboard Layout ###############
 
 # german, dvorak, programmer dvorak, english
-super + shift + i
+# Super + Shift + i
+super + shift + 31
     bash ~/dotfiles/scripts/keyboard-layout-switcher.sh
 
 
