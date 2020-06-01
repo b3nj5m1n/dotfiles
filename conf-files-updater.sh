@@ -142,6 +142,11 @@ declare -A loc27=(
     [local]="./scripts/dwmblocks/*"
     [remote]="$USER/dwmblocks/"
 )
+declare -A loc28=(
+    [name]="bspwm config"
+    [local]="./bspwm/*"
+    [remote]="$USER/.config/bspwm/"
+)
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
