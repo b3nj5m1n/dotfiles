@@ -6,6 +6,7 @@ sxhkd &
 picom &
 dunst &
 ~/wally.sh -r -t nature &
+setxkbmap de
 # Programms
 
 firefox --class="init_firefox" &
