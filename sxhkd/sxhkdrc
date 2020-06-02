@@ -196,7 +196,7 @@ alt + c: {r,o,f}
 
 # german, dvorak, programmer dvorak, english
 # Super + Shift + i
-super + shift + i
+super + ctrl + shift + i
     bash ~/dotfiles/scripts/keyboard-layout-switcher.sh
 
 
