@@ -104,6 +104,8 @@ super + {Left,Down,Up,Right}
 # Open terminal
 alt + Return
     alacritty
+alt + shift + Return
+    bash ~/dotfiles/scripts/draw-terminal.sh
 
 # Open application launcher
 # Alt + d
