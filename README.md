@@ -2,7 +2,8 @@
 
 Collection of my dotfiles as well as a bunch of scripts.
 
-![](https://i.imgur.com/s18UaNz.png)
+![bspwm](https://i.imgur.com/FW7iDir.png)
+![i3-gaps](https://i.imgur.com/s18UaNz.png)
 
 # Scripts
 ## ./conf-files-updater.sh
