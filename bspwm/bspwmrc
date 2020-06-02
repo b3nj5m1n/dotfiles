@@ -6,7 +6,7 @@ sxhkd &
 picom &
 dunst &
 # ~/wally.sh -r -t nature &
-feh --bg-scale /usr/share/wallpapers/custom/eodk675sytm41.jpg
+feh --bg-scale /usr/share/wallpapers/custom/samuel-inkilainen-arctic-spirit-with-signature.jpg
 ~/.config/polybar/polybar.sh
 setxkbmap de
 # Programms
