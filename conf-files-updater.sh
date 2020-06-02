@@ -147,6 +147,11 @@ declare -A loc28=(
     [local]="./bspwm/*"
     [remote]="$USER/.config/bspwm/"
 )
+declare -A loc29=(
+    [name]="dunst config"
+    [local]="./dunst/*"
+    [remote]="$USER/.config/dunst/"
+)
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
