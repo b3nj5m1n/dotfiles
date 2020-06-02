@@ -4,7 +4,7 @@ follow = mouse
 geometry = "250x50-30+58"
 indicate_hidden = yes
 shrink = no
-separator_height = 0
+separator_height = 3
 padding = 16
 horizontal_padding = 24
 frame_width = 3
@@ -28,16 +28,27 @@ browser = /usr/bin/firefox -new-tab
 always_run_script = true
 title = Dunst
 class = Dunst
+frame_color = "#ff0066"
+separator_color = frame
 
 [shortcuts]
 close = ctrl+space
 close_all = ctrl+shift+space
 
 [urgency_low]
-timeout = 4
+background = "#171517"
+foreground = "#f5f5f5"
+frame_color = "#ff0066"
+timeout = 10
 
 [urgency_normal]
-timeout = 8
+background = "#171517"
+foreground = "#f5f5f5"
+frame_color = "#ff3385"
+timeout = 10
 
 [urgency_critical]
+background = "#171517"
+foreground = "#ffffff"
+frame_color = "#ff1b1c"
 timeout = 0
