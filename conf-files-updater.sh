@@ -75,7 +75,7 @@ declare -A loc13=(
 declare -A loc14=(
     [name]="polybar scripts"
     [local]="./scripts/polybar/*"
-    [remote]="$USER/polybar-scripts/"
+    [remote]="/usr/bin/scripts/polybar/"
 )
 declare -A loc15=(
     [name]="cmus"
