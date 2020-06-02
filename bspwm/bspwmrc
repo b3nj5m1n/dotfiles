@@ -61,7 +61,7 @@ bspc config urgent_border_color 	      "#ff1b1c"
 
 bspc rule -a init_firefox desktop='^2'
 bspc rule -a init_thunderbird desktop='^7'
-bspc rule -a cmus desktop='^9'
+bspc rule -a Alacritty:cmus desktop='^9'
 bspc rule -a discord desktop='^8'
 bspc rule -a Anki desktop='^6'
-bspc rule -a keeweb desktop='^0'
+bspc rule -a KeeWeb:keeweb desktop='^10'

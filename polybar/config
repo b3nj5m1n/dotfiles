@@ -61,7 +61,7 @@ font-0 = "UbuntuMono Nerd Font:style=Regular:pixelsize=10"
 ; font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 ; font-2 = siji:pixelsize=10;1
 
-modules-left = i3
+modules-left = i3 bspwm
 modules-center = cmus pulseaudio
 modules-right = xbacklight xkeyboard memory cpu wlan eth battery temperature powermenu date
 
