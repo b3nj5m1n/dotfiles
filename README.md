@@ -2,7 +2,9 @@
 
 Collection of my dotfiles as well as a bunch of scripts.
 
+## bpswm
 ![bspwm](https://i.imgur.com/FW7iDir.png)
+## i3-gaps
 ![i3-gaps](https://i.imgur.com/s18UaNz.png)
 
 # Scripts
