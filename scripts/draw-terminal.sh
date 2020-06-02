@@ -22,4 +22,4 @@ bspc rule -a Alacritty -o state=floating follow=on focus=on
 alacritty --dimensions $d --position $p &
 
 # Restore the rule
-bspc rule -a Alacritty desktop='^1' follow=on focus=on
+bspc rule -a Alacritty follow=on focus=on
