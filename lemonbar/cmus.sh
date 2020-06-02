@@ -34,10 +34,10 @@ perc_chr=$(awk -v n="$chrlen" -v m="$perc" 'BEGIN{ print int( n*(m/100)) }')
 
 # What to put at the beginning of the string
 # b="\e[31m"
-b="%%{F#ff0066}"
+b=""
 # What to put in the middle of the string
 # m="\e[0m"
-m="%%{F-}"
+m="%%{F#00ff99}"
 # What to put at the end of the string
 # e="\e[0m"
 e=""
@@ -45,4 +45,4 @@ e=""
 song="$b"${song:0:$perc_chr}"$m"${song:$perc_chr:$chrlen}"$e"
 printf "$song"
 
-printf "\n"
+# printf "\n"
