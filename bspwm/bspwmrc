@@ -5,7 +5,8 @@
 sxhkd &
 picom &
 dunst &
-~/wally.sh -r -t nature &
+# ~/wally.sh -r -t nature &
+feh --bg-scale /usr/share/wallpapers/custom/eodk675sytm41.jpg
 ~/.config/polybar/polybar.sh
 setxkbmap de
 # Programms
