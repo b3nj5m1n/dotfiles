@@ -157,6 +157,11 @@ declare -A loc30=(
     [local]="./zsh/.zshrc"
     [remote]="$USER/"
 )
+declare -A loc31=(
+    [name]="ranger config"
+    [local]="./ranger/*"
+    [remote]="$USER/.config/ranger/"
+)
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
