@@ -7,55 +7,56 @@ pkgdesc='Meta package for installing everything'
 arch=(any)
 url='https://www.archlinux.org/'
 license=(GPL)
-depends=(sudo
-    git
-    makepkg
-    curl
-    wget
-    python
-    python2
-    make
-    cmake
-    binutils
-    gcc
-    pkg-config
-    fakeroot
-    autoconf
-    automake
-    ninja
-    fish
-    vim
-    neovim
-    python-pip
-    python2-pip
-    xclip
-    cargo
-    vlc
-    libreoffice-still
-    ffmpeg
-    playerctl
-    alsa-utils
-    cmus
-    alacritty
-    youtube-dl
-    imagemagick
-    xdotool
-    deepin-calculator
-    mc
-    vifm
-    cmatrix
-    figlet
-    lolcat
-    lightdm
-    lightdm-webkit2-greeter
-    lightdm-gtk-greeter
-    dmenu
-    rofi
-    feh
-    picom
-    tmux
-    syncthing
-    dunst
-    sxhkd
-    ranger
+depends=(
+sudo
+git
+makepkg
+curl
+wget
+python
+python2
+make
+cmake
+binutils
+gcc
+pkg-config
+fakeroot
+autoconf
+automake
+ninja
+fish
+vim
+neovim
+python-pip
+python2-pip
+xclip
+cargo
+vlc
+libreoffice-still
+ffmpeg
+playerctl
+alsa-utils
+cmus
+alacritty
+youtube-dl
+imagemagick
+xdotool
+deepin-calculator
+mc
+vifm
+cmatrix
+figlet
+lolcat
+lightdm
+lightdm-webkit2-greeter
+lightdm-gtk-greeter
+dmenu
+rofi
+feh
+picom
+tmux
+syncthing
+dunst
+sxhkd
+ranger
 )
