@@ -131,6 +131,7 @@ label-occupied = %index%
 label-occupied-padding = 2
 label-occupied-background = #f2f2f2
 label-occupied-foreground = ${colors.background-alt}
+label-occupied-underline= ${colors.secondary}
 
 label-urgent = %index%!
 label-urgent-background = ${colors.alert}
