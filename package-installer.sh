@@ -324,6 +324,10 @@ declare -A pac63=(
     [apt]='sxhkd'
     [tag]='essential'
 )
+declare -A pac64=(
+    [apt]='ranger'
+    [tag]='essential'
+)
 
 
 ######################## Codes ########################
