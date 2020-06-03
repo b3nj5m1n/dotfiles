@@ -315,7 +315,8 @@ cursor:
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
 shell:
- program: /usr/bin/fish
+ program: /usr/bin/zsh
+ # program: /usr/bin/fish
  args:
    - --login
 
