@@ -152,6 +152,11 @@ declare -A loc29=(
     [local]="./dunst/*"
     [remote]="$USER/.config/dunst/"
 )
+declare -A loc30=(
+    [name]="zsh config"
+    [local]="./zsh/.zshrc"
+    [remote]="$USER/"
+)
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
