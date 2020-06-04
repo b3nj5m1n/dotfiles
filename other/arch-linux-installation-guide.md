@@ -62,6 +62,8 @@ visudo
 useradd -m username
 ## Set password
 passwd username
+## Add to wheel/sudo group
+usermod -a -G wheel username
 
 # Enable dhcpcd client (internet)
 systemctl enable dhcpcd
@@ -75,6 +77,11 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 # Update all packages
 sudo pacman -Syu
+
+# Install stuff
+pacman -S bin-utils base-devel
+# Install from my meta package
+makepkg -s
 
 
 # Install desktop env
