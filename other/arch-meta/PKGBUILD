@@ -38,6 +38,7 @@ python2-pip
 xclip
 cargo
 vlc
+zsh
 libreoffice-still
 ffmpeg
 playerctl

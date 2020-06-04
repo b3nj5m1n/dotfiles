@@ -30,7 +30,7 @@ vim /etc/pacman.d/mirrorlist
 
 # Pacstrap
 
-pacstrap /mnt base linux linux-firmware vim sudo dhcp dhcpcd sudo
+pacstrap /mnt base linux linux-firmware vim sudo dhcp dhcpcd
 
 genfstab -U /mnt >> /mnt/etc/fstab
 
@@ -64,6 +64,13 @@ useradd -m username
 passwd username
 ## Add to wheel/sudo group
 usermod -a -G wheel username
+## Make sure .config (Or other) ownerships isn't screwed up
+chown -R username /home/username
+
+# AUR
+polybar
+nerd-fonts-ubuntu-mono
+neovim-plug
 
 # Enable dhcpcd client (internet)
 systemctl enable dhcpcd
@@ -79,9 +86,9 @@ grub-mkconfig -o /boot/grub/grub.cfg
 sudo pacman -Syu
 
 # Install stuff
-pacman -S bin-utils base-devel
+pacman -S binutils base-devel
 # Install from my meta package
-makepkg -s
+makepkg -sf
 
 
 # Install desktop env
