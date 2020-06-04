@@ -158,6 +158,11 @@ declare -A loc30=(
     [remote]="$USER/"
 )
 declare -A loc31=(
+    [name]="more zsh config"
+    [local]="./zsh/*"
+    [remote]="$USER/.config/zsh/"
+)
+declare -A loc32=(
     [name]="ranger config"
     [local]="./ranger/*"
     [remote]="$USER/.config/ranger/"
