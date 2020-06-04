@@ -35,11 +35,12 @@ antigen use oh-my-zsh
 
 ##### Plugins #####
 
-antigen bundle zsh-users/zsh-autosuggestions
+# antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle softmoth/zsh-vim-mode
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 ##### Themes #####
+
 antigen theme robbyrussell
 
 antigen apply
