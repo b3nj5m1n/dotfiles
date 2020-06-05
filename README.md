@@ -2,10 +2,17 @@
 
 Collection of my dotfiles as well as a bunch of scripts.
 
-## bpswm
-![bspwm](https://i.imgur.com/FW7iDir.png)
-## i3-gaps
-![i3-gaps](https://i.imgur.com/s18UaNz.png)
+## bspwm
+![bspwm](https://i.imgur.com/muvVu7x.png)
+
+<details>
+    <summary>[old] bpswm</summary>
+    <img src="https://i.imgur.com/FW7iDir.png" alt="">
+</details>
+<details>
+    <summary>[old] i3-gaps</summary>
+    <img src="https://i.imgur.com/FW7iDir.png" alt="">
+</details>
 
 # Scripts
 ## ./conf-files-updater.sh
