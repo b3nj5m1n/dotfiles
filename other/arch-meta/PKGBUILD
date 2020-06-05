@@ -48,8 +48,8 @@ alacritty
 youtube-dl
 imagemagick
 xdotool
-deepin-calculator
-mc
+# deepin-calculator
+# mc
 vifm
 cmatrix
 figlet
@@ -66,4 +66,15 @@ syncthing
 dunst
 sxhkd
 ranger
+audacity
+calibre
+cowsay
+filezilla
+gimp
+htop
+inkscape
+kdenlive
+nodejs
+npm
+obs-studio
 )

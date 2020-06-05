@@ -129,5 +129,10 @@ yay -S polybar
 yay -S nerd-fonts-ubuntu-mono
 yay -S neovim-plug
 yay -S powerline-fonts-git
+yay -S bluej
+yay -S keeweb
+yay -S openrazer-meta-git
+yay -S polychromatic
+yay -S tty-clock
 
 
