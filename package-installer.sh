@@ -372,12 +372,11 @@ done
 match="--yay"
 if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
     # Yay
-    mkdir -p $USERDocuments/Github
-    cd $USERDocuments/Github
+    mkdir -p $HOME/Documents/Github
+    cd $HOME/Documents/Github
     git clone https://aur.archlinux.org/yay.git
     cd yay
     makepkg -si
-    mkdir -p $USERDocuments/Github
 fi
 match="--picom"
 if printf '%s\n' ${args[@]} | grep -q -P '^'$match'$'; then
