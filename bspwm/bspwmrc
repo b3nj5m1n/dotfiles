@@ -3,7 +3,7 @@
 
 # Daemons & stuff
 sxhkd &
-picom &
+picom --experimental-backends &
 dunst &
 # ~/wally.sh -r -t nature &
 feh --bg-scale /usr/share/wallpapers/custom/samuel-inkilainen-arctic-spirit-with-signature.jpg
