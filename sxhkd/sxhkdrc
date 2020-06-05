@@ -106,8 +106,6 @@ super + {Left,Down,Up,Right}
 # Open terminal
 alt + Return
     alacritty
-alt + shift + Return
-    bash ~/dotfiles/scripts/draw-terminal.sh
 
 # Open application launcher
 # Alt + d
@@ -196,14 +194,18 @@ alt + c: {r,o,f}
     {bash ~/dotfiles/scripts/reimport-playlists-cmus.sh,bash ~/dotfiles/scripts/dmenuplaysong.sh,bash ~/dotfiles/scripts/fav-song.sh}
 
 
-############### Keyboard Layout ###############
+############### Scripts ###############
 
 # german, dvorak, programmer dvorak, english
 # Super + Shift + i
 super + ctrl + shift + i
     bash ~/dotfiles/scripts/keyboard-layout-switcher.sh
 
+# Draw terminal
+alt + shift + Return
+    bash ~/dotfiles/scripts/draw-terminal.sh
 
-
-
+# Take screenshot
+super + p
+    bash ~/dotfiles/scripts/take-screenshot.sh
 
