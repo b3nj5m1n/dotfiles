@@ -134,5 +134,6 @@ yay -S keeweb
 yay -S openrazer-meta-git
 yay -S polychromatic
 yay -S tty-clock
+yay -S slop
 
 
