@@ -209,3 +209,13 @@ alt + shift + Return
 super + p
     bash ~/dotfiles/scripts/take-screenshot.sh
 
+
+############### Other ###############
+
+# Kill picom
+super + F1
+    killall picom
+
+# Start picom
+super + shift + F1
+    picom --experimental-backends &
