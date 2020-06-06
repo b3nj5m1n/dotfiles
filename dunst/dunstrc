@@ -30,6 +30,7 @@ title = Dunst
 class = Dunst
 frame_color = "#ff0066"
 separator_color = frame
+transparency = 60
 
 [shortcuts]
 close = ctrl+space

@@ -301,11 +301,11 @@ label = %date% %time%
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume>
+format-volume =   <label-volume> <bar-volume>
 label-volume = VOL %percentage%%
 label-volume-foreground = ${root.foreground}
 
-label-muted = muted
+label-muted =  muted
 label-muted-foreground = #666
 
 bar-volume-width = 10
@@ -316,13 +316,13 @@ bar-volume-foreground-3 = #ff3b89
 bar-volume-foreground-4 = #ff277e
 bar-volume-foreground-5 = #ff1472
 bar-volume-foreground-6 = #ff0066
-bar-volume-gradient = true
+bar-volume-gradient = false
 bar-volume-indicator = |
-bar-volume-indicator-font = 2
+bar-volume-indicator-font = 0
 bar-volume-fill = ─
-bar-volume-fill-font = 2
+bar-volume-fill-font = 0
 bar-volume-empty = ─
-bar-volume-empty-font = 2
+bar-volume-empty-font = 0
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
 ########################   ########################
