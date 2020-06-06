@@ -4,6 +4,7 @@ Collection of my dotfiles as well as a bunch of scripts.
 
 ## bspwm
 ![bspwm](https://i.imgur.com/muvVu7x.png)
+![bspwm](https://i.imgur.com/tIWBDqA.png)
 
 <details>
     <summary>[old] bpswm</summary>
@@ -11,7 +12,7 @@ Collection of my dotfiles as well as a bunch of scripts.
 </details>
 <details>
     <summary>[old] i3-gaps</summary>
-    <img src="https://i.imgur.com/FW7iDir.png" alt="">
+    <img src="https://i.imgur.com/s18UaNz.png" alt="">
 </details>
 
 # Scripts
