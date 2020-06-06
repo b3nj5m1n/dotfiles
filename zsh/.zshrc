@@ -41,9 +41,14 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 
 ##### Themes #####
 
-antigen theme robbyrussell
+# antigen theme robbyrussell
+antigen theme cloud
+# antigen theme af-magic
 
 antigen apply
 
 bindkey -v
 export KEYTIMEOUT=1
+
+
+export EDITOR=nvim
