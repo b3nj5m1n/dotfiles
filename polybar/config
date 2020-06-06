@@ -58,6 +58,8 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = "UbuntuMono Nerd Font:style=Regular:pixelsize=12"
+font-1 = "CaskaydiaCove Nerd Font:style=Book:pixelsize=12"
+font-2 = "RobotoMono Nerd Font:style=Regular:pixelsize=12"
 ; font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 ; font-2 = siji:pixelsize=10;1
 
@@ -301,7 +303,7 @@ label = %date% %time%
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume =   <label-volume> <bar-volume>
+format-volume = <label-volume> <bar-volume>
 label-volume = VOL %percentage%%
 label-volume-foreground = ${root.foreground}
 
@@ -318,11 +320,11 @@ bar-volume-foreground-5 = #ff1472
 bar-volume-foreground-6 = #ff0066
 bar-volume-gradient = false
 bar-volume-indicator = |
-bar-volume-indicator-font = 0
+bar-volume-indicator-font = 2
 bar-volume-fill = ─
-bar-volume-fill-font = 0
+bar-volume-fill-font = 2
 bar-volume-empty = ─
-bar-volume-empty-font = 0
+bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
 ########################   ########################

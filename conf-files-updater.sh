@@ -8,11 +8,6 @@ declare -A loc0=(
     [local]="./bash/.bashrc"
     [remote]="$USER"
 )
-declare -A loc1=(
-    [name]="lightdm"
-    [local]="./lightdm/*"
-    [remote]="/etc/lightdm/"
-)
 declare -A loc2=(
     [name]="gtk2"
     [local]="./gtk/.gtkrc-2.0"
@@ -22,35 +17,15 @@ declare -A loc2=(
     [local]="./gtk/settings.ini"
     [remote]="$USER/.config/gtk-3.0/"
 )
-declare -A loc4=(
-    [name]="GTK themes"
-    [local]="./.themes/*"
-    [remote]="$USER/.themes/"
-)
 declare -A loc5=(
     [name]="picom"
     [local]="./picom/picom.conf"
     [remote]="$USER/.config/"
 )
-declare -A loc6=(
-    [name]="fish"
-    [local]="./fish/config.fish"
-    [remote]="$USER/.config/fish/"
-)
 declare -A loc7=(
     [name]="alacritty"
     [local]="./alacritty/alacritty.yml"
     [remote]="$USER/.config/alacritty/"
-)
-declare -A loc8=(
-    [name]="konsole"
-    [local]="./konsole/*"
-    [remote]="$USER/.local/share/konsole/"
-)
-declare -A loc9=(
-    [name]="vimrc"
-    [local]="./vim/.vimrc"
-    [remote]="$USER/"
 )
 declare -A loc10=(
     [name]="neovim config"
@@ -97,50 +72,20 @@ declare -A loc18=(
     [local]="./assets/lock.png"
     [remote]="$USER/"
 )
-declare -A loc19=(
-    [name]="wallpapers"
-    [local]="./wallpapers/.wallpapers/*"
-    [remote]="/usr/share/wallpapers/custom/"
-)
 declare -A loc20=(
     [name]="wally script"
     [local]="./scripts/wally.sh"
     [remote]="$USER"
-)
-declare -A loc21=(
-    [name]="i3"
-    [local]="./i3/config"
-    [remote]="$USER/.config/i3/"
 )
 declare -A loc22=(
     [name]="vim snippets"
     [local]="./vim/snippets/*"
     [remote]="$USER/.config/nvim/snippets/"
 )
-declare -A loc23=(
-    [name]="rofi config"
-    [local]="./rofi/config.rasi"
-    [remote]="$USER/.config/rofi/"
-)
-declare -A loc24=(
-    [name]="Desktop entries"
-    [local]="./xsessions/*"
-    [remote]="/usr/share/xsessions/"
-)
 declare -A loc25=(
     [name]="Hotkey daemon"
     [local]="./sxhkd/*"
     [remote]="$USER/.config/sxhkd/"
-)
-declare -A loc26=(
-    [name]="dwm autostart"
-    [local]="./dwm/*"
-    [remote]="$USER/.dwm/"
-)
-declare -A loc27=(
-    [name]="dwmblocks scripts"
-    [local]="./scripts/dwmblocks/*"
-    [remote]="$USER/dwmblocks/"
 )
 declare -A loc28=(
     [name]="bspwm config"
