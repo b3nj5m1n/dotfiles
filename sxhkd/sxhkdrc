@@ -130,7 +130,7 @@ alt + q
 
 # Emoji menu
 super + u
-    bash ~/dotfiles/scripts/dmenuunicode.sh
+    bash ~/dotfiles/scripts/insert-emoji.sh
 
 ############### Volume Control ###############
 

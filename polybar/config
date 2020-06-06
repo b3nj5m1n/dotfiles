@@ -58,10 +58,12 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = "UbuntuMono Nerd Font:style=Regular:pixelsize=12"
-font-1 = "CaskaydiaCove Nerd Font:style=Book:pixelsize=12"
-font-2 = "RobotoMono Nerd Font:style=Regular:pixelsize=12"
-; font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-; font-2 = siji:pixelsize=10;1
+; font-1 = "Noto Color Emoji:style=Regular;pixelsize=2"
+font-1 = Unifont:style=Sans-Serif Bold
+font-2 = Siji:style=Regular
+; font-1 = "Twitter Color Emoji:style=Regular:pixelsize=22"
+; font-2 = "CaskaydiaCove Nerd Font:style=Book:pixelsize=12"
+; font-3 = "RobotoMono Nerd Font:style=Regular:pixelsize=12"
 
 modules-left = homebutton i3 bspwm
 modules-center = cmus pulseaudio
@@ -551,7 +553,8 @@ format = <label>
 # format-background = ${colors.foreground}
 # format-foreground = #000000
 # format-underline = ${colors.primary}
-exec = echo " [Linux] "
+exec = echo "[Linux]"
+; label-font = 2
 tail = false
 
 ########################   ########################
