@@ -117,6 +117,11 @@ declare -A loc32=(
     [local]="./ranger/*"
     [remote]="$USER/.config/ranger/"
 )
+declare -A loc33=(
+    [name]="betterlockscreen"
+    [local]="./betterlockscreen/*"
+    [remote]="$USER/.config/"
+)
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'

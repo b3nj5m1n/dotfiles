@@ -126,7 +126,7 @@ super + w
 # Lock input
 # Alt + q
 alt + q
-    bash ~/lock.sh
+   betterlockscreen -l "blur" 
 
 # Emoji menu
 super + u

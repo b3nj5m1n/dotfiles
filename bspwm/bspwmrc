@@ -18,6 +18,7 @@ anki &
 thunderbird --class "init_thunderbird" &
 keeweb &
 syncthing &
+betterlockscreen -u /usr/share/wallpapers/custom/samuel-inkilainen-arctic-spirit-with-signature.jpg &
 
 # ~/.config/polybar/polybar.sh
 
