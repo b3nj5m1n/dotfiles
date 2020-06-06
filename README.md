@@ -53,3 +53,14 @@ The remaining functionality is:
 * --lightdm (Enables lightdm service)
 * --ycp (Runs install script of you complete me)
 * --nerd-fonts (Clones full nerd fonts repo and installs UbuntuMono)
+
+## other/
+### arch-linux-installation-guide.md
+The arch installation guide I wrote, specific to this dotfiles repo.
+Following it should get you to a setup exactly like mine, but I can't gurantee completeness.
+### color_pallete.css
+Contains the colors I use for all my custom color schemes.
+### fonts
+Contains the names of some of the fonts I use.
+### arch-meta/
+Contains a meta package with most of the programs I use.
