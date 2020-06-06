@@ -58,9 +58,10 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = "UbuntuMono Nerd Font:style=Regular:pixelsize=12"
-; font-1 = "Noto Color Emoji:style=Regular;pixelsize=2"
 font-1 = Unifont:style=Sans-Serif Bold
 font-2 = Siji:style=Regular
+font-3 = Twemoji:style=Regular:pixelsize=12:scale=4
+; font-1 = "Noto Color Emoji:style=Regular;pixelsize=2"
 ; font-1 = "Twitter Color Emoji:style=Regular:pixelsize=22"
 ; font-2 = "CaskaydiaCove Nerd Font:style=Book:pixelsize=12"
 ; font-3 = "RobotoMono Nerd Font:style=Regular:pixelsize=12"
@@ -556,6 +557,7 @@ format = <label>
 exec = echo "[Linux]"
 ; label-font = 2
 tail = false
+format-prefix = "🍍"
 
 ########################   ########################
 [module/layout]
