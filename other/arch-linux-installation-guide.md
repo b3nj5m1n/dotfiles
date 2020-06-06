@@ -126,7 +126,6 @@ cd bigconf
 cd dotfiles/
 ./package-installer.sh --yay
 yay -S polybar
-yay -S nerd-fonts-ubuntu-mono
 yay -S neovim-plug
 yay -S powerline-fonts-git
 yay -S bluej
@@ -136,5 +135,12 @@ yay -S polychromatic
 yay -S tty-clock
 yay -S slop
 yay -S betterlockscreen
+yay -S libxft-bgra
+# Fonts
+yay -S ttf-twemoji
+yay -S siji-git
+yay -S nerd-fonts-ubuntu-mono
+yay -S nerd-fonts-cascadia-code
+yay -S nerd-fonts-roboto-mono
 
 
