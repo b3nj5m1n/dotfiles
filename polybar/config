@@ -65,7 +65,7 @@ font-2 = "RobotoMono Nerd Font:style=Regular:pixelsize=12"
 
 modules-left = homebutton i3 bspwm
 modules-center = cmus pulseaudio
-modules-right = xbacklight xkeyboard memory cpu wlan eth battery temperature date
+modules-right = layout xbacklight xkeyboard memory cpu wlan eth battery temperature date
 
 
 tray-position = none
@@ -107,6 +107,7 @@ label-indicator-padding = 2
 label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
 label-indicator-underline = ${colors.primary}
+
 
 ########################   ########################
 [module/filesystem]
@@ -552,3 +553,18 @@ format = <label>
 # format-underline = ${colors.primary}
 exec = echo " [Linux] "
 tail = false
+
+########################   ########################
+[module/layout]
+type = custom/script
+
+format = <label>
+# format-background = ${colors.foreground}
+# format-foreground = #000000
+# format-underline = ${colors.primary}
+exec = echo " [Layout] "
+
+click-left = "bash ~/dotfiles/scripts/keyboard-layout-switcher.sh"
+tail = false
+
+
