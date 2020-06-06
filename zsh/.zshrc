@@ -35,17 +35,35 @@ antigen use oh-my-zsh
 
 ##### Plugins #####
 
-# antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle softmoth/zsh-vim-mode
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle softmoth/zsh-vim-mode
 
 ##### Themes #####
 
 # antigen theme robbyrussell
-antigen theme cloud
+# antigen theme cloud
 # antigen theme af-magic
 
 antigen apply
+
+
+##### Prompt #####
+
+if [[ -z $ZSH_THEME_CLOUD_PREFIX ]]; then
+    ZSH_THEME_CLOUD_PREFIX=''
+fi
+
+PROMPT='%{$fg_bold[green]%}%p %{$FG[197]%}%c %{$fg_bold[cyan]%}$(git_prompt_info)%{$fg_bold[blue]%}% %{$fg_bold[green]%}$ZSH_THEME_CLOUD_PREFIX %{$reset_color%}'
+
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}[%{$FG[197]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}]%{$FG[197]%}⚡%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}]"
+
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#737373"
+
 
 bindkey -v
 export KEYTIMEOUT=1
