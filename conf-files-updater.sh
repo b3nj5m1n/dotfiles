@@ -8,6 +8,11 @@ declare -A loc0=(
     [local]="./bash/.bashrc"
     [remote]="$USER"
 )
+declare -A loc1=(
+    [name]="lightdm"
+    [local]="./lightdm/*"
+    [remote]="/etc/lightdm/"
+)
 declare -A loc2=(
     [name]="gtk2"
     [local]="./gtk/.gtkrc-2.0"
