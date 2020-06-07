@@ -54,13 +54,13 @@ border-color = #00000000
 padding-left = 0
 padding-right = 2
 
-module-margin-left = 1
+module-margin-left = 2
 module-margin-right = 2
 
 font-0 = "UbuntuMono Nerd Font:style=Regular:pixelsize=12"
 font-1 = Unifont:style=Sans-Serif Bold
 font-2 = Siji:style=Regular
-font-3 = Twemoji:style=Regular:pixelsize=12:scale=4
+font-3 = Twemoji:style=Regular:scale=4
 ; font-1 = "Noto Color Emoji:style=Regular;pixelsize=2"
 ; font-1 = "Twitter Color Emoji:style=Regular:pixelsize=22"
 ; font-2 = "CaskaydiaCove Nerd Font:style=Book:pixelsize=12"
@@ -308,7 +308,7 @@ label = %date% %time%
 type = internal/pulseaudio
 
 format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
+; label-volume = VOL %percentage%%
 label-volume-foreground = ${root.foreground}
 
 label-muted =  muted
@@ -554,8 +554,7 @@ format = <label>
 # format-background = ${colors.foreground}
 # format-foreground = #000000
 # format-underline = ${colors.primary}
-exec = echo "[Linux]"
-; label-font = 2
+exec = echo "[Arch]"
 tail = false
 format-prefix = "🍍"
 

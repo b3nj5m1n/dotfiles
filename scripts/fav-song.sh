@@ -14,6 +14,8 @@ files=$(find $dirname -maxdepth 1 -name $filter)
 # File to write to
 filename=$(printf "$files" | dmenu -c)
 
+[ -z "$filename" ] && exit
+
 # Get relative path to song and write it to the file
 songname=$(cmus-remote -Q 2>/dev/null | sed "s/file \/mnt\/Vault\/music/./;t;d")
 printf "%s" "$songname" >> $filename
