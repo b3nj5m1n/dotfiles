@@ -27,3 +27,6 @@ done
 
 # Switch to playlist view
 cmus-remote -C "view 3"
+
+# Send notification
+notify-send -a "reimport-playlists-cmus.sh" "Reimport Playlists" "Reimport of cmus playlists completet"
