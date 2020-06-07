@@ -7,5 +7,11 @@ dirname="/mnt/Vault/music/"
 
 cd "$dirname"
 selection=$(find -name "*.mp3" | dmenu -i -F)
-echo $selection
-cmus-remote -f "$filename$selection"
+
+[ -z "$selection" ] && exit
+
+cmus-remote -f "$selection"
+
+# Send notification
+songname=$(echo "$selection" | rev | cut -d '/' -f 1 | rev)
+notify-send -a "play-song" "Play song" "Now playing song <i>$songname</i>"
