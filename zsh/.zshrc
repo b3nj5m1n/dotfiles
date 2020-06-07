@@ -70,3 +70,6 @@ export KEYTIMEOUT=1
 
 
 export EDITOR=nvim
+
+autoload edit-command-line; zle -N edit-command-line
+bindkey -M vicmd ' ' edit-command-line
