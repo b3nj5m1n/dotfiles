@@ -1,3 +1,8 @@
+if [ $(($RANDOM % 4)) -eq $((1)) ]; then
+	pfetch
+fi
+
+
 source /home/b3nj4m1n/.config/zsh/antigen.zsh
 
 # The following lines were added by compinstall
