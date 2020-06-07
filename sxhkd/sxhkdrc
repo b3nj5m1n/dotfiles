@@ -183,7 +183,7 @@ alt + m
 # firefox, nautilus, cli-visualizer, keeweb
 # Alt + v | f n v k
 alt + v: {f,n,v,k}
-    {firefox,nautilus,alacritty -e "vis",keeweb}
+    {firefox,nautilus,alacritty -e "vis",keeweb}; pkill -ALRM sxhkd
 
 
 ############### Cmus Control ###############
@@ -191,7 +191,7 @@ alt + v: {f,n,v,k}
 # restart, open, fav
 # Alt + c | r o f
 alt + c: {r,o,f}
-    {bash ~/dotfiles/scripts/reimport-playlists-cmus.sh,bash ~/dotfiles/scripts/dmenuplaysong.sh,bash ~/dotfiles/scripts/fav-song.sh}
+    {bash ~/dotfiles/scripts/reimport-playlists-cmus.sh,bash ~/dotfiles/scripts/play-song.sh,bash ~/dotfiles/scripts/fav-song.sh}; pkill -ALRM sxhkd
 
 
 ############### Scripts ###############
