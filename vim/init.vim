@@ -138,7 +138,7 @@ let mapleader = "*"
 " Mappings
 
 " Ctrl + a selects entire file
-map <C-a> <esc>ggVG<CR>
+" map <C-a> <esc>ggVG<CR>
 
 " Ctrl + left/right switch current tab to previous/next
 nnoremap <C-h> :tabprevious<CR>
