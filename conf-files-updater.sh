@@ -34,13 +34,13 @@ declare -A loc7=(
 )
 declare -A loc10=(
     [name]="neovim config"
-    [local]="./vim/init.vim"
+    [local]="./nvim/*"
     [remote]="$USER/.config/nvim/"
 )
 declare -A loc11=(
     [name]="pinky vim airline theme"
     [local]="./vim/pinky_airline.vim"
-    [remote]="$USER/.vim/plugged/vim-airline-themes/autoload/airline/themes/"
+    [remote]="$USER/.config/nvim/autoload/plugged/vim-airline-themes/autoload/airline/themes/"
 )
 declare -A loc12=(
     [name]="icon locks"
