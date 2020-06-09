@@ -137,6 +137,7 @@ yay -S slop
 yay -S betterlockscreen
 yay -S libxft-bgra
 yay -S ntfs-3g-fuse
+yay -S python-ueberzug-git
 # Fonts
 yay -S ttf-twemoji
 yay -S siji-git
