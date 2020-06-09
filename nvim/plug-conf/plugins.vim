@@ -5,7 +5,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Coc extensions
 let g:coc_global_extensions = [ "coc-clangd", "coc-css", "coc-explorer", "coc-html", "coc-java", "coc-json", "coc-python", "coc-snippets", "coc-tsserver", "coc-vimlsp", "coc-xml", "coc-pairs" ]
 
-" Snippets
+" Snippets (Premade snippet files)
 Plug 'honza/vim-snippets'
 
 " Surround text object
@@ -39,6 +39,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 " Indicate changed, removed or added lines
 Plug 'mhinz/vim-signify'
+
+" Ranger integration
+Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
 
 " Color Schemes
 Plug 'b3nj5m1n/dotfiles'

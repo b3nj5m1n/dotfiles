@@ -20,3 +20,6 @@ nnoremap <leader>u <c-w>w
 nnoremap <leader>z :set cursorline!<CR>
 " Toggle current column highlighting
 nnoremap <leader>t :set cursorcolumn!<CR>
+
+" Open ranger
+nmap <leader>r :RnvimrToggle<CR>
