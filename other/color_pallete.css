@@ -1,51 +1,75 @@
+# Current
+{
+    bglighter = #322d32 238
+    bglight = #242124 235
+    bg = #171517 233
+    bgdark = #0a090a 232
+    bgdarker = #000000 0
+
+    comment = #1affa3 87
+    selection = #ff3385 164
+    subtle = #424450 244
+
+    cyan = #00b4d8 33
+    green = #00ff99 42
+    orange = #f85e00 202
+    pink = #ff0066 161
+    purple = #a20478 171
+    red = #ff1b1c 160
+    yellow = #f0d100 184
+}
+
+
+
+
 # Color Pallete
 {
 
-#Background #171517 
-#Foreground #f5f5f5
-#Selection  #ff3385
-#Comment    #1affa3
-#Red        #ff1b1c
-#Orange     #f85e00
-#Yellow     #f0e100
-#Green      #00ff99
-#Purple     #700353
-#Cyan       #00b4d8
-#Pink       #ff0066
+    #Background #171517 
+    #Foreground #f5f5f5
+    #Selection  #ff3385
+    #Comment    #1affa3
+    #Red        #ff1b1c
+    #Orange     #f85e00
+    #Yellow     #f0e100
+    #Green      #00ff99
+    #Purple     #700353
+    #Cyan       #00b4d8
+    #Pink       #ff0066
 
 }
 
 # Bright Color Pallete
 {
 
-#Background #0a090a 
-#Foreground #f8f8f8
-#Selection  #ff3385
-#Comment    #1affb6
-#Red        #ff0103
-#Orange     #ef4110
-#Yellow     #fff00b
-#Green      #00ffae
-#Purple     #bb058a
-#Cyan       #26dbff
-#Pink       #ff0066
+    #Background #0a090a 
+    #Foreground #f8f8f8
+    #Selection  #ff3385
+    #Comment    #1affb6
+    #Red        #ff0103
+    #Orange     #ef4110
+    #Yellow     #fff00b
+    #Green      #00ffae
+    #Purple     #bb058a
+    #Cyan       #26dbff
+    #Pink       #ff0066
 
 }
 
 # Dim Color Pallete
 {
 
-#Background #242124 
-#Foreground #f2f2f2
-#Selection  #ff3396
-#Comment    #1aff90
-#Red        #ff3535
-#Orange     #ff6c13
-#Yellow     #ebf000
-#Green      #00ff94
-#Purple     #700365
-#Cyan       #009fbf
-#Pink       #ff007b
+    #Background #242124 
+    #Foreground #f2f2f2
+    #Selection  #ff3396
+    #Comment    #1aff90
+    #Red        #ff3535
+    #Orange     #ff6c13
+    #Yellow     #ebf000
+    #Green      #00ff94
+    #Purple     #700365
+    #Cyan       #009fbf
+    #Pink       #ff007b
 
 }
 
@@ -73,25 +97,25 @@
 
 # Basic Color Pallete
 {
-#ff0066 Base color
-#00ff99 Complementary color
-#171517 Background color
-#f5f5f5 Foreground color
-#242426 Darker Background
+    #ff0066 Base color
+    #00ff99 Complementary color
+    #171517 Background color
+    #f5f5f5 Foreground color
+    #242426 Darker Background
 }
 
 # Other Stuff
 {
-#00e6ff light blue
-#00ff99 blue green ish thingy
-#9900ff purple magenta
+    #00e6ff light blue
+    #00ff99 blue green ish thingy
+    #9900ff purple magenta
 }
 
 # Shades of Pink /w complementary colors
 {
-#eb005e #00eb8d
-#c4004e #00c476
-#ff1472 #14ffa1
+    #eb005e #00eb8d
+    #c4004e #00c476
+    #ff1472 #14ffa1
 }
 
 #26dbff

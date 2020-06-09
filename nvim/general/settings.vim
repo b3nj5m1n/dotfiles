@@ -30,7 +30,7 @@ set nobackup
 " Keep a file with the undo stack
 set undofile
 " File to store undo stack in
-set undodir=~/.vim/undodir
+set undodir=~/.config/nvim/undodir
 " Directly jump to next match when searching
 set incsearch
 " Set encoding
