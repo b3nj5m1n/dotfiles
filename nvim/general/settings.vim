@@ -39,10 +39,10 @@ set termguicolors
 set fdm=syntax
 " Deepest possible fold
 set foldnestmax=20
-" Don't fold by default
-set nofoldenable
+" Enable fold by default
+set foldenable
 " The higher, the more folded regions are open (0 = all folds closed)
-set foldlevel=1
+set foldlevel=5
 " Enable line numbers
 set nu
 " Enable realitve line numbers
@@ -51,7 +51,7 @@ set relativenumber
 set cursorline
 " Set color of current line highlighting
 hi CursorLine guibg= #242124
-" Indicate current column
-set cursorcolumn
+" Indicate current column (Disable by default, change with keymapping)
+set nocursorcolumn
 " Set color of current column highlighting
 hi CursorColumn guibg= #242124
