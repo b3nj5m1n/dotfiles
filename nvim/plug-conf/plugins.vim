@@ -3,7 +3,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 " Completion, file browsing, snippets, surround, etc.
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Coc extensions
-let g:coc_global_extensions = [ "coc-clangd", "coc-css", "coc-explorer", "coc-html", "coc-java", "coc-json", "coc-python", "coc-snippets", "coc-tsserver", "coc-vimlsp", "coc-xml" ]
+let g:coc_global_extensions = [ "coc-clangd", "coc-css", "coc-explorer", "coc-html", "coc-java", "coc-json", "coc-python", "coc-snippets", "coc-tsserver", "coc-vimlsp", "coc-xml", "coc-pairs" ]
 
 " Surround text object
 Plug 'tpope/vim-surround'
