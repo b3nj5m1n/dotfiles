@@ -9,9 +9,6 @@ nnoremap <C-l> :tabnext<CR>
 nnoremap <silent> <A-h> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-l> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
 
-" Ctrl + n to toggle nerd tree
-map <C-n> :NERDTreeToggle<CR>
-
 " Mod + u to switch between open split screens
 nnoremap <leader>u <c-w>w
 
