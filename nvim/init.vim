@@ -12,7 +12,9 @@ source ~/.config/nvim/general/mappings.vim
 
 " Plugin Configs
 
-source ~/.config/nvim/plug-conf/nerd-tree.vim
+source ~/.config/nvim/plug-conf/coc.vim
+
+" source ~/.config/nvim/plug-conf/nerd-tree.vim
 
 source ~/.config/nvim/plug-conf/quick-scope.vim
 

@@ -3,6 +3,8 @@ syntax on
 " Set color scheme
 colorscheme Pinky
 
+" Enable mouse support
+set mouse=a
 " Disable error bell & screen flashing
 set noerrorbells
 " Insert spaces instead of tab
