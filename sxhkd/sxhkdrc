@@ -214,10 +214,14 @@ super + p
 
 ############### Other ###############
 
+# Show sxhkd help page
+F1
+    bash ~/dotfiles/scripts/sxhkd-help-page.sh
+
 # Kill picom
-super + F1
+super + F2
     killall picom
 
 # Start picom
-super + shift + F1
+super + shift + F2
     picom --experimental-backends &
