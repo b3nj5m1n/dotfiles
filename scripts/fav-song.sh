@@ -18,7 +18,7 @@ filename=$(printf "$files" | dmenu -c)
 
 # Get relative path to song and write it to the file
 songname=$(cmus-remote -Q 2>/dev/null | sed "s/file \/mnt\/Vault\/music/./;t;d")
-printf "%s" "$songname" >> $filename
+printf "%s\n" "$songname" >> $filename
 
 # Display notification
 filename=$(echo "$filename" | rev | cut -d '/' -f 1 | rev)
