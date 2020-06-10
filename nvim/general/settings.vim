@@ -44,7 +44,9 @@ set foldnestmax=20
 " Enable fold by default
 set foldenable
 " The higher, the more folded regions are open (0 = all folds closed)
-set foldlevel=5
+" set foldlevel=99
+" Initial fold level
+set foldlevelstart=1
 " Enable line numbers
 set nu
 " Enable realitve line numbers

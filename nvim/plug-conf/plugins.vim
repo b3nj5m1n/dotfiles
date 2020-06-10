@@ -8,11 +8,17 @@ let g:coc_global_extensions = [ "coc-clangd", "coc-css", "coc-explorer", "coc-ht
 " Snippets (Premade snippet files)
 Plug 'honza/vim-snippets'
 
+" Repeat commands by plugins
+Plug 'tpope/vim-repeat'
+
 " Surround text object
 Plug 'tpope/vim-surround'
 
 " Comment out text
 Plug 'tpope/vim-commentary'
+
+" Faster handeling of folds
+Plug 'Konfekt/FastFold'
 
 " Replace with register example: gr iw replaces the inner word, gr replaces
 " the curent selection
