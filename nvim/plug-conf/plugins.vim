@@ -26,6 +26,7 @@ Plug 'vim-scripts/ReplaceWithRegister'
 
 " Personal wiki
 Plug 'vimwiki/vimwiki'
+let g:vimwiki_list = [{'path': '~/Documents/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 " Highlight color codes
 Plug 'ap/vim-css-color'
