@@ -24,6 +24,9 @@ Plug 'Konfekt/FastFold'
 " the curent selection
 Plug 'vim-scripts/ReplaceWithRegister'
 
+" Personal wiki
+Plug 'vimwiki/vimwiki'
+
 " Highlight color codes
 Plug 'ap/vim-css-color'
 
