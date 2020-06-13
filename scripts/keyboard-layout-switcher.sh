@@ -23,3 +23,5 @@ fi
 
 # Send notification
 notify-send -a "keyboard-layout-switcher" "Layout Switcher" "Switched keyboard layout to <i>$selection</i>"
+# Send signal to lemonblocks
+pkill lemonblocks -7 &
