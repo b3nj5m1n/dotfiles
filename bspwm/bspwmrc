@@ -6,9 +6,10 @@ sxhkd &
 picom --experimental-backends &
 dunst &
 # ~/wally.sh -r -t nature &
-feh --bg-scale /usr/share/wallpapers/custom/samuel-inkilainen-arctic-spirit-with-signature.jpg
-~/.config/polybar/polybar.sh
-setxkbmap de
+feh --bg-scale /usr/share/wallpapers/custom/samuel-inkilainen-arctic-spirit-with-signature.jpg &
+# ~/.config/polybar/polybar.sh
+start-lemonbar.sh &
+setxkbmap de &
 python ~/dotfiles/scripts/bspwm-swallow.py &
 # Programms
 
@@ -20,6 +21,7 @@ thunderbird --class "init_thunderbird" &
 keeweb &
 syncthing &
 betterlockscreen -u /usr/share/wallpapers/custom/samuel-inkilainen-arctic-spirit-with-signature.jpg &
+lemonblocks &
 
 # ~/.config/polybar/polybar.sh
 
