@@ -140,46 +140,46 @@ super + u
 
 # Increase volume
 XF86AudioRaiseVolume
-    amixer sset 'Master' 3%+
+    amixer sset 'Master' 3%+; pkill lemonblocks -6
 alt + shift + plus
-    amixer sset 'Master' 1%+
+    amixer sset 'Master' 1%+; pkill lemonblocks -6
 
 
 # Decrease volume
 XF86AudioLowerVolume
-    amixer sset 'Master' 3%-
+    amixer sset 'Master' 3%-; pkill lemonblocks -6
 alt + shift + minus
-    amixer sset 'Master' 1%-
+    amixer sset 'Master' 1%-; pkill lemonblocks -6
 
 
 # Mute
 XF86AudioMute
-    amixer -D pulse set 'Master' toggle
+    amixer -D pulse set 'Master' toggle; pkill lemonblocks -6
 
 ############### Player Control ###############
 
 # Pause playback
 XF86AudioPlay
-    cmus-remote -u
+    cmus-remote -u; pkill lemonblocks -5
 # Alt + p
 alt + p
-    cmus-remote -u
+    cmus-remote -u; pkill lemonblocks -5
 
 
 # Next song
 XF86AudioNext
-    cmus-remote -n
+    cmus-remote -n; pkill lemonblocks -5
 # Alt + n
 alt + n
-    cmus-remote -n
+    cmus-remote -n; pkill lemonblocks -5
 
 
 # Previous song
 XF86AudioPrev
-    cmus-remote -r
+    cmus-remote -r; pkill lemonblocks -5
 # Alt + m
 alt + m
-    cmus-remote -r
+    cmus-remote -r; pkill lemonblocks -5
 
 
 ############### Launch Programms ###############
