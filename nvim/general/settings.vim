@@ -1,7 +1,11 @@
 " Enable syntax highlighting
 syntax on
+" Enable termguicolors
+if has('termguicolors')
+  set termguicolors
+endif
 " Set color scheme
-colorscheme Pinky
+colorscheme gruvbox-material
 
 " Enable mouse support
 set mouse=a

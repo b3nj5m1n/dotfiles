@@ -54,7 +54,8 @@ Plug 'mhinz/vim-signify'
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
 
 " Color Schemes
-Plug 'b3nj5m1n/dotfiles'
+" Plug 'b3nj5m1n/dotfiles'
+Plug 'b3nj5m1n/gruvbox-material', { 'branch': 'pinky' }
 
 call plug#end()
 
