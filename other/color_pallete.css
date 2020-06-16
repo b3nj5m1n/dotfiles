@@ -19,6 +19,60 @@
     yellow = #f0d100 184
 }
 
+{
+red = #ff0066 : 197
+orange = #e7480d : 166
+yellow = #c6c62a : 184
+green = #00ff66 : 47
+aqua/cyan = #33ffff : 87
+blue = #0563c2 : 25
+purple/magenta = #8649e1 : 98
+black = #000000 : 16
+white = #ffffff : 231
+}
+
+let palette1 = {
+bg0 = #171517 : 233
+bg1 = #141214 : 233
+bg2 = #1f1c1f : 234
+bg3 = #292529 : 235
+bg4 = #332e33 : 236
+bg5 = #3e373e : 237
+
+bg_statusline1 = #242124 : 235
+bg_statusline2 = #322d32 : 236
+bg_statusline3 = #424450 : 238
+bg_diff_green = #40bf73 : 71
+bg_visual_green = #5ea179 : 72
+bg_diff_red = #d12e6f : 161
+bg_visual_red = #b54a75 : 132
+bg_diff_blue = #29639e : 25
+bg_visual_blue = #4d637a : 60
+bg_visual_yellow = #a8a848 : 143
+bg_current_word = #1d2021 : 234
+}
+
+let palette2 = {
+fg0 = #f7f3f3 : 255
+fg1 = #e7dbdb : 253
+red = #ff0066 : 197
+orange = #e7480d : 166
+yellow = #c6c62a : 184
+green = #00ff66 : 47
+aqua = #33ffff : 87
+blue = #0563c2 : 25
+purple = #8649e1 : 98
+bg_red = #ff0066 : 197
+bg_green = #00ff66 : 47
+bg_yellow = #c6c62a : 184
+}
+
+let palette3 = {
+grey0 = #31343c : 237
+grey1 = #3a3b47 : 237
+grey2 = #525551 : 239
+none = NONE # NONE
+}
 
 
 
