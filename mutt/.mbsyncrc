@@ -1,0 +1,52 @@
+IMAPStore username1@email.com-remote
+Host imap.email.net
+Port 993
+User username1@email.com
+PassCmd "pass username1@email.com"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore username1@email.com-local
+Subfolders Verbatim
+Path ~/.local/share/mail/username1@email.com/
+Inbox ~/.local/share/mail/username1@email.com/INBOX
+Flatten .
+
+Channel username1@email.com
+Expunge Both
+Master :username1@email.com-remote:
+Slave :username1@email.com-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile
+
+
+IMAPStore username2@email.com-remote
+Host imap.email.net
+Port 993
+User username2@email.com
+PassCmd "pass username2@email.com"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore username2@email.com-local
+Subfolders Verbatim
+Path ~/.local/share/mail/username2@email.com/
+Inbox ~/.local/share/mail/username2@email.com/INBOX
+Flatten .
+
+Channel username2@email.com
+Expunge Both
+Master :username2@email.com-remote:
+Slave :username2@email.com-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile
