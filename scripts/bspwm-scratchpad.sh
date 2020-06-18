@@ -14,6 +14,8 @@ if [ -z "$id" ]; then
     alacritty --class "$classname" --dimensions $d --position $p -e "$classname" &
 fi
 
+# Send window to current desktop
+bspc node "$id" -d $(bspc query -D -d focused)
 bspc node "$id" --flag hidden -f
 bspc node "$id" --flag sticky
 bspc node "$id" -t floating
