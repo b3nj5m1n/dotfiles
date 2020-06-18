@@ -9,7 +9,7 @@ dunst &
 feh --bg-scale /usr/share/wallpapers/custom/samuel-inkilainen-arctic-spirit-with-signature.jpg &
 # ~/.config/polybar/polybar.sh
 setxkbmap de &
-# python ~/dotfiles/scripts/bspwm-swallow.py &
+pidof bspswallow || ~/dotfiles/scripts/bspwm-swallow.sh &
 # Programms
 
 
