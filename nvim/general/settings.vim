@@ -63,3 +63,7 @@ hi CursorLine guibg= #242124
 set nocursorcolumn
 " Set color of current column highlighting
 hi CursorColumn guibg= #242124
+
+" Use markdown for calcurse note files
+autocmd BufRead,BufNewFile /tmp/calcurse* set filetype=markdown
+autocmd BufRead,BufNewFile ~/.calcurse/notes/* set filetype=markdown
