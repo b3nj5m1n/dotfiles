@@ -5,23 +5,25 @@
 sxhkd &
 picom --experimental-backends &
 dunst &
-# ~/wally.sh -r -t nature &
 feh --bg-scale /usr/share/wallpapers/custom/samuel-inkilainen-arctic-spirit-with-signature.jpg &
-# ~/.config/polybar/polybar.sh
 setxkbmap de &
 pidof bspswallow || ~/dotfiles/scripts/bspwm-swallow.sh &
+betterlockscreen -u /usr/share/wallpapers/custom/samuel-inkilainen-arctic-spirit-with-signature.jpg &
+syncthing &
+killall lemonblocks
+start-lemonbar.sh &
+
 # Programms
-
-
 firefox --class="init_firefox" &
-alacritty --class "cmus" -e "cmus" &
 # discord &
 # anki &
-# thunderbird --class "init_thunderbird" &
 # keeweb &
-syncthing &
-betterlockscreen -u /usr/share/wallpapers/custom/samuel-inkilainen-arctic-spirit-with-signature.jpg &
-start-lemonbar.sh &
+
+# Scratchpads
+killall cmus && killall neomutt && killall calcurse
+alacritty --class "cmus" -e "cmus" &
+alacritty --class "neomutt" --dimensions 226 60 --position 50 60  -e "neomutt" &
+alacritty --class "calcurse" -e "calcurse" &
 
 # ~/.config/polybar/polybar.sh
 
@@ -66,10 +68,13 @@ bspc config urgent_border_color 	      "#ff1b1c"
 
 bspc rule -a init_firefox desktop='^2'
 bspc rule -a init_thunderbird desktop='^7'
-bspc rule -a Alacritty:cmus desktop='^9'
 bspc rule -a discord desktop='^8'
 bspc rule -a Anki desktop='^6'
 bspc rule -a KeeWeb:keeweb desktop='^10'
 bspc rule -a *:SPLASH state=floating 
+# Scratchpad inital start
+bspc rule -a Alacritty:cmus desktop='^10' state='floating' hidden='true'
+bspc rule -a Alacritty:neomutt desktop='^10' state='floating' hidden='true'
+bspc rule -a Alacritty:calcurse desktop='^10' state='floating' hidden='true'
 
 bspc desktop -f 1

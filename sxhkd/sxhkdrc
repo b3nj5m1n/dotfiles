@@ -236,6 +236,9 @@ alt + u:
 # Calcurse scratchpad
 alt + t:
     bash ~/dotfiles/scripts/bspwm-scratchpad.sh "calcurse"
+# Cmus scratchpad
+alt + r:
+    bash ~/dotfiles/scripts/bspwm-scratchpad.sh "cmus"
 
 
 

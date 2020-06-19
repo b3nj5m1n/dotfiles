@@ -15,10 +15,9 @@ if [ -z "$id" ]; then
     # Wait for process to open, then get the window id
     sleep 1
     id=$(xdotool search --classname "$classname")
-    echo $id
+    bspc node "$id" -t floating
+    bspc node "$id" --flag sticky
 fi
 # Send window to current desktop
 bspc node "$id" -d $(bspc query -D -d focused)
-bspc node "$id" -t floating
 bspc node "$id" --flag hidden -f
-bspc node "$id" --flag sticky
