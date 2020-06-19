@@ -12,11 +12,13 @@ p="50 60"
 id=$(xdotool search --classname "$classname")
 if [ -z "$id" ]; then
     alacritty --class "$classname" --dimensions $d --position $p -e "$classname" &
+    # Wait for process to open, then get the window id
+    sleep 1
+    id=$(xdotool search --classname "$classname")
+    echo $id
 fi
-
 # Send window to current desktop
 bspc node "$id" -d $(bspc query -D -d focused)
+bspc node "$id" -t floating
 bspc node "$id" --flag hidden -f
 bspc node "$id" --flag sticky
-bspc node "$id" -t floating
-

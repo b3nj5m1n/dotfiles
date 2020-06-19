@@ -231,7 +231,7 @@ super + shift + F2
     picom --experimental-backends &
 
 # Neomutt scratchpad
-alt + z:
+alt + u:
     bash ~/dotfiles/scripts/bspwm-scratchpad.sh "neomutt"
 # Calcurse scratchpad
 alt + t:
