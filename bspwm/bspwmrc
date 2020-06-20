@@ -9,7 +9,7 @@ feh --bg-scale /usr/share/wallpapers/custom/samuel-inkilainen-arctic-spirit-with
 setxkbmap de &
 pidof bspswallow || ~/dotfiles/scripts/bspwm-swallow.sh &
 betterlockscreen -u /usr/share/wallpapers/custom/samuel-inkilainen-arctic-spirit-with-signature.jpg &
-syncthing &
+syncthing -no-browser &
 killall lemonblocks
 start-lemonbar.sh &
 
