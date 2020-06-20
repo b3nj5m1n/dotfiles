@@ -230,6 +230,14 @@ super + F2
 super + shift + F2
     picom --experimental-backends &
 
+# Mount drives
+super + F3
+    bash ~/dotfiles/scripts/dmenu-mount.sh
+
+# Unmount drives
+super + shift + F3
+    bash ~/dotfiles/scripts/dmenu-umount.sh
+
 # Neomutt scratchpad
 alt + u:
     bash ~/dotfiles/scripts/bspwm-scratchpad.sh "neomutt"
