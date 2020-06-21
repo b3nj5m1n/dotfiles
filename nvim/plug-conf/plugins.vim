@@ -37,6 +37,11 @@ Plug 'unblevable/quick-scope'
 " Better vertical motion
 Plug 'justinmk/vim-sneak'
 
+" File searching
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-rooter'
+
 " Editor config
 Plug 'editorconfig/editorconfig-vim'
 

@@ -21,3 +21,5 @@ source ~/.config/nvim/plug-conf/quick-scope.vim
 source ~/.config/nvim/plug-conf/sneak.vim
 
 source ~/.config/nvim/plug-conf/airline.vim
+
+source ~/.config/nvim/plug-conf/fzf.vim
