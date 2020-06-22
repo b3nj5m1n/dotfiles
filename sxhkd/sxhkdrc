@@ -40,7 +40,7 @@ alt + {h,j,k,l}
 
 # Move node in the given direction
 alt + shift + {h,j,k,l}
-    bash ~/dotfiles/scripts/bspwm-smart-move.sh  {west,south,north,east}
+    bash /usr/bin/scripts/bspwm-smart-move.sh  {west,south,north,east}
 
 # focus the node for the given path jump
 # alt + {p,b,comma,period}
@@ -134,7 +134,7 @@ alt + q
 
 # Emoji menu
 super + u
-    bash ~/dotfiles/scripts/emoji-picker.sh
+    bash /usr/bin/scripts/emoji-picker.sh
 
 ############### Volume Control ###############
 
@@ -196,7 +196,7 @@ alt + v: {f,n,v,k}
 # restart, open, fav
 # Alt + c | r o f
 alt + c: {r,o,f}
-    {bash ~/dotfiles/scripts/reimport-playlists-cmus.sh,bash ~/dotfiles/scripts/play-song.sh,bash ~/dotfiles/scripts/fav-song.sh} & \
+    {bash /usr/bin/scripts/reimport-playlists-cmus.sh,bash /usr/bin/scripts/play-song.sh,bash /usr/bin/scripts/fav-song.sh} & \
     pkill -ALRM sxhkd
 
 
@@ -205,22 +205,22 @@ alt + c: {r,o,f}
 # german, dvorak, programmer dvorak, english
 # Super + Shift + i
 super + ctrl + shift + i
-    bash ~/dotfiles/scripts/keyboard-layout-switcher.sh
+    bash /usr/bin/scripts/keyboard-layout-switcher.sh
 
 # Draw terminal
 alt + shift + Return
-    bash ~/dotfiles/scripts/draw-terminal.sh
+    bash /usr/bin/scripts/draw-terminal.sh
 
 # Take screenshot
 super + p
-    bash ~/dotfiles/scripts/take-screenshot.sh
+    bash /usr/bin/scripts/take-screenshot.sh
 
 
 ############### Other ###############
 
 # Show sxhkd help page
 F1
-    bash ~/dotfiles/scripts/sxhkd-help-page.sh
+    bash /usr/bin/scripts/sxhkd-help-page.sh
 
 # Kill picom
 super + F2
@@ -232,21 +232,21 @@ super + shift + F2
 
 # Mount drives
 super + F3
-    bash ~/dotfiles/scripts/dmenu-mount.sh
+    bash /usr/bin/scripts/dmenu-mount.sh
 
 # Unmount drives
 super + shift + F3
-    bash ~/dotfiles/scripts/dmenu-umount.sh
+    bash /usr/bin/scripts/dmenu-umount.sh
 
 # Neomutt scratchpad
 alt + u:
-    bash ~/dotfiles/scripts/bspwm-scratchpad.sh "neomutt"
+    bash /usr/bin/scripts/bspwm-scratchpad.sh "neomutt"
 # Calcurse scratchpad
 alt + t:
-    bash ~/dotfiles/scripts/bspwm-scratchpad.sh "calcurse"
+    bash /usr/bin/scripts/bspwm-scratchpad.sh "calcurse"
 # Cmus scratchpad
 alt + r:
-    bash ~/dotfiles/scripts/bspwm-scratchpad.sh "cmus"
+    bash /usr/bin/scripts/bspwm-scratchpad.sh "cmus"
 
 
 

@@ -17,7 +17,8 @@ declare -A loc2=(
     [name]="gtk2"
     [local]="./gtk/.gtkrc-2.0"
     [remote]="$USER/"
-) declare -A loc3=(
+)
+declare -A loc3=(
     [name]="gtk3"
     [local]="./gtk/settings.ini"
     [remote]="$USER/.config/gtk-3.0/"
@@ -42,21 +43,21 @@ declare -A loc11=(
     [local]="./vim/pinky_airline.vim"
     [remote]="$USER/.config/nvim/autoload/plugged/vim-airline-themes/autoload/airline/themes/"
 )
-declare -A loc12=(
-    [name]="icon locks"
-    [local]="./icons/*"
-    [remote]="$USER/.local/share/icons/"
-)
-declare -A loc13=(
-    [name]="polybar"
-    [local]="./polybar/*"
-    [remote]="$USER/.config/polybar/"
-)
-declare -A loc14=(
-    [name]="polybar scripts"
-    [local]="./scripts/polybar/*"
-    [remote]="/usr/bin/scripts/polybar/"
-)
+# declare -A loc12=(
+#     [name]="icon locks"
+#     [local]="./icons/*"
+#     [remote]="$USER/.local/share/icons/"
+# )
+# declare -A loc13=(
+#     [name]="polybar"
+#     [local]="./polybar/*"
+#     [remote]="$USER/.config/polybar/"
+# )
+# declare -A loc14=(
+#     [name]="polybar scripts"
+#     [local]="./scripts/polybar/*"
+#     [remote]="/usr/bin/scripts/polybar/"
+# )
 declare -A loc15=(
     [name]="cmus"
     [local]="./cmus/*"
@@ -67,26 +68,26 @@ declare -A loc16=(
     [local]="./cli-visualizer/*"
     [remote]="$USER/.config/vis/"
 )
-declare -A loc17=(
-    [name]="i3 lock script"
-    [local]="./scripts/lock.sh"
-    [remote]="$USER/"
-)
-declare -A loc18=(
-    [name]="lock picture"
-    [local]="./assets/lock.png"
-    [remote]="$USER/"
-)
-declare -A loc20=(
-    [name]="wally script"
-    [local]="./scripts/wally.sh"
-    [remote]="$USER"
-)
-declare -A loc22=(
-    [name]="vim snippets"
-    [local]="./vim/snippets/*"
-    [remote]="$USER/.config/nvim/snippets/"
-)
+# declare -A loc17=(
+#     [name]="i3 lock script"
+#     [local]="./scripts/lock.sh"
+#     [remote]="$USER/"
+# )
+# declare -A loc18=(
+#     [name]="lock picture"
+#     [local]="./assets/lock.png"
+#     [remote]="$USER/"
+# )
+# declare -A loc20=(
+#     [name]="wally script"
+#     [local]="./scripts/wally.sh"
+#     [remote]="$USER"
+# )
+# declare -A loc22=(
+#     [name]="vim snippets"
+#     [local]="./vim/snippets/*"
+#     [remote]="$USER/.config/nvim/snippets/"
+# )
 declare -A loc25=(
     [name]="Hotkey daemon"
     [local]="./sxhkd/*"
@@ -121,6 +122,11 @@ declare -A loc33=(
     [name]="betterlockscreen"
     [local]="./betterlockscreen/*"
     [remote]="$USER/.config/"
+)
+declare -A loc34=(
+    [name]="scripts"
+    [local]="./scripts/*.sh"
+    [remote]="/usr/bin/scripts/"
 )
 
 RED='\033[0;31m'

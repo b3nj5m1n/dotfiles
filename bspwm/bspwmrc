@@ -7,7 +7,7 @@ picom --experimental-backends &
 dunst &
 feh --bg-scale /usr/share/wallpapers/custom/samuel-inkilainen-arctic-spirit-with-signature.jpg &
 setxkbmap de &
-pidof bspswallow || ~/dotfiles/scripts/bspwm-swallow.sh &
+pidof bspswallow || /usr/bin/scripts/bspwm-swallow.sh &
 betterlockscreen -u /usr/share/wallpapers/custom/samuel-inkilainen-arctic-spirit-with-signature.jpg &
 syncthing -no-browser &
 killall lemonblocks
