@@ -10,6 +10,10 @@ super + shift + {q,r}
 alt + shift + c
     bspc node -c
 
+# Show menu with hidden windows and unhide selection
+alt + h:
+    wid=$(for id in $(bspc query -N -d focused -n .hidden.local.window); do xprop -id "$id" WM_NAME WM_CLASS | grep -o '".*"' | sed 's/", "/\n/g' | sed 's/"//g' | sed "s/^/ | /g" | tr '\n' ' ' | sed "s/^/$id/g" | sed "s/$/\n/g"; done | dmenu | cut -d '|' -f 1 | sed 's/ //g'); bspc node "$wid" --flag hidden=off
+
 # alternate between the tiled and monocle layout
 # super + m
 #     bspc desktop -l next
