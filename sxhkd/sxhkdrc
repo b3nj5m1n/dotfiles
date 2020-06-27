@@ -242,6 +242,10 @@ super + F3
 super + shift + F3
     bash /usr/bin/scripts/dmenu-umount.sh
 
+# Restart lemonbar
+super + F4
+    bash /usr/bin/start-lemonbar.sh
+
 # Neomutt scratchpad
 alt + u:
     bash /usr/bin/scripts/bspwm-scratchpad.sh "neomutt"
