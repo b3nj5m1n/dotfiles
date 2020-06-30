@@ -17,13 +17,12 @@
 
 # dotfiles
 
-## This repo includes my config for the following programs:
+## This repo includes my config for the following programs (You can find them in the files/ directory):
 * lightdm [Config]
 * bpswm [Config/Colorscheme]
 * zsh [Config/Colorscheme/Prompt]
 * sxhkd [Config]
 * picom [Config]
-* polybar [Config]
 * neovim [Config/Colorscheme]
 * vim-airline [Config/Colorscheme]
 * alacritty [Config/Colorscheme]
@@ -32,29 +31,16 @@
 * ranger [Config]
 * cli-visualizer [Config/Colorscheme]
 
-## ./conf-files-updater.sh
-This script automatically copys all the config files to the correct dirs on the system.
-Use with caution.
-There is also a version of this script in the legacy directory for the config files of programs I no longer use.
+## ./bay.sh
+This script automatically calls 3 other scripts located in the scripts folder: load-bay.sh, process-bay.sh and unload-bay.sh
 
-## ./package-installer.sh
-This script used to install a bunch of programs using the available package manager.
-I have ditched this now because I exclusively use arch and can therefore use a metapackage.
-Now this script can autmatically install some stuff that is not in mainline repos. (It doesn't work that well)
-Available is:
-* --yay (Auto installs the aur helper on an arch based system, works somewhat reliably)
-* --picom (For non arch distros, clones git repo and builds from source)
-* --omf (Installs oh my fish)
-* --cli-visualizer (Clones git repo and builds from source)
-* --vim-plug (Install plug plugin manager for vim and neovim)
+The first script will copy all of my config files into the bay directory whilst creating the appropriate directory struture.
 
-## ./update.sh
-This script is pretty old now, it used to be a combination of the two mentioned above.
-The remaining functionality is:
-* -h (Diplays the current number of commits in this repo)
-* --lightdm (Enables lightdm service)
-* --ycp (Runs install script of you complete me)
-* --nerd-fonts (Clones full nerd fonts repo and installs UbuntuMono)
+The second script will then replace all of the placeholders in my config files with the values that should go there, according to the choosen placeholder file. For now these are color values.
+
+The last script then copys all of the files from the bay directory onto the actual root filesystem.
+
+In praxis this allows me to change color schemes for all of my programs in a few seconds.
 
 ## other/
 ### arch-linux-installation-guide.md
@@ -65,4 +51,4 @@ Contains the colors I use for all my custom color schemes.
 ### fonts
 Contains the names of some of the fonts I use.
 ### arch-meta/
-Contains a meta package with most of the programs I use.
+Contains a meta package with most of the programs I use. (Not exactly up to date)
