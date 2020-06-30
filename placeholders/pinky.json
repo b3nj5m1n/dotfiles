@@ -1,0 +1,116 @@
+{
+    "placeholders": [
+        {
+            "placeholder": "c0",
+            "desc": "Color 0; Black Normal",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#000000"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "placeholder": "c1",
+            "desc": "Color 1; Red Normal",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#ff0066"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "197"
+                }
+            ]
+        },
+        {
+            "placeholder": "c2",
+            "desc": "Color 2; Green Normal",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#00ff66"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "47"
+                }
+            ]
+        },
+        {
+            "placeholder": "c3",
+            "desc": "Color 3; Yellow Normal",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#c6c62a"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "184"
+                }
+            ]
+        },
+        {
+            "placeholder": "c4",
+            "desc": "Color 4; Blue Normal",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#0563c2"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "25"
+                }
+            ]
+        },
+        {
+            "placeholder": "c5",
+            "desc": "Color 5; Purple Normal",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#8649e1"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "98"
+                }
+            ]
+        },
+        {
+            "placeholder": "c6",
+            "desc": "Color 6; Cyan Normal",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#33ffff"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "87"
+                }
+            ]
+        },
+        {
+            "placeholder": "c7",
+            "desc": "Color 7; White Normal",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#ffffff"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "231"
+                }
+            ]
+        }
+    ]
+}
