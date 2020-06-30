@@ -98,8 +98,8 @@ RESET='\033[0m'
 declare -n loc
 for loc in ${!loc@}; do
     printf "${PURPLE} Transfering ${REVERSE}${loc[name]}${RESET}"
-    mkdir -p ${loc[remote]}
-    cp -f -u -r -p ${loc[local]} ${loc[remote]}
+    mkdir -p ./bay/root${loc[remote]}
+    cp -f -u -r -p ${loc[local]} ./bay/root${loc[remote]}
     if [ $? -eq 0 ]; then
         printf "${GREEN} OK"
     else
