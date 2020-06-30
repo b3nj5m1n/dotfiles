@@ -91,6 +91,11 @@ declare -A loc34=(
     [local]="/home/b3nj4m1n/dotfiles/scripts/*.sh"
     [remote]="/usr/bin/scripts/"
 )
+declare -A loc35=(
+    [name]="etc profile"
+    [local]="/home/b3nj4m1n/dotfiles/files/etc/profile"
+    [remote]="/etc/"
+)
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
