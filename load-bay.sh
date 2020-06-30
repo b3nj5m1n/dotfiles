@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# This script copys my dotfiles into the bay directory while creating the correct directory structure
+
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 USER=/home/$(echo $DIR | cut -d/ -f3)
 
