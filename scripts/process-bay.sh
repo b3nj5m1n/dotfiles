@@ -2,7 +2,10 @@
 
 # This script processess the files in the bay dir by replacing placeholders with values
 
-ph_file="/home/b3nj4m1n/dotfiles/placeholders/pinky.json"
+ph_file="/home/b3nj4m1n/dotfiles/bay/cache.json"
+
+echo "Please select file for use."
+cp "/home/b3nj4m1n/dotfiles/placeholders/$(ls "/home/b3nj4m1n/dotfiles/placeholders/" | dmenu)" "/home/b3nj4m1n/dotfiles/bay/cache.json"
 
 # Get a count of how many placeholders there are
 ph_count=$(jq '.placeholders[].placeholder' "$ph_file" | wc -l)
