@@ -31,6 +31,28 @@ black = #000000 : 16
 white = #ffffff : 231
 }
 
+{
+  bright:
+   black:   '#000000'
+   red:     '#e6005c'
+   green:   '#33ff85'
+   yellow:  '#d6d636'
+   cyan:    '#00ffff'
+   blue: '#0456a9'
+   magenta:    '#6a23d4'
+   white:   '#f5f5f5'
+
+  dim:
+   black:   '#000000'
+   red:     '#ff1a75'
+   green:   '#00cc52'
+   yellow:  '#b2b226'
+   cyan:    '#80ffff'
+   blue: '#1a89f9'
+   magenta:    '#955fe5'
+   white:   '#f5f5f5'
+}
+
 let palette1 = {
 bg0 = #171517 : 233
 bg1 = #141214 : 233
