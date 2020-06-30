@@ -1,6 +1,50 @@
 {
     "placeholders": [
         {
+            "placeholder": "prm",
+            "desc": "Primary color",
+            "suffixes": [
+                {
+                    "suffix": "hex-bright",
+                    "value": "#e6005c"
+                },
+                {
+                    "suffix": "hex-dim",
+                    "value": "#ff1a75"
+                },
+                {
+                    "suffix": "hex",
+                    "value": "#ff0066"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "197"
+                }
+            ]
+        },
+        {
+            "placeholder": "scd",
+            "desc": "Secondary color",
+            "suffixes": [
+                {
+                    "suffix": "hex-bright",
+                    "value": "#33ff85"
+                },
+                {
+                    "suffix": "hex-dim",
+                    "value": "#00cc52"
+                },
+                {
+                    "suffix": "hex",
+                    "value": "#00ff66"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "47"
+                }
+            ]
+        },
+        {
             "placeholder": "c0",
             "desc": "Color 0; Black Normal",
             "suffixes": [
