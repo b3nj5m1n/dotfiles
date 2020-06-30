@@ -161,7 +161,7 @@ font:
   # If the font quality on non-retina display looks bad then set
   # `use_thin_strokes` to `true` and enable font smoothing by running the
   # following command:
-  #   `defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO`
+  #   `defaults write -g CGFontRenderingFontSmoothingDisabled ool NO`
   #
   # This is a global setting and will require a log out or restart to take
   # effect.
@@ -215,28 +215,28 @@ colors:
 
   # Bright colors
   bright:
-   black:   '#000000'
-   red:     '#e6005c'
-   green:   '#33ff85'
-   yellow:  '#d6d636'
-   cyan:    '#00ffff'
-   blue: '#0456a9'
-   magenta:    '#6a23d4'
-   white:   '#f5f5f5'
+   black:   '%c8-hex'
+   red:     '%c9-hex'
+   green:   '%c10-hex'
+   yellow:  '%c11-hex'
+   cyan:    '%c14-hex'
+   blue:    '%c12-hex'
+   magenta: '%c13-hex'
+   white:   '%c15-hex'
 
   # Dim colors
   #
   # If the dim colors are not set, they will be calculated automatically based
   # on the `normal` colors.
   dim:
-   black:   '#000000'
-   red:     '#ff1a75'
-   green:   '#00cc52'
-   yellow:  '#b2b226'
-   cyan:    '#80ffff'
-   blue: '#1a89f9'
-   magenta:    '#955fe5'
-   white:   '#f5f5f5'
+   black:   '%c16-hex'
+   red:     '%c17-hex'
+   green:   '%c18-hex'
+   yellow:  '%c19-hex'
+   cyan:    '%c22-hex'
+   blue:    '%c20-hex'
+   magenta: '%c21-hex'
+   white:   '%c23-hex'
 
   # Indexed Colors
   #
