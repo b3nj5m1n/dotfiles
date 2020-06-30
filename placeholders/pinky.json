@@ -45,6 +45,50 @@
             ]
         },
         {
+            "placeholder": "bg",
+            "desc": "Background",
+            "suffixes": [
+                {
+                    "suffix": "hex-bright",
+                    "value": "#1f1c1f"
+                },
+                {
+                    "suffix": "hex-dim",
+                    "value": "#141214"
+                },
+                {
+                    "suffix": "hex",
+                    "value": "#171517"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "233"
+                }
+            ]
+        },
+        {
+            "placeholder": "fg",
+            "desc": "Foreground",
+            "suffixes": [
+                {
+                    "suffix": "hex-bright",
+                    "value": "#ffffff"
+                },
+                {
+                    "suffix": "hex-dim",
+                    "value": "#e7dbdb"
+                },
+                {
+                    "suffix": "hex",
+                    "value": "#f7f3f3"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "255"
+                }
+            ]
+        },
+        {
             "placeholder": "c0",
             "desc": "Color 0; Black Normal",
             "suffixes": [
@@ -166,7 +210,7 @@
                 },
                 {
                     "suffix": "xterm",
-                    "value": ""
+                    "value": "16"
                 }
             ]
         },
@@ -180,7 +224,7 @@
                 },
                 {
                     "suffix": "xterm",
-                    "value": ""
+                    "value": "161"
                 }
             ]
         },
@@ -194,7 +238,7 @@
                 },
                 {
                     "suffix": "xterm",
-                    "value": ""
+                    "value": "84"
                 }
             ]
         },
@@ -208,7 +252,7 @@
                 },
                 {
                     "suffix": "xterm",
-                    "value": ""
+                    "value": "142"
                 }
             ]
         },
@@ -222,7 +266,7 @@
                 },
                 {
                     "suffix": "xterm",
-                    "value": ""
+                    "value": "25"
                 }
             ]
         },
@@ -236,7 +280,7 @@
                 },
                 {
                     "suffix": "xterm",
-                    "value": ""
+                    "value": "56"
                 }
             ]
         },
@@ -250,7 +294,7 @@
                 },
                 {
                     "suffix": "xterm",
-                    "value": ""
+                    "value": "51"
                 }
             ]
         },
@@ -264,7 +308,7 @@
                 },
                 {
                     "suffix": "xterm",
-                    "value": ""
+                    "value": "255"
                 }
             ]
         },
@@ -278,7 +322,7 @@
                 },
                 {
                     "suffix": "xterm",
-                    "value": ""
+                    "value": "16"
                 }
             ]
         },
@@ -292,7 +336,7 @@
                 },
                 {
                     "suffix": "xterm",
-                    "value": ""
+                    "value": "198"
                 }
             ]
         },
@@ -306,7 +350,7 @@
                 },
                 {
                     "suffix": "xterm",
-                    "value": ""
+                    "value": "41"
                 }
             ]
         },
@@ -320,7 +364,7 @@
                 },
                 {
                     "suffix": "xterm",
-                    "value": ""
+                    "value": "142"
                 }
             ]
         },
@@ -334,7 +378,7 @@
                 },
                 {
                     "suffix": "xterm",
-                    "value": ""
+                    "value": "33"
                 }
             ]
         },
@@ -348,7 +392,7 @@
                 },
                 {
                     "suffix": "xterm",
-                    "value": ""
+                    "value": "98"
                 }
             ]
         },
@@ -362,7 +406,7 @@
                 },
                 {
                     "suffix": "xterm",
-                    "value": ""
+                    "value": "123"
                 }
             ]
         },
@@ -376,7 +420,7 @@
                 },
                 {
                     "suffix": "xterm",
-                    "value": ""
+                    "value": "255"
                 }
             ]
         }

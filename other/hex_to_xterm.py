@@ -1,5 +1,6 @@
 import re
 import math
+import sys
 
 colors = {
     '000000':  '16', '00005f':  '17', '000087':  '18', '0000af':  '19', '0000d7':  '20',
@@ -89,4 +90,4 @@ def BestMatch(hexval):
     return best
 
 
-print(BestMatch("424450"))
+print(BestMatch(sys.argv[1]))
