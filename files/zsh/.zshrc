@@ -59,11 +59,11 @@ if [[ -z $ZSH_THEME_CLOUD_PREFIX ]]; then
     ZSH_THEME_CLOUD_PREFIX='%{%G%}'
 fi
 
-PROMPT='%{$fg_bold[green]%}%p %{$FG[197]%}%c %{$fg_bold[cyan]%}$(git_prompt_info)%{$fg_bold[blue]%}% %{$fg_bold[green]%}$ZSH_THEME_CLOUD_PREFIX %{$reset_color%}'
+PROMPT='%{$fg_bold[green]%}%p %{$FG[%prm-xterm]%}%c %{$fg_bold[cyan]%}$(git_prompt_info)%{$fg_bold[blue]%}% %{$fg_bold[green]%}$ZSH_THEME_CLOUD_PREFIX %{$reset_color%}'
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}[%{$FG[197]%}"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}[%{$FG[%prm-xterm]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}]%{$FG[197]%}%{%G⚡%}%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}]%{$FG[%prm-xterm]%}%{%G⚡%}%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}]"
 
 
