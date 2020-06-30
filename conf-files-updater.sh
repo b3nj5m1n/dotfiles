@@ -3,124 +3,84 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 USER=/home/$(echo $DIR | cut -d/ -f3)
 
-declare -A loc0=(
-    [name]="bashrc"
-    [local]="./bash/.bashrc"
-    [remote]="$USER"
-)
 declare -A loc1=(
     [name]="lightdm"
-    [local]="./lightdm/*"
+    [local]="./files/lightdm/*"
     [remote]="/etc/lightdm/"
 )
 declare -A loc2=(
     [name]="gtk2"
-    [local]="./gtk/.gtkrc-2.0"
+    [local]="./files/gtk/.gtkrc-2.0"
     [remote]="$USER/"
 )
 declare -A loc3=(
     [name]="gtk3"
-    [local]="./gtk/settings.ini"
+    [local]="./files/gtk/settings.ini"
     [remote]="$USER/.config/gtk-3.0/"
 )
 declare -A loc5=(
     [name]="picom"
-    [local]="./picom/picom.conf"
+    [local]="./files/picom/picom.conf"
     [remote]="$USER/.config/"
 )
 declare -A loc7=(
     [name]="alacritty"
-    [local]="./alacritty/alacritty.yml"
+    [local]="./files/alacritty/alacritty.yml"
     [remote]="$USER/.config/alacritty/"
 )
 declare -A loc10=(
     [name]="neovim config"
-    [local]="./nvim/*"
+    [local]="./files/nvim/*"
     [remote]="$USER/.config/nvim/"
 )
 declare -A loc11=(
     [name]="pinky vim airline theme"
-    [local]="./vim/pinky_airline.vim"
+    [local]="./files/vim/pinky_airline.vim"
     [remote]="$USER/.config/nvim/autoload/plugged/vim-airline-themes/autoload/airline/themes/"
 )
-# declare -A loc12=(
-#     [name]="icon locks"
-#     [local]="./icons/*"
-#     [remote]="$USER/.local/share/icons/"
-# )
-# declare -A loc13=(
-#     [name]="polybar"
-#     [local]="./polybar/*"
-#     [remote]="$USER/.config/polybar/"
-# )
-# declare -A loc14=(
-#     [name]="polybar scripts"
-#     [local]="./scripts/polybar/*"
-#     [remote]="/usr/bin/scripts/polybar/"
-# )
 declare -A loc15=(
     [name]="cmus"
-    [local]="./cmus/*"
+    [local]="./files/cmus/*"
     [remote]="$USER/.config/cmus/"
 )
 declare -A loc16=(
     [name]="cli-visualizer"
-    [local]="./cli-visualizer/*"
+    [local]="./files/cli-visualizer/*"
     [remote]="$USER/.config/vis/"
 )
-# declare -A loc17=(
-#     [name]="i3 lock script"
-#     [local]="./scripts/lock.sh"
-#     [remote]="$USER/"
-# )
-# declare -A loc18=(
-#     [name]="lock picture"
-#     [local]="./assets/lock.png"
-#     [remote]="$USER/"
-# )
-# declare -A loc20=(
-#     [name]="wally script"
-#     [local]="./scripts/wally.sh"
-#     [remote]="$USER"
-# )
-# declare -A loc22=(
-#     [name]="vim snippets"
-#     [local]="./vim/snippets/*"
-#     [remote]="$USER/.config/nvim/snippets/"
-# )
 declare -A loc25=(
     [name]="Hotkey daemon"
-    [local]="./sxhkd/*"
+    [local]="./files/sxhkd/*"
     [remote]="$USER/.config/sxhkd/"
 )
 declare -A loc28=(
     [name]="bspwm config"
-    [local]="./bspwm/*"
+    [local]="./files/bspwm/*"
     [remote]="$USER/.config/bspwm/"
 )
 declare -A loc29=(
     [name]="dunst config"
-    [local]="./dunst/*"
+    [local]="./files/dunst/*"
     [remote]="$USER/.config/dunst/"
 )
 declare -A loc30=(
     [name]="zsh config"
-    [local]="./zsh/.zshrc"
+    [local]="./files/zsh/.zshrc"
     [remote]="$USER/"
 )
 declare -A loc31=(
     [name]="more zsh config"
-    [local]="./zsh/*"
+    [local]="./files/zsh/*"
     [remote]="$USER/.config/zsh/"
 )
 declare -A loc32=(
     [name]="ranger config"
-    [local]="./ranger/*"
+    [local]="./files/ranger/*"
     [remote]="$USER/.config/ranger/"
 )
 declare -A loc33=(
     [name]="betterlockscreen"
-    [local]="./betterlockscreen/*"
+    [local]="./files/betterlockscreen/*"
     [remote]="$USER/.config/"
 )
 declare -A loc34=(
