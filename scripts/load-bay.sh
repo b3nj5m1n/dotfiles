@@ -96,6 +96,11 @@ declare -A loc35=(
     [local]="/home/b3nj4m1n/dotfiles/files/etc/profile"
     [remote]="/etc/"
 )
+declare -A loc35=(
+    [name]="font config"
+    [local]="/home/b3nj4m1n/dotfiles/files/fontconfig/fonts.conf"
+    [remote]="/home/b3nj4m1n/.config/fontconfig/"
+)
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
