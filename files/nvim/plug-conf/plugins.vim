@@ -25,6 +25,7 @@ Plug 'Konfekt/FastFold'
 Plug 'vim-scripts/ReplaceWithRegister'
 
 " Personal wiki
+let g:vimwiki_table_mappings = 0
 Plug 'vimwiki/vimwiki'
 let g:vimwiki_list = [{'path': '~/Documents/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
