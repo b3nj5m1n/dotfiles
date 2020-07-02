@@ -4,7 +4,7 @@
 
 # Open terminal
 alt + Return
-    alacritty -e tmux
+    alacritty -e "tmux"
 
 # Open application launcher
 # Alt + d
