@@ -101,6 +101,11 @@ declare -A loc35=(
     [local]="/home/b3nj4m1n/dotfiles/files/fontconfig/fonts.conf"
     [remote]="/home/b3nj4m1n/.config/fontconfig/"
 )
+declare -A loc36=(
+    [name]="tmux"
+    [local]="/home/b3nj4m1n/dotfiles/files/tmux/.tmux.conf"
+    [remote]="/home/b3nj4m1n/"
+)
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
