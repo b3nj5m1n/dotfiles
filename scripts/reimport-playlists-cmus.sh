@@ -2,8 +2,9 @@
 
 # This script deletes all playlists in cmus and reimports all m3u files from music dir
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-USER=/home/$(echo $DIR | cut -d/ -f3)
+# DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+# USER=/home/$(echo $DIR | cut -d/ -f3)
+USER="/home/b3nj4m1n"
 
 # Dir to search for m3u files
 dirname="/mnt/Vault/music"
