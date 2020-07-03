@@ -2,9 +2,12 @@
 
 ############### Essential Keybindings ###############
 
-# Open terminal
+# Open terminal with tmux
 alt + Return
     alacritty -e "tmux"
+# Open terminal and attach to tmux
+alt + ctrl + t
+    alacritty -e "tmux" "attach"
 
 # Open application launcher
 # Alt + d
