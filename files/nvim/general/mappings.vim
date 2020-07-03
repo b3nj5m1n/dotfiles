@@ -20,3 +20,12 @@ nnoremap <leader>t :set cursorcolumn!<CR>
 
 " Open ranger
 nmap <leader>r :RnvimrToggle<CR>
+
+" Open fzf
+nnoremap <leader><space> :Files<CR>
+
+" Ripgrep
+nnoremap <leader>r :Rg<CR>
+
+" Append semicolon to end of line and return to previous location
+nnoremap g; m`A;<esc>``
