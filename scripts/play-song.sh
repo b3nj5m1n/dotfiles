@@ -10,7 +10,10 @@ selection=$(find -name "*.mp3" | dmenu -i -F)
 
 [ -z "$selection" ] && exit
 
-cmus-remote -f "$selection"
+mpc clear
+mpc add "$(echo $selection | sed 's/\.\///g')"
+mpc play
+
 
 # Send notification
 songname=$(echo "$selection" | rev | cut -d '/' -f 1 | rev)
