@@ -58,26 +58,26 @@ XF86AudioMute
 
 # Pause playback
 XF86AudioPlay
-    mpc toggle; pkill lemonblocks -5
+    mpc toggle
 # Alt + p
 alt + p
-    mpc toggle; pkill lemonblocks -5
+    mpc toggle
 
 
 # Next song
 XF86AudioNext
-    mpc next; pkill lemonblocks -5
+    mpc next
 # Alt + n
 alt + n
-    mpc next; pkill lemonblocks -5
+    mpc next
 
 
 # Previous song
 XF86AudioPrev
-    mpc prev; pkill lemonblocks -5
+    mpc prev
 # Alt + m
 alt + m
-    mpc prev; pkill lemonblocks -5
+    mpc prev
 
 
 ############### Launch Programms ###############
