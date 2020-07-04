@@ -106,6 +106,11 @@ declare -A loc36=(
     [local]="/home/b3nj4m1n/dotfiles/files/tmux/.tmux.conf"
     [remote]="/home/b3nj4m1n/"
 )
+declare -A loc37=(
+    [name]="lemonblocks"
+    [local]="/home/b3nj4m1n/dotfiles/files/lemonblocks/config.txt"
+    [remote]="/home/b3nj4m1n/.config/lemonblocks/"
+)
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
