@@ -58,26 +58,26 @@ XF86AudioMute
 
 # Pause playback
 XF86AudioPlay
-    cmus-remote -u; pkill lemonblocks -5
+    mpc toggle; pkill lemonblocks -5
 # Alt + p
 alt + p
-    cmus-remote -u; pkill lemonblocks -5
+    mpc toggle; pkill lemonblocks -5
 
 
 # Next song
 XF86AudioNext
-    cmus-remote -n; pkill lemonblocks -5
+    mpc next; pkill lemonblocks -5
 # Alt + n
 alt + n
-    cmus-remote -n; pkill lemonblocks -5
+    mpc next; pkill lemonblocks -5
 
 
 # Previous song
 XF86AudioPrev
-    cmus-remote -r; pkill lemonblocks -5
+    mpc prev; pkill lemonblocks -5
 # Alt + m
 alt + m
-    cmus-remote -r; pkill lemonblocks -5
+    mpc prev; pkill lemonblocks -5
 
 
 ############### Launch Programms ###############
@@ -94,7 +94,7 @@ alt + v: {f,n,v,k}
 # restart, open, fav
 # Alt + c | r o f
 alt + c: {r,o,f}
-    {bash /usr/bin/scripts/reimport-playlists-cmus.sh,bash /usr/bin/scripts/play-song.sh,bash /usr/bin/scripts/fav-song.sh} & \
+    {bash /usr/bin/scripts/mpd-open-playlist.sh,bash /usr/bin/scripts/play-song.sh,bash /usr/bin/scripts/fav-song.sh} & \
     pkill -ALRM sxhkd
 
 
@@ -148,7 +148,7 @@ alt + t:
     bash /usr/bin/scripts/bspwm-scratchpad.sh "calcurse"
 # Cmus scratchpad
 alt + r:
-    bash /usr/bin/scripts/bspwm-scratchpad.sh "cmus"
+    bash /usr/bin/scripts/bspwm-scratchpad.sh "ncmpcpp"
 
 
 

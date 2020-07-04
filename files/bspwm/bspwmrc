@@ -5,6 +5,7 @@
 sxhkd ~/.config/sxhkd/sxhkdrc_bspc &
 picom --experimental-backends &
 dunst &
+mpd &
 feh --bg-scale /usr/share/wallpapers/custom/samuel-inkilainen-arctic-spirit-with-signature.jpg &
 setxkbmap de &
 pidof bspswallow || /usr/bin/scripts/bspwm-swallow.sh &
@@ -21,7 +22,7 @@ firefox --class="init_firefox" &
 
 # Scratchpads
 killall cmus && killall neomutt && killall calcurse
-alacritty --class "cmus" -e "cmus" &
+alacritty --class "ncmpcpp" -e "ncmpcpp" &
 alacritty --class "neomutt" --dimensions 226 60 --position 50 60  -e "neomutt" &
 alacritty --class "calcurse" -e "calcurse" &
 
@@ -73,7 +74,7 @@ bspc rule -a Anki desktop='^6'
 bspc rule -a KeeWeb:keeweb desktop='^10'
 bspc rule -a *:SPLASH state=floating 
 # Scratchpad inital start
-bspc rule -a Alacritty:cmus desktop='^10' state='floating' hidden='true' sticky='true'
+bspc rule -a Alacritty:ncmpcpp desktop='^10' state='floating' hidden='true' sticky='true'
 bspc rule -a Alacritty:neomutt desktop='^10' state='floating' hidden='true' sticky='true'
 bspc rule -a Alacritty:calcurse desktop='^10' state='floating' hidden='true' sticky='true'
 
