@@ -1,5 +1,5 @@
 #!/bin/bash
 
-volume="$(awk -F"[][]" '/dB/ { print $2 }' <(amixer sget Master) | sed 's/%//g')"
+volume="$(amixer sget Master | grep -io "[[[:digit:]]*%]" | head -n 1)"
 
-printf "[$volume%%]"
+printf "%s" "$volume"

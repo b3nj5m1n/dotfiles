@@ -111,10 +111,10 @@ declare -A loc37=(
     [local]="/home/b3nj4m1n/dotfiles/files/lemonblocks/config.txt"
     [remote]="/home/b3nj4m1n/.config/lemonblocks/"
 )
-declare -A loc37=(
+declare -A loc38=(
     [name]="lemonblocks scripts"
     [local]="/home/b3nj4m1n/dotfiles/scripts/lemonblocks/*"
-    [remote]="/usr/bin/lbscrpts/"
+    [remote]="/usr/bin/lbscripts/"
 )
 
 RED='\033[0;31m'
