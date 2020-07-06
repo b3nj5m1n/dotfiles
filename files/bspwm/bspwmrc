@@ -6,7 +6,7 @@ sxhkd ~/.config/sxhkd/sxhkdrc_bspc &
 picom --experimental-backends &
 dunst &
 mpd &
-feh --bg-scale /usr/share/wallpapers/custom/samuel-inkilainen-arctic-spirit-with-signature.jpg &
+feh --bg-scale /usr/share/wallpapers/custom/tgmaovqah2951.jpg &
 setxkbmap de &
 pidof bspswallow || /usr/bin/scripts/bspwm-swallow.sh &
 betterlockscreen -u /usr/share/wallpapers/custom/samuel-inkilainen-arctic-spirit-with-signature.jpg &

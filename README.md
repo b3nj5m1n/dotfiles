@@ -1,11 +1,16 @@
 # screenshots
 
 ## bspwm
-![bspwm](https://i.imgur.com/NLPsol2.png)
-![bspwm](https://i.imgur.com/AWBphLn.png)
-![bspwm](https://i.imgur.com/muvVu7x.png)
-![bspwm](https://i.imgur.com/tIWBDqA.png)
 
+![bspwm](https://i.imgur.com/0y2oj9p.jpg)
+
+<details>
+    <summary>[old] bpswm</summary>
+    <img src="https://i.imgur.com/NLPsol2.png" alt="">
+    <img src="https://i.imgur.com/AWBphLn.png" alt="">
+    <img src="https://i.imgur.com/muvVu7x.png" alt="">
+    <img src="https://i.imgur.com/tIWBDqA.png" alt="">
+</details>
 <details>
     <summary>[old] bpswm</summary>
     <img src="https://i.imgur.com/FW7iDir.png" alt="">
@@ -26,10 +31,10 @@
 * neovim [Config/Colorscheme]
 * vim-airline [Config/Colorscheme]
 * alacritty [Config/Colorscheme]
-* cmus [Config/Colorscheme]
 * dunst [Config/Colorscheme]
 * ranger [Config]
 * cli-visualizer [Config/Colorscheme]
+* lemonbar [Config/Scripts]
 
 ## ./bay.sh
 This script automatically calls 3 other scripts located in the scripts folder: load-bay.sh, process-bay.sh and unload-bay.sh
