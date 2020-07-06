@@ -1,10 +1,10 @@
-0,3,NULL,/usr/bin/lbscripts/powermenu.sh,l, ,NULL,NULL,NULL,NULL,NULL,NULL,NULL
-1,4,NULL,/usr/bin/lbscripts/bspwm.sh,l, ,NULL,NULL,NULL,NULL,NULL,NULL,NULL
-1,5,NULL,/usr/bin/lbscripts/mpd.sh,l, ,NULL,NULL,mpc toggle; pkill lemonblocks -5,NULL,NULL,mpc volume +1,mpc volume -1
-0,6,NULL,/usr/bin/lbscripts/volume.sh,r, ,NULL,f8f8ff,amixer set Master toggle; pkill lemonblocks -6,NULL,NULL,amixer -q sset Master 1%+; pkill lemonblocks -6,amixer -q sset Master 1%-; pkill lemonblocks -6
-0,7,NULL,/usr/bin/lbscripts/free-space.sh,r, ,NULL,f8f8ff,NULL,NULL,NULL,NULL,NULL
-0,8,NULL,/usr/bin/lbscripts/layout.sh,r, ,NULL,f8f8ff,NULL,NULL,NULL,NULL,NULL
-20,10,NULL,/usr/bin/lbscripts/load-average.sh,r, ,NULL,f8f8ff,NULL,NULL,NULL,NULL,NULL
-60,10,NULL,/usr/bin/lbscripts/uptime.sh,r, ,NULL,f8f8ff,NULL,NULL,NULL,NULL,NULL
-300,10,NULL,/usr/bin/lbscripts/network.sh,r, ,NULL,f8f8ff,NULL,NULL,NULL,NULL,NULL
-30,11,NULL,/usr/bin/lbscripts/date.sh,r, ,NULL,f8f8ff,NULL,NULL,NULL,NULL,NULL
+0,3,NULL,/usr/bin/lbscripts/powermenu.sh,l, ,NULL,ff0066,NULL,NULL,NULL,NULL,NULL,[,]
+1,4,NULL,/usr/bin/lbscripts/bspwm.sh,l, ,NULL,NULL,NULL,NULL,NULL,NULL,NULL,[,]
+1,5,NULL,/usr/bin/lbscripts/mpd.sh,l, ,NULL,NULL,mpc toggle; pkill lemonblocks -5,NULL,NULL,mpc volume +1,mpc volume -1,[,]
+0,6,NULL,/usr/bin/lbscripts/volume.sh,r, ,NULL,8649e1,amixer set Master toggle; pkill lemonblocks -6,NULL,NULL,amixer -q sset Master 1%+; pkill lemonblocks -6,amixer -q sset Master 1%-; pkill lemonblocks -6,[,]
+0,7,NULL,/usr/bin/lbscripts/free-space.sh,r, ,NULL,00ffff,NULL,NULL,NULL,NULL,NULL,[,]
+0,8,NULL,/usr/bin/lbscripts/layout.sh,r, ,NULL,8649e1,NULL,NULL,NULL,NULL,NULL,[,]
+20,10,NULL,/usr/bin/lbscripts/load-average.sh,r, ,NULL,00ffff,NULL,NULL,NULL,NULL,NULL,[,]
+60,11,NULL,/usr/bin/lbscripts/uptime.sh,r, ,NULL,8649e1,NULL,NULL,NULL,NULL,NULL,[,]
+300,11,NULL,/usr/bin/lbscripts/network.sh,r, ,NULL,00ffff,NULL,NULL,NULL,NULL,NULL,[,]
+30,12,NULL,/usr/bin/lbscripts/date.sh,r, ,NULL,8649e1,NULL,NULL,NULL,NULL,NULL,[,]

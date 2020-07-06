@@ -35,8 +35,6 @@ result="$result%%{A4:bspc desktop -f prev; pkill lemonblocks -4:}"
 # Set command on scroll-down
 result="$result%%{A5:bspc desktop -f next; pkill lemonblocks -4:}"
 
-result="$result["
-
 # Loop over all lines (Desktop id's) of the all variable
 while IFS= read -r line; do
 
@@ -51,7 +49,7 @@ while IFS= read -r line; do
     if [[ "$occupied" == *"$line"* ]];
     then
         # The desktop is occupied, use occupied underline color
-	fg="%%{F$coFG}"
+        fg="%%{F$coFG}"
     fi
 
     # Check if the current desktop is focused
@@ -77,8 +75,14 @@ while IFS= read -r line; do
     # Add padding
     result="$result$padding"
 
+    # Close click event
+    result="$result%%{A1}"
+
 done <<< "$all"
 
-result="$result]"
+# Disable command on scroll-up
+result="$result%%{A4}"
+# Disable command on scroll-down
+result="$result%%{A5}"
 
 printf "$result"

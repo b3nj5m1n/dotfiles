@@ -18,10 +18,35 @@ else
     then 
         printf "";
     else
-        printf "[paused]";
+        printf "paused";
         exit
     fi
 fi
+
+chrlen=${#song}
+
+# How long to make the text before starting to scroll
+maxlen=25
+
+if [[ $chrlen -ge $maxlen ]]; then
+    # Read offset from file
+    offset="$(($(cat /tmp/mpdoffset | head -n 1)))"
+    # Add one
+    offset="$(($offset + 1))"
+    # Test if offset should be reset
+    if [[ "$song" != "$(sed "2q;d" /tmp/mpdoffset)" ]]; then
+        rm /tmp/mpdoffset
+        offset=0
+    fi
+    if [[ $(($offset + $maxlen - 1)) -ge $chrlen ]]; then
+        rm /tmp/mpdoffset
+        offset=0
+    fi
+    # Write offset back to file
+    echo -e "$offset\n$song" > /tmp/mpdoffset
+    song="${song:$offset:$maxlen}"
+fi
+
 
 # Parse the info to get the progress in %
 # total=$(echo "$info" | sed -r "s/duration //;t;d")
@@ -42,4 +67,4 @@ m="%%{F-}"
 e=""
 
 song="$b${song:0:$perc_chr}$m${song:$perc_chr:$chrlen}$e"
-printf "[$song]"
+printf "$song"
