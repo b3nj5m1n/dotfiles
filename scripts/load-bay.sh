@@ -117,9 +117,14 @@ declare -A loc38=(
     [remote]="/usr/bin/lbscripts/"
 )
 declare -A loc39=(
-    [name]="anki"
+    [name]="anki aqt web"
     [local]="/home/b3nj4m1n/dotfiles/files/anki/*"
     [remote]="/usr/share/aqt_data/web/"
+)
+declare -A loc40=(
+    [name]="anki addons"
+    [local]="/home/b3nj4m1n/dotfiles/files/anki-addons/*"
+    [remote]="/home/b3nj4m1n/.local/share/Anki2/addons21/"
 )
 
 RED='\033[0;31m'
