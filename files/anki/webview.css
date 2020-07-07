@@ -1,0 +1,101 @@
+/* night-mode-specific colours */
+.isWin button {
+  font-size: 12px;
+}
+
+.isMac button {
+  font-size: 13px;
+}
+
+.isLin button {
+  font-size: 14px;
+  -webkit-appearance: none;
+  border-radius: 3px;
+  padding: 5px;
+  border: 1px solid #aaa;
+}
+
+.nightMode button {
+  -webkit-appearance: none;
+  color: white;
+  /* match the fusion button gradient */
+  background: linear-gradient(0deg, #555555 0%, #656565 100%);
+  box-shadow: 0 0 3px #222222;
+  border: 1px solid #646464;
+  border-radius: 2px;
+  padding: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+.nightMode button:hover {
+  background: #656565;
+}
+
+/* imitate standard macOS dark mode buttons */
+.isMac.nightMode.macos-dark-mode button:not(.linkb) {
+  background: #656565;
+  box-shadow: 0 1px 2px #222222;
+  border-top-color: #848484;
+  border-top-width: 0.5px;
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 0;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #e5e5e5;
+}
+
+/* Copyright: Ankitects Pty Ltd and contributors
+ * License: GNU AGPL, version 3 or later; http://www.gnu.org/licenses/agpl.html */
+body {
+  margin: 2em;
+  color: black;
+}
+
+h1 {
+  margin-bottom: 0.2em;
+}
+
+a {
+  color: #00a;
+}
+
+body.nightMode {
+  color: white;
+  background: #2f2f31;
+}
+
+body.nightMode::-webkit-scrollbar {
+  background: #2f2f31;
+}
+
+body.nightMode::-webkit-scrollbar:horizontal {
+  height: 12px;
+}
+
+body.nightMode::-webkit-scrollbar:vertical {
+  width: 12px;
+}
+
+body.nightMode::-webkit-scrollbar-thumb {
+  background: #656565;
+  border-radius: 8px;
+}
+
+body.nightMode::-webkit-scrollbar-thumb:horizontal {
+  min-width: 50px;
+}
+
+body.nightMode::-webkit-scrollbar-thumb:vertical {
+  min-height: 50px;
+}
+
+.nightMode a {
+  color: #77ccff;
+}
+
+body {
+  overscroll-behavior: none;
+}

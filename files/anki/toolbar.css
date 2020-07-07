@@ -1,0 +1,75 @@
+/* night-mode-specific colours */
+/* Copyright: Ankitects Pty Ltd and contributors
+ * License: GNU AGPL, version 3 or later; http://www.gnu.org/licenses/agpl.html */
+#header {
+  padding: 3px;
+  font-weight: bold;
+  border-bottom: 1px solid #aaa;
+}
+
+.tdcenter {
+  white-space: nowrap;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-user-select: none;
+  overflow: hidden;
+}
+
+* {
+  -webkit-user-drag: none;
+}
+
+.hitem {
+  padding-right: 12px;
+  padding-left: 12px;
+  text-decoration: none;
+  color: black;
+}
+
+.hitem:hover {
+  text-decoration: underline;
+}
+
+.hitem:focus {
+  outline: 0;
+}
+
+/* This is the color of the text of the toolbar at the top, I set it to blue again but I'm not sure yet if I'm going to keep it or not */
+.nightMode .hitem {
+  color: %prm-hex;
+}
+/* This is the little stripe between the toolbar at the top and the part of the screen containing the decks, I set it to the same shade of blue */
+.nightMode #header {
+    border-bottom-color: %prm-hex;
+}
+
+.isMac.nightMode #header {
+  border-bottom-color: #3a3a3a;
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+.spin {
+  animation: spin;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  display: inline-block;
+  visibility: visible !important;
+  animation-timing-function: linear;
+}
+
+#sync-spinner {
+  width: 16px;
+  height: 16px;
+  margin-bottom: -3px;
+  visibility: hidden;
+}

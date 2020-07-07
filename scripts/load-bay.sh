@@ -116,6 +116,11 @@ declare -A loc38=(
     [local]="/home/b3nj4m1n/dotfiles/scripts/lemonblocks/*"
     [remote]="/usr/bin/lbscripts/"
 )
+declare -A loc39=(
+    [name]="anki"
+    [local]="/home/b3nj4m1n/dotfiles/files/anki/*"
+    [remote]="/usr/share/aqt_data/web/"
+)
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'

@@ -1,0 +1,88 @@
+/* night-mode-specific colours */
+/* Copyright: Ankitects Pty Ltd and contributors
+ * License: GNU AGPL, version 3 or later; http://www.gnu.org/licenses/agpl.html */
+hr {
+  background-color: #ccc;
+}
+
+body {
+  margin: 20px;
+  overflow-wrap: break-word;
+}
+
+body.nightMode {
+  background-color: #2f2f31;
+  color: white;
+}
+
+img {
+  max-width: 95%;
+  max-height: 95vh;
+}
+
+#_flag {
+  position: fixed;
+  right: 10px;
+  top: 0;
+  font-size: 30px;
+  display: none;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+#_mark {
+  position: fixed;
+  left: 10px;
+  top: 0;
+  font-size: 30px;
+  color: yellow;
+  display: none;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+#typeans {
+  width: 100%;
+}
+
+.typeGood {
+  background: #0f0;
+}
+
+.typeBad {
+  background: #f00;
+}
+
+.typeMissed {
+  background: #ccc;
+}
+
+.replay-button {
+  text-decoration: none;
+  display: inline-flex;
+  vertical-align: middle;
+  margin: 3px;
+}
+.replay-button svg {
+  width: 40px;
+  height: 40px;
+}
+.replay-button svg circle {
+  fill: #fff;
+  stroke: #414141;
+}
+.replay-button svg path {
+  fill: #414141;
+}
+
+.nightMode .latex {
+  filter: invert(100%);
+}
+
+.drawing {
+  zoom: 50%;
+}
+
+.nightMode img.drawing {
+  filter: invert(1) hue-rotate(180deg);
+}

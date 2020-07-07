@@ -1,0 +1,127 @@
+/* night-mode-specific colours */
+.review-count {
+  color: #0a0;
+}
+
+.new-count {
+  color: #00a;
+}
+
+.learn-count {
+  color: #C35617;
+}
+
+.zero-count {
+  color: #ddd;
+}
+
+.nightMode .review-count {
+  color: #5CcC00;
+}
+.nightMode .new-count {
+  color: #77ccff;
+}
+.nightMode .learn-count {
+  color: #FF935B;
+}
+.nightMode .zero-count {
+  color: #444;
+}
+
+/* Copyright: Ankitects Pty Ltd and contributors
+ * License: GNU AGPL, version 3 or later; http://www.gnu.org/licenses/agpl.html */
+a.deck {
+  color: black;
+  text-decoration: none;
+  min-width: 5em;
+  display: inline-block;
+}
+
+a.deck:hover {
+  text-decoration: underline;
+}
+
+/* This is the list of decks, set the background color to that gray and set the padding to a higher value, this makes it so there is more space between the decks */
+tr.deck td {
+    background-color: #29292B;
+    padding: 10px;
+}
+
+tr.top-level-drag-row td {
+  border-bottom: 1px solid transparent;
+}
+
+td {
+  white-space: nowrap;
+}
+
+tr.drag-hover td {
+  border-bottom: 1px solid #aaa;
+}
+
+body.nightMode {
+  margin: 1em;
+  -webkit-user-select: none;
+  /* background-image: url("2.gif"); */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.current {
+  background-color: #e7e7e7;
+}
+
+.decktd {
+  min-width: 15em;
+}
+
+.count {
+  min-width: 4em;
+  text-align: right;
+}
+
+.optscol {
+  width: 2em;
+}
+
+.collapse {
+  color: black;
+  text-decoration: none;
+  display: inline-block;
+  width: 1em;
+}
+
+.filtered {
+  color: #00a !important;
+}
+
+.gears {
+  width: 1em;
+  height: 1em;
+  opacity: 0.5;
+  padding-top: 0.2em;
+}
+
+.nightMode a.deck {
+  color: white;
+}
+/* This is for the lines in between the decks in the list, I set it to a shade of blue matching my enhance main window config */
+.nightMode tr.deck td {
+    border-bottom-color: #%prm-hex;
+}
+.nightMode tr.drag-hover td {
+  border-bottom-color: #777;
+}
+.nightMode .current {
+  background-color: #29292B;
+}
+.nightMode .collapse {
+  color: white;
+}
+/* The gears have a more light color per default, remove the line of code in this block to get rid of that */
+.nightMode .gears {
+}
+.nightMode .filtered {
+  color: %prm-hex !important;
+}
