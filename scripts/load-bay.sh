@@ -126,6 +126,11 @@ declare -A loc40=(
     [local]="/home/b3nj4m1n/dotfiles/files/anki-addons/*"
     [remote]="/home/b3nj4m1n/.local/share/Anki2/addons21/"
 )
+declare -A loc41=(
+    [name]="rofi config"
+    [local]="/home/b3nj4m1n/dotfiles/files/rofi/*"
+    [remote]="$USER/.config/rofi/"
+)
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
