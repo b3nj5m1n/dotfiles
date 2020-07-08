@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# This script displays a dmenu with all mp3 files from a folder, upon selection the song will be played in cmus
+# This script displays a rofi -dmenu with all mp3 files from a folder, upon selection the song will be played in cmus
 
 # Dir to search for music in
 dirname="/mnt/Vault/music/"
 
 cd "$dirname"
-selection=$(find -name "*.mp3" | dmenu -i -F)
+selection=$(find -name "*.mp3" | rofi -dmenu -i -F)
 
 [ -z "$selection" ] && exit
 

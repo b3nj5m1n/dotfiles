@@ -4,7 +4,7 @@
 
 dir="/mnt/Vault/music/"
 
-selection=$(find "$dir" -maxdepth 1 -name "*.m3u" | dmenu)
+selection=$(find "$dir" -maxdepth 1 -name "*.m3u" | rofi -dmenu)
 
 mpc clear
 

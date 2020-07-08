@@ -5,7 +5,7 @@ dvorak="dvorak"
 pdvorak="programmer dvorak"
 english="english"
 
-selection=$(printf "$german\n$dvorak\n$pdvorak\n$english" | dmenu -c)
+selection=$(printf "$german\n$dvorak\n$pdvorak\n$english" | rofi -dmenu -c)
 
 # Remove all custom mappings
 setxkbmap -option

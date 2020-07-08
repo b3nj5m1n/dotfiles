@@ -12,7 +12,7 @@ alt + ctrl + t
 # Open application launcher
 # Alt + d
 alt + d
-    dmenu_run
+    rofi -show run
 
 # Reload sxhkd config files
 super + Escape

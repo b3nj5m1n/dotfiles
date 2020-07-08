@@ -12,7 +12,7 @@ filter="a.*.m3u"
 # Get selection
 files=$(find $dirname -maxdepth 1 -name $filter)
 # File to write to
-filename=$(printf "$files" | dmenu -c)
+filename=$(printf "$files" | rofi -dmenu -c)
 
 [ -z "$filename" ] && exit
 

@@ -5,7 +5,7 @@
 ph_file="/home/b3nj4m1n/dotfiles/bay/cache.json"
 
 echo "Please select file for use."
-cp "/home/b3nj4m1n/dotfiles/placeholders/$(ls "/home/b3nj4m1n/dotfiles/placeholders/" | dmenu)" "/home/b3nj4m1n/dotfiles/bay/cache.json"
+cp "/home/b3nj4m1n/dotfiles/placeholders/$(ls "/home/b3nj4m1n/dotfiles/placeholders/" | rofi -dmenu)" "/home/b3nj4m1n/dotfiles/bay/cache.json"
 
 # Get a count of how many placeholders there are
 ph_count=$(jq '.placeholders[].placeholder' "$ph_file" | wc -l)
