@@ -79,5 +79,6 @@ export EDITOR=nvim
 autoload edit-command-line; zle -N edit-command-line
 bindkey -M vicmd ' ' edit-command-line
 
-# Start tmux by default
-# if [ "$TMUX" = "" ]; then tmux; fi
+# Alias for copying output of a command to clipboard
+alias cpy='xclip -selection clipboard'
+
