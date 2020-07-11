@@ -94,7 +94,7 @@
             "suffixes": [
                 {
                     "suffix": "hex",
-                    "value": "#000000"
+                    "value": "#080808"
                 },
                 {
                     "suffix": "xterm",
@@ -108,7 +108,7 @@
             "suffixes": [
                 {
                     "suffix": "hex",
-                    "value": "#ff0066"
+                    "value": "#df206c"
                 },
                 {
                     "suffix": "xterm",
@@ -122,7 +122,7 @@
             "suffixes": [
                 {
                     "suffix": "hex",
-                    "value": "#00ff66"
+                    "value": "#20df6c"
                 },
                 {
                     "suffix": "xterm",
@@ -136,7 +136,7 @@
             "suffixes": [
                 {
                     "suffix": "hex",
-                    "value": "#ffff1a"
+                    "value": "#df9c20"
                 },
                 {
                     "suffix": "xterm",
@@ -150,7 +150,7 @@
             "suffixes": [
                 {
                     "suffix": "hex",
-                    "value": "#0563c2"
+                    "value": "#207fdf"
                 },
                 {
                     "suffix": "xterm",
@@ -164,7 +164,7 @@
             "suffixes": [
                 {
                     "suffix": "hex",
-                    "value": "#8649e1"
+                    "value": "#6c20df"
                 },
                 {
                     "suffix": "xterm",
@@ -178,7 +178,7 @@
             "suffixes": [
                 {
                     "suffix": "hex",
-                    "value": "#33ffff"
+                    "value": "#20dfdf"
                 },
                 {
                     "suffix": "xterm",
@@ -192,7 +192,7 @@
             "suffixes": [
                 {
                     "suffix": "hex",
-                    "value": "#ffffff"
+                    "value": "#ebebeb"
                 },
                 {
                     "suffix": "xterm",
@@ -206,7 +206,7 @@
             "suffixes": [
                 {
                     "suffix": "hex",
-                    "value": "#000000"
+                    "value": "#050505"
                 },
                 {
                     "suffix": "xterm",
@@ -220,7 +220,7 @@
             "suffixes": [
                 {
                     "suffix": "hex",
-                    "value": "#e6005c"
+                    "value": "#ff0066"
                 },
                 {
                     "suffix": "xterm",
@@ -234,7 +234,7 @@
             "suffixes": [
                 {
                     "suffix": "hex",
-                    "value": "#33ff85"
+                    "value": "#00ff66"
                 },
                 {
                     "suffix": "xterm",
@@ -248,7 +248,7 @@
             "suffixes": [
                 {
                     "suffix": "hex",
-                    "value": "#b2b226"
+                    "value": "#ffa600"
                 },
                 {
                     "suffix": "xterm",
@@ -262,7 +262,7 @@
             "suffixes": [
                 {
                     "suffix": "hex",
-                    "value": "#0456a9"
+                    "value": "#007fff"
                 },
                 {
                     "suffix": "xterm",
@@ -276,7 +276,7 @@
             "suffixes": [
                 {
                     "suffix": "hex",
-                    "value": "#6a23d4"
+                    "value": "#6600ff"
                 },
                 {
                     "suffix": "xterm",
@@ -332,7 +332,7 @@
             "suffixes": [
                 {
                     "suffix": "hex",
-                    "value": "#ff1a75"
+                    "value": "#bd2864"
                 },
                 {
                     "suffix": "xterm",
@@ -346,7 +346,7 @@
             "suffixes": [
                 {
                     "suffix": "hex",
-                    "value": "#00cc52"
+                    "value": "#28bd64"
                 },
                 {
                     "suffix": "xterm",
@@ -360,7 +360,7 @@
             "suffixes": [
                 {
                     "suffix": "hex",
-                    "value": "#b2b226"
+                    "value": "#bd8928"
                 },
                 {
                     "suffix": "xterm",
@@ -374,7 +374,7 @@
             "suffixes": [
                 {
                     "suffix": "hex",
-                    "value": "#1a89f9"
+                    "value": "#2873bd"
                 },
                 {
                     "suffix": "xterm",
@@ -388,7 +388,7 @@
             "suffixes": [
                 {
                     "suffix": "hex",
-                    "value": "#955fe5"
+                    "value": "#6428bd"
                 },
                 {
                     "suffix": "xterm",
@@ -402,7 +402,7 @@
             "suffixes": [
                 {
                     "suffix": "hex",
-                    "value": "#80ffff"
+                    "value": "#28bdbd"
                 },
                 {
                     "suffix": "xterm",
@@ -416,7 +416,7 @@
             "suffixes": [
                 {
                     "suffix": "hex",
-                    "value": "#f5f5f5"
+                    "value": "#e8e8e8"
                 },
                 {
                     "suffix": "xterm",
