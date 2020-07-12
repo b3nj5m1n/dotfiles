@@ -1,0 +1,36 @@
+# Credit: https://github.com/elenapan/dotfiles
+
+##########################################################
+## this is example bindings configuration file, copy it ##
+## to ~/.ncmpcpp/bindings and set up your preferences   ##
+##########################################################
+
+def_key "9"
+  show_help
+
+# Delete
+def_key "D"
+  delete_playlist_items
+def_key "D"
+  delete_browser_items
+def_key "D"
+  delete_stored_playlist
+
+# Scrolling
+def_key "k"
+  scroll_up
+def_key "K"
+  select_item
+  scroll_up
+def_key "j"
+  scroll_down
+def_key "J"
+  select_item
+  scroll_down
+
+# Search
+def_key "n"
+  next_found_item
+def_key "N"
+  previous_found_item
+
