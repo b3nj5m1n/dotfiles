@@ -11,6 +11,7 @@
     ],
     // python config
     "python.linting.enabled": true,
+    "python.jediEnabled": false,
     "python.linting.pylintEnabled": true,
     // Snippets
     "snippets.ultisnips.directories": [
