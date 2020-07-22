@@ -12,7 +12,7 @@
     // python config
     "python.linting.enabled": true,
     "python.jediEnabled": false,
-    "python.linting.pylintEnabled": true,
+    "python.linting.flake8Enabled": true,
     // Snippets
     "snippets.ultisnips.directories": [
         "UltiSnips",
