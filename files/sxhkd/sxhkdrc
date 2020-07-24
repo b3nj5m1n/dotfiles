@@ -59,11 +59,14 @@ XF86AudioMute
 # More brightness
 XF86MonBrightnessUp
     brightnessctl s +10%
+super + shift + plus
+    brightnessctl s +10%
+
 # Less brightness
 XF86MonBrightnessDown
     brightnessctl s 10%-
-
-
+super + shift + minus
+    brightnessctl s 10%-
 
 ############### Player Control ###############
 
