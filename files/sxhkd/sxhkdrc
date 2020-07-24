@@ -54,6 +54,17 @@ alt + shift + minus
 XF86AudioMute
     amixer -D pulse set 'Master' toggle; pkill lemonblocks -6
 
+############### Brightness Control ###############
+
+# More brightness
+XF86MonBrightnessUp
+    brightnessctl s +10%
+# Less brightness
+XF86MonBrightnessDown
+    brightnessctl s 10%-
+
+
+
 ############### Player Control ###############
 
 # Pause playback
