@@ -5,6 +5,9 @@
 # Open terminal with tmux
 alt + Return
     alacritty -e "tmux"
+# Open terminal without tmux
+super + Return
+    alacritty
 # Open terminal and attach to tmux
 alt + ctrl + t
     alacritty -e "tmux" "attach"
