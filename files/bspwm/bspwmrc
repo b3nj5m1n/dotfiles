@@ -17,8 +17,13 @@ start-lemonbar.sh &
 mpc idleloop | while read line; do pkill lemonblocks -5; done &
 bspc subscribe desktop | while read line; do pkill lemonblocks -4; done &
 
+#### MONITORS ####
+bspc monitor -d 1 2 3 4 5 6 7 8 9 0
+
+
 # Programms
-firefox --class="init_firefox" &
+/usr/bin/scripts/open-move.sh firefox 2
+# firefox --class="init_firefox" &
 # discord &
 # anki &
 # keeweb &
@@ -30,9 +35,6 @@ alacritty --class "neomutt" --dimensions 226 60 --position 50 60  -e "neomutt" &
 alacritty --class "calcurse" -e "calcurse" &
 
 # ~/.config/polybar/polybar.sh
-
-#### MONITORS ####
-bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 
 #### BSPWM configuration ####
 #bspc config border_radius                8
