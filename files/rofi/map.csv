@@ -1,0 +1,4 @@
+Firefox,/usr/bin/scripts/open-move.sh firefox 2
+Anki,/usr/bin/scripts/open-move.sh anki 6
+Discord,/usr/bin/scripts/open-move.sh discord 8
+Thunar,Thunar

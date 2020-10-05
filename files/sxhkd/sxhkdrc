@@ -15,7 +15,8 @@ alt + ctrl + t
 # Open application launcher
 # Alt + d
 alt + d
-    rofi -show run
+    bash /usr/bin/scripts/program-launcher.sh
+    # rofi -show run
 
 # Reload sxhkd config files
 super + Escape
