@@ -16,6 +16,7 @@ prefix="%"
 replace_placeholder () {
     echo "Replacing $2 in $1"
     sed "s/$prefix$2/$3/g" "$1" > "$1.tmp"
+    cp --attributes-only --preserve=mode "$1" "$1.tmp"
     rm "$1"
     mv "$1.tmp" "$1"
 }
