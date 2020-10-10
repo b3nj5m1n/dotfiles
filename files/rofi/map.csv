@@ -1,4 +1,5 @@
 Firefox,/usr/bin/scripts/open-move.sh firefox 2
+Xournal,/usr/bin/scripts/open-move.sh xournalpp 3
 Anki,/usr/bin/scripts/open-move.sh anki 6
 Discord,/usr/bin/scripts/open-move.sh discord 8
 Thunar,Thunar
