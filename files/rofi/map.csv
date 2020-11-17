@@ -1,5 +1,9 @@
+All Programs,/usr/bin/rofi -show run
+Thunar,Thunar
+Bitwarden,bitwarden-desktop
+Element,element-desktop
+Discord,/usr/bin/scripts/open-move.sh discord 8
+OnlyOffice,/usr/bin/scripts/open-move.sh onlyoffice-desktopeditors 5
+Anki,/usr/bin/scripts/open-move.sh anki 6
 Firefox,/usr/bin/scripts/open-move.sh firefox 2
 Xournal,/usr/bin/scripts/open-move.sh xournalpp 3
-Anki,/usr/bin/scripts/open-move.sh anki 6
-Discord,/usr/bin/scripts/open-move.sh discord 8
-Thunar,Thunar
