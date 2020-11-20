@@ -1,0 +1,428 @@
+{
+    "placeholders": [
+        {
+            "placeholder": "prm",
+            "desc": "Primary color",
+            "suffixes": [
+                {
+                    "suffix": "hex-bright",
+                    "value": "##95F7CA"
+                },
+                {
+                    "suffix": "hex-dim",
+                    "value": "##018183"
+                },
+                {
+                    "suffix": "hex",
+                    "value": "#02B696"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "197"
+                }
+            ]
+        },
+        {
+            "placeholder": "scd",
+            "desc": "Secondary color",
+            "suffixes": [
+                {
+                    "suffix": "hex-bright",
+                    "value": "#F795F2"
+                },
+                {
+                    "suffix": "hex-dim",
+                    "value": "#9602B6"
+                },
+                {
+                    "suffix": "hex",
+                    "value": "#C336D3"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "47"
+                }
+            ]
+        },
+        {
+            "placeholder": "bg",
+            "desc": "Background",
+            "suffixes": [
+                {
+                    "suffix": "hex-bright",
+                    "value": "#1f1c1f"
+                },
+                {
+                    "suffix": "hex-dim",
+                    "value": "#141214"
+                },
+                {
+                    "suffix": "hex",
+                    "value": "#171517"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "233"
+                }
+            ]
+        },
+        {
+            "placeholder": "fg",
+            "desc": "Foreground",
+            "suffixes": [
+                {
+                    "suffix": "hex-bright",
+                    "value": "#ffffff"
+                },
+                {
+                    "suffix": "hex-dim",
+                    "value": "#e7dbdb"
+                },
+                {
+                    "suffix": "hex",
+                    "value": "#f7f3f3"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "255"
+                }
+            ]
+        },
+        {
+            "placeholder": "c0",
+            "desc": "Color 0; Black Normal",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#080808"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "0"
+                }
+            ]
+        },
+        {
+            "placeholder": "c1",
+            "desc": "Color 1; Red Normal",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#b60222"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "197"
+                }
+            ]
+        },
+        {
+            "placeholder": "c2",
+            "desc": "Color 2; Green Normal",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#20df6c"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "47"
+                }
+            ]
+        },
+        {
+            "placeholder": "c3",
+            "desc": "Color 3; Yellow Normal",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#df9c20"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "184"
+                }
+            ]
+        },
+        {
+            "placeholder": "c4",
+            "desc": "Color 4; Blue Normal",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#207fdf"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "25"
+                }
+            ]
+        },
+        {
+            "placeholder": "c5",
+            "desc": "Color 5; Purple Normal",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#6c20df"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "98"
+                }
+            ]
+        },
+        {
+            "placeholder": "c6",
+            "desc": "Color 6; Cyan Normal",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#20dfdf"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "87"
+                }
+            ]
+        },
+        {
+            "placeholder": "c7",
+            "desc": "Color 7; White Normal",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#ebebeb"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "231"
+                }
+            ]
+        },
+        {
+            "placeholder": "c8",
+            "desc": "Color 8; Black Bright",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#050505"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "16"
+                }
+            ]
+        },
+        {
+            "placeholder": "c9",
+            "desc": "Color 9; Red Bright",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#d00227"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "161"
+                }
+            ]
+        },
+        {
+            "placeholder": "c10",
+            "desc": "Color 10; Green Bright",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#00ff66"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "84"
+                }
+            ]
+        },
+        {
+            "placeholder": "c11",
+            "desc": "Color 11; Yellow Bright",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#ffa600"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "142"
+                }
+            ]
+        },
+        {
+            "placeholder": "c12",
+            "desc": "Color 12; Blue Bright",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#007fff"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "25"
+                }
+            ]
+        },
+        {
+            "placeholder": "c13",
+            "desc": "Color 13; Purple Bright",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#6600ff"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "56"
+                }
+            ]
+        },
+        {
+            "placeholder": "c14",
+            "desc": "Color 14; Cyan Bright",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#00ffff"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "51"
+                }
+            ]
+        },
+        {
+            "placeholder": "c15",
+            "desc": "Color 15; White Bright",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#f5f5f5"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "255"
+                }
+            ]
+        },
+        {
+            "placeholder": "c16",
+            "desc": "Color 16; Black Dim",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#000000"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "16"
+                }
+            ]
+        },
+        {
+            "placeholder": "c17",
+            "desc": "Color 17; Red Dim",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#9d021e"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "198"
+                }
+            ]
+        },
+        {
+            "placeholder": "c18",
+            "desc": "Color 18; Green Dim",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#28bd64"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "41"
+                }
+            ]
+        },
+        {
+            "placeholder": "c19",
+            "desc": "Color 19; Yellow Dim",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#bd8928"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "142"
+                }
+            ]
+        },
+        {
+            "placeholder": "c20",
+            "desc": "Color 20; Blue Dim",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#2873bd"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "33"
+                }
+            ]
+        },
+        {
+            "placeholder": "c21",
+            "desc": "Color 21; Purple Dim",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#6428bd"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "98"
+                }
+            ]
+        },
+        {
+            "placeholder": "c22",
+            "desc": "Color 22; Cyan Dim",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#28bdbd"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "123"
+                }
+            ]
+        },
+        {
+            "placeholder": "c23",
+            "desc": "Color 23; White Dim",
+            "suffixes": [
+                {
+                    "suffix": "hex",
+                    "value": "#e8e8e8"
+                },
+                {
+                    "suffix": "xterm",
+                    "value": "255"
+                }
+            ]
+        }
+    ]
+}
