@@ -131,6 +131,11 @@ declare -A loc41=(
     [local]="/home/b3nj4m1n/dotfiles/files/rofi/*"
     [remote]="$USER/.config/rofi/"
 )
+declare -A loc41=(
+    [name]="zathura config"
+    [local]="/home/b3nj4m1n/dotfiles/files/zathura/*"
+    [remote]="$USER/.config/zathura/"
+)
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
