@@ -32,18 +32,3 @@ nnoremap g; m`A;<esc>``
 
 " Jump to placeholder in file, replace it and go into insert
 nmap <buffer> <leader>; /<%&%><CR>c5l
-
-
-" LaTeX
-
-" Compile document
-map <leader>. :w! \| !/bin/scripts/compile-latex.sh "<c-r>%"<CR><CR>
-
-" Open corresponding .pdf/.html or preview
-map <leader>p :!zathura $(echo % \| sed 's/tex$/pdf/') & disown<CR>
-
-" " Compile latex file
-" map <leader>c :w! /tmp/tocompile.tex \| !/bin/scripts/compile-latex.sh "/tmp/tocompile.tex"&<CR><CR>
-
-" " Open corresponding .pdf/.html or preview
-" map <leader>p :!zathura /tmp/tocompile.pdf & disown<CR><CR>
