@@ -81,4 +81,6 @@ bindkey -M vicmd ' ' edit-command-line
 
 # Alias for copying output of a command to clipboard
 alias cpy='xclip -selection clipboard'
+alias zathura='devour zathura'
+alias feh='devour feh'
 
