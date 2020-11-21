@@ -14,7 +14,7 @@ betterlockscreen -u /usr/share/wallpapers/custom/samuel-inkilainen-arctic-spirit
 syncthing -no-browser &
 
 killall lemonblocks
-start-lemonbar.sh &
+/bin/scripts/start-lemonbar.sh &
 mpc idleloop | while read line; do pkill lemonblocks -5; done &
 bspc subscribe desktop | while read line; do pkill lemonblocks -4; done &
 
