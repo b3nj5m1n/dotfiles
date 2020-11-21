@@ -109,4 +109,8 @@ alt + shift + {y,u,i,o}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
+# Rotate tree
+alt + shift + {d,a}
+    bspc node @/ -C {forward,backward}
+
 
