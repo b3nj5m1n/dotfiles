@@ -25,7 +25,7 @@ do
         bitwardenpw=$(zenity --password --title=Authentication)
         KEY=$(bw unlock "$bitwardenpw" --nointeraction --raw)
         if [ $? -eq 0 ]; then
-            echo $KEY | gpg --encrypt -r "9F7D2083BB220CEEB720E068309D4C8689849C5B" > "$FILE"
+            echo $KEY | gpg --encrypt -r "$DFGPGPROFILE" > "$FILE"
         fi
     fi
 done

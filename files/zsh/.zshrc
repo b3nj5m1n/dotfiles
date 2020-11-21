@@ -79,6 +79,9 @@ export EDITOR=nvim
 autoload edit-command-line; zle -N edit-command-line
 bindkey -M vicmd ' ' edit-command-line
 
+# Default/Prefered gpg profile to use
+export DFGPGPROFILE="9F7D2083BB220CEEB720E068309D4C8689849C5B"
+
 # Alias for copying output of a command to clipboard
 alias cpy='xclip -selection clipboard'
 alias zathura='devour zathura'
