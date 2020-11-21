@@ -12,13 +12,13 @@ current=$(bspc query -D -d .focused)
 # Default background color
 cdBACKGROUND=""
 # Default foreground color
-cdFOREGROUND="#f8f8ff"
+cdFOREGROUND="%fg-hex"
 # Default underline color
 cdFG=""
 # Occupied underline color
-coFG="#00ff99"
+coFG="%scd-hex"
 # Focused underline color
-cfFG="#ff0066"
+cfFG="%prm-hex"
 
 ### Other variables
 # Padding will be applied to both sides

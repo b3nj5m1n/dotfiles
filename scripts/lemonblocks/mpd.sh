@@ -58,7 +58,7 @@ perc_chr=$(awk -v n="$chrlen" -v m="$perc" 'BEGIN{ print int( n*(m/100)) }')
 
 # What to put at the beginning of the string
 # b="\e[31m"
-b="%%{F#ff0066}"
+b="%%{F%prm-hex}"
 # What to put in the middle of the string
 # m="\e[0m"
 m="%%{F-}"

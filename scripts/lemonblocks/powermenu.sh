@@ -4,7 +4,7 @@ printf "%%{F-}"
 
 FILE=/tmp/coloredpowermenu
 if [[ ! -f "$FILE" ]]; then
-    echo -e "#ff0066\n#00ff66\n#c6c62a\n#c6c62a\n#8649e1\n#33ffff" > /tmp/coloredpowermenu;
+    echo -e "%c1-hex\n%c2-hex\n%c3-hex\n%c4-hex\n%c5-hex\n%c6-hex\n" > /tmp/coloredpowermenu;
 fi
 
 colors="$(cat /tmp/coloredpowermenu)"
