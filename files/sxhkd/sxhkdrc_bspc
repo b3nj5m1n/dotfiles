@@ -102,8 +102,8 @@ alt + ctrl + space
 #
 
 # expand a window by moving one of its side outward
-alt + shift + {z,u,i,o}
-    /usr/bin/scripts/bspwm-resize.sh {1,2,3,4}
+alt + shift + {y,u,i,o}
+    /usr/bin/scripts/bspwm-resize.sh {west,south,north,east}
 
 # move a floating window
 super + {Left,Down,Up,Right}
