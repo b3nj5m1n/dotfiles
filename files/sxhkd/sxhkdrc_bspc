@@ -44,7 +44,8 @@ alt + {h,j,k,l}
 
 # Move node in the given direction
 alt + shift + {h,j,k,l}
-    bash /usr/bin/scripts/bspwm-smart-move.sh  {west,south,north,east}
+    bash /usr/bin/scripts/bspwm-swap-or-move-in.sh  {west,south,north,east}
+    # bash /usr/bin/scripts/bspwm-smart-move.sh  {west,south,north,east}
 
 # focus the node for the given path jump
 # alt + {p,b,comma,period}
