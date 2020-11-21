@@ -23,3 +23,6 @@ source ~/.config/nvim/plug-conf/sneak.vim
 source ~/.config/nvim/plug-conf/airline.vim
 
 source ~/.config/nvim/plug-conf/fzf.vim
+
+" Theme
+source ~/.config/nvim/themes/theme.vim

@@ -61,7 +61,9 @@ Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
 
 " Color Schemes
 " Plug 'b3nj5m1n/dotfiles'
-Plug 'b3nj5m1n/gruvbox-material', { 'branch': 'pinky' }
+" Plug 'b3nj5m1n/gruvbox-material', { 'branch': 'pinky' }
+Plug 'dracula/vim', { 'as': 'dracula' }
+" Plug 'joshdick/onedark.vim'
 
 call plug#end()
 

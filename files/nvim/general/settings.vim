@@ -1,11 +1,12 @@
 " Enable syntax highlighting
 syntax on
 " Enable termguicolors
-if has('termguicolors')
-  set termguicolors
+if (has("termguicolors"))
+    set termguicolors
+    hi LineNr ctermbg=NONE guibg=NONE
 endif
-" Set color scheme
-colorscheme gruvbox-material
+
+colorscheme dracula
 
 " Enable mouse support
 set mouse=a
