@@ -25,7 +25,10 @@ nmap <leader>r :RnvimrToggle<CR>
 nnoremap <leader><space> :Files<CR>
 
 " Ripgrep
-nnoremap <leader>r :Rg<CR>
+nnoremap <leader>g :Rg<CR>
 
 " Append semicolon to end of line and return to previous location
 nnoremap g; m`A;<esc>``
+
+" Jump to placeholder in file, replace it and go into insert
+nmap <buffer> <leader>; /<%&%><CR>c5l
