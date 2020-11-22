@@ -13,8 +13,9 @@ unclutter --idle 2 &
 betterlockscreen -u /usr/share/wallpapers/custom/samuel-inkilainen-arctic-spirit-with-signature.jpg &
 syncthing -no-browser &
 
-killall lemonblocks
-/bin/scripts/start-lemonbar.sh &
+# killall lemonblocks
+# /bin/scripts/start-lemonbar.sh &
+/home/b3nj4m1n/.config/polybar/polybar.sh &
 mpc idleloop | while read line; do pkill lemonblocks -5; done &
 bspc subscribe desktop | while read line; do pkill lemonblocks -4; done &
 

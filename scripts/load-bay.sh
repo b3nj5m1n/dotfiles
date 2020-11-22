@@ -131,10 +131,20 @@ declare -A loc41=(
     [local]="/home/b3nj4m1n/dotfiles/files/rofi/*"
     [remote]="$USER/.config/rofi/"
 )
-declare -A loc41=(
+declare -A loc42=(
     [name]="zathura config"
     [local]="/home/b3nj4m1n/dotfiles/files/zathura/*"
     [remote]="$USER/.config/zathura/"
+)
+declare -A loc43=(
+    [name]="polybar config"
+    [local]="/home/b3nj4m1n/dotfiles/files/polybar/*"
+    [remote]="$USER/.config/polybar/"
+)
+declare -A loc44=(
+    [name]="polybar scripts"
+    [local]="/home/b3nj4m1n/dotfiles/scripts/polybar/*"
+    [remote]="/usr/bin/polyscripts/"
 )
 
 RED='\033[0;31m'
