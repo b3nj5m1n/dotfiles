@@ -25,7 +25,9 @@ do
         bitwardenpw=$(zenity --password --title=Authentication)
         KEY=$(bw unlock "$bitwardenpw" --nointeraction --raw)
         if [ $? -eq 0 ]; then
-            echo $KEY | gpg --encrypt -r "$DFGPGPROFILE" > "$FILE"
+            echo $KEY | XDG_RUNTIME_DIR=/run/user/$(id -u) gpg --encrypt -r "$DFGPGPROFILE" > "$FILE"
+        else
+            sleep 10
         fi
     fi
 done
