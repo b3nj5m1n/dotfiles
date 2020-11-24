@@ -49,6 +49,7 @@ neovim-plug
 nerd-fonts-ubuntu-mono
 netctl
 networkmanager
+notmuch
 ntfs-3g-fuse
 patch
 pfetch
