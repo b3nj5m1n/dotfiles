@@ -2,8 +2,12 @@
 
 ## bspwm
 
-![bspwm](https://i.imgur.com/0y2oj9p.jpg)
+![bspwm](https://i.imgur.com/7qgwfxA.png)
 
+<details>
+    <summary>[old] bpswm</summary>
+    <img src="https://i.imgur.com/0y2oj9p.jpg" alt="">
+</details>
 <details>
     <summary>[old] bpswm</summary>
     <img src="https://i.imgur.com/NLPsol2.png" alt="">
