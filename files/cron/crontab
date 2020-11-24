@@ -1,0 +1,3 @@
+*/10 * * * * /usr/bin/mbsync -a
+5 */2 * * * /usr/bin/pacman -Syuw --noconfirm
+0 17 * * * /bin/bash /home/b3nj4m1n/Documents/Github/gitega/update.sh "/home/b3nj4m1n/.gitega" "EMAIL"; XDG_RUNTIME_DIR=/run/user/$(id -u) notify-send "Updated github stats."
