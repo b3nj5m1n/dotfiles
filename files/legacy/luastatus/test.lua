@@ -13,7 +13,7 @@ widget = {
         if t == 'fifo' then
             return {full_text = 'Thanks!'}
         else
-            return {full_text = '%{A1::} Click me %{A1}'}
+            return {full_text = '%{A1:moin:} Click me %{A1}'}
         end
     end,
     event = function(t)
@@ -21,5 +21,6 @@ widget = {
         -- this process would lead to a deadlock), so we spawn another process to do it and do not
         -- wait for its termination (which would also lead to a deadlock).
         os.execute('exec touch ' .. fifo_path .. '&')
+        print(t)
     end,
 }
