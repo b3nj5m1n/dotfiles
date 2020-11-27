@@ -44,8 +44,7 @@ transmission-qt
 tty-clock
 uget
 veracrypt-git
-virtualbox
-virtualbox-host-modules-arch
+virtualbox-bin
 whois
 wine-staging
 xfburn
