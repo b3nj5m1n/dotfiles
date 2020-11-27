@@ -34,14 +34,14 @@ do
         KEY=$(bw unlock "$bitwardenpw" --nointeraction --raw)
         if [ $? -eq 0 ]; then
             echo $KEY | XDG_RUNTIME_DIR=/run/user/$(id -u) gpg --encrypt -r "$DFGPGPROFILE" > "$FILE"
-        else
-            COUNTER=$((COUNTER+1))
-            if [ "$COUNTER" -gt "1" ]
-            then
-                exit
-            fi
-            sleep 10
+            exit
         fi
+        COUNTER=$((COUNTER+1))
+        if [ "$COUNTER" -gt "1" ]
+        then
+            exit
+        fi
+        sleep 10
     fi
 done
 
