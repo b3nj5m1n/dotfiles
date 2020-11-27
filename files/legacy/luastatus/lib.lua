@@ -7,6 +7,10 @@ function lib.colorize(text, fg, bg, u, a)
     return text
 end
 
+function lib.addClick(text, number, name)
+    return string.format('%%{A%d:%s:}', number, name) .. text .. '%{A}'
+end
+
 local colors = {
     M = {fg = '#000000', bg = '#ff5900'},
     m = {fg = '#ff5900', bg = '#000000'},

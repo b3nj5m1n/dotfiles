@@ -21,6 +21,6 @@ luastatus-lemonbar-launcher -p -a"$CLICKABLE_AREAS" \
     -p -g"$PANEL_WIDTH"x"$PANEL_HEIGHT"+"$PANEL_HORIZONTAL_OFFSET"+"$PANEL_VERTICAL_OFFSET" \
     -p -f"$PANEL_FONT" -p -f"$PANEL_ICON_FONT" -p -F"$COLOR_DEFAULT_FG" -p -B"$COLOR_DEFAULT_BG" \
     -p -u"$UNDERLINE_HEIGHT" -p -n"$PANEL_WM_NAME" -- -Bseparator=' ' \
-    left.lua \
+    left.lua bspwm.lua mpd.lua \
     center.lua title.lua \
     right.lua alsa.lua xkb.lua clock.lua
