@@ -124,7 +124,7 @@ super + ctrl + shift + i
     bash /usr/bin/scripts/keyboard-layout-switcher.sh
 
 # Draw terminal
-alt + shift + Return
+alt + super + Return
     bash /usr/bin/scripts/draw-terminal.sh
 
 # Take screenshot
