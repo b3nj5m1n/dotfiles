@@ -146,6 +146,11 @@ declare -A loc44=(
     [local]="/home/b3nj4m1n/dotfiles/scripts/polybar/*"
     [remote]="/usr/bin/polyscripts/"
 )
+declare -A loc45=(
+    [name]="script assets"
+    [local]="/home/b3nj4m1n/dotfiles/scripts/assets/*"
+    [remote]="/usr/bin/scripts/assets/"
+)
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
