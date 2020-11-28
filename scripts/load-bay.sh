@@ -14,7 +14,7 @@ declare -A loc1=(
 declare -A loc2=(
     [name]="gtk2"
     [local]="/home/b3nj4m1n/dotfiles/files/gtk/.gtkrc-2.0"
-    [remote]="$USER/"
+    [remote]="$USER/.config/gtk-2.0/"
 )
 declare -A loc3=(
     [name]="gtk3"

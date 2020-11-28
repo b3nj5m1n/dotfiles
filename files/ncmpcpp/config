@@ -2,7 +2,7 @@
 
 ### Directories ###
 ncmpcpp_directory = ~/.config/ncmpcpp
-# lyrics_directory  = ~/.config/ncmpcpp/lyrics
+lyrics_directory  = ~/.local/share/lyrics
 mpd_music_dir     = /mnt/Vault/music/
 
 ### Behaviour ###
