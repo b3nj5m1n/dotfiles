@@ -103,8 +103,8 @@ declare -A loc35=(
 )
 declare -A loc36=(
     [name]="tmux"
-    [local]="/home/b3nj4m1n/dotfiles/files/tmux/.tmux.conf"
-    [remote]="/home/b3nj4m1n/"
+    [local]="/home/b3nj4m1n/dotfiles/files/tmux/tmux.conf"
+    [remote]="/home/b3nj4m1n/.config/tmux/"
 )
 declare -A loc37=(
     [name]="lemonblocks"
