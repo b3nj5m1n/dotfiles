@@ -31,7 +31,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/.local/share/org/")
+; (setq org-directory "~/.local/share/org/")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -44,7 +44,7 @@
   (require 'org-bullets)
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
   (setq org-directory "~/.local/share/org/"
-        org-agenda-files '("~/.local/share/org/agenda.org")
+        org-agenda-files '("~/.local/share/org/")
         org-default-notes-file (expand-file-name "notes.org" org-directory)
         org-ellipsis " ▼ "
         org-log-done 'time
