@@ -24,6 +24,7 @@ glfw-x11
 glow
 gparted
 hibernator
+ledger
 lemonbar-xft-git
 lutris
 mupdf
@@ -35,8 +36,10 @@ openbsd-netcat
 pavucontrol
 persepolis
 pipes.sh
+python-black
 qutebrowser
 seahorse
+shellcheck
 steam
 tor
 tor-browser
