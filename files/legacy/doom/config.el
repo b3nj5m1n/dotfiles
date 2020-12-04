@@ -11,8 +11,12 @@
 (setq user-full-name "Benjamin"
       user-mail-address "b3nj4m1n@gmx.net")
 
+;; Exit insert mode
 (define-key evil-insert-state-map (kbd "C-c C-c") 'evil-normal-state)
 (define-key evil-normal-state-map (kbd "C-c C-c") 'evil-normal-state)
+;; Paste with Control + Shift + v in insert mode
+(define-key evil-insert-state-map (kbd "C-S-v") 'evil-paste-after)
+
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -34,28 +38,30 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-; (setq org-directory "~/.local/share/org/")
+(setq org-directory "~/.local/share/org/")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative)
 
+;; Use super as meta key
 (setq x-super-keysym 'meta)
 
 
+;; Configure org
 (after! org
+  (setq org-directory "~/.local/share/org/")
   (require 'org-bullets)
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-  (setq org-directory "~/.local/share/org/"
-        org-agenda-files '("~/.local/share/org/")
-        org-default-notes-file (expand-file-name "notes.org" org-directory)
-        org-ellipsis " ▼ "
-        org-log-done 'time
-        org-journal-dir "~/.local/share/org/journal/"
-        org-journal-date-format "%B %d, %Y (%A)"
-        org-journal-file-format "%Y-%m-%d.org"
-        org-hide-emphasis-markers t
-))
+  (setq org-agenda-files '("~/.local/share/org/"))
+  (setq org-default-notes-file (expand-file-name "notes.org" org-directory))
+  (setq org-ellipsis " ▼ ")
+  (setq org-log-done 'time)
+  (setq org-hide-emphasis-markers t)
+  (setq org-journal-dir "~/.local/share/org/")
+  (setq org-journal-date-format "%A, %d %B %Y")
+  (setq org-journal-file-format "%Y-%m-%d.org")
+  )
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:
@@ -75,6 +81,7 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;; Spellcheck config
 (with-eval-after-load "ispell"
   ;; Configure `LANG`, otherwise ispell.el cannot find a 'default
   ;; dictionary' even though multiple dictionaries will be configured
@@ -90,8 +97,20 @@
   ;; For saving words to the personal dictionary, don't infer it from
   ;; the locale, otherwise it would save to ~/.hunspell_de_DE.
   (setq ispell-personal-dictionary "~/.local/share/dictionary/hunspell_personal"))
+;; Enable flyspell everywhere
+(add-hook 'text-mode-hook 'flyspell-mode)
+(add-hook 'prog-mode-hook 'flyspell-prog-mode)
 
 ;; The personal dictionary file has to exist, otherwise hunspell will
 ;; silently not use it.
-; (unless (file-exists-p ispell-personal-dictionary)
-;   (write-region "" nil ispell-personal-dictionary nil 0))
+                                        ; (unless (file-exists-p ispell-personal-dictionary)
+                                        ;   (write-region "" nil ispell-personal-dictionary nil 0))
+
+
+;; Completion config
+(after! company
+  (setq company-idle-delay 0.1
+        company-minimum-prefix-length 2)
+  (setq company-show-numbers t)
+  (add-hook 'evil-normal-state-entry-hook #'company-abort)) ;; make aborting less annoying.
+
