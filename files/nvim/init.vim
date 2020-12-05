@@ -26,5 +26,5 @@ source ~/.config/nvim/general/mappings.vim
 
 
 " Theme
-source ~/.config/nvim/themes/theme.vim
+" source ~/.config/nvim/themes/theme.vim
 
