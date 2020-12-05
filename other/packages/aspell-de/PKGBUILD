@@ -1,0 +1,24 @@
+# Maintainer: 
+
+/de/aspell6-de-20161207-7-0.tar.bz2
+
+pkgname=aspell-de
+_distname=aspell6-de
+pkgver=20161207_7_0
+pkgrel=1
+pkgdesc="German aspell dictionary"
+arch=('any')
+url="http://aspell.net/"
+source=(ftp://ftp.gnu.org/gnu/aspell/dict/de/$_distname-${pkgver//_/-}.tar.bz2)
+sha256sums=('c2125d1fafb1d4effbe6c88d4e9127db59da9ed92639c7cbaeae1b7337655571')
+
+build() {
+  cd "${srcdir}"/${_distname}-${pkgver//_/-}
+  ./configure
+  make
+}
+
+package() {
+  cd "${srcdir}"/${_distname}-${pkgver//_/-}
+  make DESTDIR="${pkgdir}" install
+}
