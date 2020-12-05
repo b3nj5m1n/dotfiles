@@ -6,8 +6,8 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-export ADOTDIR=$XDG_CONFIG_HOME/antigen
-source /home/b3nj4m1n/.config/zsh/antigen.zsh
+# export ADOTDIR=$XDG_CONFIG_HOME/antigen
+# source /home/b3nj4m1n/.config/zsh/antigen.zsh
 
 # The following lines were added by compinstall
 
@@ -39,13 +39,13 @@ setopt autocd
 
 ######################### Antigen #########################
 
-antigen use oh-my-zsh
+# antigen use oh-my-zsh
 
 ##### Plugins #####
 
-antigen bundle zsh-users/zsh-syntax-highlighting
+# antigen bundle zsh-users/zsh-syntax-highlighting
 # antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle softmoth/zsh-vim-mode
+# antigen bundle softmoth/zsh-vim-mode
 
 ##### Themes #####
 
@@ -53,24 +53,27 @@ antigen bundle softmoth/zsh-vim-mode
 # antigen theme cloud
 # antigen theme af-magic
 
-antigen apply
-
+# antigen apply
 
 ##### Prompt #####
 
-if [[ -z $ZSH_THEME_CLOUD_PREFIX ]]; then
-    ZSH_THEME_CLOUD_PREFIX='%{%G%}'
-fi
+fpath+=$XDG_CONFIG_HOME/zsh/pure
+autoload -U promptinit; promptinit
+prompt pure
 
-PROMPT='%{$fg_bold[green]%}%p %{$FG[%prm-xterm]%}%c %{$fg_bold[cyan]%}$(git_prompt_info)%{$fg_bold[blue]%}% %{$fg_bold[green]%}$ZSH_THEME_CLOUD_PREFIX %{$reset_color%}'
+# if [[ -z $ZSH_THEME_CLOUD_PREFIX ]]; then
+#     ZSH_THEME_CLOUD_PREFIX='%{%G%}'
+# fi
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}[%{$FG[%prm-xterm]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}]%{$FG[%prm-xterm]%}%{%G⚡%}%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}]"
+# PROMPT='%{$fg_bold[green]%}%p %{$FG[%prm-xterm]%}%c %{$fg_bold[cyan]%}$(git_prompt_info)%{$fg_bold[blue]%}% %{$fg_bold[green]%}$ZSH_THEME_CLOUD_PREFIX %{$reset_color%}'
+
+# ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}[%{$FG[%prm-xterm]%}"
+# ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+# ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}]%{$FG[%prm-xterm]%}%{%G⚡%}%{$reset_color%}"
+# ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}]"
 
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#737373"
+# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#737373"
 
 
 bindkey -v
