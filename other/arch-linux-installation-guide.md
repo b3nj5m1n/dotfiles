@@ -113,8 +113,9 @@ pacman -S git binutils fakeroot base-devel
 ## Clone dotfiles repo
 git clone https://github.com/b3nj5m1n/dotfiles
 ## Install meta package
-cd dotfiles/other/arch-meta/
-makepkg -s
+%% cd dotfiles/other/arch-meta/
+%% makepkg -s
+source PKGBUILD && yay -Syu --needed --asdeps "${makedepends[@]}" "${depends[@]}"
 ## Move dotfiles
 cd dotfiles/
 ./conf-files-updater.sh
