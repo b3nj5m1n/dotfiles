@@ -1,0 +1,23 @@
+# Maintainer: 
+
+
+pkgname=aspell-en
+_distname=aspell6-en
+pkgver=2019.10.06_0
+pkgrel=1
+pkgdesc="English aspell dictionary"
+arch=('any')
+url="http://aspell.net/"
+source=(ftp://ftp.gnu.org/gnu/aspell/dict/en/$_distname-${pkgver//_/-}.tar.bz2)
+sha256sums=('24334b4daac6890a679084f4089e1ce7edbe33c442ace776fa693d8e334f51fd')
+
+build() {
+  cd "${srcdir}"/${_distname}-${pkgver//_/-}
+  ./configure
+  make
+}
+
+package() {
+  cd "${srcdir}"/${_distname}-${pkgver//_/-}
+  make DESTDIR="${pkgdir}" install
+}

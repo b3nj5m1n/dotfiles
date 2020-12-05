@@ -1,7 +1,5 @@
 # Maintainer: 
 
-/de/aspell6-de-20161207-7-0.tar.bz2
-
 pkgname=aspell-de
 _distname=aspell6-de
 pkgver=20161207_7_0
