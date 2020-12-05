@@ -89,11 +89,11 @@
   (setenv "LANG" "en_GB")
   (setq ispell-program-name "hunspell")
   ;; Configure German, Swiss German, and two variants of English.
-  (setq ispell-dictionary "de_DE,en_GB")
+  (setq ispell-dictionary "de_DE_neu,en_GB")
   ;; ispell-set-spellchecker-params has to be called
   ;; before ispell-hunspell-add-multi-dic will work
   (ispell-set-spellchecker-params)
-  (ispell-hunspell-add-multi-dic "de_DE,en_GB")
+  (ispell-hunspell-add-multi-dic "de_DE_neu,en_GB")
   ;; For saving words to the personal dictionary, don't infer it from
   ;; the locale, otherwise it would save to ~/.hunspell_de_DE.
   (setq ispell-personal-dictionary "~/.local/share/dictionary/hunspell_personal"))

@@ -1,7 +1,7 @@
 # Maintainer: 
 
-pkgname=hunspell-en_GB
-_lang=en_GB
+pkgname=hunspell-en_AU
+_lang=en_AU
 pkgver=20061030
 pkgrel=3
 pkgdesc="English dictionary for Hunspell"
@@ -10,7 +10,7 @@ url="http://extensions.services.openoffice.org"
 license=('GPL2' 'custom')
 depends=('hunspell')
 source=(http://download.services.openoffice.org/contrib/dictionaries/$_lang.zip)
-sha256sums=('5869d8bd80eb2eb328ebe36b356348de4ae2acb1db6df39d1717d33f89f63728')
+sha256sums=('22e217a631977d7b377f8dd22d2bbacd2d36b32765ce13f3474b03a4a97dd700')
 
 
 package() 
