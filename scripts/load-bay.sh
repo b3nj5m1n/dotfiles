@@ -69,12 +69,12 @@ declare -A loc29=(
 declare -A loc30=(
     [name]="zsh config"
     [local]="/home/b3nj4m1n/dotfiles/files/zsh/.zshrc"
-    [remote]="$USER/"
+    [remote]="$USER/.config/zsh/"
 )
 declare -A loc31=(
-    [name]="more zsh config"
-    [local]="/home/b3nj4m1n/dotfiles/files/zsh/*"
-    [remote]="$USER/.config/zsh/"
+    [name]="zsh config"
+    [local]="/home/b3nj4m1n/dotfiles/files/zsh/.zshrc"
+    [remote]="$USER/"
 )
 declare -A loc32=(
     [name]="ranger config"

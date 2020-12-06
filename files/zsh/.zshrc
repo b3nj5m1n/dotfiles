@@ -6,9 +6,6 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-# export ADOTDIR=$XDG_CONFIG_HOME/antigen
-# source /home/b3nj4m1n/.config/zsh/antigen.zsh
-
 # The following lines were added by compinstall
 
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
@@ -30,59 +27,53 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
-HISTSIZE=9999
-SAVEHIST=999999
+HISTSIZE=9999999
+SAVEHIST=9999999
 setopt autocd
 
 # End of lines configured by zsh-newuser-install
-
-
-######################### Antigen #########################
-
-# antigen use oh-my-zsh
-
-##### Plugins #####
-
-# antigen bundle zsh-users/zsh-syntax-highlighting
-# antigen bundle zsh-users/zsh-autosuggestions
-# antigen bundle softmoth/zsh-vim-mode
-
-##### Themes #####
-
-# antigen theme robbyrussell
-# antigen theme cloud
-# antigen theme af-magic
-
-# antigen apply
 
 ##### Prompt #####
 
 fpath+=$XDG_CONFIG_HOME/zsh/pure
 autoload -U promptinit; promptinit
+zstyle :prompt:pure:prompt color "%c5-hex"
+zstyle :prompt:pure:path color "%c6-hex"
+zstyle :prompt:pure:user color "%c2-hex"
+zstyle :prompt:pure:host color "%c10-hex"
+# git:branch
+# git:dirty
+# git:action
+# git:arrow
+# git:stash
+# execution_time
 prompt pure
 
-# if [[ -z $ZSH_THEME_CLOUD_PREFIX ]]; then
-#     ZSH_THEME_CLOUD_PREFIX='%{%G%}'
-# fi
-
-# PROMPT='%{$fg_bold[green]%}%p %{$FG[%prm-xterm]%}%c %{$fg_bold[cyan]%}$(git_prompt_info)%{$fg_bold[blue]%}% %{$fg_bold[green]%}$ZSH_THEME_CLOUD_PREFIX %{$reset_color%}'
-
-# ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}[%{$FG[%prm-xterm]%}"
-# ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-# ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}]%{$FG[%prm-xterm]%}%{%G⚡%}%{$reset_color%}"
-# ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}]"
-
-
-# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#737373"
-
-
+# Vi key bindings
 bindkey -v
 export KEYTIMEOUT=1
 
+# Enable Ctrl + Backspace to delete word backwards
+bindkey '^H' backward-kill-word
+# Enable deleting last char on a line & going back to the previous one
+bindkey -v '^?' backward-delete-char
+# Enable skipping words with Ctrl + Arrow Keys
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+# History Search
+bindkey -M viins '^R' history-incremental-pattern-search-backward
+bindkey -M viins '^F' history-incremental-pattern-search-forward
+bindkey -M vicmd '/' history-incremental-pattern-search-backward
+bindkey -M vicmd '?' history-incremental-pattern-search-forward
+bindkey "^j" history-beginning-search-backward
+bindkey "^k" history-beginning-search-forward
 
+
+# Default editor
 export EDITOR=nvim
 
 autoload edit-command-line; zle -N edit-command-line
+# Space in normal mode to edit current line in editor buffer
 bindkey -M vicmd ' ' edit-command-line
 
 # Default/Prefered gpg profile to use

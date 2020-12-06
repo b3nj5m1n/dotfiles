@@ -15,7 +15,7 @@
 (define-key evil-insert-state-map (kbd "C-c C-c") 'evil-normal-state)
 (define-key evil-normal-state-map (kbd "C-c C-c") 'evil-normal-state)
 ;; Paste with Control + Shift + v in insert mode
-(define-key evil-insert-state-map (kbd "C-S-v") 'evil-paste-after)
+(define-key evil-insert-state-map (kbd "C-S-v") 'evil-paste-before)
 
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
