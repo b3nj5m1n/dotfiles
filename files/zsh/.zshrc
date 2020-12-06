@@ -35,19 +35,19 @@ setopt autocd
 
 ##### Prompt #####
 
-fpath+=$XDG_CONFIG_HOME/zsh/pure
-autoload -U promptinit; promptinit
-zstyle :prompt:pure:prompt color "%c5-hex"
-zstyle :prompt:pure:path color "%c6-hex"
-zstyle :prompt:pure:user color "%c2-hex"
-zstyle :prompt:pure:host color "%c10-hex"
+# fpath+=$XDG_CONFIG_HOME/zsh/pure
+# autoload -U promptinit; promptinit
+# zstyle :prompt:pure:prompt color "%c5-hex"
+# zstyle :prompt:pure:path color "%c6-hex"
+# zstyle :prompt:pure:user color "%c2-hex"
+# zstyle :prompt:pure:host color "%c10-hex"
 # git:branch
 # git:dirty
 # git:action
 # git:arrow
 # git:stash
 # execution_time
-prompt pure
+# prompt pure
 
 # Vi key bindings
 bindkey -v
@@ -65,8 +65,8 @@ bindkey -M viins '^R' history-incremental-pattern-search-backward
 bindkey -M viins '^F' history-incremental-pattern-search-forward
 bindkey -M vicmd '/' history-incremental-pattern-search-backward
 bindkey -M vicmd '?' history-incremental-pattern-search-forward
-bindkey "^j" history-beginning-search-backward
-bindkey "^k" history-beginning-search-forward
+bindkey "^z" history-beginning-search-backward
+bindkey "^u" history-beginning-search-forward
 
 
 # Default editor
@@ -84,6 +84,16 @@ alias cpy='xclip -selection clipboard'
 # Alias for hiding terminal when starting certain programs
 alias zathura='devour zathura'
 alias feh='devour feh'
+# Use color support by default
+alias ls='ls --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
 # Clean up home dir
 ## adb
@@ -112,3 +122,6 @@ export NVM_DIR="$XDG_DATA_HOME/nvm"
 export GEM_HOME="$XDG_DATA_HOME/gem"
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME/java"
+
+# Use starship prompt
+eval "$(starship init zsh)"

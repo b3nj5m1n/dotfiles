@@ -10,8 +10,8 @@ license=(GPL)
 depends=(
 anki
 betterlockscreen
-blueman
 bitwarden-cli
+blueman
 brightnessctl
 bspwm
 calcurse
@@ -69,6 +69,7 @@ rustup
 siji-git
 slop
 socat
+starship-bin
 sudo
 texinfo
 texlive-bibtexextra

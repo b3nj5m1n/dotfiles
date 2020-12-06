@@ -1,0 +1,5 @@
+[character]
+success_symbol = "[➜](bold purple)"
+error_symbol = "[➜](bold red)"
+vicmd_symbol = "[➜](bold cyan)"
+

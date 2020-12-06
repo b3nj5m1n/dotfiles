@@ -28,9 +28,9 @@ alias la='ls -A'
 alias l='ls -CF'
 
 alias ..='cd ..'
-alias la='ls -a'
-alias ga='git add .'
-
 
 ######################## Abbreviations ########################
 abbr -a cpy='xclip -selection clipboard'
+
+# Use starship prompt
+starship init fish | source

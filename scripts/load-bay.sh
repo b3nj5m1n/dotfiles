@@ -151,6 +151,16 @@ declare -A loc45=(
     [local]="/home/b3nj4m1n/dotfiles/scripts/assets/*"
     [remote]="/usr/bin/scripts/assets/"
 )
+declare -A loc46=(
+    [name]="fish config"
+    [local]="/home/b3nj4m1n/dotfiles/files/fish/config.fish"
+    [remote]="$USER/.config/fish/"
+)
+declare -A loc47=(
+    [name]="starship config"
+    [local]="/home/b3nj4m1n/dotfiles/files/starship/starship.toml"
+    [remote]="$USER/.config/"
+)
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
