@@ -11,6 +11,8 @@ depends=(
 android-file-transfer-linux-git
 android-studio
 aria2
+audacity
+binwalk
 bitwarden
 bluej
 code
@@ -20,6 +22,7 @@ docker-compose
 element-desktop
 espanso
 fd
+gimp
 glfw-x11
 glow
 gparted
@@ -40,7 +43,10 @@ python-black
 qutebrowser
 seahorse
 shellcheck
+sqlmap
 steam
+steghide
+stegsolve
 tor
 tor-browser
 transmission-qt
