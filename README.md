@@ -2,8 +2,12 @@
 
 ## bspwm
 
-![bspwm](https://i.imgur.com/7qgwfxA.png)
+<img src="https://i.imgur.com/PUtsTpf.png" alt="">
 
+<details>
+    <summary>[old] bpswm</summary>
+    <img src="https://i.imgur.com/7qgwfxA.png" alt="">
+</details>
 <details>
     <summary>[old] bpswm</summary>
     <img src="https://i.imgur.com/0y2oj9p.jpg" alt="">
@@ -27,18 +31,21 @@
 # dotfiles
 
 ## This repo includes my config for the following programs (You can find them in the files/ directory):
-* lightdm [Config]
-* bpswm [Config/Colorscheme]
-* zsh [Config/Colorscheme/Prompt]
-* sxhkd [Config]
-* picom [Config]
-* neovim [Config/Colorscheme]
-* vim-airline [Config/Colorscheme]
-* alacritty [Config/Colorscheme]
-* dunst [Config/Colorscheme]
-* ranger [Config]
-* cli-visualizer [Config/Colorscheme]
-* lemonbar [Config/Scripts]
+* (neo)mutt
+* (neo)vim
+* alacritty
+* anki
+* bpswm
+* cli-visualizer
+* dunst
+* emacs (doom)
+* lemonbar
+* lightdm
+* picom
+* ranger
+* sxhkd
+* tmux
+* zsh
 
 ## ./bay.sh
 This script automatically calls 3 other scripts located in the scripts folder: load-bay.sh, process-bay.sh and unload-bay.sh
@@ -51,13 +58,3 @@ The last script then copys all of the files from the bay directory onto the actu
 
 In praxis this allows me to change color schemes for all of my programs in a few seconds.
 
-## other/
-### arch-linux-installation-guide.md
-The arch installation guide I wrote, specific to this dotfiles repo.
-Following it should get you to a setup exactly like mine, but I can't gurantee completeness.
-### color_pallete.css
-Contains the colors I use for all my custom color schemes.
-### fonts
-Contains the names of some of the fonts I use.
-### arch-meta/
-Contains a meta package with most of the programs I use. (Not exactly up to date)
