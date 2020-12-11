@@ -8,6 +8,7 @@ dunst &
 mpd &
 feh --bg-scale /usr/share/wallpapers/custom/aurora-1197753.jpg &
 setxkbmap de &
+emacs --daemon &
 unclutter --idle 2 &
 # pidof bspswallow || /usr/bin/scripts/bspwm-swallow.sh &
 betterlockscreen -u /usr/share/wallpapers/custom/samuel-inkilainen-arctic-spirit-with-signature.jpg &

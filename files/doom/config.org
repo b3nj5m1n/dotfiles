@@ -1,0 +1,129 @@
+#+TITLE: Doom Emacs Configuration
+#+STARTUP: overview
+
+* Basic Configuration
+** Personal Information
+Some personal information which is used by gpg and the likes.
+#+begin_src elisp
+(setq user-full-name "Benjamin"
+      user-mail-address "b3nj4m1n@gmx.net")
+#+end_src
+** Variables
+#+begin_src elisp
+;; Default directory for org files
+(setq org-directory "~/.local/share/org/")
+;; Default directory for org-roam
+(setq org-roam-directory "~/.local/share/org")
+#+end_src
+** Keybindings
+Some vim-like key bindings
+#+begin_src elisp
+;; Use super as meta key
+(setq x-super-keysym 'meta)
+;; Evil specific keybindings
+(after! evil
+  ;; Exit insert mode by hitting Control + c twice
+  (define-key evil-insert-state-map (kbd "C-c C-c") 'evil-normal-state)
+  (define-key evil-normal-state-map (kbd "C-c C-c") 'evil-normal-state)
+  ;; Paste with Control + Shift + v in insert mode
+  (define-key evil-insert-state-map (kbd "C-S-v") 'evil-paste-before)
+  ;; Execute source code blocks (In org-mode) by pressing Control + c Control + r(un)
+  (define-key evil-normal-state-map (kbd "C-c C-r") 'org-babel-execute-src-block)
+  )
+#+end_src
+** Appearance
+#+begin_src elisp
+;; Doom theme to use
+(setq doom-theme 'doom-dracula)
+;; Use relative line numbers
+(setq display-line-numbers-type 'relative)
+#+end_src
+* Org Mode Configuration
+#+begin_src elisp
+(after! org
+  ;; Default directory used for org files
+  (setq org-directory "~/.local/share/org/")
+  ;; Directory searched by org-agenda
+  (setq org-agenda-files '("~/.local/share/org/"))
+  ;; Default file used for notes ("notes.org" in the default org-directory)
+  (setq org-default-notes-file (expand-file-name "notes.org" org-directory))
+  ;; Symbol to show for a collapsed section
+  (setq org-ellipsis " ▼ ")
+  ;; Insert a timestamp when marking a todo item as done
+  (setq org-log-done 'time)
+  ;; Hide the characters surround emphasised blocks of text; For example the ~ around monospaced text
+  (setq org-hide-emphasis-markers t)
+  ;; Directory for storing journal entrys
+  (setq org-journal-dir "~/.local/share/org/journal/")
+  ;; Prefix for inserted time in journal entry; This will make a new heading for every time entry in the journal entry of a given day
+  (setq org-journal-time-prefix "* ")
+  ;; Set the date in a journal file as the title of the file
+  (setq org-journal-date-prefix "#+TITLE: ")
+  ;; The format used for the inserted date title
+  (setq org-journal-date-format "%A, %d %B %Y")
+  ;; The filename format used for the journal files
+  (setq org-journal-file-format "%Y-%m-%d.org")
+  ;; All capture templates; Currently set to none
+  (setq org-capture-templates '())
+  )
+
+;; Make sure that org-roam is loaded correctly
+(after! org-roam
+  :ensure t
+  :hook
+  (after-init . org-roam-mode)
+  :custom
+  (org-roam-directory "~/.local/share/org"))
+  #+end_src
+* Email
+#+begin_src elisp
+;; Use mbsync as a sync backend for notmuch
+(setq +notmuch-sync-backend 'mbsync)
+#+end_src
+* Completion
+#+begin_src elisp
+(after! company
+  ;; How long after staying idle company should start showing suggestions
+  (setq company-idle-delay 0.1)
+  ;; How many characters you must have minimum for company to start showing suggestions
+  (setq company-minimum-prefix-length 2)
+  ;; Show numbers next to companys suggestions
+  (setq company-show-numbers t)
+  ;; make aborting less annoying.
+  (add-hook 'evil-normal-state-entry-hook #'company-abort))
+#+end_src
+* Dired
+Use peep dired for file previews
+#+begin_src elisp
+(evil-define-key 'normal peep-dired-mode-map (kbd "<SPC>") 'peep-dired-scroll-page-down
+  (kbd "C-<SPC>") 'peep-dired-scroll-page-up
+  (kbd "<backspace>") 'peep-dired-scroll-page-up
+  (kbd "j") 'peep-dired-next-file
+  (kbd "k") 'peep-dired-prev-file)
+(add-hook 'peep-dired-hook 'evil-normalize-keymaps)
+#+end_src
+* Spellchecking
+#+begin_src elisp
+;; ;; Spellcheck config
+;; (with-eval-after-load "ispell"
+;;   ;; Configure `LANG`, otherwise ispell.el cannot find a 'default dictionary' even though multiple dictionaries will be configured in next line.
+;;   (setenv "LANG" "en_GB")
+;;   ;; Backend program to be used by ispell
+;;   (setq ispell-program-name "hunspell")
+;;   ;; Default dictionary to be used by ispell
+;;   (setq ispell-dictionary "en_GB")
+;;   ;; ispell-set-spellchecker-params has to be called before ispell-hunspell-add-multi-dic will work
+;;   (ispell-set-spellchecker-params)
+;;   ;; Configure multiple dictionarys with hunspell
+;;   (ispell-hunspell-add-multi-dic "de_DE,en_GB")
+;;   ;; For saving words to the personal dictionary, don't infer it from the locale, otherwise it would save to ~/.hunspell_de_DE.
+;;   (setq ispell-personal-dictionary "~/.local/share/dictionary/hunspell_personal"))
+
+;; ;; Enable flyspell everywhere
+;; (add-hook 'text-mode-hook 'flyspell-mode)
+;; (add-hook 'prog-mode-hook 'flyspell-prog-mode)
+
+;; ;; The personal dictionary file has to exist, otherwise hunspell will silently not use it.
+;; (unless (file-exists-p ispell-personal-dictionary)
+;;   (write-region "" nil ispell-personal-dictionary nil 0))
+#+end_src

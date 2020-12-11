@@ -158,6 +158,14 @@ super + shift + F3
 super + F4
     bash /usr/bin/start-lemonbar.sh
 
+# Kill emacs server
+super + F5
+    /usr/bin/emacsclient -e '(kill-emacs)'
+
+# Start emacs server
+super + shift + F5
+    /usr/bin/emacs --daemon &
+
 # Neomutt scratchpad
 alt + u:
     bash /usr/bin/scripts/bspwm-scratchpad.sh "neomutt"

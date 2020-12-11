@@ -42,8 +42,8 @@
        ;;neotree           ; a project drawer, like NERDTree for vim
        ophints           ; highlight the region an operation acts on
        (popup +defaults)   ; tame sudden yet inevitable temporary windows
-       ;;tabs              ; a tab bar for Emacs
-       ;;treemacs          ; a project drawer, like neotree but cooler
+       ;; tabs              ; a tab bar for Emacs
+       treemacs          ; a project drawer, like neotree but cooler
        unicode           ; extended unicode support for various languages
        vc-gutter         ; vcs diff in the fringe
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
@@ -80,8 +80,8 @@
 
        :checkers
        syntax              ; tasing you for every semicolon you forget
-       ; spell +everywhere +hunspell             ; tasing you for misspelling mispelling
-       ; grammar           ; tasing grammar mistake every you make
+       (spell +flyspell +everywhere +hunspell)             ; tasing you for misspelling mispelling
+       grammar           ; tasing grammar mistake every you make
 
        :tools
        ;;ansible
@@ -146,7 +146,7 @@
        ;;nim               ; python + lisp at the speed of c
        ;;nix               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
-       org +roam +journal         ; organize your plain life in plain text
+       (org +roam +journal +gnuplot +pandoc +present +pretty +dragndrop)         ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
@@ -169,8 +169,8 @@
        (yaml +lsp)         ; JSON, but readable
 
        :email
-       ;;(mu4e +gmail)
-       ;;notmuch
+       ;; (mu4e +gmail)
+       notmuch
        ;;(wanderlust +gmail)
 
        :app
@@ -180,5 +180,5 @@
        ;;twitter           ; twitter client https://twitter.com/vnought
 
        :config
-       ;;literate
+       literate
        (default +bindings +smartparens))

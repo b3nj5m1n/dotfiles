@@ -1,6 +1,6 @@
 All Programs,/usr/bin/rofi -show run
 Thunar,Thunar
-Emacs,emacs
+Emacs,emacsclient --create-frame
 Bitwarden,bitwarden-desktop
 Element,element-desktop
 Discord,/usr/bin/scripts/open-move.sh discord 8

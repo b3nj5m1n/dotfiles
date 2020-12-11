@@ -79,6 +79,9 @@ bindkey -M vicmd ' ' edit-command-line
 # Default/Prefered gpg profile to use
 export DFGPGPROFILE="9F7D2083BB220CEEB720E068309D4C8689849C5B"
 
+# Alias for opening files with emacsclient and with graphic user interface
+alias emcs='devour emacsclient --create-frame'
+alias emcS='emacsclient --create-frame'
 # Alias for copying output of a command to clipboard
 alias cpy='xclip -selection clipboard'
 # Alias for hiding terminal when starting certain programs

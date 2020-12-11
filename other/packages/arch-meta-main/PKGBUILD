@@ -10,6 +10,10 @@ license=(GPL)
 depends=(
 anki
 betterlockscreen
+gnuplot
+python-pipenv
+python-pyflakes
+python-pytest
 bitwarden-cli
 blueman
 brightnessctl

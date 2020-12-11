@@ -161,6 +161,11 @@ declare -A loc47=(
     [local]="/home/b3nj4m1n/dotfiles/files/starship/starship.toml"
     [remote]="$USER/.config/"
 )
+declare -A loc47=(
+    [name]="emacs config"
+    [local]="/home/b3nj4m1n/dotfiles/files/doom/*"
+    [remote]="$USER/.config/doom/"
+)
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
