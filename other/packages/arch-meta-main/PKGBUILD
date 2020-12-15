@@ -10,10 +10,6 @@ license=(GPL)
 depends=(
 anki
 betterlockscreen
-gnuplot
-python-pipenv
-python-pyflakes
-python-pytest
 bitwarden-cli
 blueman
 brightnessctl
@@ -29,6 +25,7 @@ file-roller
 firefox
 git
 gnome-keyring
+gnuplot
 gotop
 grub
 isync
@@ -63,11 +60,15 @@ powerline-fonts-git
 pulseaudio
 pulseaudio-alsa
 pulseaudio-bluetooth
+python-pipenv
+python-pyflakes
 python-pyotherside
+python-pytest
 python-ueberzug-git
 qt5-imageformats
 ripgrep
 ripmime
+rofi-calc
 rsync
 rustup
 siji-git

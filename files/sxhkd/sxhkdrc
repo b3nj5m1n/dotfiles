@@ -176,6 +176,6 @@ alt + t:
 alt + r:
     bash /usr/bin/scripts/bspwm-scratchpad.sh "ncmpcpp"
 
-
-
-
+# Open calculator
+alt + g:
+    /bin/rofi -show calc -modi calc -no-show-match -no-sort
