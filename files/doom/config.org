@@ -65,6 +65,8 @@ Some vim-like key bindings
   (setq org-journal-file-format "%Y-%m-%d.org")
   ;; All capture templates; Currently set to none
   (setq org-capture-templates '())
+  ;; Enable inline tasks
+  (require 'org-inlinetask)
   )
 
 ;; Make sure that org-roam is loaded correctly
