@@ -18,8 +18,8 @@ package()
   bsdtar -xf "$_lang".zip
   
   # install -dm755 "$pkgdir"/usr/share/hunspell
-  install -m644 "$_lang".aff /usr/share/hunspell
-  install -m644 "$_lang".dic /usr/share/hunspell
+  sudo install -m644 "$_lang".aff /usr/share/hunspell
+  sudo install -m644 "$_lang".dic /usr/share/hunspell
 
   # # the symlinks
   # install -dm755 "$pkgdir"/usr/share/myspell/dicts
