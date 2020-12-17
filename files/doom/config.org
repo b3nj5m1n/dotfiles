@@ -40,6 +40,8 @@ Some vim-like key bindings
 #+end_src
 * Org Mode Configuration
 #+begin_src elisp
+;; Open org files with all headings collapsed
+(setq org-startup-folded t)
 (after! org
   ;; Default directory used for org files
   (setq org-directory "~/.local/share/org/")
