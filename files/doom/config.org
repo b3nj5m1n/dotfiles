@@ -88,7 +88,7 @@ Some vim-like key bindings
 #+begin_src elisp
 (after! company
   ;; How long after staying idle company should start showing suggestions
-  (setq company-idle-delay 0.1)
+  (setq company-idle-delay 0)
   ;; How many characters you must have minimum for company to start showing suggestions
   (setq company-minimum-prefix-length 2)
   ;; Show numbers next to companys suggestions
