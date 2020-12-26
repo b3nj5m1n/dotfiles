@@ -6,6 +6,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 export PATH="$HOME/.gem/ruby/2.7.0/bin/":$PATH
+export PATH="$PATH:$HOME/.rvm/bin"
 
 # The following lines were added by compinstall
 
