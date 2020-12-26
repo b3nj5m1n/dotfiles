@@ -6,7 +6,7 @@
 #cell_width_scale = 1.0
 #clickable_url = true
 #dynamic_title = true
-font = UbuntuMono Nerd Font 12
+font = FiraMono Nerd Font Mono 12
 # font = Twemoji 12
 #fullscreen = true
 #icon_name = terminal

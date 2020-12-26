@@ -5,7 +5,7 @@ PANEL_WIDTH=$(xdpyinfo | awk '/dimensions/{print $2}' | cut -d 'x' -f 1)
 PANEL_HEIGHT=25
 PANEL_HORIZONTAL_OFFSET=0
 PANEL_VERTICAL_OFFSET=0
-PANEL_FONT="UbuntuMono Nerd Font Mono:size=12"
+PANEL_FONT="FiraMono Nerd Font Mono:size=12"
 PANEL_ICON_FONT="Twemoji:size=12"
 COLOR_DEFAULT_FG="#f5f5f5"
 COLOR_DEFAULT_BG="#00171517"

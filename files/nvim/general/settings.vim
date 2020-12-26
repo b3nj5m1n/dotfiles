@@ -59,11 +59,11 @@ set relativenumber
 " Indicate current line
 set cursorline
 " Set color of current line highlighting
-hi CursorLine guibg= #242124
+" hi CursorLine guibg= #242124
 " Indicate current column (Disable by default, change with keymapping)
 set nocursorcolumn
 " Set color of current column highlighting
-hi CursorColumn guibg= #242124
+" hi CursorColumn guibg= #242124
 
 " Use markdown for calcurse note files
 autocmd BufRead,BufNewFile /tmp/calcurse* set filetype=markdown
