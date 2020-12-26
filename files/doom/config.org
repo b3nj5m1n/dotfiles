@@ -86,15 +86,15 @@ Some vim-like key bindings
 #+end_src
 * Completion
 #+begin_src elisp
-(after! company
-  ;; How long after staying idle company should start showing suggestions
-  (setq company-idle-delay 0)
-  ;; How many characters you must have minimum for company to start showing suggestions
-  (setq company-minimum-prefix-length 2)
-  ;; Show numbers next to companys suggestions
-  (setq company-show-numbers t)
-  ;; make aborting less annoying.
-  (add-hook 'evil-normal-state-entry-hook #'company-abort))
+;; (after! company
+;; How long after staying idle company should start showing suggestions
+(setq company-idle-delay 0.1)
+;; How many characters you must have minimum for company to start showing suggestions
+(setq company-minimum-prefix-length 0)
+;; Show numbers next to companys suggestions
+(setq company-show-numbers nil)
+;; make aborting less annoying.
+;; (add-hook 'evil-normal-state-entry-hook #'company-abort))
 #+end_src
 * Dired
 Use peep dired for file previews
