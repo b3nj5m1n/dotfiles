@@ -18,6 +18,7 @@ Some personal information which is used by gpg and the likes.
 ** Keybindings
 Some vim-like key bindings
 #+begin_src elisp
+(global-set-key (kbd "<SPC> b k") 'kill-this-buffer)
 ;; Use super as meta key
 (setq x-super-keysym 'meta)
 ;; Evil specific keybindings
@@ -35,8 +36,15 @@ Some vim-like key bindings
 #+begin_src elisp
 ;; Doom theme to use
 (setq doom-theme 'doom-dracula)
+;; Auto reload theme shortly after startup
+(run-with-idle-timer 0.1 nil (lambda () (add-hook 'doom-load-theme-hook 'theme-magic-from-emacs)))
 ;; Use relative line numbers
 (setq display-line-numbers-type 'relative)
+#+end_src
+* Evil
+#+begin_src elisp
+;; When substituting using evil, do global substitution by default
+(after! evil (setq evil-ex-substitute-global t))
 #+end_src
 * Org Mode Configuration
 #+begin_src elisp
@@ -86,15 +94,14 @@ Some vim-like key bindings
 #+end_src
 * Completion
 #+begin_src elisp
-;; (after! company
 ;; How long after staying idle company should start showing suggestions
-(setq company-idle-delay 0.1)
+(setq company-idle-delay 0)
 ;; How many characters you must have minimum for company to start showing suggestions
 (setq company-minimum-prefix-length 0)
-;; Show numbers next to companys suggestions
+;; Don't show numbers next to companys suggestions
 (setq company-show-numbers nil)
-;; make aborting less annoying.
-;; (add-hook 'evil-normal-state-entry-hook #'company-abort))
+;; When the last entry in the completion list is reached, wrap around to the first one
+(setq company-selection-wrap-around t)
 #+end_src
 * Dired
 Use peep dired for file previews
