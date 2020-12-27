@@ -18,7 +18,7 @@ Some personal information which is used by gpg and the likes.
 ** Keybindings
 Some vim-like key bindings
 #+begin_src elisp
-(global-set-key (kbd "<SPC> b k") 'kill-this-buffer)
+(define-key evil-normal-state-map (kbd "<SPC> b k") 'kill-this-buffer)
 ;; Use super as meta key
 (setq x-super-keysym 'meta)
 ;; Evil specific keybindings
