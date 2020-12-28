@@ -15,10 +15,15 @@ Some personal information which is used by gpg and the likes.
 ;; Default directory for org-roam
 (setq org-roam-directory "~/.local/share/org")
 #+end_src
-** Keybindings
-Some vim-like key bindings
+** Functions
+Toggle between the 2 most recent buffers.
 #+begin_src elisp
-(define-key evil-normal-state-map (kbd "<SPC> b k") 'kill-this-buffer)
+(defun switch-to-previous-buffer ()
+  (interactive)
+  (switch-to-buffer (other-buffer (current-buffer) 1)))
+#+end_src
+** Keybindings
+#+begin_src elisp
 ;; Use super as meta key
 (setq x-super-keysym 'meta)
 ;; Evil specific keybindings
@@ -30,6 +35,10 @@ Some vim-like key bindings
   (define-key evil-insert-state-map (kbd "C-S-v") 'evil-paste-before)
   ;; Execute source code blocks (In org-mode) by pressing Control + c Control + r(un)
   (define-key evil-normal-state-map (kbd "C-c C-r") 'org-babel-execute-src-block)
+  ;; Kill the current buffer and switch to the previous one
+  (define-key evil-normal-state-map (kbd "<SPC> b k") 'kill-this-buffer)
+  ;; Toggle between the two most recent buffers
+  (define-key evil-normal-state-map (kbd "<SPC> t <SPC>") 'switch-to-previous-buffer)
   )
 #+end_src
 ** Appearance
@@ -79,13 +88,13 @@ Some vim-like key bindings
   (require 'org-inlinetask)
   )
 
-;; Make sure that org-roam is loaded correctly
-(after! org-roam
-  :ensure t
-  :hook
-  (after-init . org-roam-mode)
-  :custom
-  (org-roam-directory "~/.local/share/org"))
+;; ;; Make sure that org-roam is loaded correctly
+;; (after! org-roam
+;;   :ensure t
+;;   :hook
+;;   (after-init . org-roam-mode)
+;;   :custom
+;;   (org-roam-directory "~/.local/share/org"))
   #+end_src
 * Email
 #+begin_src elisp
