@@ -161,10 +161,15 @@ declare -A loc47=(
     [local]="/home/b3nj4m1n/dotfiles/files/starship/starship.toml"
     [remote]="$USER/.config/"
 )
-declare -A loc47=(
+declare -A loc48=(
     [name]="emacs config"
     [local]="/home/b3nj4m1n/dotfiles/files/doom/*"
     [remote]="$USER/.config/doom/"
+)
+declare -A loc49=(
+    [name]="Common shell aliases, exports, etc."
+    [local]="/home/b3nj4m1n/dotfiles/files/shrc/shrc"
+    [remote]="$USER/.config/"
 )
 
 RED='\033[0;31m'

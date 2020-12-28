@@ -1,0 +1,78 @@
+# XDG enviorment variables
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+
+# Path variable
+export PATH="$PATH:$HOME/.gem/ruby/2.7.0/bin/"
+export PATH="$PATH:$HOME/.rvm/bin"
+
+############### Enviorment Variables ###############
+
+# Default editor
+export EDITOR=nvim
+
+# colored GCC warnings and errors
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# Default/Prefered gpg profile to use
+export DFGPGPROFILE="9F7D2083BB220CEEB720E068309D4C8689849C5B"
+
+
+############### Aliases ###############
+
+# .. for moving up one directory in shells where that isn't supported
+alias ..='cd ..'
+
+# Alias for opening files with emacsclient
+alias emcs='emacsclient --tty' # Open in the terminal
+alias emcS='devour emacsclient --create-frame' # Open in GUI and hide the terminal window
+alias emCS='emacsclient --create-frame' # Open in GUI
+
+# Alias for copying output of a command to clipboard
+alias cpy='xclip -selection clipboard'
+
+# Aliases for hiding terminal when starting certain programs
+alias zathura='devour zathura'
+alias feh='devour feh'
+
+
+############### Boring Stuff ###############
+
+# Clean up home dir by moving some dotfiles to the XDG directories they should be in by default
+alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+export NOTMUCH_CONFIG="${XDG_CONFIG_HOME}/notmuch-config"
+export GTK2_RC_FILES="${XDG_CONFIG_HOME}/gtk-2.0/gtkrc-2.0"
+export LESSHISTFILE="-"
+export WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"
+export INPUTRC="${XDG_CONFIG_HOME}/shell/inputrc"
+export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
+export WINEPREFIX="${XDG_DATA_HOME}/wineprefixes/default"
+export KODI_DATA="${XDG_DATA_HOME}/kodi"
+export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
+export ANDROID_SDK_HOME="${XDG_CONFIG_HOME}/android"
+export CARGO_HOME="${XDG_DATA_HOME}/cargo"
+export GOPATH="${XDG_DATA_HOME}/go"
+export ANSIBLE_CONFIG="${XDG_CONFIG_HOME}/ansible/ansible.cfg"
+export UNISON="${XDG_DATA_HOME}/unison"
+export HISTFILE="${XDG_DATA_HOME}/history"
+export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
+export VSCODE_PORTABLE="$XDG_DATA_HOME/vscode"
+export PYLINTHOME="$XDG_CACHE_HOME/pylint"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export NVM_DIR="$XDG_DATA_HOME/nvm"
+export GEM_HOME="$XDG_DATA_HOME/gem"
+export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
+export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME/java"
+
+# Enable colored output wherever that isn't the default
+alias ls='ls --color=auto'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
