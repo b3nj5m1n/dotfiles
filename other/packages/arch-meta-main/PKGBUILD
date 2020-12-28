@@ -10,9 +10,11 @@ license=(GPL)
 depends=(
 anki
 bash-language-server
+bat
 betterlockscreen
 bitwarden-cli
 blueman
+bottom-bin
 brightnessctl
 bspwm
 calcurse
@@ -22,7 +24,10 @@ cronie
 devour
 dhcpcd
 dialog
+dust-bin
 dxvk-bin
+exa
+fd
 file-roller
 firefox
 git
@@ -31,6 +36,7 @@ gnuplot
 go-langserver-git
 gotop
 grub
+hyperfine
 isync
 jdtls
 jq
@@ -63,6 +69,7 @@ pfetch
 picom-git
 pmount-safe-removal
 powerline-fonts-git
+procs-bin
 pulseaudio
 pulseaudio-alsa
 pulseaudio-bluetooth
@@ -81,10 +88,12 @@ rsync
 ruby-solargraph
 rustup
 siji-git
+skim
 slop
 socat
 starship-bin
 sudo
+tealdeer
 texinfo
 texlive-bibtexextra
 texlive-core
@@ -125,4 +134,5 @@ xwallpaper
 yay
 zathura
 zathura-pdf-mupdf
+zoxide-bin
 )

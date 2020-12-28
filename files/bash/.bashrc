@@ -106,5 +106,7 @@ fi
 
 # Use starship prompt
 eval "$(starship init bash)"
+# Init zoxide (Better navigation than with cd)
+eval "$(zoxide init bash)"
 # Source common aliases, exports, etc.
 source ~/.config/shrc

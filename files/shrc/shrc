@@ -18,6 +18,9 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 # Default/Prefered gpg profile to use
 export DFGPGPROFILE="9F7D2083BB220CEEB720E068309D4C8689849C5B"
 
+# Use bat for colorized manpages
+export MANPAGER="sh -c 'col -bx | bat --theme=Dracula -l man -p'"
+
 
 ############### Aliases ###############
 
@@ -35,6 +38,33 @@ alias cpy='xclip -selection clipboard'
 # Aliases for hiding terminal when starting certain programs
 alias zathura='devour zathura'
 alias feh='devour feh'
+
+# Exa (ls replacement)
+alias ls='exa --grid --icons'
+alias ll='exa --long --icons'
+alias la='exa --oneline'
+alias l='exa --grid --across'
+alias tree='exa --tree --icons'
+
+# RipGrep (grep replacement)
+alias grep='rg --no-line-number'
+
+# fd (find replacement)
+alias find='fd'
+
+# Procs (ps replacement)
+alias ps='procs'
+
+# Dust (du replacement)
+alias du='dust'
+
+# Bottom (top replacement)
+alias top='btm'
+alias htop='btm'
+
+# Bat (cat replacement)
+alias cat='bat --paging=never --theme=Dracula --style="numbers,changes" --italic-text=always'
+alias ct='bat --paging=never --theme=Dracula --style="plain" --italic-text=always'
 
 
 ############### Boring Stuff ###############
@@ -67,12 +97,12 @@ export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME/java"
 
 # Enable colored output wherever that isn't the default
-alias ls='ls --color=auto'
+# alias ls='ls --color=auto'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
-alias grep='grep --color=auto'
+# alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+# alias ll='ls -alF'
+# alias la='ls -A'
+# alias l='ls -CF'

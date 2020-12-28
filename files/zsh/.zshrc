@@ -74,5 +74,7 @@ bindkey -M vicmd ' ' edit-command-line
 
 # Use starship prompt
 eval "$(starship init zsh)"
+# Init zoxide (Better navigation than with cd)
+eval "$(zoxide init zsh)"
 # Source common aliases, exports, etc.
 source ~/.config/shrc

@@ -8,5 +8,7 @@ end
 
 # Use starship prompt
 starship init fish | source
+# Init zoxide (Better navigation than with cd)
+zoxide init fish | source
 # Source common aliases, exports, etc.
 source ~/.config/shrc
