@@ -147,3 +147,10 @@ Use peep dired for file previews
 ;; (unless (file-exists-p ispell-personal-dictionary)
 ;;   (write-region "" nil ispell-personal-dictionary nil 0))
 #+end_src
+
+* Other
+** Edit textareas in browser using emacs
+#+begin_src elisp
+(require 'atomic-chrome)
+(atomic-chrome-start-server)
+#+end_src
