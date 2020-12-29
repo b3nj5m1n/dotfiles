@@ -46,6 +46,12 @@ alias la='exa --oneline'
 alias l='exa --grid --across'
 alias tree='exa --tree --icons'
 
+# zoxide (cd replacement)
+alias cd='z'
+
+# skim (fzf replacement)
+alias fzf='sk'
+
 # RipGrep (grep replacement)
 alias grep='rg --no-line-number'
 
