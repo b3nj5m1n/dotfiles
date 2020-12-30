@@ -14,11 +14,11 @@ ignore_leading_the = "yes"
 allow_for_physical_item_deletion = "no"
 
 ### Visualizer ###  
-visualizer_fifo_path = /tmp/mpd.fifo
-visualizer_output_name = "mpd_visualizer"
-visualizer_in_stereo = "yes"
-visualizer_sample_multiplier = 2
-visualizer_sync_interval = 30
+# visualizer_fifo_path = /tmp/mpd.fifo
+# visualizer_output_name = "mpd_visualizer"
+# visualizer_in_stereo = "yes"
+# visualizer_sample_multiplier = 2
+# visualizer_sync_interval = 30
 
 ### Appearance ###
 colors_enabled = "yes"
@@ -42,7 +42,7 @@ progressbar_look = "━━━"
 #progressbar_look = "─╼─"
 progressbar_color = "black"
 progressbar_elapsed_color = "white"
-progressbar_boldness = "yes"
+# progressbar_boldness = "yes"
 # Song status #
 #now_playing_prefix = "$b"
 #now_playing_suffix = "$/b"
@@ -59,7 +59,7 @@ song_list_format = "{$8%a ⠂ }{%t}$R{%l}"
 #song_columns_list_format = "(40)[magenta]{ar} (40)[green]{t}"
 song_columns_list_format = "(50)[magenta]{ar} (50)[green]{t}"
 # Colors #
-main_window_highlight_color = "green"
+# main_window_highlight_color = "green"
 main_window_color = "blue"
 #state_line_color = "yellow"
 #state_flags_color = "green"
