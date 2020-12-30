@@ -54,6 +54,8 @@ Toggle between the 2 most recent buffers.
 #+begin_src elisp
 ;; When substituting using evil, do global substitution by default
 (after! evil (setq evil-ex-substitute-global t))
+;; Don't use system clipboard by default
+(setq x-select-enable-clipboard nil)
 #+end_src
 * Org Mode Configuration
 #+begin_src elisp
