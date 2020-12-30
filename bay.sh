@@ -5,5 +5,5 @@
 rm -rf /home/b3nj4m1n/dotfiles/bay/*
 
 ./scripts/load-bay.sh
-./scripts/process-bay.sh
+./scripts/process-bay.sh $1
 ./scripts/unload-bay.sh
