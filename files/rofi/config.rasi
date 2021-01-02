@@ -4,34 +4,34 @@
  * User: wikwg9
  */
 * {
-    selected-normal-foreground:  %fg-hex;
-    foreground:                  %fg-hex-dim;
+    selected-normal-foreground:  {{ colors.fg }};
+    foreground:                  {{ colors.fg-dim }};
     normal-foreground:           @foreground;
-    alternate-normal-background: %bg-hex;
-    red:                         %prm-hex;
-    selected-urgent-foreground:  %prm-hex-dim;
-    blue:                        %scd-hex;
-    urgent-foreground:           %c1-hex;
-    alternate-urgent-background: %c9-hex;
-    active-foreground:           %bg-hex;
-    lightbg:                     %bg-hex-bright;
-    selected-active-foreground:  %bg-hex-bright;
-    alternate-active-background: %bg-hex-dim;
-    background:                  %bg-hex;
+    alternate-normal-background: {{ colors.bg }};
+    red:                         {{ colors.prm }};
+    selected-urgent-foreground:  {{ colors.prm-dim }};
+    blue:                        {{ colors.scd }};
+    urgent-foreground:           {{ colors.c1 }};
+    alternate-urgent-background: {{ colors.c9 }};
+    active-foreground:           {{ colors.bg }};
+    lightbg:                     {{ colors.bg-bright }};
+    selected-active-foreground:  {{ colors.bg-bright }};
+    alternate-active-background: {{ colors.bg-dim }};
+    background:                  {{ colors.bg }};
     alternate-normal-foreground: @foreground;
     normal-background:           @background;
-    lightfg:                     %fg-hex-bright;
-    selected-normal-background:  %prm-hex;
-    border-color:                %prm-hex;
+    lightfg:                     {{ colors.fg-bright }};
+    selected-normal-background:  {{ colors.prm }};
+    border-color:                {{ colors.prm }};
     spacing:                     2;
-    separatorcolor:              %prm-hex-dim;
-    urgent-background:           %prm-hex-dim;
-    selected-urgent-background:  %prm-hex-bright;
+    separatorcolor:              {{ colors.prm-dim }};
+    urgent-background:           {{ colors.prm-dim }};
+    selected-urgent-background:  {{ colors.prm-bright }};
     alternate-urgent-foreground: @urgent-foreground;
-    background-color:            %bg-hex;
+    background-color:            {{ colors.bg }};
     alternate-active-foreground: @active-foreground;
-    active-background:           %prm-hex-dim;
-    selected-active-background:  %prm-hex;
+    active-background:           {{ colors.prm-dim }};
+    selected-active-background:  {{ colors.prm }};
 }
 #window {
     background-color: @background;

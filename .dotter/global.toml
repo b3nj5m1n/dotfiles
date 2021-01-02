@@ -96,7 +96,8 @@ c23 = "#e8e8e8" # Dim
 [sxhkd.files]
 "files/sxhkd/*" = "~/.config/sxhkd/"
 [rofi.files]
-"files/rofi/*" = "~/.config/rofi/"
+"files/rofi/config.rasi" = "~/.config/rofi/config.rasi"
+"files/rofi/map.csv" = "~/.config/rofi/map.csv"
 [fonts.files]
 "files/fontconfig/fonts.conf" = "/home/b3nj4m1n/.config/fontconfig/fonts.conf"
 [polybar.files]
@@ -179,7 +180,8 @@ c23 = "#e8e8e8" # Dim
 "files/ncmpcpp/config" = "/home/b3nj4m1n/.config/ncmpcpp/config"
 "files/ncmpcpp/bindings" = "/home/b3nj4m1n/.config/ncmpcpp/bindings"
 [ranger.files]
-"files/ranger/*" = "~/.config/ranger/"
+"files/ranger/rc.conf" = "~/.config/ranger/rc.conf"
+"files/ranger/scope.sh" = "~/.config/ranger/scope.sh"
 [cli-visualizer.files]
 "files/cli-visualizer/config" = "~/.config/vis/config"
 "files/cli-visualizer/colors/dracula" = "~/.config/vis/colors/dracula"
