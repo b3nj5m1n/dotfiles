@@ -1,8 +1,13 @@
 packages = [
     "zsh",
     "bspwm",
+    "lightdm",
     "emacs",
     "bash",
+    "fish",
+    "profile",
+    "gtk",
+    "fonts",
     "shrc",
     "dracula",
     "firamono",

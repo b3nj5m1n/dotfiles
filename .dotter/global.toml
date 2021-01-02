@@ -4,6 +4,10 @@
 [zsh.variables.shell]
 path_to_shell = "/usr/bin/zsh"
 
+# ----- Window Manager -----
+[bspwm.variables]
+user-session = "bspwm"
+
 # ----- Font -----
 [firamono.variables.font]
 font = "FiraMono Nerd Font Mono"
@@ -78,7 +82,10 @@ c23 = "#e8e8e8" # Dim
 ##### Desktop #####
 
 [lightdm.files]
-"files/lightdm/*" = "/etc/lightdm/"
+"files/lightdm/Xsession" = "/etc/lightdm/Xsession"
+"files/lightdm/lightdm-gtk-greeter.conf" = "/etc/lightdm/lightdm-gtk-greeter.conf"
+"files/lightdm/lightdm-webkit2-greeter.conf" = "/etc/lightdm/lightdm-webkit2-greeter.conf"
+"files/lightdm/lightdm.conf" = "/etc/lightdm/lightdm.conf"
 [bspwm.files]
 "files/bspwm/bspwmrc" = "~/.config/bspwm/bspwmrc"
 [sxhkd.files]
@@ -86,14 +93,13 @@ c23 = "#e8e8e8" # Dim
 [rofi.files]
 "files/rofi/*" = "~/.config/rofi/"
 [fonts.files]
-"files/fontconfig/fonts.conf" = "/home/b3nj4m1n/.config/fontconfig/"
+"files/fontconfig/fonts.conf" = "/home/b3nj4m1n/.config/fontconfig/fonts.conf"
 [polybar.files]
 "files/polybar/*" = "~/.config/polybar/"
 "scripts/polybar/*" = "/usr/bin/polyscripts/"
-[gtk2.files]
-"files/gtk/.gtkrc-2.0" = "~/.config/gtk-2.0/"
-[gtk3.files]
-"files/gtk/settings.ini" = "~/.config/gtk-3.0/"
+[gtk.files]
+"files/gtk/gtkrc-2.0" = "~/.config/gtk-2.0/.gtkrc-2.0"
+"files/gtk/settings.ini" = "~/.config/gtk-3.0/settings.ini"
 [picom.files]
 "files/picom/picom.conf" = "~/.config/"
 [dunst.files]
@@ -128,7 +134,7 @@ c23 = "#e8e8e8" # Dim
 "files/zsh/.zshrc" = "~/.config/zsh/.zshrc"
 "files/zsh/.zshrc" = "~/.zshrc"
 [fish.files]
-"files/fish/config.fish" = "~/.config/fish/"
+"files/fish/config.fish" = "~/.config/fish/config.fish"
 [bash.files]
 "files/bash/.bashrc" = "~/.bashrc"
 
@@ -157,6 +163,6 @@ c23 = "#e8e8e8" # Dim
 [scripts.files]
 "scripts/*.sh" = "/usr/bin/scripts/"
 [profile.files]
-"files/etc/profile" = "/etc/"
+"files/etc/profile" = "/etc/profile"
 [assets.files]
 "scripts/assets/*" = "/usr/bin/scripts/assets/"
