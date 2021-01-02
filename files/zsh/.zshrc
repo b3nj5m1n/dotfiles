@@ -61,12 +61,17 @@ bindkey -v '^?' backward-delete-char
 bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
 # History Search
-bindkey -M viins '^R' history-incremental-pattern-search-backward
-bindkey -M viins '^F' history-incremental-pattern-search-forward
+bindkey -M viins '^r' history-incremental-pattern-search-backward
+bindkey -M viins '^f' history-incremental-pattern-search-forward
 bindkey -M vicmd '/' history-incremental-pattern-search-backward
 bindkey -M vicmd '?' history-incremental-pattern-search-forward
 bindkey "^z" history-beginning-search-backward
 bindkey "^u" history-beginning-search-forward
+# Beginning/End of line in insert mode
+bindkey "^a" beginning-of-line
+bindkey "^e" end-of-line
+# Get into normal mode
+bindkey -M viins '^g' vi-cmd-mode
 
 autoload edit-command-line; zle -N edit-command-line
 # Space in normal mode to edit current line in editor buffer
