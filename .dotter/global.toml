@@ -97,7 +97,7 @@ c23 = "#e8e8e8" # Dim
 [picom.files]
 "files/picom/picom.conf" = "~/.config/"
 [dunst.files]
-"files/dunst/*" = "~/.config/dunst/"
+"files/dunst/dunstrc" = "~/.config/dunst/dunstrc"
 [betterlockscreen.files]
 "files/betterlockscreen/betterlockscreenrc" = "~/.config/betterlockscreenrc"
 

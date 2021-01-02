@@ -10,7 +10,7 @@ horizontal_padding = 24
 frame_width = 3
 sort = no
 idle_threshold = 120
-font = FiraMono Nerd Font Mono 12
+font = {{ font.font }} {{ font.font_size }}
 line_height = 4
 markup = full
 format = "<b>%s</b>\n%b"
@@ -28,7 +28,7 @@ browser = /usr/bin/firefox -new-tab
 always_run_script = true
 title = Dunst
 class = Dunst
-frame_color = "%prm-hex"
+frame_color = "{{ colors.prm }}"
 separator_color = frame
 transparency = 60
 
@@ -37,19 +37,19 @@ close = ctrl+space
 close_all = ctrl+shift+space
 
 [urgency_low]
-background = "%bg-hex"
-foreground = "%c15-hex"
-frame_color = "%prm-hex"
+background = "{{ colors.bg }}"
+foreground = "{{ colors.c15 }}"
+frame_color = "{{ colors.prm }}"
 timeout = 10
 
 [urgency_normal]
-background = "%bg-hex"
-foreground = "%c15-hex"
-frame_color = "%prm-hex-dim"
+background = "{{ colors.bg }}"
+foreground = "{{ colors.c15 }}"
+frame_color = "{{ colors.prm-dim }}"
 timeout = 10
 
 [urgency_critical]
-background = "%bg-hex"
-foreground = "%fg-hex-bright"
-frame_color = "%c17-hex"
+background = "{{ colors.bg }}"
+foreground = "{{ colors.fg-bright }}"
+frame_color = "{{ colors.c17 }}"
 timeout = 0
