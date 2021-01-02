@@ -5,6 +5,7 @@ packages = [
     "zsh",
     "bspwm",
     "sxhkd",
+    "zathura",
     "lightdm",
     "emacs",
     "polybar",

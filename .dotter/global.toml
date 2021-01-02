@@ -130,7 +130,7 @@ c23 = "#e8e8e8" # Dim
 "files/anki/webview.css" = "/usr/share/aqt_data/web/webview.css"
 "files/anki-addons/877182321/meta.json" = "/home/b3nj4m1n/.local/share/Anki2/addons21/877182321/meta.json"
 [zathura.files]
-"files/zathura/*" = "~/.config/zathura/"
+"files/zathura/zathurarc" = "~/.config/zathura/zathurarc"
 [assets.files]
 "scripts/assets/*" = "/usr/bin/scripts/assets/"
 
