@@ -138,7 +138,9 @@ c23 = "#e8e8e8" # Dim
 [neovim.files]
 "files/nvim/*" = "~/.config/nvim/"
 [emacs.files]
-"files/doom/*" = "~/.config/doom/"
+"files/doom/config.org" = "~/.config/doom/config.org"
+"files/doom/init.el" = "~/.config/doom/init.el"
+"files/doom/packages.el" = "~/.config/doom/packages.el"
 
 
 ##### Terminal #####

@@ -1,6 +1,7 @@
 packages = [
     "zsh",
     "bspwm",
+    "emacs",
     "bash",
     "shrc",
     "dracula",
