@@ -88,4 +88,4 @@
 #colors.override.terminal=false
 
 ##Specifies the color scheme. The color scheme must be in ~/.config/vis/colors/ directory. The default scheme is "colors".
-colors.scheme=adaptive_prm,adaptive_scd
+colors.scheme=dracula

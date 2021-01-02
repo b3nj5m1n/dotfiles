@@ -7,5 +7,6 @@ packages = [
     "firamono",
     "alacritty",
     "starship",
-    "anki"
+    "anki",
+    "cli-visualizer",
 ]

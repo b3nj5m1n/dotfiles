@@ -150,7 +150,8 @@ c23 = "#e8e8e8" # Dim
 [ranger.files]
 "files/ranger/*" = "~/.config/ranger/"
 [cli-visualizer.files]
-"files/cli-visualizer/*" = "~/.config/vis/"
+"files/cli-visualizer/config" = "~/.config/vis/config"
+"files/cli-visualizer/colors/dracula" = "~/.config/vis/colors/dracula"
 [scripts.files]
 "scripts/*.sh" = "/usr/bin/scripts/"
 [profile.files]
