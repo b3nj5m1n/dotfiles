@@ -105,8 +105,15 @@ c23 = "#e8e8e8" # Dim
 ##### GUI Programs #####
 
 [anki.files]
-"files/anki/*" = "/usr/share/aqt_data/web/"
-"files/anki-addons/*" = "/home/b3nj4m1n/.local/share/Anki2/addons21/"
+"files/anki/deckbrowser.css" = "/usr/share/aqt_data/web/deckbrowser.css"
+"files/anki/editor.css" = "/usr/share/aqt_data/web/editor.css"
+"files/anki/overview.css" = "/usr/share/aqt_data/web/overview.css"
+"files/anki/reviewer-bottom.css" = "/usr/share/aqt_data/web/reviewer-bottom.css"
+"files/anki/reviewer.css" = "/usr/share/aqt_data/web/reviewer.css"
+"files/anki/toolbar-bottom.css" = "/usr/share/aqt_data/web/toolbar-bottom.css"
+"files/anki/toolbar.css" = "/usr/share/aqt_data/web/toolbar.css"
+"files/anki/webview.css" = "/usr/share/aqt_data/web/webview.css"
+"files/anki-addons/877182321/meta.json" = "/home/b3nj4m1n/.local/share/Anki2/addons21/877182321/meta.json"
 [zathura.files]
 "files/zathura/*" = "~/.config/zathura/"
 

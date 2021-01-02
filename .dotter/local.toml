@@ -1,4 +1,8 @@
 packages = [
+    "zsh",
     "dracula",
-    "starship"
+    "firamono",
+    "alacritty",
+    "starship",
+    "anki"
 ]
