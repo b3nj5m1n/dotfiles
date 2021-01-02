@@ -94,7 +94,8 @@ c23 = "#e8e8e8" # Dim
 [bspwm.files]
 "files/bspwm/bspwmrc" = "~/.config/bspwm/bspwmrc"
 [sxhkd.files]
-"files/sxhkd/*" = "~/.config/sxhkd/"
+"files/sxhkd/sxhkdrc" = "~/.config/sxhkd/sxhkdrc"
+"files/sxhkd/sxhkdrc_bspc" = "~/.config/sxhkd/sxhkdrc_bspc"
 [rofi.files]
 "files/rofi/config.rasi" = "~/.config/rofi/config.rasi"
 "files/rofi/map.csv" = "~/.config/rofi/map.csv"
@@ -175,7 +176,7 @@ c23 = "#e8e8e8" # Dim
 [alacritty.files]
 "files/alacritty/alacritty.yml" = "~/.config/alacritty/alacritty.yml"
 [tmux.files]
-"files/tmux/tmux.conf" = "/home/b3nj4m1n/.config/tmux/"
+"files/tmux/tmux.conf" = "/home/b3nj4m1n/.config/tmux/tmux.conf"
 [ncmcpp.files]
 "files/ncmpcpp/config" = "/home/b3nj4m1n/.config/ncmpcpp/config"
 "files/ncmpcpp/bindings" = "/home/b3nj4m1n/.config/ncmpcpp/bindings"

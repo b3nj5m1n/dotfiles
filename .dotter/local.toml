@@ -1,8 +1,10 @@
 packages = [
     "laptop",
+    "tmux",
+    "neovim",
     "zsh",
     "bspwm",
-    "neovim",
+    "sxhkd",
     "lightdm",
     "emacs",
     "polybar",
