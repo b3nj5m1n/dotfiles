@@ -1,6 +1,7 @@
 packages = [
     "zsh",
     "bspwm",
+    "neovim",
     "lightdm",
     "emacs",
     "ncmcpp",

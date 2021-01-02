@@ -144,7 +144,18 @@ c23 = "#e8e8e8" # Dim
 ##### Editors #####
 
 [neovim.files]
-"files/nvim/*" = "~/.config/nvim/"
+"files/nvim/coc-settings.json" = "~/.config/nvim/coc-settings.json"
+"files/nvim/ftplugin/tex.vim" = "~/.config/nvim/ftplugin/tex.vim"
+"files/nvim/general/mappings.vim" = "~/.config/nvim/general/mappings.vim"
+"files/nvim/general/settings.vim" = "~/.config/nvim/general/settings.vim"
+"files/nvim/init.vim" = "~/.config/nvim/init.vim"
+"files/nvim/plug-conf/airline.vim" = "~/.config/nvim/plug-conf/airline.vim"
+"files/nvim/plug-conf/coc.vim" = "~/.config/nvim/plug-conf/coc.vim"
+"files/nvim/plug-conf/fzf.vim" = "~/.config/nvim/plug-conf/fzf.vim"
+"files/nvim/plug-conf/nerd-tree.vim" = "~/.config/nvim/plug-conf/nerd-tree.vim"
+"files/nvim/plug-conf/plugins.vim" = "~/.config/nvim/plug-conf/plugins.vim"
+"files/nvim/plug-conf/quick-scope.vim" = "~/.config/nvim/plug-conf/quick-scope.vim"
+"files/nvim/plug-conf/sneak.vim" = "~/.config/nvim/plug-conf/sneak.vim"
 [emacs.files]
 "files/doom/config.org" = "~/.config/doom/config.org"
 "files/doom/init.el" = "~/.config/doom/init.el"
