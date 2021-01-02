@@ -1,6 +1,17 @@
-[starship.files]
-"files/starship/starship.toml" = "~/.config/starship.toml"
+##### Variables #####
 
+# ----- Shell -----
+[zsh.variables.shell]
+path_to_shell = "/usr/bin/zsh"
+
+# ----- Font -----
+[firamono.variables.font]
+font = "FiraMono Nerd Font Mono"
+font_size = "11"
+font_size_float = "11.0"
+
+
+# ----- Colors -----
 [dracula.variables.colors]
 background = "#282a36"
 current_line = "#44475a"
@@ -13,3 +24,127 @@ pink = "#ff79c6"
 purple = "#bd93f9"
 red = "#ff5555"
 yellow = "#f1fa8c"
+# Primary Color
+prm = "#02B696"
+prm-bright = "#36D3A8"
+prm-dim = "#019C8F"
+# Secondary Color
+scd = "#C336D3"
+scd-bright = "#E165E4"
+scd-dim = "#9B27B5"
+# Background Color
+bg = "#282a36"
+bg-bright = "#6C7086"
+bg-dim = "#1D1F2E"
+# Foreground Color
+fg = "#F8F8F2"
+fg-bright = "#FAFAF6"
+fg-dim = "#D5D5B0"
+# Black
+c0 = "#080808" # Normal
+c8 = "#050505" # Bright
+c16 = "#000000" # Dim
+# Red
+c1 = "#ff5555" # Normal
+c9 = "#FF8A7F" # Bright
+c17 = "#DB3E4B" # Dim
+# Green
+c2 = "#50fa7b" # Normal
+c10 = "#7BFB8F" # Bright
+c18 = "#3AD771" # Dim
+# Yellow
+c3 = "#f1fa8c" # Normal
+c11 = "#F5FBA8" # Bright
+c19 = "#CCD766" # Dim
+# Blue
+c4 = "#207fdf" # Normal
+c12 = "#007fff" # Bright
+c20 = "#2873bd" # Dim
+# Purple
+c5 = "#bd93f9" # Normal
+c13 = "#D1AEFB" # Bright
+c21 = "#926BD6" # Dim
+# Cyan
+c6 = "#8be9fd" # Normal
+c14 = "#A8F5FD" # Bright
+c22 = "#8be9fd" # Dim
+# White
+c7 = "#ebebeb" # Normal
+c15 = "#f5f5f5" # Bright
+c23 = "#e8e8e8" # Dim
+
+
+
+##### Desktop #####
+
+[lightdm.files]
+"files/lightdm/*" = "/etc/lightdm/"
+[bspwm.files]
+"files/bspwm/*" = "~/.config/bspwm/"
+[sxhkd.files]
+"files/sxhkd/*" = "~/.config/sxhkd/"
+[rofi.files]
+"files/rofi/*" = "~/.config/rofi/"
+[fonts.files]
+"files/fontconfig/fonts.conf" = "/home/b3nj4m1n/.config/fontconfig/"
+[polybar.files]
+"files/polybar/*" = "~/.config/polybar/"
+"scripts/polybar/*" = "/usr/bin/polyscripts/"
+[gtk2.files]
+"files/gtk/.gtkrc-2.0" = "~/.config/gtk-2.0/"
+[gtk3.files]
+"files/gtk/settings.ini" = "~/.config/gtk-3.0/"
+[picom.files]
+"files/picom/picom.conf" = "~/.config/"
+[dunst.files]
+"files/dunst/*" = "~/.config/dunst/"
+[betterlockscreen.files]
+"files/betterlockscreen/*" = "~/.config/"
+
+
+##### GUI Programs #####
+
+[anki.files]
+"files/anki/*" = "/usr/share/aqt_data/web/"
+"files/anki-addons/*" = "/home/b3nj4m1n/.local/share/Anki2/addons21/"
+[zathura.files]
+"files/zathura/*" = "~/.config/zathura/"
+
+
+##### Shell #####
+
+[starship.files]
+"files/starship/starship.toml" = "~/.config/starship.toml"
+[zsh.files]
+"files/zsh/.zshrc" = "~/.config/zsh/.zshrc"
+"files/zsh/.zshrc" = "~/.zshrc"
+[shrc.files]
+"files/shrc/shrc" = "~/.config/"
+[fish.files]
+"files/fish/config.fish" = "~/.config/fish/"
+
+
+##### Editors #####
+
+[neovim.files]
+"files/nvim/*" = "~/.config/nvim/"
+[emacs.files]
+"files/doom/*" = "~/.config/doom/"
+
+
+##### Terminal #####
+
+[alacritty.files]
+"files/alacritty/alacritty.yml" = "~/.config/alacritty/alacritty.yml"
+[tmux.files]
+"files/tmux/tmux.conf" = "/home/b3nj4m1n/.config/tmux/"
+[ranger.files]
+"files/ranger/*" = "~/.config/ranger/"
+[cli-visualizer.files]
+"files/cli-visualizer/*" = "~/.config/vis/"
+[scripts.files]
+"scripts/*.sh" = "/usr/bin/scripts/"
+[profile.files]
+"files/etc/profile" = "/etc/"
+[assets.files]
+"scripts/assets/*" = "/usr/bin/scripts/assets/"
