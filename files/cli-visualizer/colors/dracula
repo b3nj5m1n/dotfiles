@@ -1,0 +1,7 @@
+{{ colors.cyan }}
+{{ colors.green }}
+{{ colors.orange }}
+{{ colors.pink }}
+{{ colors.purple }}
+{{ colors.red }}
+{{ colors.yellow }}
