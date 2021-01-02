@@ -80,7 +80,7 @@ c23 = "#e8e8e8" # Dim
 [lightdm.files]
 "files/lightdm/*" = "/etc/lightdm/"
 [bspwm.files]
-"files/bspwm/*" = "~/.config/bspwm/"
+"files/bspwm/bspwmrc" = "~/.config/bspwm/bspwmrc"
 [sxhkd.files]
 "files/sxhkd/*" = "~/.config/sxhkd/"
 [rofi.files]
@@ -99,7 +99,7 @@ c23 = "#e8e8e8" # Dim
 [dunst.files]
 "files/dunst/*" = "~/.config/dunst/"
 [betterlockscreen.files]
-"files/betterlockscreen/*" = "~/.config/"
+"files/betterlockscreen/betterlockscreenrc" = "~/.config/betterlockscreenrc"
 
 
 ##### GUI Programs #####
@@ -129,6 +129,8 @@ c23 = "#e8e8e8" # Dim
 "files/zsh/.zshrc" = "~/.zshrc"
 [fish.files]
 "files/fish/config.fish" = "~/.config/fish/"
+[bash.files]
+"files/bash/.bashrc" = "~/.bashrc"
 
 
 ##### Editors #####

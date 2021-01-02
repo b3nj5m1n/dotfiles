@@ -11,12 +11,8 @@ setxkbmap de &
 emacs --daemon &
 greenclip daemon &
 unclutter --idle 2 &
-# pidof bspswallow || /usr/bin/scripts/bspwm-swallow.sh &
 betterlockscreen -u /usr/share/wallpapers/custom/samuel-inkilainen-arctic-spirit-with-signature.jpg &
 syncthing -no-browser &
-
-# killall lemonblocks
-# /bin/scripts/start-lemonbar.sh &
 /home/b3nj4m1n/.config/polybar/polybar.sh &
 mpc idleloop | while read line; do pkill lemonblocks -5; done &
 bspc subscribe desktop | while read line; do pkill lemonblocks -4; done &
@@ -27,10 +23,6 @@ bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 
 # Programms
 /usr/bin/scripts/open-move.sh firefox 2
-# firefox --class="init_firefox" &
-# discord &
-# anki &
-# keeweb &
 
 # Scratchpads
 killall cmus && killall neomutt && killall calcurse
@@ -64,11 +56,11 @@ bspc config pointer_action2 resize_side
 bspc config pointer_action3 resize_corner
 
 #### BSPWM coloring ####
-bspc config normal_border_color		      "%scd-hex"
-bspc config active_border_color	          "%prm-hex"
-bspc config focused_border_color	      "%prm-hex"
-bspc config presel_feedback_color	      "%scd-hex-dim"
-bspc config urgent_border_color 	      "%c1-hex"
+bspc config normal_border_color		      "{{ colors.scd }}"
+bspc config active_border_color	          "{{ colors.prm }}"
+bspc config focused_border_color	      "{{ colors.prm }}"
+bspc config presel_feedback_color	      "{{ colors.prm-dim }}"
+bspc config urgent_border_color 	      "{{ colors.c1 }}"
 
 #polybar hidden when fullscreen for vlc, youtube, mpv ...
 #find out the name of your monitor with xrandr
