@@ -1,9 +1,11 @@
 packages = [
+    "laptop",
     "zsh",
     "bspwm",
     "neovim",
     "lightdm",
     "emacs",
+    "polybar",
     "ncmcpp",
     "bash",
     "fish",

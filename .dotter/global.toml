@@ -14,6 +14,11 @@ font = "FiraMono Nerd Font Mono"
 font_size = "11"
 font_size_float = "11.0"
 
+# ----- Laptop -----
+[laptop.variables]
+display_battery = true
+display_wlan = true
+
 
 # ----- Colors -----
 [dracula.variables.colors]
@@ -95,13 +100,15 @@ c23 = "#e8e8e8" # Dim
 [fonts.files]
 "files/fontconfig/fonts.conf" = "/home/b3nj4m1n/.config/fontconfig/fonts.conf"
 [polybar.files]
-"files/polybar/*" = "~/.config/polybar/"
-"scripts/polybar/*" = "/usr/bin/polyscripts/"
+"files/polybar/config" = "~/.config/polybar/config"
+"files/polybar/polybar.sh" = "~/.config/polybar/polybar.sh"
+"scripts/polybar/powermenu.sh" = "/usr/bin/polyscripts/powermenu.sh"
+"scripts/polybar/uptime.sh" = "/usr/bin/polyscripts/uptime.sh"
 [gtk.files]
 "files/gtk/gtkrc-2.0" = "~/.config/gtk-2.0/.gtkrc-2.0"
 "files/gtk/settings.ini" = "~/.config/gtk-3.0/settings.ini"
 [picom.files]
-"files/picom/picom.conf" = "~/.config/"
+"files/picom/picom.conf" = "~/.config/picom.conf"
 [dunst.files]
 "files/dunst/dunstrc" = "~/.config/dunst/dunstrc"
 [betterlockscreen.files]

@@ -18,13 +18,13 @@
 
 ########################   ########################
 [colors]
-background = #00171517
-background-alt = #171517
-foreground = #f5f5f5
-foreground-alt = #f2f2f2
-primary = %prm-hex
-secondary = %scd-hex
-alert = %c2-hex
+background = #00000000
+background-alt = {{ colors.bg-dim }}
+foreground = {{ colors.fg }}
+foreground-alt = {{ colors.fg-dim }}
+primary = {{ colors.prm }}
+secondary = {{ colors.scd }}
+alert = {{ colors.red }}
 
 ########################   ########################
 [bar/bar]
@@ -54,14 +54,14 @@ padding-right = 0
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = "FiraMono Nerd Font Mono:style=Regular:pixelsize=12"
+font-0 = "{{ font.font }}:style=Regular:pixelsize={{ font.font_size }}"
 font-1 = Unifont:style=Sans-Serif Bold
 font-2 = Siji:style=Regular
 font-3 = Twemoji:style=Regular:scale=4
 
 modules-left = powermenu bspwm mpd
 modules-center = xwindow
-modules-right = pulseaudio xkeyboard cpu uptime date
+modules-right = {{#if display_battery}}battery{{/if}} {{#if display_wlan}}wlan{{/if}} pulseaudio xkeyboard cpu uptime date
 
 wm-name = POLYBAR
 
@@ -81,7 +81,7 @@ cursor-scroll = ns-resize
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
-label-underline = %c5-hex
+label-underline = {{ colors.c5 }}
 
 ########################   ########################
 [module/xkeyboard]
@@ -201,7 +201,7 @@ type = internal/network
 interface = wlp2s0
 interval = 3.0
 
-format-connected = <ramp-signal> <label-connected>
+format-connected = <ramp-signal><label-connected>
 format-connected-underline = ${colors.primary}
 label-connected = %essid%
 
@@ -211,11 +211,11 @@ format-disconnected =
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
+ramp-signal-0 =
+ramp-signal-1 =
+ramp-signal-2 =
+ramp-signal-3 =
+ramp-signal-4 =
 ramp-signal-foreground = ${colors.foreground-alt}
 
 ########################   ########################
@@ -319,12 +319,12 @@ adapter = ADP1
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+format-charging-underline = {{ colors.green }}
 
 format-discharging = <animation-discharging> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = " "
+format-full-prefix = ""
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
 
@@ -408,7 +408,7 @@ type = custom/script
 format = <label>
 # format-background = ${colors.foreground}
 # format-foreground = #000000
-format-underline = %c2-hex
+format-underline = {{ colors.c2 }}
 exec = /usr/bin/polyscripts/powermenu.sh
 ;click-left = "echo 1 >> /tmp/powermenuoffset"
 
