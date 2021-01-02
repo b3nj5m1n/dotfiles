@@ -42,7 +42,7 @@ alias feh='devour feh'
 # Exa (ls replacement)
 alias ls='exa --grid --icons'
 alias ll='exa --long --icons'
-alias la='exa --oneline'
+alias la='exa --long --all'
 alias l='exa --grid --across'
 alias tree='exa --tree --icons'
 
