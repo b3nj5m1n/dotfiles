@@ -3,6 +3,7 @@ packages = [
     "bspwm",
     "lightdm",
     "emacs",
+    "ncmcpp",
     "bash",
     "fish",
     "profile",

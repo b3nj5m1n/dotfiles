@@ -122,6 +122,8 @@ c23 = "#e8e8e8" # Dim
 "files/anki-addons/877182321/meta.json" = "/home/b3nj4m1n/.local/share/Anki2/addons21/877182321/meta.json"
 [zathura.files]
 "files/zathura/*" = "~/.config/zathura/"
+[assets.files]
+"scripts/assets/*" = "/usr/bin/scripts/assets/"
 
 
 ##### Shell #####
@@ -155,6 +157,9 @@ c23 = "#e8e8e8" # Dim
 "files/alacritty/alacritty.yml" = "~/.config/alacritty/alacritty.yml"
 [tmux.files]
 "files/tmux/tmux.conf" = "/home/b3nj4m1n/.config/tmux/"
+[ncmcpp.files]
+"files/ncmpcpp/config" = "/home/b3nj4m1n/.config/ncmpcpp/config"
+"files/ncmpcpp/bindings" = "/home/b3nj4m1n/.config/ncmpcpp/bindings"
 [ranger.files]
 "files/ranger/*" = "~/.config/ranger/"
 [cli-visualizer.files]
@@ -164,5 +169,3 @@ c23 = "#e8e8e8" # Dim
 "scripts/*.sh" = "/usr/bin/scripts/"
 [profile.files]
 "files/etc/profile" = "/etc/profile"
-[assets.files]
-"scripts/assets/*" = "/usr/bin/scripts/assets/"
