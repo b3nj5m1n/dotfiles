@@ -24,11 +24,6 @@ super + Escape
 
 ############### General ###############
 
-# Change wallpaper
-# Super + w
-super + w
-    bash ~/wally.sh -r -t nature
-
 # Lock input
 # Alt + q
 alt + q

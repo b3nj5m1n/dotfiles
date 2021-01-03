@@ -7,6 +7,7 @@ packages = [
     "sxhkd",
     "zathura",
     "lightdm",
+    "scripts",
     "emacs",
     "polybar",
     "rofi",

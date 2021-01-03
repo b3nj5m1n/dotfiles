@@ -93,6 +93,13 @@ c23 = "#e8e8e8" # Dim
 "files/lightdm/lightdm.conf" = "/etc/lightdm/lightdm.conf"
 [bspwm.files]
 "files/bspwm/bspwmrc" = "~/.config/bspwm/bspwmrc"
+"scripts/bspwm-focus.sh" = "/usr/bin/scripts/bspwm-focus.sh"
+"scripts/bspwm-resize-old.sh" = "/usr/bin/scripts/bspwm-resize-old.sh"
+"scripts/bspwm-resize.sh" = "/usr/bin/scripts/bspwm-resize.sh"
+"scripts/bspwm-scratchpad.sh" = "/usr/bin/scripts/bspwm-scratchpad.sh"
+"scripts/bspwm-smart-move.sh" = "/usr/bin/scripts/bspwm-smart-move.sh"
+"scripts/bspwm-smart-presel.sh" = "/usr/bin/scripts/bspwm-smart-move-presel.sh"
+"scripts/bspwm-swap-or-move-in.sh" = "/usr/bin/scripts/bspwm-swap-or-move-in.sh"
 [sxhkd.files]
 "files/sxhkd/sxhkdrc" = "~/.config/sxhkd/sxhkdrc"
 "files/sxhkd/sxhkdrc_bspc" = "~/.config/sxhkd/sxhkdrc_bspc"
@@ -177,6 +184,9 @@ c23 = "#e8e8e8" # Dim
 "files/alacritty/alacritty.yml" = "~/.config/alacritty/alacritty.yml"
 [tmux.files]
 "files/tmux/tmux.conf" = "/home/b3nj4m1n/.config/tmux/tmux.conf"
+"scripts/tmuxleft.sh" = "/usr/bin/scripts/tmuxleft.sh"
+"scripts/tmuxright.sh" = "/usr/bin/scripts/tmuxright.sh"
+"scripts/tmuxstssrc.sh" = "/usr/bin/scripts/tmuxstssrc.sh"
 [ncmcpp.files]
 "files/ncmpcpp/config" = "/home/b3nj4m1n/.config/ncmpcpp/config"
 "files/ncmpcpp/bindings" = "/home/b3nj4m1n/.config/ncmpcpp/bindings"
@@ -187,6 +197,22 @@ c23 = "#e8e8e8" # Dim
 "files/cli-visualizer/config" = "~/.config/vis/config"
 "files/cli-visualizer/colors/dracula" = "~/.config/vis/colors/dracula"
 [scripts.files]
-"scripts/*.sh" = "/usr/bin/scripts/"
+"scripts/bw-wrapper.sh" = "/usr/bin/scripts/bw-wrapper.sh"
+"scripts/compile-latex.sh" = "/usr/bin/scripts/compile-latex.sh"
+"scripts/dmenu-mount.sh" = "/usr/bin/scripts/dmenu-mount.sh"
+"scripts/dmenu-umount.sh" = "/usr/bin/scripts/dmenu-umount.sh"
+"scripts/draw-terminal.sh" = "/usr/bin/scripts/draw-terminal.sh"
+"scripts/emoji-picker.sh" = "/usr/bin/scripts/emoji-picker.sh"
+"scripts/fav-song.sh" = "/usr/bin/scripts/fav-song.sh"
+"scripts/keyboard-layout-switcher.sh" = "/usr/bin/scripts/keyboard-layout-switcher.sh"
+"scripts/mpd-status.sh" = "/usr/bin/scripts/mpd-status.sh"
+"scripts/mpd-open-playlist.sh" = "/usr/bin/scripts/mpd-open-playlist.sh"
+"scripts/open-move.sh" = "/usr/bin/scripts/open-move.sh"
+"scripts/play-song.sh" = "/usr/bin/scripts/play-song.sh"
+"scripts/process-bay.sh" = "/usr/bin/scripts/process-bay.sh"
+"scripts/program-launcher.sh" = "/usr/bin/scripts/program-launcher.sh"
+"scripts/start-lemonbar.sh" = "/usr/bin/scripts/start-lemonbar.sh"
+"scripts/sxhkd-help-page.sh" = "/usr/bin/scripts/sxhkd-help-page.sh"
+"scripts/take-screenshot.sh" = "/usr/bin/scripts/take-screenshot.sh"
 [profile.files]
 "files/etc/profile" = "/etc/profile"
