@@ -1,3 +1,4 @@
+#!/bin/bash
 source /home/b3nj4m1n/dotfiles/scripts/tmuxstssrc.sh
 
 style_text bold

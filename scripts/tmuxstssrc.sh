@@ -1,3 +1,4 @@
+#!/bin/bash
 # echo "#[fg=#02B696]#[bg=#D5D5B0]#[bold]%d/%m %H:%M"
 
 ##### Style Variables #####
