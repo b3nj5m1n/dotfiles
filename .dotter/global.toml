@@ -35,20 +35,20 @@ red = "#ff5555"
 yellow = "#f1fa8c"
 # Primary Color
 prm = "#02B696"
-prm-bright = "#36D3A8"
-prm-dim = "#019C8F"
+prm_bright = "#36D3A8"
+prm_dim = "#019C8F"
 # Secondary Color
 scd = "#C336D3"
-scd-bright = "#E165E4"
-scd-dim = "#9B27B5"
+scd_bright = "#E165E4"
+scd_dim = "#9B27B5"
 # Background Color
 bg = "#282a36"
-bg-bright = "#6C7086"
-bg-dim = "#1D1F2E"
+bg_bright = "#6C7086"
+bg_dim = "#1D1F2E"
 # Foreground Color
 fg = "#F8F8F2"
-fg-bright = "#FAFAF6"
-fg-dim = "#D5D5B0"
+fg_bright = "#FAFAF6"
+fg_dim = "#D5D5B0"
 # Black
 c0 = "#080808" # Normal
 c8 = "#050505" # Bright

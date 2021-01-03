@@ -5,32 +5,32 @@
  */
 * {
     selected-normal-foreground:  {{ colors.fg }};
-    foreground:                  {{ colors.fg-dim }};
+    foreground:                  {{ colors.fg_dim }};
     normal-foreground:           @foreground;
     alternate-normal-background: {{ colors.bg }};
     red:                         {{ colors.prm }};
-    selected-urgent-foreground:  {{ colors.prm-dim }};
+    selected-urgent-foreground:  {{ colors.prm_dim }};
     blue:                        {{ colors.scd }};
     urgent-foreground:           {{ colors.c1 }};
     alternate-urgent-background: {{ colors.c9 }};
     active-foreground:           {{ colors.bg }};
-    lightbg:                     {{ colors.bg-bright }};
-    selected-active-foreground:  {{ colors.bg-bright }};
-    alternate-active-background: {{ colors.bg-dim }};
+    lightbg:                     {{ colors.bg_bright }};
+    selected-active-foreground:  {{ colors.bg_bright }};
+    alternate-active-background: {{ colors.bg_dim }};
     background:                  {{ colors.bg }};
     alternate-normal-foreground: @foreground;
     normal-background:           @background;
-    lightfg:                     {{ colors.fg-bright }};
+    lightfg:                     {{ colors.fg_bright }};
     selected-normal-background:  {{ colors.prm }};
     border-color:                {{ colors.prm }};
     spacing:                     2;
-    separatorcolor:              {{ colors.prm-dim }};
-    urgent-background:           {{ colors.prm-dim }};
-    selected-urgent-background:  {{ colors.prm-bright }};
+    separatorcolor:              {{ colors.prm_dim }};
+    urgent-background:           {{ colors.prm_dim }};
+    selected-urgent-background:  {{ colors.prm_bright }};
     alternate-urgent-foreground: @urgent-foreground;
     background-color:            {{ colors.bg }};
     alternate-active-foreground: @active-foreground;
-    active-background:           {{ colors.prm-dim }};
+    active-background:           {{ colors.prm_dim }};
     selected-active-background:  {{ colors.prm }};
 }
 #window {

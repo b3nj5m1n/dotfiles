@@ -45,11 +45,11 @@ timeout = 10
 [urgency_normal]
 background = "{{ colors.bg }}"
 foreground = "{{ colors.c15 }}"
-frame_color = "{{ colors.prm-dim }}"
+frame_color = "{{ colors.prm_dim }}"
 timeout = 10
 
 [urgency_critical]
 background = "{{ colors.bg }}"
-foreground = "{{ colors.fg-bright }}"
+foreground = "{{ colors.fg_bright }}"
 frame_color = "{{ colors.c17 }}"
 timeout = 0

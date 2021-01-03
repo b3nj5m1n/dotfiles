@@ -19,9 +19,9 @@
 ########################   ########################
 [colors]
 background = #00000000
-background-alt = {{ colors.bg-dim }}
+background-alt = {{ colors.bg_dim }}
 foreground = {{ colors.fg }}
-foreground-alt = {{ colors.fg-dim }}
+foreground-alt = {{ colors.fg_dim }}
 primary = {{ colors.prm }}
 secondary = {{ colors.scd }}
 alert = {{ colors.red }}
