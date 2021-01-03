@@ -73,6 +73,16 @@ bindkey "^e" end-of-line
 # Get into normal mode
 bindkey -M viins '^g' vi-cmd-mode
 
+# Function called before each command is executed
+function preexec() {
+    # Set the window title
+    # The first arg passed to this func is the string of the command the user has entered
+    echo -n -e "\033]0;$1\007"
+}
+
+# Alias for reloading the config
+alias rl="source ~/.zshrc"
+
 autoload edit-command-line; zle -N edit-command-line
 # Space in normal mode to edit current line in editor buffer
 bindkey -M vicmd ' ' edit-command-line
