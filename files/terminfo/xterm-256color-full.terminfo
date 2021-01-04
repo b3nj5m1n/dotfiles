@@ -1,0 +1,6 @@
+xterm-256color-full|generic with proper support for emacs,
+   use=xterm-256color,
+   sitm=\E[3m,
+   ritm=\E[23m,
+   setb24=\E[48;2;%p1%{65536}%/%d;%p1%{256}%/%{255}%&%d;%p1%{255}%&%dm,
+   setf24=\E[38;2;%p1%{65536}%/%d;%p1%{256}%/%{255}%&%d;%p1%{255}%&%dm,
