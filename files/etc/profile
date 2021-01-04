@@ -46,3 +46,13 @@ unset MANPATH
 
 # Make anki usable
 export ANKI_NOHIGHDPI=1
+
+source ~/.config/shrc
+
+# If no tmux sessions are running and we're connected over ssh, start tmux
+if [[ $(who am i) =~ \([-a-zA-Z0-9\.]+\)$ ]] ; then 
+    if [[ -z $(pgrep tmux) ]]; then
+        export TERM="xterm-256color"
+        /usr/bin/tmux
+    fi
+fi
