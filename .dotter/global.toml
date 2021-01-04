@@ -11,8 +11,18 @@ user-session = "bspwm"
 # ----- Font -----
 [firamono.variables.font]
 font = "FiraMono Nerd Font Mono"
+font_bold = "FiraMono Nerd Font Mono"
+font_italic = "UbuntuMono Nerd Font Mono"
+font_bold_italic = "UbuntuMono Nerd Font Mono"
 font_size = "11"
 font_size_float = "11.0"
+[ubuntumono.variables.font]
+font = "UbuntuMono Nerd Font Mono"
+font_bold = "UbuntuMono Nerd Font Mono"
+font_italic = "UbuntuMono Nerd Font Mono"
+font_bold_italic = "UbuntuMono Nerd Font Mono"
+font_size = "12"
+font_size_float = "12.0"
 
 # ----- Laptop -----
 [laptop.variables]
