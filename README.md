@@ -17,6 +17,12 @@ Before you can get started, you'll need to install git, which should be in the s
 ```sh
 git clone git@github.com:b3nj5m1n/dotfiles.git
 ```
+Now, you might want to compile the terminfo files:
+```sh
+cd /path/to/dotfiles/files/terminfo
+./compile-terminfo.sh
+```
+
 You'll also need rust, more specifically cargo, to install everything you need:
 ```sh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
