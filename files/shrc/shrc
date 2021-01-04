@@ -3,11 +3,6 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-# Path variable
-export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="$PATH:$HOME/.gem/ruby/2.7.0/bin/"
-export PATH="$PATH:$HOME/.rvm/bin"
-
 ############### Enviorment Variables ###############
 
 # Default editor
@@ -102,6 +97,12 @@ export NVM_DIR="$XDG_DATA_HOME/nvm"
 export GEM_HOME="$XDG_DATA_HOME/gem"
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME/java"
+
+# Path variable
+export PATH="$PATH:$CARGO_HOME/bin"
+export PATH="$PATH:$GEM_HOME/ruby/2.7.0/bin/"
+export PATH="$PATH:$HOME/.rvm/bin"
+
 
 # Enable colored output wherever that isn't the default
 # alias ls='ls --color=auto'
