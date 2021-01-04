@@ -1,0 +1,12 @@
+packages = [
+    "tmux",
+    "neovim",
+    "zsh",
+    "scripts",
+    "profile",
+    "fonts",
+    "shrc",
+    "dracula",
+    "firamono",
+    "starship",
+]
