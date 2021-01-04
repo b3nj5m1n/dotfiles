@@ -22,6 +22,9 @@ display_wlan = true
 [desktop.variables]
 display_battery = false
 display_wlan = false
+# ----- Server -----
+[server.variables]
+force_terminfo = true
 
 
 # ----- Colors -----
@@ -111,7 +114,7 @@ c23 = "#e8e8e8" # Dim
 "files/rofi/config.rasi" = "~/.config/rofi/config.rasi"
 "files/rofi/map.csv" = "~/.config/rofi/map.csv"
 [fonts.files]
-"files/fontconfig/fonts.conf" = "/home/b3nj4m1n/.config/fontconfig/fonts.conf"
+"files/fontconfig/fonts.conf" = "~/.config/fontconfig/fonts.conf"
 [polybar.files]
 "files/polybar/config" = "~/.config/polybar/config"
 "files/polybar/polybar.sh" = "~/.config/polybar/polybar.sh"
@@ -139,7 +142,7 @@ c23 = "#e8e8e8" # Dim
 "files/anki/toolbar-bottom.css" = "/usr/share/aqt_data/web/toolbar-bottom.css"
 "files/anki/toolbar.css" = "/usr/share/aqt_data/web/toolbar.css"
 "files/anki/webview.css" = "/usr/share/aqt_data/web/webview.css"
-"files/anki-addons/877182321/meta.json" = "/home/b3nj4m1n/.local/share/Anki2/addons21/877182321/meta.json"
+"files/anki-addons/877182321/meta.json" = "~/.local/share/Anki2/addons21/877182321/meta.json"
 [zathura.files]
 "files/zathura/zathurarc" = "~/.config/zathura/zathurarc"
 [assets.files]
@@ -153,8 +156,8 @@ c23 = "#e8e8e8" # Dim
 [shrc.files]
 "files/shrc/shrc" = "~/.config/shrc"
 [zsh.files]
-"files/zsh/.zshrc" = "~/.config/zsh/.zshrc"
 "files/zsh/.zshrc" = "~/.zshrc"
+"files/zsh/.zshrc" = "~/.config/zsh/.zshrc"
 [fish.files]
 "files/fish/config.fish" = "~/.config/fish/config.fish"
 [bash.files]
@@ -187,13 +190,14 @@ c23 = "#e8e8e8" # Dim
 [alacritty.files]
 "files/alacritty/alacritty.yml" = "~/.config/alacritty/alacritty.yml"
 [tmux.files]
-"files/tmux/tmux.conf" = "/home/b3nj4m1n/.config/tmux/tmux.conf"
+"files/tmux/tmux.conf" = "~/.config/tmux/tmux.conf"
+"files/tmux/tmux.conf" = "~/.tmux.conf"
 "scripts/tmuxleft.sh" = "/usr/bin/scripts/tmuxleft.sh"
 "scripts/tmuxright.sh" = "/usr/bin/scripts/tmuxright.sh"
 "scripts/tmuxstssrc.sh" = "/usr/bin/scripts/tmuxstssrc.sh"
 [ncmcpp.files]
-"files/ncmpcpp/config" = "/home/b3nj4m1n/.config/ncmpcpp/config"
-"files/ncmpcpp/bindings" = "/home/b3nj4m1n/.config/ncmpcpp/bindings"
+"files/ncmpcpp/config" = "~/.config/ncmpcpp/config"
+"files/ncmpcpp/bindings" = "~/.config/ncmpcpp/bindings"
 [ranger.files]
 "files/ranger/rc.conf" = "~/.config/ranger/rc.conf"
 "files/ranger/scope.sh" = "~/.config/ranger/scope.sh"

@@ -1,7 +1,9 @@
 packages = [
+    "server",
     "tmux",
     "neovim",
     "zsh",
+    "bash",
     "scripts",
     "profile",
     "fonts",
