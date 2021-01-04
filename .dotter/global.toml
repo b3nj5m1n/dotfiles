@@ -201,7 +201,7 @@ c23 = "#e8e8e8" # Dim
 "files/alacritty/alacritty.yml" = "~/.config/alacritty/alacritty.yml"
 [tmux.files]
 "files/tmux/tmux.conf" = "~/.config/tmux/tmux.conf"
-"files/tmux/tmux.conf" = "~/.tmux.conf"
+"files/tmux/tmux.conf.home" = "~/.tmux.conf"
 "scripts/tmuxleft.sh" = "/usr/bin/scripts/tmuxleft.sh"
 "scripts/tmuxright.sh" = "/usr/bin/scripts/tmuxright.sh"
 "scripts/tmuxstssrc.sh" = "/usr/bin/scripts/tmuxstssrc.sh"
