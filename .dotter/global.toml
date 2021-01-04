@@ -18,6 +18,10 @@ font_size_float = "11.0"
 [laptop.variables]
 display_battery = true
 display_wlan = true
+# ----- Desktop -----
+[desktop.variables]
+display_battery = false
+display_wlan = false
 
 
 # ----- Colors -----
