@@ -156,8 +156,8 @@ c23 = "#e8e8e8" # Dim
 [shrc.files]
 "files/shrc/shrc" = "~/.config/shrc"
 [zsh.files]
-"files/zsh/.zshrc" = "~/.zshrc"
-"files/zsh/.zshrc" = "~/.config/zsh/.zshrc"
+"files/zsh/zshrc" = "~/.config/zsh/.zshrc"
+"files/zsh/zshrc.home" = "~/.zshrc"
 [fish.files]
 "files/fish/config.fish" = "~/.config/fish/config.fish"
 [bash.files]
