@@ -172,6 +172,8 @@ c23 = "#e8e8e8" # Dim
 "files/fish/config.fish" = "~/.config/fish/config.fish"
 [bash.files]
 "files/bash/.bashrc" = "~/.bashrc"
+[ssh.files]
+"files/ssh/config" = "~/.ssh/config"
 
 
 ##### Editors #####
