@@ -25,6 +25,25 @@ set shortmess+=c
 
 
 " --- lsp --- "
+lua require'lspconfig'.pyls.setup{on_attach=require'completion'.on_attach}
+lua require'lspconfig'.rls.setup{on_attach=require'completion'.on_attach}
+lua require'lspconfig'.solargraph.setup{on_attach=require'completion'.on_attach}
+lua require'lspconfig'.bashls.setup{on_attach=require'completion'.on_attach}
+lua require'lspconfig'.clangd.setup{on_attach=require'completion'.on_attach}
+lua require'lspconfig'.cmake.setup{on_attach=require'completion'.on_attach}
+lua require'lspconfig'.cssls.setup{on_attach=require'completion'.on_attach}
+lua require'lspconfig'.dockerls.setup{on_attach=require'completion'.on_attach}
+lua require'lspconfig'.gdscript.setup{on_attach=require'completion'.on_attach}
+lua require'lspconfig'.gopls.setup{on_attach=require'completion'.on_attach}
+lua require'lspconfig'.html.setup{on_attach=require'completion'.on_attach}
+lua require'lspconfig'.jsonls.setup{on_attach=require'completion'.on_attach}
+lua require'lspconfig'.omnisharp.setup{on_attach=require'completion'.on_attach}
+lua require'lspconfig'.perlls.setup{on_attach=require'completion'.on_attach}
+lua require'lspconfig'.sqlls.setup{on_attach=require'completion'.on_attach}
+lua require'lspconfig'.texlab.setup{on_attach=require'completion'.on_attach}
+lua require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach}
+lua require'lspconfig'.vimls.setup{on_attach=require'completion'.on_attach}
+lua require'lspconfig'.yamlls.setup{on_attach=require'completion'.on_attach}
 
 nnoremap <leader>ld      <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <leader>lh      <cmd>lua vim.lsp.buf.hover()<CR>
@@ -35,8 +54,8 @@ nnoremap <leader>lr      <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <leader>lsd     <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <leader>lsw     <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <leader>le      <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <leader>lf    <cmd>lua vim.lsp.buf.formatting()<CR>
 
-nnoremap <leader>ff    <cmd>lua vim.lsp.buf.formatting()<CR>
 autocmd BufWritePre *.c lua vim.lsp.buf.formatting()
 
 
