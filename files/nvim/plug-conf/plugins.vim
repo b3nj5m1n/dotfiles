@@ -1,9 +1,13 @@
 call plug#begin('~/.config/nvim/autoload/plugged')
 
-" Completion, file browsing, snippets, surround, etc.
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Coc extensions
-let g:coc_global_extensions = [ "coc-clangd", "coc-css", "coc-explorer", "coc-html", "coc-java", "coc-json", "coc-python", "coc-snippets", "coc-tsserver", "coc-vimlsp", "coc-xml", "coc-pairs" ]
+" Common configs for the in-built lsp client
+Plug 'neovim/nvim-lspconfig'
+
+" Provides completions for in-built lsp client
+Plug 'nvim-lua/completion-nvim'
+
+" Snippet Engine
+Plug 'SirVer/ultisnips'
 
 " Snippets (Premade snippet files)
 Plug 'honza/vim-snippets'
@@ -48,8 +52,6 @@ Plug 'editorconfig/editorconfig-vim'
 
 " Custom status/tabline
 Plug 'vim-airline/vim-airline'
-" Themes for airline
-Plug 'vim-airline/vim-airline-themes'
 
 " Vim git integration
 Plug 'tpope/vim-fugitive'
