@@ -1,6 +1,3 @@
-" Mod key
-let mapleader = " "
-
 " Tabs
 " Ctrl + h/l switch current tab to previous/next
 nnoremap <C-h> :tabprevious<CR>
