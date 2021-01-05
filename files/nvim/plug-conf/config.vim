@@ -5,6 +5,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-s>"
 
 
 " --- completion --- "
+" Use completion-nvim in every buffer
+autocmd BufEnter * lua require'completion'.on_attach()
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
 let g:completion_matching_smart_case = 1
@@ -22,6 +24,14 @@ let g:completion_enable_snippet = 'UltiSnips'
 
 " Avoid showing message extra message when using completion
 set shortmess+=c
+
+let g:completion_chain_complete_list = [
+    \{'complete_items': ['path']},
+    \{'complete_items': ['lsp', 'buffers']},
+    \{'mode': '<c-p>'},
+    \{'mode': '<c-n>'}
+\]
+let g:completion_auto_change_source = 1
 
 
 " --- lsp --- "
@@ -158,5 +168,52 @@ command! -bang -nargs=* GGrep
             \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
 
 
+" --- Nvim Tree Lua --- "
+ let g:nvim_tree_side = 'left'
+let g:nvim_tree_width = 30
+let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ]
+let g:nvim_tree_auto_open = 0
+let g:nvim_tree_auto_close = 1
+let g:nvim_tree_quit_on_open = 0
+let g:nvim_tree_follow = 0
+let g:nvim_tree_indent_markers = 0
+let g:nvim_tree_hide_dotfiles = 0
+let g:nvim_tree_git_hl = 0
+let g:nvim_tree_root_folder_modifier = ':~'
+let g:nvim_tree_tab_open = 0
+let g:nvim_tree_width_allow_resize  = 1
+let g:nvim_tree_show_icons = { }
 
+" NOTE: the 'edit' key will wrap/unwrap a folder and open a file
+let g:nvim_tree_bindings = {
+    \ 'refresh':         'r',
+    \ 'create':          'a',
+    \ 'remove':          'd',
+    \ 'rename':          'R',
+    \ 'cut':             'x',
+    \ 'copy':            'c',
+    \ 'paste':           'p',
+    \ }
 
+let g:nvim_tree_icons = {
+    \ 'default': '',
+    \ 'symlink': '',
+    \ 'git': {
+    \   'unstaged': "✗",
+    \   'staged': "✓",
+    \   'unmerged': "",
+    \   'renamed': "➜",
+    \   'untracked': "★"
+    \   },
+    \ 'folder': {
+    \   'default': "",
+    \   'open': "",
+    \   'symlink': "",
+    \   }
+    \ }
+
+nnoremap <C-n> :NvimTreeToggle<CR>
+" NvimTreeOpen and NvimTreeClose are also available if you need them
+
+" a list of groups can be found at `:help nvim_tree_highlight`
+highlight NvimTreeFolderIcon guibg=blue

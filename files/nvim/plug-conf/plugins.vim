@@ -12,6 +12,15 @@ Plug 'SirVer/ultisnips'
 " Snippets (Premade snippet files)
 Plug 'honza/vim-snippets'
 
+" Auto pairs
+Plug 'tmsvg/pear-tree'
+
+" File Icons
+Plug 'kyazdani42/nvim-web-devicons'
+
+" File Tree
+Plug 'kyazdani42/nvim-tree.lua'
+
 " Repeat commands by plugins
 Plug 'tpope/vim-repeat'
 
