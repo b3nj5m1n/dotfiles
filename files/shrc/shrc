@@ -27,6 +27,16 @@ export TERM=alacritty-full
 
 ############### Aliases ###############
 
+# Git
+alias g='git'
+alias ga='git add'
+alias gaa='git add --all'
+alias gc='git commit'
+alias gca='git commit --amend'
+alias gp='git push'
+alias gst='git status'
+alias gsw='git switch $(git branch | sd "[ |*]" "" | sk)'
+
 # .. for moving up one directory in shells where that isn't supported
 alias ..='cd ..'
 
