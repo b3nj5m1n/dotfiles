@@ -6,8 +6,11 @@ nnoremap <C-l> :tabnext<CR>
 nnoremap <silent> <A-h> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-l> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
 
-" Mod + u to switch between open split screens
-nnoremap <leader>u <c-w>w
+" Space + w + h/j/k/l for switching windows
+nnoremap <leader>wh <C-W>h
+nnoremap <leader>wj <C-W>j
+nnoremap <leader>wk <C-W>k
+nnoremap <leader>wl <C-W>l
 
 " Highlighting
 " Toggle current line highlighting
