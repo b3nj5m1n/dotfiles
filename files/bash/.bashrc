@@ -104,6 +104,8 @@ fi
 
 # export PS1=$PS1
 
+# Start ssh agent
+{ eval `ssh-agent`; } &>/dev/null
 # Use starship prompt
 eval "$(starship init bash)"
 # Init zoxide (Better navigation than with cd)

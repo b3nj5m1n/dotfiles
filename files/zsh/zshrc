@@ -87,6 +87,8 @@ autoload edit-command-line; zle -N edit-command-line
 # Space in normal mode to edit current line in editor buffer
 bindkey -M vicmd ' ' edit-command-line
 
+# Start ssh agent
+{ eval `ssh-agent`; } &>/dev/null
 # Use starship prompt
 eval "$(starship init zsh)"
 # Init zoxide (Better navigation than with cd)

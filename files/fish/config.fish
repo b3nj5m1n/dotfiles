@@ -6,6 +6,8 @@ end
 function fish_greeting
 end
 
+# Start ssh agent
+{ eval (ssh-agent -c); } &>/dev/null
 # Use starship prompt
 starship init fish | source
 # Init zoxide (Better navigation than with cd)
