@@ -29,7 +29,7 @@ export TERM=alacritty-full
 ############### Aliases ###############
 
 function alias_help {
-    /usr/bin/cat ~/.config/shrc | grep "alias \w+='.+' #" | /usr/bin/sed -n -r 's/alias (\w+)=.+# (.+)$/\1 - \2/p' | $FUZZY_FINDER
+    /usr/bin/cat ~/.config/shrc | grep -E "alias \w+='.+' #" | /usr/bin/sed -n -r 's/alias (\w+)=.+# (.+)$/\1 - \2/p' | $FUZZY_FINDER
     # You could also write this as an alias like this:
     # alias ahelp='/usr/bin/cat ~/.config/shrc | grep "alias \w+='\''.+'\'' #" | /usr/bin/sed -n -r '\''s/alias (\w+)=.+# (.+)$/\1 - \2/p'\'' | $FUZZY_FINDER' # List all available aliases
 }
