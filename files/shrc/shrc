@@ -35,6 +35,8 @@ function alias_help {
 }
 alias ahelp="alias_help" # List all available aliases
 
+alias myip='curl "https://api.ipify.org"' # Get public ip adress
+
 # Git
 alias g='git' # Git
 alias ga='git add' # Git add
