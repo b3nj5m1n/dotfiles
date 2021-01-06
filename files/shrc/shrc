@@ -41,6 +41,7 @@ alias ga='git add' # Git add
 alias gaa='git add --all' # Git add all unstaged changes
 alias gr='git remove' # Git unstage/remove
 alias gc='git commit' # Git commit
+alias gl='git log' # Git log
 alias gca='git commit --amend' # Git ammend
 alias gp='git push' # Git push
 alias gpl='git pull' # Git pull
@@ -48,6 +49,10 @@ alias gf='git fetch' # Git fetch
 alias gst='git status' # Git status
 alias gsw='git switch $(git branch | sd "[ |*]" "" | $FUZZY_FINDER)' # Git interacitvely switch branche
 alias grb='git branch -d $(git branch | sd "[ |*]" "" | $FUZZY_FINDER)' # Git interacitvely delete branche
+function git_search_commits() { 
+    git --no-pager log --pretty="%s|%cn|%cr|%h" | awk -F'|' '{ printf "%s... by %s, %s (%s)\n", $1=substr($1,1,25), $2, $3, $4 }' | sk | /usr/bin/sed -n -r 's/^.*\((\w+)\)$/\1/p'
+}
+alias gsc='git_search_commits' # Search git commits
 
 # .. for moving up one directory in shells where that isn't supported
 alias ..='cd ..'
