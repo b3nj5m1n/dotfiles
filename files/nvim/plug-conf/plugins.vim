@@ -4,7 +4,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 Plug 'neovim/nvim-lspconfig'
 
 " Provides completions for in-built lsp client
-Plug 'nvim-lua/completion-nvim'
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
 
 " Snippet Engine
 Plug 'SirVer/ultisnips'

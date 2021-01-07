@@ -5,55 +5,47 @@ let g:UltiSnipsJumpBackwardTrigger="<c-s>"
 
 
 " --- completion --- "
-" Use completion-nvim in every buffer
-autocmd BufEnter * lua require'completion'.on_attach()
-set completeopt=menuone,noinsert,noselect
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
-let g:completion_matching_smart_case = 1
-" How many chars min to start completion
-let g:completion_trigger_keyword_length = 1
-" Trigger completion on deletion
-let g:completion_trigger_on_delete = 1
-
-" Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" Enable snippet support
-let g:completion_enable_snippet = 'UltiSnips'
-
-" Avoid showing message extra message when using completion
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=noinsert,menuone,noselect
 set shortmess+=c
-
-let g:completion_chain_complete_list = [
-    \{'complete_items': ['path']},
-    \{'complete_items': ['lsp', 'buffers']},
-    \{'mode': '<c-p>'},
-    \{'mode': '<c-n>'}
-\]
-let g:completion_auto_change_source = 1
+" Require a length of 2 for sources with priorities 1-6, 0 for the highest priority
+let g:ncm2#complete_length=[[1,2], [7,0]]
+" How many items to show at once
+let g:ncm2#total_popup_limit=10
+" How often to refresh, 60 is default, the lower the less flickering
+let g:ncm2#popup_delay=10
+" Enable control + c for exiting the completion menu
+inoremap <c-c> <ESC>
+" Tab and Shift + Tab for navigating
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 
 " --- lsp --- "
-lua require'lspconfig'.pyls.setup{on_attach=require'completion'.on_attach}
-lua require'lspconfig'.rls.setup{on_attach=require'completion'.on_attach}
-lua require'lspconfig'.solargraph.setup{on_attach=require'completion'.on_attach}
-lua require'lspconfig'.bashls.setup{on_attach=require'completion'.on_attach}
-lua require'lspconfig'.clangd.setup{on_attach=require'completion'.on_attach}
-lua require'lspconfig'.cmake.setup{on_attach=require'completion'.on_attach}
-lua require'lspconfig'.cssls.setup{on_attach=require'completion'.on_attach}
-lua require'lspconfig'.dockerls.setup{on_attach=require'completion'.on_attach}
-lua require'lspconfig'.gdscript.setup{on_attach=require'completion'.on_attach}
-lua require'lspconfig'.gopls.setup{on_attach=require'completion'.on_attach}
-lua require'lspconfig'.html.setup{on_attach=require'completion'.on_attach}
-lua require'lspconfig'.jsonls.setup{on_attach=require'completion'.on_attach}
-lua require'lspconfig'.omnisharp.setup{on_attach=require'completion'.on_attach}
-lua require'lspconfig'.perlls.setup{on_attach=require'completion'.on_attach}
-lua require'lspconfig'.sqlls.setup{on_attach=require'completion'.on_attach}
-lua require'lspconfig'.texlab.setup{on_attach=require'completion'.on_attach}
-lua require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach}
-lua require'lspconfig'.vimls.setup{on_attach=require'completion'.on_attach}
-lua require'lspconfig'.yamlls.setup{on_attach=require'completion'.on_attach}
+lua << EOF
+local lspconfig = require('lspconfig')
+local ncm2 = require('ncm2')
+lspconfig.pyls.setup{on_init = ncm2.register_lsp_source}
+lspconfig.rls.setup{on_init = ncm2.register_lsp_source}
+lspconfig.solargraph.setup{on_init = ncm2.register_lsp_source}
+lspconfig.bashls.setup{on_init = ncm2.register_lsp_source}
+lspconfig.clangd.setup{on_init = ncm2.register_lsp_source}
+lspconfig.cmake.setup{on_init = ncm2.register_lsp_source}
+lspconfig.cssls.setup{on_init = ncm2.register_lsp_source}
+lspconfig.dockerls.setup{on_init = ncm2.register_lsp_source}
+lspconfig.gdscript.setup{on_init = ncm2.register_lsp_source}
+lspconfig.gopls.setup{on_init = ncm2.register_lsp_source}
+lspconfig.html.setup{on_init = ncm2.register_lsp_source}
+lspconfig.jsonls.setup{on_init = ncm2.register_lsp_source}
+lspconfig.omnisharp.setup{on_init = ncm2.register_lsp_source}
+lspconfig.perlls.setup{on_init = ncm2.register_lsp_source}
+lspconfig.sqlls.setup{on_init = ncm2.register_lsp_source}
+lspconfig.texlab.setup{on_init = ncm2.register_lsp_source}
+lspconfig.tsserver.setup{on_init = ncm2.register_lsp_source}
+lspconfig.vimls.setup{on_init = ncm2.register_lsp_source}
+lspconfig.yamlls.setup{on_init = ncm2.register_lsp_source}
+EOF
 
 nnoremap <leader>ld      <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <leader>lh      <cmd>lua vim.lsp.buf.hover()<CR>
