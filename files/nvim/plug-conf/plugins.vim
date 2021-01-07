@@ -13,7 +13,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 " Auto pairs
-Plug 'tmsvg/pear-tree'
+Plug 'jiangmiao/auto-pairs'
 
 " File Icons
 Plug 'kyazdani42/nvim-web-devicons'
