@@ -179,14 +179,11 @@ c23 = "#e8e8e8" # Dim
 ##### Editors #####
 
 [neovim.files]
-"files/nvim/init.vim" = "~/.config/nvim/init.vim"
-"files/nvim/lua/init.lua" = "~/.config/nvim/lua/init.lua"
+"files/nvim/init.lua" = "~/.config/nvim/init.lua"
+"files/nvim/lua/plugins.lua" = "~/.config/nvim/lua/plugins.lua"
+"files/nvim/lua/plugin-config.lua" = "~/.config/nvim/lua/plugin-config.lua"
 "files/nvim/lua/binds.lua" = "~/.config/nvim/lua/binds.lua"
 "files/nvim/lua/opts.lua" = "~/.config/nvim/lua/opts.lua"
-"files/nvim/general/mappings.vim" = "~/.config/nvim/general/mappings.vim"
-"files/nvim/general/settings.vim" = "~/.config/nvim/general/settings.vim"
-"files/nvim/plug-conf/config.vim" = "~/.config/nvim/plug-conf/config.vim"
-"files/nvim/plug-conf/plugins.vim" = "~/.config/nvim/plug-conf/plugins.vim"
 "files/nvim/ftplugin/tex.vim" = "~/.config/nvim/ftplugin/tex.vim"
 [emacs.files]
 "files/doom/config.org" = "~/.config/doom/config.org"

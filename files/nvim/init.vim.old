@@ -1,0 +1,15 @@
+" Overwrite background color to be transparent
+lua require 'init'
+
+" General Settings
+" source ~/.config/nvim/general/settings.vim
+
+" Key mappings
+" source ~/.config/nvim/general/mappings.vim
+
+" Plugin manager
+" source ~/.config/nvim/plug-conf/plugins.vim
+
+" Plugin Configs
+" source ~/.config/nvim/plug-conf/config.vim
+

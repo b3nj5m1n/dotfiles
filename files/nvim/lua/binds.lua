@@ -18,7 +18,20 @@ vim.api.nvim_set_keymap('n', '<leader>hl', ':set cursorline!<CR>', opts) -- Lead
 vim.api.nvim_set_keymap('n', '<leader>hc', ':set cursorcolumn!<CR>', opts) -- Leader + h(ighlighting) + c(olumn) to toggle highlighting the current column
 
 -- Plugins
-vim.api.nvim_set_keymap('n', '<leader>r', ':RnvimrToggle<CR>', opts) -- Toggle ranger
+vim.api.nvim_set_keymap('i', '<c-c>', '<ESC>', opts) -- Close auto-complete menu with Control + C
+vim.api.nvim_set_keymap('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"',  { noremap = true, silent = true, expr = true }) -- Select next item in completion menu with tab
+vim.api.nvim_set_keymap('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', { noremap = true, silent = true, expr = true }) -- Select previous item in completion menu with tab
+vim.api.nvim_set_keymap('n', '<leader>ld', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>lh', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>li', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>ls', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>lt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>lr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>lsd', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>lsw', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>le', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>lf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>t', '<cmd>:NvimTreeToggle<CR>', opts) -- Toggle NvimTree
 vim.api.nvim_set_keymap('n', '<leader><space>', ':Files<CR>', opts) -- Open fzf
 vim.api.nvim_set_keymap('n', '<leader>g', ':Rg<CR>', opts) -- Open RipGrep
 
