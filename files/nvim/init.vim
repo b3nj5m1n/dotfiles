@@ -1,3 +1,5 @@
+lua require 'init'
+
 " Mod key
 let mapleader = " "
 
