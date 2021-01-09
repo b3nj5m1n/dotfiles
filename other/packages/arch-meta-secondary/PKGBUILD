@@ -10,6 +10,7 @@ license=(GPL)
 depends=(
 android-file-transfer-linux-git
 android-studio
+glava-git
 aria2
 audacity
 binwalk
