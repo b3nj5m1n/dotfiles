@@ -1,5 +1,4 @@
 local opts = {noremap = true, silent = true}
-local opts = {}
 
 -- Navigating Tabs
 vim.api.nvim_set_keymap('n', '<C-h>', ':tabprevious<CR>', opts) -- h to switch to previous tab
@@ -7,7 +6,9 @@ vim.api.nvim_set_keymap('n', '<C-l>', ':tabnext<CR>', opts) -- l to switch to ne
 vim.api.nvim_set_keymap('n', '<A-h>', ':execute \'silent! tabmove \' . (tabpagenr()-2)<CR>', opts) -- h to move current tab to the left
 vim.api.nvim_set_keymap('n', '<A-l>', ':execute \'silent! tabmove \' . (tabpagenr()+1)<CR>', opts) -- l to move current tab to the right
 
--- Navigating Splits
+-- Splits
+vim.api.nvim_set_keymap('n', '<leader>wv', ':vsplit<CR>', opts) -- Leader + w(indow) + h to switch to window on the left
+vim.api.nvim_set_keymap('n', '<leader>ws', ':split<CR>', opts) -- Leader + w(indow) + h to switch to window on the left
 vim.api.nvim_set_keymap('n', '<leader>wh', '<C-W>h', opts) -- Leader + w(indow) + h to switch to window on the left
 vim.api.nvim_set_keymap('n', '<leader>wj', '<C-W>j', opts) -- Leader + w(indow) + j to switch to window on the bottom
 vim.api.nvim_set_keymap('n', '<leader>wk', '<C-W>k', opts) -- Leader + w(indow) + k to switch to window on the top
