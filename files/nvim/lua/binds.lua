@@ -22,6 +22,8 @@ vim.api.nvim_set_keymap('n', '<leader>hc', ':set cursorcolumn!<CR>', opts) -- Le
 vim.api.nvim_set_keymap('i', '<c-c>', '<ESC>', opts) -- Close auto-complete menu with Control + C
 vim.api.nvim_set_keymap('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"',  { noremap = true, silent = true, expr = true }) -- Select next item in completion menu with tab
 vim.api.nvim_set_keymap('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', { noremap = true, silent = true, expr = true }) -- Select previous item in completion menu with tab
+vim.api.nvim_set_keymap('i', '<CR>', 'ncm2_ultisnips#expand_or("\\<CR>", "n")', { noremap = true, silent = true, expr = true }) -- Select previous item in completion menu with tab
+-- inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
 vim.api.nvim_set_keymap('n', '<leader>ld', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>lh', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>li', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)

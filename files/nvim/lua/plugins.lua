@@ -2,49 +2,50 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
-  
-  use {'wbthomason/packer.nvim', opt = true} -- Packer can manage itself as an optional plugin
-  
-  use {'dracula/vim', as = 'dracula'} -- You can alias plugin names
 
-  use 'nvim-treesitter/nvim-treesitter'
+    use {'wbthomason/packer.nvim', opt = true} -- Packer can manage itself as an optional plugin
 
-  use 'neovim/nvim-lspconfig' -- Common configs for the in-built lsp client
+    use {'dracula/vim', as = 'dracula'} -- You can alias plugin names
 
-  use 'ncm2/ncm2' -- Provides completions for in-built lsp client
-  use 'ncm2/ncm2-bufword' -- Completion source for words in current buffer
-  use 'ncm2/ncm2-path' -- Completion source for filepaths
-  use 'roxma/nvim-yarp' -- Required by ncm2
+    use 'nvim-treesitter/nvim-treesitter'
 
-  use 'SirVer/ultisnips' -- Snippet Engine
+    use 'neovim/nvim-lspconfig' -- Common configs for the in-built lsp client
 
-  use 'honza/vim-snippets' -- Snippets (Premade snippet files)
+    use 'ncm2/ncm2' -- Provides completions for in-built lsp client
+    use 'ncm2/ncm2-bufword' -- Completion source for words in current buffer
+    use 'ncm2/ncm2-path' -- Completion source for filepaths
+    use 'ncm2/ncm2-ultisnips' -- Completion source for utilsnips
+    use 'roxma/nvim-yarp' -- Required by ncm2
 
-  use 'jiangmiao/auto-pairs' -- Auto pairs
+    use 'SirVer/ultisnips' -- Snippet Engine
 
-  use 'kyazdani42/nvim-web-devicons' -- File Icons
+    use 'honza/vim-snippets' -- Snippets (Premade snippet files)
 
-  use 'kyazdani42/nvim-tree.lua' -- File Tree
+    use 'jiangmiao/auto-pairs' -- Auto pairs
 
-  use 'tpope/vim-repeat' -- Repeat commands by plugins
+    use 'kyazdani42/nvim-web-devicons' -- File Icons
 
-  use 'tpope/vim-surround' -- Surround text object
+    use 'kyazdani42/nvim-tree.lua' -- File Tree
 
-  use 'tpope/vim-commentary' -- Comment out text
+    use 'tpope/vim-repeat' -- Repeat commands by plugins
 
-  use 'ap/vim-css-color' -- Highlight color codes
+    use 'tpope/vim-surround' -- Surround text object
 
-  use 'justinmk/vim-sneak' -- Better vertical motion
+    use 'tpope/vim-commentary' -- Comment out text
 
-  use 'editorconfig/editorconfig-vim' -- Editor config
+    use 'ap/vim-css-color' -- Highlight color codes
 
-  use 'vim-airline/vim-airline' -- Custom status/tabline
+    use 'justinmk/vim-sneak' -- Better vertical motion
 
-  use 'tpope/vim-fugitive' -- Vim git integration
+    use 'editorconfig/editorconfig-vim' -- Editor config
 
-  use 'mhinz/vim-signify' -- Indicate changed, removed or added lines
+    use 'vim-airline/vim-airline' -- Custom status/tabline
 
-  use 'lotabout/skim.vim' -- Fuzzy-finding files
-  use 'airblade/vim-rooter'
+    use 'tpope/vim-fugitive' -- Vim git integration
+
+    use 'mhinz/vim-signify' -- Indicate changed, removed or added lines
+
+    use 'lotabout/skim.vim' -- Fuzzy-finding files
+    use 'airblade/vim-rooter'
 
 end)
