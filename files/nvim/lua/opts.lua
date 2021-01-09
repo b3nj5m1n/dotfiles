@@ -26,7 +26,8 @@ vim.api.nvim_set_option("shortmess", vim.api.nvim_get_option("shortmess") .. "c"
 -- Window Settings
 vim.api.nvim_win_set_option(0, "cursorcolumn", false) -- Indicate current column
 vim.api.nvim_win_set_option(0, "cursorline", true) -- Indicate current line
-vim.api.nvim_win_set_option(0, "foldmethod", "syntax") -- Auto fold method set to syntax (Determine folds based on file specific syntax)
+vim.api.nvim_win_set_option(0, "foldmethod", "expr") -- Auto fold method set to syntax (Determine folds based on file specific syntax)
+vim.api.nvim_win_set_option(0, "foldexpr", "nvim_treesitter#foldexpr()") -- Auto fold based on treesitter
 vim.api.nvim_win_set_option(0, "foldnestmax", 20) -- Deepest possible fold
 vim.api.nvim_win_set_option(0, "wrap", false) -- Long lines are displayed as one line (Horizontal scrolling required)
 vim.api.nvim_win_set_option(0, 'number', true) -- Enable line numbers
