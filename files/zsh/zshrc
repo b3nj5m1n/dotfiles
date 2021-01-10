@@ -88,7 +88,13 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey -M vicmd ' ' edit-command-line
 
 # Start ssh agent
-{ eval `ssh-agent`; } &>/dev/null
+export SSH_AUTH_SOCK=~/.ssh/ssh-agent.sock
+# test whether $SSH_AUTH_SOCK is valid
+ssh-add -l 2>/dev/null >/dev/null
+# if not valid, then start ssh-agent using $SSH_AUTH_SOCK
+[ $? -ge 2 ] && ssh-agent -a "$SSH_AUTH_SOCK" >/dev/null
+# eval `ssh-agent -a $SSH_AUTH_SOCK` &>/dev/null
+
 # Use starship prompt
 eval "$(starship init zsh)"
 # Init zoxide (Better navigation than with cd)
