@@ -58,6 +58,8 @@ alias gsc='git_search_commits' # Search git commits
 
 # .. for moving up one directory in shells where that isn't supported
 alias ..='cd ..'
+# Always use sudo when running pacman
+alias pacman='sudo pacman'
 
 # Alias for opening files with emacsclient
 alias emcs='emacsclient --tty' # Open emacs in terminal
