@@ -1,5 +1,6 @@
 packages = [
     "laptop",
+    "picom",
     "tmux",
     "neovim",
     "zsh",
