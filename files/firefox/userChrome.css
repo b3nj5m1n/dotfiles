@@ -1,0 +1,35 @@
+.tabbrowser-tab:not([selected]) .tab-line {
+	display: none !important;
+}
+.tab-line[selected="true"] {
+    background-color: #50fa7b !important;
+}
+/* .tabbrowser-tab:hover .tab-line { */
+/* 	height: 3px !important; */
+/* 	background-color: #ffb86c !important; */
+/* } */
+
+.tabbrowser-tab:hover .tab-line {
+    background: linear-gradient(270deg, #8be9fd, #50fa7b, #ffb86c, #ff79c6, #bd93f9, #ff5555, #f1fa8c);
+    background-size: 1400% 1400%;
+
+    -webkit-animation: gradient-scroll 7s ease infinite;
+    -moz-animation: gradient-scroll 7s ease infinite;
+    animation: gradient-scroll 7s ease infinite;
+}
+
+@-webkit-keyframes gradient-scroll {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes gradient-scroll {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes gradient-scroll {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
