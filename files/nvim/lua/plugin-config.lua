@@ -6,7 +6,7 @@ vim.api.nvim_set_var("UltiSnipsJumpBackwardTrigger", "<c-s>")
 
 --- completion ---
 vim.api.nvim_exec('autocmd BufEnter * call ncm2#enable_for_buffer()', false) -- enable ncm2 for all buffers
-vim.api.nvim_set_var("ncm2#complete_length", { { 1,2 }, { 7,0 } }) -- Require a length of 2 for sources with priorities 1-6, 0 for the highest priority
+vim.api.nvim_set_var("ncm2#complete_length", { { 1,2 }, { 7,1 } }) -- Require a length of 2 for sources with priorities 1-6, 0 for the highest priority
 vim.api.nvim_set_var("ncm2#total_popup_limit", 10) -- How many items to show at once
 vim.api.nvim_set_var("ncm2#popup_delay", 10) -- How often to refresh, 60 is default, the lower the less flickering
 
