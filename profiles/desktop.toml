@@ -28,3 +28,7 @@ packages = [
     "anki",
     "cli-visualizer",
 ]
+
+[files]
+"files/firefox/userChrome.css" = "~/.mozilla/firefox/ogee8zmb.default-release/chrome/userChrome.css"
+"files/firefox/userContent.css" = "~/.mozilla/firefox/ogee8zmb.default-release/chrome/userContent.css"
