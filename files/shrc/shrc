@@ -61,7 +61,31 @@ function compile {
     case "$extension_input" in
         "md")
             format_input="markdown"
-            format_input_pretty="Markdown (md)"
+            format_input_pretty="Markdown (.md)"
+            ;;
+        "org")
+            format_input="org"
+            format_input_pretty="Emacs Org-Mode (.org)"
+            ;;
+        "tex")
+            format_input="latex"
+            format_input_pretty="LaTeX (.tex)"
+            ;;
+        "html")
+            format_input="html"
+            format_input_pretty="Hypertext Markup Language (.html)"
+            ;;
+        "c")
+            format_input="c"
+            format_input_pretty="C (.c)"
+            ;;
+        "cpp")
+            format_input="c++"
+            format_input_pretty="C++ (.cpp)"
+            ;;
+        "rs")
+            format_input="rust"
+            format_input_pretty="Rust (.rs)"
             ;;
         *)
             printf "${PURPLE}[compile]${NC}:${RED} Input format not recognized.\n"
@@ -75,7 +99,21 @@ function compile {
             "md")
                 extension_output="pdf"
                 format_output="pdf"
-                format_output_pretty="Portable Document Format (pdf)"
+                format_output_pretty="Portable Document Format (.pdf)"
+                ;;
+            "org")
+                extension_output="pdf"
+                format_output="pdf"
+                format_output_pretty="Portable Document Format (.pdf)"
+                ;;
+            "tex")
+                extension_output="pdf"
+                format_output="pdf"
+                format_output_pretty="Portable Document Format (.pdf)"
+                ;;
+            *)
+                printf "${PURPLE}[compile]${NC}:${RED} No default output format specified.\n"
+                return 1
                 ;;
         esac
         path_output=$(/usr/bin/sed -r "s/$extension_input$/$extension_output/" <<< "$path_input")
@@ -85,7 +123,19 @@ function compile {
         case "$extension_output" in
             "md")
                 format_output="markdown"
-                format_output_pretty="Markdown (md)"
+                format_output_pretty="Markdown (.md)"
+                ;;
+            "org")
+                format_output="org"
+                format_output_pretty="Emacs Org-Mode (.org)"
+                ;;
+            "tex")
+                format_output="latex"
+                format_output_pretty="LaTeX (.tex)"
+                ;;
+            "html")
+                format_input="html"
+                format_input_pretty="Hypertext Markup Language (.html)"
                 ;;
             *)
                 printf "${PURPLE}[compile]${NC}:${RED} Output format not recognized.\n"
@@ -100,6 +150,12 @@ function compile {
     case "$extension_input" in
         "md")
             pandoc --standalone --from "$format_input" --to "$format_output" --output "$path_output" "$path_input" 
+            ;;
+        "org")
+            pandoc --standalone --from "$format_input" --to "$format_output" --output "$path_output" "$path_input" 
+            ;;
+        "tex")
+            pdflatex --interaction nonstopmode "$path_input" "$path_output"
             ;;
     esac
     printf "${PURPLE}[compile]${NC}:${YELLOW} Done.\n"
