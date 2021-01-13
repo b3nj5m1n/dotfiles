@@ -26,13 +26,75 @@ export TERM=alacritty-full
 # {{/if}}
 
 
-############### Aliases ###############
+############### Colors ###############
 
+RED='\033[0;31m'
+YELLOW='\033[0;33m'
+PURPLE='\033[0;35m'
+LGREEN='\033[0;32m'
+NC='\033[0m'
+
+
+############### Functions ###############
+
+# Show an interacitve help menu with all defined and commented aliases
 function alias_help {
     /usr/bin/cat ~/.config/shrc | grep -E "alias \w+='.+' #" | /usr/bin/sed -n -r 's/alias (\w+)=.+# (.+)$/\1 - \2/p' | $FUZZY_FINDER
     # You could also write this as an alias like this:
     # alias ahelp='/usr/bin/cat ~/.config/shrc | grep "alias \w+='\''.+'\'' #" | /usr/bin/sed -n -r '\''s/alias (\w+)=.+# (.+)$/\1 - \2/p'\'' | $FUZZY_FINDER' # List all available aliases
 }
+
+# Tries to compile (Or convert) the given document, first argument should be the location of the file to compile, the second argument (optionally) the path for the output
+function compile {
+    # Get the absolute path to the input file
+    path_input=$(readlink -f "$1")
+    printf "${PURPLE}[compile]${NC}:${YELLOW} Compiling file:${NC}${LGREEN} $path_input\n"
+    # Extract the extension
+    extension_input=$(/usr/bin/sed -r 's/^.*\.//' <<< "$path_input")
+    format_input=""
+    extension_output=""
+    format_output=""
+    # Determine formats for input & output based on file extensions
+    case "$extension_input" in
+        "md")
+            format_input="Markdown (md)"
+            ;;
+        *)
+            printf "${PURPLE}[compile]${NC}:${RED} Input format not recognized.\n"
+            return 1
+            ;;
+    esac
+    if [ -z "$2" ]
+    then
+        # Use default output format
+        case "$extension_input" in
+            "md")
+                extension_output="pdf"
+                format_output="Portable Document Format (pdf)"
+                ;;
+        esac
+        path_output=$(/usr/bin/sed -r "s/$extension_input$/$extension_output/" <<< "$path_input")
+    else
+        # Use user defined output format
+        extension_output=$(/usr/bin/sed -r 's/^.*\.//' <<< "$2")
+        case "$extension_output" in
+            "md")
+                format_output="Markdown (md)"
+                ;;
+            *)
+                printf "${PURPLE}[compile]${NC}:${RED} Output format not recognized.\n"
+                return 1
+                ;;
+        esac
+        path_output="$2"
+    fi
+    # Give a status report
+    printf "${PURPLE}[compile]${NC}:${YELLOW} Compiling from input (${NC}${LGREEN}${format_input}${YELLOW}) to ${NC}${LGREEN}${format_output}${YELLOW} to ${NC}${LGREEN}${path_output}${YELLOW}...\n"
+}
+
+
+############### Aliases ###############
+
 alias ahelp="alias_help" # List all available aliases
 
 alias myip='curl "https://api.ipify.org"' # Get public ip adress
