@@ -29,6 +29,7 @@ export TERM=alacritty-full
 ############### Colors ###############
 
 RED='\033[0;31m'
+GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 PURPLE='\033[0;35m'
 LGREEN='\033[0;32m'
@@ -48,16 +49,19 @@ function alias_help {
 function compile {
     # Get the absolute path to the input file
     path_input=$(readlink -f "$1")
-    printf "${PURPLE}[compile]${NC}:${YELLOW} Compiling file:${NC}${LGREEN} $path_input\n"
+    printf "${PURPLE}[compile]${NC}:${YELLOW} Compiling file:${NC}${LGREEN} ${path_input}${YELLOW}.\n"
     # Extract the extension
     extension_input=$(/usr/bin/sed -r 's/^.*\.//' <<< "$path_input")
     format_input=""
+    format_input_pretty=""
     extension_output=""
     format_output=""
+    format_output_pretty=""
     # Determine formats for input & output based on file extensions
     case "$extension_input" in
         "md")
-            format_input="Markdown (md)"
+            format_input="markdown"
+            format_input_pretty="Markdown (md)"
             ;;
         *)
             printf "${PURPLE}[compile]${NC}:${RED} Input format not recognized.\n"
@@ -70,7 +74,8 @@ function compile {
         case "$extension_input" in
             "md")
                 extension_output="pdf"
-                format_output="Portable Document Format (pdf)"
+                format_output="pdf"
+                format_output_pretty="Portable Document Format (pdf)"
                 ;;
         esac
         path_output=$(/usr/bin/sed -r "s/$extension_input$/$extension_output/" <<< "$path_input")
@@ -79,7 +84,8 @@ function compile {
         extension_output=$(/usr/bin/sed -r 's/^.*\.//' <<< "$2")
         case "$extension_output" in
             "md")
-                format_output="Markdown (md)"
+                format_output="markdown"
+                format_output_pretty="Markdown (md)"
                 ;;
             *)
                 printf "${PURPLE}[compile]${NC}:${RED} Output format not recognized.\n"
@@ -89,7 +95,14 @@ function compile {
         path_output="$2"
     fi
     # Give a status report
-    printf "${PURPLE}[compile]${NC}:${YELLOW} Compiling from input (${NC}${LGREEN}${format_input}${YELLOW}) to ${NC}${LGREEN}${format_output}${YELLOW} to ${NC}${LGREEN}${path_output}${YELLOW}...\n"
+    printf "${PURPLE}[compile]${NC}:${YELLOW} Compiling from input (${NC}${LGREEN}${format_input_pretty}${YELLOW}) to ${NC}${LGREEN}${format_output_pretty}${YELLOW} to ${NC}${LGREEN}${path_output}${YELLOW}...\n"
+    # Compile the file
+    case "$extension_input" in
+        "md")
+            pandoc --standalone --from "$format_input" --to "$format_output" --output "$path_output" "$path_input" 
+            ;;
+    esac
+    printf "${PURPLE}[compile]${NC}:${YELLOW} Done.\n"
 }
 
 
