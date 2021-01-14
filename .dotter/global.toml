@@ -185,6 +185,7 @@ c23 = "#e8e8e8" # Dim
 "files/nvim/lua/binds.lua" = "~/.config/nvim/lua/binds.lua"
 "files/nvim/lua/opts.lua" = "~/.config/nvim/lua/opts.lua"
 "files/nvim/ftplugin/tex.vim" = "~/.config/nvim/ftplugin/tex.vim"
+"files/nvim/after/syntax/markdown.vim" = "~/.config/nvim/after/syntax/markdown.vim"
 [emacs.files]
 "files/doom/config.org" = "~/.config/doom/config.org"
 "files/doom/init.el" = "~/.config/doom/init.el"
