@@ -9,12 +9,14 @@ vim.api.nvim_exec('autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NON
 vim.cmd('colorscheme dracula') -- Use dracula colorscheme
 
 -- Global Settings
+vim.api.nvim_set_option("hidden", true) -- Don't kill buffers, when exiting, keep them around in the background
 vim.api.nvim_set_option("backup", false) -- Don't create a backup file before overwriting a file
 vim.api.nvim_set_option("encoding", "UTF-8") -- Directly jump to next match when searching
 vim.api.nvim_set_option("errorbells", false) -- Disable error bell & screen flashing
 vim.api.nvim_set_option("foldlevel", 99) -- The higher, the more folded regions are open (0 = all folds closed)
 vim.api.nvim_set_option("foldlevelstart", 99) -- Inital fold level; close all folds when opening a new buffer
 vim.api.nvim_set_option("ignorecase", true) -- Ignore case in searches
+vim.api.nvim_set_option("hlsearch", false) -- No highlighting on search
 vim.api.nvim_set_option("incsearch", true) -- Directly jump to next match when searching
 vim.api.nvim_set_option("mouse", 'a') -- Enable mouse support
 vim.api.nvim_set_option("smartcase", true) -- Don't ignore case in searches when using case in search
