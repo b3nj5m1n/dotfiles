@@ -111,6 +111,21 @@ function compile {
                 format_output="pdf"
                 format_output_pretty="Portable Document Format (.pdf)"
                 ;;
+            "c")
+                extension_output="bin"
+                format_output="bin"
+                format_output_pretty="Binary (.bin)"
+                ;;
+            "cpp")
+                extension_output="bin"
+                format_output="bin"
+                format_output_pretty="Binary (.bin)"
+                ;;
+            "rs")
+                extension_output="bin"
+                format_output="bin"
+                format_output_pretty="Binary (.bin)"
+                ;;
             *)
                 printf "${PURPLE}[compile]${NC}:${RED} No default output format specified.\n"
                 return 1
@@ -134,8 +149,12 @@ function compile {
                 format_output_pretty="LaTeX (.tex)"
                 ;;
             "html")
-                format_input="html"
-                format_input_pretty="Hypertext Markup Language (.html)"
+                format_output="html"
+                format_output_pretty="Hypertext Markup Language (.html)"
+                ;;
+            "bin")
+                format_output="binary"
+                format_output_pretty="Binary (.bin)"
                 ;;
             *)
                 printf "${PURPLE}[compile]${NC}:${RED} Output format not recognized.\n"
@@ -156,6 +175,15 @@ function compile {
             ;;
         "tex")
             pdflatex --interaction nonstopmode "$path_input" "$path_output"
+            ;;
+        "c")
+            gcc "$path_input" -o "$path_output"
+            ;;
+        "cpp")
+            g++ "$path_input" -o "$path_output"
+            ;;
+        "rs")
+            rustc "$path_input" -o "$path_output"
             ;;
     esac
     printf "${PURPLE}[compile]${NC}:${YELLOW} Done.\n"
