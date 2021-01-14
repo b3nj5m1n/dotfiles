@@ -36,21 +36,30 @@ lspconfig.yamlls.setup{on_init = ncm2.register_lsp_source}
 
 vim.api.nvim_exec('autocmd BufWritePre *.c lua vim.lsp.buf.formatting()', false) -- Auto-format on save
 
-
 -- Treesitter
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-    disable = {},  -- list of language that will be disabled
-  },
-  indent = {
-    enable = true
-  }
+    ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+    highlight = {
+        enable = true,              -- false will disable the whole extension
+        custom_captures = {
+        },
+        disable = {"markdown"},  -- list of language that will be disabled
+    },
+    indent = {
+        enable = true
+    }
+}
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.markdown = {
+    install_info = {
+        url = "https://github.com/ikatyang/tree-sitter-markdown", -- local path or git repo
+        files = {"src/parser.c", "src/scanner.cc"}
+    },
+    filetype = "md", -- if filetype does not agrees with parser name
 }
 
 
- --- airline ---
+--- airline ---
 vim.api.nvim_set_var('airline_theme', 'dracula') -- Require a length of 2 for sources with priorities 1-6, 0 for the highest priority
 
 
