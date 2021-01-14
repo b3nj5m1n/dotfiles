@@ -32,7 +32,11 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 PURPLE='\033[0;35m'
-LGREEN='\033[0;32m'
+LGREEN='\033[1;32m'
+LORANGE='\033[1;33m'
+LBLUE='\033[1;34m'
+LPURPLE='\033[1;35m'
+LCYAN='\033[1;36m'
 NC='\033[0m'
 
 
@@ -49,7 +53,7 @@ function alias_help {
 function compile {
     # Get the absolute path to the input file
     path_input=$(readlink -f "$1")
-    printf "${PURPLE}[compile]${NC}:${YELLOW} Compiling file:${NC}${LGREEN} ${path_input}${YELLOW}.\n"
+    printf "${LPURPLE}[compile]${NC}:${YELLOW} Compiling file:${NC}${LGREEN} ${path_input}${YELLOW}.\n"
     # Extract the extension
     extension_input=$(/usr/bin/sed -r 's/^.*\.//' <<< "$path_input")
     format_input=""
@@ -88,7 +92,7 @@ function compile {
             format_input_pretty="Rust (.rs)"
             ;;
         *)
-            printf "${PURPLE}[compile]${NC}:${RED} Input format not recognized.\n"
+            printf "${LPURPLE}[compile]${NC}:${RED} Input format not recognized.\n"
             return 1
             ;;
     esac
@@ -127,7 +131,7 @@ function compile {
                 format_output_pretty="Binary (.bin)"
                 ;;
             *)
-                printf "${PURPLE}[compile]${NC}:${RED} No default output format specified.\n"
+                printf "${LPURPLE}[compile]${NC}:${RED} No default output format specified.\n"
                 return 1
                 ;;
         esac
@@ -157,14 +161,14 @@ function compile {
                 format_output_pretty="Binary (.bin)"
                 ;;
             *)
-                printf "${PURPLE}[compile]${NC}:${RED} Output format not recognized.\n"
+                printf "${LPURPLE}[compile]${NC}:${RED} Output format not recognized.\n"
                 return 1
                 ;;
         esac
         path_output="$2"
     fi
     # Give a status report
-    printf "${PURPLE}[compile]${NC}:${YELLOW} Compiling from input (${NC}${LGREEN}${format_input_pretty}${YELLOW}) to ${NC}${LGREEN}${format_output_pretty}${YELLOW} to ${NC}${LGREEN}${path_output}${YELLOW}...\n"
+    printf "${LPURPLE}[compile]${NC}:${YELLOW} Compiling from input (${NC}${LGREEN}${format_input_pretty}${YELLOW}) to ${NC}${LGREEN}${format_output_pretty}${YELLOW} to ${NC}${LGREEN}${path_output}${YELLOW}...\n"
     # Compile the file
     case "$extension_input" in
         "md")
@@ -186,7 +190,71 @@ function compile {
             rustc "$path_input" -o "$path_output"
             ;;
     esac
-    printf "${PURPLE}[compile]${NC}:${YELLOW} Done.\n"
+    printf "${LPURPLE}[compile]${NC}:${YELLOW} Done.${NC}\n"
+}
+
+function run {
+    # Get the absolute path to the input file
+    path_input=$(readlink -f "$1")
+    printf "${LBLUE}[run]${NC}:${YELLOW} Running file:${NC}${LGREEN} ${path_input}${YELLOW}.\n"
+    # Extract the extension
+    extension_input=$(/usr/bin/sed -r 's/^.*\.//' <<< "$path_input")
+    format_input=""
+    format_input_pretty=""
+    program=""
+    # Determine formats for input & program to use for opening based on file extensions
+    case "$extension_input" in
+        "pdf")
+            format_input="pdf"
+            format_input_pretty="Portable Document Format (.pdf)"
+            ;;
+        "bin")
+            format_input="bin"
+            format_input_pretty="Binary (.bin)"
+            ;;
+        *)
+            printf "${LBLUE}[run]${NC}:${RED} Input format not recognized.\n"
+            return 1
+            ;;
+    esac
+    if [ -z "$2" ]
+    then
+        # Use default program for opening
+        case "$extension_input" in
+            "pdf")
+                program="zathura"
+                ;;
+            "bin")
+                program=""
+                ;;
+            *)
+                printf "${LBLUE}[run]${NC}:${RED} No default program specified.\n"
+                return 1
+                ;;
+        esac
+    else
+        # Use user defined program
+        program="$2"
+    fi
+    # Give a status report
+    printf "${LBLUE}[run]${NC}:${YELLOW} Running (${NC}${LGREEN}${path_input}${YELLOW}) using ${NC}${LGREEN}${program}${YELLOW}...\n"
+    # Run the file
+    if [ -z "$program" ]
+    then
+        "${path_input}"
+    else
+        "${program}" "${path_input}"
+    fi
+    printf "${LBLUE}[run]${NC}:${YELLOW} Done.\n"
+}
+
+function compile_run {
+    local path_input=
+    local path_output=
+    printf "${LCYAN}[compile_run]${NC}:${YELLOW} Compiling.\n"
+    compile "$@"
+    printf "${LCYAN}[compile_run]${NC}:${YELLOW} Running ${LGREEN}${path_output} ${NC}${YELLOW}.\n"
+    run "$path_output"
 }
 
 

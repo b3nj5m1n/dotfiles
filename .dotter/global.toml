@@ -164,7 +164,7 @@ c23 = "#e8e8e8" # Dim
 [starship.files]
 "files/starship/starship.toml" = "~/.config/starship.toml"
 [shrc.files]
-"files/shrc/shrc" = "~/.config/shrc"
+"files/shrc/shrc.sh" = "~/.config/shrc"
 [zsh.files]
 "files/zsh/zshrc" = "~/.config/zsh/.zshrc"
 "files/zsh/zshrc.home" = "~/.zshrc"
