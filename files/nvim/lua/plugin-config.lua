@@ -36,14 +36,25 @@ lspconfig.yamlls.setup{on_init = ncm2.register_lsp_source}
 
 vim.api.nvim_exec('autocmd BufWritePre *.c lua vim.lsp.buf.formatting()', false) -- Auto-format on save
 
+
 -- Treesitter
 require'nvim-treesitter.configs'.setup {
     ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
     highlight = {
         enable = true,              -- false will disable the whole extension
         custom_captures = {
+            ["h1"] = "h1",
+            ["_h1"] = "_h1",
+            ["h2"] = "h2",
+            ["_h2"] = "_h2",
+            ["h3"] = "h3",
+            ["_h3"] = "_h3",
+            ["h4"] = "h4",
+            ["_h4"] = "_h4",
+            ["h5"] = "h5",
+            ["_h5"] = "_h5",
         },
-        disable = {"markdown"},  -- list of language that will be disabled
+        disable = {},  -- list of language that will be disabled
     },
     indent = {
         enable = true
