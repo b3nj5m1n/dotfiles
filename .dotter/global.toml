@@ -206,6 +206,8 @@ c23 = "#e8e8e8" # Dim
 [ncmcpp.files]
 "files/ncmpcpp/config" = "~/.config/ncmpcpp/config"
 "files/ncmpcpp/bindings" = "~/.config/ncmpcpp/bindings"
+[neomutt.files]
+"files/mutt/settings.muttrc" = "~/.config/mutt/settings.muttrc"
 [ranger.files]
 "files/ranger/rc.conf" = "~/.config/ranger/rc.conf"
 "files/ranger/scope.sh" = "~/.config/ranger/scope.sh"
