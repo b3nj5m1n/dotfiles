@@ -108,7 +108,7 @@ body.nightMode {
 }
 /* This is for the lines in between the decks in the list, I set it to a shade of blue matching my enhance main window config */
 .nightMode tr.deck td {
-    border-bottom-color: #%prm-hex;
+    border-bottom-color: {{ colors.prm }};
 }
 .nightMode tr.drag-hover td {
   border-bottom-color: #777;
@@ -123,5 +123,5 @@ body.nightMode {
 .nightMode .gears {
 }
 .nightMode .filtered {
-  color: %prm-hex !important;
+  color: {{ colors.prm }} !important;
 }

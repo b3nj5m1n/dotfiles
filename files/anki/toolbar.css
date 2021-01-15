@@ -39,11 +39,11 @@ body {
 
 /* This is the color of the text of the toolbar at the top, I set it to blue again but I'm not sure yet if I'm going to keep it or not */
 .nightMode .hitem {
-  color: %prm-hex;
+  color: {{ colors.prm }};
 }
 /* This is the little stripe between the toolbar at the top and the part of the screen containing the decks, I set it to the same shade of blue */
 .nightMode #header {
-    border-bottom-color: %prm-hex;
+    border-bottom-color: {{ colors.prm }};
 }
 
 .isMac.nightMode #header {

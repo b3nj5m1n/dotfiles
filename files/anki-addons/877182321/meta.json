@@ -7,15 +7,15 @@
     "config": {
         "book symbol": "{",
         "cap value": null,
-        "color empty": "%prm-hex-bright",
-        "color empty descendant": "%prm-hex-bright",
+        "color empty": "{{ colors.prm_bright }}",
+        "color empty descendant": "{{ colors.prm_bright }}",
         "color zero": true,
         "columns": [
             {
                 "absolute": true,
-                "color": "%prm-hex-dim",
+                "color": "{{ colors.prm_dim }}",
                 "description": "Review cards you will see today (and the ones you will not see today)",
-                "header": "<p style='color: %prm-hex-bright'>Due</p>",
+                "header": "<p style='color: {{ colors.prm_bright }}'>Due</p>",
                 "name": "review",
                 "overlay": null,
                 "percent": false,
@@ -24,9 +24,9 @@
             },
             {
                 "absolute": true,
-                "color": "%prm-hex",
+                "color": "{{ colors.prm }}",
                 "description": "Unseen cards you will see today (what Anki calls New cards). Neither buried nor suspended.",
-                "header": "<p style='color: %prm-hex-bright'>New</p>",
+                "header": "<p style='color: {{ colors.prm_bright }}'>New</p>",
                 "name": "new today",
                 "overlay": null,
                 "percent": false,
@@ -35,9 +35,9 @@
             },
             {
                 "absolute": true,
-                "color": "%prm-hex-dim",
+                "color": "{{ colors.prm_dim }}",
                 "description": "Cards in learning which are due now",
-                "header": "<p style='color: %prm-hex-bright'>Learning</p>",
+                "header": "<p style='color: {{ colors.prm_bright }}'>Learning</p>",
                 "name": "learning now",
                 "overlay": null,
                 "percent": false,
@@ -46,9 +46,9 @@
             },
             {
                 "absolute": true,
-                "color": "%prm-hex-dim",
+                "color": "{{ colors.prm_dim }}",
                 "description": "Reviews which will happen later, either because a review happened recently, or because the card has many review left.",
-                "header": "<p style='color: %prm-hex-bright'>Learning Later</p>",
+                "header": "<p style='color: {{ colors.prm_bright }}'>Learning Later</p>",
                 "name": "learning later",
                 "overlay": null,
                 "percent": false,
@@ -57,9 +57,9 @@
             },
             {
                 "absolute": true,
-                "color": "%prm-hex-dim",
+                "color": "{{ colors.prm_dim }}",
                 "description": "Number of reviews done today",
-                "header": "<p style='color: %prm-hex-bright'>Repetitions Today</p>",
+                "header": "<p style='color: {{ colors.prm_bright }}'>Repetitions Today</p>",
                 "name": "repeated today",
                 "overlay": null,
                 "percent": false,
@@ -68,9 +68,9 @@
             },
             {
                 "absolute": true,
-                "color": "%prm-hex-dim",
+                "color": "{{ colors.prm_dim }}",
                 "description": "Number of reviewed cards with interval at least 3 weeks/less than 3 weeks ",
-                "header": "<p style='color: %prm-hex-bright'>Mature/Young</p>",
+                "header": "<p style='color: {{ colors.prm_bright }}'>Mature/Young</p>",
                 "name": "mature/young",
                 "overlay": null,
                 "percent": false,
@@ -79,9 +79,9 @@
             },
             {
                 "absolute": true,
-                "color": "%prm-hex-dim",
+                "color": "{{ colors.prm_dim }}",
                 "description": "Number of reviewed cards seen today and number of reviews",
-                "header": "<p style='color: %prm-hex-bright'>Reviewed Today</p>",
+                "header": "<p style='color: {{ colors.prm_bright }}'>Reviewed Today</p>",
                 "name": "reviewed today/repeated today",
                 "overlay": null,
                 "percent": false,
@@ -90,7 +90,7 @@
             },
             {
                 "description": "Percent bar to do today",
-                "header": "<p style='color: %prm-hex-bright'>Progress Today</p>",
+                "header": "<p style='color: {{ colors.prm_bright }}'>Progress Today</p>",
                 "name": "bar",
                 "names": [
                     "review today",
@@ -104,7 +104,7 @@
             },
             {
                 "description": "Percent bar showing the decks's repartition",
-                "header": "<p style='color: %prm-hex-bright'>Progress Total</p>",
+                "header": "<p style='color: {{ colors.prm_bright }}'>Progress Total</p>",
                 "name": "bar",
                 "names": [
                     "mature",
@@ -120,9 +120,9 @@
             },
             {
                 "absolute": true,
-                "color": "%prm-hex-dim",
+                "color": "{{ colors.prm_dim }}",
                 "description": "Number of reviews you will see today (new, review and learning)",
-                "header": "<p style='color: %prm-hex-bright'>Today</p>",
+                "header": "<p style='color: {{ colors.prm_bright }}'>Today</p>",
                 "name": "today",
                 "overlay": null,
                 "percent": false,
@@ -142,7 +142,7 @@
             },
             {
                 "absolute": true,
-                "color": "%prm-hex",
+                "color": "{{ colors.prm }}",
                 "description": "Cards in learning (either new cards you see again, or cards which you have forgotten recently, assuming those cards didn't graduate)",
                 "header": null,
                 "name": "learning card",
@@ -175,7 +175,7 @@
             },
             {
                 "absolute": true,
-                "color": "%prm-hex-bright",
+                "color": "{{ colors.prm_bright }}",
                 "description": "Review cards you will see today",
                 "header": null,
                 "name": "review today",
@@ -197,7 +197,7 @@
             },
             {
                 "absolute": true,
-                "color": "%prm-hex-dim",
+                "color": "{{ colors.prm_dim }}",
                 "description": "Cards that have never been answered. Neither buried nor suspended.",
                 "header": null,
                 "name": "unseen",
@@ -219,7 +219,7 @@
             },
             {
                 "absolute": true,
-                "color": "%prm-hex-dim",
+                "color": "{{ colors.prm_dim }}",
                 "description": "Number of buried cards (cards you decided not to see today, or you saw a sibling)",
                 "header": null,
                 "name": "buried",
@@ -230,7 +230,7 @@
             },
             {
                 "absolute": true,
-                "color": "%prm-hex-dim",
+                "color": "{{ colors.prm_dim }}",
                 "description": "Number of suspended cards (cards you will never see unless you unsuspend them in the browser)",
                 "header": null,
                 "name": "suspended",
@@ -285,7 +285,7 @@
             },
             {
                 "absolute": true,
-                "color": "%prm-hex-bright",
+                "color": "{{ colors.prm_bright }}",
                 "description": "Number of reviewed cards with interval at least 3 weeks",
                 "header": null,
                 "name": "mature",
@@ -296,7 +296,7 @@
             },
             {
                 "absolute": true,
-                "color": "%prm-hex-bright",
+                "color": "{{ colors.prm_bright }}",
                 "description": "Number of reviewed cards with interval less than 3 weeks",
                 "header": null,
                 "name": "young",
@@ -329,7 +329,7 @@
             },
             {
                 "absolute": true,
-                "color": "%prm-hex-dim",
+                "color": "{{ colors.prm_dim }}",
                 "description": "Number of reviewed cards seen today",
                 "header": null,
                 "name": "reviewed today",
@@ -394,12 +394,12 @@
                 "subdeck": true
             }
         ],
-        "default column color": "%prm-hex",
+        "default column color": "{{ colors.prm }}",
         "do color empty": true,
         "do color marked": true,
         "dot in numbers": true,
         "end symbol": ";",
-        "ended marked background color": "%prm-hex",
+        "ended marked background color": "{{ colors.prm }}",
         "given up symbol": "/",
         "hide values of parent decks when subdecks are shown": false,
         "marked background color": "null",
