@@ -8,3 +8,7 @@ highlight h4 guifg=#8be9fd gui=bold
 highlight _h4 guifg=#8be9fd gui=nocombine
 highlight h5 guifg=#f1fa8c gui=bold
 highlight _h5 guifg=#f1fa8c gui=nocombine
+highlight emphasis gui=italic
+highlight strong_emphasis gui=bold
+highlight strikethrough gui=strikethrough
+highlight info_string guifg=#f1fa8c gui=italic

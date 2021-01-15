@@ -18,3 +18,8 @@
   (atx_heading_marker) @_h5
   (_) @h5)
  (#eq? @_h5 "#####"))
+
+(emphasis) @emphasis
+(strong_emphasis) @strong_emphasis
+(strikethrough) @strikethrough
+(info_string) @info_string

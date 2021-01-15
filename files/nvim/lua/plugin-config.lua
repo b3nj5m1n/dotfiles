@@ -53,6 +53,10 @@ require'nvim-treesitter.configs'.setup {
             ["_h4"] = "_h4",
             ["h5"] = "h5",
             ["_h5"] = "_h5",
+            ["emphasis"] = "emphasis",
+            ["strong_emphasis"] = "strong_emphasis",
+            ["strikethrough"] = "strikethrough",
+            ["info_string"] = "info_string",
         },
         disable = {},  -- list of language that will be disabled
     },
