@@ -33,7 +33,7 @@ return require('packer').startup(function()
 
     use 'tpope/vim-commentary' -- Comment out text
 
-    use 'ap/vim-css-color' -- Highlight color codes
+    use 'norcalli/nvim-colorizer.lua' -- Highlight color codes
 
     use 'justinmk/vim-sneak' -- Better vertical motion
 

@@ -59,6 +59,10 @@ parser_config.markdown = {
 }
 
 
+--- colorizer ---
+require'colorizer'.setup()
+
+
 --- airline ---
 vim.api.nvim_set_var('airline_theme', 'dracula') -- Require a length of 2 for sources with priorities 1-6, 0 for the highest priority
 

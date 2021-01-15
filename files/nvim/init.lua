@@ -1,4 +1,4 @@
 require('plugins')
-require('plugin-config')
 require('opts')
+require('plugin-config')
 require('binds')
