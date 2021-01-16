@@ -185,6 +185,7 @@ c23 = "#e8e8e8" # Dim
 "files/nvim/lua/binds.lua" = "~/.config/nvim/lua/binds.lua"
 "files/nvim/lua/opts.lua" = "~/.config/nvim/lua/opts.lua"
 "files/nvim/ftplugin/tex.vim" = "~/.config/nvim/ftplugin/tex.vim"
+"files/nvim/ftplugin/markdown.vim" = "~/.config/nvim/ftplugin/markdown.vim"
 "files/nvim/after/syntax/markdown.vim" = "~/.config/nvim/after/syntax/markdown.vim"
 "files/nvim/after/queries/markdown/highlights.scm" = "~/.config/nvim/after/queries/markdown/highlights.scm"
 [emacs.files]
