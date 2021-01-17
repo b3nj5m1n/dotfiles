@@ -42,3 +42,10 @@ vim.api.nvim_buf_set_option(0, "smartindent", true) -- Automatically indent on a
 vim.api.nvim_buf_set_option(0, "softtabstop", 4) -- Number of spaces a <Tab> accounts for when editing
 vim.api.nvim_buf_set_option(0, "tabstop", 4) -- How many spaces a <Tab> in a file accounts for
 vim.api.nvim_buf_set_option(0, "undofile", true) -- Keep a file with the undo stack
+
+-- Neovide Configuration
+if vim.g.neovide then
+    vim.api.nvim_exec('autocmd ColorScheme * highlight Normal guibg=#282a36', false)
+    vim.api.nvim_set_var("neovide_transparency", 0.5)
+end
+

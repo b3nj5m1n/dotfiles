@@ -10,7 +10,6 @@ license=(GPL)
 depends=(
 android-file-transfer-linux-git
 android-studio
-glava-git
 aria2
 audacity
 binwalk
@@ -24,6 +23,7 @@ element-desktop
 espanso
 fd
 gimp
+glava-git
 glfw-x11
 glow
 gparted
@@ -33,6 +33,7 @@ ledger
 lemonbar-xft-git
 lutris
 mupdf
+neovide
 nerd-fonts-cascadia-code
 nerd-fonts-roboto-mono
 nmap
