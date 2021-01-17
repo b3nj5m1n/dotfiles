@@ -109,8 +109,9 @@ export SSH_AUTH_SOCK=~/.ssh/ssh-agent.sock
 # test whether $SSH_AUTH_SOCK is valid
 ssh-add -l 2>/dev/null >/dev/null
 # if not valid, then start ssh-agent using $SSH_AUTH_SOCK
-[ $? -ge 2 ] && ssh-agent -a "$SSH_AUTH_SOCK" >/dev/null
+[ $? -ge 2 ] && rm -f "$SSH_AUTH_SOCK" && ssh-agent -a "$SSH_AUTH_SOCK" >/dev/null
 # eval `ssh-agent -a $SSH_AUTH_SOCK` &>/dev/null
+
 
 # Use starship prompt
 eval "$(starship init bash)"

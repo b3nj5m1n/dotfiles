@@ -7,7 +7,13 @@ function fish_greeting
 end
 
 # Start ssh agent
-{ eval (ssh-agent -c); } &>/dev/null
+export SSH_AUTH_SOCK=~/.ssh/ssh-agent.sock
+# test whether $SSH_AUTH_SOCK is valid
+ssh-add -l 2>/dev/null >/dev/null
+# if not valid, then start ssh-agent using $SSH_AUTH_SOCK
+[ $? -ge 2 ] && rm -f "$SSH_AUTH_SOCK" && ssh-agent -a "$SSH_AUTH_SOCK" >/dev/null
+# eval `ssh-agent -a $SSH_AUTH_SOCK` &>/dev/null
+
 # Use starship prompt
 starship init fish | source
 # Init zoxide (Better navigation than with cd)
