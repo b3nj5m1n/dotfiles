@@ -1,6 +1,28 @@
+:root {
+    --color-dark: rgb(70, 70, 70);
+    --color-light: rgb(255, 255, 255);
+    --gay-gradient: linear-gradient(90deg, rgba(255,0,24,1) 0%, rgba(255,165,44,1) 20%, rgba(255,255,65,1) 40%, rgba(0,128,24,1) 60%, rgba(0,0,249,1) 80%, rgba(134,0,125,1) 100%);
+    --dracula-gradient: linear-gradient(270deg, #50fa7b, #ffb86c, #ff79c6, #bd93f9, #ff5555, #f1fa8c, #8be9fd);
+}
+
+#urlbar-input::selection {
+    background: #bd93f9;
+}
+
+#urlbar:not(.hidden-focus)[focused="true"] > #urlbar-input-container {
+    background: var(--dracula-gradient);
+    background-size: 1200% 1200%;
+
+    animation: gradient-scroll 9s linear infinite;
+}
+
+#urlbar {
+    /* --urlbar-separator-color: #ff0066; */
+}
+
 /* Don't display tabline when tab is not selected */
 .tabbrowser-tab:not([selected]) .tab-line {
-	display: none !important;
+    display: none !important;
 }
 /* Set tabline color to green for selected tab */
 .tab-line[selected="true"] {
@@ -9,26 +31,24 @@
 
 /* When hovering over the selected tab, set the background to an animated gradient */
 .tabbrowser-tab:hover .tab-line {
-    background: linear-gradient(270deg, #50fa7b, #ffb86c, #ff79c6, #bd93f9, #ff5555, #f1fa8c, #8be9fd);
+    background: var(--dracula-gradient);
     background-size: 1400% 1400%;
 
-    -webkit-animation: gradient-scroll 7s ease infinite;
-    -moz-animation: gradient-scroll 7s ease infinite;
     animation: gradient-scroll 7s ease infinite;
 }
 
- @-webkit-keyframes gradient-scroll {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+@-webkit-keyframes gradient-scroll {
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
 }
 @-moz-keyframes gradient-scroll {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
 }
 @keyframes gradient-scroll {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
 }
