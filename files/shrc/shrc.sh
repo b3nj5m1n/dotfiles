@@ -42,6 +42,27 @@ NC='\033[0m'
 
 ############### Functions ###############
 
+function update_normal_pacman {
+    pacman -Syy
+}
+function update_normal {
+    yay -Syy
+}
+function upgrade_normal_pacman {
+    pacman -Quq | while read p; do pacman -S $p --noconfirm --needed || echo $p >>pacman-failed.log; done
+}
+function upgrade_normal {
+    yay -Quq --repo | while read p; do yay -S $p --noremovemake --nocleanafter --answerclean None --answerdiff None --answeredit None --needed --sudoloop || echo $p >>yay-failed.log; done
+}
+function upgrade_aur {
+    yay -Quq --aur | while read p; do yay -S $p --noremovemake --nocleanafter --answerclean None --answerdiff None --answeredit None --needed --sudoloop || echo $p >>yay-failed.log; done
+}
+function update {
+    update_normal
+    upgrade_normal
+    upgrade_aur
+}
+
 # Show an interacitve help menu with all defined and commented aliases
 function alias_help {
     /usr/bin/cat ~/.config/shrc | grep -E "alias \w+='.+' #" | /usr/bin/sed -n -r 's/alias (\w+)=.+# (.+)$/\1 - \2/p' | $FUZZY_FINDER
