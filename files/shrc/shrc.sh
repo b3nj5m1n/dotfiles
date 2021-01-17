@@ -298,7 +298,7 @@ alias gpl='git pull' # Git pull
 alias gf='git fetch' # Git fetch
 alias gst='git status' # Git status
 alias grt='cd $(git rev-parse --show-toplevel)' # Jump to the root of the git repository
-alias gsw='git switch $(git branch | sd "[ |*]" "" | $FUZZY_FINDER)' # Git interacitvely switch branche
+alias gsb='git switch $(git branch | sd "[ |*]" "" | $FUZZY_FINDER)' # Git interacitvely switch branche
 alias grb='git branch -d $(git branch | sd "[ |*]" "" | $FUZZY_FINDER)' # Git interacitvely delete branche
 function git_search_commits() { 
     git --no-pager log --pretty="%s|%cn|%cr|%h" | awk -F'|' '{ printf "%s... by %s, %s (%s)\n", $1=substr($1,1,25), $2, $3, $4 }' | sk | /usr/bin/sed -n -r 's/^.*\((\w+)\)$/\1/p'
