@@ -55,10 +55,10 @@ function upgrade_normal_pacman {
     pacman -Quq | while read p; do pacman -S $p --noconfirm --needed || echo $p >>pacman-failed.log; done
 }
 function upgrade_normal {
-    yay -Quq --repo | while read p; do yay -S $p --noremovemake --nocleanafter --answerclean None --answerdiff None --answeredit None --needed --sudoloop || echo $p >>yay-failed.log; done
+    yay -Quq --repo | while read p; do yay -S $p --noconfirm --noremovemake --nocleanafter --answerclean None --answerdiff None --answeredit None --needed --sudoloop || echo $p >>yay-failed.log; done
 }
 function upgrade_aur {
-    yay -Quq --aur | while read p; do yay -S $p --noremovemake --nocleanafter --answerclean None --answerdiff None --answeredit None --needed --sudoloop || echo $p >>yay-failed.log; done
+    yay -Quq --aur | while read p; do yay -S $p --noconfirm --noremovemake --nocleanafter --answerclean None --answerdiff None --answeredit None --needed --sudoloop || echo $p >>yay-failed.log; done
 }
 function update {
     update_normal
