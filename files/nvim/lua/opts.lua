@@ -36,6 +36,7 @@ vim.api.nvim_win_set_option(0, 'number', true) -- Enable line numbers
 vim.api.nvim_win_set_option(0, 'relativenumber', true) -- Enable relative line numbers
 
 -- Buffer Setttings
+vim.api.nvim_buf_set_option(0, "spelllang", "en_GB,cjk") -- Dictionarys to use for checking spelling
 vim.api.nvim_buf_set_option(0, "expandtab", true) -- Insert spaces instead of tab
 vim.api.nvim_buf_set_option(0, "shiftwidth", 4) -- Affects <<, >>, and auto indent
 vim.api.nvim_buf_set_option(0, "smartindent", true) -- Automatically indent on a new line
