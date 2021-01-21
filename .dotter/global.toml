@@ -155,6 +155,8 @@ c23 = "#e8e8e8" # Dim
 "files/anki-addons/877182321/meta.json" = "~/.local/share/Anki2/addons21/877182321/meta.json"
 [zathura.files]
 "files/zathura/zathurarc" = "~/.config/zathura/zathurarc"
+[mirage.files]
+"files/mirage/settings.json" = "~/.config/mirage/settings.json"
 [assets.files]
 "scripts/assets/*" = "/usr/bin/scripts/assets/"
 

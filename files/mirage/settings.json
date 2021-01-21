@@ -1,0 +1,322 @@
+{
+    "alertOnMentionForMsec": -1,
+    "alertOnMessageForMsec": 0,
+    "alwaysCenterRoomHeader": false,
+    "beUnavailableAfterSecondsIdle": 600,
+    "centerRoomListOnClick": false,
+    "clearMemberFilterOnEscape": true,
+    "clearRoomFilterOnEnter": true,
+    "clearRoomFilterOnEscape": true,
+    "closeMinimizesToTray": false,
+    "collapseSidePanesUnderWindowWidth": 450,
+    "compactMode": false,
+    "enableKineticScrolling": true,
+    "hideMembershipEvents": false,
+    "hideProfileChangeEvents": true,
+    "hideUnknownEvents": true,
+    "keys": {
+        "accountSettings": [
+            "Alt+A"
+        ],
+        "addNewAccount": [
+            "Alt+Shift+A"
+        ],
+        "addNewChat": [
+            "Alt+C"
+        ],
+        "clearRoomFilter": [
+            "Alt+Shift+F"
+        ],
+        "clearRoomMessages": [
+            "Ctrl+L"
+        ],
+        "copyFilesLocalPath": [
+            "Ctrl+Shift+C"
+        ],
+        "debugFocusedMessage": [
+            "Ctrl+Shift+D"
+        ],
+        "focusAccountAtIndex": {
+            "01": "Ctrl+1",
+            "02": "Ctrl+2",
+            "03": "Ctrl+3",
+            "04": "Ctrl+4",
+            "05": "Ctrl+5",
+            "06": "Ctrl+6",
+            "07": "Ctrl+7",
+            "08": "Ctrl+8",
+            "09": "Ctrl+9",
+            "10": "Ctrl+0"
+        },
+        "focusNextMessage": [
+            "Ctrl+Down",
+            "Ctrl+J"
+        ],
+        "focusPreviousMessage": [
+            "Ctrl+Up",
+            "Ctrl+K"
+        ],
+        "focusRoomAtIndex": {
+            "01": "Alt+1",
+            "02": "Alt+2",
+            "03": "Alt+3",
+            "04": "Alt+4",
+            "05": "Alt+5",
+            "06": "Alt+6",
+            "07": "Alt+7",
+            "08": "Alt+8",
+            "09": "Alt+9",
+            "10": "Alt+0"
+        },
+        "forgetRoom": [
+            "Alt+Shift+Escape"
+        ],
+        "goToLastPage": [
+            "Ctrl+Tab"
+        ],
+        "goToNextAccount": [
+            "Alt+N"
+        ],
+        "goToNextMentionedRoom": [
+            "Alt+M"
+        ],
+        "goToNextRoom": [
+            "Alt+Shift+Down",
+            "Alt+Shift+J"
+        ],
+        "goToNextUnreadRoom": [
+            "Alt+U"
+        ],
+        "goToPreviousAccount": [
+            "Alt+Shift+N"
+        ],
+        "goToPreviousMentionedRoom": [
+            "Alt+Shift+M"
+        ],
+        "goToPreviousRoom": [
+            "Alt+Shift+Up",
+            "Alt+Shift+K"
+        ],
+        "goToPreviousUnreadRoom": [
+            "Alt+Shift+U"
+        ],
+        "imageViewer": {
+            "close": [
+                "X",
+                "Q"
+            ],
+            "expand": [
+                "E"
+            ],
+            "fullScreen": [
+                "F",
+                "F11",
+                "Alt+Return",
+                "Alt+Enter"
+            ],
+            "nextSpeed": [
+                "Shift+S"
+            ],
+            "panDown": [
+                "J",
+                "Down",
+                "Alt+J",
+                "Alt+Down"
+            ],
+            "panLeft": [
+                "H",
+                "Left",
+                "Alt+H",
+                "Alt+Left"
+            ],
+            "panRight": [
+                "L",
+                "Right",
+                "Alt+L",
+                "Alt+Right"
+            ],
+            "panUp": [
+                "K",
+                "Up",
+                "Alt+K",
+                "Alt+Up"
+            ],
+            "pause": [
+                "Space"
+            ],
+            "previousSpeed": [
+                "S"
+            ],
+            "resetSpeed": [
+                "Alt+S"
+            ],
+            "rotateLeft": [
+                "R"
+            ],
+            "rotateReset": [
+                "Alt+R"
+            ],
+            "rotateRight": [
+                "Shift+R"
+            ],
+            "zoomIn": [
+                "Shift+Z",
+                "+",
+                "Ctrl++"
+            ],
+            "zoomOut": [
+                "Z",
+                "-",
+                "Ctrl+-"
+            ],
+            "zoomReset": [
+                "Alt+Z",
+                "=",
+                "Ctrl+="
+            ]
+        },
+        "inviteToRoom": [
+            "Alt+I"
+        ],
+        "leaveRoom": [
+            "Alt+Escape"
+        ],
+        "nextTab": [
+            "Alt+Shift+Right",
+            "Alt+Shift+L"
+        ],
+        "openMessagesLinksOrFiles": [
+            "Ctrl+O"
+        ],
+        "openMessagesLinksOrFilesExternally": [
+            "Ctrl+Shift+O"
+        ],
+        "openPresenceMenu": [
+            "Alt+P"
+        ],
+        "previousTab": [
+            "Alt+Shift+Left",
+            "Alt+Shift+H"
+        ],
+        "refreshDevices": [
+            "Alt+R",
+            "F5"
+        ],
+        "reloadConfig": [
+            "Alt+Shift+R"
+        ],
+        "removeFocusedOrSelectedMessages": [
+            "Ctrl+R",
+            "Alt+Del"
+        ],
+        "replyToFocusedOrLastMessage": [
+            "Ctrl+Q"
+        ],
+        "scrollDown": [
+            "Alt+Down",
+            "Alt+J"
+        ],
+        "scrollPageDown": [
+            "Alt+Ctrl+Down",
+            "Alt+Ctrl+J",
+            "PgDown"
+        ],
+        "scrollPageUp": [
+            "Alt+Ctrl+Up",
+            "Alt+Ctrl+K",
+            "PgUp"
+        ],
+        "scrollToBottom": [
+            "Alt+Ctrl+Shift+Down",
+            "Alt+Ctrl+Shift+J",
+            "End"
+        ],
+        "scrollToTop": [
+            "Alt+Ctrl+Shift+Up",
+            "Alt+Ctrl+Shift+K",
+            "Home"
+        ],
+        "scrollUp": [
+            "Alt+Up",
+            "Alt+K"
+        ],
+        "selectMessagesUntilHere": [
+            "Ctrl+Shift+Space"
+        ],
+        "sendFile": [
+            "Alt+S"
+        ],
+        "sendFileFromPathInClipboard": [
+            "Alt+Shift+S"
+        ],
+        "signOutCheckedOrAllDevices": [
+            "Alt+S",
+            "Delete"
+        ],
+        "startPythonDebugger": [
+            "Alt+Shift+D"
+        ],
+        "toggleCollapseAccount": [
+            "Alt+O"
+        ],
+        "toggleCompactMode": [
+            "Ctrl+Alt+C"
+        ],
+        "toggleDebugConsole": [
+            "Alt+Shift+C",
+            "F1"
+        ],
+        "toggleFocusMainPane": [
+            "Alt+F"
+        ],
+        "toggleFocusRoomPane": [
+            "Alt+R"
+        ],
+        "toggleHideRoomPane": [
+            "Ctrl+Alt+R"
+        ],
+        "togglePresenceInvisible": [
+            "Alt+Ctrl+I"
+        ],
+        "togglePresenceOffline": [
+            "Alt+Ctrl+O"
+        ],
+        "togglePresenceUnavailable": [
+            "Alt+Ctrl+U",
+            "Alt+Ctrl+A"
+        ],
+        "toggleSelectMessage": [
+            "Ctrl+Space"
+        ],
+        "unfocusOrDeselectAllMessages": [
+            "Ctrl+D"
+        ],
+        "zoomIn": [
+            "Ctrl++"
+        ],
+        "zoomOut": [
+            "Ctrl+-"
+        ],
+        "zoomReset": [
+            "Ctrl+="
+        ]
+    },
+    "kineticScrollingDeceleration": 1500,
+    "kineticScrollingMaxSpeed": 2500,
+    "lexicalRoomSorting": false,
+    "markRoomReadMsecDelay": 200,
+    "maxMessageCharactersPerLine": 65,
+    "media": {
+        "autoHideOSDAfterMsec": 3000,
+        "autoLoad": true,
+        "autoPlay": false,
+        "autoPlayGIF": true,
+        "defaultVolume": 100,
+        "openExternallyOnClick": false,
+        "startMuted": false
+    },
+    "ownMessagesOnLeftAboveWidth": 895,
+    "theme": "Glass.qpl",
+    "writeAliases": {},
+    "zoom": 1.0
+}
