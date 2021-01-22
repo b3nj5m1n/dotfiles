@@ -60,6 +60,9 @@ function upgrade_normal {
 function upgrade_aur {
     yay -Quq --aur | while read p; do yay -S $p --noconfirm --noremovemake --nocleanafter --answerclean None --answerdiff None --answeredit None --needed --sudoloop || echo $p >>yay-failed.log; done
 }
+function instl {
+    yay -S $1 --noconfirm --noremovemake --nocleanafter --answerclean None --answerdiff None --answeredit None --needed --sudoloop
+}
 function update {
     update_normal
     upgrade_normal
