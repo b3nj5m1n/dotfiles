@@ -5,6 +5,7 @@ Bitwarden,bitwarden-desktop
 Element,element-desktop
 Discord,/usr/bin/scripts/open-move.sh discord 8
 OnlyOffice,/usr/bin/scripts/open-move.sh onlyoffice-desktopeditors 5
+Mirage,mirage
 Anki,/usr/bin/scripts/open-move.sh anki 6
 Firefox,/usr/bin/scripts/open-move.sh firefox 2
 Xournal,/usr/bin/scripts/open-move.sh xournalpp 3

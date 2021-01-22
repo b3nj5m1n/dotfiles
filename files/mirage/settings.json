@@ -28,7 +28,7 @@
             "Alt+Shift+F"
         ],
         "clearRoomMessages": [
-            "Ctrl+L"
+            "Ctrl+Shift+L"
         ],
         "copyFilesLocalPath": [
             "Ctrl+Shift+C"
@@ -82,7 +82,7 @@
         ],
         "goToNextRoom": [
             "Alt+Shift+Down",
-            "Alt+Shift+J"
+            "Ctrl+L"
         ],
         "goToNextUnreadRoom": [
             "Alt+U"
@@ -95,7 +95,7 @@
         ],
         "goToPreviousRoom": [
             "Alt+Shift+Up",
-            "Alt+Shift+K"
+            "Ctrl+H"
         ],
         "goToPreviousUnreadRoom": [
             "Alt+Shift+U"
