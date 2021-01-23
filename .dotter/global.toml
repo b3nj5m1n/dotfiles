@@ -218,6 +218,9 @@ c23 = "#e8e8e8" # Dim
 "files/cli-visualizer/config" = "~/.config/vis/config"
 "files/cli-visualizer/colors/dracula" = "~/.config/vis/colors/dracula"
 [scripts.files]
+"scripts/compile.sh" = "/usr/bin/compile"
+"scripts/run.sh" = "/usr/bin/run"
+"scripts/compile_run.sh" = "/usr/bin/compile_run"
 "scripts/bw-wrapper.sh" = "/usr/bin/scripts/bw-wrapper.sh"
 "scripts/compile-latex.sh" = "/usr/bin/scripts/compile-latex.sh"
 "scripts/dmenu-mount.sh" = "/usr/bin/scripts/dmenu-mount.sh"
