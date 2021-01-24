@@ -82,6 +82,7 @@ alias gp='git push' # Git push
 alias gpl='git pull' # Git pull
 alias gf='git fetch' # Git fetch
 alias gst='git status' # Git status
+alias gsc='git diff --staged' # Git show changes (Diff of current staged area)
 alias grt='cd $(git rev-parse --show-toplevel)' # Jump to the root of the git repository
 alias gsb='git switch $(git branch | sd "[ |*]" "" | $FUZZY_FINDER)' # Git interacitvely switch branche
 alias grb='git branch -d $(git branch | sd "[ |*]" "" | $FUZZY_FINDER)' # Git interacitvely delete branche
