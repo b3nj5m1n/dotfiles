@@ -35,8 +35,11 @@ vim.api.nvim_set_keymap('n', '<leader>lsw', '<cmd>lua vim.lsp.buf.workspace_symb
 vim.api.nvim_set_keymap('n', '<leader>le', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>lf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>t', '<cmd>:NvimTreeToggle<CR>', opts) -- Toggle NvimTree
-vim.api.nvim_set_keymap('n', '<leader><space>', ':Files<CR>', opts) -- Open fzf
-vim.api.nvim_set_keymap('n', '<leader>g', ':Rg<CR>', opts) -- Open RipGrep
+
+vim.api.nvim_set_keymap('n', '<leader>tf', [[<cmd>lua require('telescope.builtin').find_files()<cr>]], opts) -- Open fuzzy file finder
+vim.api.nvim_set_keymap('n', '<leader>tg', [[<cmd>lua require('telescope.builtin').live_grep()<cr>]], opts) -- Open live grep
+vim.api.nvim_set_keymap('n', '<leader>tb', [[<cmd>lua require('telescope.builtin').buffers()<cr>]], opts) -- Open buffer list
+vim.api.nvim_set_keymap('n', '<leader>th', [[<cmd>lua require('telescope.builtin').help_tags()<cr>]], opts) -- Open help tags
 
 -- " Append semicolon to end of line and return to previous location
 -- nnoremap g; m`A;<esc>``

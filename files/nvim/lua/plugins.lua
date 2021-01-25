@@ -21,6 +21,11 @@ return require('packer').startup(function()
 
     use 'honza/vim-snippets' -- Snippets (Premade snippet files)
 
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = { {'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'} }
+    } -- Fuzzy Finding
+
     use 'jiangmiao/auto-pairs' -- Auto pairs
 
     use 'kyazdani42/nvim-web-devicons' -- File Icons
@@ -45,7 +50,7 @@ return require('packer').startup(function()
 
     use 'mhinz/vim-signify' -- Indicate changed, removed or added lines
 
-    use 'lotabout/skim.vim' -- Fuzzy-finding files
-    use 'airblade/vim-rooter'
+    -- use 'lotabout/skim.vim' -- Fuzzy-finding files
+    -- use 'airblade/vim-rooter'
 
 end)
