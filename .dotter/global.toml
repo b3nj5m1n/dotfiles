@@ -241,3 +241,4 @@ c23 = "#e8e8e8" # Dim
 "scripts/take-screenshot.sh" = "/usr/bin/scripts/take-screenshot.sh"
 [profile.files]
 "files/etc/profile" = "/etc/profile"
+"files/etc/pacman.conf" = "/etc/pacman.conf"
