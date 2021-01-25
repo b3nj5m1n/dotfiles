@@ -123,10 +123,10 @@ function compile {
     # Compile the file
     case "$extension_input" in
         "md")
-            pandoc --standalone --from "$format_input" --to "$format_output" --output "$path_output" "$path_input" 
+            pandoc --standalone --from "$format_input" --to "$format_output" --output "$path_output" "$path_input" --citeproc
             ;;
         "org")
-            pandoc --standalone --from "$format_input" --to "$format_output" --output "$path_output" "$path_input" 
+            pandoc --standalone --from "$format_input" --to "$format_output" --output "$path_output" "$path_input"
             ;;
         "tex")
             pdflatex --interaction nonstopmode "$path_input" "$path_output"
