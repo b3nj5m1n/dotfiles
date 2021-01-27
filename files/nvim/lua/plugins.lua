@@ -26,7 +26,7 @@ return require('packer').startup(function()
         requires = { {'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'} }
     } -- Fuzzy Finding
 
-    use 'jiangmiao/auto-pairs' -- Auto pairs
+    use 'windwp/nvim-autopairs' -- Auto pairs
 
     use 'kyazdani42/nvim-web-devicons' -- File Icons
 

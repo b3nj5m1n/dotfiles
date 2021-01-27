@@ -92,6 +92,10 @@ vim.api.nvim_set_var('airline_theme', 'dracula') -- Require a length of 2 for so
 vim.api.nvim_set_var('fzf_action', vim.api.nvim_eval('{ "ctrl-t": "tab split", "ctrl-x": "split", "ctrl-v": "vsplit" }')) -- Require a length of 2 for sources with priorities 1-6, 0 for the highest priority
 
 
+--- auto pairs ---
+require('nvim-autopairs').setup()
+
+
 --- Nvim Tree Lua ---
 --  let g:nvim_tree_side = 'left'
 -- let g:nvim_tree_width = 30
