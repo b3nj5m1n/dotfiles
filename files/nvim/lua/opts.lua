@@ -10,6 +10,7 @@ vim.cmd('colorscheme dracula') -- Use dracula colorscheme
 
 -- Global Settings
 vim.api.nvim_set_option("hidden", true) -- Don't kill buffers, when exiting, keep them around in the background
+vim.api.nvim_set_option("showmode", false) -- Hide the -- INSERT -- at the bottom
 vim.api.nvim_set_option("backup", false) -- Don't create a backup file before overwriting a file
 vim.api.nvim_set_option("encoding", "UTF-8") -- Directly jump to next match when searching
 vim.api.nvim_set_option("errorbells", false) -- Disable error bell & screen flashing

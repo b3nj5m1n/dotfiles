@@ -188,6 +188,7 @@ c23 = "#e8e8e8" # Dim
 "files/nvim/lua/binds.lua" = "~/.config/nvim/lua/binds.lua"
 "files/nvim/lua/opts.lua" = "~/.config/nvim/lua/opts.lua"
 "files/nvim/lua/compile.lua" = "~/.config/nvim/lua/compile.lua"
+"files/nvim/lua/galaxyline-config.lua" = "~/.config/nvim/lua/galaxyline-config.lua"
 "files/nvim/ftplugin/tex.vim" = "~/.config/nvim/ftplugin/tex.vim"
 "files/nvim/ftplugin/markdown.vim" = "~/.config/nvim/ftplugin/markdown.vim"
 "files/nvim/after/syntax/markdown.vim" = "~/.config/nvim/after/syntax/markdown.vim"

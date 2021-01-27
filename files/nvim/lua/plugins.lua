@@ -44,7 +44,12 @@ return require('packer').startup(function()
 
     use 'editorconfig/editorconfig-vim' -- Editor config
 
-    use 'vim-airline/vim-airline' -- Custom status/tabline
+    -- use 'vim-airline/vim-airline' -- Custom status/tabline
+    use {
+        'glepnir/galaxyline.nvim',
+        branch = 'main',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    } -- Custom status/tabline
 
     use 'tpope/vim-fugitive' -- Vim git integration
 

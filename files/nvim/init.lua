@@ -1,5 +1,6 @@
 require('plugins')
 require('opts')
-require('plugin-config')
 require('functions')
+require('plugin-config')
 require('binds')
+require('galaxyline-config')
