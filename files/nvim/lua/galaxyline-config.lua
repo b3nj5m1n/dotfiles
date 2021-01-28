@@ -5,7 +5,7 @@ local gls = gl.section
 -- Global Color Defenitions
 
 local colors = {
-    background = '#282a36',
+    background = '#20212b',
     currentline = '#44475a',
     foreground = '#f8f8f2',
     comment = '#6272a4',
@@ -91,21 +91,21 @@ gls.left[2] = {
     FileSize = {
         provider = 'FileSize',
         condition = buffer_not_empty,
-        highlight = {colors.fg,colors.bg}
+        highlight = {colors.foreground,colors.background}
     }
 }
 gls.left[3] ={
     FileIcon = {
         provider = 'FileIcon',
         condition = buffer_not_empty,
-        highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.bg},
+        highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.background},
     },
 }
 gls.left[5] = {
     FileName = {
         provider = {'FileName'},
         condition = buffer_not_empty,
-        highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.bg,'bold'}
+        highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.background,'bold'}
     }
 }
 
@@ -113,8 +113,8 @@ gls.left[6] = {
     LineInfo = {
         provider = 'LineColumn',
         separator = ' ',
-        separator_highlight = {'NONE',colors.bg},
-        highlight = {colors.fg,colors.bg},
+        separator_highlight = {'NONE',colors.background},
+        highlight = {colors.foreground,colors.background},
     },
 }
 
@@ -122,29 +122,29 @@ gls.left[7] = {
     PerCent = {
         provider = 'LinePercent',
         separator = ' ',
-        separator_highlight = {'NONE',colors.bg},
-        highlight = {colors.fg,colors.bg,'bold'},
+        separator_highlight = {'NONE',colors.background},
+        highlight = {colors.foreground,colors.background,'bold'},
     }
 }
 gls.left[8] = {
     DiagnosticError = {
         provider = 'DiagnosticError',
         icon = '  ',
-        highlight = {colors.red,colors.bg}
+        highlight = {colors.red,colors.background}
     }
 }
 gls.left[9] = {
     DiagnosticWarn = {
         provider = 'DiagnosticWarn',
         icon = '  ',
-        highlight = {colors.yellow,colors.bg},
+        highlight = {colors.yellow,colors.background},
     }
 }
 gls.left[10] = {
     DiagnosticHint = {
         provider = 'DiagnosticHint',
         icon = '  ',
-        highlight = {colors.cyan,colors.bg},
+        highlight = {colors.cyan,colors.background},
     }
 }
 
@@ -155,8 +155,8 @@ gls.right[1] = {
     FileEncode = {
         provider = 'FileEncode',
         separator = ' ',
-        separator_highlight = {'NONE',colors.bg},
-        highlight = {colors.cyan,colors.bg,'bold'}
+        separator_highlight = {'NONE',colors.background},
+        highlight = {colors.cyan,colors.background,'bold'}
     }
 }
 
@@ -164,8 +164,8 @@ gls.right[2] = {
     FileFormat = {
         provider = 'FileFormat',
         separator = ' ',
-        separator_highlight = {'NONE',colors.bg},
-        highlight = {colors.cyan,colors.bg,'bold'}
+        separator_highlight = {'NONE',colors.background},
+        highlight = {colors.cyan,colors.background,'bold'}
     }
 }
 
@@ -174,8 +174,8 @@ gls.right[3] = {
         provider = function() return '  ' end,
         condition = require('galaxyline.provider_vcs').check_git_workspace,
         separator = ' ',
-        separator_highlight = {'NONE',colors.bg},
-        highlight = {colors.violet,colors.bg,'bold'},
+        separator_highlight = {'NONE',colors.background},
+        highlight = {colors.violet,colors.background,'bold'},
     }
 }
 
@@ -183,7 +183,7 @@ gls.right[4] = {
     GitBranch = {
         provider = 'GitBranch',
         condition = require('galaxyline.provider_vcs').check_git_workspace,
-        highlight = {colors.violet,colors.bg,'bold'},
+        highlight = {colors.violet,colors.background,'bold'},
     }
 }
 
@@ -192,7 +192,7 @@ gls.right[5] = {
         provider = 'DiffAdd',
         condition = checkwidth,
         icon = '  ',
-        highlight = {colors.green,colors.bg},
+        highlight = {colors.green,colors.background},
     }
 }
 gls.right[6] = {
@@ -200,7 +200,7 @@ gls.right[6] = {
         provider = 'DiffModified',
         condition = checkwidth,
         icon = ' 柳',
-        highlight = {colors.orange,colors.bg},
+        highlight = {colors.orange,colors.background},
     }
 }
 gls.right[7] = {
@@ -208,7 +208,7 @@ gls.right[7] = {
         provider = 'DiffRemove',
         condition = checkwidth,
         icon = '  ',
-        highlight = {colors.red,colors.bg},
+        highlight = {colors.red,colors.background},
     }
 }
 
@@ -219,8 +219,8 @@ gls.short_line_left[1] = {
     BufferType = {
         provider = 'FileTypeName',
         separator = ' ',
-        separator_highlight = {'NONE',colors.bg},
-        highlight = {colors.blue,colors.bg,'bold'}
+        separator_highlight = {'NONE',colors.background},
+        highlight = {colors.blue,colors.background,'bold'}
     }
 }
 
@@ -237,7 +237,7 @@ gls.short_line_left[2] = {
             return fname
         end,
         condition = buffer_not_empty,
-        highlight = {colors.white,colors.bg,'bold'}
+        highlight = {colors.white,colors.background,'bold'}
     }
 }
 
@@ -247,7 +247,7 @@ gls.short_line_left[2] = {
 gls.short_line_right[1] = {
     BufferIcon = {
         provider= 'BufferIcon',
-        highlight = {colors.fg,colors.bg}
+        highlight = {colors.foreground,colors.background}
     }
 }
 
@@ -255,7 +255,7 @@ gls.left[11] = {
     DiagnosticInfo = {
         provider = 'DiagnosticInfo',
         icon = '  ',
-        highlight = {colors.blue,colors.bg},
+        highlight = {colors.blue,colors.background},
     }
 }
 
