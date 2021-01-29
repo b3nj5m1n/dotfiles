@@ -14,9 +14,6 @@ vim.api.nvim_set_var("ncm2#popup_delay", 10) -- How often to refresh, 60 is defa
 --- lsp ---
 local lspconfig = require('lspconfig')
 local ncm2 = require('ncm2')
-lspconfig.pyls.setup{on_init = ncm2.register_lsp_source}
-lspconfig.rls.setup{on_init = ncm2.register_lsp_source}
-lspconfig.solargraph.setup{on_init = ncm2.register_lsp_source}
 lspconfig.bashls.setup{on_init = ncm2.register_lsp_source}
 lspconfig.clangd.setup{on_init = ncm2.register_lsp_source}
 lspconfig.cmake.setup{on_init = ncm2.register_lsp_source}
@@ -28,11 +25,42 @@ lspconfig.html.setup{on_init = ncm2.register_lsp_source}
 lspconfig.jsonls.setup{on_init = ncm2.register_lsp_source}
 lspconfig.omnisharp.setup{on_init = ncm2.register_lsp_source}
 lspconfig.perlls.setup{on_init = ncm2.register_lsp_source}
+lspconfig.pyls.setup{on_init = ncm2.register_lsp_source}
+lspconfig.rls.setup{on_init = ncm2.register_lsp_source}
+lspconfig.solargraph.setup{on_init = ncm2.register_lsp_source}
 lspconfig.sqlls.setup{on_init = ncm2.register_lsp_source}
 lspconfig.texlab.setup{on_init = ncm2.register_lsp_source}
 lspconfig.tsserver.setup{on_init = ncm2.register_lsp_source}
 lspconfig.vimls.setup{on_init = ncm2.register_lsp_source}
 lspconfig.yamlls.setup{on_init = ncm2.register_lsp_source}
+
+local sumneko_root_path = '/usr/share/lua-language-server'
+local sumneko_binary = "/usr/bin/lua-language-server"
+require'lspconfig'.sumneko_lua.setup {
+  cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
+  on_init = ncm2.register_lsp_source,
+  settings = {
+    Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+        -- Setup your lua path
+        path = vim.split(package.path, ';'),
+      },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = {
+          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+        },
+      },
+    },
+  },
+}
 
 vim.api.nvim_exec('autocmd BufWritePre *.c lua vim.lsp.buf.formatting()', false) -- Auto-format on save
 

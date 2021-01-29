@@ -45,6 +45,7 @@ libxft-bgra
 lightdm
 lightdm-gtk-greeter
 lightdm-webkit-theme-aether
+lua-language-server-git
 lxappearance
 mlocate
 mpc
