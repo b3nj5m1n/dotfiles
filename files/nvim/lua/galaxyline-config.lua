@@ -175,7 +175,7 @@ gls.right[3] = {
         condition = require('galaxyline.provider_vcs').check_git_workspace,
         separator = ' ',
         separator_highlight = {'NONE',colors.background},
-        highlight = {colors.violet,colors.background,'bold'},
+        highlight = {colors.purple,colors.background,'bold'},
     }
 }
 
@@ -183,7 +183,7 @@ gls.right[4] = {
     GitBranch = {
         provider = 'GitBranch',
         condition = require('galaxyline.provider_vcs').check_git_workspace,
-        highlight = {colors.violet,colors.background,'bold'},
+        highlight = {colors.purple,colors.background,'bold'},
     }
 }
 
@@ -191,6 +191,8 @@ gls.right[5] = {
     DiffAdd = {
         provider = 'DiffAdd',
         condition = checkwidth,
+        separator = ' ',
+        separator_highlight = {'NONE',colors.background},
         icon = '  ',
         highlight = {colors.green,colors.background},
     }
