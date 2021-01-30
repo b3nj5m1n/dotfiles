@@ -46,7 +46,7 @@ read -r -d '' CONFIG << EOM
   "saveDownloadQueue": false,
   "overwriteFile": "n",
   "createM3U8File": true,
-  "playlistFilenameTemplate": "playlist",
+  "playlistFilenameTemplate": "%title%",
   "syncedLyrics": false,
   "embeddedArtworkSize": 800,
   "embeddedArtworkPNG": false,
@@ -107,8 +107,8 @@ echo "$CONFIG" > "./config/config.json"
 python -m deemix --portable --path "$DEST_DIR" "$URL"
 
 # Move the playlist file, if it exists
-if test -f "$DEST_DIR/playlist.m3u8"; then
-    PLAYLIST_DEST="$DEST_DIR$(echo "$URL" | rev | awk -F'/' '{ print $1 }' | rev).m3u8"
-    /bin/sed 's/^/.\//' "$DEST_DIR/playlist.m3u8" > "$PLAYLIST_DEST"
-    rm "$DEST_DIR/playlist.m3u8"
-fi
+# if test -f "$DEST_DIR/playlist.m3u8"; then
+#     PLAYLIST_DEST="$DEST_DIR$(echo "$URL" | rev | awk -F'/' '{ print $1 }' | rev).m3u8"
+#     /bin/sed 's/^/.\//' "$DEST_DIR/playlist.m3u8" > "$PLAYLIST_DEST"
+#     rm "$DEST_DIR/playlist.m3u8"
+# fi
