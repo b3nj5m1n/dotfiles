@@ -44,9 +44,6 @@ vim.api.nvim_set_keymap('n', '<leader>tg', [[<cmd>lua require('telescope.builtin
 vim.api.nvim_set_keymap('n', '<leader>tb', [[<cmd>lua require('telescope.builtin').buffers()<cr>]], opts) -- Open buffer list
 vim.api.nvim_set_keymap('n', '<leader>th', [[<cmd>lua require('telescope.builtin').help_tags()<cr>]], opts) -- Open help tags
 
-vim.api.nvim_set_keymap('n', 'gcc', ':ProComment<CR>', opts) -- Toggle Comment
-vim.api.nvim_set_keymap('n', 'gcj', ':ProDoc<CR>', opts) -- Insert documentation comment
-
 -- " Append semicolon to end of line and return to previous location
 -- nnoremap g; m`A;<esc>``
 

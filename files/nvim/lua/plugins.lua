@@ -36,7 +36,7 @@ return require('packer').startup(function()
 
     use 'tpope/vim-surround' -- Surround text object
 
-    use 'glepnir/prodoc.nvim' -- Comment out text
+    use 'https://github.com/b3nj5m1n/kommentary' -- Comment out text
 
     use 'norcalli/nvim-colorizer.lua' -- Highlight color codes
 
