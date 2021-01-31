@@ -68,3 +68,17 @@ function component_seperator {
     style_bg "$2"
     printf "$1"
 }
+function component_prefix {
+    style_fg "$1"
+    style_bg "$2"
+    printf '#{?client_prefix, Prefix ,}'
+    
+}
+function component_currentwindow_or_prefix {
+    style_text bold
+    style_fg "$currentwindow_fg"
+    style_bg "$currentwindow_bg"
+    prefix
+    printf '#{?client_prefix,Prefix,#W}'
+    suffix
+}
