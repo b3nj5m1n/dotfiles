@@ -2,6 +2,28 @@
 vim.g.mapleader = ' '
 vim.b.mapleader = ' '
 
+local opt_manager = {}
+
+opt_manager.options_global = {}
+opt_manager.options_window = {}
+opt_manager.options_buffer = {}
+
+function opt_manager.add_option_global(option_name, option_value)
+    -- vim.api.nvim_set_option(option_name, option_value)
+    vim.o[option_name] = option_value
+end
+
+function opt_manager.add_option_window(scope, option_name, option_value)
+    -- vim.api.nvim_win_set_option(scope, option_name, option_value)
+    vim.wo[option_name] = option_value
+    opt_manager.add_option_global(option_name, option_value)
+end
+function opt_manager.add_option_buffer(scope, option_name, option_value)
+    -- vim.api.nvim_buf_set_option(scope, option_name, option_value)
+    vim.bo[option_name] = option_value
+    opt_manager.add_option_global(option_name, option_value)
+end
+
 -- Color Configuration
 vim.g.syntax = true -- Enable syntax highlighting
 vim.api.nvim_set_option("termguicolors", true) -- Enable 24-bit color
@@ -9,41 +31,41 @@ vim.api.nvim_exec('autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NON
 vim.cmd('colorscheme dracula') -- Use dracula colorscheme
 
 -- Global Settings
-vim.api.nvim_set_option("hidden", true) -- Don't kill buffers, when exiting, keep them around in the background
-vim.api.nvim_set_option("showmode", false) -- Hide the -- INSERT -- at the bottom
-vim.api.nvim_set_option("backup", false) -- Don't create a backup file before overwriting a file
-vim.api.nvim_set_option("encoding", "UTF-8") -- Directly jump to next match when searching
-vim.api.nvim_set_option("errorbells", false) -- Disable error bell & screen flashing
-vim.api.nvim_set_option("foldlevel", 99) -- The higher, the more folded regions are open (0 = all folds closed)
-vim.api.nvim_set_option("foldlevelstart", 99) -- Inital fold level; close all folds when opening a new buffer
-vim.api.nvim_set_option("ignorecase", true) -- Ignore case in searches
-vim.api.nvim_set_option("hlsearch", false) -- No highlighting on search
-vim.api.nvim_set_option("incsearch", true) -- Directly jump to next match when searching
-vim.api.nvim_set_option("mouse", 'a') -- Enable mouse support
-vim.api.nvim_set_option("smartcase", true) -- Don't ignore case in searches when using case in search
-vim.api.nvim_set_option("swapfile", false) -- Don't create swapfiles
-vim.api.nvim_set_option("undodir", vim.fn.expand("~/.local/share/nvim/undodir")) -- File to store undo stacks in
-vim.api.nvim_set_option("completeopt", "noinsert,menuone,noselect") -- Do not insert anything until the user selects it; Show the menu when there is just one match; Force the user to select something from the menu
-vim.api.nvim_set_option("shortmess", vim.api.nvim_get_option("shortmess") .. "c") -- Avoid prompts for auto-complete
+opt_manager.add_option_global("hidden", true) -- Don't kill buffers, when exiting, keep them around in the background
+opt_manager.add_option_global("showmode", false) -- Hide the -- INSERT -- at the bottom
+opt_manager.add_option_global("backup", false) -- Don't create a backup file before overwriting a file
+opt_manager.add_option_global("encoding", "UTF-8") -- Directly jump to next match when searching
+opt_manager.add_option_global("errorbells", false) -- Disable error bell & screen flashing
+opt_manager.add_option_global("foldlevel", 99) -- The higher, the more folded regions are open (0 = all folds closed)
+opt_manager.add_option_global("foldlevelstart", 99) -- Inital fold level; close all folds when opening a new buffer
+opt_manager.add_option_global("ignorecase", true) -- Ignore case in searches
+opt_manager.add_option_global("hlsearch", false) -- No highlighting on search
+opt_manager.add_option_global("incsearch", true) -- Directly jump to next match when searching
+opt_manager.add_option_global("mouse", 'a') -- Enable mouse support
+opt_manager.add_option_global("smartcase", true) -- Don't ignore case in searches when using case in search
+opt_manager.add_option_global("swapfile", false) -- Don't create swapfiles
+opt_manager.add_option_global("undodir", vim.fn.expand("~/.local/share/nvim/undodir")) -- File to store undo stacks in
+opt_manager.add_option_global("completeopt", "noinsert,menuone,noselect") -- Do not insert anything until the user selects it; Show the menu when there is just one match; Force the user to select something from the menu
+opt_manager.add_option_global("shortmess", vim.api.nvim_get_option("shortmess") .. "c") -- Avoid prompts for auto-complete
 
 -- Window Settings
-vim.api.nvim_win_set_option(0, "cursorcolumn", false) -- Indicate current column
-vim.api.nvim_win_set_option(0, "cursorline", true) -- Indicate current line
-vim.api.nvim_win_set_option(0, "foldmethod", "expr") -- Auto fold method set to syntax (Determine folds based on file specific syntax)
-vim.api.nvim_win_set_option(0, "foldexpr", "nvim_treesitter#foldexpr()") -- Auto fold based on treesitter
-vim.api.nvim_win_set_option(0, "foldnestmax", 20) -- Deepest possible fold
-vim.api.nvim_win_set_option(0, "wrap", false) -- Long lines are displayed as one line (Horizontal scrolling required)
-vim.api.nvim_win_set_option(0, 'number', true) -- Enable line numbers
-vim.api.nvim_win_set_option(0, 'relativenumber', true) -- Enable relative line numbers
+opt_manager.add_option_window(0, "cursorcolumn", false) -- Indicate current column
+opt_manager.add_option_window(0, "cursorline", true) -- Indicate current line
+opt_manager.add_option_window(0, "foldmethod", "expr") -- Auto fold method set to syntax (Determine folds based on file specific syntax)
+opt_manager.add_option_window(0, "foldexpr", "nvim_treesitter#foldexpr()") -- Auto fold based on treesitter
+opt_manager.add_option_window(0, "foldnestmax", 20) -- Deepest possible fold
+opt_manager.add_option_window(0, "wrap", false) -- Long lines are displayed as one line (Horizontal scrolling required)
+opt_manager.add_option_window(0, 'number', true) -- Enable line numbers
+opt_manager.add_option_window(0, 'relativenumber', true) -- Enable relative line numbers
 
 -- Buffer Setttings
-vim.api.nvim_buf_set_option(0, "spelllang", "en_GB,cjk") -- Dictionarys to use for checking spelling
-vim.api.nvim_buf_set_option(0, "expandtab", true) -- Insert spaces instead of tab
-vim.api.nvim_buf_set_option(0, "shiftwidth", 4) -- Affects <<, >>, and auto indent
-vim.api.nvim_buf_set_option(0, "smartindent", true) -- Automatically indent on a new line
-vim.api.nvim_buf_set_option(0, "softtabstop", 4) -- Number of spaces a <Tab> accounts for when editing
-vim.api.nvim_buf_set_option(0, "tabstop", 4) -- How many spaces a <Tab> in a file accounts for
-vim.api.nvim_buf_set_option(0, "undofile", true) -- Keep a file with the undo stack
+opt_manager.add_option_buffer(0, "spelllang", "en_GB,cjk") -- Dictionarys to use for checking spelling
+opt_manager.add_option_buffer(0, "expandtab", true) -- Insert spaces instead of tab
+opt_manager.add_option_buffer(0, "shiftwidth", 4) -- Affects <<, >>, and auto indent
+opt_manager.add_option_buffer(0, "smartindent", true) -- Automatically indent on a new line
+opt_manager.add_option_buffer(0, "softtabstop", 4) -- Number of spaces a <Tab> accounts for when editing
+opt_manager.add_option_buffer(0, "tabstop", 4) -- How many spaces a <Tab> in a file accounts for
+opt_manager.add_option_buffer(0, "undofile", true) -- Keep a file with the undo stack
 
 -- Neovide Configuration
 if vim.g.neovide then
