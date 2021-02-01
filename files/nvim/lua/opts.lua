@@ -28,6 +28,9 @@ end
 vim.g.syntax = true -- Enable syntax highlighting
 vim.api.nvim_set_option("termguicolors", true) -- Enable 24-bit color
 vim.api.nvim_exec('autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE', false) -- Make sure the background color stays as transparent
+vim.api.nvim_exec('autocmd ColorScheme * highlight VertSplit guifg=#282a36 guibg=#bd93f9', false) -- Buffer seperator
+vim.api.nvim_exec('autocmd ColorScheme * highlight StatusLine guifg=#bd93f9 guibg=#bd93f9', false) -- Statusbar color, will be used for the seperator when using galaxyline with split screen
+vim.api.nvim_exec('autocmd ColorScheme * highlight StatusLineNC guifg=#bd93f9 guibg=#bd93f9', false) -- Statusbar color, will be used for the seperator when using galaxyline with split screen
 vim.cmd('colorscheme dracula') -- Use dracula colorscheme
 
 -- Global Settings

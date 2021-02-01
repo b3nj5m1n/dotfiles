@@ -64,7 +64,7 @@ local buffer_not_empty = function()
     return false
 end
 
---- Test if the window is wide enough to display git added/removed/changed stats
+-- Test if the window is wide enough to display git added/removed/changed stats
 local checkwidth = function()
     local squeeze_width  = vim.fn.winwidth(0) / 2
     if squeeze_width > 40 then
@@ -214,35 +214,46 @@ gls.right[7] = {
     }
 }
 
+gls.right[8] = {
+    Block = {
+        provider = function() return ' █' end,
+        highlight = {colors.purple, colors.purple},
+    }
+}
+
 
 -- Short Left Section
 
 gls.short_line_left[1] = {
-    BufferType = {
-        provider = 'FileTypeName',
+    Block = {
+        provider = function() return ' █' end,
+        highlight = {colors.purple, colors.purple},
         separator = ' ',
         separator_highlight = {'NONE',colors.background},
-        highlight = {colors.blue,colors.background,'bold'}
     }
 }
 
 gls.short_line_left[2] = {
-    SFileName = {
-        provider = function ()
-            local fileinfo = require('galaxyline.provider_fileinfo')
-            local fname = fileinfo.get_current_file_name()
-            for _,v in ipairs(gl.short_line_list) do
-                if v == vim.bo.filetype then
-                    return ''
-                end
-            end
-            return fname
-        end,
+    FileSize = {
+        provider = 'FileSize',
         condition = buffer_not_empty,
-        highlight = {colors.white,colors.background,'bold'}
+        highlight = {colors.foreground,colors.background}
     }
 }
-
+gls.short_line_left[3] ={
+    FileIcon = {
+        provider = 'FileIcon',
+        condition = buffer_not_empty,
+        highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.background},
+    },
+}
+gls.short_line_left[4] = {
+    FileName = {
+        provider = {'FileName'},
+        condition = buffer_not_empty,
+        highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.background,'bold'}
+    }
+}
 
 -- Short Right Section
 
@@ -253,11 +264,36 @@ gls.short_line_right[1] = {
     }
 }
 
-gls.left[11] = {
-    DiagnosticInfo = {
-        provider = 'DiagnosticInfo',
-        icon = '  ',
-        highlight = {colors.blue,colors.background},
+gls.short_line_right[2] = {
+    DiffAdd = {
+        provider = 'DiffAdd',
+        condition = checkwidth,
+        separator = ' ',
+        separator_highlight = {'NONE',colors.background},
+        icon = '  ',
+        highlight = {colors.green,colors.background},
+    }
+}
+gls.short_line_right[3] = {
+    DiffModified = {
+        provider = 'DiffModified',
+        condition = checkwidth,
+        icon = ' 柳',
+        highlight = {colors.orange,colors.background},
+    }
+}
+gls.short_line_right[4] = {
+    DiffRemove = {
+        provider = 'DiffRemove',
+        condition = checkwidth,
+        icon = '  ',
+        highlight = {colors.red,colors.background},
     }
 }
 
+gls.short_line_right[5] = {
+    Block = {
+        provider = function() return ' █' end,
+        highlight = {colors.purple, colors.purple},
+    }
+}
