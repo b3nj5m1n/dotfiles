@@ -8,6 +8,7 @@ return require('packer').startup(function()
     use {'dracula/vim', as = 'dracula'} -- You can alias plugin names
 
     use 'nvim-treesitter/nvim-treesitter'
+    use 'nvim-treesitter/nvim-treesitter-textobjects'
 
     use 'neovim/nvim-lspconfig' -- Common configs for the in-built lsp client
 
