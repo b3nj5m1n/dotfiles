@@ -16,12 +16,37 @@ else
     # Cmus is running, so find out if it's playing or paused and echo the corresponding glyph
     if grep -q "playing"  <<< "$info"
     then 
-        printf " ";
+        printf "";
     else
-        printf " ";
+        printf "paused";
         exit
     fi
 fi
+
+chrlen=${#song}
+
+# How long to make the text before starting to scroll
+maxlen=25
+
+if [[ $chrlen -ge $maxlen ]]; then
+    # Read offset from file
+    offset="$(($(cat /tmp/mpdoffset | head -n 1)))"
+    # Add one
+    offset="$(($offset + 1))"
+    # Test if offset should be reset
+    if [[ "$song" != "$(sed "2q;d" /tmp/mpdoffset)" ]]; then
+        rm /tmp/mpdoffset
+        offset=0
+    fi
+    if [[ $(($offset + $maxlen - 1)) -ge $chrlen ]]; then
+        rm /tmp/mpdoffset
+        offset=0
+    fi
+    # Write offset back to file
+    echo -e "$offset\n$song" > /tmp/mpdoffset
+    song="${song:$offset:$maxlen}"
+fi
+
 
 # Parse the info to get the progress in %
 # total=$(echo "$info" | sed -r "s/duration //;t;d")

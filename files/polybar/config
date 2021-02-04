@@ -395,7 +395,7 @@ format = <label>
 # format-background = ${colors.foreground}
 # format-foreground = #000000
 format-underline = ${colors.secondary}
-exec = /bin/lbscripts/mpd.sh
+exec = /bin/scripts/mpd-status.sh
 
 interval = 1
 tail = false
