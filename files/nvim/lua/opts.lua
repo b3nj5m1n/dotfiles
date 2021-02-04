@@ -62,7 +62,7 @@ opt_manager.add_option_window(0, 'number', true) -- Enable line numbers
 opt_manager.add_option_window(0, 'relativenumber', true) -- Enable relative line numbers
 
 -- Buffer Setttings
-opt_manager.add_option_buffer(0, "spelllang", "en_GB,cjk") -- Dictionarys to use for checking spelling
+opt_manager.add_option_buffer(0, "spelllang", "en_GB,de,es,cjk") -- Dictionarys to use for checking spelling
 opt_manager.add_option_buffer(0, "expandtab", true) -- Insert spaces instead of tab
 opt_manager.add_option_buffer(0, "shiftwidth", 4) -- Affects <<, >>, and auto indent
 opt_manager.add_option_buffer(0, "smartindent", true) -- Automatically indent on a new line

@@ -1,5 +1,9 @@
 local opts = {noremap = true, silent = true}
 
+-- Keep visual selection after indent
+vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true })
+vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true })
+
 vim.api.nvim_set_keymap('t', '<C-g>', '<C-\\><C-n>', opts) -- Use Control + g to get back to normal mode in terminal emulator
 vim.api.nvim_set_keymap('n', '<leader>pm', ':lua make()<CR><CR>', opts) -- Project Make (Runn make in the directory)
 
