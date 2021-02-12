@@ -12,7 +12,7 @@ return require('packer').startup(function()
 
     use 'neovim/nvim-lspconfig' -- Common configs for the in-built lsp client
 
-    use 'ncm2/ncm2' -- Provides completions for in-built lsp client
+    use 'hrsh7th/nvim-compe' -- Provides completions for in-built lsp client
     use 'ncm2/ncm2-bufword' -- Completion source for words in current buffer
     use 'ncm2/ncm2-path' -- Completion source for filepaths
     use 'ncm2/ncm2-ultisnips' -- Completion source for utilsnips

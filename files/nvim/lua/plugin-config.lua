@@ -5,40 +5,93 @@ vim.api.nvim_set_var("UltiSnipsJumpBackwardTrigger", "<c-s>")
 
 
 --- completion ---
-vim.api.nvim_exec('autocmd BufEnter * call ncm2#enable_for_buffer()', false) -- enable ncm2 for all buffers
-vim.api.nvim_set_var("ncm2#complete_length", { { 1,2 }, { 7,1 } }) -- Require a length of 2 for sources with priorities 1-6, 0 for the highest priority
-vim.api.nvim_set_var("ncm2#total_popup_limit", 10) -- How many items to show at once
-vim.api.nvim_set_var("ncm2#popup_delay", 10) -- How often to refresh, 60 is default, the lower the less flickering
+local on_attach = function(client)
+    require('vim.lsp.protocol').CompletionItemKind = {
+        '';   -- Text          = 1;
+        '';   -- Method        = 2;
+        'ƒ';   -- Function      = 3;
+        '';   -- Constructor   = 4;
+        '識';  -- Field         = 5;
+        '';   -- Variable      = 6;
+        '';   -- Class         = 7;
+        'ﰮ';   -- Interface     = 8;
+        '';   -- Module        = 9;
+        '';   -- Property      = 10;
+        '';   -- Unit          = 11;
+        '';   -- Value         = 12;
+        '了';  -- Enum          = 13;
+        '';   -- Keyword       = 14;
+        '﬌';   -- Snippet       = 15;
+        '';   -- Color         = 16;
+        '';   -- File          = 17;
+        '渚';  -- Reference     = 18;
+        '';   -- Folder        = 19;
+        '';   -- EnumMember    = 20;
+        '';   -- Constant      = 21;
+        '';   -- Struct        = 22;
+        '鬒';  -- Event         = 23;
+        'Ψ';   -- Operator      = 24;
+        '';   -- TypeParameter = 25;
+    }
+end
+
+require'compe'.setup {
+    enabled = true;
+    autocomplete = true;
+    debug = false;
+    min_length = 1;
+    preselect = 'enable';
+    throttle_time = 80;
+    source_timeout = 200;
+    incomplete_delay = 400;
+    max_abbr_width = 100;
+    max_kind_width = 100;
+    max_menu_width = 100;
+    documentation = true;
+
+  source = {
+    path = true;
+    buffer = true;
+    calc = true;
+    vsnip = true;
+    nvim_lsp = true;
+    nvim_lua = true;
+    spell = true;
+    tags = true;
+    snippets_nvim = true;
+    treesitter = true;
+  };
+}
 
 
 --- lsp ---
 local lspconfig = require('lspconfig')
-local ncm2 = require('ncm2')
-lspconfig.bashls.setup{on_init = ncm2.register_lsp_source}
-lspconfig.clangd.setup{on_init = ncm2.register_lsp_source}
-lspconfig.cmake.setup{on_init = ncm2.register_lsp_source}
-lspconfig.cssls.setup{on_init = ncm2.register_lsp_source}
-lspconfig.dockerls.setup{on_init = ncm2.register_lsp_source}
-lspconfig.gdscript.setup{on_init = ncm2.register_lsp_source}
-lspconfig.gopls.setup{on_init = ncm2.register_lsp_source}
-lspconfig.html.setup{on_init = ncm2.register_lsp_source}
-lspconfig.jsonls.setup{on_init = ncm2.register_lsp_source}
-lspconfig.omnisharp.setup{on_init = ncm2.register_lsp_source}
-lspconfig.perlls.setup{on_init = ncm2.register_lsp_source}
-lspconfig.pyls.setup{on_init = ncm2.register_lsp_source}
-lspconfig.rls.setup{on_init = ncm2.register_lsp_source}
-lspconfig.solargraph.setup{on_init = ncm2.register_lsp_source}
-lspconfig.sqlls.setup{on_init = ncm2.register_lsp_source}
-lspconfig.texlab.setup{on_init = ncm2.register_lsp_source}
-lspconfig.tsserver.setup{on_init = ncm2.register_lsp_source}
-lspconfig.vimls.setup{on_init = ncm2.register_lsp_source}
-lspconfig.yamlls.setup{on_init = ncm2.register_lsp_source}
+lspconfig.util.default_config = vim.tbl_extend( "force", lspconfig.util.default_config, { on_attach=on_attach })
+lspconfig.bashls.setup{}
+lspconfig.clangd.setup{}
+lspconfig.cmake.setup{}
+lspconfig.cssls.setup{}
+lspconfig.dockerls.setup{}
+lspconfig.gdscript.setup{}
+lspconfig.gopls.setup{}
+lspconfig.html.setup{}
+lspconfig.jsonls.setup{}
+lspconfig.omnisharp.setup{}
+lspconfig.perlls.setup{}
+lspconfig.pyls.setup{}
+lspconfig.rust_analyzer.setup{}
+lspconfig.solargraph.setup{}
+lspconfig.sqlls.setup{}
+lspconfig.texlab.setup{}
+lspconfig.tsserver.setup{}
+lspconfig.vimls.setup{}
+lspconfig.yamlls.setup{}
 
 local sumneko_root_path = '/usr/share/lua-language-server'
 local sumneko_binary = "/usr/bin/lua-language-server"
 require'lspconfig'.sumneko_lua.setup {
   cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
-  on_init = ncm2.register_lsp_source,
+  -- on_init = ncm2.register_lsp_source,
   settings = {
     Lua = {
       runtime = {
