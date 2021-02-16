@@ -124,7 +124,7 @@ alt + super + Return
 
 # Take screenshot
 super + p
-    bash /usr/bin/scripts/take-screenshot.sh
+    flameshot gui -p ~/Pictures/screenshots
 
 
 ############### Other ###############
