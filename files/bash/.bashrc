@@ -118,12 +118,6 @@ eval "$(starship init bash)"
 # Init zoxide (Better navigation than with cd)
 eval "$(zoxide init bash)"
 # Init mcfly (Better Ctrl + r)
-MCFLY_FILE=~/.config/mcfly.bash
-if [[ -r "$MCFLY_FILE" ]]; then
-    source "$MCFLY_FILE"
-else
-    printf "\033[1;35mDownloading mcly config..\033[0m\n"
-    wget --output-document "$MCFLY_FILE" --quiet "https://raw.githubusercontent.com/cantino/mcfly/master/mcfly.bash"
-fi
+eval "$(mcfly init bash)"
 # Source common aliases, exports, etc.
 source ~/.config/shrc

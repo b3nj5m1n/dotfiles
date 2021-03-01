@@ -19,13 +19,7 @@ starship init fish | source
 # Init zoxide (Better navigation than with cd)
 zoxide init fish | source
 # Init mcfly (Better Ctrl + r)
-set MCFLY_FILE ~/.config/mcfly.fish
-if test -r "$MCFLY_FILE"
-    source "$MCFLY_FILE"
-    mcfly_key_bindings
-else
-    printf "\033[1;35mDownloading mcly config..\033[0m\n"
-    wget --output-document "$MCFLY_FILE" --quiet "https://raw.githubusercontent.com/cantino/mcfly/master/mcfly.fish"
-end
+mcfly init fish | source
+mcfly_key_bindings
 # Source common aliases, exports, etc.
-source ~/.config/shrc
+# source ~/.config/shrc
