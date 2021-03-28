@@ -28,6 +28,7 @@ alert = {{ colors.red }}
 
 ########################   ########################
 [bar/bar]
+monitor = ${env:MONITOR:}
 width = 100%
 height = 25
 offset-x = 0
