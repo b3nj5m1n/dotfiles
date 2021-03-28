@@ -28,7 +28,9 @@ alert = {{ colors.red }}
 
 ########################   ########################
 [bar/bar]
+{{#if multi_monitor}}
 monitor = HDMI-0
+{{/if}}
 width = 100%
 height = 25
 offset-x = 0
