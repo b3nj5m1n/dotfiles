@@ -2,8 +2,12 @@
 #### AUTOSTART ####
 
 #### MONITORS ####
+{{#if multi_monitor}}
 bspc monitor HDMI-0 -d 1 2 3 4 5
 bspc monitor DP-5 -d 6 7 8 9
+{{else}}
+bspc monitor -d 1 2 3 4 5 6 7 8 9
+{{/if}}
 
 # Daemons & stuff
 sxhkd ~/.config/sxhkd/sxhkdrc_bspc &

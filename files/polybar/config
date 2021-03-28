@@ -78,6 +78,7 @@ scroll-down = i3wm-wsprev
 cursor-click = pointer
 cursor-scroll = ns-resize
 
+{{#if multi_monitor}}
 [bar/bar2]
 monitor = DP-5
 width = 100%
@@ -128,6 +129,7 @@ scroll-down = i3wm-wsprev
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+{{/if}}
 
 ########################   ########################
 [module/xwindow]

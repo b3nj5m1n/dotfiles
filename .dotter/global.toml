@@ -28,10 +28,12 @@ font_size_float = "12.0"
 [laptop.variables]
 display_battery = true
 display_wlan = true
+multi_monitor = false
 # ----- Desktop -----
 [desktop.variables]
 display_battery = false
 display_wlan = false
+multi_monitor = true
 # ----- Server -----
 [server.variables]
 force_terminfo = true
