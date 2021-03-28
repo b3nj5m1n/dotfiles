@@ -1,6 +1,10 @@
 #!/bin/bash
 #### AUTOSTART ####
 
+#### MONITORS ####
+bspc monitor HDMI-0 -d 1 2 3 4 5
+bspc monitor DP-5 -d 6 7 8 9
+
 # Daemons & stuff
 sxhkd ~/.config/sxhkd/sxhkdrc_bspc &
 picom --experimental-backends &
@@ -16,9 +20,6 @@ syncthing -no-browser &
 /home/b3nj4m1n/.config/polybar/polybar.sh &
 mpc idleloop | while read line; do pkill lemonblocks -5; done &
 bspc subscribe desktop | while read line; do pkill lemonblocks -4; done &
-
-#### MONITORS ####
-bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 
 
 # Programms
