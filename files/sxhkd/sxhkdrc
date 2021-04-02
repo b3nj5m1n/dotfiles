@@ -173,7 +173,7 @@ alt + r:
 
 # Open calculator
 super + g:
-    /bin/rofi -show calc -modi calc -no-show-match -no-sort
+    /bin/rofi -show calc -modi calc -no-show-match -no-sort | xclip -selection clipboard
 
 # Show clipboard history
 super + h:
