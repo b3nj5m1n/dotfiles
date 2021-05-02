@@ -16,7 +16,8 @@ dunst &
 mpd &
 feh --bg-scale /usr/share/wallpapers/custom/q18vfzjgb5f21.jpg &
 setxkbmap de &
-emacs --daemon &
+# emacs --daemon &
+aw-server-rust &
 greenclip daemon &
 unclutter --idle 2 &
 betterlockscreen -u /usr/share/wallpapers/custom/samuel-inkilainen-arctic-spirit-with-signature.jpg &
