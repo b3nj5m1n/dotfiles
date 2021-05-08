@@ -8,6 +8,7 @@ arch=(any)
 url='https://www.archlinux.org/'
 license=(GPL)
 depends=(
+activitywatch-bin
 android-file-transfer-linux-git
 android-studio
 aria2
