@@ -235,6 +235,7 @@ c23 = "#e8e8e8" # Dim
 "scripts/program-launcher.sh" = "/usr/bin/scripts/program-launcher.sh"
 "scripts/sxhkd-help-page.sh" = "/usr/bin/scripts/sxhkd-help-page.sh"
 "scripts/take-screenshot.sh" = "/usr/bin/scripts/take-screenshot.sh"
+"scripts/wally.sh" = "/usr/bin/scripts/wally.sh"
 [profile.files]
 "files/etc/profile" = "/etc/profile"
 "files/etc/pacman.conf" = "/etc/pacman.conf"

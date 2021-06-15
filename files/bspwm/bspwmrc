@@ -14,7 +14,8 @@ sxhkd ~/.config/sxhkd/sxhkdrc_bspc &
 picom --experimental-backends &
 dunst &
 mpd &
-feh --bg-scale /usr/share/wallpapers/custom/q18vfzjgb5f21.jpg &
+/usr/bin/scripts/wally.sh &
+feh --bg-scale /usr/share/wallpapers/custom/moonRising.png &
 setxkbmap de &
 # emacs --daemon &
 aw-server-rust &
