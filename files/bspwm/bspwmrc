@@ -17,6 +17,7 @@ mpd &
 /usr/bin/scripts/wally.sh &
 feh --bg-scale /usr/share/wallpapers/custom/moonRising.png &
 setxkbmap de &
+map2 -d /home/b3nj4m1n/dotfiles/files/map2/devices.list /home/b3nj4m1n/dotfiles/files/map2/test.m2 &
 # emacs --daemon &
 aw-server-rust &
 greenclip daemon &
