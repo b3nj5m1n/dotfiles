@@ -1,4 +1,5 @@
 packages = [
+    "redshift",
     "desktop",
     "picom",
     "tmux",

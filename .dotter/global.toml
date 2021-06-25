@@ -105,6 +105,8 @@ c23 = "#e8e8e8" # Dim
 
 ##### Desktop #####
 
+[redshift.files]
+"files/redshift/redshift.conf" = "~/.config/redshift.conf"
 [lightdm.files]
 "files/lightdm/Xsession" = "/etc/lightdm/Xsession"
 "files/lightdm/lightdm-gtk-greeter.conf" = "/etc/lightdm/lightdm-gtk-greeter.conf"
