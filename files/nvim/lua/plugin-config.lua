@@ -1,3 +1,8 @@
+--- kommentary ---
+vim.api.nvim_set_keymap("n", "gcc", "<Plug>kommentary_line_default", {})
+vim.api.nvim_set_keymap("v", "gc", "<Plug>kommentary_visual_default", {})
+vim.api.nvim_set_keymap("n", "gc", "<Plug>kommentary_motion_default", {})
+
 --- UltiSnips ---
 vim.api.nvim_set_var("UltiSnipsExpandTrigger", "<c-j>")
 vim.api.nvim_set_var("UltiSnipsJumpForwardTrigger", "<c-a>")
@@ -78,7 +83,7 @@ lspconfig.html.setup{}
 lspconfig.jsonls.setup{}
 lspconfig.omnisharp.setup{}
 lspconfig.perlls.setup{}
-lspconfig.pyls.setup{}
+-- lspconfig.pyls.setup{}
 lspconfig.rust_analyzer.setup{}
 lspconfig.solargraph.setup{}
 lspconfig.sqlls.setup{}

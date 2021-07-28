@@ -1,6 +1,8 @@
 -- Only required if you have packer in your `opt` pack
 vim.cmd [[packadd packer.nvim]]
 
+vim.g.kommentary_create_default_mappings = false
+
 return require('packer').startup(function()
 
     use {'wbthomason/packer.nvim', opt = true} -- Packer can manage itself as an optional plugin
@@ -40,7 +42,7 @@ return require('packer').startup(function()
     use 'tpope/vim-surround' -- Surround text object
 
     use 'b3nj5m1n/kommentary' -- Comment out text
-    -- use '~/Documents/Github/kommentary/' -- Comment out text
+    -- use '~/Documents/Github/kommentary/'
 
     use 'norcalli/nvim-colorizer.lua' -- Highlight color codes
 
