@@ -12,8 +12,8 @@ require('neorg').setup {
 }
 
 --- neogit ---
-local neogit = require('neogit')
-neogit.setup {}
+-- local neogit = require('neogit')
+-- neogit.setup {}
 
 
 --- UltiSnips ---
