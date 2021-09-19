@@ -3,6 +3,19 @@ vim.api.nvim_set_keymap("n", "gcc", "<Plug>kommentary_line_default", {})
 vim.api.nvim_set_keymap("v", "gc", "<Plug>kommentary_visual_default", {})
 vim.api.nvim_set_keymap("n", "gc", "<Plug>kommentary_motion_default", {})
 
+--- neorg ---
+require('neorg').setup {
+    load = {
+        ["core.defaults"] = {}, -- Load all the default modules
+        ["core.norg.concealer"] = {}, -- Allows for use of icons
+    },
+}
+
+--- neogit ---
+local neogit = require('neogit')
+neogit.setup {}
+
+
 --- UltiSnips ---
 vim.api.nvim_set_var("UltiSnipsExpandTrigger", "<c-j>")
 vim.api.nvim_set_var("UltiSnipsJumpForwardTrigger", "<c-a>")
@@ -54,18 +67,18 @@ require'compe'.setup {
     max_menu_width = 100;
     documentation = true;
 
-  source = {
-    path = true;
-    buffer = true;
-    calc = true;
-    vsnip = true;
-    nvim_lsp = true;
-    nvim_lua = true;
-    spell = false;
-    tags = true;
-    snippets_nvim = true;
-    treesitter = true;
-  };
+    source = {
+        path = true;
+        buffer = true;
+        calc = true;
+        vsnip = true;
+        nvim_lsp = true;
+        nvim_lua = true;
+        spell = false;
+        tags = true;
+        snippets_nvim = true;
+        treesitter = true;
+    };
 }
 
 
@@ -95,29 +108,29 @@ lspconfig.yamlls.setup{}
 local sumneko_root_path = '/usr/share/lua-language-server'
 local sumneko_binary = "/usr/bin/lua-language-server"
 require'lspconfig'.sumneko_lua.setup {
-  cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
-  -- on_init = ncm2.register_lsp_source,
-  settings = {
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        version = 'LuaJIT',
-        -- Setup your lua path
-        path = vim.split(package.path, ';'),
-      },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = {
-          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+    cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
+    -- on_init = ncm2.register_lsp_source,
+    settings = {
+        Lua = {
+            runtime = {
+                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                version = 'LuaJIT',
+                -- Setup your lua path
+                path = vim.split(package.path, ';'),
+            },
+            diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = {'vim'},
+            },
+            workspace = {
+                -- Make the server aware of Neovim runtime files
+                library = {
+                    [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+                    [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+                },
+            },
         },
-      },
     },
-  },
 }
 
 vim.api.nvim_exec('autocmd BufWritePre *.c lua vim.lsp.buf.formatting()', false) -- Auto-format on save

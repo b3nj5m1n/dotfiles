@@ -7,6 +7,10 @@ return require('packer').startup(function()
 
     use {'wbthomason/packer.nvim', opt = true} -- Packer can manage itself as an optional plugin
 
+    use { 'nvim-neorg/neorg', requires = 'nvim-lua/plenary.nvim' }
+
+    use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+
     use {'dracula/vim', as = 'dracula'} -- You can alias plugin names
 
     use 'jbyuki/nabla.nvim'
