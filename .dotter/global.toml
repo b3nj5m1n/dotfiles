@@ -33,15 +33,17 @@ modules = "i915"
 hooks = "base udev plymouth autodetect modconf block filesystems keyboard fsck"
 kernel_parameters = "quiet splash i915.modeset=1 vga=current loglevel=0 rd.udev.log_priority=0 vt.global_cursor_default=0"
 grub_theme = "/usr/share/grub/themes/monterey-grub-theme/theme.txt"
+grub_res = "auto"
 # ----- Desktop -----
 [desktop.variables]
 display_battery = false
 display_wlan = false
 multi_monitor = true
 modules = ""
-hooks = "base udev autodetect modconf block filesystems resume keyboard fsck"
-kernel_parameters = "loglevel=3 quiet"
+hooks = "base udev plymouth autodetect modconf block filesystems resume keyboard fsck"
+kernel_parameters = "quiet loglevel=0 nvidia-drm.modeset=1 splash rd.udev.log_priority=0 vt.global_cursor_default=0"
 grub_theme = "/usr/share/grub/themes/monterey-grub-theme/theme.txt"
+grub_res = "1920x1080"
 # ----- Server -----
 [server.variables]
 force_terminfo = true
@@ -256,3 +258,4 @@ c23 = "#e8e8e8" # Dim
 "files/etc/pacman.conf" = "/etc/pacman.conf"
 "files/etc/mkinitcpio.conf" = { target = "/etc/mkinitcpio.conf", type = "template", owner = "root" }
 "files/etc/grub" = { target = "/etc/default/grub", type = "template", owner = "root" }
+"files/etc/plymouth.conf" = { target = "/etc/plymouth/plymouthd.conf", type = "template", owner = "root" }
