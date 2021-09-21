@@ -20,7 +20,7 @@ packages = [
     "bash",
     "fish",
     "ranger",
-    "profile",
+    "system",
     "gtk",
     "fonts",
     "shrc",

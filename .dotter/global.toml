@@ -34,6 +34,10 @@ multi_monitor = false
 display_battery = false
 display_wlan = false
 multi_monitor = true
+modules = ""
+hooks = "base udev autodetect modconf block filesystems resume keyboard fsck"
+kernel_parameters = "loglevel=3 quiet"
+grub_theme = "/usr/share/grub/themes/monterey-grub-theme/theme.txt"
 # ----- Server -----
 [server.variables]
 force_terminfo = true
@@ -238,6 +242,13 @@ c23 = "#e8e8e8" # Dim
 "scripts/sxhkd-help-page.sh" = "/usr/bin/scripts/sxhkd-help-page.sh"
 "scripts/take-screenshot.sh" = "/usr/bin/scripts/take-screenshot.sh"
 "scripts/wally.sh" = "/usr/bin/scripts/wally.sh"
-[profile.files]
+
+
+
+##### System #####
+
+[system.files]
 "files/etc/profile" = "/etc/profile"
 "files/etc/pacman.conf" = "/etc/pacman.conf"
+"files/etc/mkinitcpio.conf" = { target = "/etc/mkinitcpio.conf", type = "template", owner = "root" }
+"files/etc/grub" = { target = "/etc/default/grub", type = "template", owner = "root" }
