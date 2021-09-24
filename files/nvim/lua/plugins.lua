@@ -21,6 +21,7 @@ return require('packer').startup(function()
     use 'nvim-treesitter/nvim-treesitter-textobjects'
 
     use 'neovim/nvim-lspconfig' -- Common configs for the in-built lsp client
+    use 'glepnir/lspsaga.nvim'
 
     use 'nvim-lua/completion-nvim' -- Completion support
     --[[ use 'hrsh7th/nvim-compe' -- Provides completions for in-built lsp client
@@ -57,12 +58,13 @@ return require('packer').startup(function()
 
     use 'editorconfig/editorconfig-vim' -- Editor config
 
+    use 'windwp/windline.nvim'
     -- use 'vim-airline/vim-airline' -- Custom status/tabline
-    use {
+    --[[ use {
         'glepnir/galaxyline.nvim',
         branch = 'main',
         requires = {'kyazdani42/nvim-web-devicons', opt = true}
-    } -- Custom status/tabline
+    } -- Custom status/tabline ]]
 
     use 'tpope/vim-fugitive' -- Vim git integration
 
@@ -95,7 +97,7 @@ return require('packer').startup(function()
                     ['n <leader>hb'] = '<cmd>lua require"gitsigns".blame_line()<CR>',
                     ['n <leader>hv'] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
                 },
-                watch_index = {
+                watch_gitdir = {
                     interval = 1000
                 },
             }
