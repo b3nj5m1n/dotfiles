@@ -31,7 +31,9 @@ vim.api.nvim_set_keymap('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"',  {
 vim.api.nvim_set_keymap('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', { noremap = true, silent = true, expr = true }) -- Select previous item in completion menu with tab
 vim.api.nvim_set_keymap('i', '<CR>', 'ncm2_ultisnips#expand_or("\\<CR>", "n")', { noremap = true, silent = true, expr = true }) -- Select previous item in completion menu with tab
 -- inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
-vim.api.nvim_set_keymap('n', '<leader>ld', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+
+-- LSP
+--[[ vim.api.nvim_set_keymap('n', '<leader>ld', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>lh', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>li', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>ls', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
@@ -41,7 +43,14 @@ vim.api.nvim_set_keymap('n', '<leader>lsd', '<cmd>lua vim.lsp.buf.document_symbo
 vim.api.nvim_set_keymap('n', '<leader>lsw', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>le', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>lf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>t', '<cmd>:NvimTreeToggle<CR>', opts) -- Toggle NvimTree
+vim.api.nvim_set_keymap('n', '<leader>t', '<cmd>:NvimTreeToggle<CR>', opts) -- Toggle NvimTree ]]
+vim.api.nvim_set_keymap('n', '<leader>lf', [[ <cmd>lua require'lspsaga.provider'.lsp_finder()<CR> ]], opts)
+vim.api.nvim_set_keymap('n', '<leader>la', [[ <cmd>lua require('lspsaga.codeaction').code_action()<CR> ]], opts)
+vim.api.nvim_set_keymap('n', '<leader>ld', [[ <cmd>lua require('lspsaga.hover').render_hover_doc()<CR> ]], opts)
+vim.api.nvim_set_keymap('n', '<leader>ls', [[ <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR> ]], opts)
+vim.api.nvim_set_keymap('n', '<leader>lh', [[ <cmd>lua require('lspsaga.signaturehelp').signature_help()<CR> ]], opts)
+vim.api.nvim_set_keymap('n', '<leader>lr', [[ <cmd>lua require('lspsaga.rename').rename()<CR> ]], opts)
+vim.api.nvim_set_keymap('n', '<leader>lp', [[ <cmd>lua require('lspsaga.provider').preview_definition()<CR> ]], opts)
 
 vim.api.nvim_set_keymap('n', '<leader>tf', [[<cmd>lua require('telescope.builtin').find_files()<cr>]], opts) -- Open fuzzy file finder
 vim.api.nvim_set_keymap('n', '<leader>tg', [[<cmd>lua require('telescope.builtin').live_grep()<cr>]], opts) -- Open live grep

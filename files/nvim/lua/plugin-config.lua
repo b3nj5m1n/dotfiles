@@ -87,6 +87,8 @@ end
 
 
 --- lsp ---
+local saga = require 'lspsaga'
+saga.init_lsp_saga()
 local lspconfig = require('lspconfig')
 lspconfig.util.default_config = vim.tbl_extend( "force", lspconfig.util.default_config, { on_attach=on_attach })
 lspconfig.bashls.setup{}
