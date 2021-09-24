@@ -13,6 +13,8 @@ return require('packer').startup(function()
 
     use {'dracula/vim', as = 'dracula'} -- You can alias plugin names
 
+    use 'rmagatti/auto-session' -- Automatic session management
+
     use 'jbyuki/nabla.nvim'
 
     use 'nvim-treesitter/nvim-treesitter'
