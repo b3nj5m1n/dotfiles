@@ -23,6 +23,10 @@ vim.api.nvim_set_var("UltiSnipsJumpBackwardTrigger", "<c-s>")
 
 
 --- completion ---
+vim.api.nvim_command("autocmd BufEnter * lua require'completion'.on_attach()")
+vim.api.nvim_command("let g:completion_enable_snippet = 'UltiSnips'")
+vim.cmd([[ let g:completion_chain_complete_list = [ {'complete_items': ['lsp', 'snippet', 'path']}, {'mode': '<c-p>'}, {'mode': '<c-n>'} ] ]])
+
 local on_attach = function(client)
     require('vim.lsp.protocol').CompletionItemKind = {
         '';   -- Text          = 1;
@@ -53,7 +57,7 @@ local on_attach = function(client)
     }
 end
 
-require'compe'.setup {
+--[[ require'compe'.setup {
     enabled = true;
     autocomplete = true;
     debug = false;
@@ -79,7 +83,7 @@ require'compe'.setup {
         snippets_nvim = true;
         treesitter = true;
     };
-}
+} ]]
 
 
 --- lsp ---
