@@ -58,7 +58,7 @@ return require('packer').startup(function()
 
     use 'editorconfig/editorconfig-vim' -- Editor config
 
-    use 'windwp/windline.nvim'
+    use 'famiu/feline.nvim'
     -- use 'vim-airline/vim-airline' -- Custom status/tabline
     --[[ use {
         'glepnir/galaxyline.nvim',

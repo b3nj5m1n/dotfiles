@@ -229,7 +229,6 @@ require'colorizer'.setup()
 
 --- status line ---
 -- vim.api.nvim_set_var('airline_theme', 'dracula') -- Require a length of 2 for sources with priorities 1-6, 0 for the highest priority
-require('wlsample.evil_line')
 
 
 --- sneak ---
