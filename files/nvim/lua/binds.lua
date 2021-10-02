@@ -51,7 +51,8 @@ vim.api.nvim_set_keymap('n', '<leader>lh', [[ <cmd>lua require('lspsaga.signatur
 vim.api.nvim_set_keymap('n', '<leader>lr', [[ <cmd>lua require('lspsaga.rename').rename()<CR> ]], opts)
 vim.api.nvim_set_keymap('n', '<leader>lp', [[ <cmd>lua require('lspsaga.provider').preview_definition()<CR> ]], opts)
 
-vim.api.nvim_set_keymap('n', '<leader>tt', '<cmd>:NvimTreeToggle<CR>', opts) -- Toggle NvimTree
+vim.api.nvim_set_keymap('n', '<leader>td', '<cmd>:NvimTreeToggle<CR>', opts) -- Toggle NvimTree
+vim.api.nvim_set_keymap('n', '<leader>tt', '<cmd>:SymbolsOutline<CR>', opts) -- Toggle symbol outline
 
 vim.api.nvim_set_keymap('n', '<leader>tf', [[<cmd>lua require('telescope.builtin').find_files()<cr>]], opts) -- Open fuzzy file finder
 vim.api.nvim_set_keymap('n', '<leader>tg', [[<cmd>lua require('telescope.builtin').live_grep()<cr>]], opts) -- Open live grep

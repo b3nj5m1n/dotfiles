@@ -15,10 +15,22 @@ return require('packer').startup(function()
 
     use 'rmagatti/auto-session' -- Automatic session management
 
+    use {
+        "lukas-reineke/indent-blankline.nvim",
+        config = function()
+            require("indent_blankline").setup {
+                char = "|",
+                buftype_exclude = {"terminal"}
+            }
+        end
+    }
+
     use 'jbyuki/nabla.nvim'
 
     use 'nvim-treesitter/nvim-treesitter'
     use 'nvim-treesitter/nvim-treesitter-textobjects'
+
+    use 'simrat39/symbols-outline.nvim'
 
     use 'neovim/nvim-lspconfig' -- Common configs for the in-built lsp client
     use 'glepnir/lspsaga.nvim'
