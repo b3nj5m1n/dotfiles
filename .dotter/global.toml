@@ -118,17 +118,17 @@ c23 = "#e8e8e8" # Dim
 [redshift.files]
 "files/redshift/redshift.conf" = "~/.config/redshift.conf"
 [lightdm.files]
-"files/lightdm/Xsession" = "/etc/lightdm/Xsession"
-"files/lightdm/lightdm-gtk-greeter.conf" = "/etc/lightdm/lightdm-gtk-greeter.conf"
-"files/lightdm/lightdm-webkit2-greeter.conf" = "/etc/lightdm/lightdm-webkit2-greeter.conf"
-"files/lightdm/lightdm.conf" = "/etc/lightdm/lightdm.conf"
+"files/lightdm/Xsession" = { target = "/etc/lightdm/Xsession", type = "template", owner = "root" }
+"files/lightdm/lightdm-gtk-greeter.conf" = { target = "/etc/lightdm/lightdm-gtk-greeter.conf", type = "template", owner = "root" }
+"files/lightdm/lightdm-webkit2-greeter.conf" = { target = "/etc/lightdm/lightdm-webkit2-greeter.conf", type = "template", owner = "root" }
+"files/lightdm/lightdm.conf" = { target = "/etc/lightdm/lightdm.conf", type = "template", owner = "root" }
 [bspwm.files]
 "files/bspwm/bspwmrc" = "~/.config/bspwm/bspwmrc"
-"scripts/bspwm-resize.sh" = "/usr/bin/scripts/bspwm-resize.sh"
-"scripts/bspwm-scratchpad.sh" = "/usr/bin/scripts/bspwm-scratchpad.sh"
-"scripts/bspwm-smart-move.sh" = "/usr/bin/scripts/bspwm-smart-move.sh"
-"scripts/bspwm-smart-presel.sh" = "/usr/bin/scripts/bspwm-smart-move-presel.sh"
-"scripts/bspwm-swap-or-move-in.sh" = "/usr/bin/scripts/bspwm-swap-or-move-in.sh"
+"scripts/bspwm-resize.sh" = { target = "/usr/bin/scripts/bspwm-resize.sh", type = "template", owner = "root" }
+"scripts/bspwm-scratchpad.sh" = { target = "/usr/bin/scripts/bspwm-scratchpad.sh", type = "template", owner = "root" }
+"scripts/bspwm-smart-move.sh" = { target = "/usr/bin/scripts/bspwm-smart-move.sh", type = "template", owner = "root" }
+"scripts/bspwm-smart-presel.sh" = { target = "/usr/bin/scripts/bspwm-smart-move-presel.sh", type = "template", owner = "root" }
+"scripts/bspwm-swap-or-move-in.sh" = { target = "/usr/bin/scripts/bspwm-swap-or-move-in.sh", type = "template", owner = "root" }
 [sxhkd.files]
 "files/sxhkd/sxhkdrc" = "~/.config/sxhkd/sxhkdrc"
 "files/sxhkd/sxhkdrc_bspc" = "~/.config/sxhkd/sxhkdrc_bspc"
@@ -140,8 +140,8 @@ c23 = "#e8e8e8" # Dim
 [polybar.files]
 "files/polybar/config" = "~/.config/polybar/config"
 "files/polybar/polybar.sh" = "~/.config/polybar/polybar.sh"
-"scripts/polybar/powermenu.sh" = "/usr/bin/polyscripts/powermenu.sh"
-"scripts/polybar/uptime.sh" = "/usr/bin/polyscripts/uptime.sh"
+"scripts/polybar/powermenu.sh" = { target = "/usr/bin/polyscripts/powermenu.sh", type = "template", owner = "root" }
+"scripts/polybar/uptime.sh" = { target = "/usr/bin/polyscripts/uptime.sh", type = "template", owner = "root" }
 [gtk.files]
 "files/gtk/gtkrc-2.0" = "~/.config/gtk-2.0/.gtkrc-2.0"
 "files/gtk/settings.ini" = "~/.config/gtk-3.0/settings.ini"
@@ -156,21 +156,21 @@ c23 = "#e8e8e8" # Dim
 ##### GUI Programs #####
 
 [anki.files]
-"files/anki/deckbrowser.css" = "/usr/share/aqt_data/web/deckbrowser.css"
-"files/anki/editor.css" = "/usr/share/aqt_data/web/editor.css"
-"files/anki/overview.css" = "/usr/share/aqt_data/web/overview.css"
-"files/anki/reviewer-bottom.css" = "/usr/share/aqt_data/web/reviewer-bottom.css"
-"files/anki/reviewer.css" = "/usr/share/aqt_data/web/reviewer.css"
-"files/anki/toolbar-bottom.css" = "/usr/share/aqt_data/web/toolbar-bottom.css"
-"files/anki/toolbar.css" = "/usr/share/aqt_data/web/toolbar.css"
-"files/anki/webview.css" = "/usr/share/aqt_data/web/webview.css"
+"files/anki/deckbrowser.css" = { target = "/usr/share/aqt_data/web/deckbrowser.css", type = "template", owner = "root" }
+"files/anki/editor.css" = { target = "/usr/share/aqt_data/web/editor.css", type = "template", owner = "root" }
+"files/anki/overview.css" = { target = "/usr/share/aqt_data/web/overview.css", type = "template", owner = "root" }
+"files/anki/reviewer-bottom.css" = { target = "/usr/share/aqt_data/web/reviewer-bottom.css", type = "template", owner = "root" }
+"files/anki/reviewer.css" = { target = "/usr/share/aqt_data/web/reviewer.css", type = "template", owner = "root" }
+"files/anki/toolbar-bottom.css" = { target = "/usr/share/aqt_data/web/toolbar-bottom.css", type = "template", owner = "root" }
+"files/anki/toolbar.css" = { target = "/usr/share/aqt_data/web/toolbar.css", type = "template", owner = "root" }
+"files/anki/webview.css" = { target = "/usr/share/aqt_data/web/webview.css", type = "template", owner = "root" }
 "files/anki-addons/877182321/meta.json" = "~/.local/share/Anki2/addons21/877182321/meta.json"
 [zathura.files]
 "files/zathura/zathurarc" = "~/.config/zathura/zathurarc"
 [mirage.files]
 "files/mirage/settings.json" = "~/.config/mirage/settings.json"
 [assets.files]
-"scripts/assets/*" = "/usr/bin/scripts/assets/"
+"scripts/assets/*" = { target = "/usr/bin/scripts/assets/", type = "template", owner = "root" }
 
 
 ##### Shell #####
@@ -222,9 +222,9 @@ c23 = "#e8e8e8" # Dim
 [tmux.files]
 "files/tmux/tmux.conf" = "~/.config/tmux/tmux.conf"
 "files/tmux/tmux.conf.home" = "~/.tmux.conf"
-"scripts/tmuxleft.sh" = "/usr/bin/scripts/tmuxleft.sh"
-"scripts/tmuxright.sh" = "/usr/bin/scripts/tmuxright.sh"
-"scripts/tmuxstssrc.sh" = "/usr/bin/scripts/tmuxstssrc.sh"
+"scripts/tmuxleft.sh" = { target = "/usr/bin/scripts/tmuxleft.sh", type = "template", owner = "root" }
+"scripts/tmuxright.sh" = { target = "/usr/bin/scripts/tmuxright.sh", type = "template", owner = "root" }
+"scripts/tmuxstssrc.sh" = { target = "/usr/bin/scripts/tmuxstssrc.sh", type = "template", owner = "root" }
 [ncmcpp.files]
 "files/ncmpcpp/config" = "~/.config/ncmpcpp/config"
 "files/ncmpcpp/bindings" = "~/.config/ncmpcpp/bindings"
@@ -237,28 +237,28 @@ c23 = "#e8e8e8" # Dim
 "files/cli-visualizer/config" = "~/.config/vis/config"
 "files/cli-visualizer/colors/dracula" = "~/.config/vis/colors/dracula"
 [scripts.files]
-"scripts/compile.sh" = "/usr/bin/compile"
-"scripts/run.sh" = "/usr/bin/run"
-"scripts/bw-wrapper.sh" = "/usr/bin/scripts/bw-wrapper.sh"
-"scripts/emoji-picker.sh" = "/usr/bin/scripts/emoji-picker.sh"
-"scripts/fav-song.sh" = "/usr/bin/scripts/fav-song.sh"
-"scripts/keyboard-layout-switcher.sh" = "/usr/bin/scripts/keyboard-layout-switcher.sh"
-"scripts/mpd-status.sh" = "/usr/bin/scripts/mpd-status.sh"
-"scripts/mpd-open-playlist.sh" = "/usr/bin/scripts/mpd-open-playlist.sh"
-"scripts/open-move.sh" = "/usr/bin/scripts/open-move.sh"
-"scripts/play-song.sh" = "/usr/bin/scripts/play-song.sh"
-"scripts/program-launcher.sh" = "/usr/bin/scripts/program-launcher.sh"
-"scripts/sxhkd-help-page.sh" = "/usr/bin/scripts/sxhkd-help-page.sh"
-"scripts/take-screenshot.sh" = "/usr/bin/scripts/take-screenshot.sh"
-"scripts/wally.sh" = "/usr/bin/scripts/wally.sh"
+"scripts/compile.sh" = { target = "/usr/bin/compile", type = "template", owner = "root" }
+"scripts/run.sh" = { target = "/usr/bin/run", type = "template", owner = "root" }
+"scripts/bw-wrapper.sh" = { target = "/usr/bin/scripts/bw-wrapper.sh", type = "template", owner = "root" }
+"scripts/emoji-picker.sh" = { target = "/usr/bin/scripts/emoji-picker.sh", type = "template", owner = "root" }
+"scripts/fav-song.sh" = { target = "/usr/bin/scripts/fav-song.sh", type = "template", owner = "root" }
+"scripts/keyboard-layout-switcher.sh" = { target = "/usr/bin/scripts/keyboard-layout-switcher.sh", type = "template", owner = "root" }
+"scripts/mpd-status.sh" = { target = "/usr/bin/scripts/mpd-status.sh", type = "template", owner = "root" }
+"scripts/mpd-open-playlist.sh" = { target = "/usr/bin/scripts/mpd-open-playlist.sh", type = "template", owner = "root" }
+"scripts/open-move.sh" = { target = "/usr/bin/scripts/open-move.sh", type = "template", owner = "root" }
+"scripts/play-song.sh" = { target = "/usr/bin/scripts/play-song.sh", type = "template", owner = "root" }
+"scripts/program-launcher.sh" = { target = "/usr/bin/scripts/program-launcher.sh", type = "template", owner = "root" }
+"scripts/sxhkd-help-page.sh" = { target = "/usr/bin/scripts/sxhkd-help-page.sh", type = "template", owner = "root" }
+"scripts/take-screenshot.sh" = { target = "/usr/bin/scripts/take-screenshot.sh", type = "template", owner = "root" }
+"scripts/wally.sh" = { target = "/usr/bin/scripts/wally.sh", type = "template", owner = "root" }
 
 
 
 ##### System #####
 
 [system.files]
-"files/etc/profile" = "/etc/profile"
-"files/etc/pacman.conf" = "/etc/pacman.conf"
+"files/etc/profile" = { target = "/etc/profile", type = "template", owner = "root" }
+"files/etc/pacman.conf" = { target = "/etc/pacman.conf", type = "template", owner = "root" }
 "files/etc/mkinitcpio.conf" = { target = "/etc/mkinitcpio.conf", type = "template", owner = "root" }
 "files/etc/grub" = { target = "/etc/default/grub", type = "template", owner = "root" }
 "files/etc/plymouth.conf" = { target = "/etc/plymouth/plymouthd.conf", type = "template", owner = "root" }
