@@ -38,6 +38,7 @@ go-langserver-git
 gotop
 grub
 hyperfine
+inetutils
 isync
 jdtls
 jq
@@ -59,7 +60,7 @@ ncmpcpp
 neofetch
 neomutt
 neovim-plug
-nerd-fonts-fira-mono
+nerd-fonts-fira-code
 nerd-fonts-ubuntu-mono
 netctl
 networkmanager

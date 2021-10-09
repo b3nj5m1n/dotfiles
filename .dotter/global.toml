@@ -10,8 +10,8 @@ user-session = "bspwm"
 
 # ----- Font -----
 [firamono.variables.font]
-font = "FiraMono Nerd Font Mono"
-font_bold = "FiraMono Nerd Font Mono"
+font = "FiraCode Nerd Font Mono"
+font_bold = "FiraCode Nerd Font Mono"
 font_italic = "UbuntuMono Nerd Font Mono"
 font_bold_italic = "UbuntuMono Nerd Font Mono"
 font_size = "11"
