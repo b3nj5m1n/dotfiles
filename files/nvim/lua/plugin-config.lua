@@ -105,11 +105,14 @@ lspconfig.perlls.setup{}
 -- lspconfig.pyls.setup{}
 lspconfig.rust_analyzer.setup{}
 lspconfig.solargraph.setup{}
-lspconfig.sqlls.setup{}
 lspconfig.texlab.setup{}
 lspconfig.tsserver.setup{}
 lspconfig.vimls.setup{}
 lspconfig.yamlls.setup{}
+
+--[[ lspconfig.sqlls.setup{
+    cmd = {"/usr/bin/sql-language-server", "up", "--method", "stdio"};
+} ]]
 
 local sumneko_root_path = '/usr/share/lua-language-server'
 local sumneko_binary = "/usr/bin/lua-language-server"
