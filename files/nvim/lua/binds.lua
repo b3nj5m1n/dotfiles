@@ -26,10 +26,10 @@ vim.api.nvim_set_keymap('n', '<leader>hl', ':set cursorline!<CR>', opts) -- Lead
 vim.api.nvim_set_keymap('n', '<leader>hc', ':set cursorcolumn!<CR>', opts) -- Leader + h(ighlighting) + c(olumn) to toggle highlighting the current column
 
 -- Plugins
-vim.api.nvim_set_keymap('i', '<c-c>', '<ESC>', opts) -- Close auto-complete menu with Control + C
+--[[ vim.api.nvim_set_keymap('i', '<c-c>', '<ESC>', opts) -- Close auto-complete menu with Control + C
 vim.api.nvim_set_keymap('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"',  { noremap = true, silent = true, expr = true }) -- Select next item in completion menu with tab
 vim.api.nvim_set_keymap('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', { noremap = true, silent = true, expr = true }) -- Select previous item in completion menu with tab
-vim.api.nvim_set_keymap('i', '<CR>', 'ncm2_ultisnips#expand_or("\\<CR>", "n")', { noremap = true, silent = true, expr = true }) -- Select previous item in completion menu with tab
+vim.api.nvim_set_keymap('i', '<CR>', 'ncm2_ultisnips#expand_or("\\<CR>", "n")', { noremap = true, silent = true, expr = true }) -- Select previous item in completion menu with tab ]]
 -- inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
 
 -- LSP
@@ -51,7 +51,7 @@ vim.api.nvim_set_keymap('n', '<leader>lh', [[ <cmd>lua require('lspsaga.signatur
 vim.api.nvim_set_keymap('n', '<leader>lr', [[ <cmd>lua require('lspsaga.rename').rename()<CR> ]], opts)
 vim.api.nvim_set_keymap('n', '<leader>lp', [[ <cmd>lua require('lspsaga.provider').preview_definition()<CR> ]], opts)
 
-vim.api.nvim_set_keymap('n', '<leader>td', '<cmd>:NvimTreeToggle<CR>', opts) -- Toggle NvimTree
+vim.api.nvim_set_keymap('n', '<leader>td', '<cmd>:CHADopen<CR>', opts) -- Toggle NvimTree
 vim.api.nvim_set_keymap('n', '<leader>tt', '<cmd>:SymbolsOutline<CR>', opts) -- Toggle symbol outline
 
 vim.api.nvim_set_keymap('n', '<leader>tf', [[<cmd>lua require('telescope.builtin').find_files()<cr>]], opts) -- Open fuzzy file finder

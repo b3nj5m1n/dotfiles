@@ -35,16 +35,15 @@ return require('packer').startup(function()
     use 'neovim/nvim-lspconfig' -- Common configs for the in-built lsp client
     use 'glepnir/lspsaga.nvim'
 
-    use 'nvim-lua/completion-nvim' -- Completion support
-    --[[ use 'hrsh7th/nvim-compe' -- Provides completions for in-built lsp client
-    use 'ncm2/ncm2-bufword' -- Completion source for words in current buffer
-    use 'ncm2/ncm2-path' -- Completion source for filepaths
-    use 'ncm2/ncm2-ultisnips' -- Completion source for utilsnips
-    use 'roxma/nvim-yarp' -- Required by ncm2 ]]
+    use { 'ms-jpq/coq_nvim', run = "::COQdeps", config = function()
+        vim.cmd([[ let g:coq_settings = { 'auto_start': 'shut-up' }]])
+    end } -- Completion support
+    use 'ms-jpq/coq.artifacts' -- 9k+ snippets
+    use 'ms-jpq/coq.thirdparty'
 
-    use 'SirVer/ultisnips' -- Snippet Engine
+    -- use 'SirVer/ultisnips' -- Snippet Engine
 
-    use 'honza/vim-snippets' -- Snippets (Premade snippet files)
+    -- use 'honza/vim-snippets' -- Snippets (Premade snippet files)
 
     use {
         'nvim-telescope/telescope.nvim',
@@ -55,7 +54,7 @@ return require('packer').startup(function()
 
     use 'kyazdani42/nvim-web-devicons' -- File Icons
 
-    use 'kyazdani42/nvim-tree.lua' -- File Tree
+    use { 'ms-jpq/chadtree', run = ':CHADdeps' } -- File Tree
 
     use 'tpope/vim-repeat' -- Repeat commands by plugins
 
