@@ -35,11 +35,19 @@ return require('packer').startup(function()
     use 'neovim/nvim-lspconfig' -- Common configs for the in-built lsp client
     use 'glepnir/lspsaga.nvim'
 
-    use { 'ms-jpq/coq_nvim', run = "::COQdeps", config = function()
-        vim.cmd([[ let g:coq_settings = { 'auto_start': 'shut-up' }]])
-    end } -- Completion support
-    use 'ms-jpq/coq.artifacts' -- 9k+ snippets
-    use 'ms-jpq/coq.thirdparty'
+    use { 'ms-jpq/coq_nvim',
+        run = ":COQdeps",
+        branch = 'coq',
+        config = function()
+            vim.g.coq_settings = {
+                ["auto_start"] = 'shut-up',
+                ["display.ghost_text.enabled"]=false,
+                ["xdg"] = true,
+                ['clients.third_party.enabled']=false,
+            }
+            require("coq")
+        end } -- Completion support
+    use { 'ms-jpq/coq.artifacts', branch = 'artifacts' } -- 9k+ snippets
 
     -- use 'SirVer/ultisnips' -- Snippet Engine
 
@@ -54,7 +62,7 @@ return require('packer').startup(function()
 
     use 'kyazdani42/nvim-web-devicons' -- File Icons
 
-    use { 'ms-jpq/chadtree', run = ':CHADdeps' } -- File Tree
+    use { 'ms-jpq/chadtree', run = ':CHADdeps', branch = 'chad' } -- File Tree
 
     use 'tpope/vim-repeat' -- Repeat commands by plugins
 
