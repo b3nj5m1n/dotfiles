@@ -11,21 +11,33 @@ return require('packer').startup(function()
 
     use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 
-    use {'dracula/vim', as = 'dracula'} -- You can alias plugin names
+    use {
+        'Mofiqul/dracula.nvim',
+        config = function()
+            vim.cmd("colorscheme dracula")
+        end
+    } -- colorscheme
 
-    use 'rmagatti/auto-session' -- Automatic session management
+    use({
+        "folke/persistence.nvim",
+        event = "BufReadPre",
+        module = "persistence",
+        config = function()
+            require("persistence").setup()
+        end,
+    }) -- Save sessions
 
     use {
         "lukas-reineke/indent-blankline.nvim",
         config = function()
             require("indent_blankline").setup {
                 char = "|",
+                space_char_blankline = " ",
+                show_current_context = true,
                 buftype_exclude = {"terminal"}
             }
         end
     }
-
-    use 'jbyuki/nabla.nvim'
 
     use 'nvim-treesitter/nvim-treesitter'
     use 'nvim-treesitter/nvim-treesitter-textobjects'
@@ -33,7 +45,7 @@ return require('packer').startup(function()
     use 'simrat39/symbols-outline.nvim'
 
     use 'neovim/nvim-lspconfig' -- Common configs for the in-built lsp client
-    use 'glepnir/lspsaga.nvim'
+    use { 'glepnir/lspsaga.nvim', }
 
     use { 'ms-jpq/coq_nvim',
         run = ":COQdeps",
@@ -73,17 +85,19 @@ return require('packer').startup(function()
 
     use 'norcalli/nvim-colorizer.lua' -- Highlight color codes
 
-    use 'justinmk/vim-sneak' -- Better vertical motion
-
     use 'editorconfig/editorconfig-vim' -- Editor config
 
-    use 'famiu/feline.nvim'
-    -- use 'vim-airline/vim-airline' -- Custom status/tabline
-    --[[ use {
-        'glepnir/galaxyline.nvim',
-        branch = 'main',
+    use {
+        'hoob3rt/lualine.nvim',
+        config = function()
+            require('lualine').setup {
+                options = {
+                    theme = 'dracula-nvim'
+                }
+            }
+        end,
         requires = {'kyazdani42/nvim-web-devicons', opt = true}
-    } -- Custom status/tabline ]]
+    } -- Statusline
 
     use 'tpope/vim-fugitive' -- Vim git integration
 
@@ -93,37 +107,8 @@ return require('packer').startup(function()
             'nvim-lua/plenary.nvim'
         },
         config = function()
-            require('gitsigns').setup {
-                signs = {
-                    add          = {hl = 'DiffAdd'   , text = '│', numhl='GitSignsAddNr'},
-                    change       = {hl = 'DiffChange', text = '│', numhl='GitSignsChangeNr'},
-                    delete       = {hl = 'DiffDelete', text = '_', numhl='GitSignsDeleteNr'},
-                    topdelete    = {hl = 'DiffDelete', text = '‾', numhl='GitSignsDeleteNr'},
-                    changedelete = {hl = 'DiffChange', text = '~', numhl='GitSignsChangeNr'},
-                },
-                numhl = false,
-                keymaps = {
-                    -- Default keymap options
-                    noremap = true,
-                    buffer = true,
-
-                    ['n <leader>hn'] = { expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns\".next_hunk()<CR>'"},
-                    ['n <leader>hp'] = { expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns\".prev_hunk()<CR>'"},
-
-                    ['n <leader>hs'] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
-                    ['n <leader>hu'] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
-                    ['n <leader>hr'] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
-                    ['n <leader>hb'] = '<cmd>lua require"gitsigns".blame_line()<CR>',
-                    ['n <leader>hv'] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
-                },
-                watch_gitdir = {
-                    interval = 1000
-                },
-            }
+            require('gitsigns').setup()
         end
     } -- Indicate changed, removed or added lines
-
-    -- use 'lotabout/skim.vim' -- Fuzzy-finding files
-    -- use 'airblade/vim-rooter'
 
 end)

@@ -144,6 +144,13 @@ require'lspconfig'.sumneko_lua.setup {
 
 vim.api.nvim_exec('autocmd BufWritePre *.c lua vim.lsp.buf.formatting()', false) -- Auto-format on save
 
+-- More LSP
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+  underline = true,
+  update_in_insert = false,
+  virtual_text = { spacing = 2, prefix = "●" },
+  severity_sort = true,
+})
 
 -- Treesitter
 

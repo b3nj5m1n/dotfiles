@@ -27,11 +27,16 @@ end
 -- Color Configuration
 vim.g.syntax = true -- Enable syntax highlighting
 vim.api.nvim_set_option("termguicolors", true) -- Enable 24-bit color
-vim.api.nvim_exec('autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE', false) -- Make sure the background color stays as transparent
+-- vim.api.nvim_exec('autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE', false) -- Make sure the background color stays as transparent
 vim.api.nvim_exec('autocmd ColorScheme * highlight VertSplit guifg=#282a36 guibg=#bd93f9', false) -- Buffer seperator
 --[[ vim.api.nvim_exec('autocmd ColorScheme * highlight StatusLine guifg=#bd93f9 guibg=#bd93f9', false) -- Statusbar color, will be used for the seperator when using galaxyline with split screen
 vim.api.nvim_exec('autocmd ColorScheme * highlight StatusLineNC guifg=#bd93f9 guibg=#bd93f9', false) -- Statusbar color, will be used for the seperator when using galaxyline with split screen ]]
-vim.cmd('colorscheme dracula') -- Use dracula colorscheme
+-- vim.cmd('colorscheme dracula') -- Use dracula colorscheme
+-- LspDiagnostic
+vim.api.nvim_exec('autocmd ColorScheme * highlight DiagnosticError guifg=#ff5555', false)
+vim.api.nvim_exec('autocmd ColorScheme * highlight DiagnosticWarning guifg=#f1fa8c', false)
+vim.api.nvim_exec('autocmd ColorScheme * highlight DiagnosticHint guifg=#50fa7b', false)
+vim.api.nvim_exec('autocmd ColorScheme * highlight DiagnosticInformation guifg=#8be9fd', false)
 
 -- Global Settings
 opt_manager.add_option_global("backup", false) -- Don't create a backup file before overwriting a file
@@ -79,3 +84,11 @@ if vim.g.neovide then
     vim.api.nvim_set_var("neovide_transparency", 0.5)
 end
 
+-- Show invisible characters
+vim.opt.list = true
+vim.opt.listchars:append("space:⋅")
+vim.opt.listchars:append("eol:↴")
+
+vim.opt.scrolloff = 2 -- Lines of context
+vim.opt.sidescrolloff = 4 -- Columns of context
+vim.opt.signcolumn = "yes" -- Always show signcolumn
