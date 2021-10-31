@@ -60,7 +60,9 @@ bindkey -v '^?' backward-delete-char
 # Enable skipping words with Ctrl + Arrow Keys
 bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
-# History Search
+# History
+bindkey -M viins '^k' up-line-or-history
+bindkey -M viins '^j' down-line-or-history
 bindkey -M viins '^r' history-incremental-pattern-search-backward
 bindkey -M viins '^f' history-incremental-pattern-search-forward
 bindkey -M vicmd '/' history-incremental-pattern-search-backward
