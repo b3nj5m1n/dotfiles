@@ -1,0 +1,2 @@
+b3nj4m1n ALL= NOPASSWD: /usr/bin/systemctl suspend 
+b3nj4m1n ALL= NOPASSWD: /usr/bin/systemctl hibernate
