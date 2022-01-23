@@ -42,7 +42,7 @@ return require('packer').startup(function()
     use 'nvim-treesitter/nvim-treesitter'
     use 'nvim-treesitter/nvim-treesitter-textobjects'
 
-    use 'simrat39/symbols-outline.nvim'
+    -- use 'simrat39/symbols-outline.nvim'
 
     use 'neovim/nvim-lspconfig' -- Common configs for the in-built lsp client
     use { 'glepnir/lspsaga.nvim', }
