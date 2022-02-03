@@ -91,18 +91,19 @@ local saga = require 'lspsaga'
 saga.init_lsp_saga()
 local lspconfig = require('lspconfig')
 lspconfig.util.default_config = vim.tbl_extend( "force", lspconfig.util.default_config, { on_attach=on_attach })
+-- lspconfig.pyls.setup{}
 lspconfig.bashls.setup{}
 lspconfig.clangd.setup{}
 lspconfig.cmake.setup{}
 lspconfig.cssls.setup{}
 lspconfig.dockerls.setup{}
+lspconfig.elmls.setup{}
 lspconfig.gdscript.setup{}
 lspconfig.gopls.setup{}
 lspconfig.html.setup{}
 lspconfig.jsonls.setup{}
 lspconfig.omnisharp.setup{}
 lspconfig.perlls.setup{}
--- lspconfig.pyls.setup{}
 lspconfig.rust_analyzer.setup{}
 lspconfig.solargraph.setup{}
 lspconfig.texlab.setup{}
