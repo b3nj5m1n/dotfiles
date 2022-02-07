@@ -188,7 +188,7 @@ require'nvim-treesitter.configs'.setup {
             ["strikethrough"] = "strikethrough",
             ["info_string"] = "info_string",
         },
-        disable = {},  -- list of language that will be disabled
+        disable = {"markdown"},  -- list of language that will be disabled
     },
     indent = {
         enable = true
