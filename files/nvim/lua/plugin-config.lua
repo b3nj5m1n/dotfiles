@@ -12,6 +12,11 @@ require('neorg').setup {
                 preset = "icons",
             }
         }, -- Allows for use of icons
+        ["core.norg.esupports.metagen"] = {
+            config = {
+                type = "auto",
+            }
+        },
     },
 }
 
