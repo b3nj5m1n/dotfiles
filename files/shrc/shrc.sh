@@ -110,7 +110,7 @@ alias cpy='xclip -selection clipboard' # Copy piped command output to clipboard
 
 # Aliases for hiding terminal when starting certain programs
 alias zathura='devour zathura'
-alias feh='devour feh'
+alias feh='devour feh --keep-zoom-vp'
 alias mpv='devour mpv'
 
 # Exa (ls replacement)
