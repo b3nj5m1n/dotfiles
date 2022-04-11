@@ -18,8 +18,8 @@ picom --experimental-backends &
 dunst &
 mpd &
 redshift &
-/usr/bin/scripts/wally.sh &
-feh --bg-scale /usr/share/wallpapers/custom/moonRising.png &
+# /usr/bin/scripts/wally.sh &
+feh --bg-scale /usr/share/wallpapers/custom/wp1933975-pixel-art-wallpapers.png &
 # emacs --daemon &
 aw-server-rust &
 greenclip daemon &
