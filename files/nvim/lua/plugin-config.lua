@@ -177,7 +177,7 @@ end
 
 --- colorizer ---
 function M.colorizer()
-    require'colorizer'.setup()
+    require('colorizer').setup()
 end
 
 
