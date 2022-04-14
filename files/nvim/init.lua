@@ -1,5 +1,5 @@
-require('plugins')
 require('opts')
+require('plugins')
 require('plugin-config')
 require('binds')
 require('statusline-config')
