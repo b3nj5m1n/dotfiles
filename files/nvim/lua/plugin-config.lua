@@ -113,26 +113,29 @@ end
 function M.lsp()
     local lspconfig = require('lspconfig')
     lspconfig.util.default_config = vim.tbl_extend( "force", lspconfig.util.default_config, { on_attach=on_attach })
+    vim.api.nvim_command("autocmd BufEnter * lua require'plugin-config'.lsp_for_filetype()")
 end
---[[ lspconfig.pyls.setup{}
-lspconfig.bashls.setup{}
-lspconfig.clangd.setup{}
-lspconfig.cmake.setup{}
-lspconfig.cssls.setup{}
-lspconfig.dockerls.setup{}
-lspconfig.elmls.setup{}
-lspconfig.gdscript.setup{}
-lspconfig.gopls.setup{}
-lspconfig.html.setup{}
-lspconfig.jsonls.setup{}
-lspconfig.omnisharp.setup{}
-lspconfig.perlls.setup{}
-lspconfig.rust_analyzer.setup{}
-lspconfig.solargraph.setup{}
-lspconfig.texlab.setup{}
-lspconfig.tsserver.setup{}
-lspconfig.vimls.setup{}
-lspconfig.yamlls.setup{} ]]
+function M.lsp_for_filetype()
+    local filetype = vim.bo.filetype
+    local lspconfig = require('lspconfig')
+    local mappings = {
+        ["bash"] = "bashls",
+        ["c"] = "clangd",
+        ["cpp"] = "clangd",
+        ["make"] = "cmake",
+        ["css"] = "cssls",
+        ["elm"] = "elmls",
+        ["html"] = "html",
+        ["json"] = "jsonls",
+        ["rust"] = "rust_analyzer",
+        ["javascript"] = "tsserver",
+        ["typescript"] = "tsserver",
+        ["yaml"] = "yamlls",
+    }
+    if mappings[filetype] ~= nil then
+        lspconfig[mappings[filetype]].setup{}
+    end
+end
 
 --[[ lspconfig.sqlls.setup{
     cmd = {"/usr/bin/sql-language-server", "up", "--method", "stdio"};

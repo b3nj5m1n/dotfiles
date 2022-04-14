@@ -78,7 +78,8 @@ return require('packer').startup(function()
                 ['clients.third_party.enabled']=false,
             }
             require("coq")
-        end } -- Completion support
+        end
+    } -- Completion support
     use {
         'ms-jpq/coq.artifacts', branch = 'artifacts'
     } -- 9k+ snippets
