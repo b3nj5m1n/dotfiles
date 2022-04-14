@@ -1,6 +1,6 @@
-;; functions
-(function
-    (function_name)
-    (parameters)
-    (_) @function.inner
-) @function.outer
+; ;; functions
+; (function
+;     (function_name)
+;     (parameters)
+;     (_) @function.inner
+; ) @function.outer
