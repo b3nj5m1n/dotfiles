@@ -34,11 +34,11 @@ end
 
 
 --- UltiSnips ---
-function M.ultisnips()
+--[[ function M.ultisnips()
     vim.api.nvim_set_var("UltiSnipsExpandTrigger", "<c-j>")
     vim.api.nvim_set_var("UltiSnipsJumpForwardTrigger", "<c-a>")
     vim.api.nvim_set_var("UltiSnipsJumpBackwardTrigger", "<c-s>")
-end
+end ]]
 
 
 --- completion ---
@@ -106,37 +106,39 @@ end ]]
 
 
 --- lsp ---
-function M.lsp()
+function M.lsp_saga()
     local saga = require 'lspsaga'
     saga.init_lsp_saga()
+end
+function M.lsp()
     local lspconfig = require('lspconfig')
     lspconfig.util.default_config = vim.tbl_extend( "force", lspconfig.util.default_config, { on_attach=on_attach })
-    -- lspconfig.pyls.setup{}
-    lspconfig.bashls.setup{}
-    lspconfig.clangd.setup{}
-    lspconfig.cmake.setup{}
-    lspconfig.cssls.setup{}
-    lspconfig.dockerls.setup{}
-    lspconfig.elmls.setup{}
-    lspconfig.gdscript.setup{}
-    lspconfig.gopls.setup{}
-    lspconfig.html.setup{}
-    lspconfig.jsonls.setup{}
-    lspconfig.omnisharp.setup{}
-    lspconfig.perlls.setup{}
-    lspconfig.rust_analyzer.setup{}
-    lspconfig.solargraph.setup{}
-    lspconfig.texlab.setup{}
-    lspconfig.tsserver.setup{}
-    lspconfig.vimls.setup{}
-    lspconfig.yamlls.setup{}
 end
+--[[ lspconfig.pyls.setup{}
+lspconfig.bashls.setup{}
+lspconfig.clangd.setup{}
+lspconfig.cmake.setup{}
+lspconfig.cssls.setup{}
+lspconfig.dockerls.setup{}
+lspconfig.elmls.setup{}
+lspconfig.gdscript.setup{}
+lspconfig.gopls.setup{}
+lspconfig.html.setup{}
+lspconfig.jsonls.setup{}
+lspconfig.omnisharp.setup{}
+lspconfig.perlls.setup{}
+lspconfig.rust_analyzer.setup{}
+lspconfig.solargraph.setup{}
+lspconfig.texlab.setup{}
+lspconfig.tsserver.setup{}
+lspconfig.vimls.setup{}
+lspconfig.yamlls.setup{} ]]
 
 --[[ lspconfig.sqlls.setup{
     cmd = {"/usr/bin/sql-language-server", "up", "--method", "stdio"};
 } ]]
 
-function M.lua()
+function M.lsp_lua()
     local sumneko_root_path = '/usr/share/lua-language-server'
     local sumneko_binary = "/usr/bin/lua-language-server"
     require'lspconfig'.sumneko_lua.setup {

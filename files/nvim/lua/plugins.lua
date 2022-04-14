@@ -1,3 +1,4 @@
+local pc = require('plugin-config')
 -- Only required if you have packer in your `opt` pack
 vim.cmd [[packadd packer.nvim]]
 
@@ -9,12 +10,14 @@ return require('packer').startup(function()
 
     use {
         'nvim-neorg/neorg',
-        requires = 'nvim-lua/plenary.nvim'
+        requires = 'nvim-lua/plenary.nvim',
+        config = pc.neorg(),
     }
 
     use {
         'TimUntersberger/neogit',
-        requires = 'nvim-lua/plenary.nvim'
+        requires = 'nvim-lua/plenary.nvim',
+        config = pc.neogit(),
     }
 
     use {
@@ -46,7 +49,8 @@ return require('packer').startup(function()
     }
 
     use {
-        'nvim-treesitter/nvim-treesitter'
+        'nvim-treesitter/nvim-treesitter',
+        config = pc.treesitter(),
     }
     use {
         'nvim-treesitter/nvim-treesitter-textobjects'
@@ -55,10 +59,12 @@ return require('packer').startup(function()
     -- use 'simrat39/symbols-outline.nvim'
 
     use {
-        'neovim/nvim-lspconfig'
+        'neovim/nvim-lspconfig',
+        config = pc.lsp(),
     } -- Common configs for the in-built lsp client
     use {
-        'glepnir/lspsaga.nvim'
+        'glepnir/lspsaga.nvim',
+        config = pc.lsp_saga(),
     }
 
     use { 'ms-jpq/coq_nvim',
@@ -87,7 +93,8 @@ return require('packer').startup(function()
     } -- Fuzzy Finding
 
     use {
-        'windwp/nvim-autopairs'
+        'windwp/nvim-autopairs',
+        config = pc.autopairs(),
     } -- Auto pairs
 
     use {
@@ -106,12 +113,13 @@ return require('packer').startup(function()
 
     use {
         'b3nj5m1n/kommentary',
-        config = require('plugin-config').kommentary,
+        config = pc.kommentary(),
     } -- Comment out text
     -- use '~/Documents/Github/kommentary/'
 
     use {
-        'norcalli/nvim-colorizer.lua'
+        'norcalli/nvim-colorizer.lua',
+        config = pc.colorizer(),
     } -- Highlight color codes
 
     use {
