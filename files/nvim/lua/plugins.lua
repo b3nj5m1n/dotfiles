@@ -7,9 +7,15 @@ return require('packer').startup(function()
 
     use {'wbthomason/packer.nvim', opt = true} -- Packer can manage itself as an optional plugin
 
-    use { 'nvim-neorg/neorg', requires = 'nvim-lua/plenary.nvim' }
+    use {
+        'nvim-neorg/neorg',
+        requires = 'nvim-lua/plenary.nvim'
+    }
 
-    use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+    use {
+        'TimUntersberger/neogit',
+        requires = 'nvim-lua/plenary.nvim'
+    }
 
     use {
         'Mofiqul/dracula.nvim',
@@ -39,13 +45,21 @@ return require('packer').startup(function()
         end
     }
 
-    use 'nvim-treesitter/nvim-treesitter'
-    use 'nvim-treesitter/nvim-treesitter-textobjects'
+    use {
+        'nvim-treesitter/nvim-treesitter'
+    }
+    use {
+        'nvim-treesitter/nvim-treesitter-textobjects'
+    }
 
     -- use 'simrat39/symbols-outline.nvim'
 
-    use 'neovim/nvim-lspconfig' -- Common configs for the in-built lsp client
-    use { 'glepnir/lspsaga.nvim', }
+    use {
+        'neovim/nvim-lspconfig'
+    } -- Common configs for the in-built lsp client
+    use {
+        'glepnir/lspsaga.nvim'
+    }
 
     use { 'ms-jpq/coq_nvim',
         run = ":COQdeps",
@@ -59,7 +73,9 @@ return require('packer').startup(function()
             }
             require("coq")
         end } -- Completion support
-    use { 'ms-jpq/coq.artifacts', branch = 'artifacts' } -- 9k+ snippets
+    use {
+        'ms-jpq/coq.artifacts', branch = 'artifacts'
+    } -- 9k+ snippets
 
     -- use 'SirVer/ultisnips' -- Snippet Engine
 
@@ -70,22 +86,37 @@ return require('packer').startup(function()
         requires = { {'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'} }
     } -- Fuzzy Finding
 
-    use 'windwp/nvim-autopairs' -- Auto pairs
+    use {
+        'windwp/nvim-autopairs'
+    } -- Auto pairs
 
-    use 'kyazdani42/nvim-web-devicons' -- File Icons
+    use {
+        'kyazdani42/nvim-web-devicons'
+    } -- File Icons
 
-    use { 'ms-jpq/chadtree', run = ':CHADdeps', branch = 'chad' } -- File Tree
+    -- use { 'ms-jpq/chadtree', run = ':CHADdeps', branch = 'chad' } -- File Tree
 
-    use 'tpope/vim-repeat' -- Repeat commands by plugins
+    use  {
+        'tpope/vim-repeat'
+    } -- Repeat commands by plugins
 
-    use 'tpope/vim-surround' -- Surround text object
+    use {
+        'tpope/vim-surround'
+    } -- Surround text object
 
-    use 'b3nj5m1n/kommentary' -- Comment out text
+    use {
+        'b3nj5m1n/kommentary',
+        config = require('plugin-config').kommentary,
+    } -- Comment out text
     -- use '~/Documents/Github/kommentary/'
 
-    use 'norcalli/nvim-colorizer.lua' -- Highlight color codes
+    use {
+        'norcalli/nvim-colorizer.lua'
+    } -- Highlight color codes
 
-    use 'editorconfig/editorconfig-vim' -- Editor config
+    use {
+        'editorconfig/editorconfig-vim'
+    } -- Editor config
 
     use {
         'hoob3rt/lualine.nvim',
@@ -99,7 +130,9 @@ return require('packer').startup(function()
         requires = {'kyazdani42/nvim-web-devicons', opt = true}
     } -- Statusline
 
-    use 'tpope/vim-fugitive' -- Vim git integration
+    use {
+        'tpope/vim-fugitive'
+    } -- Vim git integration
 
     use {
         'lewis6991/gitsigns.nvim',
