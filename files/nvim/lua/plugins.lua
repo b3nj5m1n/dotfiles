@@ -27,14 +27,14 @@ return require('packer').startup(function()
         end
     } -- colorscheme
 
-    use({
+    use {
         "folke/persistence.nvim",
         event = "BufReadPre",
         module = "persistence",
         config = function()
             require("persistence").setup()
         end,
-    }) -- Save sessions
+    } -- Save sessions
 
     use {
         "lukas-reineke/indent-blankline.nvim",
@@ -62,31 +62,49 @@ return require('packer').startup(function()
         'neovim/nvim-lspconfig',
         config = pc.lsp(),
     } -- Common configs for the in-built lsp client
+
     use {
         'glepnir/lspsaga.nvim',
         config = pc.lsp_saga(),
     }
 
-    use { 'ms-jpq/coq_nvim',
-        run = ":COQdeps",
-        branch = 'coq',
-        config = function()
-            vim.g.coq_settings = {
-                ["auto_start"] = 'shut-up',
-                ["display.ghost_text.enabled"]=false,
-                ["xdg"] = true,
-                ['clients.third_party.enabled']=false,
-            }
-            require("coq")
-        end
-    } -- Completion support
     use {
-        'ms-jpq/coq.artifacts', branch = 'artifacts'
-    } -- 9k+ snippets
+        'hrsh7th/nvim-cmp',
+        config = pc.cmp(),
+    } -- Completion
+    use {
+        'hrsh7th/cmp-nvim-lsp',
+        requires = 'hrsh7th/nvim-cmp',
+        requires = 'neovim/nvim-lspconfig',
+    }
+    use {
+        'hrsh7th/cmp-nvim-lsp-signature-help',
+        requires = 'hrsh7th/nvim-cmp',
+        requires = 'hrsh7th/cmp-nvim-lsp',
+        requires = 'neovim/nvim-lspconfig',
+    }
+    use {
+        'hrsh7th/cmp-buffer',
+        requires = 'hrsh7th/nvim-cmp',
+    }
+    use {
+        'hrsh7th/cmp-path',
+        requires = 'hrsh7th/nvim-cmp',
+    }
+    use {
+        'saadparwaiz1/cmp_luasnip',
+        requires = 'hrsh7th/nvim-cmp',
+        requires = 'L3MON4D3/LuaSnip',
+    }
 
-    -- use 'SirVer/ultisnips' -- Snippet Engine
+    use {
+        'L3MON4D3/LuaSnip',
+        config = pc.luasnip(),
+    } -- Snippet Engine
 
-    -- use 'honza/vim-snippets' -- Snippets (Premade snippet files)
+    use {
+        'rafamadriz/friendly-snippets'
+    } -- Snippets
 
     use {
         'nvim-telescope/telescope.nvim',

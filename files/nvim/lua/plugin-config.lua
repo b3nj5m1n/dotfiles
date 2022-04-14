@@ -32,121 +32,28 @@ function M.neogit()
     neogit.setup {}
 end
 
-
---- UltiSnips ---
---[[ function M.ultisnips()
-    vim.api.nvim_set_var("UltiSnipsExpandTrigger", "<c-j>")
-    vim.api.nvim_set_var("UltiSnipsJumpForwardTrigger", "<c-a>")
-    vim.api.nvim_set_var("UltiSnipsJumpBackwardTrigger", "<c-s>")
-end ]]
-
-
---- completion ---
--- vim.api.nvim_command("autocmd BufEnter * lua require'completion'.on_attach()")
--- vim.api.nvim_command("let g:completion_enable_snippet = 'UltiSnips'")
--- vim.cmd([[ let g:completion_chain_complete_list = [ {'complete_items': ['lsp', 'snippet', 'path']}, {'mode': '<c-p>'}, {'mode': '<c-n>'} ] ]])
-
---[[ local on_attach = function(client)
-    require('vim.lsp.protocol').CompletionItemKind = {
-        '';   -- Text          = 1;
-        '';   -- Method        = 2;
-        'ƒ';   -- Function      = 3;
-        '';   -- Constructor   = 4;
-        '識';  -- Field         = 5;
-        '';   -- Variable      = 6;
-        '';   -- Class         = 7;
-        'ﰮ';   -- Interface     = 8;
-        '';   -- Module        = 9;
-        '';   -- Property      = 10;
-        '';   -- Unit          = 11;
-        '';   -- Value         = 12;
-        '了';  -- Enum          = 13;
-        '';   -- Keyword       = 14;
-        '﬌';   -- Snippet       = 15;
-        '';   -- Color         = 16;
-        '';   -- File          = 17;
-        '渚';  -- Reference     = 18;
-        '';   -- Folder        = 19;
-        '';   -- EnumMember    = 20;
-        '';   -- Constant      = 21;
-        '';   -- Struct        = 22;
-        '鬒';  -- Event         = 23;
-        'Ψ';   -- Operator      = 24;
-        '';   -- TypeParameter = 25;
-    }
-end ]]
-
---[[ require'compe'.setup {
-    enabled = true;
-    autocomplete = true;
-    debug = false;
-    min_length = 1;
-    preselect = 'enable';
-    throttle_time = 80;
-    source_timeout = 200;
-    incomplete_delay = 400;
-    max_abbr_width = 100;
-    max_kind_width = 100;
-    max_menu_width = 100;
-    documentation = true;
-
-    source = {
-        path = true;
-        buffer = true;
-        calc = true;
-        vsnip = true;
-        nvim_lsp = true;
-        nvim_lua = true;
-        spell = false;
-        tags = true;
-        snippets_nvim = true;
-        treesitter = true;
-    };
-} ]]
-
-
 --- lsp ---
+function M.lsp()
+    local lspconfig = require('lspconfig')
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+    local servers = { "bashls", "clangd", "clangd", "cmake", "cssls", "elmls", "html", "jsonls", "rust_analyzer", "tsserver", "tsserver", "yamlls" }
+    for _, server in pairs(servers) do
+        lspconfig[server].setup{
+            capabilities = capabilities,
+        }
+    end
+end
 function M.lsp_saga()
     local saga = require 'lspsaga'
     saga.init_lsp_saga()
 end
-function M.lsp()
-    local lspconfig = require('lspconfig')
-    lspconfig.util.default_config = vim.tbl_extend( "force", lspconfig.util.default_config, { on_attach=on_attach })
-    vim.api.nvim_command("autocmd BufEnter * lua require'plugin-config'.lsp_for_filetype()")
-end
-function M.lsp_for_filetype()
-    local filetype = vim.bo.filetype
-    local lspconfig = require('lspconfig')
-    local mappings = {
-        ["bash"] = "bashls",
-        ["c"] = "clangd",
-        ["cpp"] = "clangd",
-        ["make"] = "cmake",
-        ["css"] = "cssls",
-        ["elm"] = "elmls",
-        ["html"] = "html",
-        ["json"] = "jsonls",
-        ["rust"] = "rust_analyzer",
-        ["javascript"] = "tsserver",
-        ["typescript"] = "tsserver",
-        ["yaml"] = "yamlls",
-    }
-    if mappings[filetype] ~= nil then
-        lspconfig[mappings[filetype]].setup{}
-    end
-end
-
---[[ lspconfig.sqlls.setup{
-    cmd = {"/usr/bin/sql-language-server", "up", "--method", "stdio"};
-} ]]
 
 function M.lsp_lua()
     local sumneko_root_path = '/usr/share/lua-language-server'
     local sumneko_binary = "/usr/bin/lua-language-server"
     require'lspconfig'.sumneko_lua.setup {
         cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
-        -- on_init = ncm2.register_lsp_source,
         settings = {
             Lua = {
                 runtime = {
@@ -291,6 +198,37 @@ end
 --- auto pairs ---
 function M.autopairs()
     require('nvim-autopairs').setup()
+end
+
+--- nvim-cmp ---
+function M.cmp()
+    local cmp = require('cmp')
+    cmp.setup({
+        snippet = {
+            expand = function(args)
+                require('luasnip').lsp_expand(args.body)
+            end,
+        },
+        mapping = cmp.mapping.preset.insert({
+            ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+            ['<C-f>'] = cmp.mapping.scroll_docs(4),
+            ['<C-Space>'] = cmp.mapping.complete(),
+            ['<C-e>'] = cmp.mapping.abort(),
+            ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        }),
+        sources = cmp.config.sources({
+            { name = 'nvim_lsp' },
+            { name = 'nvim_lsp_signature_help' },
+            { name = 'path' },
+            { name = 'luasnip' },
+            { name = 'buffer' },
+        })
+    })
+end
+
+--- luasnip ---
+function M.luasnip()
+    require("luasnip.loaders.from_vscode").lazy_load()
 end
 
 return M
