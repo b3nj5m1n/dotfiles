@@ -196,7 +196,6 @@ c23 = "#e8e8e8" # Dim
 "files/nvim/init.lua" = "~/.config/nvim/init.lua"
 "files/nvim/lua/plugins.lua" = "~/.config/nvim/lua/plugins.lua"
 "files/nvim/lua/plugin-config.lua" = "~/.config/nvim/lua/plugin-config.lua"
-"files/nvim/lua/functions.lua" = "~/.config/nvim/lua/functions.lua"
 "files/nvim/lua/binds.lua" = "~/.config/nvim/lua/binds.lua"
 "files/nvim/lua/opts.lua" = "~/.config/nvim/lua/opts.lua"
 "files/nvim/lua/compile.lua" = "~/.config/nvim/lua/compile.lua"
