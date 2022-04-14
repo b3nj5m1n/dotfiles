@@ -1,13 +1,20 @@
 -- Only required if you have packer in your `opt` pack
 vim.cmd [[packadd packer.nvim]]
 
-return require('packer').startup(function()
+require('packer').startup({function()
 
     use {
         'wbthomason/packer.nvim',
         opt = true,
         cmd = { "PackerSync" },
     } -- Packer can manage itself as an optional plugin
+
+    use {
+        'lewis6991/impatient.nvim',
+        --[[ config = function()
+            require('impatient')
+        end ]]
+    }
 
     use {
         'nvim-neorg/neorg',
@@ -26,6 +33,7 @@ return require('packer').startup(function()
 
     use {
         'Mofiqul/dracula.nvim',
+        event = "UiEnter",
         config = function()
             vim.cmd("colorscheme dracula")
         end
@@ -42,7 +50,7 @@ return require('packer').startup(function()
 
     use {
         "lukas-reineke/indent-blankline.nvim",
-        event = "BufEnter",
+        event = "UiEnter",
         module = "indent_blankline",
         config = function()
             require("indent_blankline").setup {
@@ -56,46 +64,41 @@ return require('packer').startup(function()
 
     use {
         'nvim-treesitter/nvim-treesitter',
-        event = "BufEnter",
-        module = "nvim-treesitter",
+        event = "UiEnter",
         config = function() require('plugin-config').treesitter() end,
     }
     use {
         'nvim-treesitter/nvim-treesitter-textobjects',
-        event = "BufEnter",
+        event = "UiEnter",
     }
 
     -- use 'simrat39/symbols-outline.nvim'
 
     use {
         'neovim/nvim-lspconfig',
-        event = "BufEnter",
-        module = "lspconfig",
+        event = "VimEnter",
+        -- module = "lspconfig",
         config = function() require('plugin-config').lsp() end,
     } -- Common configs for the in-built lsp client
 
     use {
         'glepnir/lspsaga.nvim',
-        event = "BufEnter",
+        event = "VimEnter",
         module = "lspsaga",
         config = function() require('plugin-config').lsp_saga() end,
     }
 
     use {
         'hrsh7th/nvim-cmp',
-        event = "InsertEnter",
-        module = "cmp",
         config = function() require('plugin-config').cmp() end,
     } -- Completion
     use {
         'hrsh7th/cmp-nvim-lsp',
-        module = "cmp_nvim_lsp",
         requires = 'hrsh7th/nvim-cmp',
         requires = 'neovim/nvim-lspconfig',
     }
     use {
         'hrsh7th/cmp-nvim-lsp-signature-help',
-        after = 'cmp-nvim-lsp',
         requires = 'hrsh7th/nvim-cmp',
         requires = 'hrsh7th/cmp-nvim-lsp',
         requires = 'neovim/nvim-lspconfig',
@@ -112,33 +115,23 @@ return require('packer').startup(function()
     }
     use {
         'saadparwaiz1/cmp_luasnip',
-        after = { 'nvim-cmp', 'LuaSnip' },
         requires = 'hrsh7th/nvim-cmp',
         requires = 'L3MON4D3/LuaSnip',
     }
 
     use {
         'L3MON4D3/LuaSnip',
-        event = "InsertEnter",
-        module = "luasnip",
         config = function() require('plugin-config').luasnip() end,
     } -- Snippet Engine
 
     use {
         'rafamadriz/friendly-snippets',
-        after = 'LuaSnip',
     } -- Snippets
 
     use {
         'nvim-telescope/telescope.nvim',
         requires = { {'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'} },
-        module = "telescope",
-        keys = {
-            {"n", "<leader>tf"},
-            {"n", "<leader>tg"},
-            {"n", "<leader>tb"},
-            {"n", "<leader>th"},
-        },
+        event = "UiEnter",
     } -- Fuzzy Finding
 
     use {
@@ -166,7 +159,7 @@ return require('packer').startup(function()
 
     use {
         'b3nj5m1n/kommentary',
-        event = "BufEnter",
+        event = "VimEnter",
         module = "kommentary",
         setup = function()
             vim.g.kommentary_create_default_mappings = false
@@ -186,7 +179,7 @@ return require('packer').startup(function()
         'editorconfig/editorconfig-vim'
     } -- Editor config
 
-    use {
+    --[[ use {
         'hoob3rt/lualine.nvim',
         config = function()
             require('lualine').setup {
@@ -196,7 +189,7 @@ return require('packer').startup(function()
             }
         end,
         requires = {'kyazdani42/nvim-web-devicons', opt = true}
-    } -- Statusline
+    } -- Statusline ]]
 
     use {
         'tpope/vim-fugitive',
@@ -214,4 +207,11 @@ return require('packer').startup(function()
         end
     } -- Indicate changed, removed or added lines
 
-end)
+end,
+    config = {
+        compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua',
+    }
+})
+
+require('impatient')
+require('packer_compiled')
