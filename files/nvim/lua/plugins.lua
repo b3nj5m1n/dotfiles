@@ -179,17 +179,9 @@ require('packer').startup({function()
         'editorconfig/editorconfig-vim'
     } -- Editor config
 
-    --[[ use {
-        'hoob3rt/lualine.nvim',
-        config = function()
-            require('lualine').setup {
-                options = {
-                    theme = 'dracula-nvim'
-                }
-            }
-        end,
-        requires = {'kyazdani42/nvim-web-devicons', opt = true}
-    } -- Statusline ]]
+    use {
+        'beauwilliams/statusline.lua',
+    } -- Statusline
 
     use {
         'tpope/vim-fugitive',
