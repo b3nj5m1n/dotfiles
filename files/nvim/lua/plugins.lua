@@ -58,6 +58,13 @@ require('packer').startup({function()
     } -- Save sessions
 
     use {
+        'eraserhd/parinfer-rust',
+        branch = "master",
+        commit = "211f72e32cccbc728a8346f665c0a0b52c01c1e4",
+        run = "cargo build --release",
+    }
+
+    use {
         'lukas-reineke/indent-blankline.nvim',
         branch = "master",
         commit = "045d9582094b27f5ae04d8b635c6da8e97e53f1d",
