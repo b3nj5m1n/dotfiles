@@ -106,9 +106,9 @@ require('packer').startup({function()
     } -- Common configs for the in-built lsp client
 
     use {
-        'glepnir/lspsaga.nvim',
+        'tami5/lspsaga.nvim',
         branch = "main",
-        commit = "cb0e35d2e594ff7a9c408d2e382945d56336c040",
+        commit = "5309d75bd90ce5b1708331df3af1e971fa83a2b9",
         event = "VimEnter",
         module = "lspsaga",
         config = function() require('plugin-config').lsp_saga() end,
