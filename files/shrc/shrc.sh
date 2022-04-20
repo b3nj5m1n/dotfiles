@@ -68,13 +68,13 @@ function alias_help {
 
 alias ahelp="alias_help" # List all available aliases
 
-alias sx="systemctl suspend && exit" # Suspend
+alias sx='systemctl suspend && exit' # Suspend
 
-alias cl="ros exec cl-repl" # Common Lisp repl
+alias cl='ros exec cl-repl' # Common Lisp repl
 
 alias myip='curl "https://api.ipify.org"' # Get public ip adress
 
-alias yeetread="tspreed -w 400 -l -i -f"
+alias yeetread='tspreed -w 400 -l -i -f' # Read with the power of the yeet
 
 # Git
 alias g='git' # Git
