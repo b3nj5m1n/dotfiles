@@ -153,6 +153,7 @@ alias ct='bat --paging=never --theme=Dracula --style="plain" --italic-text=alway
 
 # Clean up home dir by moving some dotfiles to the XDG directories they should be in by default
 alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export ELM_HOME="$XDG_CACHE_HOME/elm"
 export ROSWELL_HOME="$XDG_DATA_HOME/roswell"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
