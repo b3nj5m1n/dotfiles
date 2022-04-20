@@ -3,7 +3,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-############### Enviorment Variables ###############
+############### Enviornment Variables ###############
 
 # Default Programs
 export EDITOR=nvim
@@ -69,6 +69,8 @@ function alias_help {
 alias ahelp="alias_help" # List all available aliases
 
 alias sx="systemctl suspend && exit" # Suspend
+
+alias cl="ros exec cl-repl" # Common Lisp repl
 
 alias myip='curl "https://api.ipify.org"' # Get public ip adress
 
