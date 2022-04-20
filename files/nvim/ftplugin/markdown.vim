@@ -1,8 +1,7 @@
 set wrap
 set linebreak
-set spell
+" set spell
 
-lua require 'compile'
 " Compile document (c[ompile] d[ocument])
 " map <leader>cd :silent lua compile()<CR>
 " Open corresponding .pdf/.html or preview (c[ompile] s[how])
