@@ -109,3 +109,5 @@ eval "$(zoxide init zsh)"
 eval "$(mcfly init zsh)"
 # Source common aliases, exports, etc.
 source ~/.config/shrc
+# Use thefuck
+eval "$(thefuck --alias)"
