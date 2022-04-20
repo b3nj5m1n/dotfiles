@@ -188,6 +188,8 @@ c23 = "#e8e8e8" # Dim
 "files/bash/.bashrc" = "~/.bashrc"
 [ssh.files]
 "files/ssh/config" = "~/.ssh/config"
+[lisp.files]
+"files/lisp/init.lisp" = "~/.local/share/roswell/init.lisp"
 
 
 ##### Editors #####
