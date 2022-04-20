@@ -12,6 +12,13 @@ require('packer').startup({function()
     } -- Packer can manage itself as an optional plugin
 
     use {
+        'rktjmp/hotpot.nvim',
+        branch = "master",
+        commit = "8ccf600ccb5dbc28ea329d641a58e2fd6974d38e",
+        config = function() require("hotpot") end,
+    } -- Fennel support
+
+    use {
         'lewis6991/impatient.nvim',
         branch = "main",
         commit = "2337df7d778e17a58d8709f651653b9039946d8d",
