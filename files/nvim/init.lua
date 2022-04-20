@@ -1,6 +1,4 @@
-require('plugins')
 require('opts')
-require('functions')
+require('plugins')
 require('plugin-config')
 require('binds')
-require('statusline-config')
