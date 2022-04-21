@@ -41,7 +41,7 @@ vim.api.nvim_exec('autocmd ColorScheme * highlight DiagnosticInformation guifg=#
 -- Global Settings
 opt_manager.add_option_global("backup", false) -- Don't create a backup file before overwriting a file
 opt_manager.add_option_global("completeopt", "noinsert,menuone,noselect") -- Do not insert anything until the user selects it; Show the menu when there is just one match; Force the user to select something from the menu
-opt_manager.add_option_global("encoding", "UTF-8") -- Directly jump to next match when searching
+opt_manager.add_option_global("encoding", "UTF-8") -- Set encoding to UTF-8
 opt_manager.add_option_global("errorbells", false) -- Disable error bell & screen flashing
 opt_manager.add_option_global("foldlevel", 99) -- The higher, the more folded regions are open (0 = all folds closed)
 opt_manager.add_option_global("foldlevelstart", 99) -- Inital fold level; close all folds when opening a new buffer
