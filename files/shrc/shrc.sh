@@ -9,6 +9,9 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export EDITOR=nvim
 export FUZZY_FINDER=sk
 
+# Use difftastic for git diffing
+export GIT_EXTERNAL_DIFF=difft
+
 # Use vim keybindings for mcfly
 export MCFLY_KEY_SCHEME=vim
 
