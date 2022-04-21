@@ -35,6 +35,15 @@ require('packer').startup({function()
     }
 
     use {
+        'kyazdani42/nvim-tree.lua',
+        branch = "master",
+        commit = "7f2ed4e04337d9729052f23d918f644ada18daa0",
+        requires = 'kyazdani42/nvim-web-devicons',
+        config = function() require('nvim-tree').setup {} end,
+        disable = true,
+    }
+
+    use {
         'TimUntersberger/neogit',
         branch = "master",
         commit = "c8dd268091ffcbcb673de59c5b37ff26a2eb24ed",
