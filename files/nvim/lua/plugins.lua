@@ -81,6 +81,13 @@ require('packer').startup({function()
     }
 
     use {
+        'p00f/nvim-ts-rainbow',
+        branch = "master",
+        commit = "04284dc97eac0d0ecfea68e10be824d1a6585de0",
+        event = "UiEnter",
+    }
+
+    use {
         'vlime/vlime',
         branch = "master",
         commit = "3205f02306314ab8cfc9034cf72097891c923e9d",
