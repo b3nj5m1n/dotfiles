@@ -17,6 +17,11 @@ function M.neorg()
                     preset = "icons",
                 }
             }, -- Allows for use of icons
+            ["core.norg.completion"] = {
+                config = {
+                    engine = "nvim-cmp",
+                }
+            },
             ["core.norg.esupports.metagen"] = {
                 config = {
                     type = "auto",
@@ -219,6 +224,7 @@ function M.cmp()
         sources = cmp.config.sources({
             { name = 'nvim_lsp' },
             { name = 'nvim_lsp_signature_help' },
+            { name = 'neorg' },
             { name = 'path' },
             { name = 'luasnip' },
             { name = 'buffer' },
