@@ -290,7 +290,7 @@ require('packer').startup({function()
     use {
         'lewis6991/gitsigns.nvim',
         branch = "main",
-        commit = "228d3f9eaf39d44ac6d42bd90a987ee31627752f",
+        commit = "f83a2e11cd7a486e92f3c6630e71e93a073a11da",
         event = "BufEnter",
         requires = {
             'nvim-lua/plenary.nvim'
