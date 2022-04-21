@@ -225,8 +225,22 @@ function M.cmp()
             { name = 'nvim_lsp' },
             { name = 'nvim_lsp_signature_help' },
             { name = 'neorg' },
-            { name = 'path' },
             { name = 'luasnip' },
+            { name = 'path' },
+            { name = 'omni' },
+            { name = 'buffer' },
+        }),
+        sorting = {
+            comparators = {
+                cmp.config.compare.score,
+            }
+        }
+    })
+    cmp.setup.filetype('lisp', {
+        sources = cmp.config.sources({
+            { name = 'omni' },
+            { name = 'luasnip' },
+            { name = 'path' },
             { name = 'buffer' },
         })
     })

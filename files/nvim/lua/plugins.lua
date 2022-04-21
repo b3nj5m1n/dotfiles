@@ -81,6 +81,15 @@ require('packer').startup({function()
     }
 
     use {
+        'vlime/vlime',
+        branch = "master",
+        commit = "3205f02306314ab8cfc9034cf72097891c923e9d",
+        --[[ config = function()
+            vim.api.nvim_exec("autocmd TextChangedI lisp call feedkeys(\"\\<c-x>\\<c-o>\")", false)
+        end, ]]
+    }
+
+    use {
         'lukas-reineke/indent-blankline.nvim',
         branch = "master",
         commit = "045d9582094b27f5ae04d8b635c6da8e97e53f1d",
@@ -162,6 +171,13 @@ require('packer').startup({function()
         'hrsh7th/cmp-path',
         branch = "main",
         commit = "466b6b8270f7ba89abd59f402c73f63c7331ff6e",
+        after = 'nvim-cmp',
+        requires = 'hrsh7th/nvim-cmp',
+    }
+    use {
+        'hrsh7th/cmp-omni',
+        branch = "main",
+        commit = "7a457f0c4f9e0801fee777d955eb841659aa3b84",
         after = 'nvim-cmp',
         requires = 'hrsh7th/nvim-cmp',
     }
