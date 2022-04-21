@@ -9,7 +9,6 @@ bspc monitor DP-2 -d 6 7 8 9
 bspc monitor -d 1 2 3 4 5 6 7 8 9
 {{/if}}
 
-# map2 -d /home/b3nj4m1n/dotfiles/files/map2/devices.list /home/b3nj4m1n/dotfiles/files/map2/test.m2 &
 setxkbmap de &
 
 # Daemons & stuff

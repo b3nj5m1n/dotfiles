@@ -147,7 +147,7 @@ blacklist-0 = num lock
 ;format-prefix-foreground = ${colors.foreground-alt}
 ;format-prefix-underline = ${colors.secondary}
 
-label-layout = "%{A1:bash ~/dotfiles/scripts/keyboard-layout-switcher.sh:}%layout%%{A}"
+label-layout = "%{A1:bash /usr/bin/scripts/keyboard-layout-switcher.sh:}%layout%%{A}"
 label-layout-underline = ${colors.secondary}
 
 ;label-indicator-padding = 2

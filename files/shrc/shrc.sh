@@ -30,7 +30,7 @@ export TERM=alacritty-full
 
 
 ############### Functions ###############
-source ~/dotfiles/scripts/colors.sh
+source /usr/bin/scripts/colors.sh
 
 function update_normal_pacman {
     pacman -Syy

@@ -240,6 +240,7 @@ c23 = "#e8e8e8" # Dim
 [scripts.files]
 "scripts/compile.sh" = { target = "/usr/bin/compile", type = "template", owner = "root" }
 "scripts/run.sh" = { target = "/usr/bin/run", type = "template", owner = "root" }
+"scripts/colors.sh" = { target = "/usr/bin/scripts/colors.sh", type = "template", owner = "root" }
 "scripts/bw-wrapper.sh" = { target = "/usr/bin/scripts/bw-wrapper.sh", type = "template", owner = "root" }
 "scripts/emoji-picker.sh" = { target = "/usr/bin/scripts/emoji-picker.sh", type = "template", owner = "root" }
 "scripts/fav-song.sh" = { target = "/usr/bin/scripts/fav-song.sh", type = "template", owner = "root" }

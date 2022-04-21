@@ -2,7 +2,7 @@
 # expects $path_output to be set by the compile function, 
 # which doesn't happen because they're seperate scripts now
 
-# source ~/dotfiles/scripts/colors.sh
+# source /usr/bin/scripts/colors.sh
 
 # function compile_run {
 #     local path_input=

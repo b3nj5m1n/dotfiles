@@ -1,4 +1,4 @@
-source ~/dotfiles/scripts/colors.sh
+source /usr/bin/scripts/colors.sh
 
 function run {
     # Get the absolute path to the input file

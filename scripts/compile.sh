@@ -1,4 +1,4 @@
-source ~/dotfiles/scripts/colors.sh
+source /usr/bin/scripts/colors.sh
 
 # Tries to compile (Or convert) the given document, first argument should be the location of the file to compile, the second argument (optionally) the path for the output
 function compile {
