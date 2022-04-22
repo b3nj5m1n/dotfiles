@@ -1,4 +1,4 @@
-tmux-255color-full|tmux with proper support for emacs,
+tmux-256color-full|tmux with proper support for emacs,
    use=tmux-256color,
    sitm=\E[3m,
    ritm=\E[23m,
