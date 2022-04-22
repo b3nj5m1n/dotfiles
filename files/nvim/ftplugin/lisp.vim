@@ -15,3 +15,14 @@ function! VlimeBuildServerCommandFor_ros(vlime_loader, vlime_eval)
     endfor
     return result
 endfunction
+
+" Open repl window as vertical split
+let g:vlime_window_settings = {'repl': {'vertical': v:true, 'pos': 'botright'}}
+" Automatically start swank server when entering file, make sure this only
+" happens once, automatically close the window with the buffer in it
+" afterwards but keep the buffer around in the background
+if bufwinnr("vlime | server | Vlime Server 1") == -1
+    call vlime#server#New(v:true, get(g:, "vlime_cl_use_terminal", v:false))
+    exe winnr('$') .. "wincmd w"
+    close!
+endif
