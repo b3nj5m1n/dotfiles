@@ -21,8 +21,10 @@ let g:vlime_window_settings = {'repl': {'vertical': v:true, 'pos': 'botright'}}
 " Automatically start swank server when entering file, make sure this only
 " happens once, automatically close the window with the buffer in it
 " afterwards but keep the buffer around in the background
-if bufwinnr("vlime | server | Vlime Server 1") == -1
+let g:vlime_server_autostarted = get(g:, 'vlime_server_autostarted', v:false)
+if g:vlime_server_autostarted == v:false
     call vlime#server#New(v:true, get(g:, "vlime_cl_use_terminal", v:false))
     exe winnr('$') .. "wincmd w"
     close!
+    let g:vlime_server_autostarted = v:true
 endif
