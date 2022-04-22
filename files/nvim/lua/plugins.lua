@@ -281,6 +281,17 @@ require('packer').startup({function()
     } -- Statusline
 
     use {
+        "folke/trouble.nvim",
+        branch = "main",
+        commit = "691d490cc4eadc430d226fa7d77aaa84e2e0a125",
+        event = "BufEnter",
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function()
+            require("trouble").setup { }
+        end
+    } -- Pretty diagnostic window
+
+    use {
         'tpope/vim-fugitive',
         branch = "master",
         commit = "4b0f2b604562e9681ae3b80c2665f168ac637cea",

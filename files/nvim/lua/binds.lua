@@ -50,10 +50,16 @@ vim.api.nvim_set_keymap('n', '<leader>ls', [[ <cmd>lua require('lspsaga.action')
 vim.api.nvim_set_keymap('n', '<leader>lh', [[ <cmd>lua require('lspsaga.signaturehelp').signature_help()<CR> ]], opts)
 vim.api.nvim_set_keymap('n', '<leader>lr', [[ <cmd>lua require('lspsaga.rename').rename()<CR> ]], opts)
 vim.api.nvim_set_keymap('n', '<leader>lp', [[ <cmd>lua require('lspsaga.provider').preview_definition()<CR> ]], opts)
+vim.api.nvim_set_keymap("n", '<leader>lx', "<cmd>Trouble lsp_references<cr>", opts)
 
-vim.api.nvim_set_keymap('n', '<leader>td', '<cmd>:CHADopen<CR>', opts) -- Toggle NvimTree
-vim.api.nvim_set_keymap('n', '<leader>tt', '<cmd>:SymbolsOutline<CR>', opts) -- Toggle symbol outline
+-- Trouble
+vim.api.nvim_set_keymap("n", '<leader>xx', "<cmd>Trouble<cr>", opts)
+vim.api.nvim_set_keymap("n", '<leader>xw', "<cmd>Trouble workspace_diagnostics<cr>", opts)
+vim.api.nvim_set_keymap("n", '<leader>xd', "<cmd>Trouble document_diagnostics<cr>", opts)
+vim.api.nvim_set_keymap("n", '<leader>xl', "<cmd>Trouble loclist<cr>", opts)
+vim.api.nvim_set_keymap("n", '<leader>xq', "<cmd>Trouble quickfix<cr>", opts)
 
+-- Telescope
 vim.api.nvim_set_keymap('n', '<leader>tf', [[<cmd>lua require('telescope.builtin').find_files()<cr>]], opts) -- Open fuzzy file finder
 vim.api.nvim_set_keymap('n', '<leader>tg', [[<cmd>lua require('telescope.builtin').live_grep()<cr>]], opts) -- Open live grep
 vim.api.nvim_set_keymap('n', '<leader>tb', [[<cmd>lua require('telescope.builtin').buffers()<cr>]], opts) -- Open buffer list
