@@ -73,6 +73,8 @@ alias ahelp="alias_help" # List all available aliases
 
 alias sx='systemctl suspend && exit' # Suspend
 
+alias pac='paru --skipreview --noremovemake --nocleanafter --sudoloop --pgpfetch --batchinstall' # Package manager
+
 alias cl='ros exec cl-repl' # Common Lisp repl
 
 alias myip='curl "https://api.ipify.org"' # Get public ip adress
