@@ -296,7 +296,22 @@ require('packer').startup({function()
             'nvim-lua/plenary.nvim'
         },
         config = function()
-            require('gitsigns').setup()
+            require('gitsigns').setup{
+                signs = {
+                    add          = {hl = 'GitSignsAdd'   , text = '▌', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
+                    change       = {hl = 'GitSignsChange', text = '▌', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+                },
+                current_line_blame = true,
+                current_line_blame_opts = {
+                    virt_text = true,
+                    virt_text_pos = 'eol',
+                    delay = 5000,
+                    ignore_whitespace = false,
+                },
+                on_attach = function(bufnr)
+                    vim.api.nvim_exec('highlight GitSignsCurrentLineBlame guifg=#5a5e7a', false)
+                end,
+            }
         end
     } -- Indicate changed, removed or added lines
 
