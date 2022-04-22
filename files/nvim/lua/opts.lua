@@ -51,6 +51,7 @@ opt_manager.add_option_global("hlsearch", false) -- No highlighting on search
 opt_manager.add_option_global("ignorecase", true) -- Ignore case in searches
 opt_manager.add_option_global("inccommand", "split") -- Show preview of substitute
 opt_manager.add_option_global("incsearch", true) -- Directly jump to next match when searching
+opt_manager.add_option_global("laststatus", 3) -- Global statusbar
 opt_manager.add_option_global("mouse", 'a') -- Enable mouse support
 opt_manager.add_option_global("pumheight", 20) -- Max completion menu height
 opt_manager.add_option_global("sessionoptions", "blank,buffers,curdir,folds,help,options,tabpages,winsize,resize,winpos,terminal") -- Session management options
