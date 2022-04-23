@@ -23,6 +23,13 @@ font_italic = "UbuntuMono Nerd Font Mono"
 font_bold_italic = "UbuntuMono Nerd Font Mono"
 font_size = "12"
 font_size_float = "12.0"
+[fantasque.variables.font]
+font = "FantasqueSansMono Nerd Font"
+font_bold = "FantasqueSansMono Nerd Font"
+font_italic = "FantasqueSansMono Nerd Font"
+font_bold_italic = "FantasqueSansMono Nerd Font"
+font_size = "13"
+font_size_float = "13.0"
 
 # ----- Laptop -----
 [laptop.variables]
