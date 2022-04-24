@@ -18,6 +18,10 @@
 data.location=$XDG_DATA_HOME/task/
 hooks.location=$XDG_CONFIG_HOME/task/
 
+# Urgencies
+urgency.uda.priority.H.coefficient=6.0
+urgency.uda.priority.M.coefficient=3.9
+urgency.uda.priority.L.coefficient=-2.0
 
 # Color theme (uncomment one to use)
 #include light-16.theme
