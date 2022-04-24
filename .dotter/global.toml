@@ -236,6 +236,7 @@ c23 = "#e8e8e8" # Dim
 "scripts/tmuxstssrc.sh" = { target = "/usr/bin/scripts/tmuxstssrc.sh", type = "template", owner = "root" }
 [taskwarrior.files]
 "files/taskwarrior/taskrc" = "~/.config/task/taskrc"
+"files/timewarrior/timewarrior.cfg" = "~/.local/share/timew/timewarrior.cfg"
 [ncmcpp.files]
 "files/ncmpcpp/config" = "~/.config/ncmpcpp/config"
 "files/ncmpcpp/bindings" = "~/.config/ncmpcpp/bindings"
