@@ -234,6 +234,8 @@ c23 = "#e8e8e8" # Dim
 "scripts/tmuxleft.sh" = { target = "/usr/bin/scripts/tmuxleft.sh", type = "template", owner = "root" }
 "scripts/tmuxright.sh" = { target = "/usr/bin/scripts/tmuxright.sh", type = "template", owner = "root" }
 "scripts/tmuxstssrc.sh" = { target = "/usr/bin/scripts/tmuxstssrc.sh", type = "template", owner = "root" }
+[taskwarrior.files]
+"files/taskwarrior/taskrc" = "~/.config/task/taskrc"
 [ncmcpp.files]
 "files/ncmpcpp/config" = "~/.config/ncmpcpp/config"
 "files/ncmpcpp/bindings" = "~/.config/ncmpcpp/bindings"

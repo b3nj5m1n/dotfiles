@@ -11,6 +11,7 @@ packages = [
     "zathura",
     "mirage",
     "lightdm",
+    "taskwarrior",
     "ssh",
     "scripts",
     "emacs",
