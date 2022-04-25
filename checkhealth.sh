@@ -58,7 +58,7 @@ check_exists_package() {
                 return 1
             fi
             if [ "$INSTALL_CMD" = true ]; then
-                paru --noconfirm --skipreview -S "$PACKAGE_NAME"
+                paru --noconfirm --skipreview -Sy "$PACKAGE_NAME"
                 return 1
             fi
             "${INSTALL_CMD}"
@@ -240,6 +240,26 @@ check_exists_package "fd" "fd" true true
 check_exists_package "bat" "bat" true true
 check_exists_package "dotter" "dotter-rs-bin" true true
 check_exists_package "fc-list" "fontconfig" true true
+check_exists_package "starship" "starship" true true
+check_exists_package "mcfly" "mcfly" true true
+check_exists_package "Xorg" "xorg" true true
+check_exists_package "lightdm" "lightdm" true true
+
+# Non-Essential Packages
+
+check_exists_package "alacritty" "alacritty" false true
+check_exists_package "bspwm" "bspwm" false true
+check_exists_package "sxhkd" "sxhkd" false true
+check_exists_package "dunst" "dunst" false true
+check_exists_package "firefox" "firefox" false true
+check_exists_package "neomutt" "neomutt" false true
+check_exists_package "ncmpcpp" "ncmpcpp" false true
+check_exists_package "picom" "picom" false true
+check_exists_package "redshift" "redshift" false true
+check_exists_package "rofi" "rofi" false true
+check_exists_package "task" "task" false true
+check_exists_package "timew" "timew" false true
+check_exists_package "zathura" "zathura" false true
 
 # Locales
 
