@@ -28,7 +28,7 @@ output_sucs() {
 prompt_yes_no() {
     MODULE=$1
     PROMPT=$2
-    PROMPT=$(printf "[\e[1;35m$MODULE\e[1;0m] - \e[1;95m$NAME\e[1;0m? (yes/no) ")
+    PROMPT=$(printf "[\e[1;35m$MODULE\e[1;0m] - \e[1;95m$PROMPT\e[1;0m? (yes/no) ")
     read -p "$PROMPT" yn
     case $yn in
         yes ) return 0;;
@@ -53,7 +53,7 @@ check_exists_package() {
         fi
         if ! [ -z "$INSTALL_CMD" ];
         then
-            prompt_yes_no "PACKAGES" "$PACKAGE_NAME" "Would you like to try to install this automatically"
+            prompt_yes_no "PACKAGES" "Would you like to try to install this automatically"
             if ! [ $? = 0 ]; then
                 return 1
             fi
