@@ -25,11 +25,23 @@ output_sucs() {
     DESC=$3
     printf "[\e[1;32m$MODULE\e[1;0m] - [\e[1;92m$NAME\e[1;0m]: $DESC\n"
 }
+prompt_yes_no() {
+    MODULE=$1
+    PROMPT=$2
+    PROMPT=$(printf "[\e[1;35m$MODULE\e[1;0m] - \e[1;95m$NAME\e[1;0m? (yes/no) ")
+    read -p "$PROMPT" yn
+    case $yn in
+        yes ) return 0;;
+        no ) return 1;;
+        * ) return 1;;
+    esac
+}
 
 check_exists_package() {
     PACKAGE_NAME=$1
     HELP=$2
     ESSENTIAL=$3
+    INSTALL_CMD=$4
     if [ -x "$(command -v $PACKAGE_NAME)" ]; then
         output_sucs "PACKAGES" "$PACKAGE_NAME" "Package installed"
         return 0
@@ -38,6 +50,14 @@ check_exists_package() {
             output_err "PACKAGES" "$PACKAGE_NAME" "Package not installed"
         else
             output_warn "PACKAGES" "$PACKAGE_NAME" "Package not installed (Not essential)"
+        fi
+        if ! [ -z "$INSTALL_CMD" ];
+        then
+            prompt_yes_no "PACKAGES" "$PACKAGE_NAME" "Would you like to try to install this automatically"
+            if ! [ $? = 0 ]; then
+                return 1
+            fi
+            "${INSTALL_CMD}"
         fi
         if [ -n "$HELP" ];
         then
@@ -170,7 +190,23 @@ check_env() {
 # Package Manager
 
 check_exists_package "pacman" "If this is missing you're in big trouble. Or not on an arch based distro." true
-check_exists_package "paru" "Setup is heavily dependent on the AUR, so paru is needed." true
+
+install_paru() {
+    CURRENT_DIR=$PWD
+    output_info "AUTO-INSTALL" "paru" "Current directory: $CURRENT_DIR"
+    cd /tmp
+    output_info "AUTO-INSTALL" "paru" "Making sure all needed packages are installed"
+    sudo pacman -S --needed base-devel git rustup
+    rustup install nightly
+    output_info "AUTO-INSTALL" "paru" "Cloning paru repository"
+    git clone https://aur.archlinux.org/paru.git
+    cd paru
+    output_info "AUTO-INSTALL" "paru" "Installing paru"
+    makepkg -si
+    output_info "AUTO-INSTALL" "paru" "Switching back to original directory"
+    cd "$CURRENT_DIR"
+}
+check_exists_package "paru" "Setup is heavily dependent on the AUR, so paru is needed." true install_paru
 
 # Groups
 
@@ -199,6 +235,7 @@ check_exists_package "rg" "ripgrep" true
 check_exists_package "fd" "fd" true
 check_exists_package "bat" "bat" true
 check_exists_package "dotter" "(aur) dotter-rs-bin" true
+check_exists_package "fc-list" "fontconfig" true
 
 # Locales
 
