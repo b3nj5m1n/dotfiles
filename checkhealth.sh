@@ -38,11 +38,11 @@ prompt_yes_no() {
 }
 
 check_exists_package() {
-    PACKAGE_NAME=$1
-    HELP=$2
+    COMMAND_NAME=$1
+    PACKAGE_NAME=$2
     ESSENTIAL=$3
     INSTALL_CMD=$4
-    if [ -x "$(command -v $PACKAGE_NAME)" ]; then
+    if [ -x "$(command -v $COMMAND_NAME)" ]; then
         output_sucs "PACKAGES" "$PACKAGE_NAME" "Package installed"
         return 0
     else
@@ -55,6 +55,10 @@ check_exists_package() {
         then
             prompt_yes_no "PACKAGES" "$PACKAGE_NAME" "Would you like to try to install this automatically"
             if ! [ $? = 0 ]; then
+                return 1
+            fi
+            if [ "$INSTALL_CMD" = true ]; then
+                paru -S "$PACKAGE_NAME"
                 return 1
             fi
             "${INSTALL_CMD}"
@@ -219,23 +223,23 @@ check_keyboard_layout "de" "setxkbmap de"
 
 # Essential Packages
 
-check_exists_package "sudo" "base-devel" true
-check_exists_package "fakeroot" "base-devel" true
-check_exists_package "ld" "base-devel" true
-check_exists_package "dhcpcd" "dhcpcd" true
-check_exists_package "iwctl" "iwd" false
-check_exists_package "grub-mkconfig" "grub" true
-check_exists_package "nvim" "(aur) neovim-git" true
-check_exists_package "zsh" "zsh" true
-check_exists_package "tmux" "tmux" true
-check_exists_package "git" "git" true
-check_exists_package "exa" "exa" true
-check_exists_package "zoxide" "zoxide" true
-check_exists_package "rg" "ripgrep" true
-check_exists_package "fd" "fd" true
-check_exists_package "bat" "bat" true
-check_exists_package "dotter" "(aur) dotter-rs-bin" true
-check_exists_package "fc-list" "fontconfig" true
+check_exists_package "sudo" "base-devel" true true
+check_exists_package "fakeroot" "base-devel" true true
+check_exists_package "ld" "base-devel" true true
+check_exists_package "dhcpcd" "dhcpcd" true true
+check_exists_package "iwctl" "iwd" false true
+check_exists_package "grub-mkconfig" "grub" true true
+check_exists_package "nvim" "neovim-git" true true
+check_exists_package "zsh" "zsh" true true
+check_exists_package "tmux" "tmux" true true
+check_exists_package "git" "git" true true
+check_exists_package "exa" "exa" true true
+check_exists_package "zoxide" "zoxide" true true
+check_exists_package "rg" "ripgrep" true true
+check_exists_package "fd" "fd" true true
+check_exists_package "bat" "bat" true true
+check_exists_package "dotter" "dotter-rs-bin" true true
+check_exists_package "fc-list" "fontconfig" true true
 
 # Locales
 
