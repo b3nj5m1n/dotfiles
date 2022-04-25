@@ -113,6 +113,27 @@ check_exists_locale() {
     fi
 }
 
+check_exists_file() {
+    PATH=$1
+    HELP=$2
+    ESSENTIAL=$3
+    if [ -f "$PATH" ]; then
+        output_sucs "FILE" "$PATH" "File exists"
+        return 0
+    else
+        if [ "$ESSENTIAL" = true ]; then
+            output_err "FILE" "$PATH" "File does not exist"
+        else
+            output_warn "FILE" "$PATH" "File does not exist (Not essential)"
+        fi
+        if [ -n "$HELP" ];
+        then
+            output_info "FILE" "$PATH" "$HELP"
+        fi
+        return 1
+    fi
+}
+
 check_group() {
     # https://stackoverflow.com/a/46651233/11110290
     USER=$1
@@ -275,6 +296,7 @@ check_active_sysd "sshd" "Won't be able to connect via ssh"
 
 # Environment Variables
 
+check_env "SHELL" "/bin/zsh" "" true
 check_env "EDITOR" "nvim" "" true
 
 # Fonts
@@ -283,3 +305,7 @@ check_exists_font "FantasqueSansMono Nerd Font" "nerd-fonts-fantasque-sans-mono"
 check_exists_font "FiraCode Nerd Font" "nerd-fonts-fira-code"
 check_exists_font "FiraCode Nerd Font Mono" "nerd-fonts-fira-mono"
 check_exists_font "UbuntuMono Nerd Font" "nerd-fonts-ubuntu-mono"
+
+# Files
+
+check_exists_file "/usr/share/terminfo/a/alacritty-full" "Run compile-terminfo.sh script in files/terminfo." true
