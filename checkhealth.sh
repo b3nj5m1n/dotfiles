@@ -58,7 +58,7 @@ check_exists_package() {
                 return 1
             fi
             if [ "$INSTALL_CMD" = true ]; then
-                paru -S "$PACKAGE_NAME"
+                paru --noconfirm --skipreview -S "$PACKAGE_NAME"
                 return 1
             fi
             "${INSTALL_CMD}"
@@ -86,7 +86,7 @@ check_exists_font() {
         fi
         if [ -n "$HELP" ];
         then
-            output_info "FONTS" "$FONT_NAME" "$HELP"
+            check_exists_package false "$HELP" false true
         fi
         return 1
     fi
@@ -259,7 +259,7 @@ check_env "EDITOR" "nvim" "" true
 
 # Fonts
 
-check_exists_font "FantasqueSansMono Nerd Font" "(aur) nerd-fonts-fantasque-sans-mono" true
-check_exists_font "FiraCode Nerd Font" "(aur) nerd-fonts-fira-code"
-check_exists_font "FiraCode Nerd Font Mono" "(aur) nerd-fonts-fira-mono"
-check_exists_font "UbuntuMono Nerd Font" "(aur) nerd-fonts-ubuntu-mono"
+check_exists_font "FantasqueSansMono Nerd Font" "nerd-fonts-fantasque-sans-mono" true
+check_exists_font "FiraCode Nerd Font" "nerd-fonts-fira-code"
+check_exists_font "FiraCode Nerd Font Mono" "nerd-fonts-fira-mono"
+check_exists_font "UbuntuMono Nerd Font" "nerd-fonts-ubuntu-mono"
