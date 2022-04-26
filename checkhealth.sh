@@ -309,3 +309,4 @@ check_exists_font "UbuntuMono Nerd Font" "nerd-fonts-ubuntu-mono"
 # Files
 
 check_exists_file "/usr/share/terminfo/a/alacritty-full" "Run compile-terminfo.sh script in files/terminfo." true
+check_exists_file "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" "Install zsh-syntax-highlighting-git aur package" true

@@ -111,3 +111,6 @@ eval "$(mcfly init zsh)"
 source ~/.config/shrc
 # Use thefuck
 eval "$(thefuck --alias)"
+
+# Syntax highlighting in zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
