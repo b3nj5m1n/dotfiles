@@ -192,6 +192,8 @@ export PATH="$PATH:$CARGO_HOME/bin"
 export PATH="$PATH:$GEM_HOME/ruby/2.7.0/bin/"
 export PATH="$PATH:$HOME/.rvm/bin"
 
+# Task nag when doing a task that's not top priority
+export TASK_NAG="I desire that we be better strangers."
 
 # Enable colored output wherever that isn't the default
 # alias ls='ls --color=auto'

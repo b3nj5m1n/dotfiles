@@ -16,26 +16,68 @@
 
 # Files
 data.location=$XDG_DATA_HOME/task/
-hooks.location=$XDG_CONFIG_HOME/task/
+hooks.location=$XDG_CONFIG_HOME/task/hooks/
 
 # Urgencies
 urgency.uda.priority.H.coefficient=6.0
 urgency.uda.priority.M.coefficient=3.9
 urgency.uda.priority.L.coefficient=-2.0
 
-# Color theme (uncomment one to use)
-#include light-16.theme
-#include light-256.theme
-#include dark-16.theme
-#include dark-256.theme
-#include dark-red-256.theme
-#include dark-green-256.theme
-#include dark-blue-256.theme
-#include dark-violets-256.theme
-#include dark-yellow-green.theme
-#include dark-gray-256.theme
-#include dark-gray-blue-256.theme
-#include solarized-dark-256.theme
-#include solarized-light-256.theme
-#include no-color.theme
+# Aliases
+alias.burndown=burndown.weekly
+alias.ghistory=ghistory.monthly
+alias.history=history.monthly
+alias.rm=delete
 
+nag=$TASK_NAG
+
+hooks=1
+news.version=2.6.0
+weekstart=monday
+
+# Appearance
+fontunderline=0
+rule.color.merge=1
+rule.precedence.color=deleted,completed,active,keyword.,tag.,project.,overdue,scheduled,due.today,due,blocked,blocking,recurring,tagged,uda.
+row.padding=2
+column.padding=2
+
+# Color configuration
+color.active=rgb555 on rgb410
+color.alternate=on color234
+color.blocked=white on color8
+color.blocking=black on color15
+color.burndown.done=on rgb010
+color.burndown.pending=on color9
+color.burndown.started=on color11
+color.calendar.due=color0 on color1
+color.calendar.due.today=color15 on color1
+color.calendar.holiday=color0 on color11
+color.calendar.overdue=color0 on color9
+color.calendar.scheduled=rgb013 on color15
+color.calendar.today=color15 on rgb013
+color.calendar.weekend=on color235
+color.calendar.weeknumber=rgb013
+color.completed=color232 on color121
+color.deleted=color232 on color211
+color.debug=color4
+color.due=color1
+color.due.today=rgb400
+color.error=white on red
+color.footnote=color3
+color.header=color3
+# color.label
+# color.label.sort
+color.overdue=color9
+# color.project.none
+color.recurring=rgb013
+color.scheduled=on rgb001
+color.summary.background=white on color0
+color.summary.bar=black on rgb141
+color.tag.next=rgb440
+# color.tag.none
+color.tagged=rgb031
+color.uda.priority.H=color210
+color.uda.priority.M=color181
+color.uda.priority.L=color250
+color.warning=bold red
