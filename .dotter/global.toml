@@ -189,6 +189,7 @@ c23 = "#e8e8e8" # Dim
 [zsh.files]
 "files/zsh/zshrc" = "~/.config/zsh/.zshrc"
 "files/zsh/zshenv" = { target = "/etc/zshenv", type = "symbolic", owner = "root" }
+"files/zsh/zshenv" = { target = "/etc/zsh/zshenv", type = "symbolic", owner = "root" }
 [fish.files]
 "files/fish/config.fish" = "~/.config/fish/config.fish"
 [bash.files]
