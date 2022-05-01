@@ -265,12 +265,14 @@ check_exists_package "starship" "starship" true true
 check_exists_package "atuin" "atuin" true true
 check_exists_package "Xorg" "xorg" true true
 check_exists_package "lightdm" "lightdm" true true
+check_exists_package "crond" "cronie" true true
 
 # Non-Essential Packages
 
 check_exists_package "alacritty" "alacritty" false true
 check_exists_package "bspwm" "bspwm" false true
 check_exists_package "sxhkd" "sxhkd" false true
+check_exists_package "polybar" "polybar" false true
 check_exists_package "dunst" "dunst" false true
 check_exists_package "firefox" "firefox" false true
 check_exists_package "neomutt" "neomutt" false true
