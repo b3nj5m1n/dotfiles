@@ -247,10 +247,12 @@ check_keyboard_layout "de" "setxkbmap de"
 check_exists_package "sudo" "base-devel" true true
 check_exists_package "fakeroot" "base-devel" true true
 check_exists_package "ld" "base-devel" true true
+check_exists_package "hostname" "inetutils" true true
 check_exists_package "dhcpcd" "dhcpcd" true true
 check_exists_package "iwctl" "iwd" false true
 check_exists_package "grub-mkconfig" "grub" true true
 check_exists_package "nvim" "neovim-git" true true
+check_exists_package "xclip" "xclip" true true
 check_exists_package "zsh" "zsh" true true
 check_exists_package "tmux" "tmux" true true
 check_exists_package "git" "git" true true
