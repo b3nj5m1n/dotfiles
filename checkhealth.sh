@@ -5,25 +5,25 @@ output_err() {
     MODULE=$1
     NAME=$2
     DESC=$3
-    printf "[\e[1;31m$MODULE\e[1;0m] - [\e[1;91m$NAME\e[1;0m]: $DESC\n"
+    printf "[\e[1;31m$MODULE\e[1;0m] - [\e[1;91m$NAME\e[1;0m]: $DESC\e[1;0m\n"
 }
 output_warn() {
     MODULE=$1
     NAME=$2
     DESC=$3
-    printf "[\e[1;33m$MODULE\e[1;0m] - [\e[1;93m$NAME\e[1;0m]: $DESC\n"
+    printf "[\e[1;33m$MODULE\e[1;0m] - [\e[1;93m$NAME\e[1;0m]: $DESC\e[1;0m\n"
 }
 output_info() {
     MODULE=$1
     NAME=$2
     DESC=$3
-    printf "[\e[1;36m$MODULE\e[1;0m] - [\e[1;96m$NAME\e[1;0m]: \e[1;3m$DESC\n"
+    printf "[\e[1;36m$MODULE\e[1;0m] - [\e[1;96m$NAME\e[1;0m]: \e[1;3m$DESC\e[1;0m\n"
 }
 output_sucs() {
     MODULE=$1
     NAME=$2
     DESC=$3
-    printf "[\e[1;32m$MODULE\e[1;0m] - [\e[1;92m$NAME\e[1;0m]: $DESC\n"
+    printf "[\e[1;32m$MODULE\e[1;0m] - [\e[1;92m$NAME\e[1;0m]: $DESC\e[1;0m\n"
 }
 prompt_yes_no() {
     MODULE=$1
@@ -262,7 +262,7 @@ check_exists_package "bat" "bat" true true
 check_exists_package "dotter" "dotter-rs-bin" true true
 check_exists_package "fc-list" "fontconfig" true true
 check_exists_package "starship" "starship" true true
-check_exists_package "mcfly" "mcfly" true true
+check_exists_package "atuin" "atuin" true true
 check_exists_package "Xorg" "xorg" true true
 check_exists_package "lightdm" "lightdm" true true
 
@@ -288,7 +288,8 @@ check_exists_locale "en_GB.utf8" "" true
 check_exists_locale "de_DE.utf8" "" false
 
 # Services
-
+check_active_sysd "lightdm" "GUI won't be available (Not necessary if lightdm-plymouth is enabled)" false
+check_active_sysd "lightdm-plymouth" "GUI won't be available (Not necessary if lightdm is enabled)" false
 check_active_sysd "dhcpcd" "Ethernet won't work" true
 check_active_sysd "systemd-networkd" "" false
 check_active_sysd "systemd-resolved" "" false
