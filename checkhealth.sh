@@ -285,6 +285,7 @@ check_exists_package "rofi" "rofi" false true
 check_exists_package "task" "task" false true
 check_exists_package "timew" "timew" false true
 check_exists_package "zathura" "zathura" false true
+check_exists_package "keychain" "keychain" false true
 
 # Locales
 
