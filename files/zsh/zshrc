@@ -105,8 +105,8 @@ ssh-add -l 2>/dev/null >/dev/null
 eval "$(starship init zsh)"
 # Init zoxide (Better navigation than with cd)
 eval "$(zoxide init zsh)"
-# Init mcfly (Better Ctrl + r)
-eval "$(mcfly init zsh)"
+# Init atuin (Better Ctrl + r)
+eval "$(atuin init zsh)"
 # Source common aliases, exports, etc.
 source ~/.config/shrc
 # Use thefuck

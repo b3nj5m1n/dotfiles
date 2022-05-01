@@ -117,7 +117,7 @@ ssh-add -l 2>/dev/null >/dev/null
 eval "$(starship init bash)"
 # Init zoxide (Better navigation than with cd)
 eval "$(zoxide init bash)"
-# Init mcfly (Better Ctrl + r)
-eval "$(mcfly init bash)"
+# # Init mcfly (Better Ctrl + r)
+# eval "$(mcfly init bash)"
 # Source common aliases, exports, etc.
 source ~/.config/shrc

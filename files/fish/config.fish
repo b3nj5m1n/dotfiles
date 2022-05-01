@@ -18,8 +18,7 @@ ssh-add -l 2>/dev/null >/dev/null
 starship init fish | source
 # Init zoxide (Better navigation than with cd)
 zoxide init fish | source
-# Init mcfly (Better Ctrl + r)
-mcfly init fish | source
-mcfly_key_bindings
+# Init atuin (Better Ctrl + r)
+atuin init fish | source
 # Source common aliases, exports, etc.
 # source ~/.config/shrc
