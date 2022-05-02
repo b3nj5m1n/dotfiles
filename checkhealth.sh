@@ -261,6 +261,7 @@ check_exists_package "zoxide" "zoxide" true true
 check_exists_package "rg" "ripgrep" true true
 check_exists_package "fd" "fd" true true
 check_exists_package "bat" "bat" true true
+check_exists_package "btm" "bottom" true true
 check_exists_package "dotter" "dotter-rs-bin" true true
 check_exists_package "fc-list" "fontconfig" true true
 check_exists_package "starship" "starship" true true
@@ -268,6 +269,8 @@ check_exists_package "atuin" "atuin" true true
 check_exists_package "Xorg" "xorg" true true
 check_exists_package "lightdm" "lightdm" true true
 check_exists_package "crond" "cronie" true true
+check_exists_package "feh" "feh" true true
+check_exists_package "devour" "devour" true true
 
 # Non-Essential Packages
 
@@ -316,3 +319,4 @@ check_exists_font "UbuntuMono Nerd Font" "nerd-fonts-ubuntu-mono"
 
 check_exists_file "/usr/share/terminfo/a/alacritty-full" "Run compile-terminfo.sh script in files/terminfo." true
 check_exists_file "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" "Install zsh-syntax-highlighting-git aur package" true
+check_exists_file "$(/bin/cat files/bspwm/bspwmrc | /bin/grep "feh" | /bin/sed -r 's/feh --bg-scale (.*) &/\1/')" "Clone & install bigconf" true
