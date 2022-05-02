@@ -3,6 +3,7 @@
 # Automatically commit all changes in the given git repository and push
 
 REPO_DIR="$1"
+SILENT="$2"
 
 NAME="Commitbot"
 EMAIL=""
@@ -10,7 +11,9 @@ EMAIL=""
 # ----- ----- ----- Do not change anything below this line ----- ----- ----- #
 
 notify() {
-    XDG_RUNTIME_DIR=/run/user/$(id -u) notify-send "$1"
+    if [ "$SILENT" != true ]; then
+        XDG_RUNTIME_DIR=/run/user/$(id -u) notify-send "$1"
+    fi
 }
 
 GIT_COMMITTER_NAME="$NAME"
