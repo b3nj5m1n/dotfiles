@@ -269,6 +269,8 @@ check_exists_package "atuin" "atuin" true true
 check_exists_package "Xorg" "xorg" true true
 check_exists_package "lightdm" "lightdm" true true
 check_exists_package "crond" "cronie" true true
+check_exists_package "amixer" "alsa-utils" true true
+check_exists_package "pulseaudio" "pulseaudio" true true
 check_exists_package "feh" "feh" true true
 check_exists_package "devour" "devour" true true
 
@@ -289,6 +291,8 @@ check_exists_package "task" "task" false true
 check_exists_package "timew" "timew" false true
 check_exists_package "zathura" "zathura" false true
 check_exists_package "keychain" "keychain" false true
+check_exists_package "pfetch" "pfetch-git" false true
+check_exists_package "fuck" "thefuck" false true
 
 # Locales
 

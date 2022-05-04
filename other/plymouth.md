@@ -45,7 +45,7 @@ You might have to enable KMS here as well using the following parameter:
 
 ## Make changes take effect
 
-`sudo mkinitcpio -p linux`
+`sudo mkinitcpio -p linux --generate /boot/initramfs-linux.img`
 
 `sudo grub-mkconfig --output=/boot/grub/grub.cfg` (running without `--output` is only a dry-run, took me way too long to realise that)
 
