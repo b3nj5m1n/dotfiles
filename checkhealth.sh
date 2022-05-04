@@ -1,5 +1,10 @@
 #!/bin/bash
 
+YES=false
+if [[ "$1" == "YES" ]]; then
+    YES=true
+fi
+
 # Colored output
 output_err() {
     MODULE=$1
@@ -26,6 +31,9 @@ output_sucs() {
     printf "[\e[1;32m$MODULE\e[1;0m] - [\e[1;92m$NAME\e[1;0m]: $DESC\e[1;0m\n"
 }
 prompt_yes_no() {
+    if [[ $YES == true ]]; then
+        return 0;
+    fi
     MODULE=$1
     PROMPT=$2
     PROMPT=$(printf "[\e[1;35m$MODULE\e[1;0m] - \e[1;95m$PROMPT\e[1;0m? (yes/no) ")
