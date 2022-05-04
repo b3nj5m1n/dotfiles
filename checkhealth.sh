@@ -281,6 +281,7 @@ check_exists_package "amixer" "alsa-utils" true true
 check_exists_package "pulseaudio" "pulseaudio" true true
 check_exists_package "feh" "feh" true true
 check_exists_package "devour" "devour" true true
+check_exists_package "plymouth" "plymouth-git" true true
 
 # Non-Essential Packages
 

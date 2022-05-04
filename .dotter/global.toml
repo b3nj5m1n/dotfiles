@@ -37,7 +37,7 @@ display_battery = true
 display_wlan = true
 multi_monitor = false
 modules = "i915"
-hooks = "base udev plymouth autodetect modconf block filesystems keyboard fsck"
+hooks = "base udev resume plymouth autodetect modconf block filesystems keyboard fsck"
 kernel_parameters = "quiet splash i915.modeset=1 vga=current loglevel=0 rd.udev.log_priority=0 vt.global_cursor_default=0"
 grub_theme = "/usr/share/grub/themes/monterey-grub-theme/theme.txt"
 grub_res = "auto"
@@ -47,8 +47,8 @@ display_battery = false
 display_wlan = false
 multi_monitor = true
 modules = ""
-hooks = "base udev plymouth autodetect modconf block filesystems resume keyboard fsck"
-kernel_parameters = "quiet loglevel=0 nvidia-drm.modeset=1 splash rd.udev.log_priority=0 vt.global_cursor_default=0"
+hooks = "base udev resume plymouth autodetect modconf block filesystems resume keyboard fsck"
+kernel_parameters = "quiet loglevel=0 nvidia-drm.modeset=1 splash rd.udev.log_priority=0 vt.global_cursor_default=0 resume=/dev/sdb1 resume_offset=11730944"
 grub_theme = "/usr/share/grub/themes/monterey-grub-theme/theme.txt"
 grub_res = "1920x1080"
 # ----- Server -----

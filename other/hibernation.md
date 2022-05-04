@@ -2,7 +2,7 @@
 
 ### Kernel Parameters
 
-(Edit `etc/default/grub`)
+(Edit `/etc/default/grub`)
 
 Find the `GRUB_CMDLINE_LINUX_DEFAULT` option, add the following:
 
