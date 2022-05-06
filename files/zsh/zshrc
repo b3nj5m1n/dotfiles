@@ -101,7 +101,7 @@ ssh-add -l 2>/dev/null >/dev/null
 [ $? -ge 2 ] && rm -f "$SSH_AUTH_SOCK" && ssh-agent -a "$SSH_AUTH_SOCK" >/dev/null
 # eval `ssh-agent -a $SSH_AUTH_SOCK` &>/dev/null
 # Keychain
-eval $(keychain --eval --quiet id_rsa)
+eval $(keychain --eval --quiet {{#if ssh_key_name}}{{ssh_key_name}}{{/if}})
 
 # Use starship prompt
 eval "$(starship init zsh)"

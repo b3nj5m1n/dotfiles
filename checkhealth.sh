@@ -128,6 +128,9 @@ check_exists_file() {
     if [ -f "$PATH" ]; then
         output_sucs "FILE" "$PATH" "File exists"
         return 0
+    elif [ -d "$PATH" ]; then
+        output_sucs "FILE" "$PATH" "Directory exists"
+        return 0
     else
         if [ "$ESSENTIAL" = true ]; then
             output_err "FILE" "$PATH" "File does not exist"
@@ -302,6 +305,14 @@ check_exists_package "zathura" "zathura" false true
 check_exists_package "keychain" "keychain" false true
 check_exists_package "pfetch" "pfetch-git" false true
 check_exists_package "fuck" "thefuck" false true
+check_exists_package "difft" "difftastic" false true
+check_exists_package "mpd" "mpd" false true
+check_exists_package "mpc" "mpc" false true
+check_exists_package "greenclip" "greenclip" false true
+check_exists_package "tldr" "tealdeer" false true
+check_exists_package "pod2man" "pod2man" false true # This is needed for python-validity, but not specified as a dependency
+check_exists_package "validity-led-dance" "python-validity" false true # This is needed for python-validity, but not specified as a dependency
+check_exists_package "fprintd-enroll" "fprint" false true
 
 # Locales
 
@@ -315,6 +326,7 @@ check_active_sysd "dhcpcd" "Ethernet won't work" true
 check_active_sysd "systemd-networkd" "" false
 check_active_sysd "systemd-resolved" "" false
 check_active_sysd "sshd" "Won't be able to connect via ssh"
+check_active_sysd "python3-validity" "Thinkpad fingerprint driver"
 
 # Environment Variables
 
@@ -333,3 +345,6 @@ check_exists_font "UbuntuMono Nerd Font" "nerd-fonts-ubuntu-mono"
 check_exists_file "/usr/share/terminfo/a/alacritty-full" "Run compile-terminfo.sh script in files/terminfo." true
 check_exists_file "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" "Install zsh-syntax-highlighting-git aur package" true
 check_exists_file "$(/bin/cat files/bspwm/bspwmrc | /bin/grep "feh" | /bin/sed -r 's/feh --bg-scale (.*) &/\1/')" "Clone & install bigconf" true
+check_exists_file "/home/$USER/.local/share/nvim/site/pack/packer" "Install nvim-packer-git aur package" true
+check_exists_file "/home/$USER/.ssh/id_rsa" "No rsa ssh key found" false
+check_exists_file "/home/$USER/.ssh/id_ed25519" "No ed25519 ssh key found" false
