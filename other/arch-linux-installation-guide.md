@@ -115,10 +115,6 @@ pacstrap /mnt base linux linux-firmware grub lvm2
 
 - `dhcpcd`
 - `iwd`
-- `networkmanager` (I don't think this is necessary)
-- `network-manager-applet` (I don't think this is necessary)
-- `wireless_tools` (I don't think this is necessary)
-- `wpa_supplicant` (I don't think this is necessary)
 
 ##### Bluetooth
 
@@ -246,6 +242,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 ```
 systemctl enable dhcpcd
+systemctl enable iwd
 systemctl enable systemd-networkd
 systemctl enable systemd-resolved
 ```
@@ -267,6 +264,10 @@ exit
 umount -a
 reboot
 ```
+
+## Enable wifi
+
+Run iwctl as before. Make sure the services from above are enabled and running.
 
 ## GUI
 

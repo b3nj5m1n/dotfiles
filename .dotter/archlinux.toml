@@ -1,0 +1,41 @@
+packages = [
+    "redshift",
+    "desktop",
+    "picom",
+    "tmux",
+    "neovim",
+    "zsh",
+    "lisp",
+    "bspwm",
+    "sxhkd",
+    "zathura",
+    "mirage",
+    "lightdm",
+    "taskwarrior",
+    "ssh",
+    "scripts",
+    "emacs",
+    "polybar",
+    "rofi",
+    "ncmcpp",
+    "neomutt",
+    "bash",
+    "fish",
+    "ranger",
+    "system",
+    "gtk",
+    "fonts",
+    "shrc",
+    "dracula",
+    "fantasque",
+    "alacritty",
+    "starship",
+    "dunst",
+    "anki",
+    "cli-visualizer",
+]
+
+[files]
+# "files/firefox/user.js" = "~/.mozilla/firefox/ogee8zmb.default-release/user.js"
+# "files/firefox/userChrome.css" = "~/.mozilla/firefox/ogee8zmb.default-release/chrome/userChrome.css"
+# "files/firefox/userContent.css" = "~/.mozilla/firefox/ogee8zmb.default-release/chrome/userContent.css"
