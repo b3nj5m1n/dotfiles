@@ -94,15 +94,49 @@ vim /etc/pacman.d/mirrorlist
 
 ```
 reflector > /etc/pacman.d/mirrorlist
+# reflector -c Germany -a 6 --sort rate --save /etc/pacman.d/mirrorlist # Or this fancy one
 ```
 
 ### Install system
 
-The bare minimum packages required are `base linux linux-firmware`.
+The bare minimum packages required are `base linux linux-firmware` + `grub` if using grub + `lvm2` if using lvm.
 
 ```
-pacstrap /mnt base linux linux-firmware neovim sudo dhcpcd iwd grub inutils fakeroot base-devel
+pacstrap /mnt base linux linux-firmware grub lvm2
 ```
+
+#### Other packages that might be useful
+
+##### Editor
+
+- `neovim`
+
+##### Network
+
+- `dhcpcd`
+- `iwd`
+- `networkmanager` (I don't think this is necessary)
+- `network-manager-applet` (I don't think this is necessary)
+- `wireless_tools` (I don't think this is necessary)
+- `wpa_supplicant` (I don't think this is necessary)
+
+##### Bluetooth
+
+- `bluez`
+- `bluez-utils`
+- `pulseaudio-bluetooth`
+
+##### System
+
+- `sudo`
+- `git`
+- `xdg-utils`
+- `dialog`
+- `reflector`
+- `fakeroot`
+- `base-devel`
+- `os-prober`
+- `cups` (For printing)
 
 ### Put mount in fstab
 
@@ -144,7 +178,7 @@ locale-gen
 
 ```
 echo "LANG=en_GB.UTF-8" > /etc/locale.conf
-echo "KEYMAP=de-latin1" > /etc/vconsole.conf
+echo "KEYMAP=de" > /etc/vconsole.conf
 ```
 
 ## Network config
@@ -230,6 +264,7 @@ echo "/swapfile none swap defaults 0 0" >> /etc/fstab
 
 ```
 exit
+umount -a
 reboot
 ```
 
