@@ -61,7 +61,7 @@ lvcreate -l 100%FREE GROUPNAME -n home # -l is relative size, in this case it wi
 #### Format volumes
 
 ```
-mkfs.ext4 /dev/sdX1 # This is the boot partition, for UEFI I think it has to be fat32?
+mkfs.ext4 /dev/sdX1 # This is the boot partition, for UEFI I think it has to be fat32? also, you need to make the type uefi, in fdisk: t parition name uefi or something like that.
 mkfs.ext4 /dev/GROUPNAME/root
 mkfs.ext4 /dev/GROUPNAME/home
 mkswap /dev/GROUPNAME/swap
@@ -103,7 +103,7 @@ Update with `mkinitcpio -p linux`.
 
 ### GRUB
 
-`grub-install /dev/sdX`
+`grub-install /dev/sdX` or, for UEFI: `grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB`
 
 Edit `/etc/default/grub`.
 
