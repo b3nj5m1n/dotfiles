@@ -315,6 +315,8 @@ check_exists_package "validity-led-dance" "python-validity" false true # This is
 check_exists_package "fprintd-enroll" "fprint" false true
 check_exists_package "unclutter" "unclutter" false true
 check_exists_package "lsusb" "usbutils" false true
+check_exists_package "clisp" "clisp" false true
+check_exists_package "ros" "roswell" false true
 
 # Locales
 
