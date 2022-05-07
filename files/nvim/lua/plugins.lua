@@ -27,7 +27,7 @@ require('packer').startup({function()
     use {
         'nvim-neorg/neorg',
         branch = "main",
-        commit = "36bffcb37e0d9ae5bec069e13bea22840f1a5aa3",
+        commit = "633dfc9f0c3a00a32ee89d4ab826da2eecfe9bd8",
         requires = 'nvim-lua/plenary.nvim',
         ft = "norg",
         module = "neorg",
