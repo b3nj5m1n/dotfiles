@@ -318,6 +318,7 @@ check_exists_package "lsusb" "usbutils" false true
 check_exists_package "clisp" "clisp" false true
 check_exists_package "ros" "roswell" false true
 check_exists_package "acpi" "acpi" false true
+check_exists_package "rsync" "rsync" false true
 
 # Locales
 
