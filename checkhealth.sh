@@ -314,6 +314,7 @@ check_exists_package "pod2man" "pod2man" false true # This is needed for python-
 check_exists_package "validity-led-dance" "python-validity" false true # This is needed for python-validity, but not specified as a dependency
 check_exists_package "fprintd-enroll" "fprint" false true
 check_exists_package "unclutter" "unclutter" false true
+check_exists_package "lsusb" "usbutils" false true
 
 # Locales
 
