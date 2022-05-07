@@ -46,11 +46,14 @@ prompt_yes_no() {
 }
 
 check_exists_package() {
-    COMMAND_NAME=$1
-    PACKAGE_NAME=$2
+    PACKAGE_NAME=$1
+    HELP=$2
     ESSENTIAL=$3
     INSTALL_CMD=$4
-    if [ -x "$(command -v $COMMAND_NAME)" ]; then
+    if pacman -Qs --quiet "$PACKAGE_NAME" | grep "^$PACKAGE_NAME$" > /dev/null; then
+        output_sucs "PACKAGES" "$PACKAGE_NAME" "Package installed"
+        return 0
+    elif pacman -Qg "$PACKAGE_NAME" | grep "^$PACKAGE_NAME .*$" > /dev/null; then
         output_sucs "PACKAGES" "$PACKAGE_NAME" "Package installed"
         return 0
     else
@@ -66,7 +69,7 @@ check_exists_package() {
                 return 1
             fi
             if [ "$INSTALL_CMD" = true ]; then
-                paru --noconfirm --skipreview -Sy "$PACKAGE_NAME"
+                paru --noconfirm --skipreview --needed -Sy "$PACKAGE_NAME"
                 return 1
             fi
             "${INSTALL_CMD}"
@@ -94,7 +97,7 @@ check_exists_font() {
         fi
         if [ -n "$HELP" ];
         then
-            check_exists_package false "$HELP" false true
+            check_exists_package "$HELP" false false true
         fi
         return 1
     fi
@@ -122,24 +125,24 @@ check_exists_locale() {
 }
 
 check_exists_file() {
-    PATH=$1
+    FILE_PATH=$1
     HELP=$2
     ESSENTIAL=$3
-    if [ -f "$PATH" ]; then
-        output_sucs "FILE" "$PATH" "File exists"
+    if [ -f "$FILE_PATH" ]; then
+        output_sucs "FILE" "$FILE_PATH" "File exists"
         return 0
-    elif [ -d "$PATH" ]; then
-        output_sucs "FILE" "$PATH" "Directory exists"
+    elif [ -d "$FILE_PATH" ]; then
+        output_sucs "FILE" "$FILE_PATH" "Directory exists"
         return 0
     else
         if [ "$ESSENTIAL" = true ]; then
-            output_err "FILE" "$PATH" "File does not exist"
+            output_err "FILE" "$FILE_PATH" "File does not exist"
         else
-            output_warn "FILE" "$PATH" "File does not exist (Not essential)"
+            output_warn "FILE" "$FILE_PATH" "File does not exist (Not essential)"
         fi
         if [ -n "$HELP" ];
         then
-            output_info "FILE" "$PATH" "$HELP"
+            output_info "FILE" "$FILE_PATH" "$HELP"
         fi
         return 1
     fi
@@ -223,10 +226,6 @@ check_env() {
     fi
 }
 
-# Package Manager
-
-check_exists_package "pacman" "If this is missing you're in big trouble. Or not on an arch based distro." true
-
 install_paru() {
     CURRENT_DIR=$PWD
     output_info "AUTO-INSTALL" "paru" "Current directory: $CURRENT_DIR"
@@ -242,115 +241,120 @@ install_paru() {
     output_info "AUTO-INSTALL" "paru" "Switching back to original directory"
     cd "$CURRENT_DIR"
 }
+
+# Basic system functionality
+check_exists_package "pacman" "If this is missing you're in big trouble. Or not on an arch based distro." true
 check_exists_package "paru" "Setup is heavily dependent on the AUR, so paru is needed." true install_paru
-
-# Groups
-
+check_exists_package "git" "" true true
+check_exists_package "base-devel" "" true true
 check_group "$USER" "wheel" true
-check_group "$USER" "docker"
-
-# Keyboard layout
-
-check_keyboard_layout "de" "setxkbmap de"
-
-# Essential Packages
-
-check_exists_package "sudo" "base-devel" true true
-check_exists_package "fakeroot" "base-devel" true true
-check_exists_package "ld" "base-devel" true true
-check_exists_package "hostname" "inetutils" true true
-check_exists_package "dhcpcd" "dhcpcd" true true
-check_exists_package "iwctl" "iwd" false true
-check_exists_package "grub-mkconfig" "grub" true true
-check_exists_package "nvim" "neovim-git" true true
-check_exists_package "xclip" "xclip" true true
-check_exists_package "zsh" "zsh" true true
-check_exists_package "tmux" "tmux" true true
-check_exists_package "git" "git" true true
-check_exists_package "exa" "exa" true true
-check_exists_package "zoxide" "zoxide" true true
-check_exists_package "rg" "ripgrep" true true
-check_exists_package "fd" "fd" true true
-check_exists_package "bat" "bat" true true
-check_exists_package "btm" "bottom" true true
-check_exists_package "dotter" "dotter-rs-bin" true true
-check_exists_package "fc-list" "fontconfig" true true
-check_exists_package "starship" "starship" true true
-check_exists_package "atuin" "atuin" true true
-check_exists_package "Xorg" "xorg" true true
-check_exists_package "lightdm" "lightdm" true true
-check_exists_package "crond" "cronie" true true
-check_exists_package "amixer" "alsa-utils" true true
-check_exists_package "pulseaudio" "pulseaudio" true true
-check_exists_package "feh" "feh" true true
-check_exists_package "devour" "devour" true true
-check_exists_package "plymouth" "plymouth-git" true true
-
-# Non-Essential Packages
-
-check_exists_package "alacritty" "alacritty" false true
-check_exists_package "bspwm" "bspwm" false true
-check_exists_package "sxhkd" "sxhkd" false true
-check_exists_package "polybar" "polybar" false true
-check_exists_package "dunst" "dunst" false true
-check_exists_package "firefox" "firefox" false true
-check_exists_package "neomutt" "neomutt" false true
-check_exists_package "ncmpcpp" "ncmpcpp" false true
-check_exists_package "picom" "picom" false true
-check_exists_package "redshift" "redshift" false true
-check_exists_package "rofi" "rofi" false true
-check_exists_package "task" "task" false true
-check_exists_package "timew" "timew" false true
-check_exists_package "zathura" "zathura" false true
-check_exists_package "keychain" "keychain" false true
-check_exists_package "pfetch" "pfetch-git" false true
-check_exists_package "fuck" "thefuck" false true
-check_exists_package "difft" "difftastic" false true
-check_exists_package "mpd" "mpd" false true
-check_exists_package "mpc" "mpc" false true
-check_exists_package "greenclip" "greenclip" false true
-check_exists_package "tldr" "tealdeer" false true
-check_exists_package "pod2man" "pod2man" false true # This is needed for python-validity, but not specified as a dependency
-check_exists_package "validity-led-dance" "python-validity" false true # This is needed for python-validity, but not specified as a dependency
-check_exists_package "fprintd-enroll" "fprint" false true
-check_exists_package "unclutter" "unclutter" false true
-check_exists_package "lsusb" "usbutils" false true
-check_exists_package "clisp" "clisp" false true
-check_exists_package "ros" "roswell" false true
-check_exists_package "acpi" "acpi" false true
-check_exists_package "rsync" "rsync" false true
-
-# Locales
-
+check_exists_package "grub" "" true true
+check_exists_package "fontconfig" "" true true
+check_exists_package "cronie" "" true true
+check_exists_package "acpi" "" false true
+check_exists_package "rsync" "" false true
+check_exists_package "usbutils" "" false true
 check_exists_locale "en_GB.utf8" "" true
 check_exists_locale "de_DE.utf8" "" false
-
-# Services
 check_active_sysd "lightdm" "GUI won't be available (Not necessary if lightdm-plymouth is enabled)" false
 check_active_sysd "lightdm-plymouth" "GUI won't be available (Not necessary if lightdm is enabled)" false
+check_active_sysd "sshd" "Won't be able to connect via ssh"
+
+# Networking
+check_exists_package "inetutils" "" true true
+check_exists_package "dhcpcd" "" true true
+check_exists_package "iwd" "" false true
 check_active_sysd "dhcpcd" "Ethernet won't work" true
 check_active_sysd "systemd-networkd" "" false
 check_active_sysd "systemd-resolved" "" false
-check_active_sysd "sshd" "Won't be able to connect via ssh"
-check_active_sysd "python3-validity" "Thinkpad fingerprint driver"
 
-# Environment Variables
-
+# Command Line
+check_exists_package "zsh" "" true true
+check_exists_package "tmux" "" true true
+check_exists_package "neovim-git" "" true true
+check_exists_package "zoxide" "" true true
+check_exists_package "atuin" "" true true
+check_exists_package "starship" "" true true
+check_exists_package "exa" "" true true
+check_exists_package "ripgrep" "" true true
+check_exists_package "fd" "" true true
+check_exists_package "bat" "" true true
+check_exists_package "bottom" "" true true
+check_exists_package "neomutt" "" false true
+check_exists_package "ncmpcpp" "" false true
+check_exists_package "task" "" false true
+check_exists_package "timew" "" false true
+check_exists_package "keychain" "" false true
+check_exists_package "pfetch-git" "" false true
+check_exists_package "thefuck" "" false true
+check_exists_package "difftastic" "" false true
+check_exists_package "mpd" "" false true
+check_exists_package "mpc" "" false true
+check_exists_package "rofi-greenclip" "" false true
+check_exists_package "tealdeer" "" false true
 check_env "SHELL" "/bin/zsh" "" true
 check_env "EDITOR" "nvim" "" true
+check_exists_file "/usr/share/terminfo/a/alacritty-full" "Run compile-terminfo.sh script in files/terminfo." true
+check_exists_file "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" "Install zsh-syntax-highlighting-git aur package" true
+check_exists_file "/home/$USER/.local/share/nvim/site/pack/packer" "Install nvim-packer-git aur package" true
 
-# Fonts
+# Dotfiles
+check_exists_package "dotter-rs-bin" "" true true
 
+# Docker
+check_group "$USER" "docker"
+
+# Graphical Environment
+check_exists_package "xorg" "" true true
+check_exists_package "lightdm" "" true true
+check_exists_package "bspwm" "" false true
+check_exists_package "sxhkd" "" false true
+check_exists_package "polybar" "" false true
+check_exists_package "dunst" "" false true
+check_keyboard_layout "de" "setxkbmap de"
+check_exists_package "xclip" "" true true
+check_exists_package "alsa-utils" "" true true
+check_exists_package "pulseaudio" "" true true
+check_exists_package "plymouth-git" "" true true
+check_exists_package "alacritty" "" false true
+check_exists_package "firefox" "" false true
+check_exists_package "picom" "" false true
+check_exists_package "redshift" "" false true
+check_exists_package "rofi" "" false true
+check_exists_package "zathura" "" false true
+check_exists_package "feh" "" true true
+check_exists_package "devour" "" true true
+check_exists_package "unclutter" "" false true
 check_exists_font "FantasqueSansMono Nerd Font" "nerd-fonts-fantasque-sans-mono" true
 check_exists_font "FiraCode Nerd Font" "nerd-fonts-fira-code"
 check_exists_font "FiraCode Nerd Font Mono" "nerd-fonts-fira-mono"
 check_exists_font "UbuntuMono Nerd Font" "nerd-fonts-ubuntu-mono"
-
-# Files
-
-check_exists_file "/usr/share/terminfo/a/alacritty-full" "Run compile-terminfo.sh script in files/terminfo." true
-check_exists_file "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" "Install zsh-syntax-highlighting-git aur package" true
 check_exists_file "$(/bin/cat files/bspwm/bspwmrc | /bin/grep "feh" | /bin/sed -r 's/feh --bg-scale (.*) &/\1/')" "Clone & install bigconf" true
-check_exists_file "/home/$USER/.local/share/nvim/site/pack/packer" "Install nvim-packer-git aur package" true
+
+# Firmware
+check_exists_package "pod2man" "" false true # This is needed for python-validity, but not specified as a dependency
+check_exists_package "python-validity" "" false true # This is needed for python-validity, but not specified as a dependency
+check_exists_package "fprint" "" false true
+check_active_sysd "python3-validity" "Thinkpad fingerprint driver"
+
+# Security
+
 check_exists_file "/home/$USER/.ssh/id_rsa" "No rsa ssh key found" false
 check_exists_file "/home/$USER/.ssh/id_ed25519" "No ed25519 ssh key found" false
+
+# Language-specific Development Packages
+
+## Bash
+check_exists_package "bash-language-server" "" false true
+
+## C/C++
+check_exists_package "clang" "" false true
+
+## Haskell
+check_exists_package "ghc" "" false true
+check_exists_package "ghc-static" "" false true
+check_exists_package "ghc-libs" "" false true
+
+## Common Lisp
+check_exists_package "clisp" "" false true
+check_exists_package "roswell" "" false true

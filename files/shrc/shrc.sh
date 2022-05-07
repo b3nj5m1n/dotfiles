@@ -73,7 +73,7 @@ alias ahelp="alias_help" # List all available aliases
 
 alias sx='systemctl suspend && exit' # Suspend
 
-alias pac='paru --skipreview --noremovemake --nocleanafter --sudoloop --pgpfetch --batchinstall' # Package manager
+alias pac='paru --skipreview --bottomup --noremovemake --nocleanafter --sudoloop --pgpfetch --batchinstall' # Package manager
 
 alias cl='ros exec cl-repl' # Common Lisp repl
 
