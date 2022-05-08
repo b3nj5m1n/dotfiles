@@ -358,3 +358,12 @@ check_exists_package "ghc-libs" "" false true
 ## Common Lisp
 check_exists_package "clisp" "" false true
 check_exists_package "roswell" "" false true
+
+## Web
+check_exists_package "npm" "" false true
+check_exists_package "yarn" "" false true
+check_exists_package "elm-platform-bin" "" false true
+check_exists_package "typescript" "" false true
+check_exists_package "typescript-language-server" "" false true
+check_exists_package "vscode-html-languageserver" "" false true
+check_exists_package "vscode-css-languageserver" "" false true
