@@ -325,6 +325,7 @@ check_exists_package "zathura" "" false true
 check_exists_package "feh" "" true true
 check_exists_package "devour" "" true true
 check_exists_package "unclutter" "" false true
+check_exists_package "rofi-calc" "" false true
 check_exists_font "FantasqueSansMono Nerd Font" "nerd-fonts-fantasque-sans-mono" true
 check_exists_font "FiraCode Nerd Font" "nerd-fonts-fira-code"
 check_exists_font "FiraCode Nerd Font Mono" "nerd-fonts-fira-mono"
