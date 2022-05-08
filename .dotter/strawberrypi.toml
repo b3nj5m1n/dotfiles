@@ -6,6 +6,7 @@ packages = [
     "zsh",
     "bash",
     "scripts",
+    "profile",
     "system",
     "fonts",
     "shrc",
