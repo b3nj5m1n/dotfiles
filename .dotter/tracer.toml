@@ -1,0 +1,32 @@
+packages = [
+    "redshift",
+    "laptop",
+    "picom",
+    "tmux",
+    "neovim",
+    "zsh",
+    "bspwm",
+    "sxhkd",
+    "zathura",
+    "ssh",
+    "scripts",
+    "polybar",
+    "rofi",
+    "ncmcpp",
+    "neomutt",
+    "bash",
+    "fish",
+    "ranger",
+    "fonts",
+    "shrc",
+    "dracula",
+    "firamono",
+    "alacritty",
+    "starship",
+    "dunst",
+]
+
+[files]
+"files/firefox/user.js" = "~/.mozilla/firefox/5ivqh71m.default-release/user.js"
+"files/firefox/userChrome.css" = "~/.mozilla/firefox/5ivqh71m.default-release/chrome/userChrome.css"
+"files/firefox/userContent.css" = "~/.mozilla/firefox/5ivqh71m.default-release/chrome/userContent.css"
