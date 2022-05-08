@@ -33,6 +33,8 @@ font_size_float = "13.0"
 
 # ----- Dingspad -----
 [dingspad.variables]
+disable_touchpad = true
+touchpad_xid = 12
 display_battery = true
 display_wlan = true
 multi_monitor = false
