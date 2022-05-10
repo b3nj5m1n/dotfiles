@@ -278,6 +278,7 @@ check_exists_locale "de_DE.utf8" "" false
 check_active_sysd "lightdm" "GUI won't be available (Not necessary if lightdm-plymouth is enabled)" false
 check_active_sysd "lightdm-plymouth" "GUI won't be available (Not necessary if lightdm is enabled)" false
 check_active_sysd "sshd" "Won't be able to connect via ssh"
+check_active_sysd "wget" ""
 
 # Networking
 check_exists_package "inetutils" "" true true
@@ -395,3 +396,8 @@ check_exists_package "jre-openjdk" "" false true
 check_exists_package "jdtls" "" false true
 check_owner "$USER" "/usr/share/java/jdtls" false # Needed for jdtls to function properly
 
+## Lua
+check_exists_package "lua" "" false true
+check_exists_package "luajit" "" false true
+check_exists_package "luarocks" "" false true
+check_exists_package "lua-language-server-git" "" false true
