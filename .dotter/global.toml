@@ -282,6 +282,7 @@ c23 = "#e8e8e8" # Dim
 "scripts/sxhkd-help-page.sh" = { target = "/usr/bin/scripts/sxhkd-help-page.sh", type = "template", owner = "root" }
 "scripts/take-screenshot.sh" = { target = "/usr/bin/scripts/take-screenshot.sh", type = "template", owner = "root" }
 "scripts/wally.sh" = { target = "/usr/bin/scripts/wally.sh", type = "template", owner = "root" }
+"scripts/auto_commit.sh" = { target = "/usr/bin/scripts/auto_commit.sh", type = "template", owner = "root" }
 
 
 
