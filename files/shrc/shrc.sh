@@ -186,6 +186,8 @@ export NVM_DIR="$XDG_DATA_HOME/nvm"
 export GEM_HOME="$XDG_DATA_HOME/gem"
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME/java"
+export JDTLS_HOME="/usr/share/java/jdtls"
+export JDK_HOME="/usr/lib/jvm/default"
 
 # Path variable
 export PATH="$PATH:$CARGO_HOME/bin"

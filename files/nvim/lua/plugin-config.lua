@@ -42,7 +42,7 @@ function M.lsp()
     local lspconfig = require('lspconfig')
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-    local servers = { "bashls", "clangd", "clangd", "cmake", "cssls", "elmls", "html", "jsonls", "rust_analyzer", "tsserver", "tsserver", "yamlls" }
+    local servers = { "bashls", "clangd", "clangd", "cmake", "cssls", "elmls", "html", "jsonls", "rust_analyzer", "tsserver", "tsserver", "yamlls", "jdtls" }
     for _, server in pairs(servers) do
         lspconfig[server].setup{
             capabilities = capabilities,

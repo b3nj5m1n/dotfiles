@@ -226,6 +226,25 @@ check_env() {
     fi
 }
 
+check_owner() {
+    # https://stackoverflow.com/a/46651233/11110290
+    OWNER=$1
+    DIR=$2
+    ESSENTIAL=$3
+    if [[ $(fd --hidden . "$DIR" --owner "!$OWNER" | wc -l) = 0 ]]; then
+        output_sucs "OWNER" "$OWNER" "$OWNER owns all of $DIR"
+        return 0
+    else
+        if [ "$ESSENTIAL" = true ]; then
+            output_err "OWNER" "$OWNER" "$OWNER doesn't own all of $DIR"
+        else
+            output_warn "OWNER" "$OWNER" "$OWNER doesn't own all of $DIR (Not essential)"
+        fi
+        output_info "OWNER" "$OWNER" "sudo chown -R $USER $DIR"
+        return 1
+    fi
+}
+
 install_paru() {
     CURRENT_DIR=$PWD
     output_info "AUTO-INSTALL" "paru" "Current directory: $CURRENT_DIR"
@@ -292,6 +311,7 @@ check_exists_package "mpd" "" false true
 check_exists_package "mpc" "" false true
 check_exists_package "rofi-greenclip" "" false true
 check_exists_package "tealdeer" "" false true
+check_exists_package "mlocate" "" false true
 check_env "SHELL" "/bin/zsh" "" true
 check_env "EDITOR" "nvim" "" true
 check_exists_file "/usr/share/terminfo/a/alacritty-full" "Run compile-terminfo.sh script in files/terminfo." true
@@ -368,3 +388,10 @@ check_exists_package "typescript" "" false true
 check_exists_package "typescript-language-server" "" false true
 check_exists_package "vscode-html-languageserver" "" false true
 check_exists_package "vscode-css-languageserver" "" false true
+
+## Java *shudder*
+check_exists_package "jdk-openjdk" "" false true
+check_exists_package "jre-openjdk" "" false true
+check_exists_package "jdtls" "" false true
+check_owner "$USER" "/usr/share/java/jdtls" false # Needed for jdtls to function properly
+
