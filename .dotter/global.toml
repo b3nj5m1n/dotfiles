@@ -39,10 +39,11 @@ display_battery = true
 display_wlan = true
 multi_monitor = false
 ssh_key_name = "id_ed25519"
-modules = ""
-hooks = "base udev autodetect keyboard keymap modconf block encrypt lvm2 filesystems fsck"
+init_files = "/usr/lib/libfido2.so.1"
+init_modules = ""
+init_hooks = "base systemd udev autodetect keyboard keymap sd-vconsole modconf block sd-encrypt lvm2 filesystems fsck"
 kernel_parameters_default = "loglevel=3 quiet"
-kernel_parameters = "cryptdevice=UUID=267e9431-67d9-4d91-a21b-682396d407ee:parts root=/dev/v/root"
+kernel_parameters = "rd.luks.name=267e9431-67d9-4d91-a21b-682396d407ee:parts root=/dev/v/root"
 grub_theme = "/usr/share/grub/themes/monterey-grub-theme/theme.txt"
 grub_res = "auto"
 # ----- Laptop -----
@@ -51,8 +52,8 @@ display_battery = true
 display_wlan = true
 multi_monitor = false
 ssh_key_name = "id_rsa"
-modules = "i915"
-hooks = "base udev resume plymouth autodetect modconf block filesystems keyboard fsck"
+init_modules = "i915"
+init_hooks = "base udev resume plymouth autodetect modconf block filesystems keyboard fsck"
 kernel_parameters = "quiet splash i915.modeset=1 vga=current loglevel=0 rd.udev.log_priority=0 vt.global_cursor_default=0"
 grub_theme = "/usr/share/grub/themes/monterey-grub-theme/theme.txt"
 grub_res = "auto"
@@ -62,8 +63,8 @@ display_battery = false
 display_wlan = false
 multi_monitor = true
 ssh_key_name = "id_rsa"
-modules = ""
-hooks = "base udev resume plymouth autodetect modconf block filesystems resume keyboard fsck"
+init_modules = ""
+init_hooks = "base udev resume plymouth autodetect modconf block filesystems resume keyboard fsck"
 kernel_parameters = "quiet loglevel=0 nvidia-drm.modeset=1 splash rd.udev.log_priority=0 vt.global_cursor_default=0 resume=/dev/sdb1 resume_offset=11730944"
 grub_theme = "/usr/share/grub/themes/monterey-grub-theme/theme.txt"
 grub_res = "1920x1080"
