@@ -363,6 +363,8 @@ check_active_sysd "python3-validity" "Thinkpad fingerprint driver"
 
 check_exists_file "/home/$USER/.ssh/id_rsa" "No rsa ssh key found" false
 check_exists_file "/home/$USER/.ssh/id_ed25519" "No ed25519 ssh key found" false
+check_exists_package "yubikey-manager" "" false true
+check_exists_package "libfido2" "" false true
 
 # Language-specific Development Packages
 
