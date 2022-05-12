@@ -270,17 +270,17 @@ check_not_exists_file() {
         then
             output_info "FILE" "$FILE_PATH" "$HELP"
         fi
-        return 0
+        return 1
     elif [ -d "$FILE_PATH" ]; then
         output_warn "FILE" "$FILE_PATH" "Directory exists, but shouldn't. You may be able to take steps to remove it."
         if [ -n "$HELP" ];
         then
             output_info "FILE" "$FILE_PATH" "$HELP"
         fi
-        return 0
+        return 1
     else
         output_sucs "FILE" "$FILE_PATH" "File doesn't exists (it shouldn't)."
-        return 1
+        return 0
     fi
 }
 
@@ -402,6 +402,8 @@ check_exists_package "clang" "" false true
 check_exists_package "ghc" "" false true
 check_exists_package "ghc-static" "" false true
 check_exists_package "ghc-libs" "" false true
+check_exists_package "haskell-language-server" "" false true
+check_exists_package "cabal-install" "" false true
 
 ## Common Lisp
 check_exists_package "clisp" "" false true
@@ -455,6 +457,10 @@ tmp=${XDG_RUNTIME_DIR}/npm
 init-module=${XDG_CONFIG_HOME}/npm/config/npm-init.js
 \`\`\`
 You then need to manually transfer the existing data, or simply delete it.
+"""
+check_not_exists_file "$HOME/.yarnrc" """\
+You can alias yarn to use a different yarnrc
+alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
 """
 check_not_exists_file "$HOME/.yarn" """\
 Currently not fixable. (But you can probably just delete the dir)
