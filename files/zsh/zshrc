@@ -1,10 +1,26 @@
-if [ $(($RANDOM % 4)) -eq $((1)) ]; then
-    pfetch
-fi
-
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
+
+if [ $(($RANDOM % 4)) -eq $((1)) ]; then
+    pfetch
+elif [ $(($RANDOM % 4)) -eq $((1)) ]; then
+    homedir_count=$(/bin/ls -a "$HOME" | /bin/wc -l)
+    if [ -f "$XDG_CACHE_HOME/homedir_count" ]; then
+        prev_homedir_count=$(cat "$XDG_CACHE_HOME/homedir_count")
+    else
+        prev_homedir_count="$homedir_count"
+    fi
+    if [ "$homedir_count" -gt "$prev_homedir_count" ]; then
+        echo "\e[1;33mThe number of files in your home directory has increased from $prev_homedir_count to $homedir_count."
+    elif [ "$homedir_count" -lt "$prev_homedir_count" ]; then
+        echo "\e[1;32mThe number of files in your home directory has decreased from $prev_homedir_count to $homedir_count."
+    fi
+    if [ "$homedir_count" -gt 20 ]; then
+        echo "\e[1;31mThere are more than 20 files in your home directory."
+    fi
+    printf "$homedir_count" >  "$XDG_CACHE_HOME/homedir_count"
+fi
 
 # The following lines were added by compinstall
 
