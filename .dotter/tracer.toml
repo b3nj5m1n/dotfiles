@@ -24,6 +24,7 @@ packages = [
     "alacritty",
     "starship",
     "dunst",
+    "npm",
 ]
 
 [files]

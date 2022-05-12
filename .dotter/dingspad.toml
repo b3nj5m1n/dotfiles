@@ -32,6 +32,7 @@ packages = [
     "dunst",
     "anki",
     "cli-visualizer",
+    "npm",
 ]
 
 [files]
