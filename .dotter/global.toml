@@ -44,7 +44,7 @@ init_modules = ""
 init_hooks = "base systemd udev autodetect keyboard keymap sd-vconsole modconf block sd-encrypt lvm2 filesystems fsck"
 kernel_parameters_default = "loglevel=3 quiet"
 kernel_parameters = "rd.luks.name=267e9431-67d9-4d91-a21b-682396d407ee:parts root=/dev/v/root"
-grub_theme = "/usr/share/grub/themes/monterey-grub-theme/theme.txt"
+grub_theme = "/boot/themes/monterey-grub-theme/theme.txt"
 grub_res = "auto"
 # ----- Laptop -----
 [laptop.variables]
