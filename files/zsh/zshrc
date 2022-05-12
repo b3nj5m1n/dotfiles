@@ -101,7 +101,7 @@ bindkey -M vicmd ' ' edit-command-line
 # [ $? -ge 2 ] && rm -f "$SSH_AUTH_SOCK" && ssh-agent -a "$SSH_AUTH_SOCK" >/dev/null
 # eval `ssh-agent -a $SSH_AUTH_SOCK` &>/dev/null
 # Keychain
-eval $(keychain --eval --quiet {{#if ssh_key_name}}{{ssh_key_name}}{{/if}})
+eval $(keychain --dir "$XDG_CACHE_HOME/keychain" --eval --quiet {{#if ssh_key_name}}{{ssh_key_name}}{{/if}})
 
 # Use starship prompt
 eval "$(starship init zsh)"
