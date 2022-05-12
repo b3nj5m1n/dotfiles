@@ -337,6 +337,7 @@ check_exists_package "xclip" "" true true
 check_exists_package "alsa-utils" "" true true
 check_exists_package "pulseaudio" "" true true
 check_exists_package "plymouth-git" "" true true
+check_exists_package "plymouth-theme-dotlock" "" true true
 check_exists_package "alacritty" "" false true
 check_exists_package "firefox" "" false true
 check_exists_package "picom" "" false true
