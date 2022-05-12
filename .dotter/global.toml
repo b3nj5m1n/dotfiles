@@ -167,7 +167,7 @@ c23 = "#e8e8e8" # Dim
 "scripts/polybar/powermenu.sh" = { target = "/usr/bin/polyscripts/powermenu.sh", type = "template", owner = "root" }
 "scripts/polybar/uptime.sh" = { target = "/usr/bin/polyscripts/uptime.sh", type = "template", owner = "root" }
 [gtk.files]
-"files/gtk/gtkrc-2.0" = "~/.config/gtk-2.0/.gtkrc-2.0"
+"files/gtk/gtkrc-2.0" = "~/.config/gtk-2.0/gtkrc-2.0"
 "files/gtk/settings.ini" = "~/.config/gtk-3.0/settings.ini"
 [picom.files]
 "files/picom/picom.conf" = "~/.config/picom.conf"
