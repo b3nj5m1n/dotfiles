@@ -248,7 +248,7 @@ c23 = "#e8e8e8" # Dim
 "files/alacritty/alacritty.yml" = "~/.config/alacritty/alacritty.yml"
 [tmux.files]
 "files/tmux/tmux.conf" = "~/.config/tmux/tmux.conf"
-"files/tmux/tmux.conf.home" = "~/.tmux.conf"
+# "files/tmux/tmux.conf.home" = "~/.tmux.conf"
 "scripts/tmuxleft.sh" = { target = "/usr/bin/scripts/tmuxleft.sh", type = "template", owner = "root" }
 "scripts/tmuxright.sh" = { target = "/usr/bin/scripts/tmuxright.sh", type = "template", owner = "root" }
 "scripts/tmuxstssrc.sh" = { target = "/usr/bin/scripts/tmuxstssrc.sh", type = "template", owner = "root" }

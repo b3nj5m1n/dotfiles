@@ -261,6 +261,29 @@ install_paru() {
     cd "$CURRENT_DIR"
 }
 
+check_not_exists_file() {
+    FILE_PATH=$1
+    HELP=$2
+    if [ -f "$FILE_PATH" ]; then
+        output_warn "FILE" "$FILE_PATH" "File exists, but shouldn't. You may be able to take steps to remove it."
+        if [ -n "$HELP" ];
+        then
+            output_info "FILE" "$FILE_PATH" "$HELP"
+        fi
+        return 0
+    elif [ -d "$FILE_PATH" ]; then
+        output_warn "FILE" "$FILE_PATH" "Directory exists, but shouldn't. You may be able to take steps to remove it."
+        if [ -n "$HELP" ];
+        then
+            output_info "FILE" "$FILE_PATH" "$HELP"
+        fi
+        return 0
+    else
+        output_sucs "FILE" "$FILE_PATH" "File doesn't exists (it shouldn't)."
+        return 1
+    fi
+}
+
 # Basic system functionality
 check_exists_package "pacman" "If this is missing you're in big trouble. Or not on an arch based distro." true
 check_exists_package "paru" "Setup is heavily dependent on the AUR, so paru is needed." true install_paru
@@ -404,3 +427,50 @@ check_exists_package "lua" "" false true
 check_exists_package "luajit" "" false true
 check_exists_package "luarocks" "" false true
 check_exists_package "lua-language-server-git" "" false true
+
+# XDG Base Dir Spec
+
+check_not_exists_file "$HOME/.gitconfig" """\
+Git looks for a config file in $XDG_CONFIG_HOME/git/config.
+This means you can simply move your .gitconfig:
+mv $HOME $XDG_CONFIG_HOME/git/config
+"""
+check_not_exists_file "$HOME/.fehbg" """\
+You have to explicitly disable the creation of this file.
+Pass the --no-fehbg flag to the command when setting the background, and remove the file manually.
+"""
+check_not_exists_file "$HOME/.gtkrc-2.0" """\
+You can specify the location of this file with the GTK2_RC_FILES environment variable.
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
+Move the file from $HOME yourself.
+"""
+check_not_exists_file "$HOME/.npm" """\
+You first have to specify the location of an npmrc via an environment variable:
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+Now, in that file, you have to specify the following:
+\`\`\`
+prefix=${XDG_DATA_HOME}/npm
+cache=${XDG_CACHE_HOME}/npm
+tmp=${XDG_RUNTIME_DIR}/npm
+init-module=${XDG_CONFIG_HOME}/npm/config/npm-init.js
+\`\`\`
+You then need to manually transfer the existing data, or simply delete it.
+"""
+check_not_exists_file "$HOME/.yarn" """\
+Currently not fixable. (But you can probably just delete the dir)
+"""
+check_not_exists_file "$HOME/.ssh" """\
+Currently not fixable.
+"""
+check_not_exists_file "$HOME/.mozilla" """\
+Currently not fixable.
+"""
+check_not_exists_file "$HOME/.pki" """\
+Currently not fixable.
+"""
+check_not_exists_file "$HOME/.tmux.conf" """\
+Since tmux 3.2, $XDG_CONFIG_HOME/tmux/tmux.conf is supported.
+"""
+check_not_exists_file "$HOME/.bashrc" """\
+Not really fixable.
+"""
