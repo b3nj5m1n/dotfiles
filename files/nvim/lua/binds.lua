@@ -42,7 +42,7 @@ vim.api.nvim_set_keymap('i', '<CR>', 'ncm2_ultisnips#expand_or("\\<CR>", "n")', 
 -- vim.api.nvim_set_keymap('n', '<leader>lsd', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', opts)
 -- vim.api.nvim_set_keymap('n', '<leader>lsw', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>', opts)
 -- vim.api.nvim_set_keymap('n', '<leader>le', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>ll', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>ll', '<cmd>lua vim.lsp.buf.format{async = true}<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>lf', [[ <cmd>lua require'lspsaga.provider'.lsp_finder()<CR> ]], opts)
 vim.api.nvim_set_keymap('n', '<leader>la', [[ <cmd>lua require('lspsaga.codeaction').code_action()<CR> ]], opts)
 vim.api.nvim_set_keymap('n', '<leader>ld', [[ <cmd>lua require('lspsaga.hover').render_hover_doc()<CR> ]], opts)
