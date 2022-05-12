@@ -8,4 +8,4 @@ cp "$CURRENT_WALLPAPER" "$WALLPAPER"
 # Apply effect to wallpaper (Shift hue, i.e. change color)
 convert "$WALLPAPER" -modulate 100,100,$((0 + $RANDOM % 200)) "$WALLPAPER"
 # Set the new wallpaper
-feh --bg-scale "$WALLPAPER"
+feh --no-fehbg --bg-scale "$WALLPAPER"
