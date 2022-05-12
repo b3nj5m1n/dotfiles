@@ -375,7 +375,7 @@ check_exists_font "FantasqueSansMono Nerd Font" "nerd-fonts-fantasque-sans-mono"
 check_exists_font "FiraCode Nerd Font" "nerd-fonts-fira-code"
 check_exists_font "FiraCode Nerd Font Mono" "nerd-fonts-fira-mono"
 check_exists_font "UbuntuMono Nerd Font" "nerd-fonts-ubuntu-mono"
-check_exists_file "$(/bin/cat files/bspwm/bspwmrc | /bin/grep "feh" | /bin/sed -r 's/feh --bg-scale (.*) &/\1/')" "Clone & install bigconf" true
+check_exists_file "$(/bin/cat files/bspwm/bspwmrc | /bin/grep "feh" | /bin/sed -r 's/feh --no-fehbg --bg-scale (.*) &/\1/')" "Clone & install bigconf" true
 
 # Firmware
 check_exists_package "pod2man" "" false true # This is needed for python-validity, but not specified as a dependency
