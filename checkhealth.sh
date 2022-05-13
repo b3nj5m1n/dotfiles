@@ -296,7 +296,8 @@ check_exists_package "cronie" "" true true
 check_exists_package "acpi" "" false true
 check_exists_package "rsync" "" false true
 check_exists_package "usbutils" "" false true
-check_exists_package "wget" ""
+check_exists_package "wget" "" false true
+check_exists_package "jq" "" false true
 check_exists_locale "en_GB.utf8" "" true
 check_exists_locale "de_DE.utf8" "" false
 check_active_sysd "lightdm" "GUI won't be available (Not necessary if lightdm-plymouth is enabled)" false
