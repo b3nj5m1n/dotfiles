@@ -16,7 +16,7 @@ done
 for file in "/etc/X11/Xresources" "$HOME/.Xresources"; do
     if [ -f "$file" ]; then
         echo "Loading resource: $file"
-        xrdb -merge "$file"
+        xrdb -load "$XDG_CONFIG_HOME/X11/xresources" -merge "$file"
     fi
 done
 

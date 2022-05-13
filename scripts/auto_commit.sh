@@ -27,7 +27,7 @@ $(date -u +"%a %d %b %Y %H:%M") [auto commit]
 $(date +%s)
 EOM
 
-eval $(keychain --eval --quiet "{{ ssh_key_name }}")
+eval $(keychain --dir "$XDG_RUNTIME_DIR/keychain" --eval --quiet "{{ ssh_key_name }}")
 
 cd "$REPO_DIR" && /usr/bin/git add --all || notify "Failed staging changes in $REPO_DIR"
 cd "$REPO_DIR" && /usr/bin/git -c user.name="$GIT_COMMITTER_NAME" -c user.email="$GIT_COMMITTER_EMAIL" commit --no-gpg-sign --author "$AUTHOR" -m "$MESSAGE" || notify "Failed committing changes in $REPO_DIR"

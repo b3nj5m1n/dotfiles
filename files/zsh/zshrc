@@ -44,7 +44,7 @@ zstyle ':completion:*' verbose true
 zstyle :compinstall filename '/home/b3nj4m1n/.zshrc'
 
 autoload -Uz compinit
-compinit
+compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
 HISTSIZE=9999999
