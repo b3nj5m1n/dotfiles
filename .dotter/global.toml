@@ -286,6 +286,8 @@ c23 = "#e8e8e8" # Dim
 "scripts/auto_commit.sh" = { target = "/usr/bin/scripts/auto_commit.sh", type = "template", owner = "root" }
 [npm.files]
 "files/npm/npmrc" = "~/.config/npm/npmrc"
+[bpython.files]
+"files/bpython/config" = "~/.config/bpython/config"
 
 
 

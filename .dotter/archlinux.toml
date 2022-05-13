@@ -34,6 +34,7 @@ packages = [
     "anki",
     "cli-visualizer",
     "npm",
+    "bpython",
 ]
 
 [files]

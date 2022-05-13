@@ -25,6 +25,7 @@ packages = [
     "starship",
     "dunst",
     "npm",
+    "bpython",
 ]
 
 [files]
