@@ -398,6 +398,7 @@ check_exists_package "libfido2" "" false true
 
 ## Bash
 check_exists_package "bash-language-server" "" false true
+check_exists_package "shellcheck" "" false true
 
 ## C/C++
 check_exists_package "clang" "" false true
