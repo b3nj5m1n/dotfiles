@@ -35,6 +35,7 @@ packages = [
     "cli-visualizer",
     "npm",
     "bpython",
+    "cabal",
 ]
 
 [files]

@@ -288,6 +288,8 @@ c23 = "#e8e8e8" # Dim
 "files/npm/npmrc" = "~/.config/npm/npmrc"
 [bpython.files]
 "files/bpython/config" = "~/.config/bpython/config"
+[cabal.files]
+"files/cabal/config" = "~/.config/cabal/config"
 
 
 

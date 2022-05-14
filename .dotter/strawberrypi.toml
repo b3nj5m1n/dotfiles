@@ -15,4 +15,5 @@ packages = [
     "starship",
     "npm",
     "bpython",
+    "cabal",
 ]
