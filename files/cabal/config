@@ -36,11 +36,11 @@ world-file: /home/b3nj4m1n/.cache/cabal/world
 -- with-hc-pkg:
 -- program-prefix: 
 -- program-suffix: 
--- library-vanilla: True
+library-vanilla: False
 -- library-profiling:
--- shared:
+shared: True
 -- static:
--- executable-dynamic: False
+executable-dynamic: True
 -- executable-static: False
 -- profiling:
 -- executable-profiling:
@@ -211,7 +211,7 @@ program-default-options
   -- cpphs-options:
   -- doctest-options:
   -- gcc-options:
-  -- ghc-options:
+  ghc-options: -dynamic
   -- ghc-pkg-options:
   -- ghcjs-options:
   -- ghcjs-pkg-options:

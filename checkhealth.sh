@@ -435,3 +435,6 @@ check_exists_package "luajit" "" false true
 check_exists_package "luarocks" "" false true
 check_exists_package "lua-language-server-git" "" false true
 
+## Rust
+check_exists_package "rustup" "" false true
+check_exists_package "rust-analyzer" "" false true
