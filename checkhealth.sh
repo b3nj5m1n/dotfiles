@@ -375,6 +375,8 @@ check_exists_package "feh" "" true true
 check_exists_package "devour" "" true true
 check_exists_package "unclutter" "" false true
 check_exists_package "rofi-calc" "" false true
+check_exists_package "thunar" "" false true
+check_exists_package "peek" "" false true
 check_exists_font "FantasqueSansMono Nerd Font" "nerd-fonts-fantasque-sans-mono" true
 check_exists_font "FiraCode Nerd Font" "nerd-fonts-fira-code"
 check_exists_font "FiraCode Nerd Font Mono" "nerd-fonts-fira-mono"
@@ -435,3 +437,6 @@ check_exists_package "luajit" "" false true
 check_exists_package "luarocks" "" false true
 check_exists_package "lua-language-server-git" "" false true
 
+## Rust
+check_exists_package "rustup" "" false true
+check_exists_package "rust-analyzer" "" false true
