@@ -90,7 +90,7 @@ require('packer').startup({function()
     use {
         'hkupty/iron.nvim',
         branch = "master",
-        commit = "8eeb7935247c4a0286047d0854bdce9fe345aad4",
+        commit = "a849de9287d54213468935c13b0b904fdf23d4ba",
         config = function()
             local iron = require("iron.core")
             iron.setup {
@@ -101,7 +101,6 @@ require('packer').startup({function()
                 keymaps = {}
             }
         end,
-        disable = true,
     }
 
     use {
