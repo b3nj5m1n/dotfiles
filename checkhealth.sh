@@ -340,6 +340,7 @@ check_exists_package "mlocate" "" false true
 check_exists_package "glow" "" false true
 check_exists_package "sd" "" false true
 check_exists_package "skim" "" false true
+check_exists_package "duf" "" false true
 check_env "SHELL" "/bin/zsh" "" true
 check_env "EDITOR" "nvim" "" true
 check_exists_file "/usr/share/terminfo/a/alacritty-full" "Run compile-terminfo.sh script in files/terminfo." true

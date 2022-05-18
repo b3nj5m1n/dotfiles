@@ -153,6 +153,9 @@ alias htop='btm'
 alias cat='bat --paging=never --theme=Dracula --style="numbers,changes" --italic-text=always'
 alias ct='bat --paging=never --theme=Dracula --style="plain" --italic-text=always'
 
+# Duf (df replacement)
+alias df='duf'
+
 
 ############### Boring Stuff ###############
 
