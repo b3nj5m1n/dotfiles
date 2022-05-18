@@ -194,6 +194,7 @@ export WGETRC="${XDG_CONFIG_HOME}/wget/wgetrc"
 export WINEPREFIX="${XDG_DATA_HOME}/wine"
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME/java"
+export PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/pythonrc"
 
 # Path variable
 export PATH="$PATH:$CARGO_HOME/bin"

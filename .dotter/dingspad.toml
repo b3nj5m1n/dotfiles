@@ -35,6 +35,7 @@ packages = [
     "npm",
     "bpython",
     "cabal",
+    "python",
 ]
 
 [files]
