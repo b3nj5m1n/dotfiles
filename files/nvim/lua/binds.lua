@@ -7,6 +7,9 @@ vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true })
 vim.api.nvim_set_keymap('t', '<C-g>', '<C-\\><C-n>', opts) -- Use Control + g to get back to normal mode in terminal emulator
 vim.api.nvim_set_keymap('n', '<leader>pm', ':lua make()<CR><CR>', opts) -- Project Make (Runn make in the directory)
 
+-- Source current file
+vim.api.nvim_set_keymap('n', '<C-s>', ':source %<CR>', opts)
+
 -- Navigating Tabs
 vim.api.nvim_set_keymap('n', '<C-h>', ':tabprevious<CR>', opts) -- h to switch to previous tab
 vim.api.nvim_set_keymap('n', '<C-l>', ':tabnext<CR>', opts) -- l to switch to next tab

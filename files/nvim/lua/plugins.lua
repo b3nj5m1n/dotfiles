@@ -88,12 +88,20 @@ require('packer').startup({function()
     }
 
     use {
-        'vlime/vlime',
+        'hkupty/iron.nvim',
         branch = "master",
-        commit = "3205f02306314ab8cfc9034cf72097891c923e9d",
-        --[[ config = function()
-            vim.api.nvim_exec("autocmd TextChangedI lisp call feedkeys(\"\\<c-x>\\<c-o>\")", false)
-        end, ]]
+        commit = "8eeb7935247c4a0286047d0854bdce9fe345aad4",
+        config = function()
+            local iron = require("iron.core")
+            iron.setup {
+                config = {
+                    should_map_plug = false,
+                    scratch_repl = true,
+                },
+                keymaps = {}
+            }
+        end,
+        disable = true,
     }
 
     use {
