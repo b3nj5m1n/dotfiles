@@ -74,10 +74,9 @@ require('packer').startup({function()
     } -- Save sessions
 
     use {
-        'eraserhd/parinfer-rust',
+        'gpanders/nvim-parinfer',
         branch = "master",
-        commit = "211f72e32cccbc728a8346f665c0a0b52c01c1e4",
-        run = "cargo build --release",
+        commit = "82bce5798993f4fe5ced20e74003b492490b4fe8",
     }
 
     use {
