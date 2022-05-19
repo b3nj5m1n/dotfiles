@@ -122,7 +122,7 @@ require('packer').startup({function()
     use {
         'nvim-treesitter/nvim-treesitter',
         branch = "master",
-        commit = "db0e5192911a8bf9df2f2a45c4dab249d5cbf32c",
+        commit = "c004155676180a683ad424fe57294923cdf702ee",
         event = "UiEnter",
         config = function() require('plugin-config').treesitter() end,
     }
@@ -297,6 +297,13 @@ require('packer').startup({function()
             require("trouble").setup { }
         end
     } -- Pretty diagnostic window
+
+    --[[ use {
+        'nmac427/guess-indent.nvim',
+        branch = "main",
+        commit = "3c17b9a1e132d0b28a90772e3c24d226c47dbb7f",
+        config = function() require('guess-indent').setup {} end,
+    } ]]
 
     use {
         'tpope/vim-fugitive',
