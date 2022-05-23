@@ -137,7 +137,7 @@ require('packer').startup({function()
     use {
         'neovim/nvim-lspconfig',
         branch = "master",
-        commit = "99596a8cabb050c6eab2c049e9acde48f42aafa4",
+        commit = "b86a37caf7a4e53e62ba883aef5889b590260de9",
         event = "VimEnter",
         -- module = "lspconfig",
         config = function() require('plugin-config').lsp() end,
@@ -146,7 +146,7 @@ require('packer').startup({function()
     use {
         'tami5/lspsaga.nvim',
         branch = "main",
-        commit = "5309d75bd90ce5b1708331df3af1e971fa83a2b9",
+        commit = "39b6faccb57fd640a06c7d73a30507b13263fcbf",
         event = "VimEnter",
         module = "lspsaga",
         config = function() require('plugin-config').lsp_saga() end,
