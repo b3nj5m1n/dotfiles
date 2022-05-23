@@ -17,4 +17,5 @@ packages = [
     "bpython",
     "cabal",
     "python",
+    "atuin",
 ]

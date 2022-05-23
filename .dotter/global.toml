@@ -292,6 +292,8 @@ c23 = "#e8e8e8" # Dim
 "files/cabal/config" = "~/.config/cabal/config"
 [python.files]
 "files/python/pythonrc" = "~/.config/python/pythonrc"
+[atuin.files]
+"files/atuin/config.toml" = "~/.config/atuin/config.toml"
 
 
 
