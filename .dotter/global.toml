@@ -295,7 +295,8 @@ c23 = "#e8e8e8" # Dim
 "files/python/pythonrc" = "~/.config/python/pythonrc"
 [atuin.files]
 "files/atuin/config.toml" = "~/.config/atuin/config.toml"
-
+[treesitter.files]
+"files/tree-sitter/config.json" = "~/.config/tree-sitter/config.json"
 
 
 ##### System #####

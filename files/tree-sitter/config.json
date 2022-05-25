@@ -1,0 +1,54 @@
+{
+  "parser-directories": [
+    "/home/b3nj4m1n/.local/share/tree-sitter"
+  ],
+  "theme": {
+    "comment": {
+      "color": 245,
+      "italic": true
+    },
+    "tag": 18,
+    "constant": 94,
+    "module": 136,
+    "type": 23,
+    "type.builtin": {
+      "color": 23,
+      "bold": true
+    },
+    "variable.builtin": {
+      "bold": true
+    },
+    "string.special": 30,
+    "punctuation.bracket": 239,
+    "number": {
+      "bold": true,
+      "color": 94
+    },
+    "constructor": 136,
+    "function": 26,
+    "attribute": {
+      "italic": true,
+      "color": 124
+    },
+    "embedded": null,
+    "operator": {
+      "bold": true,
+      "color": 239
+    },
+    "keyword": 56,
+    "property": 124,
+    "punctuation.delimiter": 239,
+    "constant.builtin": {
+      "bold": true,
+      "color": 94
+    },
+    "variable.parameter": {
+      "underline": true
+    },
+    "function.builtin": {
+      "color": 26,
+      "bold": true
+    },
+    "string": 28
+  }
+}

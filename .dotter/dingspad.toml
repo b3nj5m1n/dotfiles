@@ -37,6 +37,7 @@ packages = [
     "cabal",
     "python",
     "atuin",
+    "treesitter",
 ]
 
 [files]

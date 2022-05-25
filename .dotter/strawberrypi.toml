@@ -18,4 +18,5 @@ packages = [
     "cabal",
     "python",
     "atuin",
+    "treesitter",
 ]
