@@ -21,17 +21,53 @@ version: 0.0.11
 ** Function aliases
    Shorter/more intuitive names for some functions.
    @code fennel
-   (fn set-opt [option-name option-value] (vim.api.nvim_set_option_value option-name option-value {}))
-   (local get-opt vim.api.nvim_get_option)
-   (local expand vim.fn.expand) ; Expand enviornment variables in string
+   (global nvim-set-opt vim.api.nvim_set_option_value)
+   (global get-opt vim.api.nvim_get_option)
+   (global expand vim.fn.expand) ; Expand enviornment variables in string
+   (global nvim-set-keymap vim.api.nvim_set_keymap)
+   (global set-var vim.api.nvim_set_var)
    @end
 ** Functions
    Custom functions.
+
+   Some of these wrap the aliases from above to provide an easier interface. For example, when setting an option, you have to provide an options table. I do not use these options, so the `set-opt` function automatically calls the underlying function from the neovim api with an additional empty table as an argument.
 *** Option management
     @code fennel
+    (fn set-opt [option-name option-value]
+      "Set nvim option with an empty options table. Wrapper around nvim-set-opt."
+      (nvim-set-opt option-name option-value {}))
     (fn set-opts [...]
+      "Set multiple options."
       (for [i 1 (length [...]) 2]
         (set-opt (. [...] i) (. [...] (+ 1 i)))))
+    @end
+*** Keymap management
+    @code fennel
+    (fn set-keymap-pure [description mode right-side left-side]
+      "Set a 'pure' keymap, i.e. no callback"
+      (let [opts { :noremap true :silent true :desc description }]
+        (nvim-set-keymap mode right-side left-side opts)))
+    (fn set-keymap-callback [description mode right-side callback]
+      "Set a keymap with a callback."
+      (let [opts { :noremap true :silent true :desc description :callback callback }]
+        (nvim-set-keymap mode right-side "" opts)))
+    (macro set-keymap [description right-side left-side-or-callback]
+      "Set keymap with description, default options and either left-side or callback."
+      (fn get-description-prefix [s]
+        "If description is 'Normal: text text', this function will return 'normal'"
+        (string.lower (string.sub s 1 (- (string.find s ":" 1 true) 1))))
+      (fn get-description [s]
+        "If description is 'Normal: text text', this function will return 'text text'"
+        (string.sub s (+ (string.find s ":" 1 true) 2)))
+      (local mode (match (get-description-prefix description)
+        "normal" "n"
+        "visual" "v"
+        "terminal" "t"
+        ))
+      (local description (get-description description))
+      (match (type left-side-or-callback)
+          "string" '(set-keymap-pure ,description ,mode ,right-side ,left-side-or-callback)
+          "table" '(set-keymap-callback ,description ,mode ,right-side ,left-side-or-callback)))
     @end
 
 * Options
@@ -39,6 +75,7 @@ version: 0.0.11
 ** Sane defaults
    These are what I would set as the defaults for nvim. Nothing specific to me.
    @code fennel
+   (set-var :syntax true)
    (set-opts
      :termguicolors  true  ; Enable 24-bit color
      :backup         false ; Don't create a backup file before overwriting a file
@@ -77,6 +114,7 @@ version: 0.0.11
    @end
 ** Preferences
    @code fennel
+   (set-var :mapleader " ")
    (set-opts
      :foldlevel      99 ; The higher, the more folded regions are open (0 = all folds closed)
      :foldlevelstart 99 ; Inital fold level; close all folds when opening a new buffer
@@ -89,6 +127,49 @@ version: 0.0.11
      :listchars     "eol:↴,nbsp:+,space:⋅,tab:⟼ ,trail:-" ; Invisible character and what character to show for it
    )
    @end
+
+* Keymaps
+** General
+   @code fennel
+   (set-keymap "Visual: Keep visual selection after indenting"
+     ">" ">gv")
+   (set-keymap "Visual: Keep visual selection after indenting"
+     "<" "<gv")
+   (set-keymap "Terminal: Exit to normal mode"
+     "<C-g>" "<C-\\><C-n>")
+   (set-keymap "Normal: Source current file"
+     "<C-s>" ":source %<CR>")
+   @end
+** Tabs
+   @code fennel
+   (set-keymap "Normal: Switch to previous tab"
+     "<C-h>" ":tabprevious<CR>")
+   (set-keymap "Normal: Switch to next tab"
+     "<C-l>" ":tabnext<CR>")
+   @end
+** Splits
+   @code fennel
+   (set-keymap "Normal: Create vertical split"
+     "<leader>wv" ":vsplit<CR>")
+   (set-keymap "Normal: Create horizontal split"
+     "<leader>ws" ":split<CR>")
+   (set-keymap "Normal: Move to split on the left"
+     "<leader>wh" "<C-W>h")
+   (set-keymap "Normal: Move to split on the bottom"
+     "<leader>wj" "<C-W>j")
+   (set-keymap "Normal: Move to split on the top"
+     "<leader>wk" "<C-W>k")
+   (set-keymap "Normal: Move to split on the right"
+     "<leader>wl" "<C-W>l")
+   @end
+** Line highlighting
+   @code fennel
+   (set-keymap "Normal: Toggle highlight on the current line"
+     "<leader>hl" ":set cursorline!<CR>")
+   (set-keymap "Normal: Toggle highlight on the current line"
+     "<leader>hc" ":set cursorcolumn!<CR>")
+   @end
+
 
 * Return config table
   @code fennel
