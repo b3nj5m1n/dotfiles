@@ -438,6 +438,8 @@ check_exists_package "lua" "" false true
 check_exists_package "luajit" "" false true
 check_exists_package "luarocks" "" false true
 check_exists_package "lua-language-server-git" "" false true
+check_exists_package "fennel" "" false true
+check_exists_package "fnlfmt" "" false true
 
 ## Rust
 check_exists_package "rustup" "" false true
