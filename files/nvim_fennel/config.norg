@@ -36,6 +36,7 @@ version: 0.0.11
     (fn set-opt [option-name option-value]
       "Set nvim option with an empty options table. Wrapper around nvim-set-opt."
       (nvim-set-opt option-name option-value {}))
+
     (fn set-opts [...]
       "Set multiple options."
       (for [i 1 (length [...]) 2]
@@ -47,10 +48,12 @@ version: 0.0.11
       "Set a 'pure' keymap, i.e. no callback"
       (let [opts { :noremap true :silent true :desc description }]
         (nvim-set-keymap mode right-side left-side opts)))
+
     (fn set-keymap-callback [description mode right-side callback]
       "Set a keymap with a callback."
       (let [opts { :noremap true :silent true :desc description :callback callback }]
         (nvim-set-keymap mode right-side "" opts)))
+
     (macro set-keymap [description right-side left-side-or-callback]
       "Set keymap with description, default options and either left-side or callback."
       (fn get-description-prefix [s]
@@ -79,6 +82,7 @@ version: 0.0.11
         :command command :requires requires :filetype filetype
         :event event :after after :disable disable
       }))
+
     (macro paq [name path ...]
       (local plugin-config {
         :name name :path path :config nil :setup nil :branch nil :commit nil :optional nil
@@ -90,6 +94,7 @@ version: 0.0.11
       (if (= (. plugin-config :optional) nil) (tset plugin-config :optional false))
       (if (= (. plugin-config :disable) nil) (tset plugin-config :disable false))
       '(table.insert (. config :plugins) ,plugin-config))
+
     (fn init-packer []
       (do (vim.cmd "packadd packer.nvim")
         ((. (require :packer) :startup) {1 (fn []
