@@ -11,7 +11,7 @@ version: 0.0.11
 ** Global config table
    This is a global table which will be returned at the end of this file. I'm not sure what to do with it yet.
    @code fennel
-   (local config {})
+   (global config { :plugins {} })
    @end
 ** Modules
    This section holds various imports which will be used later in the config.
@@ -68,6 +68,51 @@ version: 0.0.11
       (match (type left-side-or-callback)
           "string" '(set-keymap-pure ,description ,mode ,right-side ,left-side-or-callback)
           "table" '(set-keymap-callback ,description ,mode ,right-side ,left-side-or-callback)))
+    @end
+*** Plugin management
+    @code fennel
+    (fn add-plugin [name path config setup branch commit optional command requires filetype event after disable]
+      "Add plugin to config-local plugin-store."
+      (table.insert (. config :plugins) {
+        :name name :path path :config config :setup setup
+        :branch branch :commit commit :optional optional
+        :command command :requires requires :filetype filetype
+        :event event :after after :disable disable
+      }))
+    (macro paq [name path ...]
+      (local plugin-config {
+        :name name :path path :config nil :setup nil :branch nil :commit nil :optional nil
+        :command nil :requires nil :filetype nil :event nil :after nil :disable nil })
+      (for [i 1 (length [...]) 2]
+        (let [key (. [...] i) value (. [...] (+ 1 i))]
+          (tset plugin-config key value)))
+      (if (= (. plugin-config :branch) nil) (tset plugin-config :branch "main"))
+      (if (= (. plugin-config :optional) nil) (tset plugin-config :optional false))
+      (if (= (. plugin-config :disable) nil) (tset plugin-config :disable false))
+      '(table.insert (. config :plugins) ,plugin-config))
+    (fn init-packer []
+      (do (vim.cmd "packadd packer.nvim")
+        ((. (require :packer) :startup) {1 (fn []
+          (each [_ plugin (ipairs (. (. config :plugins) :plugins))]
+            (use {
+              1 (. plugin :path)
+              :config (. plugin :config)
+              :setup (. plugin :setup)
+              :branch (. plugin :branch)
+              :commit (. plugin :commit)
+              :opt (. plugin :optional)
+              :cmd (. plugin :command)
+              :requires (. plugin :requries)
+              :ft (. plugin :filetype)
+              :event (. plugin :event)
+              :after (. plugin :after)
+              :disable (. plugin :disable)
+            })
+          )
+        )})))
+    ;(paq "test" "test/test" :filetype "norg")
+    ; (init-packer [ :test :test ])
+    (init-packer)
     @end
 
 * Options
