@@ -11,7 +11,8 @@ version: 0.0.11
 ** Global config table
    This is a global table which will be returned at the end of this file. I'm not sure what to do with it yet.
    @code fennel
-   (global config { :plugins {} })
+   (global config { :plugins {} :plugin-configs {} })
+   (macro export-config [] '(tset _G :config config) nil)
    @end
 ** Modules
    This section holds various imports which will be used later in the config.
@@ -22,10 +23,19 @@ version: 0.0.11
    Shorter/more intuitive names for some functions.
    @code fennel
    (global nvim-set-opt vim.api.nvim_set_option_value)
+     (tset config :nvim-set-opt vim.api.nvim_set_option_value)
+
    (global get-opt vim.api.nvim_get_option)
+     (tset config :get-opt vim.api.nvim_get_option)
+
    (global expand vim.fn.expand) ; Expand enviornment variables in string
+     (tset config :expand vim.fn.expand) ; Expand enviornment variables in string
+
    (global nvim-set-keymap vim.api.nvim_set_keymap)
+     (tset config :nvim-set-keymap vim.api.nvim_set_keymap)
+
    (global set-var vim.api.nvim_set_var)
+     (tset config :set-var vim.api.nvim_set_var)
    @end
 ** Functions
    Custom functions.
@@ -48,6 +58,7 @@ version: 0.0.11
       "Set a 'pure' keymap, i.e. no callback"
       (let [opts { :noremap true :silent true :desc description }]
         (nvim-set-keymap mode right-side left-side opts)))
+     (tset config :set-keymap-pure set-keymap-pure)
 
     (fn set-keymap-callback [description mode right-side callback]
       "Set a keymap with a callback."
@@ -69,24 +80,25 @@ version: 0.0.11
         ))
       (local description (get-description description))
       (match (type left-side-or-callback)
-          "string" '(set-keymap-pure ,description ,mode ,right-side ,left-side-or-callback)
-          "table" '(set-keymap-callback ,description ,mode ,right-side ,left-side-or-callback)))
+          "string" '(_G.config.set-keymap-pure ,description ,mode ,right-side ,left-side-or-callback)
+          "table" '(_G.config.set-keymap-callback ,description ,mode ,right-side ,left-side-or-callback)))
     @end
 *** Plugin management
     @code fennel
-    (fn add-plugin [name path config setup branch commit optional command requires filetype event after disable]
+    (fn add-plugin [name path config setup branch commit optional command requires filetype event after disable description]
       "Add plugin to config-local plugin-store."
-      (table.insert (. config :plugins) {
+      (table.insert config.plugins {
         :name name :path path :config config :setup setup
         :branch branch :commit commit :optional optional
         :command command :requires requires :filetype filetype
         :event event :after after :disable disable
+        :description description
       }))
 
-    (macro paq [name path ...]
+    (macro paq [name description path ...]
       (local plugin-config {
         :name name :path path :config nil :setup nil :branch nil :commit nil :optional nil
-        :command nil :requires nil :filetype nil :event nil :after nil :disable nil })
+        :command nil :requires nil :filetype nil :event nil :after nil :disable nil :description description })
       (for [i 1 (length [...]) 2]
         (let [key (. [...] i) value (. [...] (+ 1 i))]
           (tset plugin-config key value)))
@@ -96,9 +108,10 @@ version: 0.0.11
       '(table.insert (. config :plugins) ,plugin-config))
 
     (fn init-packer []
-      (do (vim.cmd "packadd packer.nvim")
+      (do 
+        (vim.cmd "packadd packer.nvim")
         ((. (require :packer) :startup) {1 (fn []
-          (each [_ plugin (ipairs (. (. config :plugins) :plugins))]
+          (each [_ plugin (ipairs (. config :plugins))]
             (use {
               1 (. plugin :path)
               :config (. plugin :config)
@@ -111,14 +124,15 @@ version: 0.0.11
               :ft (. plugin :filetype)
               :event (. plugin :event)
               :after (. plugin :after)
-              :disable (. plugin :disable)
-            })
-          )
-        )})))
-    ;(paq "test" "test/test" :filetype "norg")
-    ; (init-packer [ :test :test ])
-    (init-packer)
+              :disable (. plugin :disable)})))
+          :config {:compile_path (.. (vim.fn.stdpath :config) :/lua/packer_compiled.lua)}})
+        (require :packer_compiled)))
     @end
+** Export current config table
+   @code fennel
+   (export-config)
+   @end
+
 
 * Options
   This section sets various options.
@@ -220,8 +234,31 @@ version: 0.0.11
      "<leader>hc" ":set cursorcolumn!<CR>")
    @end
 
-
-* Return config table
+* Plugins
   @code fennel
-  config
+  (paq "kommentary" "Comment out text"
+    "b3nj5m1n/kommentary"
+    :branch "main"
+    :commit "533d768a140b248443da8346b88e88db704212ab"
+    :event "VimEnter"
+    :module "kommentary"
+    :setup (fn config.setup_kommentary [] (_G.config.set-var :kommentary_create_default_mappings false))
+    :config (fn config.config_kommentary [] (do
+      (set-keymap "Normal: Toggle comment on current line"
+        "gcc" "<Plug>kommentary_line_default")
+      (set-keymap "Normal: Toggle comment on motion"
+        "gc" "<Plug>kommentary_motion_default")
+      (set-keymap "Visual: Toggle comment on visual selection"
+        "gc" "<Plug>kommentary_visual_default")))
+  )
+  @end
+
+
+* Post-config
+  Code that runs after all the configuration is done.
+
+  `(init-packer)` will load the plugins defined with `(paq)` into packer.
+  @code fennel
+  (init-packer)
+  (export-config)
   @end

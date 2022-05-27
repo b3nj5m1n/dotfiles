@@ -2,8 +2,10 @@ SOURCE_FILE="./config.norg"
 QUERY_FILE="./build/query.scm"
 FENNEL_FILE="./build/config.fnl"
 LUA_FILE="./build/config.lua"
+INSTALL_FILE="$(XDG_CONFIG_HOME)/nvim/lua/config.lua"
+INIT_FILE="./build/init.lua"
 
-all: build_dir query extract compile
+all: build_dir query extract compile install init
 
 build_dir:
 	mkdir -p ./build
@@ -16,6 +18,12 @@ extract: query
 
 compile: extract
 	fennel --compile $(FENNEL_FILE) > $(LUA_FILE)
+
+install: compile
+	cp $(LUA_FILE) $(INSTALL_FILE)
+
+init:
+	echo "require('config')" > $(INIT_FILE)
 
 clean:
 	rm -rf build
