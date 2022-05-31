@@ -3,7 +3,7 @@ QUERY_FILE="./build/query.scm"
 FENNEL_FILE="./build/config.fnl"
 LUA_FILE="./build/config.lua"
 INSTALL_FILE="$(XDG_CONFIG_HOME)/nvim/lua/config.lua"
-INIT_FILE="./build/init.lua"
+INIT_FILE="./init.lua"
 
 all: build_dir query extract compile install init
 

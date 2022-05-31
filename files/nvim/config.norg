@@ -167,7 +167,7 @@ version: 0.0.11
               :commit (. plugin :commit)
               :opt (. plugin :optional)
               :cmd (. plugin :command)
-              :requires (. plugin :requries)
+              :requires (. plugin :requires)
               :ft (. plugin :filetype)
               :event (. plugin :event)
               :after (. plugin :after)
@@ -307,7 +307,7 @@ version: 0.0.11
    (paq "neorg" "Org-mode equivalent for neovim"
      "nvim-neorg/neorg"
      :commit "633dfc9f0c3a00a32ee89d4ab826da2eecfe9bd8"
-     :requires "nvim-lua/plenary.nvim"
+     :requires ["nvim-lua/plenary.nvim" "nvim-treesitter/nvim-treesitter"]
      :ft "norg"
      :module "neorg"
      :config ((. (require :neorg) :setup) {:load {
@@ -356,7 +356,15 @@ version: 0.0.11
      :branch "master"
      :commit "b7ae91c82b33f8f347fa060208adb3da80ae9260"
      :requires "nvim-lua/plenary.nvim"
-     :event "UiEnter")
+     :event "UiEnter"
+     :config (do
+       (set-keymap "Normal: Open fuzzy file finder"
+         "<leader>tf" (. (require :telescope.builtin) :find_files))
+       (set-keymap "Normal: Open live grep"
+         "<leader>tg" (. (require :telescope.builtin) :live_grep))
+       (set-keymap "Normal: Open buffer list"
+         "<leader>tf" (. (require :telescope.builtin) :buffers)))
+   )
    @end
 ** [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
    @code fennel
@@ -435,7 +443,6 @@ version: 0.0.11
       "nvim-treesitter/nvim-treesitter"
       :branch "master"
       :commit "c004155676180a683ad424fe57294923cdf702ee"
-      :event "UiEnter"
       :config (do
         (local parser-configs ((. (require :nvim-treesitter.parsers)
           :get_parser_configs)))
@@ -499,7 +506,9 @@ version: 0.0.11
                               :cssls :elmls :html :jsonls :rust_analyzer
                                :tsserver :tsserver :yamlls :jdtls :hls])
               (each [_ server (pairs servers)]
-                ((. (. lspconfig server) :setup) {: capabilities})))
+                ((. (. lspconfig server) :setup) {: capabilities}))
+              (set-keymap "Normal: Format buffer"
+                "<leader>ll" vim.lsp.buf.format))
     )
     @end
 *** [lspsaga.nvim](https://github.com/tami5/lspsaga.nvim)
@@ -509,7 +518,13 @@ version: 0.0.11
       :commit "39b6faccb57fd640a06c7d73a30507b13263fcbf"
       :event "VimEnter"
       :module "lspsaga"
-      :config ((. (require :lspsaga) :init_lsp_saga))
+      :config (do (. (require :lspsaga) :init_lsp_saga)
+                (set-keymap "Normal: Code action"
+                  "<leader>la" (. (require :lspsaga.codeaction) :code_action))
+                (set-keymap "Normal: Hover doc"
+                  "<leader>ld" (. (require :lspsaga.hover) :render_hover_doc))
+                (set-keymap "Normal: Rename symbol under cursor"
+                  "<leader>lr" (. (require :lspsaga.rename) :rename)))
     )
     @end
 *** [trouble.nvim](https://github.com/folke/trouble.nvim)
@@ -518,7 +533,10 @@ version: 0.0.11
       "folke/trouble.nvim"
       :commit "691d490cc4eadc430d226fa7d77aaa84e2e0a125"
       :event "BufEnter"
-      :config ((. (require :trouble) :setup) {})
+      :config (do
+        ((. (require :trouble) :setup) {})
+        (set-keymap "Normal: Open Trouble window"
+          "<leader>xx" "<cmd>Trouble<cr>"))
     )
     @end
 ** Completion
@@ -606,6 +624,7 @@ version: 0.0.11
       :branch "master"
       :commit "c8dd268091ffcbcb673de59c5b37ff26a2eb24ed"
       :requires "nvim-lua/plenary.nvim"
+      :after "plenary.nvim"
       :config ((. (require :neogit) :setup) {})
     )
     @end
