@@ -309,14 +309,22 @@ version: 0.0.11
      :commit "633dfc9f0c3a00a32ee89d4ab826da2eecfe9bd8"
      :requires "nvim-lua/plenary.nvim"
      :ft "norg"
-     :module "neorg")
+     :module "neorg"
+     :config ((. (require :neorg) :setup) {:load {
+              :core.defaults {}
+              :core.norg.concealer {:config {:preset :icons}}
+              :core.norg.completion {:config {:engine :nvim-cmp}}
+              :core.norg.esupports.metagen {:config {:type :auto}}}})
+   )
    @end
 ** [dracula](https://github.com/Mofiqul/dracula.nvim)
    @code fennel
    (paq "dracula" "Dracula colorscheme with treesitter support"
      "Mofiqul/dracula.nvim"
      :commit "a219971291c56bcca3827cb7bd40aaaef23feeca"
-     :event "UiEnter")
+     :event "UiEnter"
+     :config (vim.cmd "colorscheme dracula")
+   )
    @end
 ** [nvim-parinfer](https://github.com/gpanders/nvim-parinfer)
    @code fennel
@@ -333,7 +341,13 @@ version: 0.0.11
      :branch "master"
      :commit "045d9582094b27f5ae04d8b635c6da8e97e53f1d"
      :module "indent_blankline"
-     :event "UiEnter")
+     :event "UiEnter"
+     :config ((. (require :indent_blankline) :setup) {
+       :char "|"
+       :space_char_blankline " "
+       :show_current_context true
+       :buftype_exclude {1 :terminal}})
+   )
    @end
 ** [telescope](https://github.com/nvim-telescope/telescope.nvim)
    @code fennel
@@ -341,6 +355,7 @@ version: 0.0.11
      "nvim-telescope/telescope.nvim"
      :branch "master"
      :commit "b7ae91c82b33f8f347fa060208adb3da80ae9260"
+     :requires "nvim-lua/plenary.nvim"
      :event "UiEnter")
    @end
 ** [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
@@ -350,7 +365,9 @@ version: 0.0.11
      :branch "master"
      :commit "38d486a1c47ae2722a78cf569008de0a64f4b153"
      :event "InsertEnter"
-     :module "nvim-autopairs")
+     :module "nvim-autopairs"
+     :config ((. (require :nvim-autopairs) :setup))
+   )
    @end
 ** [vim-repeat](https://github.com/tpope/vim-repeat)
    @code fennel
@@ -375,7 +392,9 @@ version: 0.0.11
      :branch "master"
      :commit "36c610a9717cc9ec426a07c8e6bf3b3abcb139d6"
      :event "BufEnter"
-     :module "colorizer")
+     :module "colorizer"
+     :config ((. (require :colorizer) :setup))
+   )
    @end
 ** [editorconfig](https://github.com/editorconfig/editorconfig-vim)
    @code fennel
@@ -403,7 +422,11 @@ version: 0.0.11
    (paq "iron" "Repl integration"
      "hkupty/iron.nvim"
      :branch "master"
-     :commit "d50dc23331ab217b9e13f47c8d97ea60bd1ab1b7")
+     :commit "d50dc23331ab217b9e13f47c8d97ea60bd1ab1b7"
+     :config (do
+       (local iron (require :iron.core))
+       (iron.setup {:config {:should_map_plug false :scratch_repl true} :keymaps {}}))
+   )
    @end
 ** Treesitter
 *** [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
@@ -412,7 +435,36 @@ version: 0.0.11
       "nvim-treesitter/nvim-treesitter"
       :branch "master"
       :commit "c004155676180a683ad424fe57294923cdf702ee"
-      :event "UiEnter")
+      :event "UiEnter"
+      :config (do
+        (local parser-configs ((. (require :nvim-treesitter.parsers)
+          :get_parser_configs)))
+        (set parser-configs.norg {
+          :install_info {:url "https://github.com/nvim-neorg/tree-sitter-norg"
+          :files {1 :src/parser.c 2 :src/scanner.cc}
+          :branch :main}})
+        ((. (require :nvim-treesitter.configs) :setup) {
+          :ensure_installed :all
+          :highlight {:enable true}
+          :indent {:enable true}
+          :rainbow {
+            :enable true
+            :colors [ "#bd93f9" "#50fa7b" "#ffb86c" "#ff79c6" "#8be9fd" "#f1fa8c" ]}
+          :textobjects {
+            :select {
+              :enable true
+              :keymaps {
+                :af "@function.outer"
+                :if "@function.inner"
+                :ac "@class.outer"
+                :ic "@class.inner"}}
+            :move {
+              :enable true
+              :goto_next_start {"]m" "@function.outer" "]]" "@class.outer"}
+              :goto_next_end {"]M" "@function.outer" "][" "@class.outer"}
+              :goto_previous_start {"[m" "@function.outer" "[[" "@class.outer"}
+              :goto_previous_end {"[M" "@function.outer" "[]" "@class.outer"}}}}))
+    )
     @end
 *** [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
     @code fennel
@@ -437,7 +489,18 @@ version: 0.0.11
       "neovim/nvim-lspconfig"
       :branch "master"
       :commit "b86a37caf7a4e53e62ba883aef5889b590260de9"
-      :event "VimEnter")
+      :event "VimEnter"
+      :config (do
+              (local lspconfig (require :lspconfig))
+              (var capabilities (vim.lsp.protocol.make_client_capabilities))
+              (set capabilities
+                   ((. (require :cmp_nvim_lsp) :update_capabilities) capabilities))
+              (local servers [:bashls :clangd :clangd :cmake
+                              :cssls :elmls :html :jsonls :rust_analyzer
+                               :tsserver :tsserver :yamlls :jdtls :hls])
+              (each [_ server (pairs servers)]
+                ((. (. lspconfig server) :setup) {: capabilities})))
+    )
     @end
 *** [lspsaga.nvim](https://github.com/tami5/lspsaga.nvim)
     @code fennel
@@ -445,21 +508,48 @@ version: 0.0.11
       "tami5/lspsaga.nvim"
       :commit "39b6faccb57fd640a06c7d73a30507b13263fcbf"
       :event "VimEnter"
-      :module "lspsaga")
+      :module "lspsaga"
+      :config ((. (require :lspsaga) :init_lsp_saga))
+    )
     @end
 *** [trouble.nvim](https://github.com/folke/trouble.nvim)
     @code fennel
     (paq "trouble" "Better diagnostics ui"
       "folke/trouble.nvim"
       :commit "691d490cc4eadc430d226fa7d77aaa84e2e0a125"
-      :event "BufEnter")
+      :event "BufEnter"
+      :config ((. (require :trouble) :setup) {})
+    )
     @end
 ** Completion
 *** [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
     @code fennel
     (paq "nvim-cmp" "Completion plugin"
       "hrsh7th/nvim-cmp"
-      :commit "b5433f901ebffc9e01b82ae13da9a92d49569205")
+      :commit "b5433f901ebffc9e01b82ae13da9a92d49569205"
+      :config (do
+        (local cmp (require :cmp))
+        (cmp.setup {
+          :snippet {
+            :expand (fn [args]
+              ((. (require :luasnip) :lsp_expand) args.body))}
+            :mapping (cmp.mapping.preset.insert {
+              :<C-b> (cmp.mapping.scroll_docs (- 4))
+              :<C-f> (cmp.mapping.scroll_docs 4)
+              :<C-Space> (cmp.mapping.complete)
+              :<C-e> (cmp.mapping.abort)
+              :<CR> (cmp.mapping.confirm {:select true})})
+            :sources (cmp.config.sources [
+              {:name :nvim_lsp}
+              {:name :nvim_lsp_signature_help}
+              {:name :neorg}
+              {:name :luasnip}
+              {:name :path}
+              {:name :omni}
+              {:name :buffer}])
+            :sorting {
+              :comparators [cmp.config.compare.score]}}))
+    )
     @end
 *** [nvim-cmp-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
     @code fennel
@@ -498,7 +588,9 @@ version: 0.0.11
     (paq "luasnip" "Snippet engine"
       "L3MON4D3/LuaSnip"
       :branch "master"
-      :commit "6b67cb12747225a6412d8263bb97d6d2b8d9366a")
+      :commit "6b67cb12747225a6412d8263bb97d6d2b8d9366a"
+      :config ((. (require :luasnip.loaders.from_vscode) :lazy_load))
+    )
     @end
 *** [friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
     @code fennel
@@ -512,7 +604,10 @@ version: 0.0.11
     (paq "neogit" "Magit for neovim"
       "TimUntersberger/neogit"
       :branch "master"
-      :commit "c8dd268091ffcbcb673de59c5b37ff26a2eb24ed")
+      :commit "c8dd268091ffcbcb673de59c5b37ff26a2eb24ed"
+      :requires "nvim-lua/plenary.nvim"
+      :config ((. (require :neogit) :setup) {})
+    )
     @end
 *** [vim-fugitive](https://github.com/tpope/vim-fugitive)
     @code fennel
@@ -527,7 +622,28 @@ version: 0.0.11
     (paq "gitsigns" "Show added/removed/changed lines"
       "lewis6991/gitsigns.nvim"
       :commit "f83a2e11cd7a486e92f3c6630e71e93a073a11da"
-      :event "BufEnter")
+      :requires "nvim-lua/plenary.nvim"
+      :event "BufEnter"
+      :config ((. (require :gitsigns) :setup) {
+        :signs {
+          :add {
+            :hl :GitSignsAdd
+            :text "▌"
+            :numhl :GitSignsAddNr
+            :linehl :GitSignsAddLn}
+            :change {:hl :GitSignsChange
+            :text "▌"
+            :numhl :GitSignsChangeNr
+            :linehl :GitSignsChangeLn}}
+            :current_line_blame true
+            :current_line_blame_opts {:virt_text true
+            :virt_text_pos :eol
+            :delay 5000
+            :ignore_whitespace false}
+            :on_attach (fn _G.config.plugin-configs.gitsigns-on-attach [bufnr]
+              (vim.api.nvim_exec "highlight GitSignsCurrentLineBlame guifg=#5a5e7a"
+                false))})
+    )
     @end
 
 
