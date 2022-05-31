@@ -150,6 +150,12 @@ version: 0.0.11
     @code fennel
     (def-fn init-packer []
       (do 
+        (paq "packer" "Plugin manager"
+          "wbthomason/packer.nvim"
+          :branch "master"
+          :commit "4dedd3b08f8c6e3f84afbce0c23b66320cd2a8f2"
+          :optional true
+          :command [ "PackerSync" ])
         (vim.cmd "packadd packer.nvim")
         ((. (require :packer) :startup) {1 (fn []
           (each [_ plugin (ipairs (. config :plugins))]
@@ -271,12 +277,18 @@ version: 0.0.11
    @end
 
 * Plugins
+** [plenary](https://github.com/nvim-lua/plenary.nvim)
+   @code fennel
+   (paq "plenary" "Common lua functions for nvim plugins"
+     "nvim-lua/plenary.nvim"
+     :branch "master"
+     :commit "1da13add868968802157a0234136d5b1fbc34dfe")
+   @end
 ** [kommentary](https://github.com/b3nj5m1n/kommentary)
    This is a plugin I wrote a while back, it's similar to tpope's [vim-commentary](https://github.com/tpope/vim-commentary), but written in lua and with more functionality. About a year after I wrote this plugin, we also got [Comment.nvim](https://github.com/numToStr/Comment.nvim), which has a bit more functionality than kommentary and is definitely worth checking out if you don't already have a commenting plugin.
    @code fennel
    (paq "kommentary" "Comment out text"
      "b3nj5m1n/kommentary"
-     :branch "main"
      :commit "533d768a140b248443da8346b88e88db704212ab"
      :event "VimEnter"
      :module "kommentary"
@@ -290,6 +302,233 @@ version: 0.0.11
          "gc" "<Plug>kommentary_visual_default"))
    )
    @end
+** [neorg](https://github.com/nvim-neorg/neorg)
+   @code fennel
+   (paq "neorg" "Org-mode equivalent for neovim"
+     "nvim-neorg/neorg"
+     :commit "633dfc9f0c3a00a32ee89d4ab826da2eecfe9bd8"
+     :requires "nvim-lua/plenary.nvim"
+     :ft "norg"
+     :module "neorg")
+   @end
+** [dracula](https://github.com/Mofiqul/dracula.nvim)
+   @code fennel
+   (paq "dracula" "Dracula colorscheme with treesitter support"
+     "Mofiqul/dracula.nvim"
+     :commit "a219971291c56bcca3827cb7bd40aaaef23feeca"
+     :event "UiEnter")
+   @end
+** [nvim-parinfer](https://github.com/gpanders/nvim-parinfer)
+   @code fennel
+   (paq "parinfer" "Parinfer plugin written in lua"
+     "gpanders/nvim-parinfer"
+     :branch "master"
+     :commit "82bce5798993f4fe5ced20e74003b492490b4fe8"
+     :event "UiEnter")
+   @end
+** [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
+   @code fennel
+   (paq "indent-blankline" "Show indent guides"
+     "lukas-reineke/indent-blankline.nvim"
+     :branch "master"
+     :commit "045d9582094b27f5ae04d8b635c6da8e97e53f1d"
+     :module "indent_blankline"
+     :event "UiEnter")
+   @end
+** [telescope](https://github.com/nvim-telescope/telescope.nvim)
+   @code fennel
+   (paq "telescope" "Fuzzy finder"
+     "nvim-telescope/telescope.nvim"
+     :branch "master"
+     :commit "b7ae91c82b33f8f347fa060208adb3da80ae9260"
+     :event "UiEnter")
+   @end
+** [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
+   @code fennel
+   (paq "autopairs" "Autopairs"
+     "windwp/nvim-autopairs"
+     :branch "master"
+     :commit "38d486a1c47ae2722a78cf569008de0a64f4b153"
+     :event "InsertEnter"
+     :module "nvim-autopairs")
+   @end
+** [vim-repeat](https://github.com/tpope/vim-repeat)
+   @code fennel
+   (paq "vim-repeat" "Repeat plugin commands using dot"
+     "tpope/vim-repeat"
+     :branch "master"
+     :commit "24afe922e6a05891756ecf331f39a1f6743d3d5a"
+     :event "BufEnter")
+   @end
+** [vim-surround](https://github.com/tpope/vim-surround)
+   @code fennel
+   (paq "vim-surround" "Surround text objects"
+     "tpope/vim-surround"
+     :branch "master"
+     :commit "81fc0ec460dd8b25a76346e09aecdbca2677f1a7"
+     :event "InsertEnter")
+   @end
+** [nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua)
+   @code fennel
+   (paq "nvim-colorizer" "Highlight color codes"
+     "norcalli/nvim-colorizer.lua"
+     :branch "master"
+     :commit "36c610a9717cc9ec426a07c8e6bf3b3abcb139d6"
+     :event "BufEnter"
+     :module "colorizer")
+   @end
+** [editorconfig](https://github.com/editorconfig/editorconfig-vim)
+   @code fennel
+   (paq "editorconfig" "Automatically load some configuration options based on project"
+     "editorconfig/editorconfig-vim"
+     :branch "master"
+     :commit "a8e3e66deefb6122f476c27cee505aaae93f7109")
+   @end
+** [statusline.lua](https://github.com/beauwilliams/statusline.lua)
+   @code fennel
+   (paq "statusline" "Statusline"
+     "beauwilliams/statusline.lua"
+     :branch "master"
+     :commit "72de7c81992ee416ccb6c5a03ef84c76cc414318")
+   @end
+** [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
+   @code fennel
+   (paq "web-deviconds" "File icons"
+     "kyazdani42/nvim-web-devicons"
+     :branch "master"
+     :commit "8d2c5337f0a2d0a17de8e751876eeb192b32310e")
+   @end
+** [iron.nvim](https://github.com/hkupty/iron.nvim)
+   @code fennel
+   (paq "iron" "Repl integration"
+     "hkupty/iron.nvim"
+     :branch "master"
+     :commit "d50dc23331ab217b9e13f47c8d97ea60bd1ab1b7")
+   @end
+** Treesitter
+*** [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+    @code fennel
+    (paq "nvim-treesitter" "Treesitter abstraction layer"
+      "nvim-treesitter/nvim-treesitter"
+      :branch "master"
+      :commit "c004155676180a683ad424fe57294923cdf702ee"
+      :event "UiEnter")
+    @end
+*** [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
+    @code fennel
+    (paq "treesitter-textobjects" "Textobjects like functions from treesitter"
+      "nvim-treesitter/nvim-treesitter-textobjects"
+      :branch "master"
+      :commit "8af3045c2703248b58d8ee3ee3b18399525bd5d6"
+      :event "UiEnter")
+    @end
+*** [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow)
+    @code fennel
+    (paq "rainbow-parens" "Color nested parens using treesitter"
+      "p00f/nvim-ts-rainbow"
+      :branch "master"
+      :commit "04284dc97eac0d0ecfea68e10be824d1a6585de0"
+      :event "UiEnter")
+    @end
+** LSP
+*** [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+    @code fennel
+    (paq "lspconfig" "Lsp abstraction layer"
+      "neovim/nvim-lspconfig"
+      :branch "master"
+      :commit "b86a37caf7a4e53e62ba883aef5889b590260de9"
+      :event "VimEnter")
+    @end
+*** [lspsaga.nvim](https://github.com/tami5/lspsaga.nvim)
+    @code fennel
+    (paq "lspsaga" "Better lsp ui"
+      "tami5/lspsaga.nvim"
+      :commit "39b6faccb57fd640a06c7d73a30507b13263fcbf"
+      :event "VimEnter"
+      :module "lspsaga")
+    @end
+*** [trouble.nvim](https://github.com/folke/trouble.nvim)
+    @code fennel
+    (paq "trouble" "Better diagnostics ui"
+      "folke/trouble.nvim"
+      :commit "691d490cc4eadc430d226fa7d77aaa84e2e0a125"
+      :event "BufEnter")
+    @end
+** Completion
+*** [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+    @code fennel
+    (paq "nvim-cmp" "Completion plugin"
+      "hrsh7th/nvim-cmp"
+      :commit "b5433f901ebffc9e01b82ae13da9a92d49569205")
+    @end
+*** [nvim-cmp-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
+    @code fennel
+    (paq "cmp-lsp" "Cmp provider for lsp"
+      "hrsh7th/cmp-nvim-lsp"
+      :commit "ebdfc204afb87f15ce3d3d3f5df0b8181443b5ba")
+    @end
+*** [nvim-cmp-lsp-signature-help](https://github.com/hrsh7th/cmp-nvim-lsp-signature-help)
+    @code fennel
+    (paq "cmp-lsp-signature" "Cmp provider for lsp signatures"
+      "hrsh7th/cmp-nvim-lsp-signature-help"
+      :commit "8014f6d120f72fe0a135025c4d41e3fe41fd411b")
+    @end
+*** [nvim-cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
+    @code fennel
+    (paq "cmp-buffer" "Cmp provider for buffer words"
+      "hrsh7th/cmp-buffer"
+      :commit "d66c4c2d376e5be99db68d2362cd94d250987525")
+    @end
+*** [nvim-cmp-path](https://github.com/hrsh7th/cmp-path)
+    @code fennel
+    (paq "cmp-path" "Cmp provider for filepaths"
+      "hrsh7th/cmp-path"
+      :commit "466b6b8270f7ba89abd59f402c73f63c7331ff6e")
+    @end
+*** [nvim-cmp-luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
+    @code fennel
+    (paq "cmp-luasnip" "Cmp provider for luasnip"
+      "saadparwaiz1/cmp_luasnip"
+      :branch "master"
+      :commit "b10829736542e7cc9291e60bab134df1273165c9")
+    @end
+** Snippets
+*** [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
+    @code fennel
+    (paq "luasnip" "Snippet engine"
+      "L3MON4D3/LuaSnip"
+      :branch "master"
+      :commit "6b67cb12747225a6412d8263bb97d6d2b8d9366a")
+    @end
+*** [friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
+    @code fennel
+    (paq "friendly-snippets" "Snippet collection"
+      "rafamadriz/friendly-snippets"
+      :commit "e302658e765cf20e6af5a1be8cc07a996d6ee2cc")
+    @end
+** Git Integration
+*** [neogit](https://github.com/TimUntersberger/neogit)
+    @code fennel
+    (paq "neogit" "Magit for neovim"
+      "TimUntersberger/neogit"
+      :branch "master"
+      :commit "c8dd268091ffcbcb673de59c5b37ff26a2eb24ed")
+    @end
+*** [vim-fugitive](https://github.com/tpope/vim-fugitive)
+    @code fennel
+    (paq "fugitive" "Basic git integration"
+      "tpope/vim-fugitive"
+      :branch "master"
+      :commit "4b0f2b604562e9681ae3b80c2665f168ac637cea"
+      :event "BufEnter")
+    @end
+*** [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
+    @code fennel
+    (paq "gitsigns" "Show added/removed/changed lines"
+      "lewis6991/gitsigns.nvim"
+      :commit "f83a2e11cd7a486e92f3c6630e71e93a073a11da"
+      :event "BufEnter")
+    @end
 
 
 * Post-config
