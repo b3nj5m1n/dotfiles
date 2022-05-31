@@ -1,0 +1,675 @@
+@document.meta
+title: Neovim Config
+description: 
+authors: b3nj4m1n
+categories: 
+created: 2022-05-25
+version: 0.0.11
+@end
+
+* Introduction
+  This is a literate neovim configuration written in fennel. The goal is a fast and maintainable configuration with as few dependencies as possible.
+
+  This document is written in [norg](https://github.com/nvim-neorg/neorg), the code blocks are extracted using treesitter. The makefile in this directory automatcially extracts the fennel code from this document to a file called `config.fnl` in the `./build` directory, then compiles that to a lua file. When running the the default target, it will also copy the compiled lua file to nvim's config directory and create an `init.lua` file in the `./build` directory. You can run nvim with the `-u` flag to test the config out, i.e. `nvim -u build/init.lua`.
+
+* Definitions
+  Any functions or variables we define in here won't be accesible by neovim, but in certain instances we need to have access to these functions. For example, we use packer to manage plugins, and packer accepts a `config` field for any plugin with a function to run as configuration for the given plugin. If we want to set a keymap as part of a plugins configuration, we need to expose the function we create to handle keymaps to neovim.
+
+  We achieve this by creating any definitions and variables und a global `config` table. It will hold serveral sub-tables, such as `plugin-configs` for the plugin configuration function, `fn` for all general-purpose function we define (such as those for settings keymaps), etc.
+  @code fennel
+  (tset _G :config { :plugins {} :plugin-configs {} :plugin-setups {} :fn {} :var {} } )
+  @end
+  Since we don't want to have to prefix every function call in this document with `_G.config.fn.`, we also want to create a local variable pointing to the global function. Let's create a macro for automating this process:
+  @code fennel
+  (macro def-fn [fn-name fn-args ...]
+    '(local ,fn-name (let [f# (fn ,(sym (.. "_G.config.fn." (. fn-name 1))) ,fn-args ,[...])]
+                    (set ,(sym (.. "_G.config.fn." (. fn-name 1))) f#)
+                    f#)))
+  (macro def-var [var-name var-value]
+    '(local ,var-name (do
+                    (set ,(sym (.. "_G.config.var." (. var-name 1))) ,var-value)
+                    ,var-value)))
+  @end
+  We can now use `def-fn` in place of `fn` to create a function under `_G.config.fn` and add a local variable pointing to that global function. The same goes for variables using the `def-var` macro in place of `local`.
+
+** Common functions from the neovim API
+   When calling functions from the internal neovim lua api, I don't want to have to prefix everything with `vim.api.`, so we'll create some "aliases" to these functions.
+   @code fennel
+   (def-var set-var vim.api.nvim_set_var)
+
+   (def-var get-opt vim.api.nvim_get_option)
+
+   (def-var expand vim.fn.expand) ; Expand enviornment variables in string
+   @end
+   We won't be calling some functions directly, for example, we'll define a macro for handling keymaps, I'll prefix these functions with `nvim` to indicate this.
+   @code fennel
+   (def-var nvim-set-keymap vim.api.nvim_set_keymap)
+
+   (def-var nvim-set-opt vim.api.nvim_set_option_value)
+   @end
+** Custom Functions & Macros
+
+*** Option management
+    `nvim-set-option` requires an option table, however, I don't need to set any of these options, so I'll create a wrapper function that will automatcially pass an empty option table.
+    @code fennel
+    (def-fn set-opt [option-name option-value]
+      "Set nvim option with an empty options table. Wrapper around nvim-set-opt."
+      (nvim-set-opt option-name option-value {}))
+    @end
+    This is a convenience function to allow me to set multiple options with one function call.
+    @code fennel
+    (def-fn set-opts [...]
+      "Set multiple options."
+      (for [i 1 (length [...]) 2]
+        (set-opt (. [...] i) (. [...] (+ 1 i)))))
+    @end
+*** Keymap management
+    Keymaps can take two forms, they either map some left-side to a right-side, for example, the key `t` to the keys `itest` (which will insert the text test when you press t), or they map some left-side to a lua callback, for example the key `t` to the function `print("test")`, which will print "test" when you press t.
+
+    When you use the lua api to create the keymaps, though, you always have to specify a right-side, it's just ignored when you pass a callback in the options table. Let's define some functions to make this a little easier for ourselves.
+    @code fennel
+    (def-fn set-keymap-pure [description mode left-side right-side]
+      "Set a 'pure' keymap, i.e. no callback"
+      (let [opts { :noremap true :silent true :desc description }]
+        (nvim-set-keymap mode left-side right-side opts)))
+
+    (def-fn set-keymap-callback [description mode left-side callback]
+      "Set a keymap with a callback."
+      (let [opts { :noremap true :silent true :desc description :callback callback }]
+        (nvim-set-keymap mode left-side "" opts)))
+    @end
+    When you specify a keymap, you have to tell neovim for what mode it is, for example normal mode or insert mode. You can also specify an optional description for what the mapping does. I want to combine this, so I can just specify mode and description in one string, something like this: /Normal: Execute that one command/. Let's write a macro to do just that, and while we're at it, let's make it figure out whether the third argument is a string or a function, and based on that decide whether to call `set-keymap-pure` or `set-keymap-callback`.
+    @code fennel
+    (macro set-keymap [description left-side right-side-or-callback]
+      "Set keymap with description, default options and either left-side or callback."
+      (fn get-description-prefix [s]
+        "If description is 'Normal: text text', this function will return 'normal'"
+        (string.lower (string.sub s 1 (- (string.find s ":" 1 true) 1))))
+      (fn get-description [s]
+        "If description is 'Normal: text text', this function will return 'text text'"
+        (string.sub s (+ (string.find s ":" 1 true) 2)))
+      (local mode (match (get-description-prefix description)
+        "normal" "n"
+        "visual" "v"
+        "insert" "i"
+        "terminal" "t"
+        ))
+      (local description (get-description description))
+      (match (type right-side-or-callback)
+          "string" '(_G.config.fn.set-keymap-pure ,description ,mode ,left-side ,right-side-or-callback)
+          "table" '(_G.config.fn.set-keymap-callback ,description ,mode ,left-side ,right-side-or-callback)))
+    @end
+*** Plugin management
+    Neovim doesn't /really/ have a built-in plugin manager, and there are tons of available options. I'm currently using [packer](https://github.com/wbthomason/packer.nvim), but I don't want to be dependendent on that, so my approach to plugin management is built to allow for easily switching out the plugin manager without having to make changes to my plugin declarations.
+
+    There's a `plugins` table in our global `config` table, this will store a list of plugins containing all the information we need, such as the github url, configuration, etc. Then, there's a separate function which will build a packer configuration from that global table. In theory, I could also write a function to build a vim-plug configuration. (a package manager I've used in the past)
+
+    You'll definitely see packer's influence on the available values, though. Here's a function which will insert a new plugin into this table with all possible parameters:
+    @code fennel
+    (def-fn add-plugin [name path config setup branch commit optional command requires filetype event after disable description]
+      "Add plugin to config-local plugin-store."
+      (table.insert config.plugins {
+        :name name :path path :config config :setup setup
+        :branch branch :commit commit :optional optional
+        :command command :requires requires :filetype filetype
+        :event event :after after :disable disable
+        :description description
+      }))
+    @end
+
+    I don't want to have to set all possible parameters, though. And there's some other things I'd like automated.
+
+    - I like my plugins pinned to a specific version. In practice, I always specify the hash of the commit I want to use. This doesn't give me automatic updates, but it also guarantees (more or less) that my plugins will never break. When I want to update a plugin, I manually replace the commit hash with a newer one. I also always specify the branch name to use. Since I always want to do this, we can assume that when I don't explicitly specify the branch name, it's the default of "main".
+    - We can also assume that when we don't explicitly set the optional or disable parameters, the plugin is neither optional, nor disabled.
+    - `config` and `setup` are both functions, and I want them to be in the `_G.config.plugin-configs` and `_G.config.plugin-setups` table, respectively.
+    -- I don't want to type out the whole `(fn _G.config.plugin-x.y)
+    -- When I don't pass a function explicity, I want to set it to a function returning `nil`, since packer will always call the function and I don't want it to error when I don't specify a function.
+
+    Again, let's define a macro to take care of all this:
+    @code fennel
+    (macro paq [name description path ...]
+      (local plugin-config {
+        :name name :path path :config nil :setup nil :branch nil :commit nil :optional nil
+        :command nil :requires nil :filetype nil :event nil :after nil :disable nil :description description })
+      (for [i 1 (length [...]) 2]
+        (let [key (. [...] i) value (. [...] (+ 1 i))]
+          (tset plugin-config key value)))
+      (if (= (. plugin-config :branch) nil) (tset plugin-config :branch "main"))
+      (if (= (. plugin-config :optional) nil) (tset plugin-config :optional false))
+      (if (= (. plugin-config :disable) nil) (tset plugin-config :disable false))
+      (if (not (= (. plugin-config :config) nil))
+        (tset plugin-config :config '(fn ,(sym (.. "_G.config.plugin-configs." name)) [] ,(. plugin-config :config)))
+        (tset plugin-config :config '(fn ,(sym (.. "_G.config.plugin-configs." name)) [] nil)))
+      (if (not (= (. plugin-config :setup) nil))
+        (tset plugin-config :setup '(fn ,(sym (.. "_G.config.plugin-setups." name)) [] ,(. plugin-config :setup)))
+        (tset plugin-config :setup '(fn ,(sym (.. "_G.config.plugin-setups." name)) [] nil)))
+      '(table.insert (. config :plugins) ,plugin-config))
+    @end
+
+    Finally, let's define the function I've been talking about that will build a packer config from our global plugin table:
+    @code fennel
+    (def-fn init-packer []
+      (do 
+        (paq "packer" "Plugin manager"
+          "wbthomason/packer.nvim"
+          :branch "master"
+          :commit "4dedd3b08f8c6e3f84afbce0c23b66320cd2a8f2"
+          :optional true
+          :command [ "PackerSync" ])
+        (vim.cmd "packadd packer.nvim")
+        ((. (require :packer) :startup) {1 (fn []
+          (each [_ plugin (ipairs (. config :plugins))]
+            (use {
+              1 (. plugin :path)
+              :config (. plugin :config)
+              :setup (. plugin :setup)
+              :branch (. plugin :branch)
+              :commit (. plugin :commit)
+              :opt (. plugin :optional)
+              :cmd (. plugin :command)
+              :requires (. plugin :requires)
+              :ft (. plugin :filetype)
+              :event (. plugin :event)
+              :after (. plugin :after)
+              :disable (. plugin :disable)})))
+          :config {:compile_path (.. (vim.fn.stdpath :config) :/lua/packer_compiled.lua)}})
+        (require :packer_compiled)))
+    @end
+
+
+* Options
+** Sane defaults
+   These are what I would set as the defaults for nvim. Nothing specific to me.
+   @code fennel
+   (set-var :syntax true)
+   (set-opts
+     :termguicolors  true  ; Enable 24-bit color
+     :backup         false ; Don't create a backup file before overwriting a file
+     :completeopt    "noinsert,menuone,noselect" ; Do not insert anything until the user selects it; Show the menu when there is just one match; Force the user to select something from the menu
+     :encoding       "UTF-8" ; Set encoding to UTF-8
+     :errorbells     false ; Disable error bell & screen flashing
+     :guicursor      "n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor" ; Cursor shapes
+     :hidden         true ; Don't kill buffers, when exiting, keep them around in the background
+     :hlsearch       false ; No highlighting on search
+     :ignorecase     true ; Ignore case in searches
+     :inccommand     :split ; Show preview of substitute
+     :incsearch      true ; Directly jump to next match when searching
+     :mouse          :a ; Enable mouse support
+     :pumheight      20 ; Max completion menu height
+     :sessionoptions "blank,buffers,curdir,folds,help,options,tabpages,winsize,resize,winpos,terminal" ; Session management options
+     :shortmess      (.. (get-opt :shortmess) :c) ; Avoid prompts for auto-complete
+     :showmode       false ; Hide the -- INSERT -- at the bottom
+     :smartcase      true ; Don't ignore case in searches when using case in search
+     :swapfile       false ; Don't create swapfiles
+     :undodir        (expand "$XDG_DATA_HOME/nvim/undodir") ; File to store undo stacks in
+     :cursorcolumn   false ; Indicate current column
+     :cursorline     true ; Indicate current line
+     :foldexpr       "nvim_treesitter#foldexpr()" ; Auto fold based on treesitter
+     :foldmethod     "expr" ; Auto fold method set to syntax (Determine folds based on file specific syntax)
+     :foldnestmax    20 ; Deepest possible fold
+     :number         true ; Enable line numbers
+     :smartindent    true ; Automatically indent on a new line
+     :undofile       true ; Keep a file with the undo stack
+     :shiftwidth     4 ; Affects <<, >>, and auto indent
+     :softtabstop    4 ; Number of spaces a <Tab> accounts for when editing
+     :tabstop        4 ; How many spaces a <Tab> in a file accounts for
+     :scrolloff      2 ; Start scrolling when 2 lines from top/bottom, i.e. always show 2 lines of context
+     :sidescrolloff  4 ; Same as above but for horizontal scrolling
+     :signcolumn     "yes" ; Always dispaly the signcolumn at the left side
+   )
+   @end
+** Preferences
+   @code fennel
+   (set-var :mapleader " ")
+   (set-opts
+     :foldlevel      99 ; The higher, the more folded regions are open (0 = all folds closed)
+     :foldlevelstart 99 ; Inital fold level; close all folds when opening a new buffer
+     :laststatus     3 ; Global statusbar
+     :wrap           false ; Long lines are displayed as one line (Horizontal scrolling required)
+     :relativenumber true ; Enable relative line numbers
+     :expandtab      true ; Insert spaces instead of tab
+     :spelllang      "en_GB,de,es,cjk" ; Dictionarys to use for checking spelling
+     :list           true ; Show invisible characters
+     :listchars     "eol:↴,nbsp:+,space:⋅,tab:⟼ ,trail:-" ; Invisible character and what character to show for it
+   )
+   @end
+
+* Keymaps
+** General
+   @code fennel
+   (set-keymap "Visual: Keep visual selection after indenting"
+     ">" ">gv")
+   (set-keymap "Visual: Keep visual selection after indenting"
+     "<" "<gv")
+   (set-keymap "Terminal: Exit to normal mode"
+     "<C-g>" "<C-\\><C-n>")
+   (set-keymap "Normal: Source current file"
+     "<C-s>" ":source %<CR>")
+   @end
+** Tabs
+   @code fennel
+   (set-keymap "Normal: Switch to previous tab"
+     "<C-h>" ":tabprevious<CR>")
+   (set-keymap "Normal: Switch to next tab"
+     "<C-l>" ":tabnext<CR>")
+   @end
+** Splits
+   @code fennel
+   (set-keymap "Normal: Create vertical split"
+     "<leader>wv" ":vsplit<CR>")
+   (set-keymap "Normal: Create horizontal split"
+     "<leader>ws" ":split<CR>")
+   (set-keymap "Normal: Move to split on the left"
+     "<leader>wh" "<C-W>h")
+   (set-keymap "Normal: Move to split on the bottom"
+     "<leader>wj" "<C-W>j")
+   (set-keymap "Normal: Move to split on the top"
+     "<leader>wk" "<C-W>k")
+   (set-keymap "Normal: Move to split on the right"
+     "<leader>wl" "<C-W>l")
+   @end
+** Line highlighting
+   @code fennel
+   (set-keymap "Normal: Toggle highlight on the current line"
+     "<leader>hl" ":set cursorline!<CR>")
+   (set-keymap "Normal: Toggle highlight on the current line"
+     "<leader>hc" ":set cursorcolumn!<CR>")
+   @end
+
+* Plugins
+** [plenary](https://github.com/nvim-lua/plenary.nvim)
+   @code fennel
+   (paq "plenary" "Common lua functions for nvim plugins"
+     "nvim-lua/plenary.nvim"
+     :branch "master"
+     :commit "1da13add868968802157a0234136d5b1fbc34dfe")
+   @end
+** [kommentary](https://github.com/b3nj5m1n/kommentary)
+   This is a plugin I wrote a while back, it's similar to tpope's [vim-commentary](https://github.com/tpope/vim-commentary), but written in lua and with more functionality. About a year after I wrote this plugin, we also got [Comment.nvim](https://github.com/numToStr/Comment.nvim), which has a bit more functionality than kommentary and is definitely worth checking out if you don't already have a commenting plugin.
+   @code fennel
+   (paq "kommentary" "Comment out text"
+     "b3nj5m1n/kommentary"
+     :commit "533d768a140b248443da8346b88e88db704212ab"
+     :event "VimEnter"
+     :module "kommentary"
+     :setup (_G.config.var.set-var :kommentary_create_default_mappings false)
+     :config (do
+       (set-keymap "Normal: Toggle comment on current line"
+         "gcc" "<Plug>kommentary_line_default")
+       (set-keymap "Normal: Toggle comment on motion"
+         "gc" "<Plug>kommentary_motion_default")
+       (set-keymap "Visual: Toggle comment on visual selection"
+         "gc" "<Plug>kommentary_visual_default"))
+   )
+   @end
+** [neorg](https://github.com/nvim-neorg/neorg)
+   @code fennel
+   (paq "neorg" "Org-mode equivalent for neovim"
+     "nvim-neorg/neorg"
+     :commit "633dfc9f0c3a00a32ee89d4ab826da2eecfe9bd8"
+     :requires ["nvim-lua/plenary.nvim" "nvim-treesitter/nvim-treesitter"]
+     :ft "norg"
+     :module "neorg"
+     :config ((. (require :neorg) :setup) {:load {
+              :core.defaults {}
+              :core.norg.concealer {:config {:preset :icons}}
+              :core.norg.completion {:config {:engine :nvim-cmp}}
+              :core.norg.esupports.metagen {:config {:type :auto}}}})
+   )
+   @end
+** [dracula](https://github.com/Mofiqul/dracula.nvim)
+   @code fennel
+   (paq "dracula" "Dracula colorscheme with treesitter support"
+     "Mofiqul/dracula.nvim"
+     :commit "a219971291c56bcca3827cb7bd40aaaef23feeca"
+     :event "UiEnter"
+     :config (vim.cmd "colorscheme dracula")
+   )
+   @end
+** [nvim-parinfer](https://github.com/gpanders/nvim-parinfer)
+   @code fennel
+   (paq "parinfer" "Parinfer plugin written in lua"
+     "gpanders/nvim-parinfer"
+     :branch "master"
+     :commit "82bce5798993f4fe5ced20e74003b492490b4fe8"
+     :event "UiEnter")
+   @end
+** [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
+   @code fennel
+   (paq "indent-blankline" "Show indent guides"
+     "lukas-reineke/indent-blankline.nvim"
+     :branch "master"
+     :commit "045d9582094b27f5ae04d8b635c6da8e97e53f1d"
+     :module "indent_blankline"
+     :event "UiEnter"
+     :config ((. (require :indent_blankline) :setup) {
+       :char "|"
+       :space_char_blankline " "
+       :show_current_context true
+       :buftype_exclude {1 :terminal}})
+   )
+   @end
+** [telescope](https://github.com/nvim-telescope/telescope.nvim)
+   @code fennel
+   (paq "telescope" "Fuzzy finder"
+     "nvim-telescope/telescope.nvim"
+     :branch "master"
+     :commit "b7ae91c82b33f8f347fa060208adb3da80ae9260"
+     :requires "nvim-lua/plenary.nvim"
+     :event "UiEnter"
+     :config (do
+       (set-keymap "Normal: Open fuzzy file finder"
+         "<leader>tf" (. (require :telescope.builtin) :find_files))
+       (set-keymap "Normal: Open live grep"
+         "<leader>tg" (. (require :telescope.builtin) :live_grep))
+       (set-keymap "Normal: Open buffer list"
+         "<leader>tf" (. (require :telescope.builtin) :buffers)))
+   )
+   @end
+** [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
+   @code fennel
+   (paq "autopairs" "Autopairs"
+     "windwp/nvim-autopairs"
+     :branch "master"
+     :commit "38d486a1c47ae2722a78cf569008de0a64f4b153"
+     :event "InsertEnter"
+     :module "nvim-autopairs"
+     :config ((. (require :nvim-autopairs) :setup))
+   )
+   @end
+** [vim-repeat](https://github.com/tpope/vim-repeat)
+   @code fennel
+   (paq "vim-repeat" "Repeat plugin commands using dot"
+     "tpope/vim-repeat"
+     :branch "master"
+     :commit "24afe922e6a05891756ecf331f39a1f6743d3d5a"
+     :event "BufEnter")
+   @end
+** [vim-surround](https://github.com/tpope/vim-surround)
+   @code fennel
+   (paq "vim-surround" "Surround text objects"
+     "tpope/vim-surround"
+     :branch "master"
+     :commit "81fc0ec460dd8b25a76346e09aecdbca2677f1a7"
+     :event "InsertEnter")
+   @end
+** [nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua)
+   @code fennel
+   (paq "nvim-colorizer" "Highlight color codes"
+     "norcalli/nvim-colorizer.lua"
+     :branch "master"
+     :commit "36c610a9717cc9ec426a07c8e6bf3b3abcb139d6"
+     :event "BufEnter"
+     :module "colorizer"
+     :config ((. (require :colorizer) :setup))
+   )
+   @end
+** [editorconfig](https://github.com/editorconfig/editorconfig-vim)
+   @code fennel
+   (paq "editorconfig" "Automatically load some configuration options based on project"
+     "editorconfig/editorconfig-vim"
+     :branch "master"
+     :commit "a8e3e66deefb6122f476c27cee505aaae93f7109")
+   @end
+** [statusline.lua](https://github.com/beauwilliams/statusline.lua)
+   @code fennel
+   (paq "statusline" "Statusline"
+     "beauwilliams/statusline.lua"
+     :branch "master"
+     :commit "72de7c81992ee416ccb6c5a03ef84c76cc414318")
+   @end
+** [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
+   @code fennel
+   (paq "web-deviconds" "File icons"
+     "kyazdani42/nvim-web-devicons"
+     :branch "master"
+     :commit "8d2c5337f0a2d0a17de8e751876eeb192b32310e")
+   @end
+** [iron.nvim](https://github.com/hkupty/iron.nvim)
+   @code fennel
+   (paq "iron" "Repl integration"
+     "hkupty/iron.nvim"
+     :branch "master"
+     :commit "d50dc23331ab217b9e13f47c8d97ea60bd1ab1b7"
+     :config (do
+       (local iron (require :iron.core))
+       (iron.setup {:config {:should_map_plug false :scratch_repl true} :keymaps {}}))
+   )
+   @end
+** Treesitter
+*** [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+    @code fennel
+    (paq "nvim-treesitter" "Treesitter abstraction layer"
+      "nvim-treesitter/nvim-treesitter"
+      :branch "master"
+      :commit "c004155676180a683ad424fe57294923cdf702ee"
+      :config (do
+        (local parser-configs ((. (require :nvim-treesitter.parsers)
+          :get_parser_configs)))
+        (set parser-configs.norg {
+          :install_info {:url "https://github.com/nvim-neorg/tree-sitter-norg"
+          :files {1 :src/parser.c 2 :src/scanner.cc}
+          :branch :main}})
+        ((. (require :nvim-treesitter.configs) :setup) {
+          :ensure_installed :all
+          :highlight {:enable true}
+          :indent {:enable true}
+          :rainbow {
+            :enable true
+            :colors [ "#bd93f9" "#50fa7b" "#ffb86c" "#ff79c6" "#8be9fd" "#f1fa8c" ]}
+          :textobjects {
+            :select {
+              :enable true
+              :keymaps {
+                :af "@function.outer"
+                :if "@function.inner"
+                :ac "@class.outer"
+                :ic "@class.inner"}}
+            :move {
+              :enable true
+              :goto_next_start {"]m" "@function.outer" "]]" "@class.outer"}
+              :goto_next_end {"]M" "@function.outer" "][" "@class.outer"}
+              :goto_previous_start {"[m" "@function.outer" "[[" "@class.outer"}
+              :goto_previous_end {"[M" "@function.outer" "[]" "@class.outer"}}}}))
+    )
+    @end
+*** [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
+    @code fennel
+    (paq "treesitter-textobjects" "Textobjects like functions from treesitter"
+      "nvim-treesitter/nvim-treesitter-textobjects"
+      :branch "master"
+      :commit "8af3045c2703248b58d8ee3ee3b18399525bd5d6"
+      :event "UiEnter")
+    @end
+*** [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow)
+    @code fennel
+    (paq "rainbow-parens" "Color nested parens using treesitter"
+      "p00f/nvim-ts-rainbow"
+      :branch "master"
+      :commit "04284dc97eac0d0ecfea68e10be824d1a6585de0"
+      :event "UiEnter")
+    @end
+** LSP
+*** [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+    @code fennel
+    (paq "lspconfig" "Lsp abstraction layer"
+      "neovim/nvim-lspconfig"
+      :branch "master"
+      :commit "b86a37caf7a4e53e62ba883aef5889b590260de9"
+      :event "VimEnter"
+      :config (do
+              (local lspconfig (require :lspconfig))
+              (var capabilities (vim.lsp.protocol.make_client_capabilities))
+              (set capabilities
+                   ((. (require :cmp_nvim_lsp) :update_capabilities) capabilities))
+              (local servers [:bashls :clangd :clangd :cmake
+                              :cssls :elmls :html :jsonls :rust_analyzer
+                               :tsserver :tsserver :yamlls :jdtls :hls])
+              (each [_ server (pairs servers)]
+                ((. (. lspconfig server) :setup) {: capabilities}))
+              (set-keymap "Normal: Format buffer"
+                "<leader>ll" vim.lsp.buf.format))
+    )
+    @end
+*** [lspsaga.nvim](https://github.com/tami5/lspsaga.nvim)
+    @code fennel
+    (paq "lspsaga" "Better lsp ui"
+      "tami5/lspsaga.nvim"
+      :commit "39b6faccb57fd640a06c7d73a30507b13263fcbf"
+      :event "VimEnter"
+      :module "lspsaga"
+      :config (do (. (require :lspsaga) :init_lsp_saga)
+                (set-keymap "Normal: Code action"
+                  "<leader>la" (. (require :lspsaga.codeaction) :code_action))
+                (set-keymap "Normal: Hover doc"
+                  "<leader>ld" (. (require :lspsaga.hover) :render_hover_doc))
+                (set-keymap "Normal: Rename symbol under cursor"
+                  "<leader>lr" (. (require :lspsaga.rename) :rename)))
+    )
+    @end
+*** [trouble.nvim](https://github.com/folke/trouble.nvim)
+    @code fennel
+    (paq "trouble" "Better diagnostics ui"
+      "folke/trouble.nvim"
+      :commit "691d490cc4eadc430d226fa7d77aaa84e2e0a125"
+      :event "BufEnter"
+      :config (do
+        ((. (require :trouble) :setup) {})
+        (set-keymap "Normal: Open Trouble window"
+          "<leader>xx" "<cmd>Trouble<cr>"))
+    )
+    @end
+** Completion
+*** [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+    @code fennel
+    (paq "nvim-cmp" "Completion plugin"
+      "hrsh7th/nvim-cmp"
+      :commit "b5433f901ebffc9e01b82ae13da9a92d49569205"
+      :config (do
+        (local cmp (require :cmp))
+        (cmp.setup {
+          :snippet {
+            :expand (fn [args]
+              ((. (require :luasnip) :lsp_expand) args.body))}
+            :mapping (cmp.mapping.preset.insert {
+              :<C-b> (cmp.mapping.scroll_docs (- 4))
+              :<C-f> (cmp.mapping.scroll_docs 4)
+              :<C-Space> (cmp.mapping.complete)
+              :<C-e> (cmp.mapping.abort)
+              :<CR> (cmp.mapping.confirm {:select true})})
+            :sources (cmp.config.sources [
+              {:name :nvim_lsp}
+              {:name :nvim_lsp_signature_help}
+              {:name :neorg}
+              {:name :luasnip}
+              {:name :path}
+              {:name :omni}
+              {:name :buffer}])
+            :sorting {
+              :comparators [cmp.config.compare.score]}}))
+    )
+    @end
+*** [nvim-cmp-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
+    @code fennel
+    (paq "cmp-lsp" "Cmp provider for lsp"
+      "hrsh7th/cmp-nvim-lsp"
+      :commit "ebdfc204afb87f15ce3d3d3f5df0b8181443b5ba")
+    @end
+*** [nvim-cmp-lsp-signature-help](https://github.com/hrsh7th/cmp-nvim-lsp-signature-help)
+    @code fennel
+    (paq "cmp-lsp-signature" "Cmp provider for lsp signatures"
+      "hrsh7th/cmp-nvim-lsp-signature-help"
+      :commit "8014f6d120f72fe0a135025c4d41e3fe41fd411b")
+    @end
+*** [nvim-cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
+    @code fennel
+    (paq "cmp-buffer" "Cmp provider for buffer words"
+      "hrsh7th/cmp-buffer"
+      :commit "d66c4c2d376e5be99db68d2362cd94d250987525")
+    @end
+*** [nvim-cmp-path](https://github.com/hrsh7th/cmp-path)
+    @code fennel
+    (paq "cmp-path" "Cmp provider for filepaths"
+      "hrsh7th/cmp-path"
+      :commit "466b6b8270f7ba89abd59f402c73f63c7331ff6e")
+    @end
+*** [nvim-cmp-luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
+    @code fennel
+    (paq "cmp-luasnip" "Cmp provider for luasnip"
+      "saadparwaiz1/cmp_luasnip"
+      :branch "master"
+      :commit "b10829736542e7cc9291e60bab134df1273165c9")
+    @end
+** Snippets
+*** [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
+    @code fennel
+    (paq "luasnip" "Snippet engine"
+      "L3MON4D3/LuaSnip"
+      :branch "master"
+      :commit "6b67cb12747225a6412d8263bb97d6d2b8d9366a"
+      :config ((. (require :luasnip.loaders.from_vscode) :lazy_load))
+    )
+    @end
+*** [friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
+    @code fennel
+    (paq "friendly-snippets" "Snippet collection"
+      "rafamadriz/friendly-snippets"
+      :commit "e302658e765cf20e6af5a1be8cc07a996d6ee2cc")
+    @end
+** Git Integration
+*** [neogit](https://github.com/TimUntersberger/neogit)
+    @code fennel
+    (paq "neogit" "Magit for neovim"
+      "TimUntersberger/neogit"
+      :branch "master"
+      :commit "c8dd268091ffcbcb673de59c5b37ff26a2eb24ed"
+      :requires "nvim-lua/plenary.nvim"
+      :after "plenary.nvim"
+      :config ((. (require :neogit) :setup) {})
+    )
+    @end
+*** [vim-fugitive](https://github.com/tpope/vim-fugitive)
+    @code fennel
+    (paq "fugitive" "Basic git integration"
+      "tpope/vim-fugitive"
+      :branch "master"
+      :commit "4b0f2b604562e9681ae3b80c2665f168ac637cea"
+      :event "BufEnter")
+    @end
+*** [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
+    @code fennel
+    (paq "gitsigns" "Show added/removed/changed lines"
+      "lewis6991/gitsigns.nvim"
+      :commit "f83a2e11cd7a486e92f3c6630e71e93a073a11da"
+      :requires "nvim-lua/plenary.nvim"
+      :event "BufEnter"
+      :config ((. (require :gitsigns) :setup) {
+        :signs {
+          :add {
+            :hl :GitSignsAdd
+            :text "▌"
+            :numhl :GitSignsAddNr
+            :linehl :GitSignsAddLn}
+            :change {:hl :GitSignsChange
+            :text "▌"
+            :numhl :GitSignsChangeNr
+            :linehl :GitSignsChangeLn}}
+            :current_line_blame true
+            :current_line_blame_opts {:virt_text true
+            :virt_text_pos :eol
+            :delay 5000
+            :ignore_whitespace false}
+            :on_attach (fn _G.config.plugin-configs.gitsigns-on-attach [bufnr]
+              (vim.api.nvim_exec "highlight GitSignsCurrentLineBlame guifg=#5a5e7a"
+                false))})
+    )
+    @end
+
+
+* Post-config
+  Code that runs after all the configuration is done.
+
+  `(init-packer)` will load the plugins defined with `(paq)` into packer.
+  @code fennel
+  (init-packer)
+  @end

@@ -221,11 +221,6 @@ c23 = "#e8e8e8" # Dim
 
 [neovim.files]
 "files/nvim/init.lua" = "~/.config/nvim/init.lua"
-"files/nvim/lua/plugins.lua" = "~/.config/nvim/lua/plugins.lua"
-"files/nvim/lua/plugin-config.lua" = "~/.config/nvim/lua/plugin-config.lua"
-"files/nvim/lua/binds.lua" = "~/.config/nvim/lua/binds.lua"
-"files/nvim/lua/opts.lua" = "~/.config/nvim/lua/opts.lua"
-"files/nvim/lua/compile.lua" = "~/.config/nvim/lua/compile.lua"
 "files/nvim/ftplugin/c.lua" = "~/.config/nvim/ftplugin/c.lua"
 "files/nvim/ftplugin/cpp.lua" = "~/.config/nvim/ftplugin/cpp.lua"
 "files/nvim/ftplugin/lisp.vim" = "~/.config/nvim/ftplugin/lisp.vim"
