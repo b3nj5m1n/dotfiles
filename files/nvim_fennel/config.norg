@@ -7,69 +7,80 @@ created: 2022-05-25
 version: 0.0.11
 @end
 
-* Definitions
-** Global config table
-   This is a global table which will be returned at the end of this file. I'm not sure what to do with it yet.
-   @code fennel
-   (global config { :plugins {} :plugin-configs {} :plugin-setups {} :fn {} :var {} })
-   (tset _G :config config)
-   (macro def-fn [fn-name fn-args ...]
-  '(local ,fn-name (let [f# (fn ,(sym (.. "_G.config.fn." (. fn-name 1))) ,fn-args ,[...])]
-                     (set ,(sym (.. "_G.config.fn." (. fn-name 1))) f#)
-                     f#)))
-   (macro def-var [var-name var-value]
-  '(local ,var-name (do
-                     (set ,(sym (.. "_G.config.var." (. var-name 1))) ,var-value)
-                     ,var-value)))
+* Introduction
+  This is a literate neovim configuration written in fennel. The goal is a fast and maintainable configuration with as few dependencies as possible.
 
-   @end
-** Modules
-   This section holds various imports which will be used later in the config.
+  This document is written in [norg](https://github.com/nvim-neorg/neorg), the code blocks are extracted using treesitter. The makefile in this directory automatcially extracts the fennel code from this document to a file called `config.fnl` in the `./build` directory, then compiles that to a lua file. When running the the default target, it will also copy the compiled lua file to nvim's config directory and create an `init.lua` file in the `./build` directory. You can run nvim with the `-u` flag to test the config out, i.e. `nvim -u build/init.lua`.
+
+* Definitions
+  Any functions or variables we define in here won't be accesible by neovim, but in certain instances we need to have access to these functions. For example, we use packer to manage plugins, and packer accepts a `config` field for any plugin with a function to run as configuration for the given plugin. If we want to set a keymap as part of a plugins configuration, we need to expose the function we create to handle keymaps to neovim.
+
+  We achieve this by creating any definitions and variables und a global `config` table. It will hold serveral sub-tables, such as `plugin-configs` for the plugin configuration function, `fn` for all general-purpose function we define (such as those for settings keymaps), etc.
+  @code fennel
+  (tset _G :config { :plugins {} :plugin-configs {} :plugin-setups {} :fn {} :var {} } )
+  @end
+  Since we don't want to have to prefix every function call in this document with `_G.config.fn.`, we also want to create a local variable pointing to the global function. Let's create a macro for automating this process:
+  @code fennel
+  (macro def-fn [fn-name fn-args ...]
+    '(local ,fn-name (let [f# (fn ,(sym (.. "_G.config.fn." (. fn-name 1))) ,fn-args ,[...])]
+                    (set ,(sym (.. "_G.config.fn." (. fn-name 1))) f#)
+                    f#)))
+  (macro def-var [var-name var-value]
+    '(local ,var-name (do
+                    (set ,(sym (.. "_G.config.var." (. var-name 1))) ,var-value)
+                    ,var-value)))
+  @end
+  We can now use `def-fn` in place of `fn` to create a function under `_G.config.fn` and add a local variable pointing to that global function. The same goes for variables using the `def-var` macro in place of `local`.
+
+** Common functions from the neovim API
+   When calling functions from the internal neovim lua api, I don't want to have to prefix everything with `vim.api.`, so we'll create some "aliases" to these functions.
    @code fennel
-   ; (local nvim (require :vim.api))
-   @end
-** Function aliases
-   Shorter/more intuitive names for some functions.
-   @code fennel
-   (def-var nvim-set-opt vim.api.nvim_set_option_value)
+   (def-var set-var vim.api.nvim_set_var)
 
    (def-var get-opt vim.api.nvim_get_option)
 
    (def-var expand vim.fn.expand) ; Expand enviornment variables in string
-
+   @end
+   We won't be calling some functions directly, for example, we'll define a macro for handling keymaps, I'll prefix these functions with `nvim` to indicate this.
+   @code fennel
    (def-var nvim-set-keymap vim.api.nvim_set_keymap)
 
-   (def-var set-var vim.api.nvim_set_var)
+   (def-var nvim-set-opt vim.api.nvim_set_option_value)
    @end
-** Functions
-   Custom functions.
+** Custom Functions & Macros
 
-   Some of these wrap the aliases from above to provide an easier interface. For example, when setting an option, you have to provide an options table. I do not use these options, so the `set-opt` function automatically calls the underlying function from the neovim api with an additional empty table as an argument.
 *** Option management
+    `nvim-set-option` requires an option table, however, I don't need to set any of these options, so I'll create a wrapper function that will automatcially pass an empty option table.
     @code fennel
     (def-fn set-opt [option-name option-value]
       "Set nvim option with an empty options table. Wrapper around nvim-set-opt."
       (nvim-set-opt option-name option-value {}))
-
+    @end
+    This is a convenience function to allow me to set multiple options with one function call.
+    @code fennel
     (def-fn set-opts [...]
       "Set multiple options."
       (for [i 1 (length [...]) 2]
         (set-opt (. [...] i) (. [...] (+ 1 i)))))
     @end
 *** Keymap management
+    Keymaps can take two forms, they either map some left-side to a right-side, for example, the key `t` to the keys `itest` (which will insert the text test when you press t), or they map some left-side to a lua callback, for example the key `t` to the function `print("test")`, which will print "test" when you press t.
+
+    When you use the lua api to create the keymaps, though, you always have to specify a right-side, it's just ignored when you pass a callback in the options table. Let's define some functions to make this a little easier for ourselves.
     @code fennel
-    (def-fn set-keymap-pure [description mode right-side left-side]
+    (def-fn set-keymap-pure [description mode left-side right-side]
       "Set a 'pure' keymap, i.e. no callback"
       (let [opts { :noremap true :silent true :desc description }]
-        (nvim-set-keymap mode right-side left-side opts)))
-     (tset config :set-keymap-pure set-keymap-pure)
+        (nvim-set-keymap mode left-side right-side opts)))
 
-    (def-fn set-keymap-callback [description mode right-side callback]
+    (def-fn set-keymap-callback [description mode left-side callback]
       "Set a keymap with a callback."
       (let [opts { :noremap true :silent true :desc description :callback callback }]
-        (nvim-set-keymap mode right-side "" opts)))
-
-    (macro set-keymap [description right-side left-side-or-callback]
+        (nvim-set-keymap mode left-side "" opts)))
+    @end
+    When you specify a keymap, you have to tell neovim for what mode it is, for example normal mode or insert mode. You can also specify an optional description for what the mapping does. I want to combine this, so I can just specify mode and description in one string, something like this: /Normal: Execute that one command/. Let's write a macro to do just that, and while we're at it, let's make it figure out whether the third argument is a string or a function, and based on that decide whether to call `set-keymap-pure` or `set-keymap-callback`.
+    @code fennel
+    (macro set-keymap [description left-side right-side-or-callback]
       "Set keymap with description, default options and either left-side or callback."
       (fn get-description-prefix [s]
         "If description is 'Normal: text text', this function will return 'normal'"
@@ -80,14 +91,20 @@ version: 0.0.11
       (local mode (match (get-description-prefix description)
         "normal" "n"
         "visual" "v"
+        "insert" "i"
         "terminal" "t"
         ))
       (local description (get-description description))
-      (match (type left-side-or-callback)
-          "string" '(_G.config.set-keymap-pure ,description ,mode ,right-side ,left-side-or-callback)
-          "table" '(_G.config.set-keymap-callback ,description ,mode ,right-side ,left-side-or-callback)))
+      (match (type right-side-or-callback)
+          "string" '(_G.config.fn.set-keymap-pure ,description ,mode ,left-side ,right-side-or-callback)
+          "table" '(_G.config.fn.set-keymap-callback ,description ,mode ,left-side ,right-side-or-callback)))
     @end
 *** Plugin management
+    Neovim doesn't /really/ have a built-in plugin manager, and there are tons of available options. I'm currently using [packer](https://github.com/wbthomason/packer.nvim), but I don't want to be dependendent on that, so my approach to plugin management is built to allow for easily switching out the plugin manager without having to make changes to my plugin declarations.
+
+    There's a `plugins` table in our global `config` table, this will store a list of plugins containing all the information we need, such as the github url, configuration, etc. Then, there's a separate function which will build a packer configuration from that global table. In theory, I could also write a function to build a vim-plug configuration. (a package manager I've used in the past)
+
+    You'll definitely see packer's influence on the available values, though. Here's a function which will insert a new plugin into this table with all possible parameters:
     @code fennel
     (def-fn add-plugin [name path config setup branch commit optional command requires filetype event after disable description]
       "Add plugin to config-local plugin-store."
@@ -98,7 +115,18 @@ version: 0.0.11
         :event event :after after :disable disable
         :description description
       }))
+    @end
 
+    I don't want to have to set all possible parameters, though. And there's some other things I'd like automated.
+
+    - I like my plugins pinned to a specific version. In practice, I always specify the hash of the commit I want to use. This doesn't give me automatic updates, but it also guarantees (more or less) that my plugins will never break. When I want to update a plugin, I manually replace the commit hash with a newer one. I also always specify the branch name to use. Since I always want to do this, we can assume that when I don't explicitly specify the branch name, it's the default of "main".
+    - We can also assume that when we don't explicitly set the optional or disable parameters, the plugin is neither optional, nor disabled.
+    - `config` and `setup` are both functions, and I want them to be in the `_G.config.plugin-configs` and `_G.config.plugin-setups` table, respectively.
+    -- I don't want to type out the whole `(fn _G.config.plugin-x.y)
+    -- When I don't pass a function explicity, I want to set it to a function returning `nil`, since packer will always call the function and I don't want it to error when I don't specify a function.
+
+    Again, let's define a macro to take care of all this:
+    @code fennel
     (macro paq [name description path ...]
       (local plugin-config {
         :name name :path path :config nil :setup nil :branch nil :commit nil :optional nil
@@ -116,7 +144,10 @@ version: 0.0.11
         (tset plugin-config :setup '(fn ,(sym (.. "_G.config.plugin-setups." name)) [] ,(. plugin-config :setup)))
         (tset plugin-config :setup '(fn ,(sym (.. "_G.config.plugin-setups." name)) [] nil)))
       '(table.insert (. config :plugins) ,plugin-config))
+    @end
 
+    Finally, let's define the function I've been talking about that will build a packer config from our global plugin table:
+    @code fennel
     (def-fn init-packer []
       (do 
         (vim.cmd "packadd packer.nvim")
@@ -141,7 +172,6 @@ version: 0.0.11
 
 
 * Options
-  This section sets various options.
 ** Sane defaults
    These are what I would set as the defaults for nvim. Nothing specific to me.
    @code fennel
@@ -241,23 +271,25 @@ version: 0.0.11
    @end
 
 * Plugins
-  @code fennel
-  (paq "kommentary" "Comment out text"
-    "b3nj5m1n/kommentary"
-    :branch "main"
-    :commit "533d768a140b248443da8346b88e88db704212ab"
-    :event "VimEnter"
-    :module "kommentary"
-    :setup (_G.config.var.set-var :kommentary_create_default_mappings false)
-    :config (do
-      (set-keymap "Normal: Toggle comment on current line"
-        "gcc" "<Plug>kommentary_line_default")
-      (set-keymap "Normal: Toggle comment on motion"
-        "gc" "<Plug>kommentary_motion_default")
-      (set-keymap "Visual: Toggle comment on visual selection"
-        "gc" "<Plug>kommentary_visual_default"))
-  )
-  @end
+** [kommentary](https://github.com/b3nj5m1n/kommentary)
+   This is a plugin I wrote a while back, it's similar to tpope's [vim-commentary](https://github.com/tpope/vim-commentary), but written in lua and with more functionality. About a year after I wrote this plugin, we also got [Comment.nvim](https://github.com/numToStr/Comment.nvim), which has a bit more functionality than kommentary and is definitely worth checking out if you don't already have a commenting plugin.
+   @code fennel
+   (paq "kommentary" "Comment out text"
+     "b3nj5m1n/kommentary"
+     :branch "main"
+     :commit "533d768a140b248443da8346b88e88db704212ab"
+     :event "VimEnter"
+     :module "kommentary"
+     :setup (_G.config.var.set-var :kommentary_create_default_mappings false)
+     :config (do
+       (set-keymap "Normal: Toggle comment on current line"
+         "gcc" "<Plug>kommentary_line_default")
+       (set-keymap "Normal: Toggle comment on motion"
+         "gc" "<Plug>kommentary_motion_default")
+       (set-keymap "Visual: Toggle comment on visual selection"
+         "gc" "<Plug>kommentary_visual_default"))
+   )
+   @end
 
 
 * Post-config
