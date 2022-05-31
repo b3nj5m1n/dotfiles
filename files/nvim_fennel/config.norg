@@ -11,7 +11,7 @@ version: 0.0.11
 ** Global config table
    This is a global table which will be returned at the end of this file. I'm not sure what to do with it yet.
    @code fennel
-   (global config { :plugins {} :plugin-configs {} :fn {} :var {} })
+   (global config { :plugins {} :plugin-configs {} :plugin-setups {} :fn {} :var {} })
    (tset _G :config config)
    (macro def-fn [fn-name fn-args ...]
   '(local ,fn-name (let [f# (fn ,(sym (.. "_G.config.fn." (. fn-name 1))) ,fn-args ,[...])]
@@ -109,6 +109,12 @@ version: 0.0.11
       (if (= (. plugin-config :branch) nil) (tset plugin-config :branch "main"))
       (if (= (. plugin-config :optional) nil) (tset plugin-config :optional false))
       (if (= (. plugin-config :disable) nil) (tset plugin-config :disable false))
+      (if (not (= (. plugin-config :config) nil))
+        (tset plugin-config :config '(fn ,(sym (.. "_G.config.plugin-configs." name)) [] ,(. plugin-config :config)))
+        (tset plugin-config :config '(fn ,(sym (.. "_G.config.plugin-configs." name)) [] nil)))
+      (if (not (= (. plugin-config :setup) nil))
+        (tset plugin-config :setup '(fn ,(sym (.. "_G.config.plugin-setups." name)) [] ,(. plugin-config :setup)))
+        (tset plugin-config :setup '(fn ,(sym (.. "_G.config.plugin-setups." name)) [] nil)))
       '(table.insert (. config :plugins) ,plugin-config))
 
     (def-fn init-packer []
@@ -129,7 +135,7 @@ version: 0.0.11
               :event (. plugin :event)
               :after (. plugin :after)
               :disable (. plugin :disable)})))
-              :config {:compile_path (.. (vim.fn.stdpath :config) :/lua/packer_compiled.lua)}})
+          :config {:compile_path (.. (vim.fn.stdpath :config) :/lua/packer_compiled.lua)}})
         (require :packer_compiled)))
     @end
 
@@ -242,14 +248,14 @@ version: 0.0.11
     :commit "533d768a140b248443da8346b88e88db704212ab"
     :event "VimEnter"
     :module "kommentary"
-    :setup (fn config.setup_kommentary [] (_G.config.var.set-var :kommentary_create_default_mappings false))
-    :config (fn config.config_kommentary [] (do
+    :setup (_G.config.var.set-var :kommentary_create_default_mappings false)
+    :config (do
       (set-keymap "Normal: Toggle comment on current line"
         "gcc" "<Plug>kommentary_line_default")
       (set-keymap "Normal: Toggle comment on motion"
         "gc" "<Plug>kommentary_motion_default")
       (set-keymap "Visual: Toggle comment on visual selection"
-        "gc" "<Plug>kommentary_visual_default")))
+        "gc" "<Plug>kommentary_visual_default"))
   )
   @end
 
