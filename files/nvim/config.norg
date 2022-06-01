@@ -363,7 +363,7 @@ version: 0.0.11
        (set-keymap "Normal: Open live grep"
          "<leader>tg" (. (require :telescope.builtin) :live_grep))
        (set-keymap "Normal: Open buffer list"
-         "<leader>tf" (. (require :telescope.builtin) :buffers)))
+         "<leader>tb" (. (require :telescope.builtin) :buffers)))
    )
    @end
 ** [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
