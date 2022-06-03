@@ -81,6 +81,8 @@ alias myip='curl "https://api.ipify.org"' # Get public ip adress
 
 alias yeetread='tspreed -w 400 -l -i -f' # Read with the power of the yeet
 
+alias mkexe='sudo chmod +x' # Make executable
+
 # Git
 alias g='git' # Git
 alias ga='git add' # Git add
