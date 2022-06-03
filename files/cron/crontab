@@ -5,3 +5,5 @@
 42 17 * * * /bin/bash /home/b3nj4m1n/Documents/dotfiles/scripts/auto_commit.sh "/home/b3nj4m1n/.local/share/task" false
 11 * * * * /bin/bash /home/b3nj4m1n/Documents/dotfiles/scripts/auto_commit.sh "/home/b3nj4m1n/.local/share/timew/data" true
 43 17 * * * /bin/bash /home/b3nj4m1n/Documents/dotfiles/scripts/auto_commit.sh "/home/b3nj4m1n/.local/share/timew/data" false
+12 * * * * /bin/bash /usr/bin/scripts/backup_sh_history.sh "/home/b3nj4m1n/.local/share/sh_history/history" true
+44 17 * * * /bin/bash /usr/bin/scripts/backup_sh_history.sh "/home/b3nj4m1n/.local/share/sh_history/history" false
