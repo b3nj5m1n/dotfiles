@@ -2,9 +2,12 @@
 
 BACKUP_FILE="$1"
 BACKUP_DIR="$(dirname "$BACKUP_FILE")"
-ATUIN_FILE="$XDG_DATA_HOME/atuin/history.db"
+ATUIN_FILE="$HOME/.local/share/atuin/history.db"
 
 SILENT="$2"
+
+cd "$BACKUP_DIR" || exit
+git pull
 
 NEW="$(
 while read -d $'\x1E' -r row; do
@@ -16,4 +19,4 @@ CURRENT=$(cat "$BACKUP_FILE")
 
 printf "%s\n%s" "$NEW" "$CURRENT" | sort | uniq > "$BACKUP_FILE"
 
-/usr/bin/scripts/auto_commit.sh "$BACKUP_DIR" "$2"
+/usr/bin/scripts/auto_commit.sh "$BACKUP_DIR" "$SILENT"
