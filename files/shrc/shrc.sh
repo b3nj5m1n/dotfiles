@@ -195,6 +195,7 @@ export PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/pythonrc"
 export ROSWELL_HOME="$XDG_DATA_HOME/roswell"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
+export STACK_ROOT="$XDG_DATA_HOME"/stack
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
 export UNISON="${XDG_DATA_HOME}/unison"
 export VSCODE_PORTABLE="$XDG_DATA_HOME/vscode"
