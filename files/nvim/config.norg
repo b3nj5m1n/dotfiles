@@ -663,13 +663,90 @@ version: 0.0.11
               (vim.api.nvim_exec "highlight GitSignsCurrentLineBlame guifg=#5a5e7a"
                 false))})
     )
+    (init-packer)
     @end
 
-
-* Post-config
-  Code that runs after all the configuration is done.
-
-  `(init-packer)` will load the plugins defined with `(paq)` into packer.
+* Highlighting of TODO in comments
+  This implementation is not done yet, but it works reasonably well on files that aren't too large.
   @code fennel
-  (init-packer)
+  (def-fn parse-query [query bufnr]
+  ; "Parse a string to a treesitter query"
+    (let [parsers (require "nvim-treesitter.parsers")
+      lang (parsers.get_buf_lang bufnr)]
+      (vim.treesitter.parse_query lang query)))
+  
+  (def-fn get-parser [bufnr]
+  ; "Get treesitter parser for buffer"
+    (let [parsers (require "nvim-treesitter.parsers")
+          lang (parsers.get_buf_lang bufnr)
+          parser (vim.treesitter.get_parser bufnr lang)]
+      parser))
+  
+  (def-fn run-query [query callback line-start line-end bufnr]
+  ;  "Run the given query and call the callback on every matched node"
+    (let [parser (. (_G.config.fn.get-parser bufnr) 1)
+          tstree (. (parser:parse) 1)
+          query (. query 1)]
+      (each [pattern _match metadata (query:iter_matches ( tstree:root ) bufnr line-start line-end)]
+        (each [id node (pairs _match)]
+          (callback node)))))
+  
+  (def-fn run-query-buffer [query callback]
+  ;  "Run query on the entire buffer"
+    (run-query query callback 0 (vim.api.nvim_buf_line_count 0)))
+  
+  (def-fn query [query callback line-start line-end bufnr]
+  ;  "Wrapper around parse-query and run-query"
+    (let [query (run-query (parse-query query bufnr) callback line-start line-end bufnr)]
+      query))
+  
+  (def-fn query-buffer [query callback]
+  ;  "Wrapper around parse-query and run-query for the entire buffer"
+    (run-query-buffer (parse-query query 0) callback))
+  
+  
+  (def-fn add-highlight [name bg fg style]
+  ;  "Adds a highlight group"
+    (vim.cmd (.. "hi def " name " guibg=" bg " guifg=" fg " gui=" style)))
+  
+  (def-fn get-matches [txt search line col]
+    (local result {})
+    (var (s e) (string.find txt search 0))
+    (while s
+      (table.insert result [(- line 1) (+ col (- s 1)) (+ col e)])
+      (set (s e) (string.find txt search e)))
+    result)
+  
+  (def-fn comment-highlighter-highlight-matches [line search highlight-group line-num start-r start-c bufnr]
+    (let [matches (. (get-matches line search (+ start-r line-num) start-c) 4)]
+      (each [_ _match (ipairs matches)]
+        (vim.api.nvim_buf_add_highlight bufnr 0 highlight-group (. _match 1) (. _match 2) (. _match 3)))))
+  
+  (def-fn comment-highlighter-highlight [bufnr]
+    (fn [node]
+    (let [(start-r start-c end-r end-c) (node:range)
+          txt (vim.api.nvim_buf_get_text bufnr start-r start-c end-r end-c {})]
+      (each [i line (ipairs txt)]
+        (_G.config.fn.comment-highlighter-highlight-matches line "TODO" "CommentHighlightsTODO" i start-r start-c bufnr)
+        (_G.config.fn.comment-highlighter-highlight-matches line "NOTE" "CommentHighlightsNOTE" i start-r start-c bufnr)
+        (_G.config.fn.comment-highlighter-highlight-matches line "HACK" "CommentHighlightsHACK" i start-r start-c bufnr)))))
+  
+  (global namespace-id (vim.api.nvim_create_namespace "CommentHighlights"))
+
+  (def-fn comment-highlighter-run [_ bufnr _ line-start line-end]
+    (vim.api.nvim_buf_clear_namespace bufnr namespace-id line-start line-end)
+    (_G.config.fn.query "(comment) @comment" (. (comment-highlighter-highlight bufnr) 1) line-start line-end bufnr))
+  
+  (def-fn comment-highlighter-start [bufnr]
+    (add-highlight "CommentHighlightsTODO" "#50fa7b" "#f8f8f2" "bold")
+    (add-highlight "CommentHighlightsNOTE" "#8be9fd" "#f8f8f2" "bold")
+    (add-highlight "CommentHighlightsHACK" "#ffb86c" "#f8f8f2" "bold")
+    (vim.api.nvim_buf_attach bufnr true { :on_lines comment-highlighter-run}))
+
+  (def-fn comment-highlighter-start-autocmd [tbl]
+    (_G.config.fn.comment-highlighter-start (. tbl :buf)))
+
+  (vim.api.nvim_create_autocmd ["UIEnter" "FileType" "BufWinEnter"] { :callback _G.config.fn.comment-highlighter-start-autocmd })
+
+  nil
   @end
