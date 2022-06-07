@@ -430,11 +430,24 @@ version: 0.0.11
    (paq "iron" "Repl integration"
      "hkupty/iron.nvim"
      :branch "master"
-     :commit "d50dc23331ab217b9e13f47c8d97ea60bd1ab1b7"
+     :commit "3412a5e0334cc413c19ceb4c4395a6f75b97bc3d"
      :config (do
        (local iron (require :iron.core))
-       (iron.setup {:config {:should_map_plug false :scratch_repl true} :keymaps {}}))
-   )
+       (iron.setup {
+         :config {
+           :close_window_on_exit true
+           :should_map_plug true
+           :scratch_repl true
+           :repl_open_cmd ((. (. (require :iron.view) :curry) :right) 50)}})
+       (set-keymap "Normal: Send motion to REPL"
+         "<leader>s" "<Plug>(iron-send-motion)")
+       (set-keymap "Visual: Send selection to REPL"
+         "<leader>s" "<Plug>(iron-visual-send)")
+       (set-keymap "Normal: Send line to REPL"
+         "<leader>ss" "<Plug>(iron-send-line)")
+       (set-keymap "Normal: Clear REPL"
+         "<leader>sc" "<Plug>(iron-clear)")
+   ))
    @end
 ** Treesitter
 *** [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
@@ -746,7 +759,7 @@ version: 0.0.11
   (def-fn comment-highlighter-start-autocmd [tbl]
     (_G.config.fn.comment-highlighter-start (. tbl :buf)))
 
-  (vim.api.nvim_create_autocmd ["UIEnter" "FileType" "BufWinEnter"] { :callback _G.config.fn.comment-highlighter-start-autocmd })
+  ; (vim.api.nvim_create_autocmd ["UIEnter" "FileType" "BufWinEnter"] { :callback _G.config.fn.comment-highlighter-start-autocmd })
 
   nil
   @end
