@@ -438,7 +438,7 @@ version: 0.0.11
            :close_window_on_exit true
            :should_map_plug true
            :scratch_repl true
-           :repl_open_cmd ((. (. (require :iron.view) :curry) :right) 50)}})
+           :repl_open_cmd ((. (. (require :iron.view) :curry) :openwin) "botright vnew")}})
        (set-keymap "Normal: Send motion to REPL"
          "<leader>s" "<Plug>(iron-send-motion)")
        (set-keymap "Visual: Send selection to REPL"
