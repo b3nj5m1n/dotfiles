@@ -2,6 +2,10 @@
 
 FILE="$1"
 DATABASE="$2"
+ABS_PATH="$(realpath "$FILE")"
+ABS_PATH="$(printf "%q" "$ABS_PATH")"
+
+printf "%s\n" "$ABS_PATH"
 
 sqlite3 "$DATABASE" \
     "CREATE TABLE IF NOT EXISTS files (
@@ -44,7 +48,7 @@ sqlite3 "$DATABASE" \
     time_last_data_modification,
     time_last_status_modification)
     VALUES
-    ('$(realpath "$FILE")', $(stat --printf="%N, %a, %d, '%f', '%F', %g, %h, '%m', %s, %r, %u, '%U', %W, %X, %Y, %Z)" "$FILE")
+    ('$ABS_PATH', $(stat --printf="%N, %a, %d, '%f', '%F', %g, %h, '%m', %s, %r, %u, '%U', %W, %X, %Y, %Z)" "$FILE")
     ;"
 
 
