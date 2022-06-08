@@ -281,6 +281,7 @@ c23 = "#e8e8e8" # Dim
 "scripts/wally.sh" = { target = "/usr/bin/scripts/wally.sh", type = "template", owner = "root" }
 "scripts/auto_commit.sh" = { target = "/usr/bin/scripts/auto_commit.sh", type = "template", owner = "root" }
 "scripts/extract_norg.sh" = { target = "/usr/bin/scripts/extract_norg.sh", type = "template", owner = "root" }
+"scripts/filestat.sh" = { target = "/usr/bin/scripts/filestat.sh", type = "template", owner = "root" }
 [npm.files]
 "files/npm/npmrc" = "~/.config/npm/npmrc"
 [bpython.files]
