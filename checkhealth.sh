@@ -346,6 +346,7 @@ check_exists_package "progress" "" false true
 check_exists_package "aria2" "" false true
 check_exists_package "pamixer" "" true true
 check_exists_package "ncpamixer" "" true true
+check_exists_package "tokei" "" true true
 check_env "SHELL" "/bin/zsh" "" true
 check_env "EDITOR" "nvim" "" true
 check_exists_file "/usr/share/terminfo/a/alacritty-full" "Run compile-terminfo.sh script in files/terminfo." true
