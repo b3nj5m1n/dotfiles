@@ -231,6 +231,7 @@ version: 0.0.11
      :spelllang      "en_GB,de,es,cjk" ; Dictionarys to use for checking spelling
      :list           true ; Show invisible characters
      :listchars     "eol:↴,nbsp:+,space:⋅,tab:⟼ ,trail:-" ; Invisible character and what character to show for it
+     :diffopt     "vertical" ; Options for viewing (git) diffs
    )
    @end
 
