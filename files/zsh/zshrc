@@ -127,8 +127,8 @@ eval "$(zoxide init zsh)"
 eval "$(atuin init zsh)"
 # Source common aliases, exports, etc.
 source ~/.config/shrc
-# Use thefuck
-eval "$(thefuck --alias)"
+# # Use thefuck
+# eval "$(thefuck --alias)"
 
 # Syntax highlighting in zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
