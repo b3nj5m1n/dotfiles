@@ -82,7 +82,7 @@ cursor-scroll = ns-resize
 
 {{#if multi_monitor}}
 [bar/bar2]
-monitor = DP-2
+monitor = DP-0
 width = 100%
 height = 25
 offset-x = 0
