@@ -305,4 +305,4 @@ c23 = "#e8e8e8" # Dim
 "files/etc/grub" = { target = "/etc/default/grub", type = "template", owner = "root" }
 "files/etc/plymouth.conf" = { target = "/etc/plymouth/plymouthd.conf", type = "template", owner = "root" }
 "files/etc/sudoers.d/suspend" = { target = "/etc/sudoers.d/suspend", type = "symbolic", owner = "root" }
-"files/etc/bluetooth/main.conf" = { target = "/etc/bluetooth/main.conf", type = "symbolic", owner = "root" }
+"files/etc/bluetooth/main.conf" = { target = "/etc/bluetooth/main.conf", type = "template", owner = "root" }
