@@ -62,6 +62,7 @@ grub_res = "auto"
 display_battery = false
 display_wlan = false
 multi_monitor = true
+second_monitor = "DP-2"
 ssh_key_name = "id_rsa"
 init_modules = ""
 init_hooks = "base udev resume plymouth autodetect modconf block lvm2 filesystems resume keyboard keymap fsck"
