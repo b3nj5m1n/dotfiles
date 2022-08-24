@@ -181,3 +181,7 @@ super + g:
 # Show clipboard history
 super + h:
     /bin/rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+
+# Replace clipboard with sha256 hash of clipboard
+ctrl + super + c:
+    /bin/xclip -o -sel clip | /bin/sha256sum | /bin/cut -f1 -d' ' | /bin/tr -d '\n' | /bin/xclip -sel clip
