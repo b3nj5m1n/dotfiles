@@ -83,6 +83,8 @@ alias yeetread='tspreed -w 400 -l -i -f' # Read with the power of the yeet
 
 alias mkexe='sudo chmod +x' # Make executable
 
+alias jdown='prev_wmname="$(wmname)" && wmname "LG3D" && devour jdownloader && wmname "$prev_wmname"' # Fix jdownloader
+
 # Git
 alias g='git' # Git
 alias ga='git add' # Git add
