@@ -516,9 +516,9 @@ version: 0.0.11
               (var capabilities (vim.lsp.protocol.make_client_capabilities))
               (set capabilities
                    ((. (require :cmp_nvim_lsp) :update_capabilities) capabilities))
-              (local servers [:bashls :clangd :clangd :cmake
+              (local servers [:bashls :clangd :clangd :cmake :jedi_language_server
                               :cssls :elmls :html :jsonls :rust_analyzer
-                               :tsserver :tsserver :yamlls :jdtls :hls])
+                              :tsserver :tsserver :yamlls :jdtls :hls])
               (each [_ server (pairs servers)]
                 ((. (. lspconfig server) :setup) {: capabilities}))
               (set-keymap "Normal: Format buffer"
