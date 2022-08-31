@@ -517,7 +517,7 @@ version: 0.0.11
               (set capabilities
                    ((. (require :cmp_nvim_lsp) :update_capabilities) capabilities))
               (local servers [:bashls :clangd :clangd :cmake :jedi_language_server
-                              :cssls :elmls :html :jsonls :rust_analyzer
+                              :cssls :elmls :html :jsonls :rust_analyzer :clojure_lsp
                               :tsserver :tsserver :yamlls :jdtls :hls])
               (each [_ server (pairs servers)]
                 ((. (. lspconfig server) :setup) {: capabilities}))
