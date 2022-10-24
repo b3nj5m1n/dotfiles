@@ -61,7 +61,7 @@ grub_res = "auto"
 [desktop.variables]
 display_battery = false
 display_wlan = false
-multi_monitor = true
+multi_monitor = false
 second_monitor = "DP-2"
 ssh_key_name = "id_rsa"
 init_modules = ""
