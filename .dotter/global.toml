@@ -64,7 +64,7 @@ display_wlan = false
 multi_monitor = false
 second_monitor = "DP-2"
 ssh_key_name = "id_rsa"
-init_modules = ""
+init_modules = "nvidia nvidia_modeset nvidia_uvm nvidia_drm"
 init_hooks = "base udev resume plymouth autodetect modconf block lvm2 filesystems resume keyboard keymap fsck"
 kernel_parameters = "quiet loglevel=0 nvidia-drm.modeset=1 splash rd.udev.log_priority=0 vt.global_cursor_default=0 resume=/dev/sdb1 resume_offset=11730944"
 grub_theme = "/usr/share/grub/themes/monterey-grub-theme/theme.txt"
