@@ -431,23 +431,20 @@ version: 0.0.11
    (paq "iron" "Repl integration"
      "hkupty/iron.nvim"
      :branch "master"
-     :commit "3412a5e0334cc413c19ceb4c4395a6f75b97bc3d"
+     :commit "6cb2416adf8e20c8316f774bc8d0c91ab3feab41"
      :config (do
        (local iron (require :iron.core))
+       (local view (require :iron.view))
        (iron.setup {
          :config {
            :close_window_on_exit true
-           :should_map_plug true
            :scratch_repl true
-           :repl_open_cmd ((. (. (require :iron.view) :curry) :openwin) "botright vnew")}})
-       (set-keymap "Normal: Send motion to REPL"
-         "<leader>s" "<Plug>(iron-send-motion)")
-       (set-keymap "Visual: Send selection to REPL"
-         "<leader>s" "<Plug>(iron-visual-send)")
-       (set-keymap "Normal: Send line to REPL"
-         "<leader>ss" "<Plug>(iron-send-line)")
-       (set-keymap "Normal: Clear REPL"
-         "<leader>sc" "<Plug>(iron-clear)")
+           :repl_open_cmd (view.split.vertical.botright 50)}
+         :keymaps {
+           :send_motion "<leader>s"
+           :visual_send "<leader>s"
+           :send_line "<leader>ss"
+           :clear "<leader>sc"}})
    ))
    @end
 ** Treesitter
