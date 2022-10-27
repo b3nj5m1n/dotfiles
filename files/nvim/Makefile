@@ -5,7 +5,7 @@ LUA_FILE="./build/config.lua"
 INSTALL_FILE="$(XDG_CONFIG_HOME)/nvim/lua/config.lua"
 INIT_FILE="./init.lua"
 
-all: build_dir query extract compile install init
+all: build_dir query extract compile install init update
 
 build_dir:
 	mkdir -p ./build
@@ -24,6 +24,9 @@ install: compile
 
 init:
 	echo "require('config')" > $(INIT_FILE)
+
+update:
+	nvim --headless +PackerSync +qa
 
 clean:
 	rm -rf build
