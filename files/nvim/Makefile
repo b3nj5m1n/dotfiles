@@ -26,7 +26,7 @@ init:
 	echo "require('config')" > $(INIT_FILE)
 
 update:
-	nvim --headless +PackerSync +qa
+	nvim --headless +PackerCompile +qa
 
 clean:
 	rm -rf build
