@@ -63,7 +63,7 @@ font-1 = Unifont:style=Sans-Serif Bold
 font-2 = Siji:style=Regular
 font-3 = Twemoji:style=Regular:scale=4
 
-modules-left = powermenu bspwm mpd
+modules-left = bspwm mpd
 modules-center = xwindow
 modules-right = {{#if display_battery}}battery{{/if}} {{#if display_wlan}}wlan{{/if}} pulseaudio xkeyboard cpu uptime date
 
@@ -115,7 +115,7 @@ font-1 = Unifont:style=Sans-Serif Bold
 font-2 = Siji:style=Regular
 font-3 = Twemoji:style=Regular:scale=4
 
-modules-left = powermenu bspwm mpd
+modules-left = bspwm mpd
 modules-center = xwindow
 modules-right = {{#if display_battery}}battery{{/if}} {{#if display_wlan}}wlan{{/if}} pulseaudio xkeyboard cpu uptime date
 
