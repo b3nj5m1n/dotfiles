@@ -26,7 +26,7 @@ dunst &
 mpd &
 redshift &
 # /usr/bin/scripts/wally.sh &
-feh --no-fehbg --bg-scale /usr/share/wallpapers/custom/wp1933975-pixel-art-wallpapers.png &
+feh --no-fehbg --bg-scale /usr/share/wallpapers/custom/teal_unicat.png &
 # emacs --daemon &
 aw-server-rust &
 greenclip daemon &

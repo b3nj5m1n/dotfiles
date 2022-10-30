@@ -75,6 +75,8 @@ force_terminfo = true
 
 
 # ----- Colors -----
+[dracula.files]
+"files/alacritty/colorschemes/dynamic.yml" = { target = "~/.config/alacritty/colorscheme.yml", type = "template", owner = "b3nj4m1n" }
 [dracula.variables.colors]
 background = "#282a36"
 current_line = "#44475a"
@@ -135,6 +137,69 @@ c22 = "#8be9fd" # Dim
 c7 = "#ebebeb" # Normal
 c15 = "#f5f5f5" # Bright
 c23 = "#e8e8e8" # Dim
+
+[catppuccin.files]
+"files/alacritty/colorschemes/catppuccin-macchiato.yml" = { target = "~/.config/alacritty/colorscheme.yml", type = "template", owner = "b3nj4m1n" }
+[catppuccin.variables.colors]
+background = "#24273a"
+current_line = "#363a4f"
+foreground = "#fcfcfe"
+comment = "#6e738d"
+cyan = "#8bd5ca"
+green = "#a6da95"
+orange = "#f5a97f"
+pink = "#c6a0f6"
+purple = "#b7bdf8"
+red = "#ed8796"
+yellow = "#eed49f"
+# Primary Color
+prm = "#8bd5ca"
+prm_bright = "#91d7e3"
+prm_dim = "#7dc4e4"
+# Secondary Color
+scd = "#ee99a0"
+scd_bright = "#f0c6c6"
+scd_dim = "#ed8796"
+# Background Color
+bg = "#24273a"
+bg_bright = "#1e2030"
+bg_dim = "#181926"
+# Foreground Color
+fg = "#fcfcfe"
+fg_bright = "#b8c0e0"
+fg_dim = "#a5adcb"
+# Black
+c0 = "#494D64" # Normal
+c8 = "#1e2030" # Bright
+c16 = "#181926" # Dim
+# Red
+c1 = "#ee99a0" # Normal
+c9 = "#f0c6c6" # Bright
+c17 = "#ed8796" # Dim
+# Green
+c2 = "#A6DA95" # Normal
+c10 = "#A6DA95" # Bright
+c18 = "#A6DA95" # Dim
+# Yellow
+c3 = "#EED49F" # Normal
+c11 = "#EED49F" # Bright
+c19 = "#EED49F" # Dim
+# Blue
+c4 = "#8AADF4" # Normal
+c12 = "#8AADF4" # Bright
+c20 = "#8AADF4" # Dim
+# Purple
+c5 = "#F5BDE6" # Normal
+c13 = "#F5BDE6" # Bright
+c21 = "#F5BDE6" # Dim
+# Cyan
+c6 = "#8BD5CA" # Normal
+c14 = "#8BD5CA" # Bright
+c22 = "#8BD5CA" # Dim
+# White
+c7 = "#B8C0E0" # Normal
+c15 = "#A5ADCB" # Bright
+c23 = "#B8C0E0" # Dim
 
 
 

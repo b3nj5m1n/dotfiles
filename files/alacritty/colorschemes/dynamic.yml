@@ -1,0 +1,76 @@
+colors:
+  # Default colors
+  primary:
+   background: '{{ colors.bg }}'
+   foreground: '{{ colors.fg }}'
+
+    # Bright and dim foreground colors
+    #
+    # The dimmed foreground color is calculated automatically if it is not present.
+    # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
+    # is `false`, the normal foreground color will be used.
+    # dim_foreground: '#f2f2f2'
+    # bright_foreground: '#f8f8f8'
+
+  # Cursor colors
+  #
+  # Colors which should be used to draw the terminal cursor. If these are unset,
+  # the cursor color will be the inverse of the cell color.
+  cursor:
+  #  text: '#000000'
+   cursor: '{{ colors.c5 }}'
+
+  # Selection colors
+  #
+  # Colors which should be used to draw the selection area. If selection
+  # background is unset, selection color will be the inverse of the cell colors.
+  # If only text is unset the cell text color will remain the same.
+  selection:
+   # text: '{{ colors.fg }}'
+   background: '{{ colors.purple }}'
+
+  # Normal colors
+  normal:
+   black:   '{{ colors.c0 }}'
+   red:     '{{ colors.c1 }}'
+   green:   '{{ colors.c2 }}'
+   yellow:  '{{ colors.c3 }}'
+   cyan:    '{{ colors.c6 }}'
+   blue:    '{{ colors.c4 }}'
+   magenta: '{{ colors.c5 }}'
+   white:   '{{ colors.c7 }}'
+
+  # Bright colors
+  bright:
+   black:   '{{ colors.c8 }}'
+   red:     '{{ colors.c9 }}'
+   green:   '{{ colors.c10 }}'
+   yellow:  '{{ colors.c11 }}'
+   cyan:    '{{ colors.c14 }}'
+   blue:    '{{ colors.c12 }}'
+   magenta: '{{ colors.c13 }}'
+   white:   '{{ colors.c15 }}'
+
+  # Dim colors
+  #
+  # If the dim colors are not set, they will be calculated automatically based
+  # on the `normal` colors.
+  dim:
+   black:   '{{ colors.c16 }}'
+   red:     '{{ colors.c17 }}'
+   green:   '{{ colors.c18 }}'
+   yellow:  '{{ colors.c19 }}'
+   cyan:    '{{ colors.c22 }}'
+   blue:    '{{ colors.c20 }}'
+   magenta: '{{ colors.c21 }}'
+   white:   '{{ colors.c23 }}'
+
+  # Indexed Colors
+  #
+  # The indexed colors include all colors from 16 to 256.
+  # When these are not set, they're filled with sensible defaults.
+  #
+  # Example:
+  #   `- { index: 16, color: '#ff00ff' }`
+  #
+  #indexed_colors: []

@@ -18,7 +18,8 @@
 
 ########################   ########################
 [colors]
-background = #00000000
+# background = #00000000
+background = {{ colors.bg }}
 background-alt = {{ colors.bg_dim }}
 foreground = {{ colors.fg }}
 foreground-alt = {{ colors.fg_dim }}
