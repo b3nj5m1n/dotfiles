@@ -339,6 +339,15 @@ version: 0.0.13
      )
    )
    @end
+** [leap.nvim](https://github.com/ggandor/leap.nvim)
+   @code fennel
+   (paq "leap" "Smooth af navigation plugin"
+     "ggandor/leap.nvim"
+     :branch "main"
+     :commit "847a1dcfb1a3a576860151754d95fb3b0014663e"
+     :config ((. (require :leap) :add_default_mappings)))
+     ; :event "UiEnter")
+   @end
 ** [nvim-parinfer](https://github.com/gpanders/nvim-parinfer)
    @code fennel
    (paq "parinfer" "Parinfer plugin written in lua"
