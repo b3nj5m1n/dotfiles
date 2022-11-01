@@ -301,7 +301,18 @@ version: 0.0.13
        (set-keymap "Normal: Toggle comment on motion"
          "gc" "<Plug>kommentary_motion_default")
        (set-keymap "Visual: Toggle comment on visual selection"
-         "gc" "<Plug>kommentary_visual_default"))
+         "gc" "<Plug>kommentary_visual_default")
+       ((. (require :kommentary.config) :configure_language) [:norg]
+         {:single_line_comment_string :auto
+          :multi_line_comment_strings :auto
+          :hook_function (. (require :ts_context_commentstring.internal) :update_commentstring)}))
+   )
+   @end
+** [nvim-ts-context-commentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring)
+   @code fennel
+   (paq "nvim-ts-context-commentstring" "Change commentstring in nested languages"
+     "JoosepAlviste/nvim-ts-context-commentstring"
+     :commit "32d9627123321db65a4f158b72b757bcaef1a3f4"
    )
    @end
 ** [neorg](https://github.com/nvim-neorg/neorg)
@@ -505,6 +516,7 @@ version: 0.0.13
           :ensure_installed :all
           :highlight {:enable true}
           :indent {:enable true}
+          :context_commentstring {:enable true :enable_autocmd false}
           :rainbow {
             :enable true
             :colors [ "#bd93f9" "#50fa7b" "#ffb86c" "#ff79c6" "#8be9fd" "#f1fa8c" ]}
