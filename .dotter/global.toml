@@ -289,6 +289,7 @@ c23 = "#B8C0E0" # Dim
 "files/nvim/init.lua" = "~/.config/nvim/init.lua"
 "files/nvim/ftplugin/c.lua" = "~/.config/nvim/ftplugin/c.lua"
 "files/nvim/ftplugin/cpp.lua" = "~/.config/nvim/ftplugin/cpp.lua"
+"files/nvim/ftplugin/java.lua" = "~/.config/nvim/ftplugin/java.lua"
 "files/nvim/ftplugin/lisp.vim" = "~/.config/nvim/ftplugin/lisp.vim"
 "files/nvim/ftplugin/make.lua" = "~/.config/nvim/ftplugin/make.lua"
 "files/nvim/ftplugin/markdown.vim" = "~/.config/nvim/ftplugin/markdown.vim"

@@ -568,11 +568,19 @@ version: 0.0.13
               (local capabilities ((. (require :cmp_nvim_lsp) :default_capabilities)))
               (local servers [:bashls :clangd :clangd :cmake :jedi_language_server
                               :cssls :elmls :html :jsonls :rust_analyzer :clojure_lsp
-                              :tsserver :tsserver :yamlls :jdtls :hls])
+                              :tsserver :tsserver :yamlls :hls])
               (each [_ server (pairs servers)]
                 ((. (. lspconfig server) :setup) { :capabilities capabilities }))
               (set-keymap "Normal: Format buffer"
                 "<leader>ll" vim.lsp.buf.format))
+    )
+    @end
+*** [nvim-jdtls](https://github.com/mfussenegger/nvim-jdtls)
+    @code fennel
+    (paq "nvim-jdtls" "More support for java lsp"
+      "mfussenegger/nvim-jdtls"
+      :branch "master"
+      :commit "f39efa0e823bcc876d18a7b44d3b61191c42e61c"
     )
     @end
 *** [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
