@@ -424,13 +424,15 @@ version: 0.0.13
      :commit "24afe922e6a05891756ecf331f39a1f6743d3d5a"
      :event "BufEnter")
    @end
-** [vim-surround](https://github.com/tpope/vim-surround)
+** [nvim-surround](https://github.com/kylechui/nvim-surround)
    @code fennel
-   (paq "vim-surround" "Surround text objects"
-     "tpope/vim-surround"
-     :branch "master"
-     :commit "81fc0ec460dd8b25a76346e09aecdbca2677f1a7"
-     :event "InsertEnter")
+   (paq "nvim-surround" "Surround text objects"
+     "kylechui/nvim-surround"
+     :branch "main"
+     :commit "7e5096b736ae252d04d543af6a13280125dc6d0f"
+     :event "InsertEnter"
+     :config ((. (require :nvim-surround) :setup))
+   )
    @end
 ** [nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua)
    @code fennel
