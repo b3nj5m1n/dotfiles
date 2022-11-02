@@ -308,6 +308,8 @@ c23 = "#B8C0E0" # Dim
 
 [alacritty.files]
 "files/alacritty/alacritty.yml" = "~/.config/alacritty/alacritty.yml"
+[wezterm.files]
+"files/wezterm/wezterm.lua" = "~/.config/wezterm/wezterm.lua"
 [tmux.files]
 "files/tmux/tmux.conf" = "~/.config/tmux/tmux.conf"
 # "files/tmux/tmux.conf.home" = "~/.tmux.conf"

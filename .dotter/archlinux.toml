@@ -29,6 +29,7 @@ packages = [
     "catppuccin",
     "fantasque",
     "alacritty",
+    "wezterm",
     "starship",
     "dunst",
     "anki",

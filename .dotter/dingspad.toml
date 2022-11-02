@@ -28,6 +28,7 @@ packages = [
     "dracula",
     "fantasque",
     "alacritty",
+    "wezterm",
     "starship",
     "dunst",
     "anki",

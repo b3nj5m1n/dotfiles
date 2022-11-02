@@ -22,6 +22,7 @@ packages = [
     "dracula",
     "firamono",
     "alacritty",
+    "wezterm",
     "starship",
     "dunst",
     "npm",
