@@ -277,6 +277,15 @@ version: 0.0.13
    (set-keymap "Normal: Toggle highlight on the current line"
      "<leader>hc" ":set cursorcolumn!<CR>")
    @end
+** Snippets
+   @code fennel
+   (set-keymap "Insert: Expand Snippet"
+     "<C-e>" "<Plug>luasnip-expand-snippet")
+   (set-keymap "Insert: Jump to next point in snippet"
+     "<C-j>" "<Plug>luasnip-jump-next")
+   (set-keymap "Insert: Jump to previous point in snippet"
+     "<C-k>" "<Plug>luasnip-jump-prev")
+   @end
 
 * Plugins
 ** [plenary](https://github.com/nvim-lua/plenary.nvim)
@@ -712,19 +721,11 @@ version: 0.0.13
       :commit "663d54482b11bca1ce94f56993b9f6ab485a13dc"
       :config (do
         (local luasnip (require :luasnip))
+        ((. (require :luasnip.loaders.from_vscode) :lazy_load))
         (luasnip.config.setup {
           :history true
           :enable_autosnippets false
-        })
-        ;(def-fn expand-snippet []
-        ;  "Expand luasnip snippet at cursor position"
-        ;  (when (luasnip.expand_or_jumpable) (luasnip.expand_or_jump)))
-        ;(set-keymap "Normal: Expand Snippet"
-        ;  "<leader>x" (when (luasnip.expand_or_jumpable) (luasnip.expand_or_jump)))
-        ;(set-keymap "Normal: Expand Snippet"
-        ;  "<leader>x" "<Plug>testtestest")
-        ;(. (require :luasnip.loaders.from_vscode) :lazy_load))
-    ))
+        })))
     @end
 *** [friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
     @code fennel
