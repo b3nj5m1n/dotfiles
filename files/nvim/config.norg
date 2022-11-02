@@ -601,11 +601,13 @@ version: 0.0.13
       :module "lspsaga"
       :config (do (. (require :lspsaga) :init_lsp_saga)
                 (set-keymap "Normal: Code action"
-                  "<leader>la" (. (require :lspsaga.codeaction) :code_action))
+                  "<leader>la" "<cmd>Lspsaga code_action<CR>")
                 (set-keymap "Normal: Hover doc"
-                  "<leader>ld" (. (require :lspsaga.hover) :render_hover_doc))
+                  "<leader>lh" "<cmd>Lspsaga hover_doc<CR>")
                 (set-keymap "Normal: Rename symbol under cursor"
-                  "<leader>lr" (. (require :lspsaga.rename) :rename)))
+                  "<leader>lr" "<cmd>Lspsaga rename<CR>")
+                (set-keymap "Normal: Peek definition"
+                  "<leader>ld" "<cmd>Lspsaga peek_definition<CR>"))
     )
     @end
 *** [trouble.nvim](https://github.com/folke/trouble.nvim)
