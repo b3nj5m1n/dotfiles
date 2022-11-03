@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 # This script shows a list of playlists in a given directory, clears the current playlist in mpd and adds all songs from the selected playlist
 

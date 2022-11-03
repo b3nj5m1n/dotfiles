@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 FILE="$1"
 DATABASE="$2"

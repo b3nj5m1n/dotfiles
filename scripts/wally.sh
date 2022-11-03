@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 CURRENT_WALLPAPER="/usr/share/wallpapers/custom/moonRising.png"
 WALLPAPER="/home/b3nj4m1n/.config/wallpaper.png"

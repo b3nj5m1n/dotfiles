@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 # Wrapper around bitwarden cli to handle sessions
 

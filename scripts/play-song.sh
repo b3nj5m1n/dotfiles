@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 # This script displays a rofi -dmenu with all mp3 files from a folder, upon selection the song will be played in cmus
 

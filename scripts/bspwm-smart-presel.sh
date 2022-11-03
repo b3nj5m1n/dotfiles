@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 # Lets BSPWM send the marked {or just the focused} node to a receptacle
 # {or a preselection}.  This script is part of my dotfiles:
