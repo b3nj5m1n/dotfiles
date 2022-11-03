@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 mkdir -p ~/Pictures/screenshots/
 slop=$(slop -f "%g") || exit 1
 read -r G < <(echo $slop)

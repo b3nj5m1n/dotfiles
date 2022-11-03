@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 ### Query bpswm for desktop ids
 # Query bspwm for all desktops

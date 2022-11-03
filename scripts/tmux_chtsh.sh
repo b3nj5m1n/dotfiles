@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 # Make sure cht.sh exists
 # CHTSH_BIN=/usr/bin/cht.sh

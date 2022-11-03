@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 # Directory used for terminfo entrys
 DIR="/usr/share/terminfo"
@@ -10,4 +10,4 @@ if [ "$EUID" -ne 0 ]
 fi
 
 # Compile all terminfo files in this directory
-/usr/bin/find "." -name '*.terminfo' -exec tic -o "$DIR" -x {} \;
+/usr/bin/env find "." -name '*.terminfo' -exec tic -o "$DIR" -x {} \;

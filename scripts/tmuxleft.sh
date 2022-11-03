@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 source /usr/bin/scripts/tmuxstssrc.sh
 
 style_text bold
