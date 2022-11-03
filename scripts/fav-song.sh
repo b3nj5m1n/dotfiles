@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 # This script grabs the track currently played by cmus and puts the filename into a playlist file
 # The menu displayed will contain every file in the specified dir starting with a.

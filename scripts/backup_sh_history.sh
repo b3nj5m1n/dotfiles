@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 BACKUP_FILE="$1"
 BACKUP_DIR="$(dirname "$BACKUP_FILE")"

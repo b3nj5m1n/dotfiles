@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 YES=false
 if [[ "$1" == "YES" ]]; then

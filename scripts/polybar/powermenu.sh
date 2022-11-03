@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 FILE=/tmp/coloredpowermenu
 if [[ ! -f "$FILE" ]]; then
