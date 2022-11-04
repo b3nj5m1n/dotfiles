@@ -1,0 +1,42 @@
+#!/usr/bin/env sh
+
+workspace() {
+    identifier="$1"
+    current="$2"
+    occupied="$3"
+    name=$(bspc query -d "$identifier" -D --names)
+    state="empty"
+    if [[ "$current" == *"$identifier"* ]]; then
+        state="current"
+    elif [[ "$occupied" == *"$identifier"* ]]; then
+        state="occupied"
+    fi
+    printf '
+    {
+        "name": "%s",
+        "state": "%s",
+        "identifier": "%s"
+    }' "$name" "$state" "$identifier"
+}
+
+workspaces() {
+    all=$(bspc query -D)
+    current=$(bspc query -D -d .focused)
+    occupied=$(bspc query -D -d .occupied)
+    result="["
+    while IFS= read -r identifier; do
+        result="$result$(workspace "$identifier" "$current" "$occupied"),"
+    done <<< "$all"
+    result="${result%,*}"
+    result="$result]"
+    printf "%s" "$result" | tr --delete '\n' | tr --delete ' '
+    printf "\n"
+}
+
+workspaces
+
+workspaces
+bspc subscribe all | while read -r _ ; do
+    printf "\n"
+    workspaces
+done

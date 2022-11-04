@@ -1,0 +1,23 @@
+#!/usr/bin/env sh
+
+mpc > /dev/null
+while [[ $? -ne 0 ]]; do
+    sleep 5
+    printf "\nMPD not running...\n"
+done
+
+print_info() {
+    song=$(mpc -f "%artist% - %title%" current)
+    info=$(mpc)
+    if grep -q "playing"  <<< "$info"
+    then 
+        printf "\n%s\n" "$(mpc -f "%artist% - %title%" current)"
+    else
+        printf "\npaused\n";
+    fi
+}
+
+print_info
+mpc idleloop | while read -r _ ; do
+    print_info
+done
