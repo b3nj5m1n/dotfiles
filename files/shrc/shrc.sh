@@ -24,7 +24,7 @@ export DFGPGPROFILE="9F7D2083BB220CEEB720E068309D4C8689849C5B"
 # Use bat for colorized manpages
 export MANPAGER="sh -c 'col -bx | bat --theme=Dracula -l man -p'"
 
-export TERM=alacritty-full
+# export TERM=alacritty-full
 
 # {{#if force_terminfo}}
 # # Enable tmux & emacs to run properly

@@ -2,7 +2,7 @@
 
 # ----- Shell -----
 [zsh.variables.shell]
-path_to_shell = "/usr/bin/zsh"
+path_to_shell = "/usr/bin/env zsh"
 
 # ----- Window Manager -----
 [bspwm.variables]

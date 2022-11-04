@@ -1,13 +1,12 @@
 local wezterm = require 'wezterm';
 
 return {
-    default_prog = { '/usr/bin/tmux' },
+    default_prog = { 'tmux' },
 
     color_scheme = "Catppuccin Macchiato",
 
     font = wezterm.font("{{ font.font }}"),
     font_size = {{ font.font_size_float }},
-    font_antialias = 'Subpixel',
 
     window_padding = {
         left = 0,
@@ -20,6 +19,6 @@ return {
 
     enable_tab_bar = false,
 
-    window_background_opacity = 1,
+    window_background_opacity = 1.0,
 }
 
