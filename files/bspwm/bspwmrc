@@ -33,7 +33,7 @@ greenclip daemon &
 unclutter --idle 2 &
 betterlockscreen -u /usr/share/wallpapers/custom/samuel-inkilainen-arctic-spirit-with-signature.jpg &
 syncthing -no-browser &
-/home/b3nj4m1n/.config/polybar/polybar.sh &
+~/.config/eww/start-eww &
 mpc idleloop | while read line; do pkill lemonblocks -5; done &
 bspc subscribe desktop | while read line; do pkill lemonblocks -4; done &
 

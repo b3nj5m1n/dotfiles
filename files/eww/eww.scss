@@ -71,6 +71,12 @@ $workspace-color-empty: $color-text;
 .container-keymap {
     border-bottom: 5px solid $color-secondary;
 }
+.label-keymap {
+    background-color: transparent;
+    all: unset;
+    border-radius: 12px;
+    transition: background-color 300ms ease-in-out;
+}
 
 .container-uptime {
     border-bottom: 5px solid $color-secondary;

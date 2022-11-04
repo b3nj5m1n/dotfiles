@@ -232,6 +232,14 @@ c23 = "#B8C0E0" # Dim
 "files/polybar/polybar.sh" = "~/.config/polybar/polybar.sh"
 "scripts/polybar/powermenu.sh" = { target = "/usr/bin/polyscripts/powermenu.sh", type = "template", owner = "root" }
 "scripts/polybar/uptime.sh" = { target = "/usr/bin/polyscripts/uptime.sh", type = "template", owner = "root" }
+[eww.files]
+"files/eww/eww.scss" = "~/.config/eww/eww.scss"
+"files/eww/eww.yuck" = "~/.config/eww/eww.yuck"
+"scripts/eww/start-eww" = "~/.config/eww/start-eww"
+"scripts/eww/mpd" = "~/.config/eww/mpd"
+"scripts/eww/volume" = "~/.config/eww/volume"
+"scripts/eww/uptime" = "~/.config/eww/uptime"
+"scripts/eww/workspace" = "~/.config/eww/workspace"
 [gtk.files]
 "files/gtk/gtkrc-2.0" = "~/.config/gtk-2.0/gtkrc-2.0"
 "files/gtk/settings.ini" = "~/.config/gtk-3.0/settings.ini"

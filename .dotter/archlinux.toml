@@ -15,7 +15,7 @@ packages = [
     "ssh",
     "scripts",
     "emacs",
-    "polybar",
+    "eww",
     "rofi",
     "ncmcpp",
     "neomutt",
