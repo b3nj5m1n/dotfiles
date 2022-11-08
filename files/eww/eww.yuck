@@ -1,7 +1,7 @@
 (deflisten workspaces-json "./workspace")
 (deflisten active-window-title "xtitle -s")
-(deflisten pulse-volume "./volume")
-(deflisten mpd-info "./mpd")
+(deflisten pulse-volume "pfui start pulseaudio")
+(deflisten mpd-info "pfui start mpd")
 
 (defpoll keymap :interval "1m" "setxkbmap -query | awk '/layout/ {print $2}'")
 (defpoll uptime :interval "1m" "./uptime")
@@ -29,7 +29,15 @@
       :space-evenly false  
       :halign "start"
       :class "container-mpd"
-    (label :text mpd-info :limit-width 40 :class "label-mpd")))
+    (label :text {
+        mpd-info.ok == 1 ?
+        mpd-info.data.state.status == 2 ?
+        "Stopped"
+        : mpd-info.data.state.status == 0 ?
+        mpd-info.data.song.artist + " - " + mpd-info.data.song.title
+        : "Paused"
+        : "MPD Unreachable"
+    } :limit-width 40 :class "label-mpd")))
 
 (defwidget left []
   (box :orientation "h" 
@@ -57,7 +65,11 @@
       :space-evenly false  
       :halign "end"
       :class "container-volume"
-    (label :text "${pulse-volume}%" :class "label-volume")))
+    (label :text {
+        pulse-volume.ok == 1 ?
+        pulse-volume.data.volume + "%"
+        : "Error connecting to pulse"
+    } :class "label-volume")))
 
 (defwidget keymap []
   (box :orientation "h" 
