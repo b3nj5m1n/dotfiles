@@ -23,4 +23,5 @@ packages = [
     "python",
     "atuin",
     "treesitter",
+    "dunst",
 ]

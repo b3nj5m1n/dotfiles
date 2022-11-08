@@ -130,6 +130,15 @@ in
     zsh-syntax-highlighting
     rustup
     pavucontrol
+    libnotify
+    dunst
+    bottom
+    clipman
+    ydotool
+    wev
+    kanshi
+    light
+    tofi
   ];
   environment.pathsToLink = [ "/share" ];
 
