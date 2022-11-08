@@ -437,7 +437,7 @@ screenchange-reload = true
 
 [module/uptime]
 type = custom/script
-exec = /usr/bin/polyscripts/uptime.sh
+exec = ~/.local/share/bin/polyscripts/uptime.sh
 interval = 10
 label = %output%
 
@@ -468,7 +468,7 @@ format = <label>
 # format-background = ${colors.foreground}
 # format-foreground = #000000
 format-underline = {{ colors.c2 }}
-exec = /usr/bin/polyscripts/powermenu.sh
+exec = ~/.local/share/bin/polyscripts/powermenu.sh
 ;click-left = "echo 1 >> /tmp/powermenuoffset"
 
 tail = false

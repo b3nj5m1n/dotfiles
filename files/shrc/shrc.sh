@@ -33,7 +33,7 @@ export MANPAGER="sh -c 'col -bx | bat --theme=Dracula -l man -p'"
 
 
 ############### Functions ###############
-source /usr/bin/scripts/colors.sh
+source ~/.local/share/bin/colors.sh
 
 function update_normal_pacman {
     pacman -Syy

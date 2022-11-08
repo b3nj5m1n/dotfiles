@@ -347,7 +347,7 @@ check_exists_package "aria2" "" false true
 check_exists_package "pamixer" "" true true
 check_exists_package "ncpamixer" "" true true
 check_exists_package "tokei" "" true true
-check_env "SHELL" "/bin/zsh" "" true
+check_env "SHELL" "/usr/bin/env zsh" "" true
 check_env "EDITOR" "nvim" "" true
 check_exists_file "/usr/share/terminfo/a/alacritty-full" "Run compile-terminfo.sh script in files/terminfo." true
 check_exists_file "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" "Install zsh-syntax-highlighting-git aur package" true
@@ -388,7 +388,7 @@ check_exists_font "FantasqueSansMono Nerd Font" "nerd-fonts-fantasque-sans-mono"
 check_exists_font "FiraCode Nerd Font" "nerd-fonts-fira-code"
 check_exists_font "FiraCode Nerd Font Mono" "nerd-fonts-fira-mono"
 check_exists_font "UbuntuMono Nerd Font" "nerd-fonts-ubuntu-mono"
-check_exists_file "$(/bin/cat files/bspwm/bspwmrc | /bin/grep "feh" | /bin/sed -r 's/feh --no-fehbg --bg-scale (.*) &/\1/')" "Clone & install bigconf" true
+check_exists_file "$(/usr/bin/env cat files/bspwm/bspwmrc | /usr/bin/env grep "feh" | /usr/bin/env sed -r 's/feh --no-fehbg --bg-scale (.*) &/\1/')" "Clone & install bigconf" true
 
 # Firmware
 check_exists_package "pod2man" "" false true # This is needed for python-validity, but not specified as a dependency

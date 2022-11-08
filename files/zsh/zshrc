@@ -5,7 +5,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 if [ $(($RANDOM % 4)) -eq $((1)) ]; then
     pfetch
 elif [ $(($RANDOM % 4)) -eq $((1)) ]; then
-    homedir_count=$(/bin/ls -a "$HOME" | /bin/wc -l)
+    homedir_count=$(/usr/bin/env ls -a "$HOME" | /usr/bin/env wc -l)
     if [ -f "$XDG_CACHE_HOME/homedir_count" ]; then
         prev_homedir_count=$(cat "$XDG_CACHE_HOME/homedir_count")
     else
@@ -131,4 +131,5 @@ source ~/.config/shrc
 # eval "$(thefuck --alias)"
 
 # Syntax highlighting in zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /run/current-system/sw/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

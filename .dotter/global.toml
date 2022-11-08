@@ -214,11 +214,11 @@ c23 = "#B8C0E0" # Dim
 "files/lightdm/lightdm.conf" = { target = "/etc/lightdm/lightdm.conf", type = "template", owner = "root" }
 [bspwm.files]
 "files/bspwm/bspwmrc" = "~/.config/bspwm/bspwmrc"
-"scripts/bspwm-resize.sh" = { target = "/usr/bin/scripts/bspwm-resize.sh", type = "template", owner = "root" }
-"scripts/bspwm-scratchpad.sh" = { target = "/usr/bin/scripts/bspwm-scratchpad.sh", type = "template", owner = "root" }
-"scripts/bspwm-smart-move.sh" = { target = "/usr/bin/scripts/bspwm-smart-move.sh", type = "template", owner = "root" }
-"scripts/bspwm-smart-presel.sh" = { target = "/usr/bin/scripts/bspwm-smart-move-presel.sh", type = "template", owner = "root" }
-"scripts/bspwm-swap-or-move-in.sh" = { target = "/usr/bin/scripts/bspwm-swap-or-move-in.sh", type = "template", owner = "root" }
+"scripts/bspwm-resize.sh" = { target = "~/.local/share/bin/bspwm-resize.sh", type = "template", owner = "root" }
+"scripts/bspwm-scratchpad.sh" = { target = "~/.local/share/bin/bspwm-scratchpad.sh", type = "template", owner = "root" }
+"scripts/bspwm-smart-move.sh" = { target = "~/.local/share/bin/bspwm-smart-move.sh", type = "template", owner = "root" }
+"scripts/bspwm-smart-presel.sh" = { target = "~/.local/share/bin/bspwm-smart-move-presel.sh", type = "template", owner = "root" }
+"scripts/bspwm-swap-or-move-in.sh" = { target = "~/.local/share/bin/bspwm-swap-or-move-in.sh", type = "template", owner = "root" }
 [sxhkd.files]
 "files/sxhkd/sxhkdrc" = "~/.config/sxhkd/sxhkdrc"
 "files/sxhkd/sxhkdrc_bspc" = "~/.config/sxhkd/sxhkdrc_bspc"
@@ -230,8 +230,8 @@ c23 = "#B8C0E0" # Dim
 [polybar.files]
 "files/polybar/config" = "~/.config/polybar/config"
 "files/polybar/polybar.sh" = "~/.config/polybar/polybar.sh"
-"scripts/polybar/powermenu.sh" = { target = "/usr/bin/polyscripts/powermenu.sh", type = "template", owner = "root" }
-"scripts/polybar/uptime.sh" = { target = "/usr/bin/polyscripts/uptime.sh", type = "template", owner = "root" }
+"scripts/polybar/powermenu.sh" = { target = "~/.local/share/bin/polyscripts/powermenu.sh", type = "template", owner = "root" }
+"scripts/polybar/uptime.sh" = { target = "~/.local/share/bin/polyscripts/uptime.sh", type = "template", owner = "root" }
 [gtk.files]
 "files/gtk/gtkrc-2.0" = "~/.config/gtk-2.0/gtkrc-2.0"
 "files/gtk/settings.ini" = "~/.config/gtk-3.0/settings.ini"
@@ -260,7 +260,7 @@ c23 = "#B8C0E0" # Dim
 [mirage.files]
 "files/mirage/settings.json" = "~/.config/mirage/settings.json"
 [assets.files]
-"scripts/assets/*" = { target = "/usr/bin/scripts/assets/", type = "template", owner = "root" }
+"scripts/assets/*" = { target = "~/.local/share/bin/assets/", type = "template", owner = "root" }
 
 
 ##### Shell #####
@@ -313,9 +313,9 @@ c23 = "#B8C0E0" # Dim
 [tmux.files]
 "files/tmux/tmux.conf" = "~/.config/tmux/tmux.conf"
 # "files/tmux/tmux.conf.home" = "~/.tmux.conf"
-"scripts/tmuxleft.sh" = { target = "/usr/bin/scripts/tmuxleft.sh", type = "template", owner = "root" }
-"scripts/tmuxright.sh" = { target = "/usr/bin/scripts/tmuxright.sh", type = "template", owner = "root" }
-"scripts/tmuxstssrc.sh" = { target = "/usr/bin/scripts/tmuxstssrc.sh", type = "template", owner = "root" }
+"scripts/tmuxleft.sh" = { target = "~/.local/share/bin/tmuxleft.sh", type = "template", owner = "root" }
+"scripts/tmuxright.sh" = { target = "~/.local/share/bin/tmuxright.sh", type = "template", owner = "root" }
+"scripts/tmuxstssrc.sh" = { target = "~/.local/share/bin/tmuxstssrc.sh", type = "template", owner = "root" }
 [taskwarrior.files]
 "files/taskwarrior/taskrc" = "~/.config/task/taskrc"
 "files/taskwarrior/hooks/on-modify.timewarrior" = "~/.config/task/hooks/on-modify.timewarrior"
@@ -332,25 +332,25 @@ c23 = "#B8C0E0" # Dim
 "files/cli-visualizer/config" = "~/.config/vis/config"
 "files/cli-visualizer/colors/dracula" = "~/.config/vis/colors/dracula"
 [scripts.files]
-"scripts/compile.sh" = { target = "/usr/bin/compile", type = "template", owner = "root" }
-"scripts/run.sh" = { target = "/usr/bin/run", type = "template", owner = "root" }
-"scripts/backup_sh_history.sh" = { target = "/usr/bin/scripts/backup_sh_history.sh", type = "template", owner = "root" }
-"scripts/colors.sh" = { target = "/usr/bin/scripts/colors.sh", type = "template", owner = "root" }
-"scripts/bw-wrapper.sh" = { target = "/usr/bin/scripts/bw-wrapper.sh", type = "template", owner = "root" }
-"scripts/emoji-picker.sh" = { target = "/usr/bin/scripts/emoji-picker.sh", type = "template", owner = "root" }
-"scripts/fav-song.sh" = { target = "/usr/bin/scripts/fav-song.sh", type = "template", owner = "root" }
-"scripts/keyboard-layout-switcher.sh" = { target = "/usr/bin/scripts/keyboard-layout-switcher.sh", type = "template", owner = "root" }
-"scripts/mpd-status.sh" = { target = "/usr/bin/scripts/mpd-status.sh", type = "template", owner = "root" }
-"scripts/mpd-open-playlist.sh" = { target = "/usr/bin/scripts/mpd-open-playlist.sh", type = "template", owner = "root" }
-"scripts/open-move.sh" = { target = "/usr/bin/scripts/open-move.sh", type = "template", owner = "root" }
-"scripts/play-song.sh" = { target = "/usr/bin/scripts/play-song.sh", type = "template", owner = "root" }
-"scripts/program-launcher.sh" = { target = "/usr/bin/scripts/program-launcher.sh", type = "template", owner = "root" }
-"scripts/sxhkd-help-page.sh" = { target = "/usr/bin/scripts/sxhkd-help-page.sh", type = "template", owner = "root" }
-"scripts/take-screenshot.sh" = { target = "/usr/bin/scripts/take-screenshot.sh", type = "template", owner = "root" }
-"scripts/wally.sh" = { target = "/usr/bin/scripts/wally.sh", type = "template", owner = "root" }
-"scripts/auto_commit.sh" = { target = "/usr/bin/scripts/auto_commit.sh", type = "template", owner = "root" }
-"scripts/extract_norg.sh" = { target = "/usr/bin/scripts/extract_norg.sh", type = "template", owner = "root" }
-"scripts/filestat.sh" = { target = "/usr/bin/scripts/filestat.sh", type = "template", owner = "root" }
+"scripts/compile.sh" = { target = "~/.local/share/bin/compile", type = "template", owner = "root" }
+"scripts/run.sh" = { target = "~/.local/share/bin/run", type = "template", owner = "root" }
+"scripts/backup_sh_history.sh" = { target = "~/.local/share/bin/backup_sh_history.sh", type = "template", owner = "root" }
+"scripts/colors.sh" = { target = "~/.local/share/bin/colors.sh", type = "template", owner = "root" }
+"scripts/bw-wrapper.sh" = { target = "~/.local/share/bin/bw-wrapper.sh", type = "template", owner = "root" }
+"scripts/emoji-picker.sh" = { target = "~/.local/share/bin/emoji-picker.sh", type = "template", owner = "root" }
+"scripts/fav-song.sh" = { target = "~/.local/share/bin/fav-song.sh", type = "template", owner = "root" }
+"scripts/keyboard-layout-switcher.sh" = { target = "~/.local/share/bin/keyboard-layout-switcher.sh", type = "template", owner = "root" }
+"scripts/mpd-status.sh" = { target = "~/.local/share/bin/mpd-status.sh", type = "template", owner = "root" }
+"scripts/mpd-open-playlist.sh" = { target = "~/.local/share/bin/mpd-open-playlist.sh", type = "template", owner = "root" }
+"scripts/open-move.sh" = { target = "~/.local/share/bin/open-move.sh", type = "template", owner = "root" }
+"scripts/play-song.sh" = { target = "~/.local/share/bin/play-song.sh", type = "template", owner = "root" }
+"scripts/program-launcher.sh" = { target = "~/.local/share/bin/program-launcher.sh", type = "template", owner = "root" }
+"scripts/sxhkd-help-page.sh" = { target = "~/.local/share/bin/sxhkd-help-page.sh", type = "template", owner = "root" }
+"scripts/take-screenshot.sh" = { target = "~/.local/share/bin/take-screenshot.sh", type = "template", owner = "root" }
+"scripts/wally.sh" = { target = "~/.local/share/bin/wally.sh", type = "template", owner = "root" }
+"scripts/auto_commit.sh" = { target = "~/.local/share/bin/auto_commit.sh", type = "template", owner = "root" }
+"scripts/extract_norg.sh" = { target = "~/.local/share/bin/extract_norg.sh", type = "template", owner = "root" }
+"scripts/filestat.sh" = { target = "~/.local/share/bin/filestat.sh", type = "template", owner = "root" }
 [npm.files]
 "files/npm/npmrc" = "~/.config/npm/npmrc"
 [bpython.files]

@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-source /usr/bin/scripts/tmuxstssrc.sh
+source ~/.local/share/bin/tmuxstssrc.sh
 
 style_bold
 component_hostname
