@@ -627,7 +627,7 @@ version: 0.0.13
     @code fennel
     (paq "nvim-cmp" "Completion plugin"
       "hrsh7th/nvim-cmp"
-      :commit "cdb77665bbf23bd2717d424ddf4bf98057c30bb3"
+      :commit "9bb8ee6e2d6ab3c8cc53323b79f05886bc722faa"
       :config (do
         (local cmp (require :cmp))
         (cmp.setup {
