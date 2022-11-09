@@ -145,6 +145,10 @@ in
     eww-wayland
     wlr-randr
     syncthing
+    cmatrix
+    mpc-cli
+    clipman
+    wofi
   ];
   environment.pathsToLink = [ "/share" ];
 

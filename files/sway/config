@@ -60,18 +60,54 @@ input * xkb_layout "de"
 input * xkb_options "caps:escape"
 
 
-### Hotkeys
+##### Hotkeys
+
+############### Essential Keybindings ###############
 
 # Open terminal
 bindsym $mod+Return exec $term
 # Open terminal without tmux
 bindsym $mod+Shift+Return exec $term start zsh
-
-# Kill focused window
-bindsym $mod+Shift+c kill
+# Open terminal and attach to tmux
+bindsym $mod+ctrl+t exec $term start tmux attach
+# Masterhacker
+bindcode $mod+198 exec $term start cmatrix
 
 # Start launcher
 bindsym $mod+d exec $menu
+
+# Open clipboard manager
+bindsym $mod+h exec clipman pick -t wofi
+
+############### General ###############
+
+bindsym $mod+q exec 'swaylock -f -c 000000'
+
+# TODO
+############### Volume Control ###############
+
+# TODO
+############### Brightness Control ###############
+
+############### Player Control ###############
+
+# Pause playback
+bindsym XF86AudioPlay exec mpc toggle
+bindsym $mod+p exec mpc toggle
+
+# Next song
+bindsym XF86AudioNext exec mpc next
+bindsym $mod+n exec mpc next
+
+# Previous song
+bindsym XF86AudioPrev exec mpc prev
+bindsym $mod+m exec mpc prev
+
+
+############### Sway stuff ###############
+
+# Kill focused window
+bindsym $mod+Shift+c kill
 
 # Dragging and resizing using mod+mouse
 floating_modifier $mod normal
@@ -177,6 +213,7 @@ assign [app_id="firefox"] workspace 2
 
 ### Autostart daemons, doing this through nixos config is preferred
 exec ~/.config/eww/start-eww
+exec wl-paste -t text --watch clipman store
 
 # Autostart Firefox
 exec firefox
