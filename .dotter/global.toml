@@ -279,8 +279,8 @@ c23 = "#B8C0E0" # Dim
 "files/shrc/shrc.sh" = "~/.config/shrc"
 [zsh.files]
 "files/zsh/zshrc" = "~/.config/zsh/.zshrc"
-"files/zsh/zshenv" = { target = "/etc/zshenv", type = "symbolic", owner = "root" }
-"files/zsh/zshenv" = { target = "/etc/zsh/zshenv", type = "symbolic", owner = "root" }
+"files/zsh/zshenv" = { target = "/etc/zshenv", type = "template", owner = "root" }
+"./files/zsh/zshenv" = { target = "/etc/zsh/zshenv", type = "template", owner = "root" }
 [fish.files]
 "files/fish/config.fish" = "~/.config/fish/config.fish"
 [bash.files]
