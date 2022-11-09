@@ -9,6 +9,7 @@ $workspace-color-occupied: $color-secondary;
 $workspace-color-empty: $color-text;
 
 .bar {
+    color: $color-text;
     background-color: $color-background;
     border-radius: 12px;
     margin-right: 10px;
@@ -62,6 +63,10 @@ $workspace-color-empty: $color-text;
 .right * {
     margin-right: 10px;
     margin-left: 10px;
+}
+
+.container-battery {
+    border-bottom: 5px solid $color-secondary;
 }
 
 .container-volume {

@@ -25,4 +25,5 @@ packages = [
     "treesitter",
     "dunst",
     "scripts",
+    "eww",
 ]

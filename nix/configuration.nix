@@ -142,6 +142,8 @@ in
     rust-analyzer
     sd
     skim
+    eww-wayland
+    wlr-randr
   ];
   environment.pathsToLink = [ "/share" ];
 
