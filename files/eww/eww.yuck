@@ -1,0 +1,130 @@
+(deflisten workspaces-json "./workspace")
+(deflisten active-window-title "xtitle -s")
+(deflisten pulse-volume "pfui start pulseaudio")
+(deflisten mpd-info "pfui start mpd")
+
+(defpoll keymap :interval "1m" "setxkbmap -query | awk '/layout/ {print $2}'")
+(defpoll uptime :interval "1m" "./uptime")
+(defpoll date-time :interval "1m" "date '+%d/%m/%y %H:%M'")
+
+
+;;;;; Left
+
+(defvar workspace-empty "●")
+(defvar workspace-occupied "●")
+
+(defwidget workspaces []
+  (box
+      :orientation "h"
+      :halign "start"
+      :class "workspaces"
+    (for workspace in workspaces-json
+      (button 
+        :onclick "bspc desktop -f ${workspace.name}"
+        :class "workspace ${(workspace.state == "current" ? "workspace-current" : (workspace.state == "occupied" ? "workspace-occupied" : "workspace-empty"))}"
+        "${workspace.name}"))))
+
+(defwidget mpd []
+  (box :orientation "h" 
+      :space-evenly false  
+      :halign "start"
+      :class "container-mpd"
+    (label :text {
+        mpd-info.ok == 1 ?
+        mpd-info.data.state.status == 2 ?
+        "Stopped"
+        : mpd-info.data.state.status == 0 ?
+        mpd-info.data.song.artist + " - " + mpd-info.data.song.title
+        : "Paused"
+        : "MPD Unreachable"
+    } :limit-width 40 :class "label-mpd")))
+
+(defwidget left []
+  (box :orientation "h" 
+      :space-evenly false  
+      :halign "start"
+      :class "left"
+    (workspaces)
+    (mpd)))
+
+
+;;;;; Center
+
+(defwidget center []
+  (box :orientation "h" 
+      :space-evenly false  
+      :halign "center"
+      :class "center"
+    (label :text active-window-title :limit-width 30 :class "label-active-window")))
+
+
+;;;;; Right
+
+(defwidget volume []
+  (box :orientation "h" 
+      :space-evenly false  
+      :halign "end"
+      :class "container-volume"
+    (label :text {
+        pulse-volume.ok == 1 ?
+        pulse-volume.data.volume + "%"
+        : "Error connecting to pulse"
+    } :class "label-volume")))
+
+(defwidget keymap []
+  (box :orientation "h" 
+      :space-evenly false  
+      :halign "end"
+      :class "container-keymap"
+    (button :class "label-keymap" :onclick "/usr/bin/scripts/keyboard-layout-switcher.sh" keymap)))
+
+(defwidget uptime []
+  (box :orientation "h" 
+      :space-evenly false  
+      :halign "end"
+      :class "container-uptime"
+    (label :text uptime :class "label-uptime")))
+
+(defwidget date []
+  (box :orientation "h" 
+      :space-evenly false  
+      :halign "end"
+      :class "container-date-time"
+    (label :text date-time :class "label-date-time")))
+
+(defwidget right []
+  (box :orientation "h" 
+      :space-evenly false  
+      :halign "end"
+      :class "right"
+    (volume)
+    (keymap)
+    (uptime)
+    (date)))
+
+
+(defwidget bar []
+  (box :class "bar"
+       :orientation "h"
+    (left)
+    (center)
+    (right)))
+
+
+;;;;; Right
+
+(defwindow bar 
+    :geometry
+      (geometry
+        :x "0%"
+        :y "5px"
+        :height "30px"
+        :width "99%"
+        :anchor "top center")
+    :stacking "fg"
+    :windowtype "dock"
+    :reserve (struts :distance "45px" :side "top")
+    :cursor "pointer"
+  (eventbox
+      :cursor "default"
+    (bar)))

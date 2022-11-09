@@ -232,7 +232,7 @@ version: 0.0.13
      :spelllang      "en_GB,de,es,cjk" ; Dictionarys to use for checking spelling
      :list           true ; Show invisible characters
      :listchars     "eol:↴,nbsp:+,space:⋅,tab:⟼ ,trail:-" ; Invisible character and what character to show for it
-     :diffopt     "vertical" ; Options for viewing (git) diffs
+     ;:diffopt     "vertical" ; Options for viewing (git) diffs
    )
    @end
 
@@ -627,7 +627,7 @@ version: 0.0.13
     @code fennel
     (paq "nvim-cmp" "Completion plugin"
       "hrsh7th/nvim-cmp"
-      :commit "cdb77665bbf23bd2717d424ddf4bf98057c30bb3"
+      :commit "9bb8ee6e2d6ab3c8cc53323b79f05886bc722faa"
       :config (do
         (local cmp (require :cmp))
         (cmp.setup {
@@ -769,18 +769,20 @@ version: 0.0.13
             :text "▌"
             :numhl :GitSignsAddNr
             :linehl :GitSignsAddLn}
-            :change {:hl :GitSignsChange
+          :change {
+            :hl :GitSignsChange
             :text "▌"
             :numhl :GitSignsChangeNr
             :linehl :GitSignsChangeLn}}
-            :current_line_blame true
-            :current_line_blame_opts {:virt_text true
-            :virt_text_pos :eol
-            :delay 5000
-            :ignore_whitespace false}
-            :on_attach (fn _G.config.plugin-configs.gitsigns-on-attach [bufnr]
-              (vim.api.nvim_exec "highlight GitSignsCurrentLineBlame guifg=#5a5e7a"
-                false))})
+        :current_line_blame true
+        :current_line_blame_opts {
+          :virt_text true
+          :virt_text_pos :eol
+          :delay 5000
+          :ignore_whitespace false}
+        :on_attach (fn _G.config.plugin-configs.gitsigns-on-attach [bufnr]
+          (vim.api.nvim_exec "highlight GitSignsCurrentLineBlame guifg=#5a5e7a"
+            false))})
     )
     (init-packer)
     @end

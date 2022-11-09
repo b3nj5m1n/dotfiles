@@ -139,6 +139,9 @@ in
     kanshi
     light
     tofi
+    rust-analyzer
+    sd
+    skim
   ];
   environment.pathsToLink = [ "/share" ];
 

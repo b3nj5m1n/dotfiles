@@ -24,4 +24,5 @@ packages = [
     "atuin",
     "treesitter",
     "dunst",
+    "scripts",
 ]

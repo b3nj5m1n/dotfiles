@@ -1,0 +1,88 @@
+$color-background: #24273a;
+$color-text: #cad3f5;
+
+$color-primary: #8bd5ca;
+$color-secondary: #f5a97f;
+
+$workspace-color-current: $color-primary;
+$workspace-color-occupied: $color-secondary;
+$workspace-color-empty: $color-text;
+
+.bar {
+    background-color: $color-background;
+    border-radius: 12px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+// Left
+
+.workspace {
+    background-color: transparent;
+    all: unset;
+    padding: 10px;
+    border-radius: 12px;
+    transition: background-color 300ms ease-in-out;
+}
+.workspace-current {
+    color: $workspace-color-current;
+    &:hover {
+        color: $color-background;
+        background-color: $workspace-color-current;
+    }
+}
+.workspace-occupied {
+    color: $workspace-color-occupied;
+    &:hover {
+        color: $color-background;
+        background-color: $workspace-color-occupied;
+    }
+}
+.workspace-empty {
+    color: $workspace-color-empty;
+    &:hover {
+        color: $color-background;
+        background-color: $workspace-color-empty;
+    }
+}
+
+.container-mpd {
+    margin-left: 20px;
+    border-bottom: 5px solid $color-secondary;
+}
+
+// Center
+
+.label-active-window {
+    border-bottom: 5px solid $color-secondary;
+}
+
+// Right
+
+.right * {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.container-volume {
+    border-bottom: 5px solid $color-secondary;
+}
+
+.container-keymap {
+    border-bottom: 5px solid $color-secondary;
+}
+.label-keymap {
+    background-color: transparent;
+    all: unset;
+    border-radius: 12px;
+    transition: background-color 300ms ease-in-out;
+}
+
+.container-uptime {
+    border-bottom: 5px solid $color-secondary;
+}
+
+.container-date-time {
+    border-bottom: 5px solid $color-secondary;
+}
+
