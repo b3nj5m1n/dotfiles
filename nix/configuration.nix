@@ -144,6 +144,7 @@ in
     skim
     eww-wayland
     wlr-randr
+    syncthing
   ];
   environment.pathsToLink = [ "/share" ];
 
@@ -170,6 +171,10 @@ in
   services.openssh.enable = true;
 
   security.polkit.enable = true;
+
+  services.mpd.enable = true;
+
+  services.syncthing.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

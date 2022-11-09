@@ -212,6 +212,10 @@ c23 = "#B8C0E0" # Dim
 "files/lightdm/lightdm-gtk-greeter.conf" = { target = "/etc/lightdm/lightdm-gtk-greeter.conf", type = "template", owner = "root" }
 "files/lightdm/lightdm-webkit2-greeter.conf" = { target = "/etc/lightdm/lightdm-webkit2-greeter.conf", type = "template", owner = "root" }
 "files/lightdm/lightdm.conf" = { target = "/etc/lightdm/lightdm.conf", type = "template", owner = "root" }
+[sway.files]
+"files/sway/config" = "~/.config/sway/config"
+[tofi.files]
+"files/tofi/config" = "~/.config/tofi/config"
 [bspwm.files]
 "files/bspwm/bspwmrc" = "~/.config/bspwm/bspwmrc"
 "scripts/bspwm-resize.sh" = { target = "~/.local/share/bin/bspwm-resize.sh", type = "template", owner = "root" }

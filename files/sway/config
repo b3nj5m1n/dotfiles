@@ -1,0 +1,185 @@
+
+# SUPER key as mod. I've used ALT for like 2 years now because I initially
+# thought it was a good idea, but it really, really isn't. Many other programs,
+# for example firefox, use the alt key for stuff of varying importance. (In
+# firefox, you can use it to quickly get to another tab, for example ALT+2 will
+# get you to the second tab)
+# Many programs, pretty much all the electron apps for example, open their menu
+# at the top when you press alt, or, more specifically, when you release alt.
+# This means that when you press ALT+2 to switch to your second workspace with
+# firefox on it, and once you're there you let go of the alt key, the menu will
+# open up. This is an issue, for example it unfocuses text fields. Say you're
+# taking your daily notes in logseq, you switch to your firefox workspace to
+# copy some text, go back to your logseq workspace, logseq opens up its menu at
+# the top and you now have first press alt to get out of the menu again, then
+# click to get back to entering text.
+# Choosing ALT was a bad decision, but thankfully it seems like switching back
+# isn't going to require as much work as I had thought.
+set $mod Mod4
+
+# Navigation using vim keys, obviously
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Since I'm pretty much switching everything up, I might as well try a new
+# terminal emulator. I really quite like alacritty, and many of wezterms
+# features are anti-features to me, (like the fact that it implements it's own
+# multiplexer) but yeah, it doesn't look like ligeratures are about to happen in
+# alacritty anytime soon, and I really want to try them out.
+set $term wezterm
+
+# Also in the spirit of trying out new software
+set $menu tofi-run | xargs swaymsg exec --
+
+
+output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536_Portrait.png fill
+
+output eDP-1 resolution 1366x768 position 0,0
+
+# TODO: Configure swaylock to not look the way it looks
+# Lock screen after 300 secs, turn off displays after 600 secs, lock screen
+# before computer goes to sleep
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         before-sleep 'swaylock -f -c 000000'
+
+# Trackpoint > Trackpad
+input "1739:0:Synaptics_TM2927-001" {
+        events disabled
+    }
+
+# Hide cursor after 2 seconds of inactivity
+seat * hide_cursor 2000
+
+# Use german keymap by default
+input * xkb_layout "de"
+# Swap caps with escape
+input * xkb_options "caps:escape"
+
+
+### Hotkeys
+
+# Open terminal
+bindsym $mod+Return exec $term
+# Open terminal without tmux
+bindsym $mod+Shift+Return exec $term start zsh
+
+# Kill focused window
+bindsym $mod+Shift+c kill
+
+# Start launcher
+bindsym $mod+d exec $menu
+
+# Dragging and resizing using mod+mouse
+floating_modifier $mod normal
+
+# Reload config
+bindsym $mod+Shift+r reload
+
+# Exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+# Move focus
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# Move focused window
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# Switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+# Horizontal & vertical split, idk I think I'll add dynamic tiling at some point
+bindsym $mod+b splith
+bindsym $mod+v splitv
+
+# Switch layout style of current container, I'm very much not used to this so
+# I'll disable it, at least for now.
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Fullscreen
+bindsym $mod+f fullscreen
+
+# Toggle the current focus between tiling and floating mode
+bindsym $mod+Shift+space floating toggle
+
+# Swap focus between the tiling area and the floating area
+bindsym $mod+space focus mode_toggle
+
+# Move focus to the parent container
+bindsym $mod+a focus parent
+
+# Move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+minus scratchpad show
+
+mode "resize" {
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# class                 border  bground text    indicator child_border
+client.focused          #8bd5ca #8bd5ca #CAD3F5 #8bd5ca   #8bd5ca
+client.focused_inactive #7dc4e4 #7dc4e4 #CAD3F5 #7dc4e4   #7dc4e4
+client.unfocused        #24273a #24273a #CAD3F5 #24273a   #24273a
+client.urgent           #ee99a0 #ee99a0 #CAD3F5 #ee99a0   #ee99a0
+client.placeholder      #181926 #181926 #CAD3F5 #181926   #0C0C0C
+
+client.background       #FFFFFF
+
+gaps inner 10
+
+default_border pixel 3
+
+
+# Default workspace assignments
+assign [app_id="firefox"] workspace 2
+
+### Autostart daemons, doing this through nixos config is preferred
+exec ~/.config/eww/start-eww
+
+# Autostart Firefox
+exec firefox
+
+
+include /etc/sway/config.d/*
