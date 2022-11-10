@@ -33,18 +33,18 @@ set $term wezterm
 # Also in the spirit of trying out new software
 set $menu tofi-run | xargs swaymsg exec --
 
+set $lock 'swaylock -f -i /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536_Portrait.png --indicator-caps-lock --color 24273a --bs-hl-color f5a97f --caps-lock-bs-hl-color f5a97f --caps-lock-key-hl-color f5a97f --indicator-idle-visible --indicator-radius 50 --indicator-thickness 5 --indicator-x-position 100 --indicator-y-position 100 --inside-color 181926 --inside-clear-color 91d7e3 --inside-caps-lock-color f5a97f --inside-ver-color eed49f --inside-wrong-color ed8796 --key-hl-color c6a0f6 --line-color 181926 --line-clear-color 181926 --line-caps-lock-color 181926 --line-ver-color 181926 --line-wrong-color 181926 --ring-color 181926 --ring-clear-color 181926 --ring-caps-lock-color 181926 --ring-ver-color 181926 --ring-wrong-color 181926 --separator-color 181926'
 
 output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536_Portrait.png fill
 
 output eDP-1 resolution 1366x768 position 0,0
 
-# TODO: Configure swaylock to not look the way it looks
 # Lock screen after 300 secs, turn off displays after 600 secs, lock screen
 # before computer goes to sleep
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
+         timeout 300 $lock \
          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -c 000000'
+         before-sleep $lock
 
 # Trackpoint > Trackpad
 input "1739:0:Synaptics_TM2927-001" {
