@@ -34,6 +34,7 @@ in
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.wifi.backend = "iwd";
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -115,7 +116,7 @@ in
     fennel
     tree-sitter
     ripgrep
-    nodejs
+    stable.nodejs
     yarn
     gcc
     zoxide
@@ -149,8 +150,56 @@ in
     mpc-cli
     clipman
     wofi
+    jq
+    iwd
+    neomutt
+    ncmpcpp
+    taskwarrior
+    timewarrior
+    tealdeer
+    mlocate
+    glow
+    duf
+    hyperfine
+    progress
+    aria
+    tokei
+    zathura
+    feh
+    devour
+    peek
+    libfido2
+    yubikey-manager
+    nodePackages.bash-language-server
+    shellcheck
+    clang
+    ghc
+    haskell-language-server
+    cabal-install
+    roswell
+    nodePackages.npm
+    yarn
+    elmPackages.elm
+    nodePackages.typescript
+    deno
+    nodePackages.typescript-language-server
+    nodePackages.vscode-html-languageserver-bin
+    nodePackages.vscode-css-languageserver-bin
+    openjdk8
+    openjdk11
+    openjdk
+    jdt-language-server
+    lua
+    luajit
+    sumneko-lua-language-server
+    fnlfmt
   ];
   environment.pathsToLink = [ "/share" ];
+
+  fonts.fonts = with pkgs; [
+      (nerdfonts.override { fonts = [ "FantasqueSansMono" "FiraCode" "UbuntuMono" ]; })
+  ];
+
 
   programs.sway.enable = true;
 
@@ -179,6 +228,8 @@ in
   services.mpd.enable = true;
 
   services.syncthing.enable = true;
+
+  services.cron.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

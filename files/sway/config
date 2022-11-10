@@ -77,7 +77,7 @@ bindcode $mod+198 exec $term start cmatrix
 bindsym $mod+d exec $menu
 
 # Open clipboard manager
-bindsym $mod+h exec clipman pick -t wofi
+bindsym Mod1+h exec clipman pick -t wofi
 
 ############### General ###############
 

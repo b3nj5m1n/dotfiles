@@ -26,9 +26,4 @@
     #   terminal = "wezterm";
     # };
   };
-
-  fonts.fontconfig.enable = true;
-  home.packages = [
-    (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-  ];
 }
