@@ -577,7 +577,7 @@ version: 0.0.13
               (local capabilities ((. (require :cmp_nvim_lsp) :default_capabilities)))
               (local servers [:bashls :clangd :clangd :cmake :jedi_language_server
                               :cssls :elmls :html :jsonls :rust_analyzer :clojure_lsp
-                              :tsserver :tsserver :yamlls :hls])
+                              :tsserver :tsserver :yamlls :hls :rnix])
               (each [_ server (pairs servers)]
                 ((. (. lspconfig server) :setup) { :capabilities capabilities }))
               (set-keymap "Normal: Format buffer"

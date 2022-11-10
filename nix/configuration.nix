@@ -7,7 +7,8 @@ let
 in
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
@@ -33,7 +34,7 @@ in
   networking.hostName = "nixpad"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
   networking.networkmanager.wifi.backend = "iwd";
 
   # Set your time zone.
@@ -72,11 +73,11 @@ in
   # hardware.pulseaudio.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      jack.enable = true;
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -90,9 +91,6 @@ in
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
-     firefox
-     neovim
-     tree-sitter-grammars.tree-sitter-norg
     ];
     initialPassword = "123";
   };
@@ -193,11 +191,15 @@ in
     luajit
     sumneko-lua-language-server
     fnlfmt
+    rnix-lsp
+    firefox
+    neovim
+    tree-sitter-grammars.tree-sitter-norg
   ];
   environment.pathsToLink = [ "/share" ];
 
   fonts.fonts = with pkgs; [
-      (nerdfonts.override { fonts = [ "FantasqueSansMono" "FiraCode" "UbuntuMono" ]; })
+    (nerdfonts.override { fonts = [ "FantasqueSansMono" "FiraCode" "UbuntuMono" ]; })
   ];
 
 
