@@ -2,15 +2,15 @@
 
 # Rofi program launcher
 
-MAP="/home/b3nj4m1n/.config/rofi/map.csv"
+MAP="/home/b3nj4m1n/.config/wofi/map.csv"
 
 cat "$MAP" \
     | cut -d ',' -f 1 \
-    | rofi -dmenu -i -p "Util " \
+    | wofi --dmenu -p "Util " \
     | head -n 1 \
-    | xargs -i --no-run-if-empty grep "{}" "$MAP" \
+    | xargs -I --no-run-if-empty grep "{}" "$MAP" \
     | cut -d ',' -f 2 \
     | head -n 1 \
-    | xargs -i --no-run-if-empty /bin/bash -c "{}"
+    | xargs -I --no-run-if-empty /usr/bin/env sh -c "{}"
 
 exit 0
