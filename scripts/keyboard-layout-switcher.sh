@@ -5,7 +5,13 @@ dvorak="dvorak"
 pdvorak="programmer dvorak"
 english="english"
 
-selection=$(printf "$german\n$dvorak\n$pdvorak\n$english" | rofi -dmenu -c)
+if [[ "$XDG_CURRENT_DESKTOP" == "sway" ]]; then
+    notify-send -a "keyboard-layout-switcher" "Layout Switcher" "Disabled on sway"
+    exit
+fi
+notify-send -a "keyboard-layout-switcher" "Layout Switcher" "Switched keyboard layout to <i>$selection</i>"
+
+selection=$(printf "$german\n$dvorak\n$pdvorak\n$english" | wofi --dmenu --prompt="Layout" --hide-scroll --insensitive)
 
 # Remove all custom mappings
 setxkbmap -option

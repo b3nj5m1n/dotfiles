@@ -82,7 +82,7 @@
       :space-evenly false  
       :halign "end"
       :class "container-keymap"
-    (button :class "label-keymap" :onclick "/usr/bin/scripts/keyboard-layout-switcher.sh" { sway.data.kbd_layout })))
+    (button :class "label-keymap" :onclick "~/.local/share/bin/keyboard-layout-switcher.sh" { sway.data.kbd_layout })))
 
 (defwidget uptime []
   (box :orientation "h" 
