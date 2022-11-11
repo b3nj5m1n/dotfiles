@@ -39,6 +39,7 @@
       tmux # Tabs, panes, sessions, etc.
       tokei # Get LOC stats for a directory
       wget # You know this one
+      xplr # TUI file explorer
       zoxide # More modern version of z (remember directories, cd into them without specifying full path)
     ];
   };

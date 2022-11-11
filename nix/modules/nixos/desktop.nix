@@ -13,6 +13,7 @@
       feh
       firefox
       libnotify
+      neovide
       peek
       syncthing
       ydotool
