@@ -1,0 +1,39 @@
+window {
+    margin: 0px;
+    border: 1px solid {{ colors.prm }};
+    background-color: {{ colors.bg }};
+}
+
+#input {
+    margin: 5px;
+    border: none;
+    color: {{ colors.fg }};
+    background-color: {{ colors.bg }};
+}
+
+#inner-box {
+    margin: 5px;
+    border: none;
+    background-color: {{ colors.bg }};
+}
+
+#outer-box {
+    margin: 5px;
+    border: none;
+    background-color: {{ colors.bg }};
+}
+
+#scroll {
+    margin: 0px;
+    border: none;
+}
+
+#text {
+    margin: 5px;
+    border: none;
+    color: {{ colors.fg }};
+} 
+
+#entry:selected {
+    background-color: {{ colors.bg_bright }};
+}
