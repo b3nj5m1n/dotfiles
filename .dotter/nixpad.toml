@@ -1,6 +1,7 @@
 packages = [
     "sway",
     "tofi",
+    "wofi",
     "tmux",
     "neovim",
     "zsh",

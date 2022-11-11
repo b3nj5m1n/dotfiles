@@ -224,6 +224,9 @@ c23 = "#B8C0E0" # Dim
 [rofi.files]
 "files/rofi/config.rasi" = "~/.config/rofi/config.rasi"
 "files/rofi/map.csv" = "~/.config/rofi/map.csv"
+[wofi.files]
+"files/wofi/config" = "~/.config/wofi/config"
+"files/wofi/style.css" = "~/.config/wofi/style.css"
 [fonts.files]
 "files/fontconfig/fonts.conf" = "~/.config/fontconfig/fonts.conf"
 [polybar.files]

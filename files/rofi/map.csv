@@ -1,4 +1,4 @@
-All Programs,/usr/bin/rofi -show run
+All Programs,/usr/bin/env wofi -show run
 Thunar,Thunar
 Emacs,emacsclient --create-frame
 Bitwarden,bitwarden-desktop
