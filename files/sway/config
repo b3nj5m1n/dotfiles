@@ -195,11 +195,11 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # class                 border  bground text    indicator child_border
-client.focused          #8bd5ca #8bd5ca #CAD3F5 #8bd5ca   #8bd5ca
-client.focused_inactive #7dc4e4 #7dc4e4 #CAD3F5 #7dc4e4   #7dc4e4
-client.unfocused        #24273a #24273a #CAD3F5 #24273a   #24273a
-client.urgent           #ee99a0 #ee99a0 #CAD3F5 #ee99a0   #ee99a0
-client.placeholder      #181926 #181926 #CAD3F5 #181926   #0C0C0C
+client.focused          {{ colors.prm }} {{ colors.prm }} {{ colors.fg }} {{ colors.prm }}   {{ colors.prm }}
+client.focused_inactive {{ colors.cyan }} {{ colors.cyan }} {{ colors.fg }} {{ colors.cyan }}   {{ colors.cyan }}
+client.unfocused        {{ colors.bg }} {{ colors.bg }} {{ colors.fg }} {{ colors.bg }}   {{ colors.bg }}
+client.urgent           {{ colors.red }} {{ colors.red }} {{ colors.fg }} {{ colors.red }}   {{ colors.red }}
+client.placeholder      {{ colors.bg }} {{ colors.bg }} {{ colors.fg }} {{ colors.bg }}   #0C0C0C
 
 client.background       #FFFFFF
 
