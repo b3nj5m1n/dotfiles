@@ -1,4 +1,5 @@
 packages = [
+    "nixpad",
     "sway",
     "tofi",
     "wofi",
