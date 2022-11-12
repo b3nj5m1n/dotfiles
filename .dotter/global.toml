@@ -1,3 +1,5 @@
+[helpers]
+eq_string = ".dotter/helpers/strings.rhai"
 ##### Variables #####
 
 # ----- Shell -----
@@ -34,6 +36,7 @@ font_size_float = "13.0"
 # ----- Dingspad -----
 [nixpad.variables]
 ssh_key_name = "id_rsa"
+display_server = "wayland"
 [dingspad.variables]
 disable_touchpad = true
 touchpad_xid = 12
@@ -48,6 +51,7 @@ kernel_parameters_default = "quiet splash loglevel=0 rd.udev.log_priority=0 vt.g
 kernel_parameters = "rd.luks.name=267e9431-67d9-4d91-a21b-682396d407ee:parts root=/dev/v/root"
 grub_theme = "/boot/themes/monterey-grub-theme/theme.txt"
 grub_res = "auto"
+display_server = "xorg"
 # ----- Laptop -----
 [laptop.variables]
 display_battery = true
@@ -59,6 +63,7 @@ init_hooks = "base udev resume plymouth autodetect modconf block filesystems key
 kernel_parameters = "quiet splash i915.modeset=1 vga=current loglevel=0 rd.udev.log_priority=0 vt.global_cursor_default=0"
 grub_theme = "/usr/share/grub/themes/monterey-grub-theme/theme.txt"
 grub_res = "auto"
+display_server = "xorg"
 # ----- Desktop -----
 [desktop.variables]
 display_battery = false
@@ -71,6 +76,7 @@ init_hooks = "base udev resume plymouth autodetect modconf block lvm2 filesystem
 kernel_parameters = "quiet loglevel=0 nvidia-drm.modeset=1 splash rd.udev.log_priority=0 vt.global_cursor_default=0 resume=/dev/sdb1 resume_offset=11730944"
 grub_theme = "/usr/share/grub/themes/monterey-grub-theme/theme.txt"
 grub_res = "1920x1080"
+display_server = "xorg"
 # ----- Server -----
 [server.variables]
 force_terminfo = true
