@@ -23,9 +23,19 @@
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
 
-  # Enable home-manager and git
   programs.home-manager.enable = true;
-  programs.git.enable = true;
+
+  programs.gpg = {
+    enable = true;
+    homedir = "${config.xdg.dataHome}/gnupg";
+    settings = { };
+  };
+  services.gpg-agent = {
+    enable = true;
+    pinentryFlavor = "gtk2";
+    extraConfig = ''
+    '';
+  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
