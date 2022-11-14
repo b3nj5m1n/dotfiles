@@ -203,6 +203,8 @@ client.placeholder      {{ colors.bg }} {{ colors.bg }} {{ colors.fg }} {{ color
 
 client.background       #FFFFFF
 
+seat * xcursor_theme "Bibata-Original-Ice" 24
+
 gaps inner 10
 
 default_border pixel 3
