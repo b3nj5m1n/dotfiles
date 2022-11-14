@@ -522,7 +522,7 @@ version: 0.0.13
           :files {1 :src/parser.c 2 :src/scanner.cc}
           :branch :main}})
         ((. (require :nvim-treesitter.configs) :setup) {
-          :ensure_installed :all
+          ; :ensure_installed :all
           :highlight {:enable true}
           :indent {:enable true}
           :context_commentstring {:enable true :enable_autocmd false}

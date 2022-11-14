@@ -8,6 +8,9 @@
   options = { };
 
   config = {
+    environment.systemPackages = with pkgs; [
+      home-manager
+    ];
     time.timeZone = "Europe/Berlin";
     i18n.defaultLocale = "en_GB.UTF-8";
     environment.pathsToLink = [ "/share" ];
