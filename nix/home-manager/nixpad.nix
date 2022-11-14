@@ -37,6 +37,18 @@
     '';
   };
 
+  programs.git = {
+    enable = true;
+    userEmail = "b3nj4m1n@gmx.net";
+    userName = "b3nj5m1n";
+    aliases = { };
+    difftastic = { enable = true; };
+    signing = {
+      signByDefault = true;
+      key = "062FF16EA3C30C2D";
+    };
+  };
+
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
