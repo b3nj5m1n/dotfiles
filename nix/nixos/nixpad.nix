@@ -62,6 +62,7 @@
 
   environment.systemPackages = with pkgs; [
     pfui
+    bemoji
   ];
 
   system.stateVersion = "22.05";

@@ -3,4 +3,5 @@
 
 { pkgs ? (import ../nixpkgs.nix) { } }: {
   pfui = pkgs.callPackage ./pfui { };
+  bemoji = pkgs.callPackage ./bemoji { };
 }
