@@ -3,9 +3,9 @@
 
 {
   # Base module with stuff I want everywhere
-  base = ./base.nix;
-  networking = ./networking.nix;
-  security = ./security.nix;
+  base = import ./base.nix;
+  networking = import ./networking.nix;
+  security = import ./security.nix;
 
   # Terminal stuff
   shell = import ./shell.nix;
@@ -14,11 +14,11 @@
   terminal = import ./terminal.nix;
 
   # Desktop stuff
-  desktop = ./desktop.nix;
-  wayland = ./wayland.nix;
-  sway = ./sway.nix;
-  fonts = ./fonts.nix;
-  audio = ./audio.nix;
+  desktop = import ./desktop.nix;
+  wayland = import ./wayland.nix;
+  sway = import ./sway.nix;
+  fonts = import ./fonts.nix;
+  audio = import ./audio.nix;
 
   # Languages
   all-languages = import ./all-languages.nix;

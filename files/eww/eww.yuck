@@ -1,6 +1,6 @@
-(deflisten sway "/nix/store/qbi0p4gjly4vj6wc87g688dz1fddlf3y-pfui-0.1.0/bin/pfui start sway")
-(deflisten pulse-volume "/nix/store/ndl6jik74qkmj3zfm18yzjlby6nspyy9-pfui-0.1.0/bin/pfui start pulseaudio")
-(deflisten mpd-info "/nix/store/ndl6jik74qkmj3zfm18yzjlby6nspyy9-pfui-0.1.0/bin/pfui start mpd")
+(deflisten sway "pfui start sway")
+(deflisten pulse-volume "pfui start pulseaudio")
+(deflisten mpd-info "pfui start mpd")
 
 ; (defpoll keymap :interval "1m" "setxkbmap -query | awk '/layout/ {print $2}'")
 (defpoll uptime :interval "1m" "./uptime")

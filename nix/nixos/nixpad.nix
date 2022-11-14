@@ -61,6 +61,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    pfui
   ];
 
   system.stateVersion = "22.05";

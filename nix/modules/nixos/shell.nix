@@ -17,6 +17,7 @@
       difftastic # Better diff which understands syntax
       dotter # Dotfile management
       duf # Display disk usage stats in a readable way
+      du-dust # More intuitive du
       exa # Better ls
       fd # Better find
       git # I mean it's git
