@@ -2,23 +2,23 @@
 
 ############### Essential Keybindings ###############
 
-alt + F4
+super + F4
     alacritty -e "cmatrix"
 
 # Open terminal with tmux
-alt + Return
+super + Return
     alacritty -e "tmux"
 # Open terminal without tmux
-super + Return
+alt + Return
     alacritty
 # Open terminal and attach to tmux
-alt + ctrl + t
+super + ctrl + t
     alacritty -e "tmux" "attach"
 
 # Open application launcher
 # Alt + d
-alt + d
-    bash /usr/bin/scripts/program-launcher.sh
+super + d
+    /home/b3nj4m1n/.local/share/bin/program-launcher.sh
     # rofi -show run
 
 # Reload sxhkd config files
@@ -29,12 +29,12 @@ super + Escape
 
 # Lock input
 # Alt + q
-alt + q
+super + q
    betterlockscreen -l "blur" 
 
 # Emoji menu
-super + u
-    bash /usr/bin/scripts/emoji-picker.sh
+alt + u
+    /home/b3nj4m1n/.local/share/bin/emoji-picker.sh
 
 ############### Volume Control ###############
 
@@ -76,7 +76,7 @@ super + shift + minus
 XF86AudioPlay
     mpc toggle
 # Alt + p
-alt + p
+super + p
     mpc toggle
 
 
@@ -84,7 +84,7 @@ alt + p
 XF86AudioNext
     mpc next
 # Alt + n
-alt + n
+super + n
     mpc next
 
 
@@ -92,7 +92,7 @@ alt + n
 XF86AudioPrev
     mpc prev
 # Alt + m
-alt + m
+super + m
     mpc prev
 
 
@@ -100,18 +100,18 @@ alt + m
 
 # firefox, nautilus, cli-visualizer, keeweb
 # Alt + v | f n v k
-alt + v: {f,n,v,k}
-    {firefox,nautilus,alacritty -e "vis",keeweb} & \
-    pkill -ALRM sxhkd
+#alt + v: {f,n,v,k}
+#    {firefox,nautilus,alacritty -e "vis",keeweb} & \
+#    pkill -ALRM sxhkd
 
 
 ############### Cmus Control ###############
 
 # restart, open, fav
 # Alt + c | r o f
-alt + c: {r,o,f}
-    {bash /usr/bin/scripts/mpd-open-playlist.sh,bash /usr/bin/scripts/play-song.sh,bash /usr/bin/scripts/fav-song.sh} & \
-    pkill -ALRM sxhkd
+#alt + c: {r,o,f}
+#    {bash /usr/bin/scripts/mpd-open-playlist.sh,bash /usr/bin/scripts/play-song.sh,bash /usr/bin/scripts/fav-song.sh} & \
+#    pkill -ALRM sxhkd
 
 
 ############### Scripts ###############
@@ -119,11 +119,11 @@ alt + c: {r,o,f}
 # german, dvorak, programmer dvorak, english
 # Super + Shift + i
 super + ctrl + shift + i
-    bash /usr/bin/scripts/keyboard-layout-switcher.sh
+    /home/b3nj4m1n/.local/share/bin/keyboard-layout-switcher.sh
 
 # Draw terminal
-alt + super + Return
-    bash /usr/bin/scripts/draw-terminal.sh
+#alt + super + Return
+#    bash /usr/bin/scripts/draw-terminal.sh
 
 # Take screenshot
 super + p
@@ -134,7 +134,7 @@ super + p
 
 # Show sxhkd help page
 F1
-    bash /usr/bin/scripts/sxhkd-help-page.sh
+    /home/b3nj4m1n/.local/share/bin/sxhkd-help-page.sh
 
 # Kill picom
 super + F2
@@ -144,42 +144,42 @@ super + F2
 super + shift + F2
     picom --experimental-backends &
 
-# Mount drives
-super + F3
-    bash /usr/bin/scripts/dmenu-mount.sh
-
-# Unmount drives
-super + shift + F3
-    bash /usr/bin/scripts/dmenu-umount.sh
+## Mount drives
+#super + F3
+#    bash /usr/bin/scripts/dmenu-mount.sh
+#
+## Unmount drives
+#super + shift + F3
+#    bash /usr/bin/scripts/dmenu-umount.sh
 
 # Restart lemonbar
-super + F4
-    bash /usr/bin/start-lemonbar.sh
+#super + F4
+#    bash /usr/bin/start-lemonbar.sh
 
 # Kill emacs server
-super + F5
-    /usr/bin/emacsclient -e '(kill-emacs)'
+#super + F5
+#    /usr/bin/emacsclient -e '(kill-emacs)'
 
 # Start emacs server
-super + shift + F5
-    /usr/bin/emacs --daemon &
+#super + shift + F5
+#    /usr/bin/emacs --daemon &
 
 # Neomutt scratchpad
-alt + u:
-    bash /usr/bin/scripts/bspwm-scratchpad.sh "neomutt"
+#alt + u:
+#    bash /usr/bin/scripts/bspwm-scratchpad.sh "neomutt"
 # Calcurse scratchpad
-alt + t:
-    bash /usr/bin/scripts/bspwm-scratchpad.sh "calcurse"
+#alt + t:
+#    bash /usr/bin/scripts/bspwm-scratchpad.sh "calcurse"
 # Cmus scratchpad
-alt + r:
-    bash /usr/bin/scripts/bspwm-scratchpad.sh "ncmpcpp"
+#alt + r:
+#    bash /usr/bin/scripts/bspwm-scratchpad.sh "ncmpcpp"
 
 # Open calculator
-super + g:
+alt + g:
     /bin/rofi -show calc -modi calc -no-show-match -no-sort | xclip -selection clipboard
 
 # Show clipboard history
-super + h:
+alt + h:
     /bin/rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
 # Replace clipboard with sha256 hash of clipboard

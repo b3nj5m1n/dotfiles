@@ -7,7 +7,7 @@ super + shift + {q,r}
     bspc {quit,wm -r}
 
 # Close current application
-alt + shift + c
+super + shift + c
     bspc node -c
 
 # Show menu with hidden windows and unhide selection
@@ -39,12 +39,12 @@ super + ctrl + {m,x,y,z}
 #
 
 # focus the node in the given direction
-alt + {h,j,k,l}
+super + {h,j,k,l}
     bspc node -f {west,south,north,east}
 
 # Move node in the given direction
-alt + shift + {h,j,k,l}
-    bash /usr/bin/scripts/bspwm-swap-or-move-in.sh  {west,south,north,east}
+super + shift + {h,j,k,l}
+    /home/b3nj4m1n/.local/share/bin/bspwm-swap-or-move-in.sh  {west,south,north,east}
     # bash /usr/bin/scripts/bspwm-smart-move.sh  {west,south,north,east}
 
 # focus the node for the given path jump
@@ -70,11 +70,11 @@ alt + shift + {h,j,k,l}
 # 	bspc wm -h on; pkill lemonblocks -4
 
 # focus or send to the given desktop
-alt + {_,shift + }{1-9,0}
+super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '{1-9,10}'
 
 # Cycle through desktops
-alt + Tab
+super + Tab
     bspc desktop next -f; pkill lemonblocks -4
 
 #
@@ -82,15 +82,15 @@ alt + Tab
 #
 
 # preselect the direction
-alt + ctrl + {h,j,k,l}
+super + ctrl + {h,j,k,l}
 	bspc node -p {west,south,north,east}
 
 # preselect the ratio
-alt + ctrl + {1-9}
+super + ctrl + {1-9}
 	bspc node -o 0.{1-9}
 
 # cancel the preselection for the focused node
-alt + ctrl + space
+super + ctrl + space
 	bspc node -p cancel
 
 # cancel the preselection for the focused desktop
@@ -102,27 +102,27 @@ alt + ctrl + space
 #
 
 # expand a window by moving one of its side outward
-alt + shift + {y,u,i,o}
-    /usr/bin/scripts/bspwm-resize.sh {west,south,north,east}
+super + shift + {y,u,i,o}
+    /home/b3nj4m1n/.local/share/bin/bspwm-resize.sh {west,south,north,east}
 
 # move a floating window
-super + {Left,Down,Up,Right}
+alt + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 # Rotate tree
-alt + shift + {d,a}
+super + shift + {d,a}
     bspc node @/ -C {forward,backward}
 
 # Smart presel
-alt + shift + Return
-    /usr/bin/scripts/bspwm-smart-presel.sh
+#alt + shift + Return
+#    /usr/bin/scripts/bspwm-smart-presel.sh
 
 # Dynamic gaps.
-super + shift + {minus,plus}
-	bspc config -d focused window_gap "$(($(bspc config -d focused window_gap) {-,+} 5 ))"
+#super + shift + {minus,plus}
+#	bspc config -d focused window_gap "$(($(bspc config -d focused window_gap) {-,+} 5 ))"
 
 # Create receptacle
-alt + i
+super + i
     bspc node -i
 
 

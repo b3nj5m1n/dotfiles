@@ -1,5 +1,7 @@
 [helpers]
 eq_string = ".dotter/helpers/strings.rhai"
+hex_remove_hash = ".dotter/helpers/hex_remove_hash.rhai"
+
 ##### Variables #####
 
 # ----- Shell -----

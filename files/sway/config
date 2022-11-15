@@ -33,7 +33,45 @@ set $term wezterm
 # Also in the spirit of trying out new software
 set $menu tofi-run | xargs swaymsg exec --
 
-set $lock 'swaylock -f -i /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536_Portrait.png --indicator-caps-lock --color 24273a --bs-hl-color f5a97f --caps-lock-bs-hl-color f5a97f --caps-lock-key-hl-color f5a97f --indicator-idle-visible --indicator-radius 50 --indicator-thickness 5 --indicator-x-position 100 --indicator-y-position 100 --inside-color 181926 --inside-clear-color 91d7e3 --inside-caps-lock-color f5a97f --inside-ver-color eed49f --inside-wrong-color ed8796 --key-hl-color c6a0f6 --line-color 181926 --line-clear-color 181926 --line-caps-lock-color 181926 --line-ver-color 181926 --line-wrong-color 181926 --ring-color 181926 --ring-clear-color 181926 --ring-caps-lock-color 181926 --ring-ver-color 181926 --ring-wrong-color 181926 --separator-color 181926'
+#     swaylock \
+#         --screenshots \
+#         --clock \
+#         --indicator \
+#         --indicator-caps-lock \
+#         --indicator-radius 100 \
+#         --indicator-thickness 7 \
+#         --effect-blur 7x5 \
+#         --effect-vignette 0.5:0.5 \
+#         --grace 2 \
+#         --fade-in 0.2 \
+#         --indicator-idle-visible \
+#         --color 24273a \
+#         --bs-hl-color {{ (hex_remove_hash colors.yellow) }} \
+#         --caps-lock-bs-hl-color {{ (hex_remove_hash colors.orange) }} \
+#         --caps-lock-key-hl-color {{ (hex_remove_hash colors.orange) }} \
+#         --key-hl-color c6a0f6 \
+#         --separator-color 00000000 \
+#         --inside-color 00000000 \
+#         --line-color 00000000 \
+#         --ring-color {{ (hex_remove_hash colors.background) }} \
+#         --text-color {{ (hex_remove_hash colors.fg) }} \
+#         --inside-clear-color 00000000 \
+#         --line-clear-color 00000000 \
+#         --ring-clear-color {{ (hex_remove_hash colors.cyan) }} \
+#         --text-clear-color {{ (hex_remove_hash colors.cyan) }} \
+#         --inside-caps-lock-color 00000000 \
+#         --line-caps-lock-color 00000000 \
+#         --ring-caps-lock-color {{ (hex_remove_hash colors.yellow) }} \
+#         --text-caps-lock-color {{ (hex_remove_hash colors.yellow) }} \
+#         --inside-ver-color 00000000 \
+#         --line-ver-color 00000000 \
+#         --ring-ver-color {{ (hex_remove_hash colors.orange) }} \
+#         --text-ver-color {{ (hex_remove_hash colors.orange) }} \
+#         --inside-wrong-color 00000000 \
+#         --line-wrong-color 00000000 \
+#         --ring-wrong-color {{ (hex_remove_hash colors.red) }} \
+#         --text-wrong-color {{ (hex_remove_hash colors.red) }}
+set $lock 'swaylock --screenshots --clock --indicator --indicator-caps-lock --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --effect-vignette 0.5:0.5 --grace 2 --fade-in 0.2 --indicator-idle-visible --color 24273a --bs-hl-color {{ (hex_remove_hash colors.yellow) }} --caps-lock-bs-hl-color {{ (hex_remove_hash colors.orange) }} --caps-lock-key-hl-color {{ (hex_remove_hash colors.orange) }} --key-hl-color c6a0f6 --separator-color 00000000 --inside-color 00000000 --line-color 00000000 --ring-color {{ (hex_remove_hash colors.background) }} --text-color {{ (hex_remove_hash colors.fg) }} --inside-clear-color 00000000 --line-clear-color 00000000 --ring-clear-color {{ (hex_remove_hash colors.cyan) }} --text-clear-color {{ (hex_remove_hash colors.cyan) }} --inside-caps-lock-color 00000000 --line-caps-lock-color 00000000 --ring-caps-lock-color {{ (hex_remove_hash colors.yellow) }} --text-caps-lock-color {{ (hex_remove_hash colors.yellow) }} --inside-ver-color 00000000 --line-ver-color 00000000 --ring-ver-color {{ (hex_remove_hash colors.orange) }} --text-ver-color {{ (hex_remove_hash colors.orange) }} --inside-wrong-color 00000000 --line-wrong-color 00000000 --ring-wrong-color {{ (hex_remove_hash colors.red) }} --text-wrong-color {{ (hex_remove_hash colors.red) }}'
 
 output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536_Portrait.png fill
 
@@ -87,7 +125,7 @@ bindsym Mod1+u exec bemoji
 
 ############### General ###############
 
-bindsym $mod+q exec 'swaylock -f -c 000000'
+bindsym $mod+q exec $lock
 
 ############### Volume Control ###############
 
