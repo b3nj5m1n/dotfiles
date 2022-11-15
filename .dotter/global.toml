@@ -52,6 +52,7 @@ kernel_parameters = "rd.luks.name=267e9431-67d9-4d91-a21b-682396d407ee:parts roo
 grub_theme = "/boot/themes/monterey-grub-theme/theme.txt"
 grub_res = "auto"
 display_server = "xorg"
+os = "nix"
 # ----- Laptop -----
 [laptop.variables]
 display_battery = true
@@ -64,6 +65,7 @@ kernel_parameters = "quiet splash i915.modeset=1 vga=current loglevel=0 rd.udev.
 grub_theme = "/usr/share/grub/themes/monterey-grub-theme/theme.txt"
 grub_res = "auto"
 display_server = "xorg"
+os = "arch"
 # ----- Desktop -----
 [desktop.variables]
 display_battery = false
@@ -77,9 +79,11 @@ kernel_parameters = "quiet loglevel=0 nvidia-drm.modeset=1 splash rd.udev.log_pr
 grub_theme = "/usr/share/grub/themes/monterey-grub-theme/theme.txt"
 grub_res = "1920x1080"
 display_server = "xorg"
+os = "arch"
 # ----- Server -----
 [server.variables]
 force_terminfo = true
+os = "raspbian"
 
 
 # ----- Colors -----
@@ -349,6 +353,7 @@ c23 = "#B8C0E0" # Dim
 "files/cli-visualizer/colors/dracula" = "~/.config/vis/colors/dracula"
 [scripts.files]
 "scripts/backup_sh_history.sh" = { target = "~/.local/share/bin/backup_sh_history.sh", type = "template", owner = "root" }
+"scripts/setup-repos.sh" = { target = "~/.local/share/bin/setup-repos.sh", type = "template", owner = "root" }
 "scripts/colors.sh" = { target = "~/.local/share/bin/colors.sh", type = "template", owner = "root" }
 "scripts/emoji-picker.sh" = { target = "~/.local/share/bin/emoji-picker.sh", type = "template", owner = "root" }
 "scripts/fav-song.sh" = { target = "~/.local/share/bin/fav-song.sh", type = "template", owner = "root" }

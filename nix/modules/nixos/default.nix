@@ -6,6 +6,7 @@
   base = import ./base.nix;
   networking = import ./networking.nix;
   security = import ./security.nix;
+  shared-repos = import ./shared-repos.nix;
 
   # Terminal stuff
   shell = import ./shell.nix;
@@ -35,4 +36,5 @@
   nix = import ./nix.nix;
   c = import ./c.nix;
   common-lisp = import ./common-lisp.nix;
+  python = import ./python.nix;
 }

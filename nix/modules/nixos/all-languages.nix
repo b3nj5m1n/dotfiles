@@ -14,5 +14,6 @@
     ./nix.nix
     ./c.nix
     ./common-lisp.nix
+    ./python.nix
   ];
 }

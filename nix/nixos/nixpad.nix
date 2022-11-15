@@ -1,6 +1,7 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
   imports = [
     outputs.nixosModules.base
+    outputs.nixosModules.shared-repos
     outputs.nixosModules.terminal
     outputs.nixosModules.sway
     outputs.nixosModules.all-languages

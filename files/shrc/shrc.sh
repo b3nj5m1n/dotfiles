@@ -117,7 +117,7 @@ alias emcS='devour emacsclient --create-frame' # Open emacs in GUI and hide the 
 alias emCS='emacsclient --create-frame' # Open emacs in GUI
 
 # Alias for copying output of a command to clipboard
-alias cpy='xclip -selection clipboard' # Copy piped command output to clipboard
+alias cpy='{{#if (eq_string dislay_server "xorg")}}xclip -in -selection clipboard{{else}}wl-copy{{/if}}' # Copy piped command output to clipboard
 
 # Aliases for hiding terminal when starting certain programs
 alias zathura='devour zathura'
@@ -230,4 +230,4 @@ alias egrep='egrep --color=auto'
 
 
 # Enable nix package manager
-source /etc/profile.d/nix.sh
+{{#if (eq_string os "arch")}} source /etc/profile.d/nix.sh {{/if}}

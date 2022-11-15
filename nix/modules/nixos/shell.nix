@@ -16,8 +16,8 @@
       cmatrix # A masterhacker essential
       difftastic # Better diff which understands syntax
       dotter # Dotfile management
-      duf # Display disk usage stats in a readable way
       du-dust # More intuitive du
+      duf # Display disk usage stats in a readable way
       exa # Better ls
       fd # Better find
       git # I mean it's git
@@ -33,6 +33,7 @@
       ripgrep # Very fast grep, searches directory recursively by default
       sd # Move intuitive sed
       skim # Like fzf, but in rust... yeah that's the only reason
+      sqlite # Sqlite cli
       starship # Fast af prompt generator with tons of useful info
       taskwarrior # The endboss of task management
       tealdeer # tldr client
