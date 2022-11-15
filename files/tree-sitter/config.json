@@ -1,6 +1,7 @@
 {
   "parser-directories": [
-    "/home/b3nj4m1n/.local/share/tree-sitter"
+    "/home/b3nj4m1n/.local/share/tree-sitter",
+    "/run/current-system/sw/share/ts-grammars"
   ],
   "theme": {
     "comment": {

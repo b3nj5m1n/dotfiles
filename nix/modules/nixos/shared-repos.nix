@@ -13,13 +13,14 @@
       path = [ pkgs.git pkgs.openssh ];
       unitConfig = {
         Type = "simple";
+        After = [ "network-online.target" ];
+        Wants = [ "network-online.target" ];
       };
       serviceConfig = {
+        User = "b3nj4m1n";
         ExecStart = "-${pkgs.bash}/bin/bash /home/b3nj4m1n/.local/share/bin/setup-repos.sh";
       };
       wantedBy = [ "multi-user.target" ];
-      after = [ "network-online.target" ];
-      wants = [ "network-online.target" ];
     };
 
     services.cron = {

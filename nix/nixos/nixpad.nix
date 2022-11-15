@@ -65,6 +65,7 @@
     pfui
     bemoji
     wofi-calc
+    tree-sitter-norg
   ];
 
   system.stateVersion = "22.05";
