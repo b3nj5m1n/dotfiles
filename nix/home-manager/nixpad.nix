@@ -74,7 +74,7 @@
     difftastic = { enable = true; };
     signing = {
       signByDefault = true;
-      key = "062FF16EA3C30C2D";
+      key = "40C2656E7D651A18";
     };
   };
 

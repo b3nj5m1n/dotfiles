@@ -6,7 +6,7 @@
     outputs.nixosModules.sway
     outputs.nixosModules.all-languages
 
-    ../hardware/x240.nix
+    ../hardware/x270.nix
   ];
 
   nixpkgs = {
@@ -19,6 +19,7 @@
       allowUnfree = false;
     };
   };
+
 
   nix = {
     # This will add each flake input as a registry
@@ -39,15 +40,16 @@
 
   networking.hostName = "nixpad";
 
+  boot.supportedFilesystems = [ "btrfs" ];
+  hardware.enableRedistributableFirmware = true;
   boot.loader = {
+    efi.canTouchEfiVariables = true;
     grub = {
       enable = true;
       copyKernels = true;
       version = 2;
       efiSupport = true;
-      efiInstallAsRemovable = true;
       device = "nodev";
-      fsIdentifier = "label";
     };
   };
 

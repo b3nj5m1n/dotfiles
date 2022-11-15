@@ -1,5 +1,11 @@
 # Dotfiles
 
+## NixOs Setup
+
+Make sure UEFI is enabled in bios.
+
+Generate default ssh key, dk_sh_history, dk_tasks & dk_timew.
+
 ## History
 <details>
 <summary>Old screenshots</summary>

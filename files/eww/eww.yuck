@@ -64,7 +64,7 @@
       :space-evenly false  
       :halign "end"
       :class "container-battery"
-    (label :text { EWW_BATTERY.BAT1.capacity + "%" } :class "label-battery")))
+    (label :text { EWW_BATTERY.BAT0.capacity + "%" } :class "label-battery")))
 
 (defwidget volume []
   (box :orientation "h" 

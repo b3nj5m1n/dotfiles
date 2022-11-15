@@ -37,7 +37,7 @@ font_size_float = "13.0"
 
 # ----- Dingspad -----
 [nixpad.variables]
-ssh_key_name = "id_rsa"
+ssh_key_name = "id_ed25519"
 display_server = "wayland"
 [dingspad.variables]
 disable_touchpad = true
