@@ -10,6 +10,7 @@
       mpc-cli
       ncmpcpp
       pavucontrol
+      pulseaudio
     ];
     security.rtkit.enable = true;
     services.pipewire = {

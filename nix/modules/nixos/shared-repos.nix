@@ -15,7 +15,7 @@
         Type = "simple";
       };
       serviceConfig = {
-        ExecStart = "${pkgs.bash}/bin/bash /home/b3nj4m1n/.local/share/bin/setup-repos.sh";
+        ExecStart = "-${pkgs.bash}/bin/bash /home/b3nj4m1n/.local/share/bin/setup-repos.sh";
       };
       wantedBy = [ "multi-user.target" ];
       after = [ "network-online.target" ];

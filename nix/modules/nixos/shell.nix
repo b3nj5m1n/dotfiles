@@ -26,6 +26,7 @@
       hyperfine # Benchmark command performance
       jq # Jesus christ it's JSON Bourne
       killall # Kill processes by name
+      libqalculate # qalc cli
       mlocate # Locate files quickly from cached database of files
       neomutt # TUI email client
       pfetch # Like neofetch but faster and more minimal

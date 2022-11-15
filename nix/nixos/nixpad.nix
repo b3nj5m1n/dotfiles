@@ -57,13 +57,14 @@
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
-      extraGroups = [ "wheel" ];
+      extraGroups = [ "wheel" "video" ];
     };
   };
 
   environment.systemPackages = with pkgs; [
     pfui
     bemoji
+    wofi-calc
   ];
 
   system.stateVersion = "22.05";

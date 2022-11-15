@@ -11,7 +11,6 @@
       clipman
       eww-wayland
       kanshi
-      light
       tofi
       wayland
       wev
@@ -19,5 +18,6 @@
       wlr-randr
       wofi
     ];
+    hardware.brillo.enable = true;
   };
 }
