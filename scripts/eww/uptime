@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-
-printf "%s\n" "$(uptime -p | sed 's/up //g' | sed -r 's|([[:digit:]]+) ([[:alpha:]])[[:alpha:]]*|\1\2|g')"

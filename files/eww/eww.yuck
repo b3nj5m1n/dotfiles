@@ -3,7 +3,7 @@
 (deflisten mpd-info "pfui start mpd")
 
 ; (defpoll keymap :interval "1m" "setxkbmap -query | awk '/layout/ {print $2}'")
-(defpoll uptime :interval "1m" "./uptime")
+(defpoll uptime :interval "1m" "~/.local/share/bin/uptime.sh")
 (defpoll date-time :interval "1m" "date '+%d/%m/%y %H:%M'")
 
 
@@ -63,14 +63,21 @@
   (box :orientation "h" 
       :space-evenly false  
       :halign "end"
-      :class "container-battery"
-    (label :text { EWW_BATTERY.BAT0.capacity + "%" } :class "label-battery")))
+      :class "container-battery
+        ${(EWW_BATTERY.{{ battery_name }}.status == 'Discharging') ? (EWW_BATTERY.{{ battery_name }}.capacity <= 20) ? 'battery-status-critical' : 'battery-status-discharging'
+        : (EWW_BATTERY.{{ battery_name }}.status == 'Not charging') ? 'battery-status-not-charging'
+        : (EWW_BATTERY.{{ battery_name }}.status == 'Charging') ? 'battery-status-charging' : 'battery-status-unkown' }"
+    (label :text { EWW_BATTERY.{{ battery_name }}.capacity + "%" }
+      :class "label-battery")))
 
 (defwidget volume []
   (box :orientation "h" 
       :space-evenly false  
       :halign "end"
-      :class "container-volume"
+      :class "container-volume
+        ${(pulse-volume.ok == 1)
+        ? (pulse-volume.data.muted) ? 'pulse-muted' : 'pulse-unmuted'
+        : 'pulse-error'}"
     (label :text {
         pulse-volume.ok == 1 ?
         pulse-volume.data.volume + "%"
@@ -103,7 +110,7 @@
       :space-evenly false  
       :halign "end"
       :class "right"
-    (battery)
+    {{#if has_battery}}(battery){{/if}}
     (volume)
     (keymap)
     (uptime)

@@ -1,8 +1,16 @@
 $color-background: #24273a;
 $color-text: #cad3f5;
 
-$color-primary: #8bd5ca;
-$color-secondary: #f5a97f;
+$color-primary: {{ colors.prm }};
+$color-secondary: {{ colors.scd }};
+
+$color-red: {{ colors.red }};
+$color-orange: {{ colors.orange }};
+$color-yellow: {{ colors.yellow }};
+$color-green: {{ colors.green }};
+
+$color-text-dim: {{ colors.fg_dim }};
+$color-background-bright: {{ colors.bg_bright }};
 
 $workspace-color-current: $color-primary;
 $workspace-color-occupied: $color-secondary;
@@ -66,10 +74,33 @@ $workspace-color-empty: $color-text;
 }
 
 .container-battery {
+    // border-bottom: 5px solid $color-secondary;
+}
+.battery-status-critical {
+    background-color: $color-red;
+    padding: 5px;
+}
+.battery-status-discharging {
+    border-bottom: 5px solid $color-orange;
+}
+.battery-status-not-charging {
+    border-bottom: 5px solid $color-yellow;
+}
+.battery-status-charging {
+    border-bottom: 5px solid $color-green;
+}
+.battery-status-unkown {
     border-bottom: 5px solid $color-secondary;
 }
 
 .container-volume {
+    border-bottom: 5px solid $color-secondary;
+}
+.pulse-muted {
+    color: $color-text-dim;
+    border-bottom: 5px solid $color-background-bright;
+}
+.pulse-unmuted {
     border-bottom: 5px solid $color-secondary;
 }
 

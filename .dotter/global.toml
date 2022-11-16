@@ -1,6 +1,7 @@
 [helpers]
 eq_string = ".dotter/helpers/strings.rhai"
 hex_remove_hash = ".dotter/helpers/hex_remove_hash.rhai"
+hex_to_xterm = ".dotter/helpers/hex_to_xterm.rhai"
 
 ##### Variables #####
 
@@ -39,6 +40,8 @@ font_size_float = "13.0"
 [nixpad.variables]
 ssh_key_name = "id_ed25519"
 display_server = "wayland"
+has_battery = true
+battery_name = "BAT0"
 [dingspad.variables]
 disable_touchpad = true
 touchpad_xid = 12
@@ -82,6 +85,7 @@ grub_theme = "/usr/share/grub/themes/monterey-grub-theme/theme.txt"
 grub_res = "1920x1080"
 display_server = "xorg"
 os = "arch"
+has_battery = false
 # ----- Server -----
 [server.variables]
 force_terminfo = true
@@ -243,18 +247,17 @@ c23 = "#B8C0E0" # Dim
 "files/wofi/style.css" = "~/.config/wofi/style.css"
 [fonts.files]
 "files/fontconfig/fonts.conf" = "~/.config/fontconfig/fonts.conf"
-[polybar.files]
-"files/polybar/config" = "~/.config/polybar/config"
-"files/polybar/polybar.sh" = "~/.config/polybar/polybar.sh"
-"scripts/polybar/powermenu.sh" = { target = "~/.local/share/bin/polyscripts/powermenu.sh", type = "template", owner = "root" }
-"scripts/polybar/uptime.sh" = { target = "~/.local/share/bin/polyscripts/uptime.sh", type = "template", owner = "root" }
+# [polybar.files]
+# "files/polybar/config" = "~/.config/polybar/config"
+# "files/polybar/polybar.sh" = "~/.config/polybar/polybar.sh"
+# "scripts/polybar/powermenu.sh" = { target = "~/.local/share/bin/polyscripts/powermenu.sh", type = "template", owner = "root" }
+# "scripts/polybar/uptime.sh" = { target = "~/.local/share/bin/polyscripts/uptime.sh", type = "template", owner = "root" }
 [eww.files]
 "files/eww/eww.scss" = "~/.config/eww/eww.scss"
 "files/eww/eww.yuck" = "~/.config/eww/eww.yuck"
 "scripts/eww/start-eww" = "~/.config/eww/start-eww"
 "scripts/eww/mpd" = "~/.config/eww/mpd"
 "scripts/eww/volume" = "~/.config/eww/volume"
-"scripts/eww/uptime" = "~/.config/eww/uptime"
 "scripts/eww/workspace" = "~/.config/eww/workspace"
 [gtk.files]
 "files/gtk/gtkrc-2.0" = "~/.config/gtk-2.0/gtkrc-2.0"
@@ -356,6 +359,7 @@ c23 = "#B8C0E0" # Dim
 [scripts.files]
 "scripts/backup_sh_history.sh" = { target = "~/.local/share/bin/backup_sh_history.sh", type = "template", owner = "root" }
 "scripts/setup-repos.sh" = { target = "~/.local/share/bin/setup-repos.sh", type = "template", owner = "root" }
+"scripts/uptime.sh" = { target = "~/.local/share/bin/uptime.sh", type = "template", owner = "root" }
 "scripts/colors.sh" = { target = "~/.local/share/bin/colors.sh", type = "template", owner = "root" }
 "scripts/emoji-picker.sh" = { target = "~/.local/share/bin/emoji-picker.sh", type = "template", owner = "root" }
 "scripts/fav-song.sh" = { target = "~/.local/share/bin/fav-song.sh", type = "template", owner = "root" }

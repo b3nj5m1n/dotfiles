@@ -52,7 +52,7 @@ function component_uptime {
     style_fg "$uptime_fg"
     style_bg "$uptime_bg"
     prefix
-    printf "$(uptime -p | awk -F',' '{print $1}')"
+    printf "$(~/.local/share/bin/uptime.sh)"
     suffix
 }
 function component_currentwindow {
