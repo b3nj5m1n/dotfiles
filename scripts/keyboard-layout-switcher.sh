@@ -11,7 +11,7 @@ if [[ "$XDG_CURRENT_DESKTOP" == "sway" ]]; then
 fi
 notify-send -a "keyboard-layout-switcher" "Layout Switcher" "Switched keyboard layout to <i>$selection</i>"
 
-selection=$(printf "$german\n$dvorak\n$pdvorak\n$english" | wofi --dmenu --prompt="Layout" --hide-scroll --insensitive)
+selection=$(printf "$german\n$dvorak\n$pdvorak\n$english" | rofi -dmenu --prompt="Layout" --hide-scroll --insensitive)
 
 # Remove all custom mappings
 setxkbmap -option

@@ -85,9 +85,11 @@ exec swayidle -w \
          before-sleep $lock
 
 # Trackpoint > Trackpad
-input "1739:0:Synaptics_TM2927-001" {
+{{#if disable_touchpad }}
+input "{{ touchpad_id }}" {
         events disabled
     }
+{{/if}}
 
 # Hide cursor after 2 seconds of inactivity
 seat * hide_cursor 2000

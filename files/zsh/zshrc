@@ -132,4 +132,9 @@ source ~/.config/shrc
 
 # Syntax highlighting in zsh
 # source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+{{#if (eq_string os "nix")}}
 source /run/current-system/sw/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+{{/if}}
+{{#if (eq_string os "arch")}}
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+{{/if}}

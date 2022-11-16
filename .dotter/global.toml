@@ -40,8 +40,11 @@ font_size_float = "13.0"
 [nixpad.variables]
 ssh_key_name = "id_ed25519"
 display_server = "wayland"
+window_manager = "sway"
 has_battery = true
 battery_name = "BAT0"
+disable_touchpad = true
+touchpad_id = "2:7:SynPS/2_Synaptics_TouchPad"
 [dingspad.variables]
 disable_touchpad = true
 touchpad_xid = 12
@@ -84,8 +87,10 @@ kernel_parameters = "quiet loglevel=0 nvidia-drm.modeset=1 splash rd.udev.log_pr
 grub_theme = "/usr/share/grub/themes/monterey-grub-theme/theme.txt"
 grub_res = "1920x1080"
 display_server = "xorg"
+window_manager = "bspwm"
 os = "arch"
 has_battery = false
+battery_name = ""
 # ----- Server -----
 [server.variables]
 force_terminfo = true
@@ -236,6 +241,8 @@ c23 = "#B8C0E0" # Dim
 "files/tofi/config" = "~/.config/tofi/config"
 [bspwm.files]
 "files/bspwm/bspwmrc" = "~/.config/bspwm/bspwmrc"
+"scripts/bspwm-resize.sh" = { target = "~/.local/share/bin/bspwm-resize.sh", type = "template", owner = "root" }
+"scripts/bspwm-swap-or-move-in.sh" = { target = "~/.local/share/bin/bspwm-swap-or-move-in.sh", type = "template", owner = "root" }
 [sxhkd.files]
 "files/sxhkd/sxhkdrc" = "~/.config/sxhkd/sxhkdrc"
 "files/sxhkd/sxhkdrc_bspc" = "~/.config/sxhkd/sxhkdrc_bspc"

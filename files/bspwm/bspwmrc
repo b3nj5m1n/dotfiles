@@ -34,18 +34,18 @@ unclutter --idle 2 &
 betterlockscreen -u /usr/share/wallpapers/custom/samuel-inkilainen-arctic-spirit-with-signature.jpg &
 syncthing -no-browser &
 ~/.config/eww/start-eww &
-mpc idleloop | while read line; do pkill lemonblocks -5; done &
-bspc subscribe desktop | while read line; do pkill lemonblocks -4; done &
+# mpc idleloop | while read line; do pkill lemonblocks -5; done &
+# bspc subscribe desktop | while read line; do pkill lemonblocks -4; done &
 
 
 # Programms
 /usr/bin/scripts/open-move.sh firefox 2
 
 # Scratchpads
-killall cmus && killall neomutt && killall calcurse
-alacritty --class "ncmpcpp" -e "ncmpcpp" &
-alacritty --class "neomutt" --dimensions 226 60 --position 50 60  -e "neomutt" &
-alacritty --class "calcurse" -e "calcurse" &
+# killall cmus && killall neomutt && killall calcurse
+# alacritty --class "ncmpcpp" -e "ncmpcpp" &
+# alacritty --class "neomutt" --dimensions 226 60 --position 50 60  -e "neomutt" &
+# alacritty --class "calcurse" -e "calcurse" &
 
 # ~/.config/polybar/polybar.sh
 

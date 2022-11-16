@@ -1,17 +1,27 @@
+{{#if (eq_string window_manager "sway")}}
 (deflisten sway "pfui start sway")
+{{/if}}
+{{#if (eq_string window_manager "bspwm")}}
+(deflisten workspaces-json "./workspace")
+{{/if}}
+
 (deflisten pulse-volume "pfui start pulseaudio")
 (deflisten mpd-info "pfui start mpd")
 
-; (defpoll keymap :interval "1m" "setxkbmap -query | awk '/layout/ {print $2}'")
+{{#if (eq_string window_manager "bspwm")}}
+(deflisten active-window-title "xtitle -s")
+{{/if}}
+
+{{#if (eq_string window_manager "bspwm")}}
+(defpoll keymap :interval "1m" "setxkbmap -query | awk '/layout/ {print $2}'")
+{{/if}}
 (defpoll uptime :interval "1m" "~/.local/share/bin/uptime.sh")
 (defpoll date-time :interval "1m" "date '+%d/%m/%y %H:%M'")
 
 
 ;;;;; Left
 
-(defvar workspace-empty "●")
-(defvar workspace-occupied "●")
-
+{{#if (eq_string window_manager "sway")}}
 (defwidget workspaces []
   (box
       :orientation "h"
@@ -22,6 +32,20 @@
         :onclick "bspc desktop -f ${workspace.name}"
         :class "workspace ${(workspace.focused == true ? "workspace-current" : (workspace.visible == true ? "workspace-occupied" : "workspace-empty"))}"
         "${workspace.name}"))))
+{{/if}}
+
+{{#if (eq_string window_manager "bspwm")}}
+(defwidget workspaces []
+  (box
+      :orientation "h"
+      :halign "start"
+      :class "workspaces"
+    (for workspace in workspaces-json
+      (button 
+        :onclick "bspc desktop -f ${workspace.name}"
+        :class "workspace ${(workspace.state == "current" ? "workspace-current" : (workspace.state == "occupied" ? "workspace-occupied" : "workspace-empty"))}"
+        "${workspace.name}"))))
+{{/if}}
 
 (defwidget mpd []
   (box :orientation "h" 
@@ -54,11 +78,17 @@
       :space-evenly false  
       :halign "center"
       :class "center"
+{{#if (eq_string window_manager "sway")}}
     (label :text { sway.data.window_title } :limit-width 30 :class "label-active-window")))
+{{/if}}
+{{#if (eq_string window_manager "bspwm")}}
+    (label :text active-window-title :limit-width 30 :class "label-active-window")))
+{{/if}}
 
 
 ;;;;; Right
 
+{{#if has_battery}}
 (defwidget battery []
   (box :orientation "h" 
       :space-evenly false  
@@ -69,6 +99,7 @@
         : (EWW_BATTERY.{{ battery_name }}.status == 'Charging') ? 'battery-status-charging' : 'battery-status-unkown' }"
     (label :text { EWW_BATTERY.{{ battery_name }}.capacity + "%" }
       :class "label-battery")))
+{{/if}}
 
 (defwidget volume []
   (box :orientation "h" 
@@ -89,7 +120,12 @@
       :space-evenly false  
       :halign "end"
       :class "container-keymap"
+{{#if (eq_string window_manager "sway")}}
     (button :class "label-keymap" :onclick "~/.local/share/bin/keyboard-layout-switcher.sh" { sway.data.kbd_layout })))
+{{/if}}
+{{#if (eq_string window_manager "bspwm")}}
+    (button :class "label-keymap" :onclick "~/.local/share/bin/keyboard-layout-switcher.sh" keymap)))
+{{/if}}
 
 (defwidget uptime []
   (box :orientation "h" 
