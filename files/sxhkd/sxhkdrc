@@ -2,7 +2,7 @@
 
 ############### Essential Keybindings ###############
 
-super + F4
+alt + F4
     alacritty -e "cmatrix"
 
 # Open terminal with tmux
