@@ -39,6 +39,7 @@ font_size_float = "13.0"
 # ----- Dingspad -----
 [nixpad.variables]
 ssh_key_name = "id_ed25519"
+os = "nix"
 display_server = "wayland"
 window_manager = "sway"
 has_battery = true
@@ -60,7 +61,6 @@ kernel_parameters = "rd.luks.name=267e9431-67d9-4d91-a21b-682396d407ee:parts roo
 grub_theme = "/boot/themes/monterey-grub-theme/theme.txt"
 grub_res = "auto"
 display_server = "xorg"
-os = "nix"
 # ----- Laptop -----
 [laptop.variables]
 display_battery = true
