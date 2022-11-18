@@ -12,7 +12,7 @@ bspc monitor -d 1 2 3 4 5 6 7 8 9
 # Set to german keymap
 setxkbmap de &
 # Swap escape and caps
-setxkbmap -option "caps:swapescape"
+setxkbmap -option "caps:swapescape" &
 
 # Disable touchpad on thinkpad
 {{#if disable_touchpad}}
@@ -21,7 +21,7 @@ xinput --disable {{ touchpad_xid }}
 
 # Daemons & stuff
 sxhkd ~/.config/sxhkd/sxhkdrc_bspc &
-picom --experimental-backends &
+picom &
 dunst &
 mpd &
 redshift &
