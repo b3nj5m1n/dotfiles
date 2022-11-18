@@ -1,7 +1,7 @@
 SOURCE_FILE="./config.norg"
 QUERY_FILE="./build/query.scm"
-# FENNEL_FILE="./build/config.fnl"
-FENNEL_FILE="./config.fnl"
+FENNEL_FILE="./build/config.fnl"
+# FENNEL_FILE="./config.fnl"
 LUA_FILE="./build/config.lua"
 INSTALL_DIR="$(XDG_CONFIG_HOME)/nvim/lua"
 INSTALL_FILE="$(INSTALL_DIR)/config.lua"
@@ -17,6 +17,7 @@ query: build_dir
 	echo "(ranged_tag (tag_name) @name (ranged_tag_content) @code (#eq? @name \"code\"))" > $(QUERY_FILE)
 
 extract: query
+	bash ./extract.sh
 	# tree-sitter query --captures $(QUERY_FILE) $(SOURCE_FILE) | /usr/bin/env sed "s/    pattern:\s*\w*, capture:\s*\w*\s*-\s*name, start:\s*(\w*,\s*\w*),\s*end:\s(\w*,\s*\w*),\s*text:\s\`code\`//" | /usr/bin/env sed "s/    pattern:\s*\w*, capture:\s*\w*\s*-\s*code, start:\s*(\w*,\s*\w*),\s*end:\s(\w*,\s*\w*),\s*text:\s/---\n/" | awk '{ if (NR!=1) { print substr($$0, 3, length($$0)-5) } }' RS="---" > $(FENNEL_FILE)
 
 compile: extract
