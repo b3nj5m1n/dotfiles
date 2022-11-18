@@ -105,6 +105,7 @@ function git_search_commits() {
     git --no-pager log --pretty="%s|%cn|%cr|%h" | awk -F'|' '{ printf "%s... by %s, %s (%s)\n", $1=substr($1,1,25), $2, $3, $4 }' | sk | /usr/bin/sed -n -r 's/^.*\((\w+)\)$/\1/p'
 }
 alias gsc='git_search_commits' # Search git commits
+alias glc='git show -s --format=%s | cpy' # Get last commit message
 
 # .. for moving up one directory in shells where that isn't supported
 alias ..='cd ..'
@@ -117,7 +118,12 @@ alias emcS='devour emacsclient --create-frame' # Open emacs in GUI and hide the 
 alias emCS='emacsclient --create-frame' # Open emacs in GUI
 
 # Alias for copying output of a command to clipboard
-alias cpy='{{#if (eq_string dislay_server "xorg")}}xclip -in -selection clipboard{{else}}wl-copy{{/if}}' # Copy piped command output to clipboard
+{{#if (eq_string display_server "xorg")}}
+alias cpy='xclip -in -selection clipboard' # Copy piped command output to clipboard
+{{/if}}
+{{#if (eq_string dislay_server "wayland")}}
+alias cpy='wl-copy' # Copy piped command output to clipboard
+{{/if}}
 
 # Aliases for hiding terminal when starting certain programs
 alias zathura='devour zathura'
