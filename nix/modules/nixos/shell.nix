@@ -25,6 +25,7 @@
       gnumake # You know make
       hyperfine # Benchmark command performance
       jq # Jesus christ it's JSON Bourne
+      just # Like make but easier
       killall # Kill processes by name
       libqalculate # qalc cli
       mlocate # Locate files quickly from cached database of files
