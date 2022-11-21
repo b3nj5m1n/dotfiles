@@ -91,7 +91,7 @@ init_hooks = "base udev resume plymouth autodetect modconf block lvm2 filesystem
 kernel_parameters = "quiet loglevel=0 splash rd.udev.log_priority=0 vt.global_cursor_default=0 resume=/dev/sdb1 resume_offset=11730944"
 grub_theme = "/usr/share/grub/themes/monterey-grub-theme/theme.txt"
 grub_res = "1920x1080"
-wallpaper = "/usr/share/wallpapers/custom/teal_unicat.png"
+wallpaper = "/usr/share/wallpapers/custom/peach_unicat.png"
 display_server = "wayland"
 window_manager = "sway"
 os = "arch"
