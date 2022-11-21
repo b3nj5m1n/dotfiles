@@ -73,9 +73,9 @@ set $menu tofi-run | xargs swaymsg exec --
 #         --text-wrong-color {{ (hex_remove_hash colors.red) }}
 set $lock 'swaylock --screenshots --clock --indicator --indicator-caps-lock --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --effect-vignette 0.5:0.5 --grace 2 --fade-in 0.2 --indicator-idle-visible --color 24273a --bs-hl-color {{ (hex_remove_hash colors.yellow) }} --caps-lock-bs-hl-color {{ (hex_remove_hash colors.orange) }} --caps-lock-key-hl-color {{ (hex_remove_hash colors.orange) }} --key-hl-color c6a0f6 --separator-color 00000000 --inside-color 00000000 --line-color 00000000 --ring-color {{ (hex_remove_hash colors.background) }} --text-color {{ (hex_remove_hash colors.fg) }} --inside-clear-color 00000000 --line-clear-color 00000000 --ring-clear-color {{ (hex_remove_hash colors.cyan) }} --text-clear-color {{ (hex_remove_hash colors.cyan) }} --inside-caps-lock-color 00000000 --line-caps-lock-color 00000000 --ring-caps-lock-color {{ (hex_remove_hash colors.yellow) }} --text-caps-lock-color {{ (hex_remove_hash colors.yellow) }} --inside-ver-color 00000000 --line-ver-color 00000000 --ring-ver-color {{ (hex_remove_hash colors.orange) }} --text-ver-color {{ (hex_remove_hash colors.orange) }} --inside-wrong-color 00000000 --line-wrong-color 00000000 --ring-wrong-color {{ (hex_remove_hash colors.red) }} --text-wrong-color {{ (hex_remove_hash colors.red) }}'
 
-output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536_Portrait.png fill
+output {{ main_monitor }} resolution {{ main_monitor_res }} position 0,0
 
-output eDP-1 resolution 1366x768 position 0,0
+output {{ main_monitor }} bg {{ wallpaper }} fill
 
 # Lock screen after 300 secs, turn off displays after 600 secs, lock screen
 # before computer goes to sleep
@@ -281,6 +281,7 @@ default_border pixel 3
 
 # Default workspace assignments
 assign [app_id="firefox"] workspace 2
+assign [class="discord"] workspace 8
 
 ### Autostart daemons, doing this through nixos config is preferred
 exec ~/.config/eww/start-eww

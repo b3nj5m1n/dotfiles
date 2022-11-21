@@ -50,6 +50,9 @@ export ANKI_NOHIGHDPI=1
 # Make Calibre use dark mode
 export CALIBRE_USE_DARK_PALETTE=1
 
+# Make firefox use wayland
+export MOZ_ENABLE_WAYLAND=1
+
 source ~/.config/shrc
 
 # If no tmux sessions are running and we're connected over ssh, start tmux

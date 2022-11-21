@@ -46,6 +46,9 @@ has_battery = true
 battery_name = "BAT0"
 disable_touchpad = true
 touchpad_id = "2:7:SynPS/2_Synaptics_TouchPad"
+wallpaper = "/run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536_Portrait.png"
+main_monitor = "eDP-1"
+main_monitor_res = "1366x768"
 [dingspad.variables]
 disable_touchpad = true
 touchpad_xid = 12
@@ -79,15 +82,18 @@ os = "arch"
 display_battery = false
 display_wlan = false
 multi_monitor = false
+main_monitor = "HDMI-A-1"
+main_monitor_res = "1920x1080"
 second_monitor = "DP-2"
 ssh_key_name = "id_rsa"
-init_modules = "nvidia nvidia_modeset nvidia_uvm nvidia_drm"
+init_modules = "nouveau"
 init_hooks = "base udev resume plymouth autodetect modconf block lvm2 filesystems resume keyboard keymap fsck"
-kernel_parameters = "quiet loglevel=0 nvidia-drm.modeset=1 splash rd.udev.log_priority=0 vt.global_cursor_default=0 resume=/dev/sdb1 resume_offset=11730944"
+kernel_parameters = "quiet loglevel=0 splash rd.udev.log_priority=0 vt.global_cursor_default=0 resume=/dev/sdb1 resume_offset=11730944"
 grub_theme = "/usr/share/grub/themes/monterey-grub-theme/theme.txt"
 grub_res = "1920x1080"
-display_server = "xorg"
-window_manager = "bspwm"
+wallpaper = "/usr/share/wallpapers/custom/teal_unicat.png"
+display_server = "wayland"
+window_manager = "sway"
 os = "arch"
 has_battery = false
 battery_name = ""
