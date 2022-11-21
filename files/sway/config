@@ -290,5 +290,7 @@ exec wl-paste -t text --watch clipman store
 # Autostart Firefox
 exec firefox
 
+# Enable autotiling
+exec autotiling-rs
 
 include /etc/sway/config.d/*
