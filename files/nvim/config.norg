@@ -577,12 +577,20 @@ version: 0.0.13
               ;      (. (require :cmp_nvim_lsp) :default_capabilities))
               (local capabilities ((. (require :cmp_nvim_lsp) :default_capabilities)))
               (local servers [:bashls :clangd :clangd :cmake :jedi_language_server
-                              :cssls :elmls :html :jsonls :rust_analyzer :clojure_lsp
+                              :cssls :elmls :html :jsonls :clojure_lsp
                               :tsserver :tsserver :yamlls :hls :rnix])
               (each [_ server (pairs servers)]
                 ((. (. lspconfig server) :setup) { :capabilities capabilities }))
               (set-keymap "Normal: Format buffer"
                 "<leader>ll" vim.lsp.buf.format))
+    )
+    @end
+*** [rust-tools.nvim](https://github.com/simrat39/rust-tools.nvim)
+    @code fennel
+    (paq "rust-tools" "More support for rust analyzer"
+      "simrat39/rust-tools.nvim"
+      :branch "master"
+      :commit "99fd1238c6068d0637df30b6cee9a264334015e9"
     )
     @end
 *** [nvim-jdtls](https://github.com/mfussenegger/nvim-jdtls)
