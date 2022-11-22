@@ -296,6 +296,16 @@ version: 0.0.13
      :branch "master"
      :commit "4b7e52044bbb84242158d977a50c4cbcd85070c7")
    @end
+** [aniseed](https://github.com/Olical/aniseed)
+   @code fennel
+   (paq "aniseed" "Fennel support"
+     "Olical/aniseed"
+     :branch "master"
+     :commit "9892a40d4cf970a2916a984544b7f984fc12f55c"
+     :config (do
+       ((. (require :aniseed.env) :init))
+   ))
+   @end
 ** [kommentary](https://github.com/b3nj5m1n/kommentary)
    This is a plugin I wrote a while back, it's similar to tpope's [vim-commentary](https://github.com/tpope/vim-commentary), but written in lua and with more functionality. About a year after I wrote this plugin, we also got [Comment.nvim](https://github.com/numToStr/Comment.nvim), which has a bit more functionality than kommentary and is definitely worth checking out if you don't already have a commenting plugin.
    @code fennel
@@ -474,12 +484,13 @@ version: 0.0.13
      :branch "master"
      :commit "a8e3e66deefb6122f476c27cee505aaae93f7109")
    @end
-** [statusline.lua](https://github.com/beauwilliams/statusline.lua)
+** [feline.nvim](https://github.com/feline-nvim/feline.nvim)
    @code fennel
-   (paq "statusline" "Statusline"
-     "beauwilliams/statusline.lua"
+   (paq "feline" "Statusline"
+     "feline-nvim/feline.nvim"
      :branch "master"
-     :commit "20ad26912935f91918da9f428761b6d1b651d632")
+     :commit "6d4e3f934bffaa1893a690cd9b8f8b584ef0a7ea"
+     )
    @end
 ** [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
    @code fennel
