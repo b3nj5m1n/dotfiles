@@ -265,7 +265,7 @@ bindsym $mod+r mode "resize"
 
 # class                 border  bground text    indicator child_border
 client.focused          {{ colors.prm }} {{ colors.prm }} {{ colors.fg }} {{ colors.prm }}   {{ colors.prm }}
-client.focused_inactive {{ colors.cyan }} {{ colors.cyan }} {{ colors.fg }} {{ colors.cyan }}   {{ colors.cyan }}
+client.focused_inactive {{ colors.bg }} {{ colors.bg }} {{ colors.fg }} {{ colors.bg }}   {{ colors.bg }}
 client.unfocused        {{ colors.bg }} {{ colors.bg }} {{ colors.fg }} {{ colors.bg }}   {{ colors.bg }}
 client.urgent           {{ colors.red }} {{ colors.red }} {{ colors.fg }} {{ colors.red }}   {{ colors.red }}
 client.placeholder      {{ colors.bg }} {{ colors.bg }} {{ colors.fg }} {{ colors.bg }}   #0C0C0C
