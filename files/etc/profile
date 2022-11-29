@@ -46,6 +46,7 @@ unset MANPATH
 
 # Make anki usable
 export ANKI_NOHIGHDPI=1
+export ANKI_WAYLAND=1
 
 # Make Calibre use dark mode
 export CALIBRE_USE_DARK_PALETTE=1
