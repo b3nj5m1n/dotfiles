@@ -598,11 +598,15 @@ version: 0.0.13
               ; (set capabilities
               ;      (. (require :cmp_nvim_lsp) :default_capabilities))
               (local capabilities ((. (require :cmp_nvim_lsp) :default_capabilities)))
-              (local servers [:bashls :clangd :clangd :cmake :jedi_language_server
+              (local servers [:bashls :cmake :jedi_language_server
                               :cssls :elmls :html :jsonls :clojure_lsp
                               :tsserver :tsserver :yamlls :hls :rnix])
               (each [_ server (pairs servers)]
                 ((. (. lspconfig server) :setup) { :capabilities capabilities }))
+               (lspconfig.clangd.setup 
+                {:capabilities capabilities
+                 :single_file_support true
+                 :cmd [:clangd :--completion-style=detailed "-fallback-style=LLVM"]})
               (set-keymap "Normal: Format buffer"
                 "<leader>ll" vim.lsp.buf.format))
     )
