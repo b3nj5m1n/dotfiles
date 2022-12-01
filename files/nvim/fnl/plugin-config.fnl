@@ -93,20 +93,10 @@
       (lspconfig.clangd.setup 
        {:capabilities capabilities
         :single_file_support true
-        :cmd [:clangd :--completion-style=detailed "-fallback-style=LLVM"]})
-      (util.set-keymap "Normal: Format buffer"
-        "<leader>ll" vim.lsp.buf.format))
+        :cmd [:clangd :--completion-style=detailed "-fallback-style=LLVM"]}))
 
 (defn lspsaga []
-      ((. (require :lspsaga) :init_lsp_saga))
-      (util.set-keymap "Normal: Code action"
-                       "<leader>la" "<cmd>Lspsaga code_action<CR>")
-      (util.set-keymap "Normal: Hover doc"
-                       "<leader>lh" "<cmd>Lspsaga hover_doc<CR>")
-      (util.set-keymap "Normal: Rename symbol under cursor"
-                       "<leader>lr" "<cmd>Lspsaga rename<CR>")
-      (util.set-keymap "Normal: Peek definition"
-                       "<leader>ld" "<cmd>Lspsaga peek_definition<CR>"))
+      ((. (require :lspsaga) :init_lsp_saga)))
 
 (defn trouble []
       ((. (require :trouble) :setup) {})

@@ -47,3 +47,15 @@
                  "<leader>tg"  ":lua require('telescope.builtin').live_grep()<CR>")
 (util.set-keymap "Normal: Open buffer list"
                  "<leader>tb"  ":lua require('telescope.builtin').buffers()<CR>")
+
+; --- Lsp ---
+(util.set-keymap "Normal: Format buffer"
+                 "<leader>ll" ":lua vim.lsp.buf.format()<CR>")
+(util.set-keymap "Normal: Code action"
+                 "<leader>la" "<cmd>Lspsaga code_action<CR>")
+(util.set-keymap "Normal: Hover doc"
+                 "<leader>lh" "<cmd>Lspsaga hover_doc<CR>")
+(util.set-keymap "Normal: Rename symbol under cursor"
+                 "<leader>lr" "<cmd>Lspsaga rename<CR>")
+(util.set-keymap "Normal: Peek definition"
+                 "<leader>ld" "<cmd>Lspsaga peek_definition<CR>")
