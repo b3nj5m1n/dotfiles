@@ -36,11 +36,11 @@
   (if (= (. plugin-config :optional) nil) (tset plugin-config :optional false))
   (if (= (. plugin-config :disable) nil) (tset plugin-config :disable false))
   (if (not (= (. plugin-config :config) nil))
-    (tset plugin-config :config (fn [] (. plugin-config :config)))
-    (tset plugin-config :config (fn [] nil)))
+    (tset plugin-config :config (fn [] (. plugin-config :config))))
+    ; (tset plugin-config :config (fn [] nil)))
   (if (not (= (. plugin-config :setup) nil))
-    (tset plugin-config :setup (fn [] (. plugin-config :setup)))
-    (tset plugin-config :setup (fn [] nil)))
+    (tset plugin-config :setup (fn [] (. plugin-config :setup))))
+    ; (tset plugin-config :setup (fn [] nil)))
   (table.insert (. config :plugins) plugin-config))
 
 ; Finally, let's define the function I've been talking about that will build a packer config from our global plugin table:
