@@ -1,10 +1,14 @@
-(module options)
+(module options
+  {
+   require
+   {util util}})
+   
    
 ; --- Preferences ---
 
-(set-var :mapleader " ")
-(set-var :maplocalleader ",")
-(set-opts
+(util.set-var :mapleader " ")
+(util.set-var :maplocalleader ",")
+(util.set-opts
   :foldlevel      99 ; The higher, the more folded regions are open (0 = all folds closed)
   :foldlevelstart 99 ; Inital fold level; close all folds when opening a new buffer
   :laststatus     3 ; Global statusbar
@@ -20,8 +24,8 @@
 ; --- Sane Defaults ---
 
 ; These are what I would set as the defaults for nvim. Nothing specific to me.
-(set-var :syntax true)
-(set-opts
+(util.set-var :syntax true)
+(util.set-opts
   :termguicolors  true  ; Enable 24-bit color
   :backup         false ; Don't create a backup file before overwriting a file
   :completeopt    "noinsert,menuone,noselect" ; Do not insert anything until the user selects it; Show the menu when there is just one match; Force the user to select something from the menu
@@ -36,11 +40,11 @@
   :mouse          :a ; Enable mouse support
   :pumheight      20 ; Max completion menu height
   :sessionoptions "blank,buffers,curdir,folds,help,options,tabpages,winsize,resize,winpos,terminal" ; Session management options
-  :shortmess      (.. (get-opt :shortmess) :c) ; Avoid prompts for auto-complete
+  :shortmess      (.. (util.get-opt :shortmess) :c) ; Avoid prompts for auto-complete
   :showmode       false ; Hide the -- INSERT -- at the bottom
   :smartcase      true ; Don't ignore case in searches when using case in search
   :swapfile       false ; Don't create swapfiles
-  :undodir        (expand "$XDG_DATA_HOME/nvim/undodir") ; File to store undo stacks in
+  :undodir        (util.expand "$XDG_DATA_HOME/nvim/undodir") ; File to store undo stacks in
   :cursorcolumn   false ; Indicate current column
   :cursorline     true ; Indicate current line
   :foldexpr       "nvim_treesitter#foldexpr()" ; Auto fold based on treesitter
