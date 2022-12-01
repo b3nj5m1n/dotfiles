@@ -325,8 +325,7 @@ c23 = "#B8C0E0" # Dim
 
 [neovim.files]
 "files/nvim/init.lua" = "~/.config/nvim/init.lua"
-"files/nvim/fnl/init.fnl" = "~/.config/nvim/fnl/init.fnl"
-"files/nvim/fnl/feline-config.fnl" = "~/.config/nvim/fnl/feline-config.fnl"
+"files/nvim/fnl/" = "~/.config/nvim/fnl/"
 "files/nvim/ftplugin/c.lua" = "~/.config/nvim/ftplugin/c.lua"
 "files/nvim/ftplugin/cpp.lua" = "~/.config/nvim/ftplugin/cpp.lua"
 "files/nvim/ftplugin/java.lua" = "~/.config/nvim/ftplugin/java.lua"
