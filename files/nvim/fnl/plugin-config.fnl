@@ -123,9 +123,9 @@
 (defn nvim-cmp []
       (local cmp (require :cmp))
       (cmp.setup
-        {:snippet {}
-         :expand (fn [args]
-                  ((. (require :luasnip) :lsp_expand) args.body))
+        {:snippet 
+         {:expand (fn [args]
+                    ((. (require :luasnip) :lsp_expand) args.body))}
          :window
          {:completion
           {:winhighlight "Normal:Pmenu,FloatBorder:Pmenu,Search:None"
