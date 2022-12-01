@@ -39,3 +39,11 @@
   "<C-j>" "<Plug>luasnip-jump-next")
 (util.set-keymap "Insert: Jump to previous point in snippet"
   "<C-k>" "<Plug>luasnip-jump-prev")
+
+; --- Telescope ---
+(util.set-keymap "Normal: Open fuzzy file finder"
+                 "<leader>tf" ":lua require('telescope.builtin').find_files()<CR>")
+(util.set-keymap "Normal: Open live grep"
+                 "<leader>tg"  ":lua require('telescope.builtin').live_grep()<CR>")
+(util.set-keymap "Normal: Open buffer list"
+                 "<leader>tb"  ":lua require('telescope.builtin').buffers()<CR>")

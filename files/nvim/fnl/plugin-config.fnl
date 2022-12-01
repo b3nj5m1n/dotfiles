@@ -25,11 +25,11 @@
          ; :hook_function (. (require :ts_context_commentstring.internal) :update_commentstring)
 
 (defn neorg []
-      (. (require :neorg) :setup) {:load {
-                                          :core.defaults {}
-                                          :core.norg.concealer {:config {:preset :icons}}
-                                          :core.norg.completion {:config {:engine :nvim-cmp}}
-                                          :core.norg.esupports.metagen {:config {:type :auto}}}})
+      (. (require :neorg) :setup) {:load {}
+                                         :core.defaults {}
+                                         :core.norg.concealer {:config {:preset :icons}}
+                                         :core.norg.completion {:config {:engine :nvim-cmp}}
+                                         :core.norg.esupports.metagen {:config {:type :auto}}})
 
 (defn indent-blankline []
       (. (require :indent_blankline) :setup) {
@@ -39,24 +39,16 @@
                                               :buftype_exclude {1 :terminal}})
 
 (defn leap []
-      (. (require :leap) :add_default_mappings))
-
-(defn telescope []
-      (util.set-keymap "Normal: Open fuzzy file finder"
-                       "<leader>tf" (. (require :telescope.builtin) :find_files))
-      (util.set-keymap "Normal: Open live grep"
-                       "<leader>tg" (. (require :telescope.builtin) :live_grep))
-      (util.set-keymap "Normal: Open buffer list"
-                       "<leader>tb" (. (require :telescope.builtin) :buffers)))
+      ((. (require :leap) :add_default_mappings)))
 
 (defn autopairs []
-      (. (require :nvim-autopairs) :setup))
+      ((. (require :nvim-autopairs) :setup)))
 
 (defn nvim-surround []
-      (. (require :nvim-surround) :setup))
+      ((. (require :nvim-surround) :setup)))
 
 (defn nvim-colorizer []
-      (. (require :colorizer) :setup))
+      ((. (require :colorizer) :setup)))
 
 (defn nvim-treesitter []
       (local parser-configs ((. (require :nvim-treesitter.parsers) :get_parser_configs)))
@@ -106,7 +98,7 @@
         "<leader>ll" vim.lsp.buf.format))
 
 (defn lspsaga []
-      (. (require :lspsaga) :init_lsp_saga)
+      ((. (require :lspsaga) :init_lsp_saga))
       (util.set-keymap "Normal: Code action"
                        "<leader>la" "<cmd>Lspsaga code_action<CR>")
       (util.set-keymap "Normal: Hover doc"

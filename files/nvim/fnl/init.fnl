@@ -7,10 +7,11 @@
     paq paq}})
 
 (def options (require "options"))
-(def keymaps (require "keymaps"))
 (def plugins (require "plugins"))
 
 (paq.init-packer)
+
+(def keymaps (require "keymaps"))
 
 (def feline-config (require "feline-config"))
 
@@ -21,7 +22,6 @@
 ; (plugin-config.neorg)
 (plugin-config.indent-blankline)
 (plugin-config.leap)
-(plugin-config.telescope)
 (plugin-config.autopairs)
 (plugin-config.nvim-surround)
 (plugin-config.nvim-colorizer)
