@@ -33,6 +33,9 @@
 (plugin-config.luasnip)
 ; (plugin-config.neogit)
 (plugin-config.gitsigns)
+(plugin-config.conjure)
 
 (def highlight (require "highlight"))
+
+(highlight.create-groups-cmp)
 

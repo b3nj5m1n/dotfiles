@@ -199,4 +199,7 @@
                        (vim.api.nvim_exec "highlight GitSignsCurrentLineBlame guifg=#5a5e7a"
                                           false))}))
 
-
+(defn conjure []
+  (util.set-var "conjure#highlight#enabled" true)
+  (util.set-var "conjure#highlight#group" "IncSearch")
+  (util.set-var "conjure#highlight#timeout" "200"))
