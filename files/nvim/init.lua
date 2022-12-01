@@ -1,4 +1,4 @@
--- vim.cmd [[packadd packer.nvim]]
+vim.cmd [[packadd packer.nvim]]
 vim.cmd [[packadd aniseed]]
 
 --[[ require('packer').startup(function(use)

@@ -51,7 +51,7 @@
     :commit "dcd2f380bb49ec2dfe208f186236dd366434a4d5"
     :optional false
     :command ["PackerSync"])
-  (vim.cmd "packadd packer.nvim")
+  ; (vim.cmd "packadd packer.nvim")
   (local packer (require :packer))
   (packer.init {:config {:compile_path (.. (vim.fn.stdpath :config) :/lua/packer_compiled.lua)}})
   (each [_ plugin (ipairs (. config :plugins))]
