@@ -235,4 +235,8 @@
   (local mm (require :murmur))
   (mm.setup {
              :cursor_rgb "#494d64"}))
-             
+
+(defn ufo []
+  (local ufo (require :ufo))
+  (ufo.setup {}))
+

@@ -9,8 +9,10 @@
 (util.set-var :mapleader " ")
 (util.set-var :maplocalleader ",")
 (util.set-opts
+  :foldcolumn     "0"
   :foldlevel      99 ; The higher, the more folded regions are open (0 = all folds closed)
   :foldlevelstart 99 ; Inital fold level; close all folds when opening a new buffer
+  :foldenable     true
   :laststatus     3 ; Global statusbar
   :wrap           false ; Long lines are displayed as one line (Horizontal scrolling required)
   :relativenumber true ; Enable relative line numbers

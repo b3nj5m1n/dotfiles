@@ -19,6 +19,10 @@
             "<C-g>" "<C-\\><C-n>")
 (util.set-keymap "Normal: Source current file"
             "<C-s>" ":source %<CR>")
+(util.set-keymap "Normal: Open all folds"
+            "zR" ":lua require('ufo').openAllFolds()<CR>")
+(util.set-keymap "Normal: Close all folds"
+            "zM" ":lua require('ufo').closeAllFolds()<CR>")
 
 ; --- Splits ---
 (util.set-keymap "Normal: Create vertical split"

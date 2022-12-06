@@ -303,4 +303,15 @@
   :commit "851cd32caaea84f303c4fdf51d72dfa5fcd795bb"
   :requires "nvim-lua/plenary.nvim")
   ; :event "BufEnter")
-    
+
+; [promise-async](https://github.com/kevinhwang91/promise-async))
+(paq.paq-add "promise-async" "Promise/await in lua"
+  "kevinhwang91/promise-async"
+  :commit "70b09063cdf029079b25c7925e4494e7416ee995")
+
+; [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo))
+(paq.paq-add "nvim-ufo" "Handling of folds"
+  "kevinhwang91/nvim-ufo"
+  :commit "e988139f6f2d3b3fb5cb512a164636ed7dc41c1f"
+  :requires "kevinhwang91/nvim-ufo")
+

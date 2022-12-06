@@ -15,6 +15,13 @@
     (create-hl-groups
       {:CursorLineNr {:fg accent-a}})))
 
+(defn create-groups-ufo []
+  (let [accent "#342f50"]
+    (create-hl-groups
+      {:UfoFoldedFg {:fg accent}
+       :UfoFoldedBg {:bg accent}
+       :Folded {:bg accent}})))
+
 (defn create-groups-telescope [mode]
   (let [bg "#181926"
         fg "#cad3f5"
@@ -68,3 +75,4 @@
      :CmpItemKindInterface {:fg "#D8EEEB" :bg "#58B5A8"}
      :CmpItemKindColor {:fg "#D8EEEB" :bg "#58B5A8"}
      :CmpItemKindTypeParameter {:fg "#D8EEEB" :bg "#58B5A8"}}))
+

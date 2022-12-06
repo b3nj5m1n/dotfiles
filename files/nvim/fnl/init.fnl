@@ -41,9 +41,11 @@
 (plugin-config.conjure)
 (plugin-config.netrw)
 (plugin-config.murmur)
+(plugin-config.ufo)
 
 (def highlight (require "highlight"))
 
 (highlight.create-groups-telescope "normal")
+(highlight.create-groups-ufo "normal")
 (highlight.create-groups-cmp)
 

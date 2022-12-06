@@ -3,7 +3,11 @@
    {util util}})
 
 (defn get-capabilities []
-  ((. (require :cmp_nvim_lsp) :default_capabilities)))
+  (var capabilities {})
+  (set capabilities ((. (require :cmp_nvim_lsp) :default_capabilities)))
+  (tset (. capabilities :textDocument) :foldingRange
+        {:dynamicRegistration false
+         :lineFoldingOnly true}))
 
 (defn get-handlers []
   {
