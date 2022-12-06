@@ -39,6 +39,7 @@
 ; (plugin-config.neogit)
 (plugin-config.gitsigns)
 (plugin-config.conjure)
+(plugin-config.netrw)
 
 (def highlight (require "highlight"))
 

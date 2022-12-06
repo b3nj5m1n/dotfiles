@@ -152,6 +152,12 @@
   :branch "master"
   :commit "bb1bcddf43cfebe05eb565a84ab069b357d0b3d6")
 
+; [netrw.nvim](https://github.com/prichrd/netrw.nvim))
+(paq.paq-add "netrw.nvim" "Netrw improvements"
+  "prichrd/netrw.nvim"
+  :branch "master"
+  :commit "98154b526f4fc8168aadf5cab963c4eadba5ba48")
+
 ; [conjure](https://github.com/Olical/conjure))
 (paq.paq-add "conjure" "Interactive evaluation"
   "Olical/conjure"

@@ -226,3 +226,7 @@
   (util.set-var "conjure#highlight#enabled" true)
   (util.set-var "conjure#highlight#group" "IncSearch")
   (util.set-var "conjure#highlight#timeout" "200"))
+
+(defn netrw []
+  (local nrw (require :netrw))
+  (nrw.setup {}))
