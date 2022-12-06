@@ -10,6 +10,11 @@
            au TextYankPost * silent! lua vim.highlight.on_yank({higroup=\"IncSearch\", timeout=200})
            augroup END")
 
+(defn create-groups-cursor-line [mode]
+  (let [accent-a (if (= mode "normal") "#a6da95" (= mode "insert") "#ee99a0" "#8bd5ca")]
+    (create-hl-groups
+      {:CursorLineNr {:fg accent-a}})))
+
 (defn create-groups-telescope [mode]
   (let [bg "#181926"
         fg "#cad3f5"

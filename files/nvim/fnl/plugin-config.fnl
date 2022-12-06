@@ -9,20 +9,20 @@
         {:flavour "macchiato"})
       (vim.cmd "colorscheme catppuccin"))
 
-(defn telescope-mode-change []
+(defn mode-changed []
   (let [mode (match (. (vim.api.nvim_get_mode) :mode)
                "n" "normal"
-               "i" "insert")]
-    ((. (. (require "fennel-config") :highlight) :create-groups-telescope) mode)))
+               "i" "insert")
+        hl (. (require "fennel-config") :highlight)]
+    (hl.create-groups-telescope mode)
+    (hl.create-groups-cursor-line mode)))
 
-(defn telescope []
-  (vim.api.nvim_create_augroup "telescope" {:clear true})
+(defn watch-mode-changes []
+  (vim.api.nvim_create_augroup "ModeChanges" {:clear true})
   (vim.api.nvim_create_autocmd "ModeChanged"
-                               {:group "telescope"
+                               {:group "ModeChanges"
                                 :pattern []
-                                ; :pattern ["TelescopePrompt"]
-                                ; :command "echo moin"}))
-                                :callback telescope-mode-change}))
+                                :callback mode-changed}))
 
 (defn kommentary []
       (util.set-keymap "Normal: Toggle comment on current line"

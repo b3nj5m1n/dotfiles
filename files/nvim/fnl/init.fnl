@@ -20,7 +20,7 @@
 (def lsp-util (require "lsp-util"))
 
 (plugin-config.colorscheme)
-(plugin-config.telescope)
+(plugin-config.watch-mode-changes)
 (plugin-config.kommentary)
 (plugin-config.dressing)
 ; (plugin-config.neorg)
