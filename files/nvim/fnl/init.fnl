@@ -40,6 +40,7 @@
 (plugin-config.gitsigns)
 (plugin-config.conjure)
 (plugin-config.netrw)
+(plugin-config.murmur)
 
 (def highlight (require "highlight"))
 

@@ -82,6 +82,12 @@
   :branch "main"
   :commit "847a1dcfb1a3a576860151754d95fb3b0014663e")
   ; :event "UiEnter")
+   
+; [murmur.lua](https://github.com/nyngwang/murmur.lua))
+(paq.paq-add "murmur" "Highlight current word in buffer"
+  "nyngwang/murmur.lua"
+  :commit "b7fc2b36df33fca58efe3a9f5b487f1be4bf138e")
+  ; :event "UiEnter")
 
 ; [nvim-parinfer](https://github.com/gpanders/nvim-parinfer))
 (paq.paq-add "parinfer" "Parinfer plugin written in lua"

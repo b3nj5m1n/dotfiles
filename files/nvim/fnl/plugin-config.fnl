@@ -230,3 +230,9 @@
 (defn netrw []
   (local nrw (require :netrw))
   (nrw.setup {}))
+
+(defn murmur []
+  (local mm (require :murmur))
+  (mm.setup {
+             :cursor_rgb "#494d64"}))
+             
