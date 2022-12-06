@@ -1,6 +1,7 @@
 (module plugin-config
   {require
-   {util util}})
+   {util util
+    lsp-util lsp-util}})
 
 (defn colorscheme []
       (local catppuccin (require :catppuccin))
@@ -23,6 +24,24 @@
         {:single_line_comment_string :auto
          :multi_line_comment_strings :auto})
          ; :hook_function (. (require :ts_context_commentstring.internal) :update_commentstring)
+
+(defn dressing []
+      (. (require :dressing) :setup) 
+      {:input {
+               :enabled true
+               :default_prompt "Input:"
+               :prompt_align :left
+               :insert_only true
+               :start_in_insert true
+               :anchor :SW
+               :border :rounded
+               :relative :cursor
+               :win_options {:winblend 10
+                             :wrap false}}
+       :select {:enabled true
+                :backend [:telescope
+                          :builtin]
+                :trim_prompt true}})
 
 (defn neorg []
       (. (require :neorg) :setup) {:load {}
@@ -84,19 +103,29 @@
       ; (var capabilities (vim.lsp.protocol.make_client_capabilities))
       ; (set capabilities
       ;      (. (require :cmp_nvim_lsp) :default_capabilities))
-      (local capabilities ((. (require :cmp_nvim_lsp) :default_capabilities)))
+      (local capabilities (lsp-util.get-capabilities))
       (local servers [:bashls :cmake :jedi_language_server
                       :cssls :elmls :html :jsonls :clojure_lsp
                       :tsserver :tsserver :yamlls :hls :rnix])
       (each [_ server (pairs servers)]
-        ((. (. lspconfig server) :setup) { :capabilities capabilities}))
+        ((. (. lspconfig server) :setup) 
+         {:capabilities capabilities
+          :handlers (lsp-util.get-handlers)}))
       (lspconfig.clangd.setup 
        {:capabilities capabilities
         :single_file_support true
-        :cmd [:clangd :--completion-style=detailed "-fallback-style=LLVM"]}))
+        :cmd [:clangd :--completion-style=detailed "-fallback-style=LLVM"]})
+      (vim.api.nvim_create_augroup "hover" {:clear true})
+      (vim.api.nvim_create_autocmd "CursorHold"
+                             {:group "hover"
+                              :command "lua vim.lsp.buf.hover()"}))
 
-(defn lspsaga []
-      ((. (require :lspsaga) :init_lsp_saga)))
+; (defn lspsaga []
+;       ((. (require :lspsaga) :init_lsp_saga)))
+
+(defn lsp-lines []
+      ((. (require :lsp_lines) :setup))
+      (vim.diagnostic.config {:virtual_text false}))
 
 (defn trouble []
       ((. (require :trouble) :setup) {})

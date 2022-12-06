@@ -51,11 +51,11 @@
 ; --- Lsp ---
 (util.set-keymap "Normal: Format buffer"
                  "<leader>ll" ":lua vim.lsp.buf.format()<CR>")
-(util.set-keymap "Normal: Code action"
-                 "<leader>la" "<cmd>Lspsaga code_action<CR>")
-(util.set-keymap "Normal: Hover doc"
-                 "<leader>lh" "<cmd>Lspsaga hover_doc<CR>")
 (util.set-keymap "Normal: Rename symbol under cursor"
-                 "<leader>lr" "<cmd>Lspsaga rename<CR>")
-(util.set-keymap "Normal: Peek definition"
-                 "<leader>ld" "<cmd>Lspsaga peek_definition<CR>")
+                 "<leader>lr" ":lua vim.lsp.buf.rename()<CR>")
+(util.set-keymap "Normal: Code action"
+                 "<leader>la" ":lua vim.lsp.buf.code_action()<CR>")
+(util.set-keymap "Normal: Hover doc"
+                 "<leader>lh" ":lua vim.lsp.buf.hover()<CR>")
+; (util.set-keymap "Normal: Peek definition"
+;                  "<leader>ld" "<cmd>Lspsaga peek_definition<CR>")

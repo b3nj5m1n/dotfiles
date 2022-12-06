@@ -17,8 +17,11 @@
 
 (def plugin-config (require "plugin-config"))
 
+(def lsp-util (require "lsp-util"))
+
 (plugin-config.colorscheme)
 (plugin-config.kommentary)
+(plugin-config.dressing)
 ; (plugin-config.neorg)
 (plugin-config.indent-blankline)
 (plugin-config.leap)
@@ -27,7 +30,8 @@
 (plugin-config.nvim-colorizer)
 (plugin-config.nvim-treesitter)
 (plugin-config.lspconfig)
-(plugin-config.lspsaga)
+; (plugin-config.lspsaga)
+(plugin-config.lsp-lines)
 (plugin-config.trouble)
 (plugin-config.nvim-cmp)
 (plugin-config.luasnip)

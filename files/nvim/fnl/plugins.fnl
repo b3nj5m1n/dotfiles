@@ -28,7 +28,15 @@
 ; (paq.paq-add "nvim-ts-context-commentstring" "Change commentstring in nested languages"
 ;   "JoosepAlviste/nvim-ts-context-commentstring"
 ;   :commit "32d9627123321db65a4f158b72b757bcaef1a3f4")
-       
+
+; [dressing.nvim](https://github.com/stevearc/dressing.nvim))
+(paq.paq-add "dressing" "Better default ui interfaces"
+  "stevearc/dressing.nvim"
+  :branch "master"
+  :commit "ed44aa798ab07dc298f43f35c8e0c93a1b335abb"
+  :ft "norg"
+  :module "neorg")
+
 ; [neorg](https://github.com/nvim-neorg/neorg))
 (paq.paq-add "neorg" "Org-mode equivalent for neovim"
   "nvim-neorg/neorg"
@@ -190,11 +198,16 @@
   :commit "f39efa0e823bcc876d18a7b44d3b61191c42e61c")
 
 ; [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim))
-(paq.paq-add "lspsaga" "Better lsp ui"
-  "glepnir/lspsaga.nvim"
-  :commit "391cf74475ad094ccad7c5501710b27fcdb9b883"
-  ; :event "VimEnter"
-  :module "lspsaga")
+; (paq.paq-add "lspsaga" "Better lsp ui"
+;   "glepnir/lspsaga.nvim"
+;   :commit "391cf74475ad094ccad7c5501710b27fcdb9b883"
+;   ; :event "VimEnter"
+;   :module "lspsaga")
+
+; [lsp_lines.nvim](https://git.sr.ht/~whynothugo/lsp_lines.nvim))
+(paq.paq-add "lsp_lines" "Lsp diagnostics"
+  "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
+  :commit "ec98b45c8280e5ef8c84028d4f38aa447276c002")
     
 ; [trouble.nvim](https://github.com/folke/trouble.nvim))
 (paq.paq-add "trouble" "Better diagnostics ui"

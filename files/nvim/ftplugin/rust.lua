@@ -25,7 +25,8 @@ local opts = {
 
     server = {
         standalone = true,
-        capabilities = require("cmp_nvim_lsp").default_capabilities(),
+        capabilities = require("fennel-config")["lsp-util"]["get-capabilities"](),
+        handlers = require("fennel-config")["lsp-util"]["get-handlers"](),
     },
 
     --[[ dap = {
