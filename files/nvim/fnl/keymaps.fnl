@@ -2,6 +2,14 @@
   {require
    {util util}})
 
+; --- Make Ctrl+C behave like Escape ---
+(util.set-keymap "Normal: Make Ctrl+C behave like Escape"
+                 "<C-c>" "<Esc>")
+(util.set-keymap "Visual: Make Ctrl+C behave like Escape"
+                 "<C-c>" "<Esc>")
+(util.set-keymap "Insert: Make Ctrl+C behave like Escape"
+                 "<C-c>" "<Esc>")
+
 ; --- General ---
 (util.set-keymap "Visual: Keep visual selection after indenting"
             ">" ">gv")

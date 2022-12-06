@@ -10,6 +10,26 @@
            au TextYankPost * silent! lua vim.highlight.on_yank({higroup=\"IncSearch\", timeout=200})
            augroup END")
 
+(defn create-groups-telescope [mode]
+  (let [bg "#181926"
+        fg "#cad3f5"
+        bg-light "#1e2030"
+        accent-a (if (= mode "normal") "#a6da95" (= mode "insert") "#ee99a0" "#8bd5ca")
+        accent-b "#c6a0f6"]
+    (create-hl-groups
+      {:TelescopeBorder {:bg bg :fg fg}
+       :TelescopeNormal {:bg bg}
+       :TelescopePreviewBorder {:bg bg :fg bg}
+       :TelescopePreviewNormal {:bg bg}
+       :TelescopePreviewTitle {:bg accent-b :fg bg}
+       :TelescopePromptBorder {:bg bg-light :fg bg-light}
+       :TelescopePromptNormal {:bg bg-light :fg fg}
+       :TelescopePromptPrefix {:bg bg-light :fg accent-a}
+       :TelescopePromptTitle {:bg accent-a :fg bg}
+       :TelescopeResultsBorder {:bg bg :fg bg}
+       :TelescopeResultsNormal {:bg bg}
+       :TelescopeResultsTitle {:bg bg :fg bg}})))
+
 (defn create-groups-cmp []
   (create-hl-groups
     {:PmenuSel {:bg "#282C34" :fg :NONE}

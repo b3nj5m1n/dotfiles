@@ -20,6 +20,7 @@
 (def lsp-util (require "lsp-util"))
 
 (plugin-config.colorscheme)
+(plugin-config.telescope)
 (plugin-config.kommentary)
 (plugin-config.dressing)
 ; (plugin-config.neorg)
@@ -41,5 +42,6 @@
 
 (def highlight (require "highlight"))
 
+(highlight.create-groups-telescope "normal")
 (highlight.create-groups-cmp)
 
