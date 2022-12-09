@@ -71,3 +71,15 @@
                  "<leader>lh" ":lua vim.lsp.buf.hover()<CR>")
 ; (util.set-keymap "Normal: Peek definition"
 ;                  "<leader>ld" "<cmd>Lspsaga peek_definition<CR>")
+
+; --- Dap ---
+(util.set-keymap "Normal: Toggle Breakpoint"
+                 "<localleader>dd" ":lua require('dap').toggle_breakpoint()<CR>")
+(util.set-keymap "Normal: Continue debugging"
+                 "<localleader>dc" ":lua require('dap').continue()<CR>")
+(util.set-keymap "Normal: Step into"
+                 "<localleader>di" ":lua require('dap').step_into()<CR>")
+(util.set-keymap "Normal: Step over"
+                 "<localleader>do" ":lua require('dap').step_over()<CR>")
+(util.set-keymap "Normal: Toggle DAP-UI"
+                 "<localleader>du" ":lua require('dapui').toggle()<CR>")

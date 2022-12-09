@@ -29,13 +29,9 @@ local opts = {
         handlers = require("fennel-config")["lsp-util"]["get-handlers"](),
     },
 
-    --[[ dap = {
-    adapter = {
-      type = "executable",
-      command = "lldb-vscode",
-      name = "rt_lldb",
+    dap = {
+        adapter = require('rust-tools.dap').get_codelldb_adapter("/usr/bin/codelldb", "/usr/lib/liblldb.so")
     },
-  }, ]]
 }
 
 require('rust-tools').setup(opts)

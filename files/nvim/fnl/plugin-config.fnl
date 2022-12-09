@@ -240,3 +240,34 @@
   (local ufo (require :ufo))
   (ufo.setup {}))
 
+(defn get-executable []
+  (coroutine.create 
+    (fn [dap-run-co]
+      (local scan (require "plenary.scandir"))
+      (let [files (scan.scan_dir "." {})]
+        (vim.ui.select files { :prompt "Select executable:"} 
+                       (fn [choice]
+                         (coroutine.resume dap-run-co choice)))))))
+
+(defn dap []
+  (local dap (require :dap))
+  (set dap.adapters.codelldb
+     {:type "server"
+      :port "${port}"
+      :executable {:command "/usr/bin/codelldb"
+                   :args [:--port "${port}"]}})
+  (local codelldb {:name "Launch file"
+                   :type "codelldb"
+                   :request "launch"
+                   :program get-executable
+                   :cwd "${workspaceFolder}"
+                   :stopOnEntry false
+                   :args {}
+                   :runInTerminal true
+                   :console "integratedTerminal"})
+  (local configurations { 
+                         :c [codelldb]})
+  (set dap.configurations configurations)
+
+  (local dap-ui (require :dapui))
+  (dap-ui.setup))

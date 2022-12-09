@@ -42,6 +42,7 @@
 (plugin-config.netrw)
 (plugin-config.murmur)
 (plugin-config.ufo)
+(plugin-config.dap)
 
 (def highlight (require "highlight"))
 
