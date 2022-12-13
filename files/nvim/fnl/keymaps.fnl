@@ -23,6 +23,10 @@
             "zR" ":lua require('ufo').openAllFolds()<CR>")
 (util.set-keymap "Normal: Close all folds"
             "zM" ":lua require('ufo').closeAllFolds()<CR>")
+(util.set-keymap "Normal: Move current line down"
+            "<C-j>" ":lua require(\"fennel-config\")[\"util\"][\"move-current-line\"](\"down\")<CR>")
+(util.set-keymap "Normal: Move current line up"
+            "<C-k>" ":lua require(\"fennel-config\")[\"util\"][\"move-current-line\"](\"up\")<CR>")
 
 ; --- Splits ---
 (util.set-keymap "Normal: Create vertical split"

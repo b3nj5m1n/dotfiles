@@ -76,3 +76,29 @@
   (match (type right-side-or-callback)
       "string" (set-keymap-pure description mode left-side right-side-or-callback)
       "table" (set-keymap-callback description mode left-side right-side-or-callback)))
+
+
+; Move the specified lines up/down
+(defn move-lines [direction p-start p-end]
+  (let [start (- (- p-start 1) (if (= direction "up") 1 0))
+        end (+ p-end (if (= direction "down") 1 0))
+        selection (vim.api.nvim_buf_get_lines 0 (- p-start 1)  p-end  false)
+        neighbour (. (match direction 
+                       "up" (vim.api.nvim_buf_get_lines 0 (- p-start 2) (- p-start 1) false)
+                       "down" (vim.api.nvim_buf_get_lines 0 p-end (+ p-end 1) false)) 1)]
+    (match direction
+      "up" (table.insert selection neighbour)
+      "down" (table.insert selection 1 neighbour))
+    (vim.api.nvim_buf_set_lines 0 start end false selection)))
+
+(defn move-current-line [direction]
+  (let [pos (vim.api.nvim_win_get_cursor 0)
+        row (. pos 1)
+        col (. pos 2)]
+    (when (or (= direction "down") (> row 1))
+      (move-lines direction row row)
+      (match direction
+        "up" (vim.api.nvim_win_set_cursor 0 [(- row 1) col])
+        "down" (vim.api.nvim_win_set_cursor 0 [(+ row 1) col])))))
+
+

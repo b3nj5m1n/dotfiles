@@ -6,6 +6,7 @@
     util util
     paq paq}})
 
+(def util (require "util"))
 (def options (require "options"))
 (def plugins (require "plugins"))
 
