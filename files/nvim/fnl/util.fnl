@@ -77,6 +77,18 @@
       "string" (set-keymap-pure description mode left-side right-side-or-callback)
       "table" (set-keymap-callback description mode left-side right-side-or-callback)))
 
+; https://github.com/theHamsta/nvim-treesitter/blob/a5f2970d7af947c066fb65aef2220335008242b7/lua/nvim-treesitter/incremental_selection.lua#L22-L30
+(fn visual-selection-range []
+  (let [(_ csrow cscol _) (unpack (vim.fn.getpos "'<"))
+        (_ cerow cecol _) (unpack (vim.fn.getpos "'>"))]
+    (if (or (< csrow cerow) (and (= csrow cerow) (<= cscol cecol)))
+        (values (- csrow 1) (- cscol 1) (- cerow 1) cecol)
+        (values (- cerow 1) (- cecol 1) (- csrow 1) cscol))))
+
+(fn set-visual-selection [start-line start-col end-line end-col]
+  (vim.api.nvim_buf_set_mark 0 "<" start-line start-col {})
+  (vim.api.nvim_buf_set_mark 0 ">" end-line end-col {})
+  (vim.api.nvim_feedkeys "gv" "n" false))
 
 ; Move the specified lines up/down
 (defn move-lines [direction p-start p-end]
@@ -103,4 +115,19 @@
         "up" (vim.api.nvim_win_set_cursor 0 [(- row 1) col])
         "down" (vim.api.nvim_win_set_cursor 0 [(+ row 1) col])))))
 
-
+(defn move-current-selection [direction]
+  (let [pos (vim.api.nvim_win_get_cursor 0)
+        row (. pos 1)
+        col (. pos 2)
+        ( start start-col end end-col ) (visual-selection-range)]
+    (when
+      (and (or (= direction "down") (> start 0))
+           (or (= direction "up") (< (+ end 1) (vim.api.nvim_buf_line_count 0))))
+      (move-lines direction (+ 1 start) (+ 1 end))
+      (match direction
+        "up"   (do
+                 (set-visual-selection start start-col end end-col)
+                 (vim.api.nvim_win_set_cursor 0 [(- row 1) col]))
+        "down" (do
+                 (set-visual-selection (+ start 2) start-col (+ end 2) end-col)
+                 (vim.api.nvim_win_set_cursor 0 [(+ row 1) col]))))))

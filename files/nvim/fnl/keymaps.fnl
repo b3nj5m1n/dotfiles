@@ -27,6 +27,14 @@
             "<C-j>" ":lua require(\"fennel-config\")[\"util\"][\"move-current-line\"](\"down\")<CR>")
 (util.set-keymap "Normal: Move current line up"
             "<C-k>" ":lua require(\"fennel-config\")[\"util\"][\"move-current-line\"](\"up\")<CR>")
+(util.set-keymap "Visual: Move current selection down"
+            "<C-j>" ":lua require(\"fennel-config\")[\"util\"][\"move-current-selection\"](\"down\")<CR>")
+(util.set-keymap "Visual: Move current selection up"
+            "<C-k>" ":lua require(\"fennel-config\")[\"util\"][\"move-current-selection\"](\"up\")<CR>")
+(util.set-keymap "Insert: Move current line down"
+            "<C-j>" "<C-o>:lua require(\"fennel-config\")[\"util\"][\"move-current-line\"](\"down\")<CR>")
+(util.set-keymap "Insert: Move current line up"
+            "<C-k>" "<C-o>:lua require(\"fennel-config\")[\"util\"][\"move-current-line\"](\"up\")<CR>")
 
 ; --- Splits ---
 (util.set-keymap "Normal: Create vertical split"
@@ -52,9 +60,9 @@
 (util.set-keymap "Insert: Expand Snippet"
   "<C-e>" "<Plug>luasnip-expand-snippet")
 (util.set-keymap "Insert: Jump to next point in snippet"
-  "<C-j>" "<Plug>luasnip-jump-next")
+  "<C-l>" "<Plug>luasnip-jump-next")
 (util.set-keymap "Insert: Jump to previous point in snippet"
-  "<C-k>" "<Plug>luasnip-jump-prev")
+  "<C-h>" "<Plug>luasnip-jump-prev")
 
 ; --- Telescope ---
 (util.set-keymap "Normal: Open fuzzy file finder"
