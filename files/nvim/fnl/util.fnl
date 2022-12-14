@@ -95,7 +95,9 @@
   (let [pos (vim.api.nvim_win_get_cursor 0)
         row (. pos 1)
         col (. pos 2)]
-    (when (or (= direction "down") (> row 1))
+    (when
+      (and (or (= direction "down") (> row 1))
+           (or (= direction "up") (< row (vim.api.nvim_buf_line_count 0))))
       (move-lines direction row row)
       (match direction
         "up" (vim.api.nvim_win_set_cursor 0 [(- row 1) col])
