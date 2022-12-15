@@ -286,6 +286,7 @@ assign [class="discord"] workspace 8
 ### Autostart daemons, doing this through nixos config is preferred
 exec ~/.config/eww/start-eww
 exec wl-paste -t text --watch clipman store
+exec syncthing -no-browser
 
 # Autostart Firefox
 exec firefox
