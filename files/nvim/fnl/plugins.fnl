@@ -230,7 +230,7 @@
 ; [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 (paq.paq-add "nvim-cmp" "Completion plugin"
   "hrsh7th/nvim-cmp"
-  :commit "9bb8ee6e2d6ab3c8cc53323b79f05886bc722faa"
+  :commit "11a95792a5be0f5a40bab5fc5b670e5b1399a939"
   :config) 
 
 ; [lspkind.nvim](https://github.com/onsails/lspkind.nvim)
