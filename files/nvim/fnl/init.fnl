@@ -33,7 +33,7 @@
 (plugin-config.nvim-treesitter)
 (plugin-config.lspconfig)
 ; (plugin-config.lspsaga)
-(plugin-config.lsp-lines)
+; (plugin-config.lsp-lines)
 (plugin-config.trouble)
 (plugin-config.nvim-cmp)
 (plugin-config.luasnip)

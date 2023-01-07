@@ -126,11 +126,11 @@
       (lspconfig.clangd.setup 
        {:capabilities capabilities
         :single_file_support true
-        :cmd [:clangd :--completion-style=detailed "-fallback-style=LLVM"]}))
-      ; (vim.api.nvim_create_augroup "hover" {:clear true})
-      ; (vim.api.nvim_create_autocmd "CursorHold"
-      ;                        {:group "hover"
-      ;                         :command "lua vim.lsp.buf.hover()"}))
+        :cmd [:clangd :--completion-style=detailed "-fallback-style=LLVM"]})
+      (vim.api.nvim_create_augroup "hover" {:clear true})
+      (vim.api.nvim_create_autocmd "CursorHold"
+                             {:group "hover"
+                              :command "lua vim.diagnostic.open_float({ scope = \"cursor\" })"}))
 
 ; (defn lspsaga []
 ;       ((. (require :lspsaga) :init_lsp_saga)))

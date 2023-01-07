@@ -216,10 +216,10 @@
 ;   ; :event "VimEnter"
 ;   :module "lspsaga")
 
-; [lsp_lines.nvim](https://git.sr.ht/~whynothugo/lsp_lines.nvim)
-(paq.paq-add "lsp_lines" "Lsp diagnostics"
-  "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
-  :commit "ec98b45c8280e5ef8c84028d4f38aa447276c002")
+; ; [lsp_lines.nvim](https://git.sr.ht/~whynothugo/lsp_lines.nvim)
+; (paq.paq-add "lsp_lines" "Lsp diagnostics"
+;   "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
+;   :commit "ec98b45c8280e5ef8c84028d4f38aa447276c002")
     
 ; [trouble.nvim](https://github.com/folke/trouble.nvim)
 (paq.paq-add "trouble" "Better diagnostics ui"

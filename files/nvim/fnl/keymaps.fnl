@@ -83,6 +83,12 @@
                  "<leader>lh" ":lua vim.lsp.buf.hover()<CR>")
 ; (util.set-keymap "Normal: Peek definition"
 ;                  "<leader>ld" "<cmd>Lspsaga peek_definition<CR>")
+(util.set-keymap "Normal: Show diagnostics in floating window"
+                 "<leader>lds" ":lua vim.diagnostic.open_float()<CR>")
+(util.set-keymap "Normal: Go to next diagnostic"
+                 "<leader>ldn" ":lua vim.diagnostic.goto_next()<CR>")
+(util.set-keymap "Normal: Go to previous diagnostic"
+                 "<leader>ldp" ":lua vim.diagnostic.goto_prev()<CR>")
 
 ; --- Dap ---
 (util.set-keymap "Normal: Toggle Breakpoint"
