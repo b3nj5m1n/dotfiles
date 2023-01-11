@@ -392,6 +392,8 @@ c23 = "#B8C0E0" # Dim
 "files/atuin/config.toml" = "~/.config/atuin/config.toml"
 [treesitter.files]
 "files/tree-sitter/config.json" = "~/.config/tree-sitter/config.json"
+[tealdeer.files]
+"files/tealdeer/config.toml" = "~/.config/tealdeer/config.toml"
 
 
 ##### System #####

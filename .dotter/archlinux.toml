@@ -43,6 +43,7 @@ packages = [
     "python",
     "atuin",
     "treesitter",
+    "tealdeer",
 ]
 
 [files]

@@ -30,4 +30,5 @@ packages = [
     "dunst",
     "scripts",
     "eww",
+    "tealdeer",
 ]
