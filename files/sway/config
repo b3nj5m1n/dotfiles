@@ -79,10 +79,11 @@ output {{ main_monitor }} bg {{ wallpaper }} fill
 
 # Lock screen after 300 secs, turn off displays after 600 secs, lock screen
 # before computer goes to sleep
-exec swayidle -w \
+exec swayidle \
          timeout 300 $lock \
-         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         timeout 600 'swaymsg "output * dpms off"' \
          timeout 900 'systemctl suspend' \
+         resume 'swaymsg "output * dpms on"' \
          before-sleep $lock
 
 # Trackpoint > Trackpad
