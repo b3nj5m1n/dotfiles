@@ -23,6 +23,7 @@
       git # I mean it's git
       glow # Render markdown in the terminal
       gnumake # You know make
+      helix # Like neovim but less config
       hyperfine # Benchmark command performance
       jq # Jesus christ it's JSON Bourne
       just # Like make but easier
