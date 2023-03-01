@@ -18,7 +18,10 @@
       syncthing
       ydotool
       logseq
+      xfce.thunar
+      gnome.nautilus
       zathura
+      zotero
     ];
 
     services = {
