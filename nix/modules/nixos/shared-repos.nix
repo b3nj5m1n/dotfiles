@@ -34,6 +34,9 @@
 
         "12 * * * *      b3nj4m1n    /usr/bin/env sh /home/b3nj4m1n/.local/share/bin/backup_sh_history.sh /home/b3nj4m1n/.local/share/sh_history/history true"
         "44 17 * * *      b3nj4m1n    /usr/bin/env sh /home/b3nj4m1n/.local/share/bin/backup_sh_history.sh /home/b3nj4m1n/.local/share/sh_history/history false"
+
+        "13 * * * *      b3nj4m1n    /usr/bin/env sh /home/b3nj4m1n/.local/share/bin/auto_commit.sh /home/b3nj4m1n/.local/share/logseq true"
+        "45 17 * * *      b3nj4m1n    /usr/bin/env sh /home/b3nj4m1n/.local/share/bin/auto_commit.sh /home/b3nj4m1n/.local/share/logseq false"
       ];
     };
   };

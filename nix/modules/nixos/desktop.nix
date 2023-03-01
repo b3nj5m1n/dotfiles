@@ -17,6 +17,7 @@
       peek
       syncthing
       ydotool
+      logseq
       zathura
     ];
     services.syncthing.enable = true;
