@@ -5,6 +5,7 @@
     outputs.nixosModules.terminal
     outputs.nixosModules.sway
     outputs.nixosModules.all-languages
+    outputs.nixosModules.pandoc
 
     ../hardware/x270.nix
   ];
@@ -68,6 +69,7 @@
 
   environment.systemPackages = with pkgs; [
     pfui
+    eisvogel
     bemoji
     wofi-calc
     tree-sitter-norg

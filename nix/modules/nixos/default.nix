@@ -37,4 +37,6 @@
   c = import ./c.nix;
   common-lisp = import ./common-lisp.nix;
   python = import ./python.nix;
+
+  pandoc = import ./pandoc.nix;
 }
