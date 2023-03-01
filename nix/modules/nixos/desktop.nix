@@ -20,7 +20,15 @@
       logseq
       zathura
     ];
-    services.syncthing.enable = true;
+
+    services = {
+      syncthing = {
+        enable = true;
+        user = "b3nj4m1n";
+        dataDir = "/home/b3nj4m1n/.local/share";
+        configDir = "/home/b3nj4m1n/.config/syncthing";
+      };
+    };
 
     services.xserver.enable = true;
 
