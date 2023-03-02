@@ -4,6 +4,7 @@
 { pkgs ? (import ../nixpkgs.nix) { } }: {
   pfui = pkgs.callPackage ./pfui { };
   eisvogel = pkgs.callPackage ./eisvogel { };
+  logseq-wrapped = pkgs.callPackage ./logseq-wrapped { };
   bemoji = pkgs.callPackage ./bemoji { };
   wofi-calc = pkgs.callPackage ./wofi-calc { };
   tree-sitter-norg = pkgs.callPackage ./tree-sitter-grammar {

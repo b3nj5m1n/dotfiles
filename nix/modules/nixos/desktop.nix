@@ -17,7 +17,7 @@
       peek
       syncthing
       ydotool
-      logseq
+      logseq-wrapped
       xfce.thunar
       gnome.nautilus
       element-desktop
