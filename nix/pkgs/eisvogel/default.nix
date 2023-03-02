@@ -20,7 +20,8 @@ stdenvNoCC.mkDerivation rec {
 
   installPhase = ''
     runHook preInstall
-    # tar xf Eisvogel.tar.gz
+    sed -i 's/pagenumbering{arabic}//g' eisvogel.latex # This makes title page count as page 1
+    sed -i 's/\\begin{document}/\\begin{document}\n\\pagenumbering{Roman}/g' eisvogel.latex # This makes it use roman numberals for page counting before the main content
     install -Dm644 eisvogel.latex "$out/share/pandoc/templates/eisvogel.latex"
     runHook postInstall
   '';
