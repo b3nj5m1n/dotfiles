@@ -20,6 +20,7 @@
       logseq
       xfce.thunar
       gnome.nautilus
+      element-desktop
       zathura
       zotero
     ];
