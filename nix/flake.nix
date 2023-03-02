@@ -57,14 +57,27 @@
             ./nixos/nixpad.nix
           ];
         };
+        nixtop = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./nixos/nixtop.nix
+          ];
+        };
       };
 
       homeConfigurations = {
         "b3nj4m1n@nixpad" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             ./home-manager/nixpad.nix
+          ];
+        };
+        "b3nj4m1n@nixtop" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [
+            ./home-manager/nixtop.nix
           ];
         };
       };

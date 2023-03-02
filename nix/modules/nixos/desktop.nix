@@ -20,6 +20,7 @@
       logseq-wrapped
       xfce.thunar
       gnome.nautilus
+      gnome.file-roller
       element-desktop
       zathura
       zotero

@@ -78,24 +78,19 @@ grub_res = "auto"
 display_server = "xorg"
 os = "arch"
 # ----- Desktop -----
-[desktop.variables]
+[nixtop.variables]
+ssh_key_name = "id_ed25519"
+os = "nix"
+display_server = "wayland"
+window_manager = "sway"
+has_battery = false
+wallpaper = "/run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536_Portrait.png"
 display_battery = false
 display_wlan = false
 multi_monitor = false
 main_monitor = "HDMI-A-1"
 main_monitor_res = "1920x1080"
 second_monitor = "DP-2"
-ssh_key_name = "id_rsa"
-init_modules = "nouveau"
-init_hooks = "base udev resume plymouth autodetect modconf block lvm2 filesystems resume keyboard keymap fsck"
-kernel_parameters = "quiet loglevel=0 splash rd.udev.log_priority=0 vt.global_cursor_default=0 resume=/dev/sdb1 resume_offset=11730944"
-grub_theme = "/usr/share/grub/themes/monterey-grub-theme/theme.txt"
-grub_res = "1920x1080"
-wallpaper = "/usr/share/wallpapers/custom/peach_unicat.png"
-display_server = "wayland"
-window_manager = "sway"
-os = "arch"
-has_battery = false
 battery_name = ""
 # ----- Server -----
 [server.variables]

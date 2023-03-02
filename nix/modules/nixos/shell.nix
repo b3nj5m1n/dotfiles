@@ -32,6 +32,7 @@
       mlocate # Locate files quickly from cached database of files
       neomutt # TUI email client
       pfetch # Like neofetch but faster and more minimal
+      pmount # Easier mounting
       progress # Show progress bar for coreutils
       ripgrep # Very fast grep, searches directory recursively by default
       sd # Move intuitive sed

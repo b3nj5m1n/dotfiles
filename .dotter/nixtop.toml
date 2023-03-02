@@ -1,6 +1,6 @@
 packages = [
+    "nixtop",
     "redshift",
-    "desktop",
     "picom",
     "tmux",
     "neovim",
