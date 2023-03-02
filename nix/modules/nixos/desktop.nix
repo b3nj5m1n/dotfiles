@@ -12,6 +12,7 @@
       dunst
       feh
       firefox
+      thunderbird
       libnotify
       neovide
       peek
