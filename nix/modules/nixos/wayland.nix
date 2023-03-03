@@ -16,6 +16,7 @@
       wev
       wl-clipboard
       wlr-randr
+      wlprop
       wofi
     ];
     hardware.brillo.enable = true;

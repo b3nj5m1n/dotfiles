@@ -284,6 +284,8 @@ default_border pixel 3
 # Default workspace assignments
 assign [app_id="firefox"] workspace 2
 assign [class="discord"] workspace 8
+assign [class="Logseq"] workspace 3
+assign [app_id="thunderbird"] workspace 9
 
 ### Autostart daemons, doing this through nixos config is preferred
 exec ~/.config/eww/start-eww
