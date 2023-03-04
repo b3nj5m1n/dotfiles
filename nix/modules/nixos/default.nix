@@ -41,4 +41,5 @@
   pandoc = import ./pandoc.nix;
   steam = import ./steam.nix;
   nvidia = import ./nvidia.nix;
+  gitega = import ./gitega.nix;
 }

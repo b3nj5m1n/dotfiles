@@ -7,6 +7,7 @@
     outputs.nixosModules.all-languages
     outputs.nixosModules.pandoc
     outputs.nixosModules.steam
+    outputs.nixosModules.gitega
     # outputs.nixosModules.nvidia
 
     ../hardware/pc.nix
