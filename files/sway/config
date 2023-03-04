@@ -81,9 +81,9 @@ output {{ main_monitor }} bg {{ wallpaper }} fill
 # before computer goes to sleep
 exec swayidle \
          timeout 300 $lock \
-         timeout 600 'swaymsg "output * dpms off"' \
+         # timeout 600 'swaymsg "output * dpms off"' \
          timeout 900 'systemctl suspend' \
-         resume 'swaymsg "output * dpms on"' \
+         # resume 'swaymsg "output * dpms on"' \
          before-sleep $lock
 
 # Trackpoint > Trackpad
