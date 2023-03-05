@@ -1,7 +1,10 @@
 # Custom packages, that can be defined similarly to ones from nixpkgs
 # You can build them using 'nix build .#example' or (legacy) 'nix-build -A example'
 
-{ pkgs ? (import ../nixpkgs.nix) { } }: {
+{ pkgs ? (import ../nixpkgs.nix) { }, system, fenix }: {
+  fenix = import fenix { inherit system; };
+  rust-toolchain = fenix.packages.${system}.complete.toolchain;
+  rust-analyzer-nightly = fenix.packages.${system}.rust-analyzer;
   pfui = pkgs.callPackage ./pfui { };
   eisvogel = pkgs.callPackage ./eisvogel { };
   logseq-wrapped = pkgs.callPackage ./logseq-wrapped { };

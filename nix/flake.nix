@@ -15,10 +15,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hardware.url = "github:nixos/nixos-hardware";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, fenix, nixpkgs, home-manager, ... }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
@@ -33,8 +38,9 @@
       # Custom packages
       packages = forAllSystems (system:
         let pkgs = nixpkgs.legacyPackages.${system};
-        in import ./pkgs { inherit pkgs; }
+        in import ./pkgs { inherit pkgs; inherit system; inherit fenix; }
       );
+
       # Devshell for bootstrapping
       devShells = forAllSystems (system:
         let pkgs = nixpkgs.legacyPackages.${system};
@@ -42,7 +48,7 @@
       );
 
       # Custom packages and modifications, exported as overlays
-      overlays = import ./overlays { inherit inputs; };
+      overlays = import ./overlays { inherit inputs; inherit fenix; };
       # Reusable nixos modules you might want to export
       # These are usually stuff you would upstream into nixpkgs
       nixosModules = import ./modules/nixos;

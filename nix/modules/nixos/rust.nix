@@ -7,8 +7,15 @@
 
   config = {
     environment.systemPackages = with pkgs; [
-      rust-analyzer
-      rustup
+      # (fenix.complete.withComponents [
+      #   "cargo"
+      #   "clippy"
+      #   "rust-src"
+      #   "rustc"
+      #   "rustfmt"
+      # ])
+      rust-toolchain
+      rust-analyzer-nightly
     ];
   };
 }
