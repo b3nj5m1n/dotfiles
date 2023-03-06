@@ -42,4 +42,5 @@
   steam = import ./steam.nix;
   nvidia = import ./nvidia.nix;
   gitega = import ./gitega.nix;
+  virtual-machines = import ./virtual-machines.nix;
 }

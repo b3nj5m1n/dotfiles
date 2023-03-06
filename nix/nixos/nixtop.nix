@@ -8,6 +8,7 @@
     outputs.nixosModules.pandoc
     outputs.nixosModules.steam
     outputs.nixosModules.gitega
+    outputs.nixosModules.virtual-machines
     # outputs.nixosModules.nvidia
 
     ../hardware/pc.nix
@@ -63,7 +64,7 @@
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
-      extraGroups = [ "wheel" "video" ];
+      extraGroups = [ "wheel" "video" "libvirtd" ];
     };
   };
 
