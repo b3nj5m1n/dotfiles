@@ -15,6 +15,15 @@
           cursor-shape = {
             insert = "bar";
           };
+          whitespace = {
+            render = {
+              tab = "all";
+              newline = "all";
+            };
+          };
+          indent-guides = {
+            render = true;
+          };
         };
         keys = {
           normal = {
