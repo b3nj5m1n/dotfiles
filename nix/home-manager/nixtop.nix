@@ -1,5 +1,6 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
   imports = [
+    outputs.homeManagerModules.helix
     outputs.homeManagerModules.tree-sitter
   ];
 
