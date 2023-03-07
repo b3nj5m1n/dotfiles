@@ -20,5 +20,7 @@ starship init fish | source
 zoxide init fish | source
 # Init atuin (Better Ctrl + r)
 atuin init fish | source
+# Init direnv
+direnv hook fish | source
 # Source common aliases, exports, etc.
 # source ~/.config/shrc

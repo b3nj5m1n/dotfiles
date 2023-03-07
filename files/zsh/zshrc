@@ -125,6 +125,8 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 # Init atuin (Better Ctrl + r)
 eval "$(atuin init zsh)"
+# Init direnv
+eval "$(direnv hook zsh)"
 # Source common aliases, exports, etc.
 source ~/.config/shrc
 # # Use thefuck
