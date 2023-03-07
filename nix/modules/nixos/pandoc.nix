@@ -32,6 +32,7 @@ in {
     environment.systemPackages = [
       pkgs_pandoc.pandoc
       pkgs_pandoc.haskellPackages.pandoc-crossref
+      pkgs_pandoc.haskellPackages.pandoc-include-code
       pkgs.texlive.combined.scheme-full
     ];
   };
