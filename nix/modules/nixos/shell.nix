@@ -21,11 +21,13 @@
       duf # Display disk usage stats in a readable way
       exa # Better ls
       fd # Better find
+      figlet # Almost as important as toilet
       git # I mean it's git
       glow # Render markdown in the terminal
       gnumake # You know make
       helix # Like neovim but less config
       hyperfine # Benchmark command performance
+      inotify-tools # Watch for file changes
       jq # Jesus christ it's JSON Bourne
       just # Like make but easier
       killall # Kill processes by name
@@ -44,6 +46,7 @@
       tealdeer # tldr client
       timewarrior # Companion to taskwarrior which I still have not set up properly
       tmux # Tabs, panes, sessions, etc.
+      toilet # Almost as important as figlet
       tokei # Get LOC stats for a directory
       wget # You know this one
       xplr # TUI file explorer

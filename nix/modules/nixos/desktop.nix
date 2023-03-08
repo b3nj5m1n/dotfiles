@@ -16,6 +16,7 @@
       libnotify
       neovide
       peek
+      # pop-launcher
       syncthing
       ydotool
       logseq-wrapped
