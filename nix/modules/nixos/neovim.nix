@@ -8,8 +8,8 @@
   config = {
     environment.systemPackages = with pkgs; [
       neovim
-      tree-sitter
-      tree-sitter-grammars.tree-sitter-norg
+      # tree-sitter
+      # tree-sitter-grammars.tree-sitter-norg
     ];
     programs.neovim = {
       enable = true;

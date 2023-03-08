@@ -9,6 +9,7 @@
     outputs.nixosModules.steam
     outputs.nixosModules.gitega
     outputs.nixosModules.virtual-machines
+    outputs.nixosModules.tree-sitter
     # outputs.nixosModules.nvidia
 
     ../hardware/pc.nix
@@ -73,7 +74,7 @@
     eisvogel
     bemoji
     wofi-calc
-    tree-sitter-grammar.norg
+    # tree-sitter-grammar.norg
     discord
   ];
 

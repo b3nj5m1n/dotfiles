@@ -43,4 +43,5 @@
   nvidia = import ./nvidia.nix;
   gitega = import ./gitega.nix;
   virtual-machines = import ./virtual-machines.nix;
+  tree-sitter = import ./tree-sitter.nix;
 }
