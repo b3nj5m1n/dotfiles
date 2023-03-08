@@ -12,6 +12,7 @@
   boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+  boot.supportedFilesystems = [ "btrfs" "ntfs" ];
 
   fileSystems."/" =
     { device = "/dev/sdb3";
