@@ -73,7 +73,7 @@
     eisvogel
     bemoji
     wofi-calc
-    tree-sitter-norg
+    tree-sitter-grammar.norg
     discord
   ];
 

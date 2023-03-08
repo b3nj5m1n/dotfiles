@@ -72,7 +72,7 @@
     eisvogel
     bemoji
     wofi-calc
-    tree-sitter-norg
+    tree-sitter-grammar.norg
   ];
 
   system.stateVersion = "22.05";
