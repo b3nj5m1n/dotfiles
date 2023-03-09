@@ -16,6 +16,7 @@
       cmatrix # A masterhacker essential
       difftastic # Better diff which understands syntax
       direnv # Automatically load env variables when entering directory
+      discordchatexporter-cli # Exactly what it says
       dotter # Dotfile management
       du-dust # More intuitive du
       duf # Display disk usage stats in a readable way
