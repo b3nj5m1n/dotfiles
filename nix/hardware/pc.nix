@@ -10,36 +10,36 @@
 
   boot.initrd.availableKernelModules = [ "ahci" "ohci_pci" "ehci_pci" "pata_atiixp" "xhci_pci" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [ "amdgpu" "kvm-amd" ];
   boot.extraModulePackages = [ ];
   boot.supportedFilesystems = [ "btrfs" "ntfs" ];
 
   fileSystems."/" =
-    { device = "/dev/sdb3";
+    { device = "/dev/disk/by-uuid/fcd6c5d7-2321-4c05-b34b-cef1d299c8d8";
       fsType = "btrfs";
       options = [ "subvol=root" "compress-force=zstd" "noatime" ];
     };
 
   fileSystems."/home" =
-    { device = "/dev/sdb3";
+    { device = "/dev/disk/by-uuid/fcd6c5d7-2321-4c05-b34b-cef1d299c8d8";
       fsType = "btrfs";
       options = [ "subvol=home" "compress-force=zstd" ];
     };
 
   fileSystems."/nix" =
-    { device = "/dev/sdb3";
+    { device = "/dev/disk/by-uuid/fcd6c5d7-2321-4c05-b34b-cef1d299c8d8";
       fsType = "btrfs";
       options = [ "subvol=nix" "compress-force=zstd" "noatime" ];
     };
 
   fileSystems."/persist" =
-    { device = "/dev/sdb3";
+    { device = "/dev/disk/by-uuid/fcd6c5d7-2321-4c05-b34b-cef1d299c8d8";
       fsType = "btrfs";
       options = [ "subvol=persist" "compress-force=zstd" ];
     };
 
   fileSystems."/var/log" =
-    { device = "/dev/sdb3";
+    { device = "/dev/disk/by-uuid/fcd6c5d7-2321-4c05-b34b-cef1d299c8d8";
       fsType = "btrfs";
       options = [ "subvol=log" "compress-force=zstd" ];
       neededForBoot = true;
