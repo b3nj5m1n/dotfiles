@@ -59,6 +59,8 @@
     };
   };
 
+  services.fwupd.enable = true;
+
   users.users = {
     b3nj4m1n = {
       isNormalUser = true;
