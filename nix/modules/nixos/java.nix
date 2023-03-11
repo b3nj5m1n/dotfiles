@@ -6,11 +6,12 @@
   options = { };
 
   config = {
-    environment.systemPackages = with pkgs; [
-      jdt-language-server
-      openjdk
-      openjdk11
-      openjdk8
+    environment.systemPackages = [
+      # pkgs.jdt-language-server
+      pkgs.openjdk
+      pkgs.openjdk11
+      pkgs.openjdk8
+      (pkgs.writeShellScriptBin "jdtls" "${pkgs.jdt-language-server}/bin/jdt-language-server $@")
     ];
   };
 }
