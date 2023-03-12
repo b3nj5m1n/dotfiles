@@ -7,7 +7,6 @@
 
   config = {
     environment.systemPackages = with pkgs; [
-      python2
       python3
       python310Packages.jedi-language-server
       python310Packages.python-lsp-server
