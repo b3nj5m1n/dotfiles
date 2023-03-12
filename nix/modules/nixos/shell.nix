@@ -51,6 +51,7 @@
       tokei # Get LOC stats for a directory
       wget # You know this one
       xplr # TUI file explorer
+      zellij # Sort of a little bit like tmux
       zoxide # More modern version of z (remember directories, cd into them without specifying full path)
     ];
   };
