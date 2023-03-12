@@ -38,7 +38,7 @@
   common-lisp = import ./common-lisp.nix;
   python = import ./python.nix;
 
-  pandoc = import ./pandoc.nix;
+  # pandoc = import ./pandoc.nix;
   steam = import ./steam.nix;
   nvidia = import ./nvidia.nix;
   gitega = import ./gitega.nix;
