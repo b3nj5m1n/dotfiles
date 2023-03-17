@@ -11,6 +11,7 @@
     environment.systemPackages = with pkgs; [
       dunst
       feh
+      mangohud
       firefox
       thunderbird
       libnotify

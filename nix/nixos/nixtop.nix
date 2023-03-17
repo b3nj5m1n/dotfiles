@@ -5,14 +5,14 @@
     outputs.nixosModules.terminal
     outputs.nixosModules.sway
     outputs.nixosModules.all-languages
-    outputs.nixosModules.pandoc
+    # outputs.nixosModules.pandoc
     outputs.nixosModules.steam
     outputs.nixosModules.gitega
     outputs.nixosModules.virtual-machines
     outputs.nixosModules.tree-sitter
     # outputs.nixosModules.nvidia
 
-    ../hardware/pc.nix
+    ../hardware/newpc.nix
   ];
 
   nixpkgs = {
@@ -50,13 +50,10 @@
   networking.hostName = "nixtop";
 
   boot.supportedFilesystems = [ "btrfs" ];
-  hardware.enableRedistributableFirmware = true;
+  hardware.enableAllFirmware = true;
   boot.loader = {
-    grub = {
-      enable = true;
-      version = 2;
-      device = "/dev/sdb";
-    };
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
   };
 
   services.fwupd.enable = true;
