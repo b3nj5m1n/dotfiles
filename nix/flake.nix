@@ -12,7 +12,6 @@
 
     hyprland = {
       url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     fenix = {
@@ -23,7 +22,7 @@
     hardware.url = "github:nixos/nixos-hardware";
   };
 
-  outputs = { self, fenix, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, fenix, nixpkgs, home-manager, hyprland, ... }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
@@ -67,6 +66,8 @@
           specialArgs = { inherit inputs outputs; };
           modules = [
             ./nixos/nixtop.nix
+            hyprland.nixosModules.default
+            { programs.hyprland.enable = true; }
           ];
         };
       };
