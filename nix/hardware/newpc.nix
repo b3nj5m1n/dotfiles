@@ -12,7 +12,10 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
-  boot.supportedFilesystems = [ "btrfs" "ntfs" ];
+  boot.supportedFilesystems = [ "btrfs" "ntfs" "zfs" ];
+  boot.zfs.extraPools = [ "drivemecrazy" ];
+
+  networking.hostId = "c9107abe";
 
   fileSystems."/" =
     { device = "/dev/nvme0n1p2";
