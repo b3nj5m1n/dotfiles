@@ -11,6 +11,7 @@
     outputs.nixosModules.virtual-machines
     outputs.nixosModules.tree-sitter
     # outputs.nixosModules.nvidia
+    outputs.nixosModules.fix-suspend
 
     ../hardware/newpc.nix
   ];

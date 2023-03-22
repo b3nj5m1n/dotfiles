@@ -11,6 +11,7 @@
       ncmpcpp
       pavucontrol
       pulseaudio
+      ncpamixer
     ];
     security.rtkit.enable = true;
     services.pipewire = {
