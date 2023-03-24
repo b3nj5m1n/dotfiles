@@ -12,6 +12,7 @@
     outputs.nixosModules.tree-sitter
     # outputs.nixosModules.nvidia
     outputs.nixosModules.fix-suspend
+    outputs.nixosModules.open-rgb
 
     ../hardware/newpc.nix
   ];

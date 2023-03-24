@@ -45,4 +45,5 @@
   virtual-machines = import ./virtual-machines.nix;
   tree-sitter = import ./tree-sitter.nix;
   fix-suspend = import ./fix-suspend.nix;
+  open-rgb = import ./open-rgb.nix;
 }
