@@ -25,6 +25,8 @@
       gnome.nautilus
       gnome.file-roller
       element-desktop
+      mpv
+      vlc
       zathura
       zotero
     ];

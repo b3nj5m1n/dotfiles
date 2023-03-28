@@ -128,7 +128,7 @@ alias cpy='wl-copy' # Copy piped command output to clipboard
 # Aliases for hiding terminal when starting certain programs
 alias zathura='devour zathura'
 alias feh='devour feh --keep-zoom-vp'
-alias mpv='devour mpv'
+# alias mpv='devour mpv'
 
 # Exa (ls replacement)
 alias ls='exa --grid --icons'
