@@ -23,6 +23,7 @@
       exa # Better ls
       fd # Better find
       figlet # Almost as important as toilet
+      file # Get information about what kind of file you're looking at
       git # I mean it's git
       glow # Render markdown in the terminal
       gnumake # You know make
