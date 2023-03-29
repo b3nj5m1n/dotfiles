@@ -5,6 +5,7 @@
     outputs.homeManagerModules.theming
     outputs.homeManagerModules.gpg
     outputs.homeManagerModules.git
+    outputs.homeManagerModules.shell
   ];
 
   nixpkgs = {

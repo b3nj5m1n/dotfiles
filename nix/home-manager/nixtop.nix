@@ -5,6 +5,7 @@
     outputs.homeManagerModules.theming
     outputs.homeManagerModules.gpg
     outputs.homeManagerModules.git
+    outputs.homeManagerModules.shell
   ];
 
   nixpkgs = {
@@ -30,11 +31,6 @@
   programs.home-manager.enable = true;
 
   programs.git.signing.key = "309D4C8689849C5B";
-
-  programs.direnv = {
-    enable = true;
-    nix-direnv.enable = true;
-  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

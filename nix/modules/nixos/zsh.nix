@@ -11,6 +11,6 @@
       zsh-syntax-highlighting
     ];
     environment.shells = with pkgs; [ zsh ];
-    users.defaultUserShell = pkgs.zsh;
+    # users.defaultUserShell = pkgs.zsh;
   };
 }
