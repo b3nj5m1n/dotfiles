@@ -3,6 +3,7 @@
     outputs.homeManagerModules.helix
     outputs.homeManagerModules.tree-sitter
     outputs.homeManagerModules.theming
+    outputs.homeManagerModules.gpg
     outputs.homeManagerModules.git
   ];
 
@@ -27,18 +28,6 @@
   # home.packages = with pkgs; [ steam ];
 
   programs.home-manager.enable = true;
-
-  programs.gpg = {
-    enable = true;
-    homedir = "${config.xdg.dataHome}/gnupg";
-    settings = { };
-  };
-  services.gpg-agent = {
-    enable = true;
-    pinentryFlavor = "gtk2";
-    extraConfig = ''
-    '';
-  };
 
   programs.git.signing.key = "309D4C8689849C5B";
 
