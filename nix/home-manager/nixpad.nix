@@ -2,6 +2,7 @@
   imports = [
     outputs.homeManagerModules.helix
     outputs.homeManagerModules.tree-sitter
+    outputs.homeManagerModules.git
   ];
 
   nixpkgs = {
@@ -67,17 +68,7 @@
     '';
   };
 
-  programs.git = {
-    enable = true;
-    userEmail = "b3nj4m1n@gmx.net";
-    userName = "b3nj5m1n";
-    aliases = { };
-    difftastic = { enable = true; };
-    signing = {
-      signByDefault = true;
-      key = "40C2656E7D651A18";
-    };
-  };
+  programs.git.signing.key = "40C2656E7D651A18";
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

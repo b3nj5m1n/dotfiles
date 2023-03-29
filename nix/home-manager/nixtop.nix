@@ -2,6 +2,7 @@
   imports = [
     outputs.homeManagerModules.helix
     outputs.homeManagerModules.tree-sitter
+    outputs.homeManagerModules.git
   ];
 
   nixpkgs = {
@@ -67,17 +68,7 @@
     '';
   };
 
-  programs.git = {
-    enable = true;
-    userEmail = "b3nj4m1n@gmx.net";
-    userName = "b3nj5m1n";
-    aliases = { };
-    difftastic = { enable = true; };
-    signing = {
-      signByDefault = true;
-      key = "309D4C8689849C5B";
-    };
-  };
+  programs.git.signing.key = "309D4C8689849C5B";
 
   programs.direnv = {
     enable = true;
