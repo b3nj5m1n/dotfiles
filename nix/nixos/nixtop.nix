@@ -79,6 +79,7 @@
     wofi-calc
     # tree-sitter-grammar.norg
     discord
+    discordchatexporter-cli # Exactly what it says
   ];
 
   system.stateVersion = "22.05";

@@ -6,7 +6,10 @@
     outputs.nixosModules.nix
     outputs.nixosModules.python
 
-    "${fetchTarball "https://github.com/NixOS/nixos-hardware/archive/936e4649098d6a5e0762058cb7687be1b2d90550.tar.gz" }/raspberry-pi/4"
+    "${fetchTarball {
+      url = "https://github.com/NixOS/nixos-hardware/archive/936e4649098d6a5e0762058cb7687be1b2d90550.tar.gz";
+      sha256 ="06g0061xm48i5w7gz5sm5x5ps6cnipqv1m483f8i9mmhlz77hvlw"; }
+    }/raspberry-pi/4"
   ];
 
   fileSystems = {
@@ -18,6 +21,7 @@
   };
 
   nixpkgs = {
+    hostPlatform = "aarch64-linux";
     overlays = [
       outputs.overlays.modifications
       outputs.overlays.additions
@@ -50,15 +54,15 @@
     hostName = "nixpi";
     nat = {
       enable = true;
-      externalInterface = "eth0";
+      externalInterface = "end0";
       internalInterfaces = [ "wg0" ];
     };
     nftables = {
       enable = true;
-      rulesetFile = "/home/admin/nftables_config";
+      # rulesetFile = ../../files/nftables/config;
     };
     firewall = {
-      enable = false;
+      enable = true;
       allowedTCPPorts = [ 22 30005 ];
       allowedUDPPorts = [ 30005 ];
     };
@@ -70,10 +74,10 @@
       listenPort = 30005;
   
       postSetup = ''
-        ${pkgs.nftables}/bin/nft add rule nat POSTROUTING ip saddr 10.0.0.0/8 oif eth0 masquerade
+        ${pkgs.nftables}/bin/nft add rule nixos-nat post ip saddr 10.0.0.0/8 oif end0 masquerade
         '';
       postShutdown = ''
-        ${pkgs.nftables}/bin/nft delete rule nat POSTROUTING ip saddr 10.0.0.0/8 oif eth0 masquerade
+        ${pkgs.nftables}/bin/nft delete rule nixos-nat post ip saddr 10.0.0.0/8 oif end0 masquerade
         '';
   
       privateKeyFile = "/home/admin/wireguard-keys/private";
@@ -97,16 +101,16 @@
       isNormalUser = true;
       hashedPassword = "$6$Hvo92DeZuMm2FHLO$ux3upNIqSmFKNW3RGr.Bg8c.ea0qdqYjJQ409T8SY0GTH4pnJTjFeGX43fmWGO5bpihwsk6GCcqp2EjqfQTwY.";
       extraGroups = [ "wheel" ];
-    	openssh.authorizedKeys.keyFiles = [
-    	  ./key1
+    	openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKmPDJruFFCbDJx1f0k9OPKe/ZSPWJhbMjpLtLWxXyXz b3nj4m1n@nixtop"
     	];
     };
     users."guest" = {
       isNormalUser = true;
       password = "guest";
       extraGroups = [ "wheel" ];
-    	openssh.authorizedKeys.keyFiles = [
-    	  ./key1
+    	openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKmPDJruFFCbDJx1f0k9OPKe/ZSPWJhbMjpLtLWxXyXz b3nj4m1n@nixtop"
     	];
     };
   };
@@ -115,4 +119,6 @@
   ];
 
   hardware.raspberry-pi."4".fkms-3d.enable = true;
+  
+  system.stateVersion = "23.05";
 }
