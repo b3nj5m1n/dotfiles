@@ -9,6 +9,7 @@
     environment.systemPackages = with pkgs; [
       iwd
       nmap
+      wireguard-tools
     ];
     networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
     networking.networkmanager.wifi.backend = "iwd";
