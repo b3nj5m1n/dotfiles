@@ -70,6 +70,12 @@
             { programs.hyprland.enable = true; }
           ];
         };
+        nixpi = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./nixos/nixpi.nix
+          ];
+        };
       };
 
       homeConfigurations = {
