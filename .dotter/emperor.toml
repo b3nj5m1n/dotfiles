@@ -1,5 +1,5 @@
 packages = [
-    "nixtop",
+    "emperor",
     "redshift",
     "picom",
     "tmux",

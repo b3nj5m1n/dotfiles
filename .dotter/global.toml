@@ -37,7 +37,7 @@ font_size = "13"
 font_size_float = "13.0"
 
 # ----- Dingspad -----
-[nixpad.variables]
+[adelie.variables]
 ssh_key_name = "id_ed25519"
 os = "nix"
 display_server = "wayland"
@@ -78,13 +78,13 @@ grub_res = "auto"
 display_server = "xorg"
 os = "arch"
 # ----- Desktop -----
-[nixtop.variables]
+[emperor.variables]
 ssh_key_name = "id_ed25519"
 os = "nix"
 display_server = "wayland"
 window_manager = "sway"
 has_battery = false
-wallpaper = "/run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536_Portrait.png"
+wallpaper = "/drivemecrazy/fox-1758183.jpg"
 display_battery = false
 display_wlan = false
 multi_monitor = false
