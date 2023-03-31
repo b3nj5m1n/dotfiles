@@ -51,7 +51,7 @@
   };
 
   networking = {
-    hostName = "nixpi";
+    hostName = "chinstrap";
     nat = {
       enable = true;
       externalInterface = "end0";
@@ -83,7 +83,7 @@
       privateKeyFile = "/home/admin/wireguard-keys/private";
   
       peers = [
-        { # NixTop
+        { # Desktop
           publicKey = "s0oldHe6jxMKQ3SwTboPGlz3tEAZ5NIrQEYY455oajk=";
           allowedIPs = [ "10.0.0.1/32" ];
         }
@@ -102,7 +102,7 @@
       hashedPassword = "$6$Hvo92DeZuMm2FHLO$ux3upNIqSmFKNW3RGr.Bg8c.ea0qdqYjJQ409T8SY0GTH4pnJTjFeGX43fmWGO5bpihwsk6GCcqp2EjqfQTwY.";
       extraGroups = [ "wheel" ];
     	openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKmPDJruFFCbDJx1f0k9OPKe/ZSPWJhbMjpLtLWxXyXz b3nj4m1n@nixtop"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKmPDJruFFCbDJx1f0k9OPKe/ZSPWJhbMjpLtLWxXyXz b3nj4m1n@emperor"
     	];
     };
     users."guest" = {
@@ -110,7 +110,7 @@
       password = "guest";
       extraGroups = [ "wheel" ];
     	openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKmPDJruFFCbDJx1f0k9OPKe/ZSPWJhbMjpLtLWxXyXz b3nj4m1n@nixtop"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKmPDJruFFCbDJx1f0k9OPKe/ZSPWJhbMjpLtLWxXyXz b3nj4m1n@emperor"
     	];
     };
   };

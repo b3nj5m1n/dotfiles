@@ -51,7 +51,7 @@
     };
   };
 
-  networking.hostName = "nixtop";
+  networking.hostName = "emperor";
 
   boot.supportedFilesystems = [ "btrfs" ];
   hardware.enableAllFirmware = true;

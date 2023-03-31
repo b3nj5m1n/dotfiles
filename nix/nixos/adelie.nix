@@ -42,7 +42,7 @@
     };
   };
 
-  networking.hostName = "nixpad";
+  networking.hostName = "adelie";
 
   boot.supportedFilesystems = [ "btrfs" ];
   hardware.enableRedistributableFirmware = true;

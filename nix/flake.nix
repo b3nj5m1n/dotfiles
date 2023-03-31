@@ -56,41 +56,41 @@
       homeManagerModules = import ./modules/home-manager;
 
       nixosConfigurations = {
-        nixpad = nixpkgs.lib.nixosSystem {
+        adelie = nixpkgs.lib.nixosSystem { # I know it's Adélie
           specialArgs = { inherit inputs outputs; };
           modules = [
-            ./nixos/nixpad.nix
+            ./nixos/adelie.nix
           ];
         };
-        nixtop = nixpkgs.lib.nixosSystem {
+        emperor = nixpkgs.lib.nixosSystem { # Desktop
           specialArgs = { inherit inputs outputs; };
           modules = [
-            ./nixos/nixtop.nix
+            ./nixos/emperor.nix
             hyprland.nixosModules.default
             { programs.hyprland.enable = true; }
           ];
         };
-        nixpi = nixpkgs.lib.nixosSystem {
+        chinstrap = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
-            ./nixos/nixpi.nix
+            ./nixos/chinstrap.nix
           ];
         };
       };
 
       homeConfigurations = {
-        "b3nj4m1n@nixpad" = home-manager.lib.homeManagerConfiguration {
+        "b3nj4m1n@adelie" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
-            ./home-manager/nixpad.nix
+            ./home-manager/adelie.nix
           ];
         };
-        "b3nj4m1n@nixtop" = home-manager.lib.homeManagerConfiguration {
+        "b3nj4m1n@emperor" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
-            ./home-manager/nixtop.nix
+            ./home-manager/emperor.nix
           ];
         };
       };
