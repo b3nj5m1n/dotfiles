@@ -1,5 +1,5 @@
 #! /usr/bin/env nix-shell
-#! nix-shell -i dash -p dash gum wireguard-tools figlet lolcat fd
+#! nix-shell -i dash -p dash gum wireguard-tools figlet lolcat fd qrencode
 
 set -e
 
@@ -47,11 +47,36 @@ option=$(printf "%s\n%s\n%s\n%s\n" "$OPTION_NEW" "$OPTION_DISPLAY" "$OPTION_QR" 
 # and name.private file in $WG_KEYS_LOCATION
 KEYS="$(fd -e private . "$WG_KEYS_LOCATION" | awk -F ".private" '{print $1}' | while read -r prefix; do test -e "${prefix}.public" && basename "${prefix}"; done)"
 
+TMPFILE=""
+
+create_peer_config() {
+  server_ip="$(gum input --placeholder "What is the server's public IP address?")"
+  server_port="$(gum input --placeholder "On which (publicly exposed) port is WireGuard running on the server?")"
+  peer_local_ip="$(gum input --placeholder "What IP address should be assigned to the peer in the local network when connecting to the VPN?")"
+  dns="$(gum input --placeholder "What DNS server (IP) should the peer use when connected to the VPN?")"
+  gum format -t template "{{ Color \"$COLOR_INFO\" \"Select the server's key pair:\n\" }}"
+  key_name_server="$(echo "$KEYS" | gum choose)"
+  gum format -t template "{{ Color \"$COLOR_INFO\" \"Select the peer's key pair:\n\" }}"
+  key_name_peer="$(echo "$KEYS" | gum choose)"
+  TMPFILE=$(mktemp)
+  cat << EOF > "$TMPFILE"
+[Interface]
+PrivateKey = $(cat "$WG_KEYS_LOCATION/$key_name_peer.private")
+Address = $peer_local_ip
+DNS = $dns
+
+[Peer]
+PublicKey = $(cat "$WG_KEYS_LOCATION/$key_name_server.public")
+Endpoint = $server_ip:$server_port
+AllowedIPs = 0.0.0.0/0
+EOF
+}
+
 case "$option" in
   "$OPTION_NEW")
     gum format -t template "{{ Color \"$COLOR_INFO\" \"Creating new keypair\" }}"
     echo ""
-    keypair_name=$(gum input --placeholder "Name of keypair")
+    keypair_name="$(gum input --placeholder "Name of keypair")"
     # TODO check if key already exists
     wg genkey | sudo tee "$WG_KEYS_LOCATION/$keypair_name.private" | wg pubkey | sudo tee "$WG_KEYS_LOCATION/$keypair_name.public" > /dev/null
     gum format -t template "{{ Color \"$COLOR_INFO\" \"New keypair created\" }}"
@@ -69,11 +94,14 @@ case "$option" in
     echo ""
     ;;
   "$OPTION_QR")
-    gum format -t template "{{ Color \"$COLOR_INFO\" \"Showing peer config as QR code\" }}"
-    # TODO
+    gum format -t template "{{ Color \"$COLOR_INFO\" \"Showing peer config as QR code\n\" }}"
+    create_peer_config
+    qrencode -t ansiutf8 < "$TMPFILE"
     ;;
   "$OPTION_CONFIG")
-    gum format -t template "{{ Color \"$COLOR_INFO\" \"Showing peer config\" }}"
-    # TODO
+    gum format -t template "{{ Color \"$COLOR_INFO\" \"Showing peer config\n\" }}"
+    create_peer_config
+    gum format -t template "{{ Color \"$COLOR_INFO\" \"Config stored in\n\" }} {{ Italic \"$TMPFILE\" }}"
+    cat "$TMPFILE"
     ;;
 esac
