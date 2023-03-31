@@ -5,4 +5,5 @@
   gpg = import ./gpg.nix;
   git = import ./git.nix;
   shell = import ./shell.nix;
+  xdg-compliance = import ./xdg-compliance.nix;
 }

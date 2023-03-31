@@ -128,7 +128,7 @@ eval "$(atuin init zsh)"
 # Init direnv
 eval "$(direnv hook zsh)"
 # Source common aliases, exports, etc.
-source ~/.config/shrc
+# source ~/.config/shrc
 # # Use thefuck
 # eval "$(thefuck --alias)"
 

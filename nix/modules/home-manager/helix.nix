@@ -6,6 +6,7 @@
   options = { };
 
   config = {
+    home.sessionVariables.EDITOR = "hx";
     programs.helix = {
       enable = true;
       settings = {
