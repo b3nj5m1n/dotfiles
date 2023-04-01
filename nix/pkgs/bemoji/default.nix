@@ -1,5 +1,10 @@
-{ lib, stdenvNoCC, fetchFromGitHub, makeWrapper, pkgs }:
-
+{
+  lib,
+  stdenvNoCC,
+  fetchFromGitHub,
+  makeWrapper,
+  pkgs,
+}:
 stdenvNoCC.mkDerivation rec {
   pname = "bemoji";
   version = "0.3.0";
@@ -11,7 +16,7 @@ stdenvNoCC.mkDerivation rec {
     sha256 = "sha256-XXNrUaS06UHF3cVfIfWjGF1sdPE709W2tFhfwTitzNs=";
   };
 
-  nativeBuildInputs = with pkgs; [ makeWrapper wofi wl-clipboard wtype ];
+  nativeBuildInputs = with pkgs; [makeWrapper wofi wl-clipboard wtype];
 
   installPhase = ''
     runHook preInstall
@@ -21,7 +26,7 @@ stdenvNoCC.mkDerivation rec {
     mkdir -p "$out/bin"
     ln -s "$out/share/bemoji/bemoji.sh" "$out/bin/bemoji"
     wrapProgram "$out/bin/bemoji" \
-      --prefix PATH : "${lib.makeBinPath (with pkgs; [ wofi wl-clipboard wtype ])}"
+      --prefix PATH : "${lib.makeBinPath (with pkgs; [wofi wl-clipboard wtype])}"
 
     runHook postInstall
   '';

@@ -1,18 +1,18 @@
 # This will put the generated parser in /run/current-system/sw/share/ts-grammars
 # I tried to make this generic but it will probably only work for neorg without some extra work
-{ lang-name
-, repo-owner
-, repo-name
-, repo-version
-, repo-rev
-, repo-sha
-, lib
-, stdenvNoCC
-, fetchFromGitHub
-, makeWrapper
-, pkgs
+{
+  lang-name,
+  repo-owner,
+  repo-name,
+  repo-version,
+  repo-rev,
+  repo-sha,
+  lib,
+  stdenvNoCC,
+  fetchFromGitHub,
+  makeWrapper,
+  pkgs,
 }:
-
 stdenvNoCC.mkDerivation rec {
   pname = repo-name;
   version = repo-version;
@@ -24,7 +24,7 @@ stdenvNoCC.mkDerivation rec {
     sha256 = repo-sha;
   };
 
-  nativeBuildInputs = with pkgs; [ tree-sitter nodejs ];
+  nativeBuildInputs = with pkgs; [tree-sitter nodejs];
 
   installPhase = ''
     runHook preInstall

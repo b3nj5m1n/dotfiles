@@ -1,9 +1,8 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
   ];
 
-  options = { };
+  options = {};
 
   config = {
     environment.systemPackages = with pkgs; [
@@ -13,10 +12,10 @@
     ];
     networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
     networking.networkmanager.wifi.backend = "iwd";
-    networking.nftables.enable = true; 
+    networking.nftables.enable = true;
     networking.firewall = {
       enable = true;
-      allowedTCPPorts = [ 22 ];
+      allowedTCPPorts = [22];
     };
   };
 }

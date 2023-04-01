@@ -22,84 +22,102 @@
     hardware.url = "github:nixos/nixos-hardware";
   };
 
-  outputs = { self, fenix, nixpkgs, home-manager, hyprland, ... }@inputs:
-    let
-      inherit (self) outputs;
-      forAllSystems = nixpkgs.lib.genAttrs [
-        "aarch64-linux"
-        "i686-linux"
-        "x86_64-linux"
-        "aarch64-darwin"
-        "x86_64-darwin"
-      ];
-    in
-    rec {
-      # Custom packages
-      packages = forAllSystems (system:
-        let pkgs = nixpkgs.legacyPackages.${system};
-        in import ./pkgs { inherit pkgs; inherit system; inherit fenix; }
-      );
+  outputs = {
+    self,
+    fenix,
+    nixpkgs,
+    home-manager,
+    hyprland,
+    ...
+  } @ inputs: let
+    inherit (self) outputs;
+    forAllSystems = nixpkgs.lib.genAttrs [
+      "aarch64-linux"
+      "i686-linux"
+      "x86_64-linux"
+      "aarch64-darwin"
+      "x86_64-darwin"
+    ];
+  in rec {
+    # Custom packages
+    packages = forAllSystems (
+      system: let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in
+        import ./pkgs {
+          inherit pkgs;
+          inherit system;
+          inherit fenix;
+        }
+    );
 
-      # Devshell for bootstrapping
-      devShells = forAllSystems (system:
-        let pkgs = nixpkgs.legacyPackages.${system};
-        in import ./shell.nix { inherit pkgs; }
-      );
+    # Devshell for bootstrapping
+    devShells = forAllSystems (
+      system: let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in
+        import ./shell.nix {inherit pkgs;}
+    );
 
-      # Custom packages and modifications, exported as overlays
-      overlays = import ./overlays { inherit inputs; inherit fenix; };
-      # Reusable nixos modules you might want to export
-      # These are usually stuff you would upstream into nixpkgs
-      nixosModules = import ./modules/nixos;
-      # Reusable home-manager modules you might want to export
-      # These are usually stuff you would upstream into home-manager
-      homeManagerModules = import ./modules/home-manager;
+    # Custom packages and modifications, exported as overlays
+    overlays = import ./overlays {
+      inherit inputs;
+      inherit fenix;
+    };
+    # Reusable nixos modules you might want to export
+    # These are usually stuff you would upstream into nixpkgs
+    nixosModules = import ./modules/nixos;
+    # Reusable home-manager modules you might want to export
+    # These are usually stuff you would upstream into home-manager
+    homeManagerModules = import ./modules/home-manager;
 
-      nixosConfigurations = {
-        adelie = nixpkgs.lib.nixosSystem { # I know it's Adélie
-          specialArgs = { inherit inputs outputs; };
-          modules = [
-            ./nixos/adelie.nix
-          ];
-        };
-        emperor = nixpkgs.lib.nixosSystem { # Desktop
-          specialArgs = { inherit inputs outputs; };
-          modules = [
-            ./nixos/emperor.nix
-            hyprland.nixosModules.default
-            { programs.hyprland.enable = true; }
-          ];
-        };
-        chinstrap = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = [
-            ./nixos/chinstrap.nix
-          ];
-        };
+    nixosConfigurations = {
+      adelie = nixpkgs.lib.nixosSystem {
+        # I know it's Adélie
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./nixos/adelie.nix
+        ];
       };
-
-      homeConfigurations = {
-        "b3nj4m1n@adelie" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [
-            ./home-manager/adelie.nix
-          ];
-        };
-        "b3nj4m1n@emperor" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [
-            ./home-manager/emperor.nix
-          ];
-        };
-        "admin@chinstrap" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.aarch64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [
-            ./home-manager/chinstrap.nix
-          ];
-        };
+      emperor = nixpkgs.lib.nixosSystem {
+        # Desktop
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./nixos/emperor.nix
+          hyprland.nixosModules.default
+          {programs.hyprland.enable = true;}
+        ];
+      };
+      chinstrap = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./nixos/chinstrap.nix
+        ];
       };
     };
+
+    homeConfigurations = {
+      "b3nj4m1n@adelie" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          ./home-manager/adelie.nix
+        ];
+      };
+      "b3nj4m1n@emperor" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          ./home-manager/emperor.nix
+        ];
+      };
+      "admin@chinstrap" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.aarch64-linux;
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          ./home-manager/chinstrap.nix
+        ];
+      };
+    };
+  };
 }

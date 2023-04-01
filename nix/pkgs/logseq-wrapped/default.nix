@@ -1,5 +1,7 @@
-{ stdenv, pkgs }:
-
+{
+  stdenv,
+  pkgs,
+}:
 stdenv.mkDerivation {
   name = "logseq-wrapped";
   version = "1.0";
@@ -24,6 +26,6 @@ stdenv.mkDerivation {
   '';
 
   meta = {
-    conflicts = [ { name = "logseq"; } ];
+    conflicts = [{name = "logseq";}];
   };
 }

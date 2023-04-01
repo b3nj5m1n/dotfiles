@@ -1,11 +1,10 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
     # ./neovim.nix
     ./zsh.nix
   ];
 
-  options = { };
+  options = {};
 
   config = {
     environment.systemPackages = with pkgs; [

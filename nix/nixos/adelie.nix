@@ -1,4 +1,11 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     outputs.nixosModules.base
     outputs.nixosModules.shared-repos
@@ -24,11 +31,10 @@
     };
   };
 
-
   nix = {
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
-    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
+    registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
@@ -44,7 +50,7 @@
 
   networking.hostName = "adelie";
 
-  boot.supportedFilesystems = [ "btrfs" ];
+  boot.supportedFilesystems = ["btrfs"];
   hardware.enableRedistributableFirmware = true;
   boot.loader = {
     efi.canTouchEfiVariables = true;
@@ -63,7 +69,7 @@
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
-      extraGroups = [ "wheel" "video" ];
+      extraGroups = ["wheel" "video"];
     };
   };
 

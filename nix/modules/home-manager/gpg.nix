@@ -1,15 +1,19 @@
-{ pkgs, lib, config, ... }:
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   imports = [
   ];
 
-  options = { };
+  options = {};
 
   config = {
     programs.gpg = {
       enable = true;
       homedir = "${config.xdg.dataHome}/gnupg";
-      settings = { };
+      settings = {};
     };
     services.gpg-agent = {
       enable = true;

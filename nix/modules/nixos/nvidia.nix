@@ -1,13 +1,12 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
   ];
 
-  options = { };
+  options = {};
 
   config = {
-    services.xserver.videoDrivers = [ "nvidia" ];
+    services.xserver.videoDrivers = ["nvidia"];
     hardware.opengl.enable = true;
-    hardware.nvidia.modesetting.enable = true; 
+    hardware.nvidia.modesetting.enable = true;
   };
 }

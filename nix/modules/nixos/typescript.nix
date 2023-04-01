@@ -1,10 +1,9 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
     ./javascript.nix
   ];
 
-  options = { };
+  options = {};
 
   config = {
     environment.systemPackages = with pkgs; [

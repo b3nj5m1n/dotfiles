@@ -1,4 +1,11 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     outputs.nixosModules.base
     outputs.nixosModules.shell
@@ -6,9 +13,11 @@
     outputs.nixosModules.nix
     outputs.nixosModules.python
 
-    "${fetchTarball {
-      url = "https://github.com/NixOS/nixos-hardware/archive/936e4649098d6a5e0762058cb7687be1b2d90550.tar.gz";
-      sha256 ="06g0061xm48i5w7gz5sm5x5ps6cnipqv1m483f8i9mmhlz77hvlw"; }
+    "${
+      fetchTarball {
+        url = "https://github.com/NixOS/nixos-hardware/archive/936e4649098d6a5e0762058cb7687be1b2d90550.tar.gz";
+        sha256 = "06g0061xm48i5w7gz5sm5x5ps6cnipqv1m483f8i9mmhlz77hvlw";
+      }
     }/raspberry-pi/4"
   ];
 
@@ -16,7 +25,7 @@
     "/" = {
       device = "/dev/disk/by-label/NIXOS_SD";
       fsType = "ext4";
-      options = [ "noatime" ];
+      options = ["noatime"];
     };
   };
 
@@ -32,11 +41,10 @@
     };
   };
 
-
   nix = {
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
-    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
+    registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
@@ -55,7 +63,7 @@
     nat = {
       enable = true;
       externalInterface = "end0";
-      internalInterfaces = [ "wg0" ];
+      internalInterfaces = ["wg0"];
     };
     nftables = {
       enable = true;
@@ -63,55 +71,57 @@
     };
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 22 30005 ];
-      allowedUDPPorts = [ 30005 ];
+      allowedTCPPorts = [22 30005];
+      allowedUDPPorts = [30005];
     };
   };
 
   networking.wireguard.interfaces = {
     wg0 = {
-      ips = [ "10.0.0.0/8" ];
+      ips = ["10.0.0.0/8"];
       listenPort = 30005;
-  
+
       postSetup = ''
         ${pkgs.nftables}/bin/nft add rule nixos-nat post ip saddr 10.0.0.0/8 oif end0 masquerade
-        '';
+      '';
       postShutdown = ''
         ${pkgs.nftables}/bin/nft delete rule nixos-nat post ip saddr 10.0.0.0/8 oif end0 masquerade
-        '';
-  
+      '';
+
       privateKeyFile = "/home/admin/wireguard-keys/private";
-  
+
       peers = [
-        { # Desktop
+        {
+          # Desktop
           publicKey = "s0oldHe6jxMKQ3SwTboPGlz3tEAZ5NIrQEYY455oajk=";
-          allowedIPs = [ "10.0.0.1/32" ];
+          allowedIPs = ["10.0.0.1/32"];
         }
-        { # Android
+        {
+          # Android
           publicKey = "sgWsqw4Y3d21XrkysAgxQbLUL3v2YlgJfuMggvvrMU0=";
-          allowedIPs = [ "10.0.0.2/32" ];
+          allowedIPs = ["10.0.0.2/32"];
         }
       ];
     };
   };
-  
+
   users = {
     mutableUsers = false;
     users."admin" = {
       isNormalUser = true;
       hashedPassword = "$6$Hvo92DeZuMm2FHLO$ux3upNIqSmFKNW3RGr.Bg8c.ea0qdqYjJQ409T8SY0GTH4pnJTjFeGX43fmWGO5bpihwsk6GCcqp2EjqfQTwY.";
-      extraGroups = [ "wheel" ];
-    	openssh.authorizedKeys.keys = [
+      extraGroups = ["wheel"];
+      openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKmPDJruFFCbDJx1f0k9OPKe/ZSPWJhbMjpLtLWxXyXz b3nj4m1n@emperor"
-    	];
+      ];
     };
     users."guest" = {
       isNormalUser = true;
       password = "guest";
-      extraGroups = [ "wheel" ];
-    	openssh.authorizedKeys.keys = [
+      extraGroups = ["wheel"];
+      openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKmPDJruFFCbDJx1f0k9OPKe/ZSPWJhbMjpLtLWxXyXz b3nj4m1n@emperor"
-    	];
+      ];
     };
   };
 
@@ -119,6 +129,6 @@
   ];
 
   hardware.raspberry-pi."4".fkms-3d.enable = true;
-  
+
   system.stateVersion = "23.05";
 }

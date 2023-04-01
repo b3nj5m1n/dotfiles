@@ -1,4 +1,11 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     outputs.homeManagerModules.helix
     outputs.homeManagerModules.gpg

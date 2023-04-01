@@ -1,10 +1,14 @@
-{ pkgs, lib, config, ... }:
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   imports = [
     ./xdg-compliance.nix
   ];
 
-  options = { };
+  options = {};
 
   config = {
     home = {

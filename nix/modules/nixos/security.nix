@@ -1,9 +1,8 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
   ];
 
-  options = { };
+  options = {};
 
   config = {
     environment.systemPackages = with pkgs; [

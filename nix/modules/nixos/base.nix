@@ -1,11 +1,10 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
     ./networking.nix
     ./security.nix
   ];
 
-  options = { };
+  options = {};
 
   config = {
     environment.systemPackages = with pkgs; [
@@ -13,7 +12,7 @@
     ];
     time.timeZone = "Europe/Berlin";
     i18n.defaultLocale = "en_GB.UTF-8";
-    environment.pathsToLink = [ "/share" "/share/zsh" ];
+    environment.pathsToLink = ["/share" "/share/zsh"];
     services.cron.enable = true;
   };
 }

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
     ./webdev.nix
     ./javascript.nix

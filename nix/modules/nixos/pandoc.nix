@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   system = pkgs.system;
 
   pkgs_pandoc = import (builtins.fetchGit {
@@ -7,7 +6,7 @@ let
     url = "https://github.com/NixOS/nixpkgs/";
     ref = "refs/heads/nixpkgs-unstable";
     rev = "141439f6f11537ee349a58aaf97a5a5fc072365c";
-   }) { inherit system; };
+  }) {inherit system;};
   # wrapper = pkgs_pandoc.lib.makeOverridable ({ } :
   #   pkgs.symlinkJoin {
   #     name = "pandoc";
@@ -17,18 +16,13 @@ let
   #       wrapProgram "$out/bin/pandoc" --add-flags "--data-dir=/run/current-system/sw/share/pandoc/"
   #     '';
   #   });
-  
-
 in {
   imports = [
   ];
 
-  options = { };
-
-
+  options = {};
 
   config = {
-
     environment.systemPackages = [
       pkgs_pandoc.pandoc
       pkgs_pandoc.haskellPackages.pandoc-crossref
@@ -38,5 +32,4 @@ in {
       pkgs.m4
     ];
   };
-
 }

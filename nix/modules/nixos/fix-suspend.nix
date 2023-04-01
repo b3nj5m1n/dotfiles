@@ -1,9 +1,8 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
   ];
 
-  options = { };
+  options = {};
 
   config = {
     systemd.services.fixSuspend = {
@@ -16,7 +15,7 @@
         User = "root";
         ExecStart = "-${pkgs.bash}/bin/bash -c \"echo GPP0 > /proc/acpi/wakeup\"";
       };
-      wantedBy = [ "multi-user.target" ];
+      wantedBy = ["multi-user.target"];
     };
   };
 }

@@ -1,10 +1,9 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
     ./wayland.nix
   ];
 
-  options = { };
+  options = {};
 
   config = {
     environment.systemPackages = with pkgs; [

@@ -1,5 +1,10 @@
-{ lib, stdenvNoCC, fetchFromGitHub, makeWrapper, pkgs }:
-
+{
+  lib,
+  stdenvNoCC,
+  fetchFromGitHub,
+  makeWrapper,
+  pkgs,
+}:
 stdenvNoCC.mkDerivation rec {
   pname = "wofi-calc";
   version = "1.1";
@@ -11,7 +16,7 @@ stdenvNoCC.mkDerivation rec {
     sha256 = "sha256-TqxlVivyMITB2/sT84ywPwEN54kENBzJ/hQfUeSNTKY=";
   };
 
-  nativeBuildInputs = with pkgs; [ makeWrapper wofi libqalculate ];
+  nativeBuildInputs = with pkgs; [makeWrapper wofi libqalculate];
 
   installPhase = ''
     runHook preInstall
@@ -20,7 +25,7 @@ stdenvNoCC.mkDerivation rec {
     mkdir -p "$out/bin"
     ln -s "$out/share/wofi-calc/wofi-calc.sh" "$out/bin/wofi-calc"
     wrapProgram "$out/bin/wofi-calc" \
-      --prefix PATH : "${lib.makeBinPath (with pkgs; [ wofi libqalculate ])}"
+      --prefix PATH : "${lib.makeBinPath (with pkgs; [wofi libqalculate])}"
 
     runHook postInstall
   '';

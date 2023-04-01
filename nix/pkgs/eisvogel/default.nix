@@ -1,5 +1,11 @@
-{ lib, stdenvNoCC, fetchFromGitHub, makeWrapper, pkgs, fetchzip }:
-
+{
+  lib,
+  stdenvNoCC,
+  fetchFromGitHub,
+  makeWrapper,
+  pkgs,
+  fetchzip,
+}:
 stdenvNoCC.mkDerivation rec {
   pname = "eisvogel";
   version = "2.2.0";
@@ -16,7 +22,7 @@ stdenvNoCC.mkDerivation rec {
     stripRoot = false;
   };
 
-  nativeBuildInputs = with pkgs; [  ];
+  nativeBuildInputs = with pkgs; [];
 
   installPhase = ''
     runHook preInstall

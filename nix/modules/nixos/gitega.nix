@@ -1,32 +1,30 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
   ];
 
-  options = { };
+  options = {};
 
   config = {
     systemd.timers."gitega" = {
-      wantedBy = [ "timers.target" ];
-        timerConfig = {
-          OnBootSec = "15min";
-          OnUnitActiveSec = "1day";
-          Unit = "gitega.service";
-        };
+      wantedBy = ["timers.target"];
+      timerConfig = {
+        OnBootSec = "15min";
+        OnUnitActiveSec = "1day";
+        Unit = "gitega.service";
+      };
     };
     systemd.services.gitega = {
       description = "Run gitega";
-      path = with pkgs; [ libnotify findutils python39 ];
+      path = with pkgs; [libnotify findutils python39];
       environment = {
         PYTHONPATH = let
-          packageNames = [ "cffi" "pycparser" "requests" "brotlicffi" "certifi" "charset-normalizer" "idna" "urllib3" "brotli" "pysocks" "colorama" "dateutils" "python-dateutil" "six" "pytz" ];
-          packages = [ "${pkgs.python39}" ] ++ map (s: "${pkgs.python39Packages.${s}}") packageNames;
+          packageNames = ["cffi" "pycparser" "requests" "brotlicffi" "certifi" "charset-normalizer" "idna" "urllib3" "brotli" "pysocks" "colorama" "dateutils" "python-dateutil" "six" "pytz"];
+          packages = ["${pkgs.python39}"] ++ map (s: "${pkgs.python39Packages.${s}}") packageNames;
           packagesFull = map (s: "${s}/lib/python3.9/site-packages") packages;
           packagesPath = builtins.concatStringsSep ":" packagesFull;
-        in
-          "${packagesPath}";
+        in "${packagesPath}";
       };
-      script = let 
+      script = let
         gitegaSourcePath = "/home/b3nj4m1n/code/gitega";
         gitegaDataPath = "/home/b3nj4m1n/.local/share/gitega";
         email = "b3nj5m1n@gmx.net";
@@ -41,9 +39,8 @@
       '';
       serviceConfig = {
         Type = "oneshot";
-        User= "b3nj4m1n"; 
+        User = "b3nj4m1n";
       };
     };
-
   };
 }
