@@ -45,4 +45,5 @@
   tree-sitter = import ./tree-sitter.nix;
   fix-suspend = import ./fix-suspend.nix;
   open-rgb = import ./open-rgb.nix;
+  docker = import ./docker.nix;
 }

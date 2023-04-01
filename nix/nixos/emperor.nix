@@ -20,6 +20,7 @@
     # outputs.nixosModules.nvidia
     outputs.nixosModules.fix-suspend
     outputs.nixosModules.open-rgb
+    outputs.nixosModules.docker
 
     ../hardware/newpc.nix
   ];

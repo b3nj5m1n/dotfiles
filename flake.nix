@@ -19,6 +19,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+        flake-utils.url = "github:numtide/flake-utils";
+
     hardware.url = "github:nixos/nixos-hardware";
   };
 
@@ -28,6 +30,7 @@
     nixpkgs,
     home-manager,
     hyprland,
+    flake-utils,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -58,6 +61,20 @@
       in
         import ./nix/shell.nix {inherit pkgs;}
     );
+
+    apps = forAllSystems (system: let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in {
+                format = flake-utils.lib.mkApp {
+            drv = pkgs.writeShellApplication {
+              name = "format";
+              runtimeInputs = [ pkgs.alejandra ];
+              text = ''
+              alejandra --check .
+              '';
+            };
+          };
+    });
 
     # Custom packages and modifications, exported as overlays
     overlays = import ./nix/overlays {
