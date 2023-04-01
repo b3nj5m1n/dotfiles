@@ -44,7 +44,7 @@
       system: let
         pkgs = nixpkgs.legacyPackages.${system};
       in
-        import ./pkgs {
+        import ./nix/pkgs {
           inherit pkgs;
           inherit system;
           inherit fenix;
@@ -56,34 +56,34 @@
       system: let
         pkgs = nixpkgs.legacyPackages.${system};
       in
-        import ./shell.nix {inherit pkgs;}
+        import ./nix/shell.nix {inherit pkgs;}
     );
 
     # Custom packages and modifications, exported as overlays
-    overlays = import ./overlays {
+    overlays = import ./nix/overlays {
       inherit inputs;
       inherit fenix;
     };
     # Reusable nixos modules you might want to export
     # These are usually stuff you would upstream into nixpkgs
-    nixosModules = import ./modules/nixos;
+    nixosModules = import ./nix/modules/nixos;
     # Reusable home-manager modules you might want to export
     # These are usually stuff you would upstream into home-manager
-    homeManagerModules = import ./modules/home-manager;
+    homeManagerModules = import ./nix/modules/home-manager;
 
     nixosConfigurations = {
       adelie = nixpkgs.lib.nixosSystem {
         # I know it's Adélie
         specialArgs = {inherit inputs outputs;};
         modules = [
-          ./nixos/adelie.nix
+          ./nix/nixos/adelie.nix
         ];
       };
       emperor = nixpkgs.lib.nixosSystem {
         # Desktop
         specialArgs = {inherit inputs outputs;};
         modules = [
-          ./nixos/emperor.nix
+          ./nix/nixos/emperor.nix
           hyprland.nixosModules.default
           {programs.hyprland.enable = true;}
         ];
@@ -91,7 +91,7 @@
       chinstrap = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          ./nixos/chinstrap.nix
+          ./nix/nixos/chinstrap.nix
         ];
       };
     };
@@ -101,21 +101,21 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
-          ./home-manager/adelie.nix
+          ./nix/home-manager/adelie.nix
         ];
       };
       "b3nj4m1n@emperor" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
-          ./home-manager/emperor.nix
+          ./nix/home-manager/emperor.nix
         ];
       };
       "admin@chinstrap" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.aarch64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
-          ./home-manager/chinstrap.nix
+          ./nix/home-manager/chinstrap.nix
         ];
       };
     };
