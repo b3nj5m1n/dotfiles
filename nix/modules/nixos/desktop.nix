@@ -28,7 +28,7 @@
       zathura
       zotero
       (callPackage ../../pkgs/logseq-wrapped {})
-          ];
+    ];
 
     services = {
       syncthing = {

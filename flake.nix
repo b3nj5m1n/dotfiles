@@ -19,7 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-        flake-utils.url = "github:numtide/flake-utils";
+    flake-utils.url = "github:numtide/flake-utils";
 
     hardware.url = "github:nixos/nixos-hardware";
   };
@@ -63,17 +63,17 @@
     );
 
     apps = forAllSystems (system: let
-        pkgs = nixpkgs.legacyPackages.${system};
-      in {
-                format = flake-utils.lib.mkApp {
-            drv = pkgs.writeShellApplication {
-              name = "format";
-              runtimeInputs = [ pkgs.alejandra ];
-              text = ''
-              alejandra --check .
-              '';
-            };
-          };
+      pkgs = nixpkgs.legacyPackages.${system};
+    in {
+      format = flake-utils.lib.mkApp {
+        drv = pkgs.writeShellApplication {
+          name = "format";
+          runtimeInputs = [pkgs.alejandra];
+          text = ''
+            alejandra --check .
+          '';
+        };
+      };
     });
 
     # Custom packages and modifications, exported as overlays
