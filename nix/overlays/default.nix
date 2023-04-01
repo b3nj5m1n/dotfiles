@@ -15,6 +15,9 @@
   # You can change versions, add patches, set compilation flags, anything really.
   # https://nixos.wiki/wiki/Overlays
   modifications = final: prev: {
+    # logseq = prev.logseq.overrideAttrs (old: {
+    #   meta.platforms = old.meta.platforms ++ [ "aarch64-linux" ];
+    # });
     # example = prev.example.overrideAttrs (oldAttrs: rec {
     # ...
     # });

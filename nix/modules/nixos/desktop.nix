@@ -19,7 +19,6 @@
       # pop-launcher
       syncthing
       ydotool
-      logseq-wrapped
       xfce.thunar
       gnome.nautilus
       gnome.file-roller
@@ -28,7 +27,8 @@
       vlc
       zathura
       zotero
-    ];
+      (callPackage ../../pkgs/logseq-wrapped {})
+          ];
 
     services = {
       syncthing = {

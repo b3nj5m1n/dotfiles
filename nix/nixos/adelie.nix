@@ -12,7 +12,7 @@
     outputs.nixosModules.terminal
     outputs.nixosModules.sway
     outputs.nixosModules.all-languages
-    outputs.nixosModules.pandoc
+    # outputs.nixosModules.pandoc
 
     ../hardware/x270.nix
   ];
