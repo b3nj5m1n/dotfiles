@@ -65,6 +65,7 @@
       };
     };
     programs = {
+      atuin.enableZshIntegration = true;
       zsh = {
         enable = true;
         enableAutosuggestions = true;
@@ -118,8 +119,8 @@
           # History
           bindkey -M viins '^k' up-line-or-history
           bindkey -M viins '^j' down-line-or-history
-          bindkey -M viins '^r' history-incremental-pattern-search-backward
-          bindkey -M viins '^f' history-incremental-pattern-search-forward
+          # bindkey -M viins '^r' history-incremental-pattern-search-backward
+          # bindkey -M viins '^f' history-incremental-pattern-search-forward
           bindkey -M vicmd '/' history-incremental-pattern-search-backward
           bindkey -M vicmd '?' history-incremental-pattern-search-forward
           bindkey '^z' history-beginning-search-backward
