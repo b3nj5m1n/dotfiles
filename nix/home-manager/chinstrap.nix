@@ -1,8 +1,6 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
   imports = [
     outputs.homeManagerModules.helix
-    outputs.homeManagerModules.tree-sitter
-    outputs.homeManagerModules.theming
     outputs.homeManagerModules.gpg
     outputs.homeManagerModules.git
     outputs.homeManagerModules.shell
@@ -14,14 +12,12 @@
       outputs.overlays.additions
       outputs.overlays.channels
     ];
-    config = {
-      allowUnfree = false;
-    };
   };
 
   home = {
-    username = "b3nj4m1n";
-    homeDirectory = "/home/b3nj4m1n";
+    username = "admin";
+    homeDirectory = "/home/admin";
+    sessionVariables.MAINSSHKEYFILE = "id_rsa";
   };
 
   # Add stuff for your user as you see fit:
@@ -30,9 +26,9 @@
 
   programs.home-manager.enable = true;
 
-  programs.git.signing.key = "40C2656E7D651A18";
+  programs.git.signing.key = "D11CA4E3FA0C1051";
 
-  services.gpg-agent.pinentryFlavor = "gtk2";
+  services.gpg-agent.pinentryFlavor = "tty";
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

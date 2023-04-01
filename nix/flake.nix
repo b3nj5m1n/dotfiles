@@ -93,6 +93,13 @@
             ./home-manager/emperor.nix
           ];
         };
+        "admin@chinstrap" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.aarch64-linux;
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [
+            ./home-manager/chinstrap.nix
+          ];
+        };
       };
     };
 }
