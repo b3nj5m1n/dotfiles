@@ -53,7 +53,7 @@
         WGETRC = "${config.home.sessionVariables.XDG_CONFIG_HOME}/wget/wgetrc";
         WINEPREFIX = "${config.home.sessionVariables.XDG_DATA_HOME}/wine";
         ZDOTDIR = "${config.home.sessionVariables.XDG_CONFIG_HOME}/zsh";
-        _JAVA_OPTIONS = "-Djava.util.prefs.userRoot=\"${config.home.sessionVariables.XDG_CONFIG_HOME}/java";
+        _JAVA_OPTIONS = "-Djava.util.prefs.userRoot=\\\"${config.home.sessionVariables.XDG_CONFIG_HOME}/java\\\"";
       };
     };
     xdg = {

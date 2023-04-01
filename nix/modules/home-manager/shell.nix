@@ -58,7 +58,7 @@
         XDG_STATE_HOME = "${config.home.homeDirectory}/.local/state";
         # Colors
         GCC_COLORS = "error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01";
-        MANPAGER = "sh -c \"col -bx | bat --theme=Dracula -l man -p\"";
+        MANPAGER = "sh -c \\\"col -bx | bat --theme=Dracula -l man -p\\\"";
         # Overwrite certain programs
         FUZZY_FINDER = "sk";
         GIT_EXTERNAL_DIFF = "difft";
@@ -67,6 +67,76 @@
     programs = {
       zsh = {
         enable = true;
+        enableAutosuggestions = true;
+        enableCompletion = true;
+        enableSyntaxHighlighting = true;
+        autocd = true;
+        completionInit = "
+          autoload -Uz compinit
+          compinit -d \"${config.home.sessionVariables.XDG_CACHE_HOME}/zsh/zcompdump-\$ZSH_VERSION\"
+        ";
+        defaultKeymap = "viins";
+        history = {
+          extended = true;
+          ignoreDups = false;
+          path = "${config.home.sessionVariables.XDG_STATE_HOME}/zsh_history";
+          save = 9999999;
+          size = 9999999;
+        };
+        dotDir = ".config/zsh";
+        # TODO keychain
+        initExtra = "
+          eval \$(keychain --dir \"${config.home.sessionVariables.XDG_CACHE_HOME}/keychain\" --eval --quiet \"${config.home.sessionVariables.MAINSSHKEYFILE}\")
+          eval \"\$(starship init zsh)\"
+          eval \"\$(zoxide init zsh)\"
+          eval \"\$(atuin init zsh)\"
+          # TODO figure out if I can set this through home manager
+          zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
+          zstyle ':completion:*' completions 1
+          zstyle ':completion:*' expand prefix suffix
+          zstyle ':completion:*' glob 1
+          zstyle ':completion:*' insert-unambiguous true
+          zstyle ':completion:*' list-colors ''
+          zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+          zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+          zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} r:|[._-]=** r:|=**'
+          zstyle ':completion:*' max-errors 4
+          zstyle ':completion:*' menu select=3
+          zstyle ':completion:*' original true
+          zstyle ':completion:*' preserve-prefix '//[^/]##/'
+          zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+          zstyle ':completion:*' squeeze-slashes true
+          zstyle ':completion:*' substitute 1
+          zstyle ':completion:*' verbose true
+          # Enable Ctrl + Backspace to delete word backwards
+          bindkey '^H' backward-kill-word
+          # Enable deleting last char on a line & going back to the previous one
+          bindkey -v '^?' backward-delete-char
+          # Enable skipping words with Ctrl + Arrow Keys
+          bindkey '^[[1;5D' backward-word
+          bindkey '^[[1;5C' forward-word
+          # History
+          bindkey -M viins '^k' up-line-or-history
+          bindkey -M viins '^j' down-line-or-history
+          bindkey -M viins '^r' history-incremental-pattern-search-backward
+          bindkey -M viins '^f' history-incremental-pattern-search-forward
+          bindkey -M vicmd '/' history-incremental-pattern-search-backward
+          bindkey -M vicmd '?' history-incremental-pattern-search-forward
+          bindkey '^z' history-beginning-search-backward
+          bindkey '^u' history-beginning-search-forward
+          # Beginning/End of line in insert mode
+          bindkey '^a' beginning-of-line
+          bindkey '^e' end-of-line
+          # Get into normal mode
+          bindkey -M viins '^g' vi-cmd-mode
+          function preexec() {
+              # Set the window title
+              # The first arg passed to this func is the string of the command the user has entered
+              echo -n -e \"\\033]0;\$1\\007\"
+          }
+          autoload edit-command-line; zle -N edit-command-line
+          bindkey -M vicmd ' ' edit-command-line
+        ";
       };
       direnv = {
         enable = true;

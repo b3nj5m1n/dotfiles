@@ -22,6 +22,7 @@
   home = {
     username = "b3nj4m1n";
     homeDirectory = "/home/b3nj4m1n";
+    sessionVariables.MAINSSHKEYFILE = "id_ed25519";
   };
 
   # Add stuff for your user as you see fit:
