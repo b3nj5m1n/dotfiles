@@ -6,7 +6,8 @@
   pkgs,
   ...
 }: {
-  imports = let homeManagerModules = import ../modules/home-manager;
+  imports = let
+    homeManagerModules = import ../modules/home-manager;
   in [
     homeManagerModules.helix
     homeManagerModules.gpg

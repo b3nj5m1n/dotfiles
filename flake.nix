@@ -98,9 +98,10 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users."b3nj4m1n" = {imports = [
-             ./nix/home-manager/adelie.nix  
-            ]; 
+            home-manager.users."b3nj4m1n" = {
+              imports = [
+                ./nix/home-manager/adelie.nix
+              ];
             };
           }
         ];
@@ -116,9 +117,10 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users."b3nj4m1n" = {imports = [
-             ./nix/home-manager/emperor.nix  
-            ]; 
+            home-manager.users."b3nj4m1n" = {
+              imports = [
+                ./nix/home-manager/emperor.nix
+              ];
             };
           }
         ];
@@ -131,9 +133,10 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users."admin" = {imports = [
-             ./nix/home-manager/chinstrap.nix  
-            ]; 
+            home-manager.users."admin" = {
+              imports = [
+                ./nix/home-manager/chinstrap.nix
+              ];
             };
           }
         ];
