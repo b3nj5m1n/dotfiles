@@ -12,6 +12,7 @@
     outputs.nixosModules.bash
     outputs.nixosModules.nix
     outputs.nixosModules.python
+    outputs.nixosModules.jellyfin
 
     "${
       fetchTarball {
@@ -26,6 +27,16 @@
       device = "/dev/disk/by-label/NIXOS_SD";
       fsType = "ext4";
       options = ["noatime"];
+    };
+    "/mnt/stick1" = {
+      device = "/dev/disk/by-uuid/0f2ca358-30b3-4d7d-8fa4-84598166d10b";
+      fsType = "ext4";
+      options = ["nofail"];
+    };
+    "/mnt/stick2" = {
+      device = "/dev/disk/by-uuid/14f6c3d0-484d-4b49-98f7-18af3229366e";
+      fsType = "ext4";
+      options = ["nofail"];
     };
   };
 
@@ -110,7 +121,7 @@
     users."admin" = {
       isNormalUser = true;
       hashedPassword = "$6$Hvo92DeZuMm2FHLO$ux3upNIqSmFKNW3RGr.Bg8c.ea0qdqYjJQ409T8SY0GTH4pnJTjFeGX43fmWGO5bpihwsk6GCcqp2EjqfQTwY.";
-      extraGroups = ["wheel"];
+      extraGroups = ["wheel" "jellyfin"];
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKmPDJruFFCbDJx1f0k9OPKe/ZSPWJhbMjpLtLWxXyXz b3nj4m1n@emperor"
       ];
