@@ -3,7 +3,7 @@
 # Opens a menu with a list of unicode emojis, the selection will be copied to clipboard or typed directly
 # Taken from here: https://github.com/LukeSmithxyz/voidrice
 
-if [[ $(loginctl show-session $(awk '/tty/ {print $1}' <(loginctl)) -p Type | awk -F= '{print $2}') == "wayland" ]]; then
+if [ "$(loginctl show-session "$(awk '/tty/ {print $1}' <(loginctl))" -p Type | awk -F= '{print $2}')" = "wayland" ]; then
     notify-send  "emoji picker" "Use bemoji" &
     exit
 fi

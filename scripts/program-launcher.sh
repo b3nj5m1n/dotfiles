@@ -4,8 +4,7 @@
 
 MAP="/home/b3nj4m1n/.config/wofi/map.csv"
 
-cat "$MAP" \
-    | cut -d ',' -f 1 \
+cut -d ',' -f 1 "$MAP" \
     | wofi --dmenu -p "Util " \
     | head -n 1 \
     | xargs -I --no-run-if-empty grep "{}" "$MAP" \

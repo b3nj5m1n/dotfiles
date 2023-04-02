@@ -14,7 +14,9 @@ if [ $retval -ne 0 ]; then
     exit
 else
     # Cmus is running, so find out if it's playing or paused and echo the corresponding glyph
-    if grep -q "playing"  <<< "$info"
+    if grep -q "playing" << EOF
+$info
+EOF
     then 
         printf "";
     else
@@ -28,22 +30,22 @@ chrlen=${#song}
 # How long to make the text before starting to scroll
 maxlen=25
 
-if [[ $chrlen -ge $maxlen ]]; then
+if [ "$chrlen" -ge $maxlen ]; then
     # Read offset from file
-    offset="$(($(cat /tmp/mpdoffset | head -n 1)))"
+    offset="$(($(head -n 1 /tmp/mpdoffset)))"
     # Add one
-    offset="$(($offset + 1))"
+    offset="$((offset + 1))"
     # Test if offset should be reset
-    if [[ "$song" != "$(sed "2q;d" /tmp/mpdoffset)" ]]; then
+    if [ "$song" != "$(sed "2q;d" /tmp/mpdoffset)" ]; then
         rm /tmp/mpdoffset
         offset=0
     fi
-    if [[ $(($offset + $maxlen - 1)) -ge $chrlen ]]; then
+    if [ $((offset + maxlen - 1)) -ge "$chrlen" ]; then
         rm /tmp/mpdoffset
         offset=0
     fi
     # Write offset back to file
-    echo -e "$offset\n$song" > /tmp/mpdoffset
+    printf '%b\n%s' "$offset" "$song" > /tmp/mpdoffset
     song="${song:$offset:$maxlen}"
 fi
 
@@ -67,4 +69,4 @@ m="%%{F-}"
 e=""
 
 song="$b${song:0:$perc_chr}$m${song:$perc_chr:$chrlen}$e"
-printf "$song"
+printf "%s" "$song"

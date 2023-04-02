@@ -33,13 +33,13 @@ $(date -u +"%a %d %b %Y %H:%M") [auto commit]
 $(date +%s)
 EOM
 
-eval $(keychain --dir "$HOME/.cache/keychain" --eval --quiet "{{ ssh_key_name }}")
+eval "$(keychain --dir "$HOME/.cache/keychain" --eval --quiet "{{ ssh_key_name }}")"
 
-cd "$REPO_DIR" && git pull || notify "Failed pulling $REPO_DIR"
-if [[ $(git status --porcelain) ]]; then
-    cd "$REPO_DIR" && git add --all || notify "Failed staging changes in $REPO_DIR"
-    cd "$REPO_DIR" && git -c user.name="$GIT_COMMITTER_NAME" -c user.email="$GIT_COMMITTER_EMAIL" commit --no-gpg-sign --author "$AUTHOR" -m "$MESSAGE" || notify "Failed committing changes in $REPO_DIR"
-    cd "$REPO_DIR" && printf "$SSH_PW\n" | git push || notify "Failed pushing changes in $REPO_DIR"
+(cd "$REPO_DIR" && git pull) || notify "Failed pulling $REPO_DIR"
+if [ "$(git status --porcelain)" ]; then
+    (cd "$REPO_DIR" && git add --all) || notify "Failed staging changes in $REPO_DIR"
+    (cd "$REPO_DIR" && git -c user.name="$GIT_COMMITTER_NAME" -c user.email="$GIT_COMMITTER_EMAIL" commit --no-gpg-sign --author "$AUTHOR" -m "$MESSAGE") || notify "Failed committing changes in $REPO_DIR"
+    (cd "$REPO_DIR" && printf "%s\n" "$SSH_PW" | git push) || notify "Failed pushing changes in $REPO_DIR"
 fi
 
 notify "Done updating changes in $REPO_DIR"

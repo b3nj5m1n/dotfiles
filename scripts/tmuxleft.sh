@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-source ~/.local/share/bin/tmuxstssrc.sh
+. ./tmuxstssrc.sh
 
 style_text bold
 component_currentwindow_or_prefix

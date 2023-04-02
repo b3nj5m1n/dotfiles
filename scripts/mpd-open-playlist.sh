@@ -8,4 +8,5 @@ selection=$(find "$dir" -maxdepth 1 -name "*.m3u*" | rofi -dmenu -i -matching fu
 
 mpc clear
 
-cat "$selection" | sed "s|./|mpc add \"|" | sed "s|$|\"|" | bash
+sed "s|./|mpc add \"|" "$selection" | sed "s|$|\"|" | bash
+

@@ -6,7 +6,7 @@
 dirname="/mnt/Vault/music/"
 
 cd "$dirname" || exit
-selection=$(find -name "*.mp3" | rofi -dmenu -i -F)
+selection=$(find . -name "*.mp3" | rofi -dmenu -i -F)
 
 [ -z "$selection" ] && exit
 

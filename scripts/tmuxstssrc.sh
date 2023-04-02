@@ -2,60 +2,60 @@
 # echo "#[fg=#02B696]#[bg=#D5D5B0]#[bold]%d/%m %H:%M"
 
 ##### Style Variables #####
-default_fg="#f8f8f2"
-default_bg="#282a36"
-default_prefix=" "
-default_suffix=" "
-date_fg="#f8f8f2"
-date_bg="#bd93f9"
-hostname_fg="#f8f8f2"
-hostname_bg="#50fa7b"
-uptime_fg="#f8f8f2"
-uptime_bg="#ffb86c"
-currentwindow_fg="#f8f8f2"
-currentwindow_bg="#bd93f9"
+export default_fg="#f8f8f2"
+export default_bg="#282a36"
+export default_prefix=" "
+export default_suffix=" "
+export date_fg="#f8f8f2"
+export date_bg="#bd93f9"
+export hostname_fg="#f8f8f2"
+export hostname_bg="#50fa7b"
+export uptime_fg="#f8f8f2"
+export uptime_bg="#ffb86c"
+export currentwindow_fg="#f8f8f2"
+export currentwindow_bg="#bd93f9"
 
 ##### Style Control #####
-function style_text {
-    printf "#[$1]"
+style_text() {
+    printf "#[%s]" "$1"
 }
-function style_fg {
-    printf "#[fg=#$1]"
+style_fg() {
+    printf "#[fg=#%s]" "$1"
 }
-function style_bg {
-    printf "#[bg=#$1]"
+style_bg() {
+    printf "#[bg=#%s]" "$1"
 }
-function prefix {
-    printf "$default_prefix"
+prefix() {
+    printf "%s" "$default_prefix"
 }
-function suffix {
-    printf "$default_suffix"
+suffix() {
+    printf "%s" "$default_suffix"
 }
 
-function component_date {
+component_date() {
     style_fg "$date_fg"
     style_bg "$date_bg"
     prefix
-    printf "$(date -u +"%d/%m/%Y")"
+    printf "%s" "$(date -u +"%d/%m/%Y")"
     suffix
 }
-function component_hostname {
+component_hostname() {
     style_text bold
     style_fg "$hostname_fg"
     style_bg "$hostname_bg"
     prefix
-    printf "$(hostname)"
+    printf "%s" "$(hostname)"
     suffix
 }
-function component_uptime {
+component_uptime() {
     style_text bold
     style_fg "$uptime_fg"
     style_bg "$uptime_bg"
     prefix
-    printf "$(~/.local/share/bin/uptime.sh)"
+    printf "%s" "$(~/.local/share/bin/uptime.sh)"
     suffix
 }
-function component_currentwindow {
+component_currentwindow() {
     style_text bold
     style_fg "$currentwindow_fg"
     style_bg "$currentwindow_bg"
@@ -63,22 +63,22 @@ function component_currentwindow {
     printf "#W"
     suffix
 }
-function component_seperator {
+component_seperator() {
     style_fg ""
     style_bg "$2"
-    printf "$1"
+    printf "%s" "$1"
 }
-function component_prefix {
+component_prefix() {
     style_fg "$1"
     style_bg "$2"
     printf '#{?client_prefix, Prefix ,}'
     
 }
-function component_currentwindow_or_prefix {
+component_currentwindow_or_prefix() {
     style_text bold
     style_fg "$currentwindow_fg"
     style_bg "$currentwindow_bg"
     prefix
-    printf '#{?client_prefix,Prefix,#W}'
+    printf '%s' '#{?client_prefix,Prefix,#W}'
     suffix
 }

@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 mpc > /dev/null
-while [[ $? -ne 0 ]]; do
+while [ $? -ne 0 ]; do
     sleep 5
     printf "\nMPD not running...\n"
 done
