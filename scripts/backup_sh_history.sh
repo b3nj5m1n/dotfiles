@@ -19,4 +19,4 @@ CURRENT=$(cat "$BACKUP_FILE")
 
 printf "%s\n%s" "$NEW" "$CURRENT" | sort | uniq > "$BACKUP_FILE"
 
-$HOME/.local/share/bin/auto_commit.sh "$BACKUP_DIR" "$SILENT"
+"$HOME"/.local/share/bin/auto_commit.sh "$BACKUP_DIR" "$SILENT"

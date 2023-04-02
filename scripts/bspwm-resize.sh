@@ -24,18 +24,18 @@ if ! is_tiled; then
                 sign="+"
                 ;;
                 esac
- xdo resize ${switch} ${sign}${size}
+ xdo resize "${switch}" "${sign}""${size}"
 
 # Otherwise, window is tiled: switch with window in given direction
 else
      case "$dir" in
-                west) bspc node @west -r -$size || bspc node @east -r -${size}
+                west) bspc node @west -r -"$size" || bspc node @east -r -"${size}"
                 ;;
-                east) bspc node @west -r +$size || bspc node @east -r +${size}
+                east) bspc node @west -r +"$size" || bspc node @east -r +"${size}"
                 ;;
-                north) bspc node @south -r -$size || bspc node @north -r -${size}
+                north) bspc node @south -r -"$size" || bspc node @north -r -"${size}"
                 ;;
-                south) bspc node @south -r +$size || bspc node @north -r +${size}
+                south) bspc node @south -r +"$size" || bspc node @north -r +"${size}"
                 ;;
                 esac
 fi

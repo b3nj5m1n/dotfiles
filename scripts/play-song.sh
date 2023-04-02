@@ -5,13 +5,13 @@
 # Dir to search for music in
 dirname="/mnt/Vault/music/"
 
-cd "$dirname"
+cd "$dirname" || exit
 selection=$(find -name "*.mp3" | rofi -dmenu -i -F)
 
 [ -z "$selection" ] && exit
 
 mpc clear
-mpc add "$(echo $selection | sed 's/\.\///g')"
+mpc add "$(echo "$selection" | sed 's/\.\///g')"
 mpc play
 
 

@@ -12,7 +12,7 @@ URL="$1"
 # Make sure OPERAION_DIR doesn't already exist, then create and enter it
 rm -rf "$OPERAION_DIR"
 mkdir "$OPERAION_DIR"
-cd "$OPERAION_DIR"
+cd "$OPERAION_DIR" || exit
 
 # Create necessary config files
 mkdir "config"

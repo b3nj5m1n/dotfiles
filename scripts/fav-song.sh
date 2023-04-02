@@ -10,7 +10,7 @@ dirname="/mnt/Vault/music"
 filter="a.*.m3u"
 
 # Get selection
-files=$(find $dirname -maxdepth 1 -name $filter)
+files=$(find $dirname -maxdepth 1 -name "$filter")
 # File to write to
 filename=$(printf "$files" | rofi -dmenu -c)
 
@@ -19,7 +19,7 @@ filename=$(printf "$files" | rofi -dmenu -c)
 # Get relative path to song and write it to the file
 # songname=$(cmus-remote -Q 2>/dev/null | sed "s/file \/mnt\/Vault\/music/./;t;d")
 songname=$(mpc -f "%file%" current | sed 's/^/\.\//g')
-printf "%s\n" "$songname" >> $filename
+printf "%s\n" "$songname" >> "$filename"
 
 # Display notification
 filename=$(echo "$filename" | rev | cut -d '/' -f 1 | rev)
