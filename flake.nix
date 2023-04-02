@@ -103,6 +103,15 @@
           ./nix/nixos/emperor.nix
           hyprland.nixosModules.default
           {programs.hyprland.enable = true;}
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users."b3nj4m1n" = {imports = [
+             ./nix/home-manager/emperor.nix  
+            ]; 
+            };
+          }
         ];
       };
       chinstrap = nixpkgs.lib.nixosSystem {
