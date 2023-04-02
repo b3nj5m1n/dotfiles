@@ -6,20 +6,21 @@
   pkgs,
   ...
 }: {
-  imports = [
-    outputs.homeManagerModules.helix
-    outputs.homeManagerModules.gpg
-    outputs.homeManagerModules.git
-    outputs.homeManagerModules.shell
+  imports = let homeManagerModules = import ../modules/home-manager;
+  in [
+    homeManagerModules.helix
+    homeManagerModules.gpg
+    homeManagerModules.git
+    homeManagerModules.shell
   ];
 
-  nixpkgs = {
-    overlays = [
-      outputs.overlays.modifications
-      outputs.overlays.additions
-      outputs.overlays.channels
-    ];
-  };
+  # nixpkgs = {
+  #   overlays = [
+  #     outputs.overlays.modifications
+  #     outputs.overlays.additions
+  #     outputs.overlays.channels
+  #   ];
+  # };
 
   home = {
     username = "admin";

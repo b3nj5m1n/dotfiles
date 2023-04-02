@@ -94,6 +94,15 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./nix/nixos/adelie.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users."b3nj4m1n" = {imports = [
+             ./nix/home-manager/adelie.nix  
+            ]; 
+            };
+          }
         ];
       };
       emperor = nixpkgs.lib.nixosSystem {
@@ -118,6 +127,15 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./nix/nixos/chinstrap.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users."admin" = {imports = [
+             ./nix/home-manager/chinstrap.nix  
+            ]; 
+            };
+          }
         ];
       };
     };

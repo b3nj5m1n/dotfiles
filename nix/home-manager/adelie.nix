@@ -6,29 +6,31 @@
   pkgs,
   ...
 }: {
-  imports = [
-    outputs.homeManagerModules.helix
-    outputs.homeManagerModules.tree-sitter
-    outputs.homeManagerModules.theming
-    outputs.homeManagerModules.gpg
-    outputs.homeManagerModules.git
-    outputs.homeManagerModules.shell
+  imports = let homeManagerModules = import ../modules/home-manager;
+  in [
+    homeManagerModules.helix
+    homeManagerModules.tree-sitter
+    homeManagerModules.theming
+    homeManagerModules.gpg
+    homeManagerModules.git
+    homeManagerModules.shell
   ];
 
-  nixpkgs = {
-    overlays = [
-      outputs.overlays.modifications
-      outputs.overlays.additions
-      outputs.overlays.channels
-    ];
-    config = {
-      allowUnfree = false;
-    };
-  };
+  # nixpkgs = {
+  #   overlays = [
+  #     outputs.overlays.modifications
+  #     outputs.overlays.additions
+  #     outputs.overlays.channels
+  #   ];
+  #   config = {
+  #     allowUnfree = false;
+  #   };
+  # };
 
   home = {
     username = "b3nj4m1n";
     homeDirectory = "/home/b3nj4m1n";
+    sessionVariables.MAINSSHKEYFILE = "id_ed25519";
   };
 
   # Add stuff for your user as you see fit:
