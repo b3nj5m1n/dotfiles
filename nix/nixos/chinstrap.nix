@@ -99,7 +99,7 @@
         ${pkgs.nftables}/bin/nft delete rule nixos-nat post ip saddr 10.0.0.0/8 oif end0 masquerade
       '';
 
-      privateKeyFile = "/home/admin/wireguard-keys/private";
+      privateKeyFile = "/home/admin/.local/share/wireguard/Server.private";
 
       peers = [
         {
