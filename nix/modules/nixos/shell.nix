@@ -20,6 +20,7 @@
       duf # Display disk usage stats in a readable way
       exa # Better ls
       fd # Better find
+      ffmpeg-full # Video (& audio) transcoding, scaling, etc.
       figlet # Almost as important as toilet
       file # Get information about what kind of file you're looking at
       git # I mean it's git
