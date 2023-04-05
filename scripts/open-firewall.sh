@@ -12,7 +12,7 @@ if [ "$(id -u)" -ne 0 ]; then
   exit 1
 fi
 
-handle=$(nft -a list chain inet nixos-fw input | grep "dport 30006 accept" | awk '{print $NF}')
+handle=$(nft -a list chain inet nixos-fw input | grep "dport $PORT accept" | awk '{print $NF}')
 
 open() {
   nft insert rule inet "$TABLE_NAME" input tcp dport "$PORT" accept
