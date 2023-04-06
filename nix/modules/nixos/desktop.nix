@@ -8,6 +8,7 @@
 
   config = {
     environment.systemPackages = with pkgs; [
+      anki-bin
       dunst
       feh
       mangohud
