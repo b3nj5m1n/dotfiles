@@ -28,6 +28,7 @@
       vlc
       zathura
       zotero
+      gsmartcontrol
       (callPackage ../../pkgs/logseq-wrapped {})
     ];
 

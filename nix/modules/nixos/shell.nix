@@ -41,6 +41,7 @@
       ripgrep # Very fast grep, searches directory recursively by default
       sd # Move intuitive sed
       skim # Like fzf, but in rust... yeah that's the only reason
+      smartmontools # Monitor S.M.A.R.T. values
       sqlite # Sqlite cli
       starship # Fast af prompt generator with tons of useful info
       taskwarrior # The endboss of task management
