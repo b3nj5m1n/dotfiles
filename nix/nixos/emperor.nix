@@ -68,6 +68,10 @@
     efi.canTouchEfiVariables = true;
   };
 
+  console.enable = true;
+  console.keyMap = "de";
+  console.earlySetup = true;
+
   services.fwupd.enable = true;
 
   users.users = {

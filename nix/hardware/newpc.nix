@@ -22,41 +22,41 @@
   # 100GB encrypted partitions on multiple disks set up as RAID1
   boot.initrd.luks.devices = {
     "disko-iron-1" = {
-      device = "52795553-38e1-4ec3-bba8-63df295d5d21";
+      device = "/dev/disk/by-uuid/52795553-38e1-4ec3-bba8-63df295d5d21";
     };
     "disko-nvme-2" = {
-      device = "7c596ce8-b136-4a36-ad32-0ae2bb2130ee";
+      device = "/dev/disk/by-uuid/7c596ce8-b136-4a36-ad32-0ae2bb2130ee";
     };
   };
 
   networking.hostId = "c9107abe";
 
   fileSystems."/" = {
-    device = "43258db8-e2c5-4457-9cef-5b308bb1a89f";
+    device = "/dev/disk/by-uuid/43258db8-e2c5-4457-9cef-5b308bb1a89f";
     fsType = "btrfs";
     options = ["subvol=root" "compress-force=zstd" "noatime"];
   };
 
   fileSystems."/home" = {
-    device = "43258db8-e2c5-4457-9cef-5b308bb1a89f";
+    device = "/dev/disk/by-uuid/43258db8-e2c5-4457-9cef-5b308bb1a89f";
     fsType = "btrfs";
     options = ["subvol=home" "compress-force=zstd"];
   };
 
   fileSystems."/nix" = {
-    device = "43258db8-e2c5-4457-9cef-5b308bb1a89f";
+    device = "/dev/disk/by-uuid/43258db8-e2c5-4457-9cef-5b308bb1a89f";
     fsType = "btrfs";
     options = ["subvol=nix" "compress-force=zstd" "noatime"];
   };
 
   fileSystems."/persist" = {
-    device = "43258db8-e2c5-4457-9cef-5b308bb1a89f";
+    device = "/dev/disk/by-uuid/43258db8-e2c5-4457-9cef-5b308bb1a89f";
     fsType = "btrfs";
     options = ["subvol=persist" "compress-force=zstd"];
   };
 
   fileSystems."/var/log" = {
-    device = "43258db8-e2c5-4457-9cef-5b308bb1a89f";
+    device = "/dev/disk/by-uuid/43258db8-e2c5-4457-9cef-5b308bb1a89f";
     fsType = "btrfs";
     options = ["subvol=log" "compress-force=zstd"];
     neededForBoot = true;
@@ -67,11 +67,14 @@
     fsType = "vfat";
   };
 
-  fileSystems."/mnt/disko" = {
-    device = "52795553-38e1-4ec3-bba8-63df295d5d21";
-    fsType = "btrfs";
-    options = ["compress-force=zstd"];
-  };
+  # fileSystems."/mnt/disko" = {
+  #   device = "/dev/mapper/disko-iron-1";
+  #   encrypted = {
+  #     label = "disko-iron-1";
+  #   };
+  #   fsType = "btrfs";
+  #   options = ["compress-force=zstd"];
+  # };
 
   swapDevices = [];
 
