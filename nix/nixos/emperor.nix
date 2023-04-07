@@ -21,6 +21,7 @@
     outputs.nixosModules.fix-suspend
     outputs.nixosModules.open-rgb
     outputs.nixosModules.docker
+    outputs.nixosModules.encryption
 
     ../hardware/newpc.nix
   ];

@@ -47,4 +47,5 @@
   open-rgb = import ./open-rgb.nix;
   docker = import ./docker.nix;
   jellyfin = import ./jellyfin.nix;
+  encryption = import ./encryption.nix;
 }
