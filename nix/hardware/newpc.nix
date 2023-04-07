@@ -67,6 +67,12 @@
     fsType = "vfat";
   };
 
+  fileSystems."/mnt/wolfpack" = {
+    device = "/dev/disk/by-uuid/4ad66514-19e1-4811-a46a-bacd0ad87eee";
+    fsType = "btrfs";
+    options = ["compress-force=zstd"];
+  };
+
   # fileSystems."/mnt/disko" = {
   #   device = "/dev/mapper/disko-iron-1";
   #   encrypted = {
