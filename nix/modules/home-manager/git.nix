@@ -20,6 +20,9 @@
       signing = {
         signByDefault = true;
       };
+      extraConfig = {
+        init.defaultBranch = "main";
+      };
     };
   };
 }
