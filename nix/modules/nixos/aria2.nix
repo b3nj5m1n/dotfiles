@@ -17,11 +17,11 @@
         Type = "simple";
       };
       serviceConfig = {
-        User = "b3nj4m1n";
         ExecStart = "${pkgs.static-web-server}/bin/static-web-server -p 30020 -d ${pkgs.aria_ng}";
       };
       wantedBy = ["multi-user.target"];
     };
+    networking.firewall.allowedTCPPorts = [30020 30019];
     services.aria2 = {
       enable = true;
       openPorts = true;
