@@ -25,4 +25,5 @@
   #     repo-sha = "sha256-nH9Y2mYXRehqvq0kp1DkoI2dIAaCidFAxlKos8wZmks=";
   #   };
   # };
+  aria_ng = pkgs.callPackage ./aria_ng {};
 }
