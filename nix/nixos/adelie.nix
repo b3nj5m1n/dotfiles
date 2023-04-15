@@ -13,6 +13,7 @@
     outputs.nixosModules.sway
     outputs.nixosModules.all-languages
     # outputs.nixosModules.pandoc
+    outputs.nixosModules.aria2
 
     ../hardware/x270.nix
   ];

@@ -22,6 +22,7 @@
     outputs.nixosModules.open-rgb
     outputs.nixosModules.docker
     outputs.nixosModules.encryption
+    outputs.nixosModules.aria2
 
     ../hardware/newpc.nix
   ];

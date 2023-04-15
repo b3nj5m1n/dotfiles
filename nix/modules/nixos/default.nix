@@ -48,4 +48,5 @@
   docker = import ./docker.nix;
   jellyfin = import ./jellyfin.nix;
   encryption = import ./encryption.nix;
+  aria2 = import ./aria2.nix;
 }
