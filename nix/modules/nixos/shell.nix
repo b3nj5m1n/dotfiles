@@ -53,6 +53,7 @@
       unzip # Unzips zips
       wget # You know this one
       xplr # TUI file explorer
+      yt-dlp # Download youtube videos
       zellij # Sort of a little bit like tmux
       zoxide # More modern version of z (remember directories, cd into them without specifying full path)
       zstd # Compression

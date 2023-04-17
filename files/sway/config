@@ -75,7 +75,10 @@ set $lock 'swaylock --screenshots --clock --indicator --indicator-caps-lock --in
 
 output {{ main_monitor }} resolution {{ main_monitor_res }} position 0,0
 
-output {{ main_monitor }} bg {{ wallpaper }} fill
+# output {{ main_monitor }} bg {{ wallpaper }} fill
+
+exec swww init
+exec systemctl start dynamic-wallpaper
 
 # Lock screen after 300 secs, turn off displays after 600 secs, lock screen
 # before computer goes to sleep

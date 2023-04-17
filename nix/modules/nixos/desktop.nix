@@ -29,6 +29,7 @@
       zathura
       zotero
       gsmartcontrol
+      swww
       (callPackage ../../pkgs/logseq-wrapped {})
     ];
 

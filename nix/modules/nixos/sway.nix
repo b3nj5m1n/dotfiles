@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./wayland.nix
+    ./dynamic-wallpaper.nix
   ];
 
   options = {};
@@ -11,6 +12,9 @@
       autotiling-rs
       sway-contrib.grimshot
     ];
+    services.dynamic-wallpaper = {
+      enable = true;
+    };
     programs.sway.enable = true;
     services.xserver.displayManager.defaultSession = "sway";
   };
