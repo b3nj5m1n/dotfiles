@@ -44,7 +44,7 @@
     services.xserver.enable = true;
 
     services.xserver.displayManager.gdm.enable = true;
-    hardware.opengl.mesaPackage = pkgs.mesa_22; # Workaround TODO remove when fixed
+    # hardware.opengl.mesaPackage = pkgs.mesa_22; # Workaround TODO remove when fixed
 
     services.xserver.layout = "de";
     services.xserver.xkbOptions = "caps:escape";
