@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, inputs, ...}: {
   imports = [
     ./desktop.nix
   ];
@@ -19,5 +19,6 @@
       wofi
     ];
     hardware.brillo.enable = true;
+    xdg.portal.extraPortals = with pkgs; [xdg-desktop-portal-hyprland];
   };
 }

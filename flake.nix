@@ -80,6 +80,7 @@
     overlays = import ./nix/overlays {
       inherit inputs;
       inherit fenix;
+      inherit hyprland;
     };
     # Reusable nixos modules you might want to export
     # These are usually stuff you would upstream into nixpkgs

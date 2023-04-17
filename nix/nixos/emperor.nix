@@ -32,6 +32,7 @@
       outputs.overlays.modifications
       outputs.overlays.additions
       outputs.overlays.channels
+      outputs.overlays.hyprland
     ];
     config = {
       allowUnfree = true;

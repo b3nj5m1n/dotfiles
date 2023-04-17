@@ -2,6 +2,7 @@
 {
   inputs,
   fenix,
+  hyprland,
 }: {
   # This one brings our custom packages from the 'pkgs' directory
   additions = final: prev:
@@ -27,4 +28,6 @@
     stable = import inputs.nixpkgs-stable {system = final.system;};
     unstable = import inputs.nixpkgs {system = final.system;};
   };
+
+  hyprland = hyprland.overlays.default;
 }
