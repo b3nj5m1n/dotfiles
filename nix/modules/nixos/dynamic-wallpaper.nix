@@ -1,6 +1,12 @@
-{pkgs, config, lib, ...}: with lib; let 
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+with lib; let
   cfg = config.services.dynamic-wallpaper;
-in{
+in {
   imports = [
   ];
 
@@ -81,10 +87,22 @@ in{
       script = let
         flags = builtins.concatStringsSep " " (
           builtins.filter (x: x != "") [
-            "${if cfg.noResize then "--no-resize" else ""}"
-            "${if cfg.noResize then "--fill-color ${cfg.fillColor}" else ""}"
+            "${
+              if cfg.noResize
+              then "--no-resize"
+              else ""
+            }"
+            "${
+              if cfg.noResize
+              then "--fill-color ${cfg.fillColor}"
+              else ""
+            }"
             "--filter ${cfg.filter}"
-            "${if cfg.sync then "--sync" else ""}"
+            "${
+              if cfg.sync
+              then "--sync"
+              else ""
+            }"
             "--transition-type ${cfg.transitionType}"
             "--transition-step ${toString cfg.transitionStep}"
             "--transition-duration ${toString cfg.transitionDuration}"
@@ -92,7 +110,11 @@ in{
             "--transition-angle ${toString cfg.transitionAngle}"
             "--transition-pos ${cfg.transitionPosition}"
             "--transition-bezier ${cfg.transitionBezier}"
-            "${if cfg.transitionType == "wave" then "--transition-wave ${cfg.transitionWaveProperties}" else ""}"
+            "${
+              if cfg.transitionType == "wave"
+              then "--transition-wave ${cfg.transitionWaveProperties}"
+              else ""
+            }"
           ]
         );
         command = "${pkgs.swww}/bin/swww img ${flags}";
