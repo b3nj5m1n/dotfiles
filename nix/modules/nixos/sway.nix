@@ -15,6 +15,7 @@
     services.dynamic-wallpaper = {
       enable = true;
       theme = "tokyo";
+      transitionDuration = 10;
     };
     programs.sway.enable = true;
     services.xserver.displayManager.defaultSession = "sway";

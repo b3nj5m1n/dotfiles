@@ -83,7 +83,36 @@ in {
       swww
       pkgs.dynamic-wallpapers
     ];
-    systemd.services."dynamic-wallpaper" = mkIf cfg.enable {
+    # Service for starting the swww daemon
+    systemd.user.services."swww-daemon" = mkIf cfg.enable {
+      unitConfig = {
+        "Description" = "Solution to Wayland Wallpaper Woes";
+        "Requires" = "graphical-session.target";
+        "PartOf" = "graphical-session.target";
+        "After" = "graphical-session.target";
+      };
+      serviceConfig = {
+        ExecStart = "${pkgs.swww}/bin/swww init --no-daemon";
+      };
+      wantedBy = [
+        "graphical-session.target"
+      ];
+      path = [pkgs.swww];
+      environment = {
+        WAYLAND_DISPLAY = "wayland-1";
+        XDG_RUNTIME_DIR = "/run/user/1000";
+      };
+    };
+    # Service which sets the current wallpaper to the wallpaper corresponding to the current hour
+    #   systemctl --user start dynamic-wallpaper@default.service # Use settings specified by this module
+    #   systemctl --user start dynamic-wallpaper@skip.service # Skip transition and immediately set the image as background
+    systemd.user.services."dynamic-wallpaper@" = mkIf cfg.enable {
+      unitConfig = {
+        "Description" = "Dynamically change wallpaper based on time of day";
+        "Requires" = "swww-daemon.service";
+        "PartOf" = "swww-daemon.service";
+        "After" = "swww-daemon.service";
+      };
       script = let
         flags = builtins.concatStringsSep " " (
           builtins.filter (x: x != "") [
@@ -117,22 +146,34 @@ in {
             }"
           ]
         );
-        command = "${pkgs.swww}/bin/swww img ${flags}";
+        command = "${pkgs.swww}/bin/swww img";
+        image = "${pkgs.dynamic-wallpapers}/images/${cfg.theme}/$hour.jpg";
       in ''
         set -eu
-        hour="$(date +%H)"
-        ${command} ${pkgs.dynamic-wallpapers}/images/${cfg.theme}/$hour.jpg
+        hour="$(date +%k | xargs)" # xargs removes leading whitespace
+        if [ "$1" = "skip" ]; then
+          ${command} --transition-duration 0 ${image}
+        else
+          ${command} ${flags} ${image}
+        fi
       '';
-      #  --transition-fps 144 --transition-type wipe --transition-angle 30
+      scriptArgs = "%i";
       environment = {
         WAYLAND_DISPLAY = "wayland-1";
         XDG_RUNTIME_DIR = "/run/user/1000";
       };
       serviceConfig = {
         Type = "oneshot";
-        User = "b3nj4m1n";
       };
-      startAt = "minutely";
+    };
+    # Run the dynamic-wallpaper service every hour
+    systemd.user.timers."dynamic-wallpaper" = {
+      wantedBy = ["timers.target"];
+      timerConfig = {
+        OnBootSec = "1h";
+        OnUnitActiveSec = "1h";
+        Unit = "dynamic-wallpaper@default.service";
+      };
     };
   };
 }
