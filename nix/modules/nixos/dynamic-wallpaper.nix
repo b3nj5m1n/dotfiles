@@ -92,7 +92,9 @@ in {
         "After" = "graphical-session.target";
       };
       serviceConfig = {
+        Type = "notify";
         ExecStart = "${pkgs.swww}/bin/swww init --no-daemon";
+        NotifyAccess = "all";
       };
       wantedBy = [
         "graphical-session.target"

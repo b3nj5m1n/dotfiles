@@ -1,4 +1,5 @@
 exec systemctl --user start graphical-session.target
+exec systemctl --user start dynamic-wallpaper@skip.service
 
 # SUPER key as mod. I've used ALT for like 2 years now because I initially
 # thought it was a good idea, but it really, really isn't. Many other programs,
@@ -80,7 +81,6 @@ output {{ main_monitor }} resolution {{ main_monitor_res }} position 0,0
 
 # exec swww init
 # exec systemctl start dynamic-wallpaper
-exec systemctl --user start dynamic-wallpaper@skip.service
 
 # Lock screen after 300 secs, turn off displays after 600 secs, lock screen
 # before computer goes to sleep
