@@ -124,7 +124,7 @@ bindcode $mod+198 exec $term start cmatrix
 bindsym $mod+d exec $menu
 
 # Open clipboard manager
-bindsym Mod1+h exec clipman pick -t wofi
+bindsym Mod1+h exec cliphist list | wofi -dmenu | cliphist decode | wl-copy
 
 # Open calculator
 bindsym Mod1+g exec wofi-calc
@@ -294,7 +294,8 @@ assign [app_id="thunderbird"] workspace 9
 
 ### Autostart daemons, doing this through nixos config is preferred
 exec ~/.config/eww/start-eww
-exec wl-paste -t text --watch clipman store
+exec wl-paste --type text --watch cliphist store
+exec wl-paste --type image --watch cliphist store
 exec syncthing -no-browser
 
 # Autostart Firefox

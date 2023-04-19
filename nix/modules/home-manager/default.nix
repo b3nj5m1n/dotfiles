@@ -6,4 +6,5 @@
   git = import ./git.nix;
   shell = import ./shell.nix;
   xdg-compliance = import ./xdg-compliance.nix;
+  hyprland = import ./hyprland.nix;
 }

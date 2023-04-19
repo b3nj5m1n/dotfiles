@@ -118,6 +118,9 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.sharedModules = [
+              hyprland.homeManagerModules.default
+            ];
             home-manager.users."b3nj4m1n" = {
               imports = [
                 ./nix/home-manager/emperor.nix
