@@ -94,6 +94,7 @@
     # tree-sitter-grammar.norg
     discord
     discordchatexporter-cli # Exactly what it says
+    homepage
   ];
 
   system.stateVersion = "22.05";

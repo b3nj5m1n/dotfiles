@@ -27,4 +27,5 @@
   # };
   aria_ng = pkgs.callPackage ./aria_ng {};
   dynamic-wallpapers = pkgs.callPackage ./dynamic-wallpapers {};
+  homepage = pkgs.callPackage ./homepage {};
 }
