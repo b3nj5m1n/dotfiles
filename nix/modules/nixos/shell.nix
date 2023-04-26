@@ -27,6 +27,7 @@
       glow # Render markdown in the terminal
       gnumake # You know make
       helix # Like neovim but less config
+      hexyl # View binary files
       hyperfine # Benchmark command performance
       inotify-tools # Watch for file changes
       jq # Jesus christ it's JSON Bourne
