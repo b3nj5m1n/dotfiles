@@ -15,6 +15,7 @@
       settings = {
         theme = "catppuccin_macchiato";
         editor = {
+          idle-timeout = 50;
           line-number = "relative";
           cursor-shape = {
             insert = "bar";

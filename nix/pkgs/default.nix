@@ -6,8 +6,8 @@
   fenix,
 }: {
   # fenix = import fenix {inherit system;};
-  rust-toolchain = fenix.packages.${system}.complete.toolchain;
-  rust-analyzer-nightly = fenix.packages.${system}.rust-analyzer;
+  rust-toolchain = fenix.packages.${system}.stable.toolchain;
+  rust-analyzer-nightly = fenix.packages.${system}.stable.rust-analyzer;
   pfui = pkgs.callPackage ./pfui {};
   eisvogel = pkgs.callPackage ./eisvogel {};
   # logseq-wrapped = pkgs.callPackage ./logseq-wrapped {};
