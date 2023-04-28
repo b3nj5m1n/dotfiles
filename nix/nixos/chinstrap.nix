@@ -14,6 +14,7 @@
     outputs.nixosModules.python
     outputs.nixosModules.jellyfin
     outputs.nixosModules.aria2
+    outputs.nixosModules.docker
 
     "${
       fetchTarball {
