@@ -1,11 +1,12 @@
-#!/usr/bin/bash
+#! /usr/bin/env nix-shell
+#! nix-shell -i bash -p python310 python310Packages.deemix
 
 # Uses deemix to download from deezer
 
 # Temporary directory for storing config files
 OPERAION_DIR="/tmp/download-deezer/"
 # Music directory
-DEST_DIR="/mnt/Vault/music/"
+DEST_DIR="/mnt/wolfpack/music"
 # Url to download
 URL="$1"
 
