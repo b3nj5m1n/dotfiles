@@ -13,6 +13,9 @@
       feh
       mangohud
       firefox
+      (tor-browser-bundle-bin.override {
+        useHardenedMalloc = false;
+      })
       thunderbird
       libnotify
       neovide
