@@ -15,6 +15,7 @@
       # ])
       rust-toolchain
       rust-analyzer-nightly
+      cargo-nextest
     ];
   };
 }
