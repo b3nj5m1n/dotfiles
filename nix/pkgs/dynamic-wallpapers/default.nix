@@ -13,16 +13,17 @@ stdenv.mkDerivation rec {
 
   src = fetchzip {
     url = "https://github.com/adi1090x/dynamic-wallpaper/archive/${ref}.zip";
-    sha256 = "sha256-dLjNYuMvbJ+IZWVvM1ARBZvaGp7CNbSLmV4gX1OUTsI=";
-    stripRoot = true;
+    sha256 = "sha256-Tq4m4MnUMVt3PzKsWtIp5s01XOv3cs+eW4U8VQZ4OlA=";
+    stripRoot = false;
   };
 
   nativeBuildInputs = with pkgs; [];
 
   installPhase = ''
     runHook preInstall
+    ls
     mkdir -p "$out"
-    cp -r ./dynamic-wallpaper-${ref}/images "$out/images"
+    cp -r ./images "$out/images"
     runHook postInstall
   '';
 }
