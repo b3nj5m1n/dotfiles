@@ -11,11 +11,17 @@ stdenv.mkDerivation rec {
   version = "0.0.1";
   ref = "de6bc647b4a8aa459bbc6dc8fc411569bec7ac44";
 
-  src = fetchzip {
-    url = "https://github.com/adi1090x/dynamic-wallpaper/archive/${ref}.zip";
+  src = fetchFromGitHub {
+    owner = "adi1090x";
+    repo = "dynamic-wallpaper";
+    rev = ref;
     sha256 = "sha256-Tq4m4MnUMVt3PzKsWtIp5s01XOv3cs+eW4U8VQZ4OlA=";
-    stripRoot = false;
   };
+  # src = fetchzip {
+  #   url = "https://github.com/adi1090x/dynamic-wallpaper/archive/${ref}.zip";
+  #   sha256 = "sha256-Tq4m4MnUMVt3PzKsWtIp5s01XOv3cs+eW4U8VQZ4OlA=";
+  #   stripRoot = false;
+  # };
 
   nativeBuildInputs = with pkgs; [];
 
