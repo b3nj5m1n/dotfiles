@@ -50,4 +50,5 @@
   encryption = import ./encryption.nix;
   aria2 = import ./aria2.nix;
   dynamic-wallpaper = import ./dynamic-wallpaper.nix;
+  android = import ./android.nix;
 }

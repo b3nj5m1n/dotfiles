@@ -12,6 +12,7 @@
     outputs.nixosModules.terminal
     outputs.nixosModules.sway
     outputs.nixosModules.all-languages
+    outputs.nixosModules.android
     # outputs.nixosModules.pandoc
     outputs.nixosModules.steam
     outputs.nixosModules.gitega
