@@ -16,6 +16,10 @@
       rust-toolchain
       rust-analyzer-nightly
       cargo-nextest
+      cargo-expand
+      cargo-watch
+      cargo-audit
+      sqlx-cli
     ];
   };
 }
