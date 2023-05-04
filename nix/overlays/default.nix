@@ -34,6 +34,14 @@
   channels = final: prev: {
     stable = import inputs.nixpkgs-stable {system = final.system;};
     unstable = import inputs.nixpkgs {system = final.system;};
+    pr229184 = import (fetchTarball {
+      url = "https://github.com/NixOS/nixpkgs/archive/8cad3dbe48029cb9def5cdb2409a6c80d3acfe2e.tar.gz";
+      sha256 = "sha256:181ad740l2fy6phsz45jlvhnshhz4nvvl900vm1kvn9bhlc1ih95";
+    }) {system = final.system;};
+    pr227905 = import (fetchTarball {
+      url = "https://github.com/NixOS/nixpkgs/archive/b7291d04a2baab98592b738285ae2245dc96381b.tar.gz";
+      sha256 = "sha256:0wn6yfd9cb8n0708jv3m4czh4s487byj74kc2k01qbirb9w69l3p";
+    }) {system = final.system;};
   };
 
   hyprland = hyprland.overlays.default;

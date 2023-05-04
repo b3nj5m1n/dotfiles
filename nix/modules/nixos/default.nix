@@ -51,4 +51,5 @@
   aria2 = import ./aria2.nix;
   dynamic-wallpaper = import ./dynamic-wallpaper.nix;
   android = import ./android.nix;
+  postgres = import ./postgres.nix;
 }

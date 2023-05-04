@@ -24,6 +24,7 @@
     outputs.nixosModules.docker
     outputs.nixosModules.encryption
     outputs.nixosModules.aria2
+    outputs.nixosModules.postgres
 
     ../hardware/newpc.nix
   ];
@@ -96,6 +97,7 @@
     discord
     discordchatexporter-cli # Exactly what it says
     homepage
+    pr227905.insomnia
   ];
 
   system.stateVersion = "22.05";
