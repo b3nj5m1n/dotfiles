@@ -23,9 +23,12 @@
       wofi
     ];
     hardware.brillo.enable = true;
+    services.dbus.enable = true;
     xdg.portal = {
       enable = true;
       wlr.enable = true;
+      # lxqt.enable = true;
+      extraPortals = [pkgs.xdg-desktop-portal-gtk];
       # extraPortals = with pkgs; [
       #   xdg-desktop-portal-wlr
       #   xdg-desktop-portal-gtk
