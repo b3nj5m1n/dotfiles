@@ -42,6 +42,10 @@
       url = "https://github.com/NixOS/nixpkgs/archive/b7291d04a2baab98592b738285ae2245dc96381b.tar.gz";
       sha256 = "sha256:0wn6yfd9cb8n0708jv3m4czh4s487byj74kc2k01qbirb9w69l3p";
     }) {system = final.system;};
+    pr231339 = import (fetchTarball {
+      url = "https://github.com/NixOS/nixpkgs/archive/75087d518adbceef58bcd999a59017a6b60dd4d4.tar.gz";
+      sha256 = "sha256:1absmck3dd7jracjjw84zy3kgg9303zq8f0v50gqhbymanszk3km";
+    }) {system = final.system;};
   };
 
   hyprland = hyprland.overlays.default;

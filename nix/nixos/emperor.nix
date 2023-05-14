@@ -98,6 +98,7 @@
     discordchatexporter-cli # Exactly what it says
     homepage
     pr227905.insomnia
+    pr231339.sea-orm-cli
   ];
 
   system.stateVersion = "22.05";
