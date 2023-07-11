@@ -9,6 +9,7 @@
   config = {
     environment.systemPackages = with pkgs; [
       anki-bin
+      calibre
       dunst
       feh
       mangohud
