@@ -8,7 +8,7 @@
     environment.systemPackages = with pkgs; [
       nodePackages.npm
       nodePackages.typescript-language-server
-      nodePackages.parcel
+      # nodePackages.parcel
       stable.nodejs
       yarn
     ];

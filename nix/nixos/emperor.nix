@@ -34,7 +34,7 @@
       outputs.overlays.modifications
       outputs.overlays.additions
       outputs.overlays.channels
-      outputs.overlays.hyprland
+      # outputs.overlays.hyprland
     ];
     config = {
       allowUnfree = true;
@@ -58,8 +58,8 @@
       experimental-features = "nix-command flakes";
       # Deduplicate and optimize nix store
       auto-optimise-store = true;
-      substituters = ["https://hyprland.cachix.org"];
-      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+      # substituters = ["https://hyprland.cachix.org"];
+      # trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
     };
   };
 
@@ -101,5 +101,5 @@
     pr231339.sea-orm-cli
   ];
 
-  system.stateVersion = "22.05";
+  system.stateVersion = "23.05";
 }

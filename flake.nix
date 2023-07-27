@@ -3,16 +3,16 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/release-22.05";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/release-23.05";
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-    };
+    # hyprland = {
+    #   url = "github:hyprwm/Hyprland";
+    # };
 
     fenix = {
       url = "github:nix-community/fenix";
@@ -29,7 +29,7 @@
     fenix,
     nixpkgs,
     home-manager,
-    hyprland,
+    # hyprland,
     flake-utils,
     ...
   } @ inputs: let
@@ -80,7 +80,7 @@
     overlays = import ./nix/overlays {
       inherit inputs;
       inherit fenix;
-      inherit hyprland;
+      # inherit hyprland;
     };
     # Reusable nixos modules you might want to export
     # These are usually stuff you would upstream into nixpkgs
@@ -112,14 +112,14 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./nix/nixos/emperor.nix
-          hyprland.nixosModules.default
-          {programs.hyprland.enable = true;}
+          # hyprland.nixosModules.default
+          # {programs.hyprland.enable = true;}
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.sharedModules = [
-              hyprland.homeManagerModules.default
+              # hyprland.homeManagerModules.default
             ];
             home-manager.users."b3nj4m1n" = {
               imports = [

@@ -10,7 +10,7 @@
       deno
       nodePackages.typescript
       nodePackages.typescript-language-server
-      nodePackages.parcel
+      # nodePackages.parcel
     ];
   };
 }

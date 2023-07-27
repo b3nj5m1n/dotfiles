@@ -5,7 +5,8 @@
   options = {};
 
   config = {
-    fonts.fonts = with pkgs; [
+    # fonts.enableDefaultPackages = true;
+    fonts.packages = with pkgs; [
       arkpandora_ttf
       liberation_ttf
       (nerdfonts.override {fonts = ["FantasqueSansMono" "FiraCode" "UbuntuMono"];})

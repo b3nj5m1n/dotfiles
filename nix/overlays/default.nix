@@ -2,7 +2,7 @@
 {
   inputs,
   fenix,
-  hyprland,
+  # hyprland,
 }: {
   # This one brings our custom packages from the 'pkgs' directory
   additions = final: prev:
@@ -48,5 +48,5 @@
     }) {system = final.system;};
   };
 
-  hyprland = hyprland.overlays.default;
+  # hyprland = hyprland.overlays.default;
 }
