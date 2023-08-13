@@ -6,7 +6,7 @@
 
   config = {
     environment.systemPackages = with pkgs; [
-      qemu_full
+      # qemu_full
       virt-manager
       virt-viewer
       dnsmasq
