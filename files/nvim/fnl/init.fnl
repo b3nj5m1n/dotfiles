@@ -30,7 +30,7 @@
 (plugin-config.autopairs)
 (plugin-config.nvim-surround)
 (plugin-config.nvim-colorizer)
-(plugin-config.nvim-treesitter)
+; (plugin-config.nvim-treesitter)
 (plugin-config.lspconfig)
 ; (plugin-config.lspsaga)
 ; (plugin-config.lsp-lines)
@@ -41,7 +41,7 @@
 (plugin-config.gitsigns)
 (plugin-config.conjure)
 (plugin-config.netrw)
-(plugin-config.murmur)
+; (plugin-config.murmur)
 (plugin-config.ufo)
 (plugin-config.dap)
 

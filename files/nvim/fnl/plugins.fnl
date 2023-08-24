@@ -7,13 +7,13 @@
 (paq.paq-add "plenary" "Common lua functions for nvim plugins"
   "nvim-lua/plenary.nvim"
   :branch "master"
-  :commit "4b7e52044bbb84242158d977a50c4cbcd85070c7")
+  :commit "0dbe561ae023f02c2fb772b879e905055b939ce3")
 
 ; [aniseed](https://github.com/Olical/aniseed)
 (paq.paq-add "aniseed" "Fennel support"
   "Olical/aniseed"
   :branch "master"
-  :commit "9892a40d4cf970a2916a984544b7f984fc12f55c")
+  :commit "7bc09736f3651c10d29b82d1a465b7f540614be1")
 
 ; [kommentary](https://github.com/b3nj5m1n/kommentary)
 ; This is a plugin I wrote a while back, it's similar to tpope's [vim-commentary](https://github.com/tpope/vim-commentary), but written in lua and with more functionality. About a year after I wrote this plugin, we also got [Comment.nvim](https://github.com/numToStr/Comment.nvim), which has a bit more functionality than kommentary and is definitely worth checking out if you don't already have a commenting plugin.
@@ -33,14 +33,14 @@
 (paq.paq-add "dressing" "Better default ui interfaces"
   "stevearc/dressing.nvim"
   :branch "master"
-  :commit "ed44aa798ab07dc298f43f35c8e0c93a1b335abb"
+  :commit "ee571505f3566f84fd252e76c4ce6df6eaf2fb94"
   :ft "norg"
   :module "neorg")
 
 ; [neorg](https://github.com/nvim-neorg/neorg)
 (paq.paq-add "neorg" "Org-mode equivalent for neovim"
   "nvim-neorg/neorg"
-  :commit "10cd28e3bec3f6583f545ba0d504e65f63a64aae"
+  :commit "f296a22864bbac0d94ad00fa18cc8231dbeaa1e3"
   :requires ["nvim-lua/plenary.nvim" "nvim-treesitter/nvim-treesitter"]
   :ft "norg"
   :module "neorg")
@@ -65,13 +65,13 @@
 (paq.paq-add "catppuccin" "Catppuccin colorscheme"
   "catppuccin/nvim"
   ; :as "colorscheme"
-  :commit "e695645298320e9714d10897aadee3cb5951567a")
+  :commit "da8f4875bdc4d73ff039c2e42a3ef931414e50bd")
 
 ; [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
 (paq.paq-add "indent-blankline" "Show indent guides"
   "lukas-reineke/indent-blankline.nvim"
   :branch "master"
-  :commit "db7cbcb40cc00fc5d6074d7569fb37197705e7f6"
+  :commit "9637670896b68805430e2f72cf5d16be5b97a22a"
   ; :after "colorscheme"
   :module "indent_blankline")
   ; :event "UiEnter")
@@ -80,27 +80,27 @@
 (paq.paq-add "leap" "Smooth af navigation plugin"
   "ggandor/leap.nvim"
   :branch "main"
-  :commit "847a1dcfb1a3a576860151754d95fb3b0014663e")
+  :commit "5efe985cf68fac3b6a6dfe7a75fbfaca8db2af9c")
   ; :event "UiEnter")
    
 ; [murmur.lua](https://github.com/nyngwang/murmur.lua)
 (paq.paq-add "murmur" "Highlight current word in buffer"
   "nyngwang/murmur.lua"
-  :commit "b7fc2b36df33fca58efe3a9f5b487f1be4bf138e")
+  :commit "85d3f1c3e98fa60b523abf40f4951d4ddb44fa54")
   ; :event "UiEnter")
 
 ; [nvim-parinfer](https://github.com/gpanders/nvim-parinfer)
 (paq.paq-add "parinfer" "Parinfer plugin written in lua"
   "gpanders/nvim-parinfer"
   :branch "master"
-  :commit "82bce5798993f4fe5ced20e74003b492490b4fe8")
+  :commit "5ca09287ab3f4144f78ff7977fabc27466f71044")
   ; :event "UiEnter")
 
 ; [telescope](https://github.com/nvim-telescope/telescope.nvim)
 (paq.paq-add "telescope" "Fuzzy finder"
   "nvim-telescope/telescope.nvim"
   :branch "master"
-  :commit "97847309cbffbb33e442f07b8877d20322a26922"
+  :commit "2d92125620417fbea82ec30303823e3cd69e90e8"
   :requires "nvim-lua/plenary.nvim")
   ; :event "UiEnter"
    
@@ -108,7 +108,7 @@
 (paq.paq-add "autopairs" "Autopairs"
   "windwp/nvim-autopairs"
   :branch "master"
-  :commit "6b6e35fc9aca1030a74cc022220bc22ea6c5daf4"
+  :commit "ae5b41ce880a6d850055e262d6dfebd362bb276e"
   ; :event "InsertEnter"
   :module "nvim-autopairs")
 
@@ -123,14 +123,14 @@
 (paq.paq-add "nvim-surround" "Surround text objects"
   "kylechui/nvim-surround"
   :branch "main"
-  :commit "7e5096b736ae252d04d543af6a13280125dc6d0f")
+  :commit "1c2ef599abeeb98e40706830bcd27e90e259367a")
   ; :event "InsertEnter")
 
 ; [nvim-colorizer](https://github.com/nvchad/nvim-colorizer.lua)
 (paq.paq-add "nvim-colorizer" "Highlight color codes"
   "nvchad/nvim-colorizer.lua"
   :branch "master"
-  :commit "760e27df4dd966607e8fb7fd8b6b93e3c7d2e193"
+  :commit "dde3084106a70b9a79d48f426f6d6fec6fd203f7"
   ; :event "BufEnter"
   :module "colorizer")
    
@@ -138,19 +138,19 @@
 (paq.paq-add "editorconfig" "Automatically load some configuration options based on project"
   "editorconfig/editorconfig-vim"
   :branch "master"
-  :commit "a8e3e66deefb6122f476c27cee505aaae93f7109")
+  :commit "e014708e917b457e8f6c57f357d55dd3826880d4")
 
 ; [feline.nvim](https://github.com/feline-nvim/feline.nvim)
 (paq.paq-add "feline" "Statusline"
   "feline-nvim/feline.nvim"
   :branch "master"
-  :commit "6d4e3f934bffaa1893a690cd9b8f8b584ef0a7ea")
+  :commit "d48b6f92c6ccdd6654c956f437be49ea160b5b0c")
 
 ; [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 (paq.paq-add "web-deviconds" "File icons"
    "kyazdani42/nvim-web-devicons"
    :branch "master"
-   :commit "9061e2d355ecaa2b588b71a35e7a11358a7e51e1")
+   :commit "cfc8824cc1db316a276b36517f093baccb8e799a")
 
 ; [vim-vinegar](https://github.com/tpope/vim-vinegar)
 (paq.paq-add "vim-vinegar" "Netrw improvements"
@@ -162,52 +162,52 @@
 (paq.paq-add "netrw.nvim" "Netrw improvements"
   "prichrd/netrw.nvim"
   :branch "master"
-  :commit "98154b526f4fc8168aadf5cab963c4eadba5ba48")
+  :commit "596435bd2f5b0162b86c97ca8244e2b0862d3a4a")
 
 ; [conjure](https://github.com/Olical/conjure)
 (paq.paq-add "conjure" "Interactive evaluation"
   "Olical/conjure"
   :branch "master"
-  :commit "839fe23a7746f03aa9ef1ebf087501cd6126cf0f")
+  :commit "0d9b823db06cc11e6115b54297f690dff10c0299")
 
 ; [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 (paq.paq-add "nvim-treesitter" "Treesitter abstraction layer"
      "nvim-treesitter/nvim-treesitter"
      :branch "master"
-     :commit "c155b6bb308269ca4a376777a8621261efbd17cb")
+     :commit "31f608e47b838594d32a7bc42028e2cefd0ddaad")
 
 ; [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
 (paq.paq-add "treesitter-textobjects" "Textobjects like functions from treesitter"
   "nvim-treesitter/nvim-treesitter-textobjects"
   :branch "master"
-  :commit "13739a5705d9592cbe7da372576363dc8ea5f723")
+  :commit "9e519b6146512c8e2e702faf8ac48420f4f5deec")
   ; :event "UiEnter")
 
 ; [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow)
 (paq.paq-add "rainbow-parens" "Color nested parens using treesitter"
-  "p00f/nvim-ts-rainbow"
+  "hiphish/rainbow-delimiters.nvim"
   :branch "master"
-  :commit "1ec3f880585c644ddd50a51502c59f4e36f03e62")
+  :commit "698a4396623a479fb1bfd3ad5fd23d244996cbeb")
   ; :event "UiEnter")
 
 ; [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 (paq.paq-add "lspconfig" "Lsp abstraction layer"
   "neovim/nvim-lspconfig"
   :branch "master"
-  :commit "2315a397fd5057e3a74a09a240f606af28447ebf")
+  :commit "f7922e59aeb9bc3e31a660ea4e7405ffa3fc2c3a")
   ; :event "VimEnter"
 
 ; [rust-tools.nvim](https://github.com/simrat39/rust-tools.nvim)
 (paq.paq-add "rust-tools" "More support for rust analyzer"
   "simrat39/rust-tools.nvim"
   :branch "master"
-  :commit "99fd1238c6068d0637df30b6cee9a264334015e9")
+  :commit "0cc8adab23117783a0292a0c8a2fbed1005dc645")
 
 ; [nvim-jdtls](https://github.com/mfussenegger/nvim-jdtls)
 (paq.paq-add "nvim-jdtls" "More support for java lsp"
   "mfussenegger/nvim-jdtls"
   :branch "master"
-  :commit "f39efa0e823bcc876d18a7b44d3b61191c42e61c")
+  :commit "095dc490f362adc85be66dc14bd9665ddd94413b")
 
 ; [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
 ; (paq.paq-add "lspsaga" "Better lsp ui"
@@ -224,30 +224,30 @@
 ; [trouble.nvim](https://github.com/folke/trouble.nvim)
 (paq.paq-add "trouble" "Better diagnostics ui"
   "folke/trouble.nvim"
-  :commit "ed65f84abc4a1e5d8f368d7e02601fc0357ea15e")
+  :commit "40aad004f53ae1d1ba91bcc5c29d59f07c5f01d3")
   ; :event "BufEnter")
 
 ; [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 (paq.paq-add "nvim-cmp" "Completion plugin"
   "hrsh7th/nvim-cmp"
-  :commit "11a95792a5be0f5a40bab5fc5b670e5b1399a939"
+  :commit "51f1e11a89ec701221877532ee1a23557d291dd5"
   :config) 
 
 ; [lspkind.nvim](https://github.com/onsails/lspkind.nvim)
 (paq.paq-add "lspkind" "vscode-like pictograms for neovim lsp completion items "
   "onsails/lspkind.nvim"
   :branch "master"
-  :commit "c68b3a003483cf382428a43035079f78474cd11e")
+  :commit "57610d5ab560c073c465d6faf0c19f200cb67e6e")
 
 ; [nvim-cmp-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
 (paq.paq-add "cmp-lsp" "Cmp provider for lsp"
   "hrsh7th/cmp-nvim-lsp"
-  :commit "3cf38d9c957e95c397b66f91967758b31be4abe6")
+  :commit "44b16d11215dce86f253ce0c30949813c0a90765")
 
 ; [nvim-cmp-lsp-signature-help](https://github.com/hrsh7th/cmp-nvim-lsp-signature-help)
 (paq.paq-add "cmp-lsp-signature" "Cmp provider for lsp signatures"
   "hrsh7th/cmp-nvim-lsp-signature-help"
-  :commit "d2768cb1b83de649d57d967085fe73c5e01f8fd7")
+  :commit "3d8912ebeb56e5ae08ef0906e3a54de1c66b92f1")
 
 ; [nvim-cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
 (paq.paq-add "cmp-buffer" "Cmp provider for buffer words"
@@ -257,7 +257,7 @@
 ; [nvim-cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline)
 (paq.paq-add "cmp-cmdline" "Cmp provider for commandline"
   "hrsh7th/cmp-cmdline"
-  :commit "c66c379915d68fb52ad5ad1195cdd4265a95ef1e")
+  :commit "8ee981b4a91f536f52add291594e89fb6645e451")
 
 ; [nvim-cmp-path](https://github.com/hrsh7th/cmp-path)
 (paq.paq-add "cmp-path" "Cmp provider for filepaths"
@@ -268,24 +268,24 @@
 (paq.paq-add "cmp-luasnip" "Cmp provider for luasnip"
   "saadparwaiz1/cmp_luasnip"
   :branch "master"
-  :commit "a9de941bcbda508d0a45d28ae366bb3f08db2e36")
+  :commit "18095520391186d634a0045dacaa346291096566")
 
 ; [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 (paq.paq-add "luasnip" "Snippet engine"
   "L3MON4D3/LuaSnip"
   :branch "master"
-  :commit "663d54482b11bca1ce94f56993b9f6ab485a13dc")
+  :commit "c4d6298347f7707e9757351b2ee03d0c00da5c20")
 
 ; [friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 (paq.paq-add "friendly-snippets" "Snippet collection"
   "rafamadriz/friendly-snippets"
-  :commit "bb318c455e4e8946d64c79753f5bb07f7c27d711")
+  :commit "377d45475b49e37460a902d6d569d2093d4037d0")
 
 ; [neogit](https://github.com/TimUntersberger/neogit)
 (paq.paq-add "neogit" "Magit for neovim"
-  "TimUntersberger/neogit"
+  "NeogitOrg/neogit"
   :branch "master"
-  :commit "1acb13c07b34622fe1054695afcecff537d9a00a"
+  :commit "d764b406a1a6f3db13a28bef10e139a09fcc14dd"
   :requires "nvim-lua/plenary.nvim"
   :module "neogit"
   :after "plenary.nvim")
@@ -294,41 +294,41 @@
 (paq.paq-add "fugitive" "Basic git integration"
   "tpope/vim-fugitive"
   :branch "master"
-  :commit "4b0f2b604562e9681ae3b80c2665f168ac637cea")
+  :commit "b3b838d690f315a503ec4af8c634bdff3b200aaf")
   ; :event "BufEnter")
 
 ; [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
 (paq.paq-add "gitsigns" "Show added/removed/changed lines"
   "lewis6991/gitsigns.nvim"
-  :commit "851cd32caaea84f303c4fdf51d72dfa5fcd795bb"
+  :commit "749267aaa863c30d721c9913699c5d94e0c07dd3"
   :requires "nvim-lua/plenary.nvim")
   ; :event "BufEnter")
 
 ; [promise-async](https://github.com/kevinhwang91/promise-async)
 (paq.paq-add "promise-async" "Promise/await in lua"
   "kevinhwang91/promise-async"
-  :commit "70b09063cdf029079b25c7925e4494e7416ee995")
+  :commit "e94f35161b8c5d4a4ca3b6ff93dd073eb9214c0e")
 
 ; [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
 (paq.paq-add "nvim-ufo" "Handling of folds"
   "kevinhwang91/nvim-ufo"
-  :commit "e988139f6f2d3b3fb5cb512a164636ed7dc41c1f"
+  :commit "0c0e1e0af68a608b15d18125be92953c553a5f27"
   :requires "kevinhwang91/nvim-ufo")
 
 ; [nvim-dap](https://github.com/mfussenegger/nvim-dap)
 (paq.paq-add "nvim-dap" "Debug Adapter Protocol Implemenation"
   "mfussenegger/nvim-dap"
   :branch "master"
-  :commit "8f396b7836b9bbda9edd9f655f12ca377ae97676")
+  :commit "4377a05b9476587b7b485d6a9d9745768c4e4b37")
 
 ; [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
 (paq.paq-add "nvim-dap-ui" "UI for nvim-dap"
   "rcarriga/nvim-dap-ui"
   :branch "master"
-  :commit "54365d2eb4cb9cfab0371306c6a76c913c5a67e3")
+  :commit "85b16ac2309d85c88577cd8ee1733ce52be8227e")
 
 ; [nvim-dap-virtual-text](https://github.com/theHamsta/nvim-dap-virtual-text)
 (paq.paq-add "nvim-dap-virtual-text" "Virtual text for variable content when debugging"
   "theHamsta/nvim-dap-virtual-text"
   :branch "master"
-  :commit "2971ce3e89b1711cc26e27f73d3f854b559a77d4")
+  :commit "57f1dbd0458dd84a286b27768c142e1567f3ce3b")
