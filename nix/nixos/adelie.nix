@@ -58,7 +58,6 @@
     grub = {
       enable = true;
       copyKernels = true;
-      version = 2;
       efiSupport = true;
       device = "nodev";
     };
