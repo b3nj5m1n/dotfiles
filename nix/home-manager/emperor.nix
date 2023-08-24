@@ -9,13 +9,14 @@
   imports = let
     homeManagerModules = import ../modules/home-manager;
   in [
-    homeManagerModules.helix
+    # homeManagerModules.helix
     homeManagerModules.tree-sitter
     homeManagerModules.theming
     homeManagerModules.gpg
     homeManagerModules.git
     homeManagerModules.shell
     # homeManagerModules.hyprland
+    homeManagerModules.nixvim
   ];
 
   # nixpkgs = {
@@ -36,7 +37,7 @@
   };
 
   # Add stuff for your user as you see fit:
-  programs.neovim.enable = true;
+  # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
 
   programs.home-manager.enable = true;

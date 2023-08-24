@@ -10,6 +10,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # hyprland = {
     #   url = "github:hyprwm/Hyprland";
     # };
@@ -29,6 +34,7 @@
     fenix,
     nixpkgs,
     home-manager,
+    nixvim,
     # hyprland,
     flake-utils,
     ...
@@ -102,6 +108,7 @@
             home-manager.users."b3nj4m1n" = {
               imports = [
                 ./nix/home-manager/adelie.nix
+		nixvim.homeManagerModules.nixvim
               ];
             };
           }
@@ -124,6 +131,7 @@
             home-manager.users."b3nj4m1n" = {
               imports = [
                 ./nix/home-manager/emperor.nix
+		nixvim.homeManagerModules.nixvim
               ];
             };
           }
@@ -140,6 +148,7 @@
             home-manager.users."admin" = {
               imports = [
                 ./nix/home-manager/chinstrap.nix
+		nixvim.homeManagerModules.nixvim
               ];
             };
           }

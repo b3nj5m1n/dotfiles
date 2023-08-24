@@ -7,4 +7,5 @@
   shell = import ./shell.nix;
   xdg-compliance = import ./xdg-compliance.nix;
   hyprland = import ./hyprland.nix;
+  nixvim = import ./nixvim.nix;
 }
