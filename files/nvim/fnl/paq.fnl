@@ -14,7 +14,7 @@
                                    :branch branch :commit commit :optional optional
                                    :command command :requires requires :filetype filetype
                                    :event event :after after :disable disable
-                                   :description description :as as}))
+                                   :description description :as as :trigger-keys trigger-keys}))
       
 ; I don't want to have to set all possible parameters, though. And there's some other things I'd like automated.
 
@@ -28,7 +28,8 @@
 (defn paq-add [name description path ...]
   (local plugin-config {
                         :name name :path path :config nil :setup nil :branch nil :commit nil :optional nil
-                        :command nil :requires nil :filetype nil :event nil :after nil :disable nil :description description :as nil})
+                        :command nil :requires nil :filetype nil :event nil :after nil :disable nil 
+                        :description description :as nil :trigger-keys nil})
   (for [i 1 (length [...]) 2]
     (let [key (. [...] i) value (. [...] (+ 1 i))]
       (tset plugin-config key value)))
@@ -84,18 +85,18 @@
   (each [_ plugin (ipairs (. config :plugins))]
     (let [lazy-plugin {
                        1 (. plugin :path)
+                       :init (. plugin :setup)
                        :config (. plugin :config)
-                       :setup (. plugin :setup)
                        :branch (. plugin :branch)
                        :commit (. plugin :commit)
-                       :opt (. plugin :optional)
+                       :lazy (. plugin :optional)
                        :cmd (. plugin :command)
-                       :requires (. plugin :requires)
+                       :dependencies (. plugin :requires)
                        :ft (. plugin :filetype)
                        :event (. plugin :event)
-                       :after (. plugin :after)
                        :disable (. plugin :disable)
-                       :as (. plugin :as)}]
+                       :name (. plugin :as)
+                       :keys (. plugin :trigger-keys)}]
         
       (table.insert lazy-plugins lazy-plugin)))
   (lazy.setup lazy-plugins))

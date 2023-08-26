@@ -38,22 +38,22 @@
          ; :hook_function (. (require :ts_context_commentstring.internal) :update_commentstring)
 
 (defn dressing []
-      (. (require :dressing) :setup) 
-      {:input {
-               :enabled true
-               :default_prompt "Input:"
-               :prompt_align :left
-               :insert_only true
-               :start_in_insert true
-               :anchor :SW
-               :border :rounded
-               :relative :cursor
-               :win_options {:winblend 10
-                             :wrap false}}
-       :select {:enabled true
-                :backend [:telescope
-                          :builtin]
-                :trim_prompt true}})
+      ((. (require :dressing) :setup)
+       {:input {
+                :enabled true
+                :default_prompt "Input:"
+                :prompt_align :left
+                :insert_only true
+                :start_in_insert true
+                ; :anchor :SW
+                :border :rounded
+                :relative :cursor
+                :win_options {:winblend 10
+                              :wrap false}}
+        :select {:enabled true
+                 :backend [:telescope
+                           :builtin]
+                 :trim_prompt true}}))
 
 (defn neorg []
       (. (require :neorg) :setup) {:load {}
