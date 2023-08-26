@@ -45,8 +45,9 @@
   "nvim-neorg/neorg"
   :commit "f296a22864bbac0d94ad00fa18cc8231dbeaa1e3"
   :requires ["nvim-lua/plenary.nvim" "nvim-treesitter/nvim-treesitter"]
-  :optional true
-  :filetype "norg")
+  ; :optional true
+  ; :filetype "norg"
+  :config ((. (require :plugin-config) :neorg)))
   ;:module "neorg")
 
 ; [dracula](https://github.com/Mofiqul/dracula.nvim)
@@ -89,13 +90,15 @@
   :optional true)
   ; :event "UiEnter")
    
-; ; [mini.cursorword](https://github.com/echasnovski/mini.cursorword)
-; (paq.paq-add "cursorword" "Highlight current word in buffer"
-;   "echasnovski/mini.cursorword"
-;   :commit "066770d17218d783dc76abde80fde89967f94907")
-;   ; :config (. (require "mini.cursorword") :setup) {}
-;   ; :event "UiEnter"
-;   ; :optional true)
+; [mini.cursorword](https://github.com/echasnovski/mini.cursorword)
+(paq.paq-add "cursorword" "Highlight current word in buffer"
+  "echasnovski/mini.cursorword"
+  :commit "066770d17218d783dc76abde80fde89967f94907"
+  :config true
+  :opts { :delay 0})
+  ; :config (. (require "mini.cursorword") :setup) {}
+  ; :event "UiEnter"
+  ; :optional true)
 
 ; [nvim-parinfer](https://github.com/gpanders/nvim-parinfer)
 (paq.paq-add "parinfer" "Parinfer plugin written in lua"
@@ -336,7 +339,8 @@
   :requires "nvim-lua/plenary.nvim"
   ; :module "neogit"
   ; :after "plenary.nvim"
-  :optional true)
+  ; :optional true
+  :config true)
 
 ; [vim-fugitive](https://github.com/tpope/vim-fugitive)
 (paq.paq-add "fugitive" "Basic git integration"
@@ -388,12 +392,26 @@
   :commit "57f1dbd0458dd84a286b27768c142e1567f3ce3b"
   :optional true)
 
-; ; [headlines.nvim](https://github.com/lukas-reineke/headlines.nvim)
-; (paq.paq-add "headlines" "Horizontal highlights for headings"
-;   "lukas-reineke/headlines.nvim"
-;   :branch "master"
-;   :commit "74a083a3c32a08be24f7dfcc6f448ecf47857f46"
-;   :requires ["nvim-treesitter/nvim-treesitter"]
-;   :opts {}
-;   :optional true
-;   :filetype ["norg" "markdown"])
+; [which-key.nvim](https://github.com/folke/which-key.nvim)
+; BUG conflicts with dressing.nvim
+(paq.paq-add "which-key" "Display popup with possible keybindings"
+  "folke/which-key.nvim"
+  :commit "7ccf476ebe0445a741b64e36c78a682c1c6118b7"
+  :opts {}
+  :optional true
+  :event "VeryLazy"
+  :setup (do
+          (set vim.o.timeout true)
+          (set vim.o.timeoutlen 300))
+  :config true)
+
+; [headlines.nvim](https://github.com/lukas-reineke/headlines.nvim)
+(paq.paq-add "headlines" "Horizontal highlights for headings"
+  "lukas-reineke/headlines.nvim"
+  :branch "master"
+  :commit "74a083a3c32a08be24f7dfcc6f448ecf47857f46"
+  :requires ["nvim-treesitter/nvim-treesitter"]
+  :opts {}
+  :optional true
+  :config true
+  :filetype ["norg" "markdown"])

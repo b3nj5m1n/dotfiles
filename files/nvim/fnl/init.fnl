@@ -24,7 +24,7 @@
 (plugin-config.watch-mode-changes)
 ; (plugin-config.kommentary)
 ; (plugin-config.dressing)
-(plugin-config.neorg)
+
 (plugin-config.indent-blankline)
 (plugin-config.leap)
 (plugin-config.autopairs)
@@ -50,4 +50,5 @@
 (highlight.create-groups-telescope "normal")
 (highlight.create-groups-ufo "normal")
 (highlight.create-groups-cmp)
+(highlight.create-groups-cursorword)
 

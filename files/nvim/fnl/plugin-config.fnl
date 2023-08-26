@@ -56,11 +56,11 @@
                  :trim_prompt true}}))
 
 (defn neorg []
-      (. (require :neorg) :setup) {:load {}
-                                         :core.defaults {}
-                                         :core.norg.concealer {:config {:preset :icons}}
-                                         :core.norg.completion {:config {:engine :nvim-cmp}}
-                                         :core.norg.esupports.metagen {:config {:type :auto}}})
+  (. (require :neorg) :setup) {:load {
+                                           :core.defaults {}
+                                           :core.norg.concealer {:config {:preset :icons}}
+                                           :core.norg.completion {:config {:engine :nvim-cmp}}
+                                           :core.norg.esupports.metagen {:config {:type :auto}}}})
 
 (defn indent-blankline []
       (. (require :indent_blankline) :setup) {

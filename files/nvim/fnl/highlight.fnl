@@ -15,6 +15,11 @@
     (create-hl-groups
       {:CursorLineNr {:fg accent-a}})))
 
+(defn create-groups-cursorword []
+  (create-hl-groups
+    {:MiniCursorword {:bg "#1e2030"}}
+    {:MiniCursorwordCurrent {:bg "#181926"}}))
+
 (defn create-groups-ufo []
   (let [accent "#342f50"]
     (create-hl-groups

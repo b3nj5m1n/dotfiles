@@ -38,7 +38,9 @@
   (if (= (. plugin-config :optional) nil) (tset plugin-config :optional false))
   (if (= (. plugin-config :disable) nil) (tset plugin-config :disable false))
   (if (not (= (. plugin-config :config) nil))
-    (tset plugin-config :config (fn [] (. plugin-config :config))))
+    (if (= (. plugin-config :config) true)
+      (tset plugin-config :config true)
+      (tset plugin-config :config (fn [] (. plugin-config :config)))))
     ; (tset plugin-config :config (fn [] nil)))
   (if (not (= (. plugin-config :setup) nil))
     (tset plugin-config :setup (fn [] (. plugin-config :setup))))
@@ -98,7 +100,7 @@
                        :disable (. plugin :disable)
                        :name (. plugin :as)
                        :keys (. plugin :trigger-keys)
-                       :opts opts}]
+                       :opts (. plugin :opts)}]
         
       (table.insert lazy-plugins lazy-plugin)))
   (lazy.setup lazy-plugins))
