@@ -88,7 +88,7 @@
                            :files {1 :src/parser.c 2 :src/scanner.cc}
                            :branch :main}})
       ((. (require :nvim-treesitter.configs) :setup) 
-       {; :ensure_installed :all
+       {:ensure_installed ["markdown" "rust" "lua" "fennel" "python"]
         :highlight {:enable true}
         :indent {:enable true}
         ; :context_commentstring {:enable true :enable_autocmd false}
@@ -118,7 +118,8 @@
       (local capabilities (lsp-util.get-capabilities))
       (local servers [:bashls :cmake :jedi_language_server
                       :cssls :elmls :html :jsonls :clojure_lsp
-                      :tsserver :tsserver :yamlls :hls :rnix])
+                      :tsserver :tsserver :yamlls :hls :rnix
+                      :fennel_language_server])
       (each [_ server (pairs servers)]
         ((. (. lspconfig server) :setup) 
          {:capabilities capabilities

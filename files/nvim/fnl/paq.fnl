@@ -14,7 +14,8 @@
                                    :branch branch :commit commit :optional optional
                                    :command command :requires requires :filetype filetype
                                    :event event :after after :disable disable
-                                   :description description :as as :trigger-keys trigger-keys}))
+                                   :description description :as as :trigger-keys trigger-keys
+                                   :opts opts}))
       
 ; I don't want to have to set all possible parameters, though. And there's some other things I'd like automated.
 
@@ -96,7 +97,8 @@
                        :event (. plugin :event)
                        :disable (. plugin :disable)
                        :name (. plugin :as)
-                       :keys (. plugin :trigger-keys)}]
+                       :keys (. plugin :trigger-keys)
+                       :opts opts}]
         
       (table.insert lazy-plugins lazy-plugin)))
   (lazy.setup lazy-plugins))

@@ -93,6 +93,7 @@
     eisvogel
     bemoji
     wofi-calc
+    fennel-language-server
     # tree-sitter-grammar.norg
     discord
     discordchatexporter-cli # Exactly what it says

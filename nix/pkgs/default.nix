@@ -28,4 +28,5 @@
   aria_ng = pkgs.callPackage ./aria_ng {};
   dynamic-wallpapers = pkgs.callPackage ./dynamic-wallpapers {};
   homepage = pkgs.callPackage ./homepage {};
+  fennel-language-server = pkgs.callPackage ./fennel-language-server {};
 }

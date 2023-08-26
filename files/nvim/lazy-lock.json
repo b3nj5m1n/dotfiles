@@ -18,7 +18,6 @@
   "lazy.nvim": { "branch": "main", "commit": "dac844ed617dda4f9ec85eb88e9629ad2add5e05" },
   "leap.nvim": { "branch": "main", "commit": "5efe985cf68fac3b6a6dfe7a75fbfaca8db2af9c" },
   "lspkind.nvim": { "branch": "master", "commit": "57610d5ab560c073c465d6faf0c19f200cb67e6e" },
-  "murmur.lua": { "branch": "main", "commit": "85d3f1c3e98fa60b523abf40f4951d4ddb44fa54" },
   "neogit": { "branch": "master", "commit": "d764b406a1a6f3db13a28bef10e139a09fcc14dd" },
   "neorg": { "branch": "main", "commit": "f296a22864bbac0d94ad00fa18cc8231dbeaa1e3" },
   "netrw.nvim": { "branch": "master", "commit": "596435bd2f5b0162b86c97ca8244e2b0862d3a4a" },

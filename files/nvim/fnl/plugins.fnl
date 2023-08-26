@@ -89,11 +89,13 @@
   :optional true)
   ; :event "UiEnter")
    
-; ; [murmur.lua](https://github.com/nyngwang/murmur.lua)
-; (paq.paq-add "murmur" "Highlight current word in buffer"
-;   "nyngwang/murmur.lua"
-;   :commit "85d3f1c3e98fa60b523abf40f4951d4ddb44fa54")
-;   ; :event "UiEnter")
+; ; [mini.cursorword](https://github.com/echasnovski/mini.cursorword)
+; (paq.paq-add "cursorword" "Highlight current word in buffer"
+;   "echasnovski/mini.cursorword"
+;   :commit "066770d17218d783dc76abde80fde89967f94907")
+;   ; :config (. (require "mini.cursorword") :setup) {}
+;   ; :event "UiEnter"
+;   ; :optional true)
 
 ; [nvim-parinfer](https://github.com/gpanders/nvim-parinfer)
 (paq.paq-add "parinfer" "Parinfer plugin written in lua"
@@ -385,3 +387,13 @@
   :branch "master"
   :commit "57f1dbd0458dd84a286b27768c142e1567f3ce3b"
   :optional true)
+
+; ; [headlines.nvim](https://github.com/lukas-reineke/headlines.nvim)
+; (paq.paq-add "headlines" "Horizontal highlights for headings"
+;   "lukas-reineke/headlines.nvim"
+;   :branch "master"
+;   :commit "74a083a3c32a08be24f7dfcc6f448ecf47857f46"
+;   :requires ["nvim-treesitter/nvim-treesitter"]
+;   :opts {}
+;   :optional true
+;   :filetype ["norg" "markdown"])
