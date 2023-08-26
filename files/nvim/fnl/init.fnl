@@ -1,10 +1,10 @@
 
-(module fennel-config
-  {
-   require
-   {
-    util util
-    paq paq}})
+;(module fennel-config
+;  {
+;   require
+;   {
+;    util util
+;    paq paq
 
 (def util (require "util"))
 (def options (require "options"))

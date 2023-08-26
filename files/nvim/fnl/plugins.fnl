@@ -1,7 +1,7 @@
-(module plugins
-  {require
-   {util util
-    paq paq}})
+;(module plugins
+;  {require
+;   {util util
+;    paq paq
 
 ; [plenary](https://github.com/nvim-lua/plenary.nvim)
 (paq.paq-add "plenary" "Common lua functions for nvim plugins"
@@ -9,11 +9,15 @@
   :branch "master"
   :commit "0dbe561ae023f02c2fb772b879e905055b939ce3")
 
-; [aniseed](https://github.com/Olical/aniseed)
-(paq.paq-add "aniseed" "Fennel support"
-  "Olical/aniseed"
-  :branch "master"
-  :commit "7bc09736f3651c10d29b82d1a465b7f540614be1")
+; [nfnl](https://github.com/Olical/nfnl)
+(paq.paq-add "nfnl" "Fennel support"
+  "Olical/nfnl"
+  :commit "9fd29f394a57e14e573850defd288ea263876cbf")
+; ; [aniseed](https://github.com/Olical/aniseed)
+; (paq.paq-add "aniseed" "Fennel support"
+;   "Olical/aniseed"
+;   :branch "master"
+;   :commit "7bc09736f3651c10d29b82d1a465b7f540614be1")
 
 ; [kommentary](https://github.com/b3nj5m1n/kommentary)
 ; This is a plugin I wrote a while back, it's similar to tpope's [vim-commentary](https://github.com/tpope/vim-commentary), but written in lua and with more functionality. About a year after I wrote this plugin, we also got [Comment.nvim](https://github.com/numToStr/Comment.nvim), which has a bit more functionality than kommentary and is definitely worth checking out if you don't already have a commenting plugin.

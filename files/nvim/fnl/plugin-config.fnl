@@ -1,7 +1,7 @@
-(module plugin-config
-  {require
-   {util util
-    lsp-util lsp-util}})
+;(module plugin-config
+;  {require
+;   {util util
+;    lsp-util lsp-util
 
 (defn colorscheme []
       (local catppuccin (require :catppuccin))

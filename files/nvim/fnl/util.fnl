@@ -1,4 +1,5 @@
-(module util)
+;(module util)
+(local module {})
 ; --- Introduction ---
 
 ; Any functions or variables we define in here won't be accesible by neovim, but in certain instances we need to have access to these functions. For example, we use packer to manage plugins, and packer accepts a `config` field for any plugin with a function to run as configuration for the given plugin. If we want to set a keymap as part of a plugins configuration, we need to expose the function we create to handle keymaps to neovim.
@@ -131,3 +132,5 @@
         "down" (do
                  (set-visual-selection (+ start 2) start-col (+ end 2) end-col)
                  (vim.api.nvim_win_set_cursor 0 [(+ row 1) col]))))))
+
+module

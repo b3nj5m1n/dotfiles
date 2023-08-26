@@ -1,24 +1,8 @@
--- vim.cmd [[packadd packer.nvim]]
-vim.cmd [[packadd aniseed]]
-
---[[ require('packer').startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
-  use 'Olical/aniseed'
-end) ]]
-
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+-- [nfnl] Compiled from init.fnl by https://github.com/Olical/nfnl, do not edit.
+local lazypath = (vim.fn.stdpath("data") .. "/lazy/lazy.nvim")
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+  vim.fn.system({"git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath})
+else
 end
-vim.opt.rtp:prepend(lazypath)
-
-require('aniseed.env').init()
-
+do end (vim.opt.rtp):prepend(lazypath)
+return require("init")

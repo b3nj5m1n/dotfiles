@@ -1,4 +1,4 @@
-(module feline-config)
+;(module feline-config)
 
 (local prov-lsp (require :feline.providers.lsp))
 (local prov-vi-mode (require :feline.providers.vi_mode))

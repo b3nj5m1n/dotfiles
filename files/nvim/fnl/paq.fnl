@@ -1,5 +1,5 @@
-(module paq
-  {require {util util}})
+;(module paq
+;  {require {util util}}
 ; --- Plugin Management ---
 
 ; Neovim doesn't /really/ have a built-in plugin manager, and there are tons of available options. I'm currently using [packer](https://github.com/wbthomason/packer.nvim), but I don't want to be dependendent on that, so my approach to plugin management is built to allow for easily switching out the plugin manager without having to make changes to my plugin declarations.

@@ -1,4 +1,4 @@
-(module highlight)
+; (module highlight)
 ; --- Highlight related stuff ---
 
 (defn create-hl-groups [groups]

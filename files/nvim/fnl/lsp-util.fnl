@@ -1,6 +1,6 @@
-(module lsp-util
-  {require
-   {util util}})
+;(module lsp-util
+;  {require
+;   {util util}
 
 (defn get-capabilities []
   (var capabilities {})

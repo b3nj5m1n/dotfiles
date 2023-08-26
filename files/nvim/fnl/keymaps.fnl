@@ -1,6 +1,6 @@
-(module keymaps
-  {require
-   {util util}})
+;(module keymaps
+;  {require
+;   {util util}
 
 ; --- Make Ctrl+C behave like Escape ---
 (util.set-keymap "Normal: Make Ctrl+C behave like Escape"
