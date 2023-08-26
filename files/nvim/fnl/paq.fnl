@@ -69,21 +69,68 @@
                  :after (. plugin :after)
                  :disable (. plugin :disable)
                  :as (. plugin :as)})))
-  ; ((. (require :packer) :startup) {1 (fn []
-  ;                                       (each [_ plugin (ipairs (. config :plugins))]
-  ;                                         {
-  ;                                          1 (. plugin :path)
-  ;                                          :config (. plugin :config)
-  ;                                          :setup (. plugin :setup)
-  ;                                          :branch (. plugin :branch)
-  ;                                          :commit (. plugin :commit)
-  ;                                          :opt (. plugin :optional)
-  ;                                          :cmd (. plugin :command)
-  ;                                          :requires (. plugin :requires)
-  ;                                          :ft (. plugin :filetype)
-  ;                                          :event (. plugin :event)
-  ;                                          :after (. plugin :after)
-  ;                                          :disable (. plugin :disable)
-  ;                                          :as (. plugin :as)}))
-  ;                                  :config {:compile_path (.. (vim.fn.stdpath :config) :/lua/packer_compiled.lua)}}))
-  ; (require :packer_compiled))
+
+(defn init-lazy []
+  (paq-add "lazy" "Plugin manager"
+    "folke/lazy.nvim"
+    :branch "main"
+    :commit "dac844ed617dda4f9ec85eb88e9629ad2add5e05"
+    :optional false)
+  ; (vim.cmd "packadd packer.nvim")
+  (local lazy (require :lazy))
+  ; (lazy.setup {:config {:compile_path (.. (vim.fn.stdpath :config) :/lua/packer_compiled.lua)}})
+  (local lazy-plugins [])
+
+  (each [_ plugin (ipairs (. config :plugins))]
+    (let [lazy-plugin {
+                       1 (. plugin :path)
+                       :config (. plugin :config)
+                       :setup (. plugin :setup)
+                       :branch (. plugin :branch)
+                       :commit (. plugin :commit)
+                       :opt (. plugin :optional)
+                       :cmd (. plugin :command)
+                       :requires (. plugin :requires)
+                       :ft (. plugin :filetype)
+                       :event (. plugin :event)
+                       :after (. plugin :after)
+                       :disable (. plugin :disable)
+                       :as (. plugin :as)}]
+        
+      (table.insert lazy-plugins lazy-plugin)))
+  (lazy.setup lazy-plugins))
+
+ 
+     ; (each [_ plugin (ipairs (. config :plugins))]
+     ;  (packer.use {
+     ;               1 (. plugin :path)
+     ;               :config (. plugin :config)
+     ;               :setup (. plugin :setup)
+     ;               :branch (. plugin :branch)
+     ;               :commit (. plugin :commit)
+     ;               :opt (. plugin :optional)
+     ;               :cmd (. plugin :command)
+     ;               :requires (. plugin :requires)
+     ;               :ft (. plugin :filetype)
+     ;               :event (. plugin :event)
+     ;               :after (. plugin :after)
+     ;               :disable (. plugin :disable)
+     ;               :as (. plugin :as)))))
+      ; ((. (require :packer) :startup) {1 (fn []
+      ;                                       (each [_ plugin (ipairs (. config :plugins))]
+      ;                                         {
+      ;                                          1 (. plugin :path)
+      ;                                          :config (. plugin :config)
+      ;                                          :setup (. plugin :setup)
+      ;                                          :branch (. plugin :branch)
+      ;                                          :commit (. plugin :commit)
+      ;                                          :opt (. plugin :optional)
+      ;                                          :cmd (. plugin :command)
+      ;                                          :requires (. plugin :requires)
+      ;                                          :ft (. plugin :filetype)
+      ;                                          :event (. plugin :event)
+      ;                                          :after (. plugin :after)
+      ;                                          :disable (. plugin :disable)
+      ;                                          :as (. plugin :as)}))
+      ;                                  :config {:compile_path (.. (vim.fn.stdpath :config) :/lua/packer_compiled.lua)}}))
+      ; (require :packer_compiled))

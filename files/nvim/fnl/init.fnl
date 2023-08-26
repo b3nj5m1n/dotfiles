@@ -10,7 +10,7 @@
 (def options (require "options"))
 (def plugins (require "plugins"))
 
-(paq.init-packer)
+(paq.init-lazy)
 
 (def keymaps (require "keymaps"))
 
