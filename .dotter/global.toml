@@ -321,7 +321,7 @@ c23 = "#B8C0E0" # Dim
 [neovim.files]
 "files/nvim/init.lua" = "~/.config/nvim/init.lua"
 "files/nvim/lazy-lock.json" = "~/.config/nvim/lazy-lock.json"
-"files/nvim/fnl/" = "~/.config/nvim/fnl/"
+"files/nvim/fnl/" = { target = "~/.config/nvim/fnl/", type = "symbolic" }
 "files/nvim/ftplugin/" = "~/.config/nvim/ftplugin/"
 "files/nvim/after/syntax/markdown.vim" = "~/.config/nvim/after/syntax/markdown.vim"
 "files/nvim/after/queries/markdown/highlights.scm" = "~/.config/nvim/after/queries/markdown/highlights.scm"
