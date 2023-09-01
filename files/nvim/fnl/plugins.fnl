@@ -415,3 +415,63 @@
   :optional true
   :config true
   :filetype ["norg" "markdown"])
+
+; [range-highlight.nvim](https://github.com/winston0410/range-highlight.nvim)
+(paq.paq-add "range-highlight" "Highlights ranges entered in commandline"
+  "winston0410/range-highlight.nvim"
+  :branch "master"
+  :commit "8b5e8ccb3460b2c3675f4639b9f54e64eaab36d9"
+  :requires "winston0410/cmd-parser.nvim"
+  :opts {})
+  ; :optional true
+  ; :config true
+
+; [hardtime.nvim](https://github.com/m4xshen/hardtime.nvim)
+(paq.paq-add "hardtime" "Nags you about inefficient commands"
+  "m4xshen/hardtime.nvim"
+  :commit "3548e7d08c659308d9923effdaa8fa4cc0725c9a"
+  :requires ["MunifTanjim/nui.nvim" "nvim-lua/plenary.nvim"]
+  :opts {
+         :resetting_keys {
+                           "<C-N>" [:n]
+                           "<C-P>" [:n]}})
+                         
+         
+
+; [marks.nvim](https://github.com/chentoast/marks.nvim)
+(paq.paq-add "marks" "Makes marks nicer to work with"
+  "chentoast/marks.nvim"
+  :branch "master"
+  :commit "76aca5069c5ce5c0099e30168649e6393e494f26"
+  :opts {})
+
+; [yanky.nvim](https://github.com/gbprod/yanky.nvim)
+(paq.paq-add "yanky" "Improved yank/put"
+  "gbprod/yanky.nvim"
+  :commit "95c2f006ea6eaed2b2d8b8b4943b8fcf13faf03f"
+  :opts {})
+
+; ; [llm.nvim](https://github.com/huggingface/llm.nvim)
+; (paq.paq-add "llm.nvim" "AI autocomplete"
+;   "huggingface/llm.nvim"
+;   :commit "0f0579fb322bf8aaacb1a2c7fdf33f1d27f93efe"
+;   :opts {
+;          :api_token "TODO"
+;          :model "bigcode/starcoder"})
+
+; [modes.nvim](https://github.com/mvllow/modes.nvim)
+(paq.paq-add "modes" "Line highlights depending on current mode"
+  "mvllow/modes.nvim"
+  :commit "4d97a51ebbdb649b85f6d79da0009fddd7081a6b"
+  :opts {
+         :colors {
+                  :copy "#eed49f"
+                  :delete "#ed8796"
+                  :insert "#8bd5ca"
+                  :visual "#c6a0f6"}
+         :line_opacity 0.4}
+         
+  ; :optional true
+  :config true)
+
+         

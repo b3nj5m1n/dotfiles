@@ -101,3 +101,13 @@
                  "<localleader>do" ":lua require('dap').step_over()<CR>")
 (util.set-keymap "Normal: Toggle DAP-UI"
                  "<localleader>du" ":lua require('dapui').toggle()<CR>")
+
+; --- Yanky ---
+(util.set-keymap "Normal: Paste after"
+                 "p" "<Plug>(YankyPutAfter)")
+(util.set-keymap "Normal: Paste before"
+                 "p" "<Plug>(YankyPutBefore)")
+(util.set-keymap "Normal: Yank cycle forward"
+                 "<c-n>" "<Plug>(YankyCycleForward)")
+(util.set-keymap "Normal: Yank cycle backward"
+                 "<c-p>" "<Plug>(YankyCycleBackward)")
