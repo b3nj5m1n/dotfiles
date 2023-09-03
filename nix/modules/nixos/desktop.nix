@@ -13,7 +13,7 @@
       dunst
       feh
       mangohud
-      firefox-bin
+      stable.firefox-bin
       (tor-browser-bundle-bin.override {
         useHardenedMalloc = false;
       })
