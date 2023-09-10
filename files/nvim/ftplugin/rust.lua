@@ -1,3 +1,5 @@
+local rt = require("rust-tools")
+
 local opts = {
     tools = {
         runnables = {
@@ -34,4 +36,7 @@ local opts = {
     },
 }
 
-require('rust-tools').setup(opts)
+rt.setup(opts)
+-- Idk why but without this the server doesn't start
+rt.setup()
+
