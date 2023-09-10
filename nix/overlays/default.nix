@@ -2,6 +2,7 @@
 {
   inputs,
   fenix,
+  rocm,
   # hyprland,
 }: {
   # This one brings our custom packages from the 'pkgs' directory
@@ -11,6 +12,9 @@
       system = prev.system;
       inherit fenix;
     };
+
+  rocm = final: _prev:
+    import rocm {};
 
   # This one contains whatever you want to overlay
   # You can change versions, add patches, set compilation flags, anything really.
@@ -32,7 +36,7 @@
   };
 
   channels = final: prev: {
-    stable = import inputs.nixpkgs-stable {system = final.system;};
+    stable = import inputs.nixpkgs-stable {system = final.system; config.allowUnfree = true;};
     unstable = import inputs.nixpkgs {system = final.system;};
     pr229184 = import (fetchTarball {
       url = "https://github.com/NixOS/nixpkgs/archive/8cad3dbe48029cb9def5cdb2409a6c80d3acfe2e.tar.gz";

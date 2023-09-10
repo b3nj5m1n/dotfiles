@@ -22,6 +22,8 @@
     flake-utils.url = "github:numtide/flake-utils";
 
     hardware.url = "github:nixos/nixos-hardware";
+
+    rocm.url = "github:nixos-rocm/nixos-rocm";
   };
 
   outputs = {
@@ -31,6 +33,7 @@
     home-manager,
     # hyprland,
     flake-utils,
+    rocm,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -80,6 +83,7 @@
     overlays = import ./nix/overlays {
       inherit inputs;
       inherit fenix;
+      inherit rocm;
       # inherit hyprland;
     };
     # Reusable nixos modules you might want to export

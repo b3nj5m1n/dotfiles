@@ -34,7 +34,9 @@
       zotero
       gsmartcontrol
       swww
+      stable.tts
       (callPackage ../../pkgs/logseq-wrapped {})
+      libdrm
     ];
 
     services = {

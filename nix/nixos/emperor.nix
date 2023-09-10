@@ -65,7 +65,14 @@
 
   networking.hostName = "emperor";
 
+  boot.kernelPackages = pkgs.linuxPackages_5_4;
   boot.supportedFilesystems = ["btrfs"];
+  hardware.opengl.enable = true;
+  hardware.opengl.extraPackages = with pkgs; [
+      rocm-opencl-icd
+      rocm-opencl-runtime
+  ];
+  hardware.opengl.driSupport = true;
   hardware.enableAllFirmware = true;
   boot.loader = {
     systemd-boot.enable = true;

@@ -6,7 +6,7 @@
 
   config = {
     environment.systemPackages = with pkgs; [
-      android-studio
+      stable.android-studio
       kotlin
       kotlin-language-server
     ];
