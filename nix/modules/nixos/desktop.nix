@@ -13,7 +13,6 @@
       dunst
       feh
       mangohud
-      stable.firefox-bin
       (tor-browser-bundle-bin.override {
         useHardenedMalloc = false;
       })
@@ -35,6 +34,7 @@
       gsmartcontrol
       swww
       (callPackage ../../pkgs/logseq-wrapped {})
+      (callPackage ../../pkgs/firefox-trapped {})
     ];
 
     services = {

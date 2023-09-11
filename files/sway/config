@@ -301,7 +301,7 @@ exec wl-paste --type image --watch cliphist store
 exec syncthing -no-browser
 
 # Autostart Firefox
-exec firefox
+exec systemd-run --scope -p MemoryLimit=6G firefox
 
 # Enable autotiling
 exec autotiling-rs
