@@ -36,6 +36,7 @@
       killall # Kill processes by name
       libqalculate # qalc cli
       mlocate # Locate files quickly from cached database of files
+      mmv-go # Rename files using $EDITOR
       neomutt # TUI email client
       pfetch # Like neofetch but faster and more minimal
       pmount # Easier mounting
