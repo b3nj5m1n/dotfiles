@@ -7,11 +7,11 @@ stdenv.mkDerivation {
   version = "1.0";
 
   buildInputs = with pkgs; [
-    stable.firefox-bin
+    stable.firefox
   ];
 
   src = pkgs.writeShellScriptBin "firefox-trapper.sh" ''
-    systemd-run --scope -p MemoryLimit=4G ${pkgs.stable.firefox-bin}/bin/firefox &!
+    systemd-run --scope -p MemoryLimit=4G ${pkgs.stable.firefox}/bin/firefox &!
   '';
 
   installPhase = ''

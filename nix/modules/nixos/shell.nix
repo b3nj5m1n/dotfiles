@@ -19,7 +19,7 @@
       dotter # Dotfile management
       du-dust # More intuitive du
       duf # Display disk usage stats in a readable way
-      exa # Better ls
+      eza # Better ls
       fd # Better find
       ffmpeg-full # Video (& audio) transcoding, scaling, etc.
       figlet # Almost as important as toilet
