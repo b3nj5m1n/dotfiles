@@ -405,16 +405,16 @@
           (set vim.o.timeoutlen 300))
   :config true)
 
-; [headlines.nvim](https://github.com/lukas-reineke/headlines.nvim)
-(paq.paq-add "headlines" "Horizontal highlights for headings"
-  "lukas-reineke/headlines.nvim"
-  :branch "master"
-  :commit "74a083a3c32a08be24f7dfcc6f448ecf47857f46"
-  :requires ["nvim-treesitter/nvim-treesitter"]
-  :opts {}
-  :optional true
-  :config true
-  :filetype ["norg" "markdown"])
+; ; [headlines.nvim](https://github.com/lukas-reineke/headlines.nvim)
+; (paq.paq-add "headlines" "Horizontal highlights for headings"
+;   "lukas-reineke/headlines.nvim"
+;   :branch "master"
+;   :commit "74a083a3c32a08be24f7dfcc6f448ecf47857f46"
+;   :requires ["nvim-treesitter/nvim-treesitter"]
+;   :opts {}
+;   :optional true
+;   :config true
+;   :filetype ["norg" "markdown"])
 
 ; [range-highlight.nvim](https://github.com/winston0410/range-highlight.nvim)
 (paq.paq-add "range-highlight" "Highlights ranges entered in commandline"

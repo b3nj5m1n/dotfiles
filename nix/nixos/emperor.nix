@@ -100,6 +100,7 @@
     homepage
     pr227905.insomnia
     pr231339.sea-orm-cli
+    tts15.tts
   ];
 
   system.stateVersion = "23.05";
