@@ -470,8 +470,18 @@
                   :insert "#8bd5ca"
                   :visual "#c6a0f6"}
          :line_opacity 0.4}
-         
   ; :optional true
   :config true)
 
+; [whitespace.nvim](https://github.com/nvim-zh/whitespace.nvim)
+(paq.paq-add "whitespace" "Highlight and trim trailing whitespace"
+  "nvim-zh/whitespace.nvim"
+  :commit "f0fc9e9c4ce3f7d2166e9e5a069b64b9ca4a3f15"
+  :branch "master")
+  ; :opts {
+  ;        :highlight :DiffDelete
+  ;        :ignore_terminal true
+  ;        :ignored_filetypes [:TelescopePrompt :Trouble :help]}
+  ; ; :optional true
+  ; :config true)
          
