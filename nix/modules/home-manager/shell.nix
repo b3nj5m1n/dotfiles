@@ -12,6 +12,7 @@
 
   config = {
     home = {
+      sessionPath = ["${config.home.homeDirectory}/.local/bin/"];
       shellAliases = {
         # General
         sx = "systemctl suspend && exit"; # Suspend and exit
@@ -55,6 +56,8 @@
         glc = "git show -s --format=%s | cpy";
       };
       sessionVariables = {
+        # libstdc++.so.6 => not found
+        LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib";
         # XDG Env Vars
         XDG_CONFIG_HOME = "${config.home.homeDirectory}/.config";
         XDG_DATA_HOME = "${config.home.homeDirectory}/.local/share";
