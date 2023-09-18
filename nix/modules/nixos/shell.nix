@@ -38,6 +38,7 @@
       mlocate # Locate files quickly from cached database of files
       mmv-go # Rename files using $EDITOR
       neomutt # TUI email client
+      parallel # GNU parallel
       pfetch # Like neofetch but faster and more minimal
       pmount # Easier mounting
       progress # Show progress bar for coreutils
