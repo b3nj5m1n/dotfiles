@@ -81,6 +81,8 @@
                  "<leader>la" ":lua vim.lsp.buf.code_action()<CR>")
 (util.set-keymap "Normal: Hover doc"
                  "<leader>lh" ":lua vim.lsp.buf.hover()<CR>")
+(util.set-keymap "Normal: Jump to definition"
+                 "<leader>ldj" ":lua vim.lsp.buf.definition()<CR>")
 ; (util.set-keymap "Normal: Peek definition"
 ;                  "<leader>ld" "<cmd>Lspsaga peek_definition<CR>")
 (util.set-keymap "Normal: Show diagnostics in floating window"
@@ -106,7 +108,7 @@
 (util.set-keymap "Normal: Paste after"
                  "p" "<Plug>(YankyPutAfter)")
 (util.set-keymap "Normal: Paste before"
-                 "p" "<Plug>(YankyPutBefore)")
+                 "P" "<Plug>(YankyPutBefore)")
 (util.set-keymap "Normal: Yank cycle forward"
                  "<c-n>" "<Plug>(YankyCycleForward)")
 (util.set-keymap "Normal: Yank cycle backward"

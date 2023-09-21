@@ -426,17 +426,15 @@
   ; :optional true
   ; :config true
 
-; [hardtime.nvim](https://github.com/m4xshen/hardtime.nvim)
-(paq.paq-add "hardtime" "Nags you about inefficient commands"
-  "m4xshen/hardtime.nvim"
-  :commit "3548e7d08c659308d9923effdaa8fa4cc0725c9a"
-  :requires ["MunifTanjim/nui.nvim" "nvim-lua/plenary.nvim"]
-  :opts {
-         :resetting_keys {
-                           "<C-N>" [:n]
-                           "<C-P>" [:n]}})
-                         
-         
+; ; [hardtime.nvim](https://github.com/m4xshen/hardtime.nvim)
+; (paq.paq-add "hardtime" "Nags you about inefficient commands"
+;   "m4xshen/hardtime.nvim"
+;   :commit "3548e7d08c659308d9923effdaa8fa4cc0725c9a"
+;   :requires ["MunifTanjim/nui.nvim" "nvim-lua/plenary.nvim"]
+;   :opts {
+;          :resetting_keys {
+;                            "<C-N>" [:n]
+;                            "<C-P>" [:n]}})
 
 ; [marks.nvim](https://github.com/chentoast/marks.nvim)
 (paq.paq-add "marks" "Makes marks nicer to work with"
