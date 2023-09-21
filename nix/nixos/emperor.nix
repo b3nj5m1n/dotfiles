@@ -63,6 +63,8 @@
     };
   };
 
+  programs.kdeconnect.enable = true;
+
   networking.hostName = "emperor";
 
   boot.supportedFilesystems = ["btrfs"];
