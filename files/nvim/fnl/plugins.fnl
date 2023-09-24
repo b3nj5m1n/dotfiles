@@ -482,4 +482,10 @@
   ;        :ignored_filetypes [:TelescopePrompt :Trouble :help]}
   ; ; :optional true
   ; :config true)
-         
+
+; [marks.nvim](https://github.com/jamessan/vim-gnupg)
+(paq.paq-add "gnupg" "Encrypt/decrypt gpg files"
+  "jamessan/vim-gnupg"
+  :commit "f9b608f29003dfde6450931dc0f495a912973a88"
+  ; :opts {}
+  :config false)
