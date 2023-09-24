@@ -131,11 +131,11 @@ alias feh='devour feh --keep-zoom-vp'
 # alias mpv='devour mpv'
 
 # Exa (ls replacement)
-alias ls='exa --grid --icons'
-alias ll='exa --long --icons'
-alias la='exa --long --all'
-alias l='exa --grid --across'
-alias tree='exa --tree --icons'
+alias ls='eza --grid --icons'
+alias ll='eza --long --icons'
+alias la='eza --long --all'
+alias l='eza --grid --across'
+alias tree='eza --tree --icons'
 
 # zoxide (cd replacement)
 alias cd='z'
