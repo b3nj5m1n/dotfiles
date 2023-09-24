@@ -50,5 +50,11 @@ export -f process_line
 
 tail -n+7 "$anki_deck" | parallel --line-buffer -j 3 process_line
 
-# TODO
 # Once finished, rewrite the CSV to include the new audio
+cd /tmp || exit 1
+head -n 7 "$anki_deck" > out.csv
+while IFS= read -r line; do
+    sentence=$(echo "$line" | awk -F "\t" '{print $7}')
+    sha=$(echo "$sentence" | sha256sum | awk -F " " '{print $1}')
+    echo "$line" | awk -v sha="[sound:$sha.wav]" 'BEGIN { FS = OFS = "\t" } { $8 = sha; print }' >> out.csv
+done <<< "$(tail -n+7 "$anki_deck")"
