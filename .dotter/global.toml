@@ -238,6 +238,8 @@ c23 = "#B8C0E0" # Dim
 "files/lightdm/lightdm.conf" = { target = "/etc/lightdm/lightdm.conf", type = "template", owner = "root" }
 [sway.files]
 "files/sway/config" = "~/.config/sway/config"
+"files/swaync/style.css" = "~/.config/swaync/style.css"
+"files/swaync/config.json" = "~/.config/swaync/config.json"
 [tofi.files]
 "files/tofi/config" = "~/.config/tofi/config"
 [bspwm.files]

@@ -10,7 +10,7 @@
     environment.systemPackages = with pkgs; [
       anki-bin
       calibre
-      dunst
+      swaynotificationcenter
       feh
       mangohud
       (tor-browser-bundle-bin.override {

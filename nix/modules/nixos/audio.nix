@@ -11,6 +11,7 @@
       pavucontrol
       pulseaudio
       ncpamixer
+      beets
     ];
     security.rtkit.enable = true;
     services.pipewire = {

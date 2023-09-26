@@ -196,6 +196,9 @@ bindsym $mod+Shift+r reload
 # Exit sway (logs you out of your Wayland session)
 bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
+# Open notification center
+bindsym Mod1+c exec swaync-client -t
+
 # Move focus
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
@@ -296,6 +299,7 @@ assign [app_id="thunderbird"] workspace 9
 
 ### Autostart daemons, doing this through nixos config is preferred
 exec ~/.config/eww/start-eww
+exec swaync
 exec wl-paste --type text --watch cliphist store
 exec wl-paste --type image --watch cliphist store
 exec syncthing -no-browser
