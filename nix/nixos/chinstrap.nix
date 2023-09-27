@@ -6,15 +6,21 @@
   pkgs,
   ...
 }: {
-  imports = [
-    outputs.nixosModules.base
-    outputs.nixosModules.shell
-    outputs.nixosModules.bash
-    outputs.nixosModules.nix
-    outputs.nixosModules.python
-    outputs.nixosModules.jellyfin
-    outputs.nixosModules.aria2
-    outputs.nixosModules.docker
+  imports = let
+    user = "admin";
+    args = {
+      inherit user;
+      inherit pkgs;
+    };
+  in [
+    (outputs.nixosModules args).base
+    (outputs.nixosModules args).shell
+    (outputs.nixosModules args).bash
+    (outputs.nixosModules args).nix
+    (outputs.nixosModules args).python
+    (outputs.nixosModules args).jellyfin
+    (outputs.nixosModules args).aria2
+    (outputs.nixosModules args).docker
 
     "${
       fetchTarball {
@@ -127,20 +133,22 @@
     mutableUsers = false;
     users."admin" = {
       isNormalUser = true;
+      uid = 1000;
       hashedPassword = "$6$Hvo92DeZuMm2FHLO$ux3upNIqSmFKNW3RGr.Bg8c.ea0qdqYjJQ409T8SY0GTH4pnJTjFeGX43fmWGO5bpihwsk6GCcqp2EjqfQTwY.";
       extraGroups = ["wheel" "jellyfin"];
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKmPDJruFFCbDJx1f0k9OPKe/ZSPWJhbMjpLtLWxXyXz b3nj4m1n@emperor"
       ];
     };
-    users."guest" = {
-      isNormalUser = true;
-      password = "guest";
-      extraGroups = ["wheel"];
-      openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKmPDJruFFCbDJx1f0k9OPKe/ZSPWJhbMjpLtLWxXyXz b3nj4m1n@emperor"
-      ];
-    };
+    # users."guest" = {
+    #   isNormalUser = true;
+    #   uid = 511;
+    #   password = "guest";
+    #   extraGroups = ["wheel"];
+    #   openssh.authorizedKeys.keys = [
+    #     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKmPDJruFFCbDJx1f0k9OPKe/ZSPWJhbMjpLtLWxXyXz b3nj4m1n@emperor"
+    #   ];
+    # };
   };
 
   environment.systemPackages = with pkgs; [

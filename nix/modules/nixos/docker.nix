@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  user,
+  ...
+}: {
   imports = [
   ];
 
@@ -9,6 +13,6 @@
       docker-compose
     ];
     virtualisation.docker.enable = true;
-    users.users.b3nj4m1n.extraGroups = ["docker"];
+    users.users."${user}".extraGroups = ["docker"];
   };
 }

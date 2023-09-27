@@ -9,7 +9,7 @@
   imports = let
     homeManagerModules = import ../modules/home-manager;
   in [
-    homeManagerModules.helix
+    homeManagerModules.neovim
     homeManagerModules.gpg
     homeManagerModules.git
     homeManagerModules.shell

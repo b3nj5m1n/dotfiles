@@ -6,25 +6,31 @@
   pkgs,
   ...
 }: {
-  imports = [
-    outputs.nixosModules.base
-    outputs.nixosModules.shared-repos
-    outputs.nixosModules.terminal
-    outputs.nixosModules.sway
-    outputs.nixosModules.all-languages
-    outputs.nixosModules.android
-    # outputs.nixosModules.pandoc
-    outputs.nixosModules.steam
-    outputs.nixosModules.gitega
-    outputs.nixosModules.virtual-machines
-    outputs.nixosModules.tree-sitter
-    # outputs.nixosModules.nvidia
-    outputs.nixosModules.fix-suspend
-    outputs.nixosModules.open-rgb
-    outputs.nixosModules.docker
-    outputs.nixosModules.encryption
-    outputs.nixosModules.aria2
-    outputs.nixosModules.postgres
+  imports = let
+    user = "b3nj4m1n";
+    args = {
+      inherit user;
+      inherit pkgs;
+    };
+  in [
+    (outputs.nixosModules args).base
+    (outputs.nixosModules args).shared-repos
+    (outputs.nixosModules args).terminal
+    (outputs.nixosModules args).sway
+    (outputs.nixosModules args).all-languages
+    (outputs.nixosModules args).android
+    # (outputs.nixosModules args).pandoc
+    (outputs.nixosModules args).steam
+    (outputs.nixosModules args).gitega
+    (outputs.nixosModules args).virtual-machines
+    (outputs.nixosModules args).tree-sitter
+    # (outputs.nixosModules args).nvidia
+    (outputs.nixosModules args).fix-suspend
+    (outputs.nixosModules args).open-rgb
+    (outputs.nixosModules args).docker
+    (outputs.nixosModules args).encryption
+    (outputs.nixosModules args).aria2
+    (outputs.nixosModules args).postgres
 
     ../hardware/newpc.nix
   ];

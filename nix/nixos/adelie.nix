@@ -6,14 +6,20 @@
   pkgs,
   ...
 }: {
-  imports = [
-    outputs.nixosModules.base
-    outputs.nixosModules.shared-repos
-    outputs.nixosModules.terminal
-    outputs.nixosModules.sway
-    outputs.nixosModules.all-languages
-    # outputs.nixosModules.pandoc
-    outputs.nixosModules.aria2
+  imports = let
+    user = "b3nj4m1n";
+    args = {
+      inherit user;
+      inherit pkgs;
+    };
+  in [
+    (outputs.nixosModules args).base
+    (outputs.nixosModules args).shared-repos
+    (outputs.nixosModules args).terminal
+    (outputs.nixosModules args).sway
+    (outputs.nixosModules args).all-languages
+    # (outputs.nixosModules args).pandoc
+    (outputs.nixosModules args).aria2
 
     ../hardware/x270.nix
   ];

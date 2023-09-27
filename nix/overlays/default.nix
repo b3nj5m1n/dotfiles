@@ -46,10 +46,14 @@
       url = "https://github.com/NixOS/nixpkgs/archive/75087d518adbceef58bcd999a59017a6b60dd4d4.tar.gz";
       sha256 = "sha256:1absmck3dd7jracjjw84zy3kgg9303zq8f0v50gqhbymanszk3km";
     }) {system = final.system;};
-    tts15 = import (fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/976fa3369d722e76f37c77493d99829540d43845.tar.gz";
-      sha256 = "sha256:1r6c7ggdk0546wzf2hvd5a7jwzsf3gn1flr8vjd685rm74syxv6d";
-    }) {system = final.system; config.allowUnfree = true;};
+    tts15 =
+      import (fetchTarball {
+        url = "https://github.com/NixOS/nixpkgs/archive/976fa3369d722e76f37c77493d99829540d43845.tar.gz";
+        sha256 = "sha256:1r6c7ggdk0546wzf2hvd5a7jwzsf3gn1flr8vjd685rm74syxv6d";
+      }) {
+        system = final.system;
+        config.allowUnfree = true;
+      };
   };
 
   # hyprland = hyprland.overlays.default;
