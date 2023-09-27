@@ -24,8 +24,8 @@
 
     "${
       fetchTarball {
-        url = "https://github.com/NixOS/nixos-hardware/archive/936e4649098d6a5e0762058cb7687be1b2d90550.tar.gz";
-        sha256 = "06g0061xm48i5w7gz5sm5x5ps6cnipqv1m483f8i9mmhlz77hvlw";
+        url = "https://github.com/NixOS/nixos-hardware/archive/61283b30d11f27d5b76439d43f20d0c0c8ff5296.tar.gz";
+        sha256 = "0lillvagps6qrl8i4y9axwlaal8fh5ch40v9mm0azm1qz76vxkxf";
       }
     }/raspberry-pi/4"
   ];
@@ -90,8 +90,8 @@
     };
     firewall = {
       enable = true;
-      allowedTCPPorts = [22 30005];
-      allowedUDPPorts = [30005];
+      allowedTCPPorts = [22 30005 30022];
+      allowedUDPPorts = [30005 30022];
     };
   };
 
@@ -133,28 +133,42 @@
     mutableUsers = false;
     users."admin" = {
       isNormalUser = true;
-      uid = 1000;
+      # uid = 1000;
       hashedPassword = "$6$Hvo92DeZuMm2FHLO$ux3upNIqSmFKNW3RGr.Bg8c.ea0qdqYjJQ409T8SY0GTH4pnJTjFeGX43fmWGO5bpihwsk6GCcqp2EjqfQTwY.";
       extraGroups = ["wheel" "jellyfin"];
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKmPDJruFFCbDJx1f0k9OPKe/ZSPWJhbMjpLtLWxXyXz b3nj4m1n@emperor"
       ];
     };
-    # users."guest" = {
-    #   isNormalUser = true;
-    #   uid = 511;
-    #   password = "guest";
-    #   extraGroups = ["wheel"];
-    #   openssh.authorizedKeys.keys = [
-    #     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKmPDJruFFCbDJx1f0k9OPKe/ZSPWJhbMjpLtLWxXyXz b3nj4m1n@emperor"
-    #   ];
-    # };
+    users."guest" = {
+      isNormalUser = true;
+      # uid = 511;
+      password = "guest";
+      extraGroups = ["wheel"];
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKmPDJruFFCbDJx1f0k9OPKe/ZSPWJhbMjpLtLWxXyXz b3nj4m1n@emperor"
+      ];
+    };
   };
 
   environment.systemPackages = with pkgs; [
+    audiobookshelf
   ];
 
+  systemd.services."audiobookshelf" = {
+      enable = true;
+      unitConfig = {
+        "Description" = "Audiobookshelf Server";
+      };
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = "${pkgs.audiobookshelf}/bin/audiobookshelf --port 30022";
+      };
+  };
+  # networking.firewall.allowedTCPPorts = [30022];
+
   hardware.raspberry-pi."4".fkms-3d.enable = true;
+  hardware.raspberry-pi."4".apply-overlays-dtmerge.enable = true;
 
   system.stateVersion = "23.05";
 }
