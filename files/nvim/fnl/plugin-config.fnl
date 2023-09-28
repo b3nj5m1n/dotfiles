@@ -62,12 +62,25 @@
                                            :core.norg.completion {:config {:engine :nvim-cmp}}
                                            :core.norg.esupports.metagen {:config {:type :auto}}}})
 
-(defn indent-blankline []
-      (. (require :indent_blankline) :setup) {
-                                              :char "|"
-                                              :space_char_blankline " "
-                                              :show_current_context true
-                                              :buftype_exclude {1 :terminal}})
+(defn indent-blankline [])
+      ; (def highlight (require "highlight"))
+      ; (highlight.create-groups-indent-blankline)
+      ; (. (require :ibl) :setup) {}
+       ; :char "|"
+       ; :space_char_blankline " "
+       ; :show_current_context true
+       ; :buftype_exclude {1 :terminal}
+       ; :indent
+       ; { :highlight
+       ;  [:RainbowRed
+       ;   :RainbowYellow
+       ;   :RainbowBlue
+       ;   :RainbowOrange
+       ;   :RainbowGreen
+       ;   :RainbowViolet
+       ;   :RainbowCyan]}}
+      ; (print "askldf\nasdfkljasd"))
+
 
 (defn leap []
       ((. (require :leap) :add_default_mappings)))

@@ -7,7 +7,7 @@
 ; There's a `plugins` table in our global `config` table, this will store a list of plugins containing all the information we need, such as the github url, configuration, etc. Then, there's a separate function which will build a packer configuration from that global table. In theory, I could also write a function to build a vim-plug configuration. (a package manager I've used in the past)
 
 ; You'll definitely see packer's influence on the available values, though. Here's a function which will insert a new plugin into this table with all possible parameters:
-(defn add-plugin [name path config setup branch commit optional command requires filetype event after disable description as]
+(defn add-plugin [name path config setup branch commit optional command requires filetype event after disable description as trigger-keys opts main]
   "Add plugin to config-local plugin-store."
   (table.insert _G.config.plugins {
                                    :name name :path path :config config :setup setup
@@ -15,7 +15,7 @@
                                    :command command :requires requires :filetype filetype
                                    :event event :after after :disable disable
                                    :description description :as as :trigger-keys trigger-keys
-                                   :opts opts}))
+                                   :opts opts :main main}))
       
 ; I don't want to have to set all possible parameters, though. And there's some other things I'd like automated.
 
@@ -30,7 +30,7 @@
   (local plugin-config {
                         :name name :path path :config nil :setup nil :branch nil :commit nil :optional nil
                         :command nil :requires nil :filetype nil :event nil :after nil :disable nil 
-                        :description description :as nil :trigger-keys nil})
+                        :description description :as nil :trigger-keys nil :main nil})
   (for [i 1 (length [...]) 2]
     (let [key (. [...] i) value (. [...] (+ 1 i))]
       (tset plugin-config key value)))
@@ -100,12 +100,11 @@
                        :disable (. plugin :disable)
                        :name (. plugin :as)
                        :keys (. plugin :trigger-keys)
-                       :opts (. plugin :opts)}]
-        
+                       :opts (. plugin :opts)
+                       :main (. plugin :main)}]
       (table.insert lazy-plugins lazy-plugin)))
   (lazy.setup lazy-plugins))
 
- 
      ; (each [_ plugin (ipairs (. config :plugins))]
      ;  (packer.use {
      ;               1 (. plugin :path)

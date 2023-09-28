@@ -25,7 +25,6 @@
   ; :module "kommentary"
   :setup (util.set-var :kommentary_create_default_mappings false)
   :config ((. (require :plugin-config) :kommentary)))
-          
 
 ; [nvim-ts-context-commentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring)
 ; (paq.paq-add "nvim-ts-context-commentstring" "Change commentstring in nested languages"
@@ -65,7 +64,7 @@
 ;   :config (do
 ;            (local gruvbox (require :gruvbox))
 ;            (vim.cmd "colorscheme gruvbox")))
-     
+
 ; [catppuccin](https://github.com/catppuccin/nvim)
 (paq.paq-add "catppuccin" "Catppuccin colorscheme"
   "catppuccin/nvim"
@@ -76,12 +75,23 @@
 (paq.paq-add "indent-blankline" "Show indent guides"
   "lukas-reineke/indent-blankline.nvim"
   :branch "master"
-  :commit "9637670896b68805430e2f72cf5d16be5b97a22a"
+  :commit "f5335ef7493bd6adf5f2ae21d67240709a514408"
   ; :after "colorscheme"
   ; :module "indent_blankline"
-  :optional true)
+  ; :optional true
+  :main "ibl"
+  :opts {:indent
+         {:highlight
+          [:RainbowRed
+           :RainbowViolet
+           :RainbowCyan
+           :RainbowBlue
+           :RainbowOrange
+           :RainbowGreen
+           :RainbowYellow]}}
+  :config true)
   ; :event "UiEnter")
-   
+
 ; [leap.nvim](https://github.com/ggandor/leap.nvim)
 (paq.paq-add "leap" "Smooth af navigation plugin"
   "ggandor/leap.nvim"
@@ -89,7 +99,7 @@
   :commit "5efe985cf68fac3b6a6dfe7a75fbfaca8db2af9c"
   :optional true)
   ; :event "UiEnter")
-   
+
 ; [mini.cursorword](https://github.com/echasnovski/mini.cursorword)
 (paq.paq-add "cursorword" "Highlight current word in buffer"
   "echasnovski/mini.cursorword"
@@ -116,7 +126,7 @@
   :requires "nvim-lua/plenary.nvim"
   :optional true)
   ; :event "UiEnter"
-   
+
 ; [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 (paq.paq-add "autopairs" "Autopairs"
   "windwp/nvim-autopairs"
@@ -150,7 +160,7 @@
   ; :event "BufEnter"
   ; :module "colorizer")
   :optional true)
-   
+
 ; [editorconfig](https://github.com/editorconfig/editorconfig-vim)
 (paq.paq-add "editorconfig" "Automatically load some configuration options based on project"
   "editorconfig/editorconfig-vim"
@@ -253,7 +263,7 @@
 ; (paq.paq-add "lsp_lines" "Lsp diagnostics"
 ;   "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
 ;   :commit "ec98b45c8280e5ef8c84028d4f38aa447276c002")
-    
+
 ; [trouble.nvim](https://github.com/folke/trouble.nvim)
 (paq.paq-add "trouble" "Better diagnostics ui"
   "folke/trouble.nvim"

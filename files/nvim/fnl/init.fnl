@@ -8,6 +8,9 @@
 
 (def util (require "util"))
 (def options (require "options"))
+(def highlight (require "highlight"))
+(highlight.create-groups-indent-blankline)
+
 (def plugins (require "plugins"))
 
 (paq.init-lazy)
@@ -25,7 +28,7 @@
 ; (plugin-config.kommentary)
 ; (plugin-config.dressing)
 
-(plugin-config.indent-blankline)
+; (plugin-config.indent-blankline)
 (plugin-config.leap)
 (plugin-config.autopairs)
 (plugin-config.nvim-surround)
@@ -45,7 +48,6 @@
 (plugin-config.ufo)
 (plugin-config.dap)
 
-(def highlight (require "highlight"))
 
 (highlight.create-groups-telescope "normal")
 (highlight.create-groups-ufo "normal")

@@ -81,3 +81,19 @@
      :CmpItemKindColor {:fg "#D8EEEB" :bg "#58B5A8"}
      :CmpItemKindTypeParameter {:fg "#D8EEEB" :bg "#58B5A8"}}))
 
+(defn create-groups-indent-blankline []
+  (create-hl-groups
+    {:RainbowRed {:fg "#E06C75"}
+     :RainbowYellow {:fg "#E5C07B"}
+     :RainbowBlue {:fg "#61AFEF"}
+     :RainbowOrange {:fg "#D19A66"}
+     :RainbowGreen {:fg "#98C379"}
+     :RainbowViolet {:fg "#C678DD"}
+     :RainbowCyan {:fg "#56B6C2"}}))
+    ; {:RainbowRed {:fg "#ed8796"}
+    ;  :RainbowYellow {:fg "#eed49f"}
+    ;  :RainbowBlue {:fg "#8aadf4"}
+    ;  :RainbowOrange {:fg "#f5a97f"}
+    ;  :RainbowGreen {:fg "#a6da95"}
+    ;  :RainbowViolet {:fg "#c6a0f6"}
+    ;  :RainbowCyan {:fg "#91d7e3"}}))
