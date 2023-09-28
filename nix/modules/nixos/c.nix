@@ -7,6 +7,7 @@
   config = {
     environment.systemPackages = with pkgs; [
       clang
+      libclang
       cmake
       gcc
     ];
