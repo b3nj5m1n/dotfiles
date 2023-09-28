@@ -2,6 +2,7 @@ exec systemctl --user start graphical-session.target
 exec systemctl --user start dynamic-wallpaper@skip.service
 exec systemctl --user import-environment XDG_SESSION_TYPE XDG_CURRENT_DESKTOP
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec ulauncher
 
 # SUPER key as mod. I've used ALT for like 2 years now because I initially
 # thought it was a good idea, but it really, really isn't. Many other programs,
@@ -123,7 +124,7 @@ bindsym $mod+ctrl+t exec $term start tmux attach
 bindcode $mod+198 exec $term start cmatrix
 
 # Start launcher
-bindsym $mod+d exec $menu
+bindsym $mod+d exec ulauncher-toggle
 
 # Open clipboard manager
 bindsym Mod1+h exec cliphist list | wofi -dmenu | cliphist decode | wl-copy
@@ -309,5 +310,8 @@ exec firefox
 
 # Enable autotiling
 exec autotiling-rs
+
+# Disable decoration for ulauncher
+for_window [app_id="ulauncher"] border none
 
 include /etc/sway/config.d/*

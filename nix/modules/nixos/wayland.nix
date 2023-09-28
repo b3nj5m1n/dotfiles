@@ -21,6 +21,7 @@
       wlr-randr
       wlprop
       wofi
+      ulauncher
     ];
     hardware.brillo.enable = true;
     services.dbus.enable = true;

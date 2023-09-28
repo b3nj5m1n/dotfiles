@@ -392,6 +392,8 @@ c23 = "#B8C0E0" # Dim
 "files/tree-sitter/config.json" = "~/.config/tree-sitter/config.json"
 [tealdeer.files]
 "files/tealdeer/config.toml" = "~/.config/tealdeer/config.toml"
+[ulauncher.files]
+"files/ulauncher/" = "~/.config/ulauncher/"
 
 
 ##### System #####

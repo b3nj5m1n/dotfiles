@@ -39,6 +39,7 @@ packages = [
     "python",
     "atuin",
     "treesitter",
+    "ulauncher",
 ]
 
 [files]
