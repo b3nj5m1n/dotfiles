@@ -23,6 +23,7 @@ stdenv.mkDerivation {
     mkdir -p $out/bin
     cp $src/bin/logseq-wrapper.sh $out/bin/logseq
     chmod +x $out/bin/logseq
+    cp -r ${pkgs.logseq}/share $out/
   '';
 
   meta = {
