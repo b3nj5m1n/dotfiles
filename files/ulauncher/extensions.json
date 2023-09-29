@@ -103,5 +103,12 @@
         "updated_at": "2023-09-29T21:26:39.200585",
         "last_commit": "2cb1d85cdfa870888e3eeda733b63467b0966ad1",
         "last_commit_time": "2022-05-10T15:18:43"
+    },
+    "com.github.codyfish.ulauncher-mpd": {
+        "id": "com.github.codyfish.ulauncher-mpd",
+        "url": "https://github.com/codyfish/ulauncher-mpd",
+        "updated_at": "2023-09-29T21:31:16.634942",
+        "last_commit": "7a35c9066988cc96a99abfdc1684c8d3c37d0440",
+        "last_commit_time": "2020-05-30T08:43:37"
     }
 }

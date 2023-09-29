@@ -31,23 +31,25 @@
         "Documentation" = ["https://ulauncher.io/"];
       };
       environment = let
-        /* wrapt-timeout-decorator = ps:
-          with ps; [
-            (
-              buildPythonPackage rec {
-                pname = "wrapt_timeout_decorator";
-                version = "1.4.0";
-                src = fetchPypi {
-                  inherit pname version;
-                  sha256 = "";
-                };
-                doCheck = false;
-                propagatedBuildInputs = [
-                  # pkgs.python3Packages.numpy
-                ];
-              }
-            )
-          ]; */
+        /*
+         wrapt-timeout-decorator = ps:
+        with ps; [
+          (
+            buildPythonPackage rec {
+              pname = "wrapt_timeout_decorator";
+              version = "1.4.0";
+              src = fetchPypi {
+                inherit pname version;
+                sha256 = "";
+              };
+              doCheck = false;
+              propagatedBuildInputs = [
+                # pkgs.python3Packages.numpy
+              ];
+            }
+          )
+        ];
+        */
         pydeps = pkgs.python3.withPackages (pp:
           with pp; [
             google
