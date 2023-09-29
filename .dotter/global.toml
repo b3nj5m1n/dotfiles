@@ -394,6 +394,8 @@ c23 = "#B8C0E0" # Dim
 "files/tealdeer/config.toml" = "~/.config/tealdeer/config.toml"
 [ulauncher.files]
 "files/ulauncher/" = "~/.config/ulauncher/"
+[beets.files]
+"files/beets/" = "~/.config/beets/"
 
 
 ##### System #####

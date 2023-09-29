@@ -32,4 +32,5 @@ packages = [
     "eww",
     "tealdeer",
     "ulauncher",
+    "beets",
 ]
