@@ -13,26 +13,12 @@
         "last_commit": "67a959044b54c585e67a3e485b35a2335503b811",
         "last_commit_time": "2022-08-19T11:58:19"
     },
-    "com.github.d-enk.ulauncher-case-converter": {
-        "id": "com.github.d-enk.ulauncher-case-converter",
-        "url": "https://github.com/d-enk/ulauncher-case-converter",
-        "updated_at": "2023-09-29T00:35:59.370996",
-        "last_commit": "525dd2c0fa4c10dd99db76288dd7a5f0e58205ff",
-        "last_commit_time": "2022-07-13T19:33:21"
-    },
     "com.github.lighttigerxiv.ulauncher-session-manager": {
         "id": "com.github.lighttigerxiv.ulauncher-session-manager",
         "url": "https://github.com/lighttigerXIV/ulauncher-session-manager",
         "updated_at": "2023-09-29T00:36:10.051103",
         "last_commit": "39218fddb79d86150c4624d96b1a162eba89c993",
         "last_commit_time": "2023-05-23T08:14:57"
-    },
-    "com.github.carlosmape.ulauncher-calendar": {
-        "id": "com.github.carlosmape.ulauncher-calendar",
-        "url": "https://github.com/Carlosmape/ulauncher-calendar",
-        "updated_at": "2023-09-29T00:36:43.866676",
-        "last_commit": "36e6d2f9b238a7723525522bd373a22626cf3be5",
-        "last_commit_time": "2022-10-31T15:47:41"
     },
     "com.github.tevenfeng.ulauncher-dc": {
         "id": "com.github.tevenfeng.ulauncher-dc",
@@ -41,26 +27,12 @@
         "last_commit": "4cdeb58b1f79b64f2f6e3b4eecc3a38b81c886ea",
         "last_commit_time": "2022-06-16T09:10:28"
     },
-    "com.github.rapha149.ulauncher-bluetooth": {
-        "id": "com.github.rapha149.ulauncher-bluetooth",
-        "url": "https://github.com/Rapha149/ulauncher-bluetooth",
-        "updated_at": "2023-09-29T00:37:22.650213",
-        "last_commit": "aa84798f539c9cb312cf3be01415a58901ace8d6",
-        "last_commit_time": "2022-04-27T10:56:00"
-    },
     "com.github.hippo-o-matic.ulauncher-qalc": {
         "id": "com.github.hippo-o-matic.ulauncher-qalc",
         "url": "https://github.com/hippo-o-matic/ulauncher-qalc",
         "updated_at": "2023-09-29T00:37:42.680105",
         "last_commit": "45882831f57c265ee3b4bf47cdb862379d47a89a",
         "last_commit_time": "2021-03-03T03:33:36"
-    },
-    "com.github.tchar.ulauncher-albert-calculate-anything": {
-        "id": "com.github.tchar.ulauncher-albert-calculate-anything",
-        "url": "https://github.com/tchar/ulauncher-albert-calculate-anything",
-        "updated_at": "2023-09-29T00:38:12.464464",
-        "last_commit": "ee0903174c8b87cd1f7c3b6c1acef10702547507",
-        "last_commit_time": "2021-08-12T06:39:56"
     },
     "com.github.fsevenm.ulauncher-wordc": {
         "id": "com.github.fsevenm.ulauncher-wordc",
@@ -110,5 +82,26 @@
         "updated_at": "2023-09-29T00:40:14.173776",
         "last_commit": "e366a81f92b8130dddc0b1bddecad253124c49b9",
         "last_commit_time": "2021-12-12T15:49:08"
+    },
+    "com.github.tchar.ulauncher-albert-calculate-anything": {
+        "id": "com.github.tchar.ulauncher-albert-calculate-anything",
+        "url": "https://github.com/tchar/ulauncher-albert-calculate-anything",
+        "updated_at": "2023-09-29T19:11:06.603011",
+        "last_commit": "ee0903174c8b87cd1f7c3b6c1acef10702547507",
+        "last_commit_time": "2021-08-12T06:39:56"
+    },
+    "com.github.carlosmape.ulauncher-calendar": {
+        "id": "com.github.carlosmape.ulauncher-calendar",
+        "url": "https://github.com/Carlosmape/ulauncher-calendar",
+        "updated_at": "2023-09-29T19:17:53.466628",
+        "last_commit": "36e6d2f9b238a7723525522bd373a22626cf3be5",
+        "last_commit_time": "2022-10-31T15:47:41"
+    },
+    "com.github.eckhoff42.ulauncher-bluetooth-quick-connect": {
+        "id": "com.github.eckhoff42.ulauncher-bluetooth-quick-connect",
+        "url": "https://github.com/Eckhoff42/Ulauncher-Bluetooth-quick-connect",
+        "updated_at": "2023-09-29T19:32:54.340979",
+        "last_commit": "2cb1d85cdfa870888e3eeda733b63467b0966ad1",
+        "last_commit_time": "2022-05-10T15:18:43"
     }
 }

@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./desktop.nix
+    ./ulauncher.nix
   ];
 
   options = {};
@@ -21,7 +22,6 @@
       wlr-randr
       wlprop
       wofi
-      ulauncher
     ];
     hardware.brillo.enable = true;
     services.dbus.enable = true;

@@ -2,7 +2,7 @@ exec systemctl --user start graphical-session.target
 exec systemctl --user start dynamic-wallpaper@skip.service
 exec systemctl --user import-environment XDG_SESSION_TYPE XDG_CURRENT_DESKTOP
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-exec ulauncher
+exec systemctl --user start ulauncher
 
 # SUPER key as mod. I've used ALT for like 2 years now because I initially
 # thought it was a good idea, but it really, really isn't. Many other programs,

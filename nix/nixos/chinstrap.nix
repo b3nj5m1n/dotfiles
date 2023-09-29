@@ -156,14 +156,14 @@
   ];
 
   systemd.services."audiobookshelf" = {
-      enable = true;
-      unitConfig = {
-        "Description" = "Audiobookshelf Server";
-      };
-      serviceConfig = {
-        Type = "oneshot";
-        ExecStart = "${pkgs.audiobookshelf}/bin/audiobookshelf --port 30022";
-      };
+    enable = true;
+    unitConfig = {
+      "Description" = "Audiobookshelf Server";
+    };
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.audiobookshelf}/bin/audiobookshelf --port 30022";
+    };
   };
   # networking.firewall.allowedTCPPorts = [30022];
 
