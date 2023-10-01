@@ -1,1 +1,25 @@
-plugins: chroma
+library: "~/Music/library.db"
+# plugins: chroma fromfilename fetchart lyrics lastgenre spotify deezer
+plugins: chroma fromfilename acousticbrainz mbsync fetchart lyrics lastgenre spotify mpdupdate
+
+spotify:
+  source_weight: 1.0
+
+musicbrainz:
+  source_weight: 0.7
+  genres: yes
+
+chroma:
+  source_weight: 0.8
+  auto: yes
+
+fromfilename:
+  source_weight: 0.4
+
+match:
+  strong_rec_thresh: 0.80
+  medium_rec_thresh: 0.50
+  max_rec:
+    missing_tracks: strong
+    track_title: low
+    unmachted_tracks: low
