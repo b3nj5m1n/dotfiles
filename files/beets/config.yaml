@@ -14,7 +14,7 @@ chroma:
   auto: yes
 
 fromfilename:
-  source_weight: 0.4
+  source_weight: 0.7
 
 match:
   strong_rec_thresh: 0.80

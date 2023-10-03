@@ -27,6 +27,9 @@
     services.mpd = {
       enable = true;
       user = "b3nj4m1n";
+      network = {
+        listenAddress = "any";
+      };
       # musicDirectory = "";
       extraConfig = ''
         audio_output {
@@ -39,5 +42,30 @@
       # https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/609
       XDG_RUNTIME_DIR = "/run/user/1000";
     };
+
+    services.navidrome = {
+      enable = true;
+      settings = {
+        Address = "0.0.0.0";
+        Port = 4533;
+      };
+    };
+
+    networking.firewall = {
+      allowedTCPPorts = [4533];
+    };
+
+    fileSystems."/var/lib/navidrome/music" = {
+      device = "/home/b3nj4m1n/Music";
+      options = ["bind" "perms=444"];
+    };
+    fileSystems."/var/lib/mpd/music" = {
+      device = "/home/b3nj4m1n/Music";
+      options = ["bind" "perms=444"];
+    };
+
+    /* networking.firewall = {
+      allowedTCPPorts = [4533];
+    }; */
   };
 }
