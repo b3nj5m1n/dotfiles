@@ -11,14 +11,14 @@
   pname-to-lname = pname:
     lib.strings.removeSuffix "-grammar" (lib.strings.removePrefix "tree-sitter-" pname);
   genLink = package-name: let
-    package = pkgs.tree-sitter-grammars."${package-name}";
+    package = pkgs.pr259779.tree-sitter-grammars."${package-name}";
     language-name = pname-to-lname package.pname;
   in {
     "${nvim-parser-location}/${language-name}.so".source = "${package.outPath}/parser";
   };
   genLinks = language-names:
     lib.lists.foldl (a: b: a // b) {} (builtins.map genLink language-names);
-  getAll = builtins.filter (x: builtins.isAttrs pkgs.tree-sitter-grammars."${x}") (builtins.attrNames pkgs.tree-sitter-grammars);
+  getAll = builtins.filter (x: builtins.isAttrs pkgs.pr259779.tree-sitter-grammars."${x}") (builtins.attrNames pkgs.tree-sitter-grammars);
   genAll = genLinks getAll;
 in {
   imports = [

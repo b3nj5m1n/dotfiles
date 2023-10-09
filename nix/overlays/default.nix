@@ -46,6 +46,10 @@
       url = "https://github.com/NixOS/nixpkgs/archive/75087d518adbceef58bcd999a59017a6b60dd4d4.tar.gz";
       sha256 = "sha256:1absmck3dd7jracjjw84zy3kgg9303zq8f0v50gqhbymanszk3km";
     }) {system = final.system;};
+    pr259779 = import (fetchTarball {
+      url = "https://github.com/NixOS/nixpkgs/archive/df9c6eb7815f69edb4f69c48c97d9e848318b626.tar.gz";
+      sha256 = "sha256:0lx62j9p50nxfxbn0h05b55qrghvkbb5nw2z0bq1dxa1b3s33bqj";
+    }) {system = final.system;};
     tts15 =
       import (fetchTarball {
         url = "https://github.com/NixOS/nixpkgs/archive/976fa3369d722e76f37c77493d99829540d43845.tar.gz";
