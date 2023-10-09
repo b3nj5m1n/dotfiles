@@ -7,6 +7,7 @@
   config = {
     environment.systemPackages = with pkgs; [
       iwd
+      iwgtk
       nmap
       wireguard-tools
     ];
