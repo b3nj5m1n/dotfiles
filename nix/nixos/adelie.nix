@@ -80,6 +80,7 @@
   };
 
   services.xserver.desktopManager.plasma5.enable = true;
+  programs.kdeconnect.enable = true;
 
   environment.systemPackages = with pkgs; [
     pfui
