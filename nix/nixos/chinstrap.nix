@@ -121,6 +121,11 @@
           allowedIPs = ["10.0.0.2/32"];
         }
         {
+          # Phone
+          publicKey = "PtMjckiDgt30S4gzk+fdlJiBJUMaUlP+44KN2G8AbXI=";
+          allowedIPs = ["10.0.0.4/32"];
+        }
+        {
           # Other Person 1
           publicKey = "83chl/v71oe0OkThOpBdsCd0PM7JXmURm1yA8GuDz3I=";
           allowedIPs = ["10.0.0.3/32"];
