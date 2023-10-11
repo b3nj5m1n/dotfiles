@@ -96,5 +96,7 @@
     # tree-sitter-grammar.norg
   ];
 
+  services.flatpak.enable = true;
+
   system.stateVersion = "23.05";
 }
