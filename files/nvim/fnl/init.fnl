@@ -25,8 +25,10 @@
 
 (plugin-config.colorscheme)
 (plugin-config.watch-mode-changes)
-; (plugin-config.kommentary)
-; (plugin-config.dressing)
+(plugin-config.kommentary)
+(plugin-config.dressing)
+(plugin-config.neorg)
+(plugin-config.lspconfig)
 
 ; (plugin-config.indent-blankline)
 (plugin-config.leap)

@@ -23,8 +23,8 @@
   :event "VimEnter"
   :optional true
   ; :module "kommentary"
-  :setup (util.set-var :kommentary_create_default_mappings false)
-  :config ((. (require :plugin-config) :kommentary)))
+  :setup (util.set-var :kommentary_create_default_mappings false))
+  ;:config ((. (require :plugin-config) :kommentary)))
 
 ; [nvim-ts-context-commentstring](https://github.com/JoosepAlviste/nvim-ts-context-commentstring)
 ; (paq.paq-add "nvim-ts-context-commentstring" "Change commentstring in nested languages"
@@ -36,17 +36,17 @@
   "stevearc/dressing.nvim"
   :branch "master"
   :commit "ee571505f3566f84fd252e76c4ce6df6eaf2fb94"
-  :optional true
-  :config ((. (require :plugin-config) :dressing)))
+  :optional true)
+  ;:config ((. (require :plugin-config) :dressing)))
 
 ; [neorg](https://github.com/nvim-neorg/neorg)
 (paq.paq-add "neorg" "Org-mode equivalent for neovim"
   "nvim-neorg/neorg"
   :commit "f296a22864bbac0d94ad00fa18cc8231dbeaa1e3"
-  :requires ["nvim-lua/plenary.nvim" "nvim-treesitter/nvim-treesitter"]
+  :requires ["nvim-lua/plenary.nvim" "nvim-treesitter/nvim-treesitter"])
   ; :optional true
   ; :filetype "norg"
-  :config ((. (require :plugin-config) :neorg)))
+  ;:config ((. (require :plugin-config) :neorg)))
   ;:module "neorg")
 
 ; [dracula](https://github.com/Mofiqul/dracula.nvim)
@@ -230,10 +230,10 @@
 (paq.paq-add "lspconfig" "Lsp abstraction layer"
   "neovim/nvim-lspconfig"
   :branch "master"
-  :commit "f7922e59aeb9bc3e31a660ea4e7405ffa3fc2c3a"
+  :commit "219cb3943d63e0e4b1aff8148a61bf6f3c347049"
   :event "VimEnter"
-  :optional true
-  :config ((. (require :plugin-config) :lspconfig)))
+  :optional true)
+  ; :config ((. (require :plugin-config) :lspconfig)))
 
 ; [rust-tools.nvim](https://github.com/simrat39/rust-tools.nvim)
 (paq.paq-add "rust-tools" "More support for rust analyzer"
