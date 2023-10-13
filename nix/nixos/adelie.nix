@@ -20,6 +20,7 @@
     (outputs.nixosModules args).all-languages
     # (outputs.nixosModules args).pandoc
     (outputs.nixosModules args).aria2
+    (outputs.nixosModules args).battery-thing
 
     ../hardware/x270.nix
   ];

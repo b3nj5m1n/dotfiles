@@ -58,4 +58,5 @@
   dynamic-wallpaper = import ./dynamic-wallpaper.nix;
   android = import ./android.nix;
   postgres = import ./postgres.nix;
+  battery-thing = import ./battery-thing.nix;
 }

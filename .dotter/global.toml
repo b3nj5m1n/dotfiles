@@ -362,6 +362,7 @@ c23 = "#B8C0E0" # Dim
 "files/cli-visualizer/config" = "~/.config/vis/config"
 "files/cli-visualizer/colors/dracula" = "~/.config/vis/colors/dracula"
 [scripts.files]
+"scripts/bsod.sh" = { target = "~/.local/share/bin/bsod.sh", type = "symbolic", owner = "root" }
 "scripts/backup_sh_history.sh" = { target = "~/.local/share/bin/backup_sh_history.sh", type = "template", owner = "root" }
 "scripts/setup-repos.sh" = { target = "~/.local/share/bin/setup-repos.sh", type = "template", owner = "root" }
 "scripts/uptime.sh" = { target = "~/.local/share/bin/uptime.sh", type = "template", owner = "root" }
