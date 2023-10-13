@@ -22,7 +22,7 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 export DFGPGPROFILE="9F7D2083BB220CEEB720E068309D4C8689849C5B"
 
 # Use bat for colorized manpages
-export MANPAGER="sh -c 'col -bx | bat --theme=Dracula -l man -p'"
+# export MANPAGER="sh -c 'col -bx | bat --theme=Dracula -l man -p'"
 
 # export TERM=alacritty-full
 

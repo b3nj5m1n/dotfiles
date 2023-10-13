@@ -9,6 +9,7 @@
     environment.systemPackages = with pkgs; [
       fennel
       fnlfmt
+      fennel-language-server
     ];
   };
 }
