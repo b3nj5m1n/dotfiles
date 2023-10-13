@@ -8,11 +8,11 @@
 #   exit 1
 # fi
 
-# # Check if battery level is below 60%
-# battery_level=$(cat /sys/class/power_supply/BAT0/capacity)
-# if [ "$battery_level" -gt 60 ]; then
-#     exit
-# fi
+# Check if battery level is below 60%
+battery_level=$(cat /sys/class/power_supply/BAT0/capacity)
+if [ "$battery_level" -gt 50 ]; then
+    exit
+fi
 
 # Check if battery is discharging
 battery_status=$(cat /sys/class/power_supply/BAT0/status)
@@ -26,7 +26,12 @@ echo -e "\033c" | tee /dev/tty4
 cols=$(stty -F /dev/tty4 size | cut -d' ' -f2)
 rows=$(stty -F /dev/tty4 size | cut -d' ' -f1)
 
+# Turn background blue
 printf "\033[44m" | tee /dev/tty4
+# Unless the battery is really low, in which case it should be red
+if [ "$battery_level" -lt 20 ]; then
+    echo -e "\033[41m" | tee /dev/tty4
+fi
 
 x="$rows"
 y="$cols"
