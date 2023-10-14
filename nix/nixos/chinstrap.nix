@@ -95,12 +95,45 @@
     };
   };
 
+  # systemd.network = {
+  #   enable = true;
+  #   netdevs = {
+  #     "50-wg0" = {
+  #       netdevConfig = {
+  #         Kind = "wireguard";
+  #         Name = "wg0";
+  #         MTUBytes = "1300";
+  #       };
+  #       wireguardConfig = {
+  #         PrivateKeyFile = "/home/admin/.local/share/wireguard/Server.private";
+  #         ListenPort = 30005;
+  #       };
+  #       wireguardPeers = [
+  #         {
+  #           wireguardPeerConfig = {
+  #             PublicKey = "PtMjckiDgt30S4gzk+fdlJiBJUMaUlP+44KN2G8AbXI=";
+  #             AllowedIPs = ["10.0.0.4"];
+  #           };
+  #         }
+  #       ];
+  #     };
+  #   };
+  #   networks.wg0 = {
+  #     matchConfig.Name = "wg0";
+  #     address = ["10.0.0.4/24"];
+  #     networkConfig = {
+  #       IPMasquerade = "ipv4";
+  #       IPForward = true;
+  #     };
+  #   };
+  # };
+  # networking.wireguard.enable = true;
   networking.wireguard.interfaces = {
     wg0 = {
       ips = ["10.0.0.0/8"];
       listenPort = 30005;
 
-      postSetup = ''
+      preSetup = ''
         ${pkgs.nftables}/bin/nft add rule nixos-nat post ip saddr 10.0.0.0/8 oif end0 masquerade
       '';
       postShutdown = ''
