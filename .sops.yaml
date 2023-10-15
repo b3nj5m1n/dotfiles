@@ -1,0 +1,10 @@
+keys:
+  - &main_key 9F7D2083BB220CEEB720E068309D4C8689849C5B
+  - &age_emperor age1ey5nqemqxfc7aferu3nyc7r4qt2yy6lz67l856auysnk9kk2e3js8t8u26
+creation_rules:
+  - path_regex: secrets/[^/]+\.(yaml|json|env|ini|txt)$
+    key_groups:
+    - pgp:
+      - *main_key
+      age:
+      - *age_emperor

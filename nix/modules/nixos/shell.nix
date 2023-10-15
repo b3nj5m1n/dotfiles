@@ -42,10 +42,12 @@
       pfetch # Like neofetch but faster and more minimal
       pmount # Easier mounting
       progress # Show progress bar for coreutils
+      rage # Rust version of age (actually good encryption)
       ripgrep # Very fast grep, searches directory recursively by default
       sd # Move intuitive sed
       skim # Like fzf, but in rust... yeah that's the only reason
       smartmontools # Monitor S.M.A.R.T. values
+      sops # Secret management
       sqlite # Sqlite cli
       starship # Fast af prompt generator with tons of useful info
       taskwarrior # The endboss of task management

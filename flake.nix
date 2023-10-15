@@ -21,6 +21,8 @@
 
     flake-utils.url = "github:numtide/flake-utils";
 
+    sops-nix.url = "github:Mic92/sops-nix";
+
     hardware.url = "github:nixos/nixos-hardware";
   };
 
@@ -31,6 +33,7 @@
     home-manager,
     # hyprland,
     flake-utils,
+    sops-nix,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -95,6 +98,7 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./nix/nixos/adelie.nix
+          sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -112,6 +116,7 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./nix/nixos/emperor.nix
+          sops-nix.nixosModules.sops
           # hyprland.nixosModules.default
           # {programs.hyprland.enable = true;}
           home-manager.nixosModules.home-manager
@@ -133,6 +138,7 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./nix/nixos/chinstrap.nix
+          sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

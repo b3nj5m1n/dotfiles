@@ -112,5 +112,56 @@
     tts15.tts
   ];
 
+  sops = {
+    # Key used to decrypt secret, generate with `rage-keygen -o ~/.local/share/age_key`
+    age.keyFile = "/home/b3nj4m1n/.local/share/age_key";
+
+    # defaultSopsFile = ../../secrets/example.yaml;
+
+    secrets = {
+      aliases = {
+        format = "binary";
+        sopsFile = ../../secrets/aliases.txt;
+        mode = "444";
+      };
+      smartdresultsemail = {
+        format = "binary";
+        sopsFile = ../../secrets/smartdresultsemail;
+        mode = "444";
+      };
+    };
+  };
+  services.smartd = {
+    enable = true;
+    notifications = {
+      test = false;
+      mail = {
+        sender = "smartdresults@outlook.com";
+        recipient = "personal";
+        enable = true;
+      };
+    };
+  };
+  programs.msmtp = {
+      enable = true;
+      setSendmail = true;
+      extraConfig = ''
+        aliases /run/secrets/aliases
+      '';
+      accounts = {
+          default = {
+              host = "smtp-mail.outlook.com";
+              port = 587;
+              passwordeval = "${pkgs.coreutils}/bin/cat /run/secrets/smartdresultsemail";
+              user = "smartdresults@outlook.com";
+              from = "smartdresults@outlook.com";
+              tls = "on";
+              auth = "login";
+              tls_starttls = "on";
+              tls_trust_file = "/etc/ssl/certs/ca-certificates.crt";
+          };
+      };
+  };
+
   system.stateVersion = "23.05";
 }
