@@ -122,6 +122,8 @@ bindsym $mod+Shift+Return exec $term start zsh
 bindsym $mod+ctrl+t exec $term start tmux attach
 # Masterhacker
 bindcode $mod+198 exec $term start cmatrix
+# Latex ocr
+bindsym Shift+Mod1+Mod4+l exec /run/current-system/sw/bin/pix2tex
 
 # Start launcher
 bindsym $mod+d exec ulauncher-toggle

@@ -31,6 +31,7 @@
     (outputs.nixosModules args).encryption
     (outputs.nixosModules args).aria2
     (outputs.nixosModules args).postgres
+    (outputs.nixosModules args).pix2tex
 
     ../hardware/newpc.nix
   ];

@@ -21,6 +21,7 @@
     # (outputs.nixosModules args).pandoc
     (outputs.nixosModules args).aria2
     (outputs.nixosModules args).battery-thing
+    (outputs.nixosModules args).pix2tex
 
     ../hardware/x270.nix
   ];

@@ -59,4 +59,5 @@
   android = import ./android.nix;
   postgres = import ./postgres.nix;
   battery-thing = import ./battery-thing.nix;
+  pix2tex = import ./pix2tex.nix;
 }
