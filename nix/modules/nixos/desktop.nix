@@ -58,5 +58,12 @@
 
     services.xserver.layout = "de";
     services.xserver.xkbOptions = "caps:escape";
+
+    xdg.mime = {
+        enable = true;
+        defaultApplications = {
+            "application/pdf" = "org.pwmt.zathura.desktop";
+        };
+    };
   };
 }
