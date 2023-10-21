@@ -127,12 +127,13 @@
   :optional true)
   ; :event "UiEnter"
 
-; [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
+; [nvim-autopairs](https://github.com/altermo/ultimate-autopair.nvim)
 (paq.paq-add "autopairs" "Autopairs"
-  "windwp/nvim-autopairs"
-  :branch "master"
-  :commit "ae5b41ce880a6d850055e262d6dfebd362bb276e"
-  :optional true)
+  "altermo/ultimate-autopair.nvim"
+  :branch "v0.6"
+  :commit "ded1b64e26fcc708837a8391e0f385c4b87ca09b"
+  :optional false
+  :config true)
   ; :event "InsertEnter")
   ; :module "nvim-autopairs")
 

@@ -39,6 +39,7 @@
   c = import ./c.nix;
   common-lisp = import ./common-lisp.nix;
   python = import ./python.nix;
+  latex = import ./latex.nix;
 
   # pandoc = import ./pandoc.nix;
   steam = import ./steam.nix;

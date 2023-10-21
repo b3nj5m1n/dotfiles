@@ -14,5 +14,6 @@
     ./c.nix
     ./common-lisp.nix
     ./python.nix
+    ./latex.nix
   ];
 }

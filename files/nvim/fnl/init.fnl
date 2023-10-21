@@ -32,7 +32,7 @@
 
 ; (plugin-config.indent-blankline)
 (plugin-config.leap)
-(plugin-config.autopairs)
+; (plugin-config.autopairs)
 (plugin-config.nvim-surround)
 (plugin-config.nvim-colorizer)
 (plugin-config.nvim-treesitter)

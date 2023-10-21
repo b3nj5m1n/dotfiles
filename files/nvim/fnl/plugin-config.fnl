@@ -85,8 +85,8 @@
 (defn leap []
       ((. (require :leap) :add_default_mappings)))
 
-(defn autopairs []
-      ((. (require :nvim-autopairs) :setup)))
+; (defn autopairs []
+;       ((. (require :nvim-autopairs) :setup)))
 
 (defn nvim-surround []
       ((. (require :nvim-surround) :setup)))
@@ -134,13 +134,37 @@
                       :tsserver :tsserver :yamlls :hls :rnix
                       :fennel_language_server])
       (each [_ server (pairs servers)]
-        ((. (. lspconfig server) :setup) 
+        ((. (. lspconfig server) :setup)
          {:capabilities capabilities
           :handlers (lsp-util.get-handlers)}))
-      (lspconfig.clangd.setup 
+      (lspconfig.clangd.setup
        {:capabilities capabilities
         :single_file_support true
         :cmd [:clangd :--completion-style=detailed "-fallback-style=LLVM"]})
+      (lspconfig.ltex.setup
+       {:capabilities capabilities
+        :single_file_support true
+        :settings {
+                   :ltex {
+                          :language "de-DE"}}})
+      (lspconfig.texlab.setup
+        {:capabilities capabilities
+         :handlers (lsp-util.get-handlers)
+         :settings {
+                    :bibtexFormatter :texlab
+                    ; :build {:args [:-pdf
+                    ;                :-interaction=nonstopmode
+                    ;                :-synctex=1
+                    ;                "%f"]
+                    ;         :executable :latexmk
+                    ;         :forwardSearchAfter false
+                    ;         :onSave false}
+                    :chktex {:onEdit false :onOpenAndSave false}
+                    :diagnosticsDelay 300
+                    :formatterLineLength 80
+                    :forwardSearch {:args {}}
+                    :latexFormatter :latexindent
+                    :latexindent {:local "../../latexindent.yaml" :modifyLineBreaks false}}})
       (vim.api.nvim_create_augroup "hover" {:clear true})
       (vim.api.nvim_create_autocmd "CursorHold"
                              {:group "hover"
