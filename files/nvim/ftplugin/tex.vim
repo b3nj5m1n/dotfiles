@@ -1,4 +1,4 @@
-set wrap
+set nowrap
 
 " Spell-check set to <leader>o, 'o' for 'orthography':
 map <leader>o :setlocal spell! spelllang=en_us<CR>
