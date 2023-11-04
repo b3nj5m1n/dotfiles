@@ -30,9 +30,9 @@
       mpv
       vlc
       zathura
-      zotero
       gsmartcontrol
       swww
+      (callPackage ../../pkgs/zotero-wrapped {})
       (callPackage ../../pkgs/logseq-wrapped {})
       (callPackage ../../pkgs/firefox-trapped {})
     ];
