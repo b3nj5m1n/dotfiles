@@ -18,6 +18,12 @@
 (defpoll uptime :interval "1m" "~/.local/share/bin/uptime.sh")
 (defpoll date-time :interval "1m" "date '+%d/%m/%y %H:%M'")
 
+(defpoll logseq-running :interval "5s" "~/.local/share/bin/is_program_running.sh logseq")
+(defpoll zotero-running :interval "5s" "~/.local/share/bin/is_program_running.sh zotero")
+
+(defpoll logseq-last-sync :interval "1s" "last_sync=$(cat /tmp/sync-status-91224df1aaf9d2f968c5e0ab46ec0c05fb81dc3d40bad11d98f7dedd3b578b54); current=$(date +%s); echo $((($current - $last_sync)/60))")
+(defpoll zotero-last-sync :interval "1s" "last_sync=$(cat /tmp/sync-status-fd69fbe01f61cefe7f97191f7f0131a55afafcd9d3493e5ba6abb02a1af22f82); current=$(date +%s); echo $((($current - $last_sync)/60))")
+
 
 ;;;;; Left
 
@@ -68,7 +74,9 @@
       :halign "start"
       :class "left"
     (workspaces)
-    (mpd)))
+    (mpd)
+    (logseq-running-indicator)
+    (zotero-running-indicator)))
 
 
 ;;;;; Center
@@ -134,16 +142,35 @@
       :class "container-uptime"
     (label :text uptime :class "label-uptime")))
 
-(defwidget date []
-  (box :orientation "h" 
+(defwidget logseq-running-indicator []
+  (button :orientation "h" 
       :space-evenly false  
+      :halign "end"
+      :class "program-sync-indicator program-sync-indicator-status-${logseq-last-sync < 5 ? 4 : 
+      (logseq-last-sync < 15 ? 3 : (logseq-last-sync < 30 ? 2 : 1))}"
+      :visible "${logseq-running == "running" ? true : false}"
+      :onclick "/home/b3nj4m1n/.local/share/bin/auto_commit.sh /home/b3nj4m1n/.local/share/logseq false &"
+    (label :text "LOGSEQ: ${logseq-last-sync}" :class "label-logseq-status")))
+(defwidget zotero-running-indicator []
+  (button :orientation "h" 
+      :space-evenly false  
+      :halign "end"
+      :class "program-sync-indicator program-sync-indicator-status-${zotero-last-sync < 5 ? 4 : 
+      (zotero-last-sync < 15 ? 3 : (zotero-last-sync < 30 ? 2 : 1))}"
+      :visible "${zotero-running == "running" ? true : false}"
+      :onclick "/home/b3nj4m1n/.local/share/bin/auto_commit.sh /home/b3nj4m1n/Zotero false &"
+    (label :text "ZOTERO: ${zotero-last-sync}" :class "label-zotero-status")))
+
+(defwidget date []
+  (box :orientation "h"
+      :space-evenly false
       :halign "end"
       :class "container-date-time"
     (label :text date-time :class "label-date-time")))
 
 (defwidget right []
-  (box :orientation "h" 
-      :space-evenly false  
+  (box :orientation "h"
+      :space-evenly false
       :halign "end"
       :class "right"
     {{#if has_battery}}(battery){{/if}}

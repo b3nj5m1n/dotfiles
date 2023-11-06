@@ -379,6 +379,7 @@ c23 = "#B8C0E0" # Dim
 "scripts/auto_commit.sh" = { target = "~/.local/share/bin/auto_commit.sh", type = "template", owner = "root" }
 "scripts/extract_norg.sh" = { target = "~/.local/share/bin/extract_norg.sh", type = "template", owner = "root" }
 "scripts/filestat.sh" = { target = "~/.local/share/bin/filestat.sh", type = "template", owner = "root" }
+"scripts/is_program_running.sh" = { target = "~/.local/share/bin/is_program_running.sh", type = "template", owner = "root" }
 [npm.files]
 "files/npm/npmrc" = "~/.config/npm/npmrc"
 [bpython.files]

@@ -44,3 +44,5 @@ if [ "$(git status --porcelain)" ]; then
 fi
 
 notify "Done updating changes in $REPO_DIR"
+
+date +%s > "/tmp/sync-status-$(echo "$REPO_DIR" | sha256sum | cut -d' ' --fields=1)"

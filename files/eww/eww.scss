@@ -122,3 +122,21 @@ $workspace-color-empty: $color-text;
     border-bottom: 5px solid $color-secondary;
 }
 
+.program-sync-indicator {
+    margin-left: 10px;
+    padding: 5px;
+    background-color: $color-background;
+    border-radius: 0px;
+}
+.program-sync-indicator-status-1 {
+    background-color: #ed8796;
+}
+.program-sync-indicator-status-2 {
+    background-color: #f5a97f;
+}
+.program-sync-indicator-status-3 {
+    background-color: #eed49f;
+}
+.program-sync-indicator-status-4 {
+    background-color: #a6da95;
+}
