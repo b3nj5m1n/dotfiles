@@ -10,7 +10,7 @@
     homeManagerModules = import ../modules/home-manager;
   in [
     homeManagerModules.neovim
-    homeManagerModules.tree-sitter
+    # homeManagerModules.tree-sitter
     homeManagerModules.theming
     homeManagerModules.gpg
     homeManagerModules.git
