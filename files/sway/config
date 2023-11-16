@@ -125,6 +125,8 @@ bindsym $mod+ctrl+t exec $term start tmux attach
 bindcode $mod+198 exec $term start cmatrix
 # Latex ocr
 bindsym Shift+Mod1+Mod4+l exec /run/current-system/sw/bin/pix2tex
+# Screenshot
+bindsym Shift+Mod1+Mod4+s exec "/run/current-system/sw/bin/grimshot copy area"
 
 # Start launcher
 bindsym $mod+d exec ulauncher-toggle
