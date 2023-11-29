@@ -28,6 +28,7 @@
       glow # Render markdown in the terminal
       gnumake # You know make
       helix # Like neovim but less config
+      hexdino # Hex editor
       hexyl # View binary files
       hyperfine # Benchmark command performance
       inotify-tools # Watch for file changes
