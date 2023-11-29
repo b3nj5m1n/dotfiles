@@ -13,6 +13,20 @@ EMAIL=""
 
 unalias -a
 
+fuckup() {
+    echo "runnign test"
+    cd "$REPO_DIR" || exit 1
+    echo "$PWD"
+    if git rev-parse --verify -q REBASE_HEAD >/dev/null 2>&1 \
+        || git rev-parse --verify -q MERGE_HEAD >/dev/null 2>&1 \
+        || [ "$(cd "$REPO_DIR" && git diff --name-only --diff-filter=U --relative | head -c1 | wc -c)" -ne 0 ] \
+        ; then
+        XDG_RUNTIME_DIR=/run/user/$(id -u) notify-send -u "critical" --wait "Something's gone very wrong: $REPO_DIR"&
+        exit 1
+    fi
+}
+fuckup
+
 notify() {
     if [ "$SILENT" != true ]; then
         if command -v termux-setup-storage; then  
@@ -42,9 +56,7 @@ if [ "$(git status --porcelain)" ]; then
     cd "$REPO_DIR" && git -c user.name="$GIT_COMMITTER_NAME" -c user.email="$GIT_COMMITTER_EMAIL" commit --no-gpg-sign --author "$AUTHOR" -m "$MESSAGE" || notify "Failed committing changes in $REPO_DIR"
     cd "$REPO_DIR" && printf "%s\n" "$SSH_PW" | git push || notify "Failed pushing changes in $REPO_DIR"
 fi
-if [ "$(cd "$REPO_DIR" && git diff --name-only --diff-filter=U --relative | head -c1 | wc -c)" -ne 0 ]; then
-    XDG_RUNTIME_DIR=/run/user/$(id -u) notify-send -u "critical" --wait "Something's gone very wrong: $REPO_DIR"
-fi
+fuckup
 
 notify "Done updating changes in $REPO_DIR"
 
