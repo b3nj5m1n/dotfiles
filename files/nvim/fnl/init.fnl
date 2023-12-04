@@ -11,6 +11,8 @@
 (def highlight (require "highlight"))
 (highlight.create-groups-indent-blankline)
 
+(def lsp-util (require "lsp-util"))
+
 (def plugins (require "plugins"))
 
 (paq.init-lazy)
@@ -21,7 +23,6 @@
 
 (def plugin-config (require "plugin-config"))
 
-(def lsp-util (require "lsp-util"))
 
 (plugin-config.colorscheme)
 (plugin-config.watch-mode-changes)

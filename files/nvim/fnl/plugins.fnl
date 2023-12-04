@@ -242,7 +242,30 @@
   :branch "master"
   :commit "0cc8adab23117783a0292a0c8a2fbed1005dc645"
   :filetype "rust"
+  :requires ["hrsh7th/nvim-cmp" "hrsh7th/cmp-nvim-lsp"]
   :event "VimEnter"
+  :config true
+  :opts [
+          ; :dap {:adapter ((. (require :rust-tools.dap) :get_codelldb_adapter) :/usr/bin/codelldb :/usr/lib/liblldb.so)}
+          :server {
+                   ; :capabilities ((. (. (require :fennel-config) :lsp-util) :get-capabilities))
+                   :handlers ((. (. (require :fennel-config) :lsp-util) :get-handlers))
+                   :standalone true}
+          ; :tools {:executor (. (require :rust-tools.executors) :termopen)}
+          :hover_actions {:auto_focus false}
+          :inlay_hints {:auto false}
+              :highlight :Comment
+              :max_len_align false
+                  :max_len_align_padding 1
+                  :only_current_line false
+                  :other_hints_prefix "  => "
+                  :parameter_hints_prefix "  <- "
+                  :right_align false
+                  :right_align_padding 7
+                  :show_parameter_hints true
+              :on_initialized nil
+              :reload_workspace_from_cargo_toml true
+              :runnables {:use_telescope true}]
   :optional true)
 
 ; [nvim-jdtls](https://github.com/mfussenegger/nvim-jdtls)
