@@ -25,6 +25,7 @@
       figlet # Almost as important as toilet
       file # Get information about what kind of file you're looking at
       git # I mean it's git
+      git-crypt # Encrypt files when pushing repos, decrypt when pulling
       glow # Render markdown in the terminal
       gnumake # You know make
       helix # Like neovim but less config
