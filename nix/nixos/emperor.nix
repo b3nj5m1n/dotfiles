@@ -32,6 +32,7 @@
     (outputs.nixosModules args).aria2
     (outputs.nixosModules args).postgres
     (outputs.nixosModules args).pix2tex
+      (outputs.nixosModules args).math
 
     ../hardware/newpc.nix
   ];

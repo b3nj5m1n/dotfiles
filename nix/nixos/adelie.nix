@@ -24,6 +24,7 @@
       (outputs.nixosModules args).battery-thing
       (outputs.nixosModules args).pix2tex
       (outputs.nixosModules args).steam
+      (outputs.nixosModules args).math
 
       ../hardware/x270.nix
     ];
