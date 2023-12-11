@@ -11,6 +11,11 @@
       libqalculate # qalc cli
       sage
       sagetex
+      typst
+      typst-lsp
+      typstfmt
+      typst-live
+      typst-preview
     ];
   };
 }

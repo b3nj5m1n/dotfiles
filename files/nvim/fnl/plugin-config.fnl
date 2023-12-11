@@ -132,7 +132,7 @@
       (local servers [:bashls :cmake :jedi_language_server
                       :cssls :elmls :html :jsonls :clojure_lsp
                       :tsserver :tsserver :yamlls :hls :rnix
-                      :fennel_language_server])
+                      :fennel_language_server :typst_lsp])
       (each [_ server (pairs servers)]
         ((. (. lspconfig server) :setup)
          {:capabilities capabilities
