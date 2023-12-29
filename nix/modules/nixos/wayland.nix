@@ -25,6 +25,7 @@
     ];
     hardware.brillo.enable = true;
     services.dbus.enable = true;
+    security.pam.services.swaylock = {};
     xdg.portal = {
       enable = true;
       wlr.enable = true;

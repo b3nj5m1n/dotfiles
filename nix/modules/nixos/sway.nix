@@ -1,10 +1,11 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   imports = [
     ./wayland.nix
     ./dynamic-wallpaper.nix
+    ./swaylock-plugin.nix
   ];
 
-  options = {};
+  options = { };
 
   config = {
     environment.systemPackages = with pkgs; [
@@ -16,6 +17,9 @@
       enable = true;
       theme = "tokyo";
       transitionDuration = 10;
+    };
+    services.swaylock-plugin = {
+      enable = true;
     };
     programs.sway.enable = true;
     services.xserver.displayManager.defaultSession = "sway";
