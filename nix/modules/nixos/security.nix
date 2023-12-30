@@ -13,6 +13,7 @@
       pinentry-curses
       pinentry-gtk2
       polkit_gnome
+      dbus
     ];
     security.polkit.enable = true;
     systemd = {
@@ -42,6 +43,10 @@
         PermitRootLogin = "no";
         PasswordAuthentication = false;
       };
+    };
+    services.dbus = {
+      enable = true;
+      implementation = "broker";
     };
   };
 }
