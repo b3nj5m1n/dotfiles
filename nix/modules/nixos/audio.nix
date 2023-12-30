@@ -64,8 +64,10 @@
       options = ["bind" "perms=444"];
     };
 
-    /* networking.firewall = {
+    /*
+       networking.firewall = {
       allowedTCPPorts = [4533];
-    }; */
+    };
+    */
   };
 }

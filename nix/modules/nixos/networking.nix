@@ -10,7 +10,7 @@
       iwgtk
       nmap
       wpa_supplicant_gui
-    # networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
+      # networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
       wireguard-tools
       openconnect # VPN client compatible with anyconnect protocol
     ];

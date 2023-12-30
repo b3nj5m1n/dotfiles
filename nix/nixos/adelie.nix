@@ -1,33 +1,32 @@
-{ inputs
-, outputs
-, lib
-, config
-, pkgs
-, ...
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
 }: {
-  imports =
-    let
-      user = "b3nj4m1n";
-      args = {
-        inherit user;
-        inherit pkgs;
-      };
-    in
-    [
-      (outputs.nixosModules args).base
-      (outputs.nixosModules args).shared-repos
-      (outputs.nixosModules args).terminal
-      (outputs.nixosModules args).sway
-      (outputs.nixosModules args).all-languages
-      # (outputs.nixosModules args).pandoc
-      (outputs.nixosModules args).aria2
-      (outputs.nixosModules args).battery-thing
-      (outputs.nixosModules args).pix2tex
-      (outputs.nixosModules args).steam
-      (outputs.nixosModules args).math
+  imports = let
+    user = "b3nj4m1n";
+    args = {
+      inherit user;
+      inherit pkgs;
+    };
+  in [
+    (outputs.nixosModules args).base
+    (outputs.nixosModules args).shared-repos
+    (outputs.nixosModules args).terminal
+    (outputs.nixosModules args).sway
+    (outputs.nixosModules args).all-languages
+    # (outputs.nixosModules args).pandoc
+    (outputs.nixosModules args).aria2
+    (outputs.nixosModules args).battery-thing
+    (outputs.nixosModules args).pix2tex
+    (outputs.nixosModules args).steam
+    (outputs.nixosModules args).math
 
-      ../hardware/x270.nix
-    ];
+    ../hardware/x270.nix
+  ];
 
   nixpkgs = {
     overlays = [
@@ -37,11 +36,12 @@
     ];
     config = {
       allowUnfree = false;
-      allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-        "steam"
-        "steam-original"
-        "steam-run"
-      ];
+      allowUnfreePredicate = pkg:
+        builtins.elem (lib.getName pkg) [
+          "steam"
+          "steam-original"
+          "steam-run"
+        ];
       permittedInsecurePackages = [
         "python-2.7.18.6"
       ];
@@ -51,7 +51,7 @@
   nix = {
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
-    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
+    registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
@@ -67,7 +67,7 @@
 
   networking.hostName = "adelie";
 
-  boot.supportedFilesystems = [ "btrfs" ];
+  boot.supportedFilesystems = ["btrfs"];
   hardware.enableRedistributableFirmware = true;
   boot.loader = {
     efi.canTouchEfiVariables = true;
@@ -85,7 +85,7 @@
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
-      extraGroups = [ "wheel" "video" ];
+      extraGroups = ["wheel" "video"];
     };
   };
 

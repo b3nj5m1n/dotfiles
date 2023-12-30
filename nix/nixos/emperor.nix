@@ -32,7 +32,7 @@
     (outputs.nixosModules args).aria2
     (outputs.nixosModules args).postgres
     (outputs.nixosModules args).pix2tex
-      (outputs.nixosModules args).math
+    (outputs.nixosModules args).math
     (outputs.nixosModules args).jellyfin
 
     ../hardware/newpc.nix
@@ -146,24 +146,24 @@
     };
   };
   programs.msmtp = {
-      enable = true;
-      setSendmail = true;
-      extraConfig = ''
-        aliases /run/secrets/aliases
-      '';
-      accounts = {
-          default = {
-              host = "smtp-mail.outlook.com";
-              port = 587;
-              passwordeval = "${pkgs.coreutils}/bin/cat /run/secrets/smartdresultsemail";
-              user = "smartdresults@outlook.com";
-              from = "smartdresults@outlook.com";
-              tls = "on";
-              auth = "login";
-              tls_starttls = "on";
-              tls_trust_file = "/etc/ssl/certs/ca-certificates.crt";
-          };
+    enable = true;
+    setSendmail = true;
+    extraConfig = ''
+      aliases /run/secrets/aliases
+    '';
+    accounts = {
+      default = {
+        host = "smtp-mail.outlook.com";
+        port = 587;
+        passwordeval = "${pkgs.coreutils}/bin/cat /run/secrets/smartdresultsemail";
+        user = "smartdresults@outlook.com";
+        from = "smartdresults@outlook.com";
+        tls = "on";
+        auth = "login";
+        tls_starttls = "on";
+        tls_trust_file = "/etc/ssl/certs/ca-certificates.crt";
       };
+    };
   };
 
   hardware.bluetooth.enable = true;

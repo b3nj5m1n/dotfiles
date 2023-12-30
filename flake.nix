@@ -24,6 +24,8 @@
     sops-nix.url = "github:Mic92/sops-nix";
 
     hardware.url = "github:nixos/nixos-hardware";
+
+    xremap-flake.url = "github:xremap/nix-flake";
   };
 
   outputs = {
@@ -130,6 +132,24 @@
               imports = [
                 ./nix/home-manager/emperor.nix
               ];
+            };
+          }
+          inputs.xremap-flake.nixosModules.default
+          {
+            services.xremap = {
+              # userName = "b3nj4m1n";
+              # serviceMode = "user";
+              withWlroots = true;
+              # withSway = true;
+              yamlConfig = ''keymap:'';
+              # yamlConfig = ''
+              #   keymap:
+              #       - name: Test
+              #         remap:
+              #           C-b: { with_mark: left }
+              #         device:
+              #             only: '/dev/input/event10'
+              #   '';
             };
           }
         ];

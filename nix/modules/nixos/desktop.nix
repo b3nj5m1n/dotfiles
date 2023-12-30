@@ -32,6 +32,8 @@
       zathura
       gsmartcontrol
       swww
+      rnote
+      xournalpp
       (callPackage ../../pkgs/zotero-wrapped {})
       (callPackage ../../pkgs/logseq-wrapped {})
       (callPackage ../../pkgs/firefox-trapped {})
@@ -49,21 +51,23 @@
     services.xserver.enable = true;
 
     # TODO Use the same DM config on both systems
-    /* services.xserver.displayManager.lightdm = {
+    /*
+       services.xserver.displayManager.lightdm = {
         greeters = {
             slick.enable = true;
         };
-    }; */
+    };
+    */
     # hardware.opengl.mesaPackage = pkgs.mesa_22; # Workaround TODO remove when fixed
 
     services.xserver.layout = "de";
     services.xserver.xkbOptions = "caps:escape";
 
     xdg.mime = {
-        enable = true;
-        defaultApplications = {
-            "application/pdf" = "org.pwmt.zathura.desktop";
-        };
+      enable = true;
+      defaultApplications = {
+        "application/pdf" = "org.pwmt.zathura.desktop";
+      };
     };
   };
 }

@@ -1,11 +1,11 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   imports = [
     ./wayland.nix
     ./dynamic-wallpaper.nix
     ./swaylock-plugin.nix
   ];
 
-  options = { };
+  options = {};
 
   config = {
     environment.systemPackages = with pkgs; [

@@ -21,15 +21,19 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = with pkgs; [meson wayland wayland-protocols libxkbcommon cairo gdk-pixbuf pam pkg-config ninja scdoc];
 
   mesonFlags = [
-    "-Dpam=enabled" "-Dgdk-pixbuf=enabled" "-Dman-pages=enabled"
+    "-Dpam=enabled"
+    "-Dgdk-pixbuf=enabled"
+    "-Dman-pages=enabled"
   ];
 
-  /* installPhase = ''
+  /*
+     installPhase = ''
     runHook preInstall
     mkdir -p "$out/bin"
     mkdir -p "$out/etc/pam.d"
     cp ./swaylock-plugin "$out/bin/"
     echo "auth include login" > "$out/etc/pam.d/swaylock-plugin"
     runHook postInstall
-  ''; */
+  '';
+  */
 }
