@@ -98,6 +98,9 @@
   services.xserver.desktopManager.plasma5.enable = true;
   programs.kdeconnect.enable = true;
 
+  services.tlp.enable = true; # Power Management daemon for saving battery life
+  services.power-profiles-daemon.enable = false;
+
   environment.systemPackages = with pkgs; [
     pfui
     eisvogel
