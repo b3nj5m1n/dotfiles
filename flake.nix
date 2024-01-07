@@ -26,6 +26,8 @@
     hardware.url = "github:nixos/nixos-hardware";
 
     xremap-flake.url = "github:xremap/nix-flake";
+
+    dwarffs.url = "github:edolstra/dwarffs";
   };
 
   outputs = {
@@ -36,6 +38,7 @@
     # hyprland,
     flake-utils,
     sops-nix,
+    dwarffs,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -99,6 +102,7 @@
         # I know it's Adélie
         specialArgs = {inherit inputs outputs;};
         modules = [
+          dwarffs.nixosModules.dwarffs
           ./nix/nixos/adelie.nix
           sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
