@@ -13,8 +13,13 @@
     gtk = {
       enable = true;
       theme = {
-        name = "Colloid-Dark";
-        package = pkgs.colloid-gtk-theme;
+        name = "Catppuccin-Macchiato-Compact-Pink-Dark";
+        package = pkgs.catppuccin-gtk.override {
+            accents = [ "pink" ];
+            size = "compact";
+            tweaks = [ "rimless" ];
+            variant = "macchiato";
+        };
       };
       cursorTheme = {
         package = pkgs.bibata-cursors;
