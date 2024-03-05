@@ -531,3 +531,11 @@
   :commit "781cd0b5b7107244396b9e6278f913270d83622e"
   ; :opts {}
   :config false)
+
+; [table-mode](https://github.com/dhruvasagar/vim-table-mode)
+(paq.paq-add "vim-table-mode" "Edit markdown tables"
+  "dhruvasagar/vim-table-mode"
+  :branch "master"
+  :commit "4ff8de2ac93431ee6d85a9e04177012752e6abdc"
+  ; :opts {}
+  :config false)
