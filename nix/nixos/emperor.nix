@@ -34,6 +34,7 @@
     (outputs.nixosModules args).pix2tex
     (outputs.nixosModules args).math
     (outputs.nixosModules args).jellyfin
+    (outputs.nixosModules args).radicale
 
     ../hardware/newpc.nix
   ];

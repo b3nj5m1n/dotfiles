@@ -63,4 +63,5 @@
   pix2tex = import ./pix2tex.nix;
   math = import ./math.nix;
   swaylock-plugin = import ./swaylock-plugin.nix;
+  radicale = import ./radicale.nix;
 }
