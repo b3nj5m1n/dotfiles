@@ -52,16 +52,18 @@
 
     # TODO Use the same DM config on both systems
     /*
-       services.xserver.displayManager.lightdm = {
-        greeters = {
-            slick.enable = true;
-        };
+    services.xserver.displayManager.lightdm = {
+    greeters = {
+    slick.enable = true;
+    };
     };
     */
     # hardware.opengl.mesaPackage = pkgs.mesa_22; # Workaround TODO remove when fixed
 
-    services.xserver.layout = "de";
-    services.xserver.xkbOptions = "caps:escape";
+    services.xserver.xkb = {
+      options = "caps:escape";
+      layout = "de";
+    };
 
     xdg.mime = {
       enable = true;

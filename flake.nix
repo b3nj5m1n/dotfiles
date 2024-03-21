@@ -28,6 +28,8 @@
     xremap-flake.url = "github:xremap/nix-flake";
 
     dwarffs.url = "github:edolstra/dwarffs";
+
+    pfui.url = "github:b3nj5m1n/pfui";
   };
 
   outputs = {
@@ -39,6 +41,7 @@
     flake-utils,
     sops-nix,
     dwarffs,
+    pfui,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -59,6 +62,7 @@
           inherit pkgs;
           inherit system;
           inherit fenix;
+          inherit pfui;
         }
     );
 
@@ -88,6 +92,7 @@
     overlays = import ./nix/overlays {
       inherit inputs;
       inherit fenix;
+      inherit pfui;
       # inherit hyprland;
     };
     # Reusable nixos modules you might want to export

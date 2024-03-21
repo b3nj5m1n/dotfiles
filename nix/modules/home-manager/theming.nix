@@ -15,10 +15,10 @@
       theme = {
         name = "Catppuccin-Macchiato-Compact-Pink-Dark";
         package = pkgs.catppuccin-gtk.override {
-            accents = [ "pink" ];
-            size = "compact";
-            tweaks = [ "rimless" ];
-            variant = "macchiato";
+          accents = ["pink"];
+          size = "compact";
+          tweaks = ["rimless"];
+          variant = "macchiato";
         };
       };
       cursorTheme = {

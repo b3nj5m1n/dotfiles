@@ -2,6 +2,7 @@
 {
   inputs,
   fenix,
+  pfui,
   # hyprland,
 }: {
   # This one brings our custom packages from the 'pkgs' directory
@@ -10,6 +11,7 @@
       pkgs = final;
       system = prev.system;
       inherit fenix;
+      inherit pfui;
     };
 
   # This one contains whatever you want to overlay

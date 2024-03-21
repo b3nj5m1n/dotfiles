@@ -7,7 +7,7 @@
   config = {
     environment.systemPackages = with pkgs; [
       alejandra
-      rnix-lsp
+      nil
     ];
   };
 }

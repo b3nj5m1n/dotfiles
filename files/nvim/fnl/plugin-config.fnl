@@ -131,7 +131,7 @@
       (local capabilities (lsp-util.get-capabilities))
       (local servers [:bashls :cmake :jedi_language_server
                       :cssls :elmls :html :jsonls :clojure_lsp
-                      :tsserver :tsserver :yamlls :hls :rnix
+                      :tsserver :tsserver :yamlls :hls :nil_ls
                       :fennel_language_server :typst_lsp])
       (each [_ server (pairs servers)]
         ((. (. lspconfig server) :setup)

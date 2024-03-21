@@ -10,7 +10,7 @@
       aria_ng
     ];
     systemd.services.aria_ng = {
-      enable = true;
+      enable = false;
       description = "Server aria_ng";
       path = [pkgs.static-web-server];
       unitConfig = {
@@ -23,9 +23,10 @@
     };
     networking.firewall.allowedTCPPorts = [30020 30019];
     services.aria2 = {
-      enable = true;
+      enable = false;
       openPorts = true;
       rpcListenPort = 30019;
+      rpcSecretFile = /run/secrets/aria2-rpc-token.txt;
     };
   };
 }

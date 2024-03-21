@@ -42,7 +42,7 @@
 
   programs.git.signing.key = "40C2656E7D651A18";
 
-  services.gpg-agent.pinentryFlavor = "gtk2";
+  services.gpg-agent.pinentryPackage = pkgs.pinentry-gtk2;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

@@ -13,7 +13,7 @@
   config = {
     environment.systemPackages = with pkgs; [
       cliphist
-      eww-wayland
+      eww
       kanshi
       tofi
       wayland

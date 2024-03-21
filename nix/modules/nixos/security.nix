@@ -35,7 +35,7 @@
     programs.gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
-      pinentryFlavor = "gtk2";
+      pinentryPackage = pkgs.pinentry-gtk2;
     };
     services.openssh = {
       enable = true;
