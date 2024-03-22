@@ -107,7 +107,7 @@
         # I know it's Adélie
         specialArgs = {inherit inputs outputs;};
         modules = [
-          dwarffs.nixosModules.dwarffs
+          # dwarffs.nixosModules.dwarffs
           ./nix/nixos/adelie.nix
           sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
