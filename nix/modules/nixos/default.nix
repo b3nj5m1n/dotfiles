@@ -64,4 +64,5 @@
   math = import ./math.nix;
   swaylock-plugin = import ./swaylock-plugin.nix;
   radicale = import ./radicale.nix;
+  grocy = import ./grocy.nix;
 }

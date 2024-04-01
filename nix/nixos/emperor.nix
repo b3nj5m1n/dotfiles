@@ -35,6 +35,7 @@
     (outputs.nixosModules args).math
     (outputs.nixosModules args).jellyfin
     (outputs.nixosModules args).radicale
+    (outputs.nixosModules args).grocy
 
     ../hardware/newpc.nix
   ];
