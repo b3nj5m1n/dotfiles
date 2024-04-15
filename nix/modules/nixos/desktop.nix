@@ -34,6 +34,7 @@
       swww
       rnote
       xournalpp
+      inkscape-with-extensions
       (callPackage ../../pkgs/zotero-wrapped {})
       (callPackage ../../pkgs/logseq-wrapped {})
       (callPackage ../../pkgs/firefox-trapped {})
