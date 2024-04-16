@@ -39,6 +39,8 @@
 
         "14 * * * *      b3nj4m1n    /usr/bin/env sh /home/b3nj4m1n/.local/share/bin/auto_commit.sh /home/b3nj4m1n/Zotero true"
         "46 17 * * *      b3nj4m1n    /usr/bin/env sh /home/b3nj4m1n/.local/share/bin/auto_commit.sh /home/b3nj4m1n/Zotero false"
+
+        "01 * * * *      b3nj4m1n    /usr/bin/env sh /home/b3nj4m1n/uni/get-current.sh"
       ];
     };
   };

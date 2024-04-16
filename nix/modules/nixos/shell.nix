@@ -52,6 +52,7 @@
       sops # Secret management
       sqlite # Sqlite cli
       starship # Fast af prompt generator with tons of useful info
+      taplo # Like jq for toml
       taskwarrior # The endboss of task management
       tealdeer # tldr client
       timewarrior # Companion to taskwarrior which I still have not set up properly

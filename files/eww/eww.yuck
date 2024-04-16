@@ -8,6 +8,8 @@
 (deflisten pulse-volume "pfui start pulseaudio")
 (deflisten mpd-info "pfui start mpd")
 
+(defpoll current-course :interval "1m" "if [[ -s /tmp/current_course ]]; then taplo get -f ~/uni/courses.toml -o value \"$(cat /tmp/current_course)\".name 2>/dev/null; else echo null; fi")
+
 {{#if (eq_string window_manager "bspwm")}}
 (deflisten active-window-title "xtitle -s")
 {{/if}}
@@ -87,11 +89,14 @@
       :halign "center"
       :class "center"
 {{#if (eq_string window_manager "sway")}}
-    (label :text { sway.data.window_title } :limit-width 30 :class "label-active-window")))
+    (label :text { sway.data.window_title } :limit-width 30 :class "label-active-window")
 {{/if}}
 {{#if (eq_string window_manager "bspwm")}}
-    (label :text active-window-title :limit-width 30 :class "label-active-window")))
+    (label :text active-window-title :limit-width 30 :class "label-active-window")
 {{/if}}
+    (label :text "" :visible "${(current-course == "null") ? false : true}" :class "placeholder")
+    (label :text { current-course } :limit-width 30 :visible "${(current-course == "null") ? false : true}" :class "label-active-course")))
+
 
 
 ;;;;; Right

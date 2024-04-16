@@ -65,6 +65,9 @@ $workspace-color-empty: $color-text;
 .label-active-window {
     border-bottom: 5px solid $color-secondary;
 }
+.label-active-course {
+    border-bottom: 5px solid $color-green;
+}
 
 // Right
 
@@ -139,4 +142,10 @@ $workspace-color-empty: $color-text;
 }
 .program-sync-indicator-status-4 {
     background-color: #a6da95;
+}
+
+
+// Placeholder between current window title and currently active course
+.placeholder {
+    padding-left: 30px;
 }
