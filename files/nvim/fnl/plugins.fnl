@@ -532,6 +532,13 @@
   ; :opts {}
   :config false)
 
+; [typst.vim](https://github.com/kaarmu/typst.vim)
+(paq.paq-add "typst" "Typst file support"
+  "kaarmu/typst.vim"
+  :commit "a4e73716b081bf083b6ae8292c0efc49979bc3c7"
+  ; :opts {}
+  :config false)
+
 ; [table-mode](https://github.com/dhruvasagar/vim-table-mode)
 (paq.paq-add "vim-table-mode" "Edit markdown tables"
   "dhruvasagar/vim-table-mode"
