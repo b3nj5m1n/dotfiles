@@ -524,13 +524,13 @@
   ; :opts {}
   :config false)
 
-; [typst-preview](https://github.com/chomosuke/typst-preview.nvim)
-(paq.paq-add "typst-preview.nvim" "Live preview for typst files"
-  "chomosuke/typst-preview.nvim"
-  :branch "master"
-  :commit "781cd0b5b7107244396b9e6278f913270d83622e"
-  ; :opts {}
-  :config false)
+; ; [typst-preview](https://github.com/chomosuke/typst-preview.nvim)
+; (paq.paq-add "typst-preview.nvim" "Live preview for typst files"
+;   "chomosuke/typst-preview.nvim"
+;   :branch "master"
+;   :commit "781cd0b5b7107244396b9e6278f913270d83622e"
+;   ; :opts {}
+;   :config false)
 
 ; [typst.vim](https://github.com/kaarmu/typst.vim)
 (paq.paq-add "typst" "Typst file support"
