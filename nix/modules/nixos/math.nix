@@ -16,6 +16,7 @@
       typstfmt
       typst-live
       typst-preview
+      websocat
     ];
   };
 }
