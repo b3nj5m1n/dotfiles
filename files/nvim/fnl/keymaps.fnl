@@ -113,3 +113,11 @@
                  "<c-n>" "<Plug>(YankyCycleForward)")
 (util.set-keymap "Normal: Yank cycle backward"
                  "<c-p>" "<Plug>(YankyCycleBackward)")
+
+; --- Neogit ---
+(util.set-keymap "Normal: Open Neogit"
+                 "gN" ":Neogit<CR>")
+
+; --- Typst ---
+(util.set-keymap "Normal: Open Typst Preview"
+                 "gP" ":TypstPreview<CR>")
