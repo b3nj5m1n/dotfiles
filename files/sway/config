@@ -319,4 +319,10 @@ exec autotiling-rs
 # Disable decoration for ulauncher
 for_window [app_id="ulauncher"] border none
 
+# For typst preview
+assign [app_id="org.qutebrowser.qutebrowser"] workspace 1
+no_focus [app_id="org.qutebrowser.qutebrowser"]
+
+
+
 include /etc/sway/config.d/*

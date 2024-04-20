@@ -39,6 +39,7 @@
       (callPackage ../../pkgs/logseq-wrapped {})
       # (callPackage ../../pkgs/firefox-trapped {})
       firefox
+      qutebrowser
     ];
 
     services = {

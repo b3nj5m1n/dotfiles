@@ -531,6 +531,7 @@
   :commit "1394f5d16b4b3f771f5fc112fbb1eb4369f58cc1"
   :opts {
          :debug false
+         :open_cmd "qutebrowser  --target window \"%s\""
          :dependencies_bin
          {
           :typst-preview "/run/current-system/sw/bin/typst-preview"
