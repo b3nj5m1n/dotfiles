@@ -10,6 +10,7 @@
       arkpandora_ttf
       liberation_ttf
       xits-math
+      newcomputermodern
       (nerdfonts.override {fonts = ["FantasqueSansMono" "FiraCode" "UbuntuMono"];})
     ];
   };
