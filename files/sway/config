@@ -324,5 +324,7 @@ assign [app_id="org.qutebrowser.qutebrowser"] workspace 1
 no_focus [app_id="org.qutebrowser.qutebrowser"]
 
 
+# Open pdf of course script
+bindsym $mod+Shift+s exec /home/b3nj4m1n/uni/open-script.sh
 
 include /etc/sway/config.d/*
