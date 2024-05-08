@@ -45,6 +45,7 @@
       pmount # Easier mounting
       progress # Show progress bar for coreutils
       rage # Rust version of age (actually good encryption)
+      rclone
       ripgrep # Very fast grep, searches directory recursively by default
       sd # Move intuitive sed
       skim # Like fzf, but in rust... yeah that's the only reason
