@@ -44,6 +44,7 @@
         ];
       permittedInsecurePackages = [
         "python-2.7.18.6"
+        "electron-27.3.11"
       ];
     };
   };
@@ -88,6 +89,8 @@
       extraGroups = ["wheel" "video"];
     };
   };
+
+  services.fwupd.enable = true;
 
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.displayManager.lightdm = {

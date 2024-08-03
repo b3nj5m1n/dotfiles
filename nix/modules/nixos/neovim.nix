@@ -7,6 +7,7 @@
   config = {
     environment.systemPackages = with pkgs; [
       neovim
+      luajitPackages.luarocks
       # tree-sitter
       # tree-sitter-grammars.tree-sitter-norg
     ];

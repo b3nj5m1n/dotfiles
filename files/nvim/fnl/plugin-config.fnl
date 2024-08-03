@@ -58,9 +58,9 @@
 (defn neorg []
   (. (require :neorg) :setup) {:load {
                                            :core.defaults {}
-                                           :core.norg.concealer {:config {:preset :icons}}
-                                           :core.norg.completion {:config {:engine :nvim-cmp}}
-                                           :core.norg.esupports.metagen {:config {:type :auto}}}})
+                                           :core.concealer {:config {:preset :icons}}
+                                           :core.completion {:config {:engine :nvim-cmp}}
+                                           :core.esupports.metagen {:config {:type :auto}}}})
 
 (defn indent-blankline [])
       ; (def highlight (require "highlight"))
@@ -290,15 +290,17 @@
       (gs.setup 
          {:signs {
                   :add
-                  {:hl :GitSignsAdd
-                   :text "▌"
-                   :numhl :GitSignsAddNr
-                   :linehl :GitSignsAddLn}
+                  {
+                   ; :hl :GitSignsAdd
+                   :text "▌"}
+                   ; :numhl :GitSignsAddNr
+                   ; :linehl :GitSignsAddLn}
                   :change
-                  {:hl :GitSignsChange
-                   :text "▌"
-                   :numhl :GitSignsChangeNr
-                   :linehl :GitSignsChangeLn}}
+                  {
+                   ; :hl :GitSignsChange
+                   :text "▌"}}
+                   ; :numhl :GitSignsChangeNr
+                   ; :linehl :GitSignsChangeLn}}
           :current_line_blame true
           :current_line_blame_opts
           {:virt_text true

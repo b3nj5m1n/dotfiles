@@ -103,7 +103,18 @@
                        :opts (. plugin :opts)
                        :main (. plugin :main)}]
       (table.insert lazy-plugins lazy-plugin)))
-  (lazy.setup lazy-plugins))
+  (lazy.setup
+    {
+     :spec lazy-plugins
+     :rocks
+        {:enabled true
+         :root (.. (vim.fn.stdpath :data) :/lazy-rocks)
+         :server "https://nvim-neorocks.github.io/rocks-binaries/"}
+     :pkg
+       {:cache (.. (vim.fn.stdpath :state) :/lazy/pkg-cache.lua)
+        :enabled true
+        :sources [:lazy :rockspec :packspec]}}))
+
 
      ; (each [_ plugin (ipairs (. config :plugins))]
      ;  (packer.use {

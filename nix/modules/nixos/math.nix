@@ -15,7 +15,7 @@
       typst-lsp
       typstfmt
       typst-live
-      typst-preview
+      tinymist
       websocat
     ];
   };

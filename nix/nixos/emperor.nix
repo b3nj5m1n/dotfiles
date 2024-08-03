@@ -51,6 +51,7 @@
       allowUnfree = true;
       permittedInsecurePackages = [
         "python-2.7.18.6"
+        "electron-27.3.11"
       ];
     };
   };

@@ -60,6 +60,10 @@
         system = final.system;
         config.allowUnfree = true;
       };
+    pr331310 = import (fetchTarball {
+      url = "https://github.com/NixOS/nixpkgs/archive/008ceae1a2b47a84d7aa01e55f8468272c70b9ee.tar.gz";
+      sha256 = "sha256:103z79gkxxlrdl3fgi4f9payhj1p9ms495n8bxw3s6pslmlvhrm0";
+    }) {system = final.system;};
   };
 
   # hyprland = hyprland.overlays.default;

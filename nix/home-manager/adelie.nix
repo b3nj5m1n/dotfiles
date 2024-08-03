@@ -9,7 +9,7 @@
   imports = let
     homeManagerModules = import ../modules/home-manager;
   in [
-    homeManagerModules.helix
+    homeManagerModules.neovim
     # homeManagerModules.tree-sitter
     homeManagerModules.theming
     homeManagerModules.gpg
@@ -35,7 +35,6 @@
   };
 
   # Add stuff for your user as you see fit:
-  programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
 
   programs.home-manager.enable = true;

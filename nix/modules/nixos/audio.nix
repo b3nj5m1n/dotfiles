@@ -5,7 +5,7 @@
   options = {};
 
   config = {
-    sound.enable = true;
+    # sound.enable = true;
     environment.systemPackages = with pkgs; [
       mpc-cli
       ncmpcpp

@@ -173,10 +173,10 @@
 
 (local lsp-status
   {:provider (fn []
-               (local messages (vim.lsp.util.get_progress_messages))
+               (local messages (vim.lsp.status))
                (if (= (length messages) 0)
                  "+LSP"
-                 (.. " " (format-messages messages))))
+                 (.. " " messages)))
    :hl {:fg :violet :bg :bg :style :bold}
    :enabled (fn []
               (lsp-connected?))
