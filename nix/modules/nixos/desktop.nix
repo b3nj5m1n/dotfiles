@@ -16,7 +16,7 @@
       (tor-browser-bundle-bin.override {
         useHardenedMalloc = false;
       })
-      thunderbird
+      thunderbird-128
       libnotify
       neovide
       peek
