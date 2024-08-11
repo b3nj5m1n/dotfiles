@@ -538,7 +538,7 @@
          :open_cmd "qutebrowser  --target window \"%s\""
          :dependencies_bin
          {
-          :typst-preview "/run/current-system/sw/bin/tinymist"
+          :typst-preview "/run/current-system/sw/bin/typst-preview"
           :websocat "/run/current-system/sw/bin/websocat"}}
   :config true)
 

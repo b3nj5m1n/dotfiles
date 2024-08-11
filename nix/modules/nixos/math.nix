@@ -17,6 +17,7 @@
       typst-live
       tinymist
       websocat
+      stable.typst-preview
     ];
   };
 }
