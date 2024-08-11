@@ -30,6 +30,11 @@
     dwarffs.url = "github:edolstra/dwarffs";
 
     pfui.url = "github:b3nj5m1n/pfui";
+
+    nixos-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -42,6 +47,7 @@
     sops-nix,
     dwarffs,
     pfui,
+    nixos-cosmic,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -107,6 +113,13 @@
         # I know it's Adélie
         specialArgs = {inherit inputs outputs;};
         modules = [
+          {
+            nix.settings = {
+              substituters = [ "https://cosmic.cachix.org/" ];
+              trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+            };
+          }
+          nixos-cosmic.nixosModules.default
           # dwarffs.nixosModules.dwarffs
           ./nix/nixos/adelie.nix
           sops-nix.nixosModules.sops
