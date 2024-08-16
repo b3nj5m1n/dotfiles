@@ -139,6 +139,13 @@
         # Desktop
         specialArgs = {inherit inputs outputs;};
         modules = [
+          {
+            nix.settings = {
+              substituters = [ "https://cosmic.cachix.org/" ];
+              trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+            };
+          }
+          nixos-cosmic.nixosModules.default
           ./nix/nixos/emperor.nix
           sops-nix.nixosModules.sops
           # hyprland.nixosModules.default
