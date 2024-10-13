@@ -20,5 +20,7 @@ return {
     enable_tab_bar = false,
 
     window_background_opacity = 1.0,
+
+    front_end = "WebGpu"
 }
 
