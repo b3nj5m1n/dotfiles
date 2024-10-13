@@ -21,7 +21,7 @@ in
       hash = "sha256-SeTEGq0R3TthHbxC2/mZAk/Kvgjt13l7sw1tcje7Wxg=";
     };
 
-    cargoSha256 = "sha256-T3EBNvTifHbn5Lh4owMlqpUSoL6vXLBVRbhHPzjBb0M=";
+    cargoHash = "sha256-T3EBNvTifHbn5Lh4owMlqpUSoL6vXLBVRbhHPzjBb0M=";
     verifyCargoDeps = true;
 
     nativeBuildInputs = [pkgs.makeWrapper];

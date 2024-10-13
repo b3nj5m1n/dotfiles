@@ -22,6 +22,6 @@
       enable = true;
     };
     programs.sway.enable = true;
-    services.xserver.displayManager.defaultSession = "sway";
+    services.displayManager.defaultSession = "sway";
   };
 }

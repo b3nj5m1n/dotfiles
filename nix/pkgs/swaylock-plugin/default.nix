@@ -18,7 +18,7 @@ stdenv.mkDerivation rec {
     sha256 = "sha256-Fl2XbRkapXGLSP5lX3pDOhjpA7Pc9Ht4VJuZCtIrubE=";
   };
 
-  nativeBuildInputs = with pkgs; [meson wayland wayland-protocols libxkbcommon cairo gdk-pixbuf pam pkg-config ninja scdoc];
+  nativeBuildInputs = with pkgs; [meson wayland wayland-protocols wayland-scanner libxkbcommon cairo gdk-pixbuf pam pkg-config ninja scdoc];
 
   mesonFlags = [
     "-Dpam=enabled"

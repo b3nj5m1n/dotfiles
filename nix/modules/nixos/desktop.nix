@@ -14,7 +14,7 @@
       feh
       mangohud
       (tor-browser-bundle-bin.override {
-        useHardenedMalloc = false;
+        # useHardenedMalloc = false;
       })
       thunderbird-128
       libnotify
@@ -24,8 +24,8 @@
       syncthing
       ydotool
       xfce.thunar
-      gnome.nautilus
-      gnome.file-roller
+      nautilus
+      file-roller
       element-desktop
       mpv
       vlc
