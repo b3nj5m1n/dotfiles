@@ -43,7 +43,7 @@
 (paq.paq-add "neorg" "Org-mode equivalent for neovim"
   "nvim-neorg/neorg"
   ; :commit "f296a22864bbac0d94ad00fa18cc8231dbeaa1e3"
-  :requires ["nvim-lua/plenary.nvim" "nvim-treesitter/nvim-treesitter"]
+  :requires ["nvim-lua/plenary.nvim" "nvim-treesitter/nvim-treesitter" "nvim-neorg/lua-utils.nvim"]
   :optional false)
   ; :filetype "norg"
   ;:config ((. (require :plugin-config) :neorg)))
@@ -421,6 +421,7 @@
   "rcarriga/nvim-dap-ui"
   :branch "master"
   ; :commit "85b16ac2309d85c88577cd8ee1733ce52be8227e"
+  :requires ["nvim-neotest/nvim-nio"]
   :optional true)
 
 ; [nvim-dap-virtual-text](https://github.com/theHamsta/nvim-dap-virtual-text)
@@ -534,12 +535,12 @@
   :branch "master"
   ; :commit "1394f5d16b4b3f771f5fc112fbb1eb4369f58cc1"
   :opts {
-         :debug false
-         :open_cmd "qutebrowser  --target window \"%s\""
-         :dependencies_bin
-         {
-          :typst-preview "/run/current-system/sw/bin/typst-preview"
-          :websocat "/run/current-system/sw/bin/websocat"}}
+         :debug true
+         ; :open_cmd "qutebrowser  --target window \"%s\""
+         :get_root (fn [path-of-buffer] "/home/b3nj4m1n/uni/")
+         :dependencies_bin {
+                            :tinymist "/run/current-system/sw/bin/tinymist"
+                            :websocat "/run/current-system/sw/bin/websocat"}}
   :config true)
 
 ; [typst.vim](https://github.com/kaarmu/typst.vim)

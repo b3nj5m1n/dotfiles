@@ -55,12 +55,12 @@
                            :builtin]
                  :trim_prompt true}}))
 
-(defn neorg []
-  (. (require :neorg) :setup) {:load {
-                                           :core.defaults {}
-                                           :core.concealer {:config {:preset :icons}}
-                                           :core.completion {:config {:engine :nvim-cmp}}
-                                           :core.esupports.metagen {:config {:type :auto}}}})
+(defn neorg [])
+  ; (. (require :neorg) :setup) {:load {
+  ;                                          :core.defaults {}
+  ;                                          :core.concealer {:config {:preset :icons}}
+  ;                                          :core.completion {:config {:engine :nvim-cmp}}
+  ;                                          :core.esupports.metagen {:config {:type :auto}}}})
 
 (defn indent-blankline [])
       ; (def highlight (require "highlight"))
@@ -131,7 +131,7 @@
       (local capabilities (lsp-util.get-capabilities))
       (local servers [:bashls :cmake :jedi_language_server
                       :cssls :elmls :html :jsonls :clojure_lsp
-                      :tsserver :tsserver :yamlls :hls :nil_ls
+                      :ts_ls :yamlls :hls :nil_ls
                       :fennel_language_server]) ; :typst_lsp])
       (each [_ server (pairs servers)]
         ((. (. lspconfig server) :setup)
