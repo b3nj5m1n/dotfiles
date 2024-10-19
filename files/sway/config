@@ -309,6 +309,7 @@ exec swaync
 exec wl-paste --type text --watch cliphist store
 exec wl-paste --type image --watch cliphist store
 exec syncthing -no-browser
+exec nm-applet
 
 # Autostart Firefox
 exec firefox
