@@ -15,11 +15,11 @@
     };
     systemd.services.gitega = {
       description = "Run gitega";
-      path = with pkgs; [libnotify findutils python39];
+      path = with pkgs; [libnotify findutils python313];
       environment = {
         PYTHONPATH = let
           packageNames = ["cffi" "pycparser" "requests" "brotlicffi" "certifi" "charset-normalizer" "idna" "urllib3" "brotli" "pysocks" "colorama" "dateutils" "python-dateutil" "six" "pytz"];
-          packages = ["${pkgs.python39}"] ++ map (s: "${pkgs.python39Packages.${s}}") packageNames;
+          packages = ["${pkgs.python313}"] ++ map (s: "${pkgs.python313Packages.${s}}") packageNames;
           packagesFull = map (s: "${s}/lib/python3.9/site-packages") packages;
           packagesPath = builtins.concatStringsSep ":" packagesFull;
         in "${packagesPath}";

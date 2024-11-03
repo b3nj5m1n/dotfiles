@@ -8,7 +8,7 @@
     environment.systemPackages = with pkgs; [
       keychain
       libfido2
-      yubikey-manager
+      # yubikey-manager # TODO
       pinentry
       pinentry-curses
       pinentry-gtk2

@@ -33,7 +33,7 @@
     (outputs.nixosModules args).postgres
     (outputs.nixosModules args).pix2tex
     (outputs.nixosModules args).math
-    (outputs.nixosModules args).jellyfin
+    # (outputs.nixosModules args).jellyfin # TODO
     (outputs.nixosModules args).radicale
     (outputs.nixosModules args).grocy
 
