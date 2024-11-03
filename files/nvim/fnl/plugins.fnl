@@ -433,16 +433,16 @@
 
 ; [which-key.nvim](https://github.com/folke/which-key.nvim)
 ; BUG conflicts with dressing.nvim
-(paq.paq-add "which-key" "Display popup with possible keybindings"
-  "folke/which-key.nvim"
-  ; :commit "7ccf476ebe0445a741b64e36c78a682c1c6118b7"
-  :opts {}
-  :optional true
-  :event "VeryLazy"
-  :setup (do
-          (set vim.o.timeout true)
-          (set vim.o.timeoutlen 300))
-  :config true)
+; (paq.paq-add "which-key" "Display popup with possible keybindings"
+;   "folke/which-key.nvim"
+;   ; :commit "7ccf476ebe0445a741b64e36c78a682c1c6118b7"
+;   :opts {}
+;   :optional false
+;   :event "VeryLazy"
+;   :setup (do
+;           (set vim.o.timeout true)
+;           (set vim.o.timeoutlen 10000))
+;   :config true)
 
 ; ; [headlines.nvim](https://github.com/lukas-reineke/headlines.nvim)
 ; (paq.paq-add "headlines" "Horizontal highlights for headings"

@@ -283,7 +283,9 @@
 
 (defn neogit []
     (local ng (require :neogit))
-    (ng.setup {}))
+    (ng.setup {
+               :commit_editor {
+                               :spell_check false}}))
 
 (defn gitsigns []
       (local gs (require :gitsigns))

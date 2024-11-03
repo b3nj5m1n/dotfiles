@@ -2,6 +2,7 @@
   {require
    {util util}})
 
+
 ; --- Make Ctrl+C behave like Escape ---
 (util.set-keymap "Normal: Make Ctrl+C behave like Escape"
                  "<C-c>" "<Esc>")
