@@ -378,7 +378,9 @@
   ; :module "neogit"
   ; :after "plenary.nvim"
   ; :optional true
-  :config true)
+  :config true
+  :opts {:commit_editor {:spell_check false}})
+
 
 ; [vim-fugitive](https://github.com/tpope/vim-fugitive)
 (paq.paq-add "fugitive" "Basic git integration"
