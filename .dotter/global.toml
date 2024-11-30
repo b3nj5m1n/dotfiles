@@ -90,7 +90,7 @@ display_wlan = false
 multi_monitor = false
 main_monitor = "HDMI-A-1"
 main_monitor_res = "1920x1080"
-second_monitor = "DP-2"
+second_monitor = "DP-1"
 battery_name = ""
 # ----- Server -----
 [server.variables]

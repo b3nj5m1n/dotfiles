@@ -1,13 +1,19 @@
 #!/usr/bin/env sh
 
-# https://github.com/elkowar/eww/issues/178#issuecomment-1229498664
-bspc subscribe node_state | while read -r _ _ _ _ state flag; do
-  if [ "$state" != fullscreen ]; then continue; fi
-  if [ "$flag" = on ]; then
-    xdotool search --class eww-bar windowunmap
-  else
-    xdotool search --class eww-bar windowmap
-  fi
-done &
+# # https://github.com/elkowar/eww/issues/178#issuecomment-1229498664
+# bspc subscribe node_state | while read -r _ _ _ _ state flag; do
+#   if [ "$state" != fullscreen ]; then continue; fi
+#   if [ "$flag" = on ]; then
+#     xdotool search --class eww-bar windowunmap
+#   else
+#     xdotool search --class eww-bar windowmap
+#   fi
+# done &
 
-eww open bar
+if [ "$(hostname)" = "emperor" ]
+then
+    eww open bar --screen "2460G4"
+    eww open smallbar --screen "HP E232"
+else
+    eww open bar
+fi

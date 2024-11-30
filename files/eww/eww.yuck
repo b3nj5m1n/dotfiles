@@ -193,6 +193,11 @@
     (center)
     (right)))
 
+(defwidget smallbar []
+  (box :class "bar"
+       :orientation "h"
+    (left)))
+
 
 ;;;;; Right
 
@@ -213,3 +218,21 @@
   (eventbox
       :cursor "default"
     (bar)))
+
+(defwindow smallbar
+    :geometry
+      (geometry
+        :x "0%"
+        :y "5px"
+        :height "30px"
+        :width "99%"
+        :anchor "top center")
+    :stacking "fg"
+    :windowtype "dock"
+    :exclusive "true"
+    :reserve (struts :distance "45px" :side "top")
+    :cursor "pointer"
+    :monitor 0
+  (eventbox
+      :cursor "default"
+    (smallbar)))
