@@ -108,6 +108,7 @@
 
   environment.systemPackages = with pkgs; [
     pfui
+    ghostty
     eisvogel
     bemoji
     wofi-calc

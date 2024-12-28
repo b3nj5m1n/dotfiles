@@ -35,6 +35,10 @@
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+    };
   };
 
   outputs = {
@@ -48,6 +52,7 @@
     dwarffs,
     pfui,
     nixos-cosmic,
+    ghostty,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -69,6 +74,7 @@
           inherit system;
           inherit fenix;
           inherit pfui;
+          inherit ghostty;
         }
     );
 
@@ -99,6 +105,7 @@
       inherit inputs;
       inherit fenix;
       inherit pfui;
+      inherit ghostty;
       # inherit hyprland;
     };
     # Reusable nixos modules you might want to export
