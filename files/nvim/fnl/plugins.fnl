@@ -171,12 +171,20 @@
   ; :commit "e014708e917b457e8f6c57f357d55dd3826880d4"
   :optional true)
 
-; [feline.nvim](https://github.com/feline-nvim/feline.nvim)
-(paq.paq-add "feline" "Statusline"
-  "feline-nvim/feline.nvim"
+; ; [feline.nvim](https://github.com/feline-nvim/feline.nvim)
+; (paq.paq-add "feline" "Statusline"
+;   "feline-nvim/feline.nvim"
+;   :branch "master"
+;   ; :commit "d48b6f92c6ccdd6654c956f437be49ea160b5b0c"
+;   :optional true)
+
+; [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
+(paq.paq-add "lualine" "Statusline"
+  "nvim-lualine/lualine.nvim"
   :branch "master"
   ; :commit "d48b6f92c6ccdd6654c956f437be49ea160b5b0c"
-  :optional true)
+  ; :config true
+  :optional false)
 
 ; [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 (paq.paq-add "web-deviconds" "File icons"
