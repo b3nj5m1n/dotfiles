@@ -312,6 +312,13 @@
   :event "BufEnter"
   :optional true)
 
+; [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim)
+(paq.paq-add "render-markdown" "Render markdown"
+  "MeanderingProgrammer/render-markdown.nvim"
+  :event "BufEnter"
+  :filetype {"markdown" "codecompanion"}
+  :optional true)
+
 ; [blink.cmp](https://github.com/Saghen/blink.cmp)
 (paq.paq-add "blink" "Completion plugin"
   "Saghen/blink.cmp"
@@ -330,9 +337,15 @@
                       :ghost_text {
                                     :enabled true}}
          :keymap {
-                  :preset "default"}}
+                  :preset "default"}
                   ; :<C-m> [ "select_and_accept" ]}}
                   ; :<C-m> [ "show" "show_documentation" "hide_documentation"]}}
+         :sources {
+                   :providers {}}}
+                               ; :codecompanion {
+                               ;                 :name "codecompanion"
+                               ;                 :module "codecompanion.providers.completion.blink"
+                               ;                 :enabled true}}}}
 
   :build "nix run .#build-plugin"
   ; :build "cargo build --release"
@@ -343,6 +356,20 @@
 ;   "hrsh7th/nvim-cmp"
 ;   ; :commit "51f1e11a89ec701221877532ee1a23557d291dd5"
 ;   :event "BufEnter"
+;   :optional true)
+
+; ; [codecompanion.nvim](https://github.com/olimorris/codecompanion.nvim)
+; (paq.paq-add "codecompanion" "Better diagnostics ui"
+;   "olimorris/codecompanion.nvim"
+;   ; :commit "40aad004f53ae1d1ba91bcc5c29d59f07c5f01d3"
+;   :event "BufEnter"
+;   :config true
+;   :opts {
+;          :strategies {
+;                       :chat {
+;                              :adapter "ollama"}
+;                       :inline {
+;                                :adapter "ollama"}}}
 ;   :optional true)
 
 ; [lspkind.nvim](https://github.com/onsails/lspkind.nvim)
