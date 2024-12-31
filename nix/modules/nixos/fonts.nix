@@ -11,7 +11,9 @@
       liberation_ttf
       xits-math
       newcomputermodern
-      (nerdfonts.override {fonts = ["FantasqueSansMono" "FiraCode" "UbuntuMono"];})
+      nerd-fonts.fantasque-sans-mono
+      nerd-fonts.fira-mono
+      nerd-fonts.ubuntu-mono
     ];
   };
 }
