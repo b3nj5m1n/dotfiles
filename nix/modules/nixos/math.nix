@@ -18,6 +18,7 @@
       tinymist
       websocat
       stable.typst-preview
+      numbat
     ];
   };
 }
