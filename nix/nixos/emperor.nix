@@ -115,7 +115,7 @@
     # tree-sitter-grammar.norg
     discord
     discordchatexporter-cli # Exactly what it says
-    homepage
+    # homepage
     pr227905.insomnia
     pr231339.sea-orm-cli
     tts15.tts
