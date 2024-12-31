@@ -290,6 +290,13 @@
 ;   "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
 ;   :commit "ec98b45c8280e5ef8c84028d4f38aa447276c002")
 
+; [dropbar.nvim](https://github.com/Bekaboo/dropbar.nvim)
+(paq.paq-add "dropbar.nvim" "Breadcrumbs"
+  "Bekaboo/dropbar.nvim"
+  :branch "master"
+  ; :commit "095dc490f362adc85be66dc14bd9665ddd94413b"
+  :optional false)
+
 ; [trouble.nvim](https://github.com/folke/trouble.nvim)
 (paq.paq-add "trouble" "Better diagnostics ui"
   "folke/trouble.nvim"
