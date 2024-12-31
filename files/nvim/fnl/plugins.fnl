@@ -331,6 +331,7 @@
                                     :enabled true}}
          :keymap {
                   :preset "default"}}
+                  ; :<C-m> [ "select_and_accept" ]}}
                   ; :<C-m> [ "show" "show_documentation" "hide_documentation"]}}
 
   :build "nix run .#build-plugin"
@@ -351,6 +352,13 @@
   ; :commit "57610d5ab560c073c465d6faf0c19f200cb67e6e"
   :event "BufEnter"
   :optional true)
+
+; [fileline.nvim](https://github.com/lewis6991/fileline.nvim)
+(paq.paq-add "fileline" "Make nvim file.ext:n open file at line n"
+  "lewis6991/fileline.nvim"
+  :branch "main"
+  ; :commit "57610d5ab560c073c465d6faf0c19f200cb67e6e"
+  :optional false)
 
 ; ; [nvim-cmp-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
 ; (paq.paq-add "cmp-lsp" "Cmp provider for lsp"
