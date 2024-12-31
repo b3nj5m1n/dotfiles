@@ -246,36 +246,36 @@
   :optional true)
   ; :config ((. (require :plugin-config) :lspconfig)))
 
-; [rust-tools.nvim](https://github.com/simrat39/rust-tools.nvim)
-(paq.paq-add "rust-tools" "More support for rust analyzer"
-  "simrat39/rust-tools.nvim"
+; [rustaceanvim](https://github.com/mrcjkb/rustaceanvim)
+(paq.paq-add "rustaceanvim" "More support for rust analyzer"
+  "mrcjkb/rustaceanvim"
   :branch "master"
   ; :commit "0cc8adab23117783a0292a0c8a2fbed1005dc645"
   :filetype "rust"
-  :requires ["hrsh7th/nvim-cmp" "hrsh7th/cmp-nvim-lsp"]
+  ; :requires ["hrsh7th/nvim-cmp" "hrsh7th/cmp-nvim-lsp"]
   :event "VimEnter"
-  :config true
-  :opts [
-          ; :dap {:adapter ((. (require :rust-tools.dap) :get_codelldb_adapter) :/usr/bin/codelldb :/usr/lib/liblldb.so)}
-          :server {
-                   ; :capabilities ((. (. (require :fennel-config) :lsp-util) :get-capabilities))
-                   :handlers ((. (. (require :fennel-config) :lsp-util) :get-handlers))
-                   :standalone true}
-          ; :tools {:executor (. (require :rust-tools.executors) :termopen)}
-          :hover_actions {:auto_focus false}
-          :inlay_hints {:auto false}
-              :highlight :Comment
-              :max_len_align false
-                  :max_len_align_padding 1
-                  :only_current_line false
-                  :other_hints_prefix "  => "
-                  :parameter_hints_prefix "  <- "
-                  :right_align false
-                  :right_align_padding 7
-                  :show_parameter_hints true
-              :on_initialized nil
-              :reload_workspace_from_cargo_toml true
-              :runnables {:use_telescope true}]
+  ; :config true
+  ; :opts [
+  ;         ; :dap {:adapter ((. (require :rust-tools.dap) :get_codelldb_adapter) :/usr/bin/codelldb :/usr/lib/liblldb.so)}
+  ;         :server {
+  ;                  ; :capabilities ((. (. (require :fennel-config) :lsp-util) :get-capabilities))
+  ;                  :handlers ((. (. (require :fennel-config) :lsp-util) :get-handlers))
+  ;                  :standalone true}
+  ;         ; :tools {:executor (. (require :rust-tools.executors) :termopen)}
+  ;         :hover_actions {:auto_focus false}
+  ;         :inlay_hints {:auto false}
+  ;             :highlight :Comment
+  ;             :max_len_align false
+  ;                 :max_len_align_padding 1
+  ;                 :only_current_line false
+  ;                 :other_hints_prefix "  => "
+  ;                 :parameter_hints_prefix "  <- "
+  ;                 :right_align false
+  ;                 :right_align_padding 7
+  ;                 :show_parameter_hints true
+  ;             :on_initialized nil
+  ;             :reload_workspace_from_cargo_toml true
+  ;             :runnables {:use_telescope true}]
   :optional true)
 
 ; [nvim-jdtls](https://github.com/mfussenegger/nvim-jdtls)
@@ -312,12 +312,36 @@
   :event "BufEnter"
   :optional true)
 
-; [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
-(paq.paq-add "nvim-cmp" "Completion plugin"
-  "hrsh7th/nvim-cmp"
-  ; :commit "51f1e11a89ec701221877532ee1a23557d291dd5"
+; [blink.cmp](https://github.com/Saghen/blink.cmp)
+(paq.paq-add "blink" "Completion plugin"
+  "Saghen/blink.cmp"
+  ; :commit "40aad004f53ae1d1ba91bcc5c29d59f07c5f01d3"
   :event "BufEnter"
+  :config true
+  :opts {:appearance {:nerd_font_variant :mono
+                      :use_nvim_cmp_as_default true}
+         :keymap {:preset :default}
+         :sources {:default [:lsp :path :snippets :buffer]}
+         :signature { :enabled true}
+         :completion {
+                      :documentation {
+                                      :auto_show true
+                                      :auto_show_delay_ms 1}
+                      :ghost_text {
+                                    :enabled true}}
+         :keymap {
+                  :preset "default"}}
+                  ; :<C-m> [ "show" "show_documentation" "hide_documentation"]}}
+
+  :build "nix run .#build-plugin"
   :optional true)
+
+; ; [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+; (paq.paq-add "nvim-cmp" "Completion plugin"
+;   "hrsh7th/nvim-cmp"
+;   ; :commit "51f1e11a89ec701221877532ee1a23557d291dd5"
+;   :event "BufEnter"
+;   :optional true)
 
 ; [lspkind.nvim](https://github.com/onsails/lspkind.nvim)
 (paq.paq-add "lspkind" "vscode-like pictograms for neovim lsp completion items "
@@ -327,48 +351,48 @@
   :event "BufEnter"
   :optional true)
 
-; [nvim-cmp-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
-(paq.paq-add "cmp-lsp" "Cmp provider for lsp"
-  "hrsh7th/cmp-nvim-lsp"
-  ; :commit "44b16d11215dce86f253ce0c30949813c0a90765"
-  :event "BufEnter"
-  :optional true)
+; ; [nvim-cmp-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
+; (paq.paq-add "cmp-lsp" "Cmp provider for lsp"
+;   "hrsh7th/cmp-nvim-lsp"
+;   ; :commit "44b16d11215dce86f253ce0c30949813c0a90765"
+;   :event "BufEnter"
+;   :optional true)
 
-; [nvim-cmp-lsp-signature-help](https://github.com/hrsh7th/cmp-nvim-lsp-signature-help)
-(paq.paq-add "cmp-lsp-signature" "Cmp provider for lsp signatures"
-  "hrsh7th/cmp-nvim-lsp-signature-help"
-  ; :commit "3d8912ebeb56e5ae08ef0906e3a54de1c66b92f1"
-  :event "BufEnter"
-  :optional true)
+; ; [nvim-cmp-lsp-signature-help](https://github.com/hrsh7th/cmp-nvim-lsp-signature-help)
+; (paq.paq-add "cmp-lsp-signature" "Cmp provider for lsp signatures"
+;   "hrsh7th/cmp-nvim-lsp-signature-help"
+;   ; :commit "3d8912ebeb56e5ae08ef0906e3a54de1c66b92f1"
+;   :event "BufEnter"
+;   :optional true)
 
-; [nvim-cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
-(paq.paq-add "cmp-buffer" "Cmp provider for buffer words"
-  "hrsh7th/cmp-buffer"
-  ; :commit "3022dbc9166796b644a841a02de8dd1cc1d311fa"
-  :event "BufEnter"
-  :optional true)
+; ; [nvim-cmp-buffer](https://github.com/hrsh7th/cmp-buffer)
+; (paq.paq-add "cmp-buffer" "Cmp provider for buffer words"
+;   "hrsh7th/cmp-buffer"
+;   ; :commit "3022dbc9166796b644a841a02de8dd1cc1d311fa"
+;   :event "BufEnter"
+;   :optional true)
 
-; [nvim-cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline)
-(paq.paq-add "cmp-cmdline" "Cmp provider for commandline"
-  "hrsh7th/cmp-cmdline"
-  ; :commit "8ee981b4a91f536f52add291594e89fb6645e451"
-  :event "BufEnter"
-  :optional true)
+; ; [nvim-cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline)
+; (paq.paq-add "cmp-cmdline" "Cmp provider for commandline"
+;   "hrsh7th/cmp-cmdline"
+;   ; :commit "8ee981b4a91f536f52add291594e89fb6645e451"
+;   :event "BufEnter"
+;   :optional true)
 
-; [nvim-cmp-path](https://github.com/hrsh7th/cmp-path)
-(paq.paq-add "cmp-path" "Cmp provider for filepaths"
-  "hrsh7th/cmp-path"
-  ; :commit "91ff86cd9c29299a64f968ebb45846c485725f23"
-  :event "BufEnter"
-  :optional true)
+; ; [nvim-cmp-path](https://github.com/hrsh7th/cmp-path)
+; (paq.paq-add "cmp-path" "Cmp provider for filepaths"
+;   "hrsh7th/cmp-path"
+;   ; :commit "91ff86cd9c29299a64f968ebb45846c485725f23"
+;   :event "BufEnter"
+;   :optional true)
 
-; [nvim-cmp-luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
-(paq.paq-add "cmp-luasnip" "Cmp provider for luasnip"
-  "saadparwaiz1/cmp_luasnip"
-  :branch "master"
-  ; :commit "18095520391186d634a0045dacaa346291096566"
-  :event "BufEnter"
-  :optional true)
+; ; [nvim-cmp-luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
+; (paq.paq-add "cmp-luasnip" "Cmp provider for luasnip"
+;   "saadparwaiz1/cmp_luasnip"
+;   :branch "master"
+;   ; :commit "18095520391186d634a0045dacaa346291096566"
+;   :event "BufEnter"
+;   :optional true)
 
 ; [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 (paq.paq-add "luasnip" "Snippet engine"

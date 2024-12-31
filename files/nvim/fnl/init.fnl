@@ -41,7 +41,7 @@
 ; (plugin-config.lspsaga)
 ; (plugin-config.lsp-lines)
 (plugin-config.trouble)
-(plugin-config.nvim-cmp)
+; (plugin-config.nvim-cmp)
 (plugin-config.luasnip)
 ; (plugin-config.neogit)
 (plugin-config.gitsigns)
