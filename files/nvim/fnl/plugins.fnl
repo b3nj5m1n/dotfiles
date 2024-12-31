@@ -315,7 +315,7 @@
 ; [blink.cmp](https://github.com/Saghen/blink.cmp)
 (paq.paq-add "blink" "Completion plugin"
   "Saghen/blink.cmp"
-  ; :commit "40aad004f53ae1d1ba91bcc5c29d59f07c5f01d3"
+  :commit "98fded25d772a749cbf26e569e735ca7a3fb9d12"
   :event "BufEnter"
   :config true
   :opts {:appearance {:nerd_font_variant :mono
@@ -334,6 +334,7 @@
                   ; :<C-m> [ "show" "show_documentation" "hide_documentation"]}}
 
   :build "nix run .#build-plugin"
+  ; :build "cargo build --release"
   :optional true)
 
 ; ; [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)

@@ -9,7 +9,7 @@
   config = {
     environment.systemPackages = with pkgs; [
       libqalculate # qalc cli
-      sage
+      stable.sage
       sagetex
       typst
       typst-lsp
