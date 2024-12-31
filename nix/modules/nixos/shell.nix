@@ -42,7 +42,7 @@
       neomutt # TUI email client
       parallel # GNU parallel
       pfetch # Like neofetch but faster and more minimal
-      pmount # Easier mounting
+      stable.pmount # Easier mounting
       progress # Show progress bar for coreutils
       rage # Rust version of age (actually good encryption)
       rclone
