@@ -111,6 +111,7 @@
     eisvogel
     bemoji
     wofi-calc
+    ghostty
     # tree-sitter-grammar.norg
   ];
 
