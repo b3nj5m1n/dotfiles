@@ -113,6 +113,7 @@
     wofi-calc
     ghostty
     # tree-sitter-grammar.norg
+    ltex-nightly
   ];
 
   services.flatpak.enable = true;

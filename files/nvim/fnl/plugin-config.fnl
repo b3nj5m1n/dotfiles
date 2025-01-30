@@ -141,7 +141,7 @@
        {:capabilities capabilities
         :single_file_support true
         :cmd [:clangd :--completion-style=detailed "-fallback-style=LLVM"]})
-      (lspconfig.ltex.setup
+      (lspconfig.ltex_plus.setup
        {:capabilities capabilities
         :single_file_support true
         :filetypes [ "typst" "bib" "gitcommit" "markdown" "org" "plaintex" "rst" "rnoweb" "tex" "pandoc" "quarto" "rmd" "context" "html" "xhtml" "mail" "text"]

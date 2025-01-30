@@ -33,4 +33,5 @@
   homepage = pkgs.callPackage ./homepage {};
   fennel-language-server = pkgs.callPackage ./fennel-language-server {};
   swaylock-plugin = pkgs.callPackage ./swaylock-plugin {};
+  ltex-nightly = pkgs.callPackage ./ltex-nightly {};
 }
