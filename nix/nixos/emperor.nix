@@ -119,6 +119,7 @@
     pr227905.insomnia
     pr231339.sea-orm-cli
     tts15.tts
+    ltex-nightly
 
     gamemode
   ];

@@ -11,11 +11,11 @@
 
 stdenvNoCC.mkDerivation rec {
   pname = "ltex-nightly";
-  version = "15.5.0-alpha.nightly.2025-01-13";
+  version = "15.5.0-alpha.nightly.2025-02-03";
 
   src = fetchurl {
-    url = "https://github.com/ltex-plus/vscode-ltex-plus/releases/download/nightly/vscode-ltex-plus-15.5.0-alpha.nightly.2025-01-13-offline-linux-aarch64.vsix";
-    sha256 = "sha256-UaWRX/1yZPkbewRhAQAyO8ZqvmDzrAkTCJ/7q5EUB00=";
+    url = "https://github.com/ltex-plus/vscode-ltex-plus/releases/download/nightly/vscode-ltex-plus-${version}-offline-linux-aarch64.vsix";
+    sha256 = "sha256-ivht8uGVAJIRY6CgOJG92UKLdpsJJFRR1C4y6yuaBR0=";
   };
 
   nativeBuildInputs = [ makeBinaryWrapper unzip tree ];
@@ -25,9 +25,10 @@ stdenvNoCC.mkDerivation rec {
     runHook preInstall
     cp $src .
     tree
-    unzip 7vlldsd5rn6ljdm0n90smy0f8pg07dfj-vscode-ltex-plus-15.5.0-alpha.nightly.2025-01-13-offline-linux-aarch64.vsix
+    unzip k270c17ll44sdbg2drq8qcv8zpnz92b5-vscode-ltex-plus-${version}-offline-linux-aarch64.vsix
+    tree
 
-    cd extension/lib/ltex-ls-plus-18.5.0-alpha.nightly.2025-01-13
+    cd extension/lib/ltex-ls-plus-18.5.0-alpha.nightly.2025-02-03
     mkdir -p $out
     cp -rfv bin/ lib/ $out
     rm -fv $out/bin/.lsp-cli.json $out/bin/*.bat
