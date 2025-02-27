@@ -14,6 +14,7 @@
       typst
       typstfmt
       typst-live
+      typstyle
       tinymist
       websocat
       stable.typst-preview
