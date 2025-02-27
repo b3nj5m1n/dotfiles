@@ -12,7 +12,6 @@
       stable.sage
       sagetex
       typst
-      typst-lsp
       typstfmt
       typst-live
       tinymist

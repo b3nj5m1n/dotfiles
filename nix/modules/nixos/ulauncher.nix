@@ -55,7 +55,6 @@
             google
             pytz # https://github.com/tchar/ulauncher-albert-calculate-anything
             pint # https://github.com/tchar/ulauncher-albert-calculate-anything
-            simpleeval # https://github.com/tchar/ulauncher-albert-calculate-anything
             requests # https://github.com/tchar/ulauncher-albert-calculate-anything
             parsedatetime # https://github.com/tchar/ulauncher-albert-calculate-anything
             google-api-python-client # https://github.com/Carlosmape/ulauncher-calendar/blob/master/requirements.txt
@@ -64,8 +63,12 @@
             pygobject3
             # (wrapt-timeout-decorator pp)
           ]);
+        pydeps_stable = pkgs.stable.python3.withPackages (pp:
+          with pp; [
+            simpleeval # https://github.com/tchar/ulauncher-albert-calculate-anything
+          ]);
       in {
-        PYTHONPATH = "${pydeps}/${pydeps.sitePackages}";
+        PYTHONPATH = "${pydeps}/${pydeps.sitePackages}:${pydeps_stable}/${pydeps_stable.sitePackages}";
       };
       serviceConfig = {
         Type = "simple";
