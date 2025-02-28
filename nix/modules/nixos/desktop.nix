@@ -26,7 +26,7 @@
       xfce.thunar
       nautilus
       file-roller
-      element-desktop
+      stable.element-desktop
       mpv
       vlc
       zathura
