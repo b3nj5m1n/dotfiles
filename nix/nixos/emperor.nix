@@ -107,6 +107,7 @@
   services.xserver.displayManager.gdm.enable = true;
 
   environment.systemPackages = with pkgs; [
+    pr385029.anytype
     pfui
     ghostty
     eisvogel

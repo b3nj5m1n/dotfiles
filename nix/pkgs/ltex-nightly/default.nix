@@ -8,7 +8,6 @@
   unzip,
   tree,
 }:
-
 stdenvNoCC.mkDerivation rec {
   pname = "ltex-nightly";
   version = "15.5.0-alpha.nightly.2025-02-03";
@@ -18,8 +17,8 @@ stdenvNoCC.mkDerivation rec {
     sha256 = "sha256-ivht8uGVAJIRY6CgOJG92UKLdpsJJFRR1C4y6yuaBR0=";
   };
 
-  nativeBuildInputs = [ makeBinaryWrapper unzip tree ];
-  phases = [ "installPhase" ]; # Removes all phases except installPhase
+  nativeBuildInputs = [makeBinaryWrapper unzip tree];
+  phases = ["installPhase"]; # Removes all phases except installPhase
 
   installPhase = ''
     runHook preInstall
@@ -39,16 +38,14 @@ stdenvNoCC.mkDerivation rec {
     runHook postInstall
   '';
 
-  meta =
-    let
-      inherit (lib) licenses maintainers;
-    in
-    {
-      homepage = "https://ltex-plus.github.io/ltex-plus/";
-      description = "LSP language server for LanguageTool";
-      license = licenses.mpl20;
-      mainProgram = "ltex-cli-plus";
-      maintainers = [ maintainers.FirelightFlagboy ];
-      platforms = jre_headless.meta.platforms;
-    };
+  meta = let
+    inherit (lib) licenses maintainers;
+  in {
+    homepage = "https://ltex-plus.github.io/ltex-plus/";
+    description = "LSP language server for LanguageTool";
+    license = licenses.mpl20;
+    mainProgram = "ltex-cli-plus";
+    maintainers = [maintainers.FirelightFlagboy];
+    platforms = jre_headless.meta.platforms;
+  };
 }

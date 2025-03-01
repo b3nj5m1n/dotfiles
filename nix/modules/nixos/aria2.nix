@@ -26,7 +26,7 @@
       enable = false;
       openPorts = true;
       settings = {
-          rpc-listen-port = 30019;
+        rpc-listen-port = 30019;
       };
       rpcSecretFile = /run/secrets/aria2-rpc-token.txt;
     };

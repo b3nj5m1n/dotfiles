@@ -36,7 +36,15 @@
   };
 
   channels = final: prev: {
-    stable = import inputs.nixpkgs-stable {system = final.system;};
+    stable = import inputs.nixpkgs-stable {
+      system = final.system;
+      config = {
+        allowUnfreePredicate = pkg:
+          builtins.elem (inputs.nixpkgs.lib.getName pkg) [
+            "Anytype"
+          ];
+      };
+    };
     unstable = import inputs.nixpkgs {system = final.system;};
     pr229184 = import (fetchTarball {
       url = "https://github.com/NixOS/nixpkgs/archive/8cad3dbe48029cb9def5cdb2409a6c80d3acfe2e.tar.gz";
@@ -66,6 +74,20 @@
       url = "https://github.com/NixOS/nixpkgs/archive/008ceae1a2b47a84d7aa01e55f8468272c70b9ee.tar.gz";
       sha256 = "sha256:103z79gkxxlrdl3fgi4f9payhj1p9ms495n8bxw3s6pslmlvhrm0";
     }) {system = final.system;};
+    pr385029 =
+      import (fetchTarball {
+        url = "https://github.com/NixOS/nixpkgs/archive/65872bc4686cabbfe1675976da5f562627ebeabf.tar.gz";
+        sha256 = "sha256:1x8199pngafn6m5dr3jsyap41d5jyb1y43hv87frnp85zp11lh3b";
+      }) {
+        system = final.system;
+        config.allowUnfree = true;
+        # config = {
+        #   allowUnfreePredicate = pkg:
+        #     builtins.elem (inputs.nixpkgs.lib.getName pkg) [
+        #       "Anytype"
+        #     ];
+        # };
+      };
   };
 
   # hyprland = hyprland.overlays.default;
