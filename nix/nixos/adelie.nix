@@ -114,6 +114,7 @@
     ghostty
     # tree-sitter-grammar.norg
     ltex-nightly
+    pr385029.anytype
   ];
 
   services.flatpak.enable = true;
