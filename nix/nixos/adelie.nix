@@ -28,7 +28,7 @@
     ../hardware/x270.nix
   ];
 
-  services.desktopManager.cosmic.enable = true;
+  # services.desktopManager.cosmic.enable = true;
 
   nixpkgs = {
     overlays = [
