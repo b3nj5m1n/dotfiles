@@ -16,6 +16,11 @@
         storage = {
           filesystem_folder = "/var/lib/radicale/collections";
         };
+        auth = {
+          type = "none";
+          # htpasswd_filename = "/etc/radicale/users";
+          # htpasswd_encryption = "bcrypt";
+        };
       };
     };
     networking.firewall.allowedTCPPorts = [5232];

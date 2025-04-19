@@ -35,6 +35,7 @@
       rnote
       xournalpp
       inkscape-with-extensions
+      stable.kgeotag
       (callPackage ../../pkgs/zotero-wrapped {})
       # (callPackage ../../pkgs/logseq-wrapped {})
       # (callPackage ../../pkgs/firefox-trapped {})
