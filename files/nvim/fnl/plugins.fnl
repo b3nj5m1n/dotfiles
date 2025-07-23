@@ -614,12 +614,16 @@
   :opts {
          :debug true
          ; :open_cmd "qutebrowser  --target window \"%s\""
-         :get_root (fn [path-of-buffer]
-                     (if (string.find path-of-buffer "uni")
-                      "/home/b3nj4m1n/uni/"
-                      (if (string.find path-of-buffer "mathedungeon")
-                          "/home/b3nj4m1n/code/mathedungeon"
-                          nil)))
+         ; :get_root (fn [path-of-buffer]
+         ;             (if (string.find path-of-buffer "uni")
+         ;              "/home/b3nj4m1n/uni/"
+         ;              (if (string.find path-of-buffer "mathedungeon")
+         ;                  "/home/b3nj4m1n/code/mathedungeon"
+         ;                  nil)))
+         :get_root (fn [path-of-main-file]
+                    (local root (os.getenv :TYPST_ROOT))
+                    (when root (lua "return root"))
+                    (vim.fn.fnamemodify path-of-main-file ":p:h"))
          :dependencies_bin {
                             :tinymist "/run/current-system/sw/bin/tinymist"
                             :websocat "/run/current-system/sw/bin/websocat"}}
