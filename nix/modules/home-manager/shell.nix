@@ -21,10 +21,10 @@
         cpy = "wl-copy"; # Copy to clickboard
         ".." = "cd .."; # Move up one directory in shells where that isn't natively supported
         # Replacements for defacto standard tools
-        ls = "eza --grid --icons"; # exa (ls)
-        ll = "eza --long --icons"; # exa (ls)
-        la = "eza --long --all"; # exa (ls)
-        l = "eza --grid --across"; # exa (ls)
+        # ls = "eza --grid --icons"; # exa (ls)
+        # ll = "eza --long --icons"; # exa (ls)
+        # la = "eza --long --all"; # exa (ls)
+        # l = "eza --grid --across"; # exa (ls)
         tree = "eza --tree --icons"; # exa (ls)
         cd = "z"; # zoxide (cd)
         fzf = "sk"; # fzf (skim)
@@ -73,6 +73,10 @@
     };
     programs = {
       atuin.enableZshIntegration = true;
+      eza = {
+        enable = true;
+        enableZshIntegration = true;
+      };
       zsh = {
         enable = true;
         autosuggestion = {
