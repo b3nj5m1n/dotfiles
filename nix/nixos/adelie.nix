@@ -113,7 +113,8 @@
     wofi-calc
     ghostty
     # tree-sitter-grammar.norg
-    ltex-nightly
+    # ltex-nightly
+    vscode-extensions.ltex-plus.vscode-ltex-plus
     pr385029.anytype
   ];
 
