@@ -60,8 +60,8 @@
             "spacing" = 15;
           };
           "clock" = {
-            "format" = "<span weight=\"bold\">{ =%R</span>; %d %B %Y [%A]}";
-            "format-alt" = "{ =%H =%M}";
+            "format" = "<span weight=\"bold\">{:%R</span>, %d %B %Y [%A]}";
+            "format-alt" = "{:%H:%M}";
             "tooltip-format" = "<tt><small>{calendar}</small></tt>";
             "calendar" = {
               "mode" = "year";
