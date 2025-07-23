@@ -8,4 +8,5 @@
   shell = import ./shell.nix;
   xdg-compliance = import ./xdg-compliance.nix;
   hyprland = import ./hyprland.nix;
+  waybar = import ./waybar.nix;
 }

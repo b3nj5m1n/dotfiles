@@ -142,7 +142,11 @@
           function preexec() {
               # Set the window title
               # The first arg passed to this func is the string of the command the user has entered
-              echo -n -e \"\\033]0;\$1\\007\"
+              echo -n -e \"\\033]0;\$1 - zsh\\007\"
+          }
+          function precmd() {
+              # Reset window title
+              echo -n -e \"\\033]0;zsh\\007\"
           }
           autoload edit-command-line; zle -N edit-command-line
           bindkey -M vicmd ' ' edit-command-line

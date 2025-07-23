@@ -99,7 +99,7 @@ bindkey -M viins '^g' vi-cmd-mode
 function preexec() {
     # Set the window title
     # The first arg passed to this func is the string of the command the user has entered
-    echo -n -e "\033]0;$1\007"
+    echo -n -e "\033]0;$1 - zsh\007"
 }
 
 # Alias for reloading the config
