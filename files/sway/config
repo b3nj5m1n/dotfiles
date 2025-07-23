@@ -305,7 +305,7 @@ assign [class="Logseq"] workspace 3
 assign [app_id="thunderbird"] workspace 9
 
 ### Autostart daemons, doing this through nixos config is preferred
-exec ~/.config/eww/start-eww
+# exec ~/.config/eww/start-eww
 exec swaync
 exec wl-paste --type text --watch cliphist store
 exec wl-paste --type image --watch cliphist store

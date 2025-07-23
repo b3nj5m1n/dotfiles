@@ -15,6 +15,7 @@
     homeManagerModules.gpg
     homeManagerModules.git
     homeManagerModules.shell
+    homeManagerModules.waybar
   ];
 
   # nixpkgs = {
