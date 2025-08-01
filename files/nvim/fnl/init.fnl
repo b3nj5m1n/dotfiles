@@ -42,7 +42,7 @@
 ; (plugin-config.lsp-lines)
 (plugin-config.trouble)
 ; (plugin-config.nvim-cmp)
-(plugin-config.luasnip)
+; (plugin-config.luasnip)
 ; (plugin-config.neogit)
 (plugin-config.gitsigns)
 (plugin-config.conjure)

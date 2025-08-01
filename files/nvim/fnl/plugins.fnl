@@ -431,10 +431,10 @@
 ;   :optional true)
 
 ; [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
-(paq.paq-add "luasnip" "Snippet engine"
-  "L3MON4D3/LuaSnip"
-  :branch "master")
-  ; :commit "c4d6298347f7707e9757351b2ee03d0c00da5c20")
+; (paq.paq-add "luasnip" "Snippet engine"
+;   "L3MON4D3/LuaSnip"
+;   :branch "master")
+;   ; :commit "c4d6298347f7707e9757351b2ee03d0c00da5c20")
   
 
 ; [friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
