@@ -9,6 +9,7 @@
   imports = let
     homeManagerModules = import ../modules/home-manager;
   in [
+    homeManagerModules.desktop
     homeManagerModules.neovim
     # homeManagerModules.tree-sitter
     homeManagerModules.theming

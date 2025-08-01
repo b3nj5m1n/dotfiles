@@ -9,4 +9,6 @@
   xdg-compliance = import ./xdg-compliance.nix;
   hyprland = import ./hyprland.nix;
   waybar = import ./waybar.nix;
+  ghostty = import ./ghostty.nix;
+  desktop = import ./desktop.nix;
 }
