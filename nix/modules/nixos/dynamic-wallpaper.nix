@@ -93,7 +93,7 @@ in {
       };
       serviceConfig = {
         Type = "notify";
-        ExecStart = "${pkgs.swww}/bin/swww init --no-daemon";
+        ExecStart = "${pkgs.swww}/bin/swww-daemon";
         NotifyAccess = "all";
       };
       wantedBy = [
