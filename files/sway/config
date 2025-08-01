@@ -330,3 +330,22 @@ no_focus [app_id="org.qutebrowser.qutebrowser"]
 bindsym $mod+Shift+s exec /home/b3nj4m1n/uni/open-script.sh
 
 include /etc/sway/config.d/*
+
+smart_corner_radius on
+corner_radius 1
+default_dim_inactive 0
+blur disable
+blur_passes 4
+blur_radius 2
+blur_noise 0.2
+layer_effects "waybar" "blur enable"; shadows enable
+shadows off
+shadow_blur_radius 20
+
+for_window {
+    [app_id="com.mitchellh.ghostty"] blur enable, opacity 1
+
+    [app_id="thunderbird"] blur enable, opacity 0.9
+
+    [class="Element"] blur enable, opacity 0.9
+}

@@ -111,6 +111,7 @@
 
   environment.systemPackages = with pkgs; [
     pr385029.anytype
+    gamescope
     pfui
     ghostty
     eisvogel
