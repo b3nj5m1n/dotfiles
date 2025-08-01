@@ -1,11 +1,19 @@
-{pkgs, ...}: {
+{ pkgs, lib, config, ... }:
+with lib; let
+cfg = config.ricefields.sway;
+in {
   imports = [
     ./wayland.nix
     ./dynamic-wallpaper.nix
     ./swaylock-plugin.nix
   ];
 
-  options = {};
+  options = {
+    ricefields.sway.useSwayFX = mkOption {
+      type = lib.types.bool;
+      default = false;
+    };
+  };
 
   config = {
     environment.systemPackages = with pkgs; [
@@ -21,7 +29,10 @@
     services.swaylock-plugin = {
       enable = true;
     };
-    programs.sway.enable = true;
+    programs.sway = {
+      enable = true;
+      package = if cfg.useSwayFX then pkgs.swayfx else pkgs.sway;
+    };
     services.displayManager.defaultSession = "sway";
   };
 }

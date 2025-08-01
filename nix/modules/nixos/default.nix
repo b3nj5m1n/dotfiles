@@ -3,6 +3,7 @@
 {
   pkgs,
   user,
+  ...
 }: {
   # Base module with stuff I want everywhere
   base = import ./base.nix;

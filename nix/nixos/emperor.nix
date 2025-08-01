@@ -77,6 +77,9 @@
     };
   };
 
+  # Ricefields
+  ricefields.sway.useSwayFX = true;
+
   programs.kdeconnect.enable = true;
 
   networking.hostName = "emperor";

@@ -19,6 +19,8 @@
         font-size = 15;
         window-decoration = false;
         theme = "catppuccin-macchiato";
+        # background-opacity = 0.9;
+        # background-blur = true;
       };
     };
   };
