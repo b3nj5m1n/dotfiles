@@ -5,13 +5,13 @@
   system,
   fenix,
   pfui,
-  ghostty,
+  # ghostty,
 }: {
   # fenix = import fenix {inherit system;};
   rust-toolchain = fenix.packages.${system}.stable.toolchain;
   rust-analyzer-nightly = fenix.packages.${system}.stable.rust-analyzer;
   pfui = pfui.defaultPackage.${system};
-  ghostty = ghostty.packages.${system}.default;
+  # ghostty = ghostty.packages.${system}.default;
   eisvogel = pkgs.callPackage ./eisvogel {};
   # logseq-wrapped = pkgs.callPackage ./logseq-wrapped {};
   # logseq-wrapped = if system == "x86_64-linux" then pkgs.callPackage ./logseq-wrapped {} else null;

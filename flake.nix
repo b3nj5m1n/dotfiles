@@ -52,7 +52,7 @@
     dwarffs,
     pfui,
     nixos-cosmic,
-    ghostty,
+    # ghostty,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -74,7 +74,7 @@
           inherit system;
           inherit fenix;
           inherit pfui;
-          inherit ghostty;
+          # inherit ghostty;
         }
     );
 
@@ -105,7 +105,7 @@
       inherit inputs;
       inherit fenix;
       inherit pfui;
-      inherit ghostty;
+      # inherit ghostty;
       # inherit hyprland;
     };
     # Reusable nixos modules you might want to export

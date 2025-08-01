@@ -3,7 +3,7 @@
   inputs,
   fenix,
   pfui,
-  ghostty,
+  # ghostty,
   # hyprland,
 }: {
   # This one brings our custom packages from the 'pkgs' directory
@@ -13,7 +13,7 @@
       system = prev.system;
       inherit fenix;
       inherit pfui;
-      inherit ghostty;
+      # inherit ghostty;
     };
 
   # This one contains whatever you want to overlay
