@@ -1,44 +1,3 @@
-exec systemctl --user start graphical-session.target
-exec systemctl --user start dynamic-wallpaper@skip.service
-exec systemctl --user import-environment XDG_SESSION_TYPE XDG_CURRENT_DESKTOP
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-exec systemctl --user start ulauncher
-exec kdeconnect-cli -l
-
-# SUPER key as mod. I've used ALT for like 2 years now because I initially
-# thought it was a good idea, but it really, really isn't. Many other programs,
-# for example firefox, use the alt key for stuff of varying importance. (In
-# firefox, you can use it to quickly get to another tab, for example ALT+2 will
-# get you to the second tab)
-# Many programs, pretty much all the electron apps for example, open their menu
-# at the top when you press alt, or, more specifically, when you release alt.
-# This means that when you press ALT+2 to switch to your second workspace with
-# firefox on it, and once you're there you let go of the alt key, the menu will
-# open up. This is an issue, for example it unfocuses text fields. Say you're
-# taking your daily notes in logseq, you switch to your firefox workspace to
-# copy some text, go back to your logseq workspace, logseq opens up its menu at
-# the top and you now have first press alt to get out of the menu again, then
-# click to get back to entering text.
-# Choosing ALT was a bad decision, but thankfully it seems like switching back
-# isn't going to require as much work as I had thought.
-set $mod Mod4
-
-# Navigation using vim keys, obviously
-set $left h
-set $down j
-set $up k
-set $right l
-
-# Since I'm pretty much switching everything up, I might as well try a new
-# terminal emulator. I really quite like alacritty, and many of wezterms
-# features are anti-features to me, (like the fact that it implements it's own
-# multiplexer) but yeah, it doesn't look like ligeratures are about to happen in
-# alacritty anytime soon, and I really want to try them out.
-set $term wezterm
-
-# Also in the spirit of trying out new software
-set $menu tofi-run | xargs swaymsg exec --
-
 #     swaylock \
 #         --screenshots \
 #         --clock \
@@ -96,20 +55,6 @@ output {{ second_monitor }} resolution {{ main_monitor_res }} position 1920,0
 #          # resume 'swaymsg "output * dpms on"' \
 #          before-sleep $lock
 
-# Trackpoint > Trackpad
-{{#if disable_touchpad }}
-input "{{ touchpad_id }}" {
-        events disabled
-    }
-{{/if}}
-
-# Hide cursor after 2 seconds of inactivity
-seat * hide_cursor 2000
-
-# Use german keymap by default
-input * xkb_layout "de"
-# Swap caps with escape
-input * xkb_options "caps:escape"
 
 
 ##### Hotkeys
@@ -276,53 +221,13 @@ mode "resize" {
     bindsym $down resize grow height 10px
     bindsym $up resize shrink height 10px
     bindsym $right resize grow width 10px
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
-
-# class                 border  bground text    indicator child_border
-client.focused          {{ colors.prm }} {{ colors.prm }} {{ colors.fg }} {{ colors.prm }}   {{ colors.prm }}
-client.focused_inactive {{ colors.bg }} {{ colors.bg }} {{ colors.fg }} {{ colors.bg }}   {{ colors.bg }}
-client.unfocused        {{ colors.bg }} {{ colors.bg }} {{ colors.fg }} {{ colors.bg }}   {{ colors.bg }}
-client.urgent           {{ colors.red }} {{ colors.red }} {{ colors.fg }} {{ colors.red }}   {{ colors.red }}
-client.placeholder      {{ colors.bg }} {{ colors.bg }} {{ colors.fg }} {{ colors.bg }}   #0C0C0C
-
-client.background       #FFFFFF
-
-seat * xcursor_theme "Bibata-Original-Ice" 24
-
-gaps inner 10
-
-default_border pixel 3
-
-
-# Default workspace assignments
-assign [app_id="firefox"] workspace 2
-assign [app_id="discord"] workspace 8
-assign [class="Logseq"] workspace 3
-assign [app_id="thunderbird"] workspace 9
-
-### Autostart daemons, doing this through nixos config is preferred
-# exec ~/.config/eww/start-eww
-exec swaync
-exec wl-paste --type text --watch cliphist store
-exec wl-paste --type image --watch cliphist store
-exec syncthing -no-browser
-exec nm-applet
-
-# Autostart Firefox
-exec firefox
-
-# Enable autotiling
-exec autotiling-rs
 
 # Disable decoration for ulauncher
 for_window [app_id="ulauncher"] border none
 
 # For typst preview
-assign [app_id="org.qutebrowser.qutebrowser"] workspace 1
 no_focus [app_id="org.qutebrowser.qutebrowser"]
 
 

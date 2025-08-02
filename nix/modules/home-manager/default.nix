@@ -11,4 +11,5 @@
   waybar = import ./waybar.nix;
   ghostty = import ./ghostty.nix;
   desktop = import ./desktop.nix;
+  sway = import ./sway.nix;
 }

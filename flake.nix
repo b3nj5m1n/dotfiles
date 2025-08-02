@@ -31,10 +31,10 @@
 
     pfui.url = "github:b3nj5m1n/pfui";
 
-    nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # nixos-cosmic = {
+    #   url = "github:lilyinstarlight/nixos-cosmic";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     ghostty = {
       url = "github:ghostty-org/ghostty";
@@ -51,7 +51,7 @@
     sops-nix,
     dwarffs,
     pfui,
-    nixos-cosmic,
+    # nixos-cosmic,
     # ghostty,
     ...
   } @ inputs: let
@@ -121,12 +121,12 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           {
-            nix.settings = {
-              substituters = ["https://cosmic.cachix.org/"];
-              trusted-public-keys = ["cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="];
-            };
+            # nix.settings = {
+            #   substituters = ["https://cosmic.cachix.org/"];
+            #   trusted-public-keys = ["cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="];
+            # };
           }
-          nixos-cosmic.nixosModules.default
+          # nixos-cosmic.nixosModules.default
           # dwarffs.nixosModules.dwarffs
           ./nix/nixos/adelie.nix
           sops-nix.nixosModules.sops
@@ -147,12 +147,12 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           {
-            nix.settings = {
-              substituters = ["https://cosmic.cachix.org/"];
-              trusted-public-keys = ["cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="];
-            };
+            # nix.settings = {
+            #   substituters = ["https://cosmic.cachix.org/"];
+            #   trusted-public-keys = ["cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="];
+            # };
           }
-          nixos-cosmic.nixosModules.default
+          # nixos-cosmic.nixosModules.default
           ./nix/nixos/emperor.nix
           sops-nix.nixosModules.sops
           # hyprland.nixosModules.default
