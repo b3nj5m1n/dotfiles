@@ -20,8 +20,9 @@
         window-decoration = false;
         theme = "catppuccin-macchiato";
         background-opacity = 0.7;
-        # background-blur = true;
+        cursor-opacity = 0.55;
         # custom-shader = "/tmp/shader.glsl";
+        custom-shader-animation = true;
       };
     };
   };
