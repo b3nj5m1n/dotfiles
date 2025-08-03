@@ -5,20 +5,23 @@
   config,
   pkgs,
   ...
-}: {
-  imports = let
-    homeManagerModules = import ../modules/home-manager;
-  in [
-    homeManagerModules.desktop
-    homeManagerModules.neovim
-    # homeManagerModules.tree-sitter
-    homeManagerModules.theming
-    homeManagerModules.gpg
-    homeManagerModules.git
-    homeManagerModules.shell
-    homeManagerModules.waybar
-    # homeManagerModules.hyprland
-  ];
+}:
+{
+  imports =
+    let
+      homeManagerModules = import ../modules/home-manager;
+    in
+    [
+      homeManagerModules.desktop
+      homeManagerModules.neovim
+      # homeManagerModules.tree-sitter
+      homeManagerModules.theming
+      homeManagerModules.gpg
+      homeManagerModules.git
+      homeManagerModules.shell
+      homeManagerModules.waybar
+      # homeManagerModules.hyprland
+    ];
 
   # nixpkgs = {
   #   overlays = [
@@ -30,6 +33,17 @@
   #     allowUnfree = false;
   #   };
   # };
+
+  ricefields.sway.monitors = {
+    "HDMI-A-1" = {
+      resolution = "1920x1080";
+      position = "0,0";
+    };
+    "DP-1" = {
+      resolution = "1920x1080";
+      position = "1920,0";
+    };
+  };
 
   home = {
     username = "b3nj4m1n";

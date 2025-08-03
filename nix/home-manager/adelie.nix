@@ -5,20 +5,23 @@
   config,
   pkgs,
   ...
-}: {
-  imports = let
-    homeManagerModules = import ../modules/home-manager;
-  in [
-    homeManagerModules.desktop
-    homeManagerModules.neovim
-    # homeManagerModules.tree-sitter
-    homeManagerModules.theming
-    homeManagerModules.gpg
-    homeManagerModules.git
-    homeManagerModules.shell
-    homeManagerModules.waybar
-    homeManagerModules.sway
-  ];
+}:
+{
+  imports =
+    let
+      homeManagerModules = import ../modules/home-manager;
+    in
+    [
+      homeManagerModules.desktop
+      homeManagerModules.neovim
+      # homeManagerModules.tree-sitter
+      homeManagerModules.theming
+      homeManagerModules.gpg
+      homeManagerModules.git
+      homeManagerModules.shell
+      homeManagerModules.waybar
+      homeManagerModules.sway
+    ];
 
   # nixpkgs = {
   #   overlays = [
@@ -30,6 +33,15 @@
   #     allowUnfree = false;
   #   };
   # };
+
+  ricefields.inputs.disable_touchpad = true;
+  ricefields.inputs.touchpad_id = "2:7:SynPS/2_Synaptics_TouchPad";
+  ricefields.sway.monitors = {
+    "eDP-1" = {
+      resolution = "1366x768";
+      position = "0,0";
+    };
+  };
 
   home = {
     username = "b3nj4m1n";
