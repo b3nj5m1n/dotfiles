@@ -101,7 +101,7 @@
       slick.enable = true;
     };
   };
-  services.xserver.desktopManager.plasma5.enable = true;
+  services.desktopManager.plasma6.enable = true;
   programs.kdeconnect.enable = true;
 
   services.tlp.enable = true; # Power Management daemon for saving battery life
