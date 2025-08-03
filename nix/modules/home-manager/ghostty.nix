@@ -19,8 +19,8 @@
         font-size = 15;
         window-decoration = false;
         theme = "catppuccin-macchiato";
-        background-opacity = 0.7;
-        cursor-opacity = 0.55;
+        background-opacity = if config.ricefields.sway.useSwayFX then 0.7 else 1.0;
+        cursor-opacity = 0.75;
         # custom-shader = "/tmp/shader.glsl";
         custom-shader-animation = true;
       };

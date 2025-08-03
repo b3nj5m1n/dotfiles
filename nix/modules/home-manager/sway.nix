@@ -18,8 +18,7 @@ let
     yellow = "#eed49f";
   };
 
-  hex_remove_hash = str:
-    builtins.substring 1 (builtins.stringLength str - 1) str;
+  hex_remove_hash = str: builtins.substring 1 (builtins.stringLength str - 1) str;
 
   lock = ''
     swaylock \
@@ -87,6 +86,7 @@ in
       enable = true;
       package = if config.ricefields.sway.useSwayFX then pkgs.swayfx else pkgs.sway;
       xwayland = true;
+      systemd.enable = true;
 
       config = {
         output = config.ricefields.sway.monitors;
