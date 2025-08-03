@@ -23,7 +23,7 @@ pkgs.buildNpmPackage rec {
     sha256 = "sha256-38ISnMxov7tZ6TeTZ+yDrFcKE289rwaR1VABKF+J++g=";
   };
 
-  nativeBuildInputs = with pkgs; [python39];
+  nativeBuildInputs = with pkgs; [python313];
 
   npmDepsHash = "sha256-O6SQYx5vxscMsbWv0ynUYqdUkOp/nMtdvlZ/Mp95sBY=";
 

@@ -1,10 +1,6 @@
 # Add your reusable NixOS modules to this directory, on their own file (https://nixos.wiki/wiki/Module).
 # These should be stuff you would like to share with others, not your personal configurations.
 {
-  pkgs,
-  user,
-  ...
-}: {
   # Base module with stuff I want everywhere
   base = import ./base.nix;
   networking = import ./networking.nix;
@@ -51,10 +47,7 @@
   tree-sitter = import ./tree-sitter.nix;
   fix-suspend = import ./fix-suspend.nix;
   open-rgb = import ./open-rgb.nix;
-  docker = import ./docker.nix {
-    inherit pkgs;
-    inherit user;
-  };
+  docker = import ./docker.nix;
   jellyfin = import ./jellyfin.nix;
   encryption = import ./encryption.nix;
   aria2 = import ./aria2.nix;

@@ -13,14 +13,14 @@
       inherit pkgs;
     };
   in [
-    (outputs.nixosModules args).base
-    (outputs.nixosModules args).shell
-    (outputs.nixosModules args).bash
-    (outputs.nixosModules args).nix
-    (outputs.nixosModules args).python
-    (outputs.nixosModules args).jellyfin
-    (outputs.nixosModules args).aria2
-    (outputs.nixosModules args).docker
+    outputs.nixosModules.base
+    outputs.nixosModules.shell
+    outputs.nixosModules.bash
+    outputs.nixosModules.nix
+    outputs.nixosModules.python
+    outputs.nixosModules.jellyfin
+    outputs.nixosModules.aria2
+    outputs.nixosModules.docker
 
     "${
       fetchTarball {

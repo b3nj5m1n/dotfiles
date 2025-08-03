@@ -72,7 +72,7 @@ in
       default = false;
     };
     ricefields.inputs.touchpad_id = mkOption {
-      type = lib.types.string;
+      type = lib.types.str;
       default = "";
     };
     ricefields.sway.monitors = mkOption {

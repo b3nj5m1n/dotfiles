@@ -13,29 +13,29 @@
       inherit pkgs;
     };
   in [
-    (outputs.nixosModules args).base
-    (outputs.nixosModules args).shared-repos
-    (outputs.nixosModules args).terminal
-    (outputs.nixosModules args).sway
-    (outputs.nixosModules args).all-languages
-    (outputs.nixosModules args).android
+    outputs.nixosModules.base
+    outputs.nixosModules.shared-repos
+    outputs.nixosModules.terminal
+    outputs.nixosModules.sway
+    outputs.nixosModules.all-languages
+    outputs.nixosModules.android
     # (outputs.nixosModules args).pandoc
-    (outputs.nixosModules args).steam
-    (outputs.nixosModules args).gitega
-    (outputs.nixosModules args).virtual-machines
-    (outputs.nixosModules args).tree-sitter
+    outputs.nixosModules.steam
+    outputs.nixosModules.gitega
+    outputs.nixosModules.virtual-machines
+    outputs.nixosModules.tree-sitter
     # (outputs.nixosModules args).nvidia
-    (outputs.nixosModules args).fix-suspend
-    (outputs.nixosModules args).open-rgb
-    (outputs.nixosModules args).docker
-    (outputs.nixosModules args).encryption
-    (outputs.nixosModules args).aria2
-    (outputs.nixosModules args).postgres
-    (outputs.nixosModules args).pix2tex
-    (outputs.nixosModules args).math
+    outputs.nixosModules.fix-suspend
+    outputs.nixosModules.open-rgb
+    outputs.nixosModules.docker { inherit pkgs user; }
+    outputs.nixosModules.encryption
+    outputs.nixosModules.aria2
+    outputs.nixosModules.postgres
+    outputs.nixosModules.pix2tex
+    outputs.nixosModules.math
     # (outputs.nixosModules args).jellyfin # TODO
-    (outputs.nixosModules args).radicale
-    (outputs.nixosModules args).grocy
+    outputs.nixosModules.radicale
+    outputs.nixosModules.grocy
 
     ../hardware/newpc.nix
   ];

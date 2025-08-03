@@ -20,6 +20,7 @@
       homeManagerModules.git
       homeManagerModules.shell
       homeManagerModules.waybar
+      homeManagerModules.sway
       # homeManagerModules.hyprland
     ];
 

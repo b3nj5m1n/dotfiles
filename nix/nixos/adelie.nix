@@ -13,17 +13,17 @@
       inherit pkgs;
     };
   in [
-    (outputs.nixosModules args).base
-    (outputs.nixosModules args).shared-repos
-    (outputs.nixosModules args).terminal
-    (outputs.nixosModules args).sway
-    (outputs.nixosModules args).all-languages
+    outputs.nixosModules.base
+    outputs.nixosModules.shared-repos
+    outputs.nixosModules.terminal
+    outputs.nixosModules.sway
+    outputs.nixosModules.all-languages
     # (outputs.nixosModules args).pandoc
-    (outputs.nixosModules args).aria2
-    (outputs.nixosModules args).battery-thing
-    (outputs.nixosModules args).pix2tex
+    outputs.nixosModules.aria2
+    outputs.nixosModules.battery-thing
+    outputs.nixosModules.pix2tex
     # (outputs.nixosModules args).steam
-    (outputs.nixosModules args).math
+    outputs.nixosModules.math
 
     ../hardware/x270.nix
   ];

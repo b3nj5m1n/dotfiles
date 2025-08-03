@@ -97,9 +97,9 @@
           save = 9999999;
           size = 9999999;
         };
-        dotDir = ".config/zsh";
+        dotDir = "${config.xdg.configHome}/zsh";
         # TODO keychain
-        initExtra = "
+        initContent = "
           eval \$(keychain --dir \"${config.home.sessionVariables.XDG_CACHE_HOME}/keychain\" --eval --quiet \"${config.home.sessionVariables.MAINSSHKEYFILE}\")
           eval \"\$(starship init zsh)\"
           eval \"\$(zoxide init zsh)\"
