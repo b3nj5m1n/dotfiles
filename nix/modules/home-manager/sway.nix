@@ -154,13 +154,94 @@ in
       };
 
       keybindings = mkOptionDefault {
-        # "${config.wayland.windowManager.sway.config.modifier}+Return" = "exec \$${config.wayland.windowManager.sway.config.terminal}";
+        ## Essential Keybindings
+        # Terminal stuff
+        "${config.wayland.windowManager.sway.config.modifier}+Shift+Return" =
+          "exec \$${config.wayland.windowManager.sway.config.terminal} -e zsh";
+        "${config.wayland.windowManager.sway.config.modifier}+ctrl+t" =
+          "exec \$${config.wayland.windowManager.sway.config.terminal} -e tmux attach";
+        # Latex OCR
+        "Shift+Mod1+Mod4+l" = "exec /run/current-system/sw/bin/pix2tex";
+        # Screenshot
+        "Shift+Mod1+Mod4+s" = "exec \"/run/current-system/sw/bin/grimshot copy area\"";
+        # Start launcher
+        "${config.wayland.windowManager.sway.config.modifier}+d" = "exec ulauncher-toggle";
+        # Open clipboard manager
+        "Mod1+h" = "exec cliphist list | wofi -dmenu | cliphist decode | wl-copy";
+        # Open calculator
+        "Mod1+g" = "exec wofi-calc";
+        # Open emoji picker
+        "Mod1+u" = "exec bemoji";
+        # Lock
+        "${config.wayland.windowManager.sway.config.modifier}+q" = "exec ${lock}";
+
+        # Open pdf of course script
+        "${config.wayland.windowManager.sway.config.modifier}+Shift+s" =
+          "exec /home/b3nj4m1n/uni/open-script.sh";
+
+        ## Volume Control
+        # Increase volume
+        "XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +3%";
+        "F3" = "exec pactl set-sink-volume @DEFAULT_SINK@ +3%";
+        "Mod1+Shift+plus" = "exec pactl set-sink-volume @DEFAULT_SINK@ +1%";
+
+        # Decrease volume
+        "XF86AudioLowerVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ -3%";
+        "F2" = "exec pactl set-sink-volume @DEFAULT_SINK@ -3%";
+        "Mod1+Shift+minus" = "exec pactl set-sink-volume @DEFAULT_SINK@ -1%";
+
+        # Mute
+        "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
+        "F1" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
+        "Mod1+Shift+m" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
+
+        ## Brightness Control
+        # Increase brightness
+        "XF86MonBrightnessUp" = "exec brillo -A 5% -u 200000";
+        "F6" = "exec brillo -A 5% -u 200000";
+        "Mod4+Shift+plus" = "exec brillo -A 5% -u 200000";
+
+        # Increase brightness
+        "XF86MonBrightnessDown" = "exec brillo -U 5% -u 200000";
+        "F5" = "exec brillo -U 5% -u 200000";
+        "Mod4+Shift+minus" = "exec brillo -U 5% -u 200000";
+
+        ## Player Control
+        # Pause playback
+        "XF86AudioPlay" = "exec mpc toggle";
+        "${config.wayland.windowManager.sway.config.modifier}+p" = "exec mpc toggle";
+
+        # Next song
+        "XF86AudioNext" = "exec mpc next";
+        "${config.wayland.windowManager.sway.config.modifier}+n" = "exec mpc next";
+
+        # Previous song
+        "XF86AudioPrev" = "exec mpc prev";
+        "${config.wayland.windowManager.sway.config.modifier}+m" = "exec mpc prev";
+
+        ## Sway Stuff
+        # Kill focused window
+        "${config.wayland.windowManager.sway.config.modifier}+Shift+c" = "kill";
+        # Reload config
+        "${config.wayland.windowManager.sway.config.modifier}+Shift+r" = "reload";
+        # Exit sway (logs you out of your Wayland session)
+        "${config.wayland.windowManager.sway.config.modifier}+Shift+q" =
+          "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'";
+        # Open notification center
+        "Mod1+c" = "exec swaync-client -t";
+        # Enable resize mode
+        "${config.wayland.windowManager.sway.config.modifier}+r" = "mode resize";
+
       };
 
       modes = {
         resize = {
           Escape = "mode default";
           Return = "mode default";
+          "h" = "resize shrink width 10px";
+          "j" = "resize grow height 10px";
+          "k" = "resize shrink height 10px";
+          "l" = "resize grow width 10px";
         };
       };
 

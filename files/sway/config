@@ -61,168 +61,23 @@ output {{ second_monitor }} resolution {{ main_monitor_res }} position 1920,0
 
 ############### Essential Keybindings ###############
 
-# Open terminal
-bindsym $mod+Return exec $term
-# Open terminal without tmux
-bindsym $mod+Shift+Return exec $term start zsh
-# Open terminal and attach to tmux
-bindsym $mod+ctrl+t exec $term start tmux attach
 # Masterhacker
 bindcode $mod+198 exec $term start cmatrix
-# Latex ocr
-bindsym Shift+Mod1+Mod4+l exec /run/current-system/sw/bin/pix2tex
-# Screenshot
-bindsym Shift+Mod1+Mod4+s exec "/run/current-system/sw/bin/grimshot copy area"
-
-# Start launcher
-bindsym $mod+d exec ulauncher-toggle
-
-# Open clipboard manager
-bindsym Mod1+h exec cliphist list | wofi -dmenu | cliphist decode | wl-copy
-
-# Open calculator
-bindsym Mod1+g exec wofi-calc
-
-# Open emoji picker
-bindsym Mod1+u exec bemoji
 
 ############### General ###############
 
-bindsym $mod+q exec $lock
-
 ############### Volume Control ###############
-
-# Increase volume
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +3%
-bindsym F3 exec pactl set-sink-volume @DEFAULT_SINK@ +3%
-bindsym Mod1+Shift+Plus exec pactl set-sink-volume @DEFAULT_SINK@ +1%
-
-# Decrease volume
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -3%
-bindsym F2 exec pactl set-sink-volume @DEFAULT_SINK@ -3%
-bindsym Mod1+Shift+Minus exec pactl set-sink-volume @DEFAULT_SINK@ -1%
-
-# Mute
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym F1 exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym Mod1+Shift+m exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 ############### Brightness Control ###############
 
-# Increase brightness
-bindsym XF86MonBrightnessUp exec brillo -A 5% -u 200000
-bindsym F6 exec brillo -A 5% -u 200000
-bindsym Mod4+Shift+Plus exec brillo -A 5% -u 200000
-
-# Increase brightness
-bindsym XF86MonBrightnessDown exec brillo -U 5% -u 200000
-bindsym F5 exec brillo -U 5% -u 200000
-bindsym Mod4+Shift+Minus exec brillo -U 5% -u 200000
-
 ############### Player Control ###############
-
-# Pause playback
-bindsym XF86AudioPlay exec mpc toggle
-bindsym $mod+p exec mpc toggle
-
-# Next song
-bindsym XF86AudioNext exec mpc next
-bindsym $mod+n exec mpc next
-
-# Previous song
-bindsym XF86AudioPrev exec mpc prev
-bindsym $mod+m exec mpc prev
 
 
 ############### Sway stuff ###############
 
-# Kill focused window
-bindsym $mod+Shift+c kill
-
 # Dragging and resizing using mod+mouse
 floating_modifier $mod normal
 
-# Reload config
-bindsym $mod+Shift+r reload
-
-# Exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-
-# Open notification center
-bindsym Mod1+c exec swaync-client -t
-
-# Move focus
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
-bindsym $mod+$right focus right
-
-# Move focused window
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
-
-# Switch to workspace
-bindsym $mod+1 workspace number 1
-bindsym $mod+2 workspace number 2
-bindsym $mod+3 workspace number 3
-bindsym $mod+4 workspace number 4
-bindsym $mod+5 workspace number 5
-bindsym $mod+6 workspace number 6
-bindsym $mod+7 workspace number 7
-bindsym $mod+8 workspace number 8
-bindsym $mod+9 workspace number 9
-bindsym $mod+0 workspace number 10
-
-# Move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number 1
-bindsym $mod+Shift+2 move container to workspace number 2
-bindsym $mod+Shift+3 move container to workspace number 3
-bindsym $mod+Shift+4 move container to workspace number 4
-bindsym $mod+Shift+5 move container to workspace number 5
-bindsym $mod+Shift+6 move container to workspace number 6
-bindsym $mod+Shift+7 move container to workspace number 7
-bindsym $mod+Shift+8 move container to workspace number 8
-bindsym $mod+Shift+9 move container to workspace number 9
-bindsym $mod+Shift+0 move container to workspace number 10
-
-# Horizontal & vertical split, idk I think I'll add dynamic tiling at some point
-bindsym $mod+b splith
-bindsym $mod+v splitv
-
-# Switch layout style of current container, I'm very much not used to this so
-# I'll disable it, at least for now.
-# bindsym $mod+s layout stacking
-# bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
-# Fullscreen
-bindsym $mod+f fullscreen
-
-# Toggle the current focus between tiling and floating mode
-bindsym $mod+Shift+space floating toggle
-
-# Swap focus between the tiling area and the floating area
-bindsym $mod+space focus mode_toggle
-
-# Move focus to the parent container
-bindsym $mod+a focus parent
-
-# Move the currently focused window to the scratchpad
-# bindsym $mod+Shift+minus move scratchpad
-
-# Show the next scratchpad window or hide the focused scratchpad window.
-# If there are multiple scratchpad windows, this command cycles through them.
-# bindsym $mod+minus scratchpad show
-
-mode "resize" {
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
-}
-bindsym $mod+r mode "resize"
 
 # Disable decoration for ulauncher
 for_window [app_id="ulauncher"] border none
@@ -231,8 +86,6 @@ for_window [app_id="ulauncher"] border none
 no_focus [app_id="org.qutebrowser.qutebrowser"]
 
 
-# Open pdf of course script
-bindsym $mod+Shift+s exec /home/b3nj4m1n/uni/open-script.sh
 
 include /etc/sway/config.d/*
 
