@@ -1,6 +1,11 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 with lib; let
-cfg = config.ricefields.sway;
+  cfg = config.ricefields.sway;
 in {
   imports = [
     ./wayland.nix
@@ -31,7 +36,10 @@ in {
     };
     programs.sway = {
       enable = true;
-      package = if cfg.useSwayFX then pkgs.swayfx else pkgs.sway;
+      package =
+        if cfg.useSwayFX
+        then pkgs.swayfx
+        else pkgs.sway;
     };
     services.displayManager.defaultSession = "sway";
   };

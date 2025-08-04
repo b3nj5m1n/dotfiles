@@ -5,24 +5,21 @@
   config,
   pkgs,
   ...
-}:
-{
-  imports =
-    let
-      homeManagerModules = import ../modules/home-manager;
-    in
-    [
-      homeManagerModules.desktop
-      homeManagerModules.neovim
-      # homeManagerModules.tree-sitter
-      homeManagerModules.theming
-      homeManagerModules.gpg
-      homeManagerModules.git
-      homeManagerModules.shell
-      homeManagerModules.waybar
-      homeManagerModules.sway
-      # homeManagerModules.hyprland
-    ];
+}: {
+  imports = let
+    homeManagerModules = import ../modules/home-manager;
+  in [
+    homeManagerModules.desktop
+    homeManagerModules.neovim
+    # homeManagerModules.tree-sitter
+    homeManagerModules.theming
+    homeManagerModules.gpg
+    homeManagerModules.git
+    homeManagerModules.shell
+    homeManagerModules.waybar
+    homeManagerModules.sway
+    # homeManagerModules.hyprland
+  ];
 
   # nixpkgs = {
   #   overlays = [

@@ -4,8 +4,7 @@
   lib,
   ...
 }:
-with lib;
-let
+with lib; let
   colors = {
     fg = "#fcfcfe";
     background = "#24273a";
@@ -60,8 +59,7 @@ let
         --ring-wrong-color ${hex_remove_hash colors.red} \
         --text-wrong-color ${hex_remove_hash colors.red}
   '';
-in
-{
+in {
   options = {
     ricefields.sway.useSwayFX = mkOption {
       type = lib.types.bool;
@@ -77,14 +75,17 @@ in
     };
     ricefields.sway.monitors = mkOption {
       type = lib.types.attrs;
-      default = { };
+      default = {};
     };
   };
 
   config = {
     wayland.windowManager.sway = {
       enable = true;
-      package = if config.ricefields.sway.useSwayFX then pkgs.swayfx else pkgs.sway;
+      package =
+        if config.ricefields.sway.useSwayFX
+        then pkgs.swayfx
+        else pkgs.sway;
       xwayland = true;
       systemd.enable = true;
 
@@ -121,14 +122,13 @@ in
             };
           }
           (
-            if config.ricefields.inputs.disable_touchpad then
-              {
-                "${config.ricefields.inputs.touchpad_id}" = {
-                  events = "disabled";
-                };
-              }
-            else
-              { }
+            if config.ricefields.inputs.disable_touchpad
+            then {
+              "${config.ricefields.inputs.touchpad_id}" = {
+                events = "disabled";
+              };
+            }
+            else {}
           )
         ];
 
@@ -146,17 +146,18 @@ in
         window = {
           border = 3;
           titlebar = false;
-          commands = [
-            {
-              command = "border none";
-              criteria = {
-                app_id = "ulauncher";
-              };
-            }
-          ]
-          ++ (
-            if config.ricefields.sway.useSwayFX then
-              [
+          commands =
+            [
+              {
+                command = "border none";
+                criteria = {
+                  app_id = "ulauncher";
+                };
+              }
+            ]
+            ++ (
+              if config.ricefields.sway.useSwayFX
+              then [
                 {
                   command = "blur enable, opacity 1";
                   criteria = {
@@ -171,9 +172,8 @@ in
                   };
                 }
               ]
-            else
-              [ ]
-          );
+              else []
+            );
         };
         colors = {
           background = "#FFFFFF";
@@ -216,29 +216,27 @@ in
 
         assigns = {
           "1" = [
-            { app_id = "org.qutebrowser.qutebrowser"; }
+            {app_id = "org.qutebrowser.qutebrowser";}
           ];
           "2" = [
-            { app_id = "firefox"; }
+            {app_id = "firefox";}
           ];
           "3" = [
-            { class = "Logseq"; }
+            {class = "Logseq";}
           ];
           "8" = [
-            { app_id = "discord"; }
+            {app_id = "discord";}
           ];
           "9" = [
-            { app_id = "thunderbird"; }
+            {app_id = "thunderbird";}
           ];
         };
 
         keybindings = mkOptionDefault {
           ## Essential Keybindings
           # Terminal stuff
-          "${config.wayland.windowManager.sway.config.modifier}+Shift+Return" =
-            "exec \$${config.wayland.windowManager.sway.config.terminal} -e zsh";
-          "${config.wayland.windowManager.sway.config.modifier}+ctrl+t" =
-            "exec \$${config.wayland.windowManager.sway.config.terminal} -e tmux attach";
+          "${config.wayland.windowManager.sway.config.modifier}+Shift+Return" = "exec \$${config.wayland.windowManager.sway.config.terminal} -e zsh";
+          "${config.wayland.windowManager.sway.config.modifier}+ctrl+t" = "exec \$${config.wayland.windowManager.sway.config.terminal} -e tmux attach";
           # Latex OCR
           "Shift+Mod1+Mod4+l" = "exec /run/current-system/sw/bin/pix2tex";
           # Screenshot
@@ -255,8 +253,7 @@ in
           "${config.wayland.windowManager.sway.config.modifier}+q" = "exec ${lock}";
 
           # Open pdf of course script
-          "${config.wayland.windowManager.sway.config.modifier}+Shift+s" =
-            "exec /home/b3nj4m1n/uni/open-script.sh";
+          "${config.wayland.windowManager.sway.config.modifier}+Shift+s" = "exec /home/b3nj4m1n/uni/open-script.sh";
 
           ## Volume Control
           # Increase volume
@@ -304,13 +301,11 @@ in
           # Reload config
           "${config.wayland.windowManager.sway.config.modifier}+Shift+r" = "reload";
           # Exit sway (logs you out of your Wayland session)
-          "${config.wayland.windowManager.sway.config.modifier}+Shift+q" =
-            "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'";
+          "${config.wayland.windowManager.sway.config.modifier}+Shift+q" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'";
           # Open notification center
           "Mod1+c" = "exec swaync-client -t";
           # Enable resize mode
           "${config.wayland.windowManager.sway.config.modifier}+r" = "mode resize";
-
         };
 
         modes = {
@@ -324,34 +319,35 @@ in
           };
         };
 
-        bars = [ ];
+        bars = [];
       };
 
-      extraConfig = ''
-        # For typst preview
-        no_focus [app_id="org.qutebrowser.qutebrowser"]
+      extraConfig =
+        ''
+          # For typst preview
+          no_focus [app_id="org.qutebrowser.qutebrowser"]
 
-        # Startup
-        exec systemctl --user start graphical-session.target
-        exec systemctl --user start dynamic-wallpaper@skip.service
-        exec systemctl --user import-environment XDG_SESSION_TYPE XDG_CURRENT_DESKTOP
-        exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-        exec systemctl --user start ulauncher
-        exec kdeconnect-cli -l
-        exec swaync
-        exec wl-paste --type text --watch cliphist store
-        exec wl-paste --type image --watch cliphist store
-        exec syncthing -no-browser
-        exec nm-applet
-        exec firefox
-        exec autotiling-rs
+          # Startup
+          exec systemctl --user start graphical-session.target
+          exec systemctl --user start dynamic-wallpaper@skip.service
+          exec systemctl --user import-environment XDG_SESSION_TYPE XDG_CURRENT_DESKTOP
+          exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+          exec systemctl --user start ulauncher
+          exec kdeconnect-cli -l
+          exec swaync
+          exec wl-paste --type text --watch cliphist store
+          exec wl-paste --type image --watch cliphist store
+          exec syncthing -no-browser
+          exec nm-applet
+          exec firefox
+          exec autotiling-rs
 
-        # Lock
-        # exec \$${lock}
-      ''
-      + (
-        if config.ricefields.sway.useSwayFX then
-          ''
+          # Lock
+          # exec \$${lock}
+        ''
+        + (
+          if config.ricefields.sway.useSwayFX
+          then ''
             smart_corner_radius on
             corner_radius 1
             default_dim_inactive 0
@@ -363,9 +359,8 @@ in
             shadows off
             shadow_blur_radius 20
           ''
-        else
-          ""
-      );
+          else ""
+        );
     };
   };
 }
