@@ -99,7 +99,10 @@
         {
           format = flake-utils.lib.mkApp {
             drv = pkgs.writeShellApplication {
-              name = "format";
+              name = with nixpkgs.lib; {
+                description = "Check formatting of nix files of this repository";
+                platforms = platforms.all;
+              };
               runtimeInputs = [ pkgs.alejandra ];
               text = ''
                 alejandra --check .
@@ -239,6 +242,17 @@
         chinstrap = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
+            outputs.nixosModules.base
+            outputs.nixosModules.shell
+            outputs.nixosModules.bash
+            outputs.nixosModules.nix
+            outputs.nixosModules.python
+            outputs.nixosModules.jellyfin
+            outputs.nixosModules.aria2
+            (outputs.nixosModules.docker {
+              pkgs = nixpkgs.legacyPackages.aarch64-linux;
+              user = "admin";
+            })
             ./nix/nixos/chinstrap.nix
             sops-nix.nixosModules.sops
             home-manager.nixosModules.home-manager

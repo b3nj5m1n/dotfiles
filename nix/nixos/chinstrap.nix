@@ -6,22 +6,7 @@
   pkgs,
   ...
 }: {
-  imports = let
-    user = "admin";
-    args = {
-      inherit user;
-      inherit pkgs;
-    };
-  in [
-    outputs.nixosModules.base
-    outputs.nixosModules.shell
-    outputs.nixosModules.bash
-    outputs.nixosModules.nix
-    outputs.nixosModules.python
-    outputs.nixosModules.jellyfin
-    outputs.nixosModules.aria2
-    outputs.nixosModules.docker
-
+  imports = [
     "${
       fetchTarball {
         url = "https://github.com/NixOS/nixos-hardware/archive/61283b30d11f27d5b76439d43f20d0c0c8ff5296.tar.gz";

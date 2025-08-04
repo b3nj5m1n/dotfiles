@@ -88,6 +88,10 @@
         #     ];
         # };
       };
+    pr430713 = import (fetchTarball {
+      url = "https://github.com/NixOS/nixpkgs/archive/768df6c75cfad35b0423f82070e4f3932212227e.tar.gz";
+      sha256 = "sha256:106d53jnjpx3rlrsqsl3hpkc28z8r31hkqn3gkzmyh9yqd7pv5xf";
+    }) {system = final.system;};
   };
 
   # hyprland = hyprland.overlays.default;

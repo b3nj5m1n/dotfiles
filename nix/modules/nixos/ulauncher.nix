@@ -10,7 +10,7 @@
 
   config = {
     environment.systemPackages = with pkgs; [
-      ulauncher
+      pr430713.ulauncher
       tlp
       # (pkgs.python3.withPackages (ps: with ps; [google]))
     ];
