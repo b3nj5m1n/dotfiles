@@ -6,37 +6,7 @@
   pkgs,
   ...
 }: {
-  imports = let
-    user = "b3nj4m1n";
-    args = {
-      inherit user;
-      inherit pkgs;
-    };
-  in [
-    outputs.nixosModules.base
-    outputs.nixosModules.shared-repos
-    outputs.nixosModules.terminal
-    outputs.nixosModules.sway
-    outputs.nixosModules.all-languages
-    outputs.nixosModules.android
-    # (outputs.nixosModules args).pandoc
-    outputs.nixosModules.steam
-    outputs.nixosModules.gitega
-    outputs.nixosModules.virtual-machines
-    outputs.nixosModules.tree-sitter
-    # (outputs.nixosModules args).nvidia
-    outputs.nixosModules.fix-suspend
-    outputs.nixosModules.open-rgb
-    outputs.nixosModules.docker { inherit pkgs user; }
-    outputs.nixosModules.encryption
-    outputs.nixosModules.aria2
-    outputs.nixosModules.postgres
-    outputs.nixosModules.pix2tex
-    outputs.nixosModules.math
-    # (outputs.nixosModules args).jellyfin # TODO
-    outputs.nixosModules.radicale
-    outputs.nixosModules.grocy
-
+  imports = [
     ../hardware/newpc.nix
   ];
 
@@ -107,7 +77,7 @@
     };
   };
 
-  services.xserver.displayManager.gdm.enable = true;
+  services.displayManager.gdm.enable = true;
 
   environment.systemPackages = with pkgs; [
     pr385029.anytype

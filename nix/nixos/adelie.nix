@@ -6,25 +6,7 @@
   pkgs,
   ...
 }: {
-  imports = let
-    user = "b3nj4m1n";
-    args = {
-      inherit user;
-      inherit pkgs;
-    };
-  in [
-    outputs.nixosModules.base
-    outputs.nixosModules.shared-repos
-    outputs.nixosModules.terminal
-    outputs.nixosModules.sway
-    outputs.nixosModules.all-languages
-    # (outputs.nixosModules args).pandoc
-    outputs.nixosModules.aria2
-    outputs.nixosModules.battery-thing
-    outputs.nixosModules.pix2tex
-    # (outputs.nixosModules args).steam
-    outputs.nixosModules.math
-
+  imports = [
     ../hardware/x270.nix
   ];
 
