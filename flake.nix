@@ -99,7 +99,8 @@
         {
           format = flake-utils.lib.mkApp {
             drv = pkgs.writeShellApplication {
-              name = with nixpkgs.lib; {
+              name = "format";
+              meta = with nixpkgs.lib; {
                 description = "Check formatting of nix files of this repository";
                 platforms = platforms.all;
               };
