@@ -187,7 +187,7 @@
           outputs.nixosModules.pix2tex
           outputs.nixosModules.math
           # (outputs.nixosModules args).jellyfin # TODO
-          outputs.nixosModules.radicale
+          # outputs.nixosModules.radicale
           outputs.nixosModules.grocy
           {
             # nix.settings = {
