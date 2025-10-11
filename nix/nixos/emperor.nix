@@ -45,6 +45,13 @@
       auto-optimise-store = true;
       # substituters = ["https://hyprland.cachix.org"];
       # trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+      http-connections = 128;
+      max-substitution-jobs = 128;
+      max-jobs = "auto";
+      substituters = [
+        "https://nix-community.cachix.org"
+        "https://cache.nixos.org"
+      ];
     };
   };
 
@@ -95,7 +102,7 @@
     pr227905.insomnia
     pr231339.sea-orm-cli
     tts15.tts
-    ltex-nightly
+    ltex-ls-plus
 
     gamemode
   ];

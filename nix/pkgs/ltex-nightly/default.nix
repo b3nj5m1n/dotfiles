@@ -10,11 +10,11 @@
 }:
 stdenvNoCC.mkDerivation rec {
   pname = "ltex-nightly";
-  version = "15.5.0-alpha.nightly.2025-04-04";
+  version = "15.6.0-alpha.nightly.2025-10-04";
 
   src = fetchurl {
     url = "https://github.com/ltex-plus/vscode-ltex-plus/releases/download/nightly/vscode-ltex-plus-${version}-offline-linux-aarch64.vsix";
-    sha256 = "sha256-SLawFwnZsZ8cDhYmP9sE/W+clw7jadNavPS+verDFsQ=";
+    sha256 = "sha256-HTC2nYp/NYQUU0xdMvqW58daA/WnCMRTg/L2NciS4Zs=";
   };
 
   nativeBuildInputs = [makeBinaryWrapper unzip tree];
