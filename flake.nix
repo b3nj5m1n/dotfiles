@@ -216,6 +216,7 @@
           inputs.xremap-flake.nixosModules.default
           {
             services.xremap = {
+              enable = true;
               # userName = "b3nj4m1n";
               # serviceMode = "user";
               withWlroots = true;

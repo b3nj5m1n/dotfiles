@@ -92,6 +92,10 @@
       url = "https://github.com/NixOS/nixpkgs/archive/768df6c75cfad35b0423f82070e4f3932212227e.tar.gz";
       sha256 = "sha256:106d53jnjpx3rlrsqsl3hpkc28z8r31hkqn3gkzmyh9yqd7pv5xf";
     }) {system = final.system;};
+    pr454485 = import (fetchTarball {
+      url = "https://github.com/NixOS/nixpkgs/archive/11c89b1a83fb83a297b80f9b0764b0cdcc98f507.tar.gz";
+      sha256 = "sha256:0ib1x41d7vrhvdv4yv4sjmmv52qprl7zyy55wqgbbs9y7vv0y8v5";
+    }) {system = final.system;};
   };
 
   # hyprland = hyprland.overlays.default;

@@ -11,18 +11,21 @@
   config = {
     programs.git = {
       enable = true;
-      userEmail = "b3nj4m1n@gmx.net";
-      userName = "b3nj5m1n";
-      aliases = {
-        pr = "!f() { git fetch -fu \${2:-origin} refs/pull/\$1/head:pr/\$1 && git checkout pr/\$1; }; f"; # https://stackoverflow.com/a/14969986
+      settings = {
+          alias = {
+            pr = "!f() { git fetch -fu \${2:-origin} refs/pull/\$1/head:pr/\$1 && git checkout pr/\$1; }; f"; # https://stackoverflow.com/a/14969986
+          };
+          user.email = "b3nj4m1n@gmx.net";
+          user.name = "b3nj5m1n";
+          init.defaultBranch = "main";
       };
-      difftastic = {enable = true;};
       signing = {
         signByDefault = true;
       };
-      extraConfig = {
-        init.defaultBranch = "main";
-      };
+    };
+    programs.difftastic = {
+        enable = true;
+        git.enable = true;
     };
   };
 }

@@ -9,7 +9,7 @@
   config = {
     environment.systemPackages = with pkgs; [
       anki-bin
-      calibre
+      pr454485.calibre
       swaynotificationcenter
       feh
       mangohud
