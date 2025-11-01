@@ -7,7 +7,7 @@
   config = {
     # sound.enable = true;
     environment.systemPackages = with pkgs; [
-      mpc-cli
+      mpc
       ncmpcpp
       pavucontrol
       pulseaudio

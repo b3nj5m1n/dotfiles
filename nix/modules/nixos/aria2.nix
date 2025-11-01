@@ -6,7 +6,7 @@
 
   config = {
     environment.systemPackages = with pkgs; [
-      aria
+      aria2
       aria_ng
     ];
     systemd.services.aria_ng = {

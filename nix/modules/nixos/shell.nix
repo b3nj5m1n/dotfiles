@@ -8,7 +8,7 @@
 
   config = {
     environment.systemPackages = with pkgs; [
-      aria # Basically a better wget
+      aria2 # Basically a better wget
       atuin # Save & search shell history
       bat # Better cat (syntax highlighting, etc.)
       bottom # System monitor
@@ -17,7 +17,7 @@
       direnv # Automatically load env variables when entering directory
       doctl # Digital ocean cli
       dotter # Dotfile management
-      du-dust # More intuitive du
+      dust # More intuitive du
       duf # Display disk usage stats in a readable way
       eza # Better ls
       fd # Better find

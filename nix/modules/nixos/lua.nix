@@ -8,7 +8,7 @@
     environment.systemPackages = with pkgs; [
       lua
       luajit
-      sumneko-lua-language-server
+      lua-language-server
     ];
   };
 }

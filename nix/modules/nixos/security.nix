@@ -9,7 +9,7 @@
       keychain
       libfido2
       # yubikey-manager # TODO
-      pinentry
+      # pinentry
       pinentry-curses
       pinentry-gtk2
       polkit_gnome

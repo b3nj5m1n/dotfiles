@@ -7,7 +7,7 @@
 
   config = {
     environment.systemPackages = with pkgs; [
-      fennel
+      luaPackages.fennel
       fnlfmt
       # fennel-language-server
     ];

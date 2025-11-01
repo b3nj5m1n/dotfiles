@@ -13,7 +13,7 @@
       swaynotificationcenter
       feh
       mangohud
-      (tor-browser-bundle-bin.override {
+      (tor-browser.override {
         # useHardenedMalloc = false;
       })
       thunderbird
