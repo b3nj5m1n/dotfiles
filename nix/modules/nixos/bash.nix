@@ -7,7 +7,7 @@
   config = {
     environment.systemPackages = with pkgs; [
       bash
-      nodePackages.bash-language-server
+      bash-language-server
       shellcheck
     ];
   };

@@ -12,7 +12,7 @@
       stable.sage
       sagetex
       typst
-      typstfmt
+      typstyle
       typst-live
       typstyle
       tinymist

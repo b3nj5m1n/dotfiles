@@ -6,7 +6,7 @@
 
   config = {
     environment.systemPackages = with pkgs; [
-      roswell
+      # roswell
     ];
   };
 }

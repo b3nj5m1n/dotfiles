@@ -8,8 +8,8 @@
   config = {
     environment.systemPackages = with pkgs; [
       deno
-      nodePackages.typescript
-      nodePackages.typescript-language-server
+      typescript
+      typescript-language-server
       # nodePackages.parcel
     ];
   };

@@ -9,8 +9,9 @@
       androidStudioPackages.canary
       kotlin
       kotlin-language-server
+      android-tools
     ];
-    programs.adb.enable = true;
+    # programs.adb.enable = true;
     users.users."b3nj4m1n".extraGroups = ["adbusers"];
   };
 }

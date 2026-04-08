@@ -6,10 +6,9 @@
 
   config = {
     environment.systemPackages = with pkgs; [
-      nodePackages.npm
-      nodePackages.typescript-language-server
+      nodejs
+      typescript-language-server
       # nodePackages.parcel
-      stable.nodejs
       yarn
     ];
   };

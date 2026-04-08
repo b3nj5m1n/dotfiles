@@ -11,7 +11,7 @@
       python312Packages.python-lsp-server
       poetry
       pipx
-      python311Packages.bpython
+      # python311Packages.bpython
     ];
   };
 }
