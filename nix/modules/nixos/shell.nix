@@ -11,6 +11,7 @@
       aria2 # Basically a better wget
       atuin # Save & search shell history
       bat # Better cat (syntax highlighting, etc.)
+      imagemagick
       bottom # System monitor
       cmatrix # A masterhacker essential
       difftastic # Better diff which understands syntax
