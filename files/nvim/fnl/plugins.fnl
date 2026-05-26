@@ -229,13 +229,13 @@
   ; :event "UiEnter")
   :optional true)
 
-; [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow)
-(paq.paq-add "rainbow-parens" "Color nested parens using treesitter"
-  "hiphish/rainbow-delimiters.nvim"
-  :branch "master"
-  ; :commit "698a4396623a479fb1bfd3ad5fd23d244996cbeb"
-  ; :event "UiEnter")
-  :optional true)
+; ; [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow)
+; (paq.paq-add "rainbow-parens" "Color nested parens using treesitter"
+;   "hiphish/rainbow-delimiters.nvim"
+;   :branch "master"
+;   ; :commit "698a4396623a479fb1bfd3ad5fd23d244996cbeb"
+;   ; :event "UiEnter")
+;   :optional true)
 
 ; [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 (paq.paq-add "lspconfig" "Lsp abstraction layer"

@@ -58,10 +58,12 @@
     fileSystems."/var/lib/navidrome/music" = {
       device = "/home/b3nj4m1n/Music";
       options = ["bind" "perms=444"];
+      fsType = "btrfs";
     };
     fileSystems."/var/lib/mpd/music" = {
       device = "/home/b3nj4m1n/Music";
       options = ["bind" "perms=444"];
+      fsType = "btrfs";
     };
 
     /*
