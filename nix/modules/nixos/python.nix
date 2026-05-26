@@ -10,7 +10,7 @@
       python312Packages.jedi-language-server
       python312Packages.python-lsp-server
       poetry
-      pipx
+      # pipx
       # python311Packages.bpython
     ];
   };

@@ -22,7 +22,7 @@
       enable = true;
       allowedTCPPorts = [22 30021];
     };
-    networking.wireless.userControlled.enable = true;
+    networking.wireless.userControlled = true;
     # networking.wireless.enable = true;
     networking.wireless.extraConfig = ''
 

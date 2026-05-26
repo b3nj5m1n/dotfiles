@@ -18,6 +18,7 @@
   boot.extraModulePackages = [];
   boot.supportedFilesystems = ["btrfs" "ntfs" "zfs"];
   boot.zfs.extraPools = ["drivemecrazy"];
+  boot.zfs.forceImportRoot = false;
 
   # 100GB encrypted partitions on multiple disks set up as RAID1
   boot.initrd.luks.devices = {

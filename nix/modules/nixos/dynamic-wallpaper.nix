@@ -80,11 +80,11 @@ in {
 
   config = {
     environment.systemPackages = with pkgs; [
-      swww
+      awww
       pkgs.dynamic-wallpapers
     ];
-    # Service for starting the swww daemon
-    systemd.user.services."swww-daemon" = mkIf cfg.enable {
+    # Service for starting the awww daemon
+    systemd.user.services."awww-daemon" = mkIf cfg.enable {
       unitConfig = {
         "Description" = "Solution to Wayland Wallpaper Woes";
         "Requires" = "graphical-session.target";
@@ -93,13 +93,13 @@ in {
       };
       serviceConfig = {
         Type = "notify";
-        ExecStart = "${pkgs.swww}/bin/swww-daemon";
+        ExecStart = "${pkgs.awww}/bin/awww-daemon";
         NotifyAccess = "all";
       };
       wantedBy = [
         "graphical-session.target"
       ];
-      path = [pkgs.swww];
+      path = [pkgs.awww];
       environment = {
         WAYLAND_DISPLAY = "wayland-1";
         XDG_RUNTIME_DIR = "/run/user/1000";
@@ -111,9 +111,9 @@ in {
     systemd.user.services."dynamic-wallpaper@" = mkIf cfg.enable {
       unitConfig = {
         "Description" = "Dynamically change wallpaper based on time of day";
-        "Requires" = "swww-daemon.service";
-        "PartOf" = "swww-daemon.service";
-        "After" = "swww-daemon.service";
+        "Requires" = "awww-daemon.service";
+        "PartOf" = "awww-daemon.service";
+        "After" = "awww-daemon.service";
       };
       script = let
         flags = builtins.concatStringsSep " " (
@@ -148,7 +148,7 @@ in {
             }"
           ]
         );
-        command = "${pkgs.swww}/bin/swww img";
+        command = "${pkgs.awww}/bin/awww img";
         image = "${pkgs.dynamic-wallpapers}/images/${cfg.theme}/$hour.jpg";
       in ''
         set -eu

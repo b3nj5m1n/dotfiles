@@ -27,9 +27,8 @@
     services.mpd = {
       enable = true;
       user = "b3nj4m1n";
-      network = {
-        listenAddress = "any";
-      };
+      settings.bind_to_address = "any";
+      openFirewall = false;
       # musicDirectory = "";
       # extraConfig = ''
       #   audio_output {

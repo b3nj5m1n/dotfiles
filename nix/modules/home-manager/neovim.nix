@@ -12,6 +12,8 @@
     home.packages = with pkgs; [luajitPackages.luarocks];
     home.sessionVariables.EDITOR = "nvim";
     programs.neovim.enable = true;
+    programs.neovim.withRuby = true;
+    programs.neovim.withPython3 = true;
     programs.neovim.initLua = ''
 	-- vim.cmd [[packadd packer.nvim]]
 	vim.cmd [[packadd aniseed]]

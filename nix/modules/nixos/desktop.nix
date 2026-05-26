@@ -23,7 +23,7 @@
       # pop-launcher
       syncthing
       ydotool
-      xfce.thunar
+      thunar
       nautilus
       file-roller
       stable.element-desktop
@@ -31,7 +31,7 @@
       vlc
       zathura
       gsmartcontrol
-      swww
+      awww
       rnote
       xournalpp
       inkscape-with-extensions
