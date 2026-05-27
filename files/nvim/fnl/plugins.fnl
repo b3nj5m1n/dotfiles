@@ -95,7 +95,7 @@
 
 ; [leap.nvim](https://github.com/ggandor/leap.nvim)
 (paq.paq-add "leap" "Smooth af navigation plugin"
-  "ggandor/leap.nvim"
+  "https://codeberg.org/andyg/leap.nvim"
   :branch "main"
   ; :commit "5efe985cf68fac3b6a6dfe7a75fbfaca8db2af9c"
   :optional true)
