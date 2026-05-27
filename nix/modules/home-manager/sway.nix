@@ -331,6 +331,7 @@ in {
           exec systemctl --user start graphical-session.target
           exec systemctl --user start dynamic-wallpaper@skip.service
           exec systemctl --user import-environment XDG_SESSION_TYPE XDG_CURRENT_DESKTOP
+          exec systemctl --user start waybar
           exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
           exec systemctl --user start ulauncher
           exec kdeconnect-cli -l
