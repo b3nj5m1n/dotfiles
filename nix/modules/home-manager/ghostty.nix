@@ -18,7 +18,7 @@
         font-family = "FantasqueSans Mono";
         font-size = 15;
         window-decoration = false;
-        theme = "catppuccin-macchiato";
+        theme = "Catppuccin Macchiato";
         background-opacity =
           if config.ricefields.sway.useSwayFX
           then 0.7
