@@ -237,14 +237,15 @@
 ;   ; :event "UiEnter")
 ;   :optional true)
 
-; [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
-(paq.paq-add "lspconfig" "Lsp abstraction layer"
-  "neovim/nvim-lspconfig"
-  :branch "master"
-  ; :commit "219cb3943d63e0e4b1aff8148a61bf6f3c347049"
-  :event "VimEnter"
-  :optional true)
-  ; :config ((. (require :plugin-config) :lspconfig)))
+; ; [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+; (paq.paq-add "lspconfig" "Lsp abstraction layer"
+;   "neovim/nvim-lspconfig"
+;   :branch "master"
+;   ; :commit "219cb3943d63e0e4b1aff8148a61bf6f3c347049"
+;   :event "VimEnter"
+;   :optional true)
+;   ; :config ((. (require :plugin-config) :lspconfig)))
+; DEPRECATED
 
 ; [rustaceanvim](https://github.com/mrcjkb/rustaceanvim)
 (paq.paq-add "rustaceanvim" "More support for rust analyzer"

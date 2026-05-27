@@ -124,7 +124,7 @@
                 :goto_previous_end {"[M" "@function.outer" "[]" "@class.outer"}}}}))
 
 (defn lspconfig []
-      (local lspconfig (require :lspconfig))
+      ; (local lspconfig (vim.lsp.config))
       ; (var capabilities (vim.lsp.protocol.make_client_capabilities))
       ; (set capabilities
       ;      (. (require :cmp_nvim_lsp) :default_capabilities))
@@ -134,21 +134,24 @@
                       :ts_ls :yamlls :hls :nil_ls
                       :fennel_language_server :ocamllsp]) ; :typst_lsp])
       (each [_ server (pairs servers)]
-        ((. (. lspconfig server) :setup)
-         {:capabilities capabilities
-          :handlers (lsp-util.get-handlers)}))
-      (lspconfig.clangd.setup
+        (vim.lsp.config server
+             {:capabilities capabilities
+              :handlers (lsp-util.get-handlers)})
+        (vim.lsp.enable server))
+      (vim.lsp.config :clangd
        {:capabilities capabilities
         :single_file_support true
         :cmd [:clangd :--completion-style=detailed "-fallback-style=LLVM"]})
-      (lspconfig.ltex_plus.setup
+      (vim.lsp.enable :clangd)
+      (vim.lsp.config :ltex_plus
        {:capabilities capabilities
         :single_file_support true
         :filetypes [ "typst" "bib" "gitcommit" "markdown" "org" "plaintex" "rst" "rnoweb" "tex" "pandoc" "quarto" "rmd" "context" "html" "xhtml" "mail" "text"]
         :settings {
                    :ltex {
                           :language "de-DE"}}})
-      (lspconfig.texlab.setup
+      (vim.lsp.enable :ltex_plus)
+      (vim.lsp.config :texlab
         {:capabilities capabilities
          :handlers (lsp-util.get-handlers)
          :settings {
@@ -166,6 +169,7 @@
                     :forwardSearch {:args {}}
                     :latexFormatter :latexindent
                     :latexindent {:local "../../latexindent.yaml" :modifyLineBreaks false}}})
+      (vim.lsp.enable :texlab)
       (vim.api.nvim_create_augroup "hover" {:clear true})
       (vim.api.nvim_create_autocmd "CursorHold"
                              {:group "hover"
