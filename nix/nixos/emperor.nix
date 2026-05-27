@@ -88,7 +88,7 @@
     };
   };
 
-  services.displayManager.gdm.enable = true;
+  services.displayManager.ly.enable = true;
 
   environment.systemPackages = with pkgs; [
     pr385029.anytype

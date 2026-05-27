@@ -41,7 +41,7 @@
 
   # pandoc = import ./pandoc.nix;
   steam = import ./steam.nix;
-  nvidia = import ./nvidia.nix;
+  # nvidia = import ./nvidia.nix;
   gitega = import ./gitega.nix;
   virtual-machines = import ./virtual-machines.nix;
   tree-sitter = import ./tree-sitter.nix;
