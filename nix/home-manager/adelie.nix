@@ -53,7 +53,7 @@
 
   programs.git.signing.key = "40C2656E7D651A18";
 
-  services.gpg-agent.pinentry.package = pkgs.pinentry-gtk2;
+  services.gpg-agent.pinentry.package = pkgs.pinentry-gnome3;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

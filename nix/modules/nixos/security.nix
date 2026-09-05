@@ -11,7 +11,7 @@
       # yubikey-manager # TODO
       # pinentry
       pinentry-curses
-      pinentry-gtk2
+      pinentry-gnome3
       polkit_gnome
       dbus
     ];
@@ -35,7 +35,7 @@
     programs.gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
-      pinentryPackage = pkgs.pinentry-gtk2;
+      pinentryPackage = pkgs.pinentry-gnome3;
     };
     services.openssh = {
       enable = true;
