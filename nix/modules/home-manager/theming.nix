@@ -9,7 +9,7 @@
   options = {};
 
   config = {
-    home.packages = with pkgs; [gtk-engine-murrine];
+    # home.packages = with pkgs; [gtk-engine-murrine];
     gtk = {
       enable = true;
       theme = {
