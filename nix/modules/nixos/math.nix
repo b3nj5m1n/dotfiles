@@ -19,6 +19,7 @@
       websocat
       stable.typst-preview
       numbat
+      lean4
     ];
   };
 }

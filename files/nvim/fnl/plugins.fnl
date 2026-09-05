@@ -644,3 +644,12 @@
   ; :commit "4ff8de2ac93431ee6d85a9e04177012752e6abdc"
   ; :opts {}
   :config false)
+
+; [lean.nvim](https://github.com/Julian/lean.nvim)
+(paq.paq-add "vim-table-mode" "Edit markdown tables"
+  "Julian/lean.nvim"
+  ; :commit "4ff8de2ac93431ee6d85a9e04177012752e6abdc"
+  ; :opts {}
+  :config {
+           :mappings true})
+
