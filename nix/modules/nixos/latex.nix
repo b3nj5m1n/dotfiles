@@ -6,7 +6,7 @@
 
   config = {
     environment.systemPackages = with pkgs; [
-      texlive.combined.scheme-full
+      texliveFull
       texlab
       # ltex-ls-plus
     ];

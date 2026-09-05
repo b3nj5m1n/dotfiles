@@ -11,6 +11,7 @@
   config = {
     # home.packages = with pkgs; [gtk-engine-murrine];
     gtk = {
+      gtk4.theme = null;
       enable = true;
       theme = {
         name = "Catppuccin-Macchiato-Compact-Pink-Dark";
@@ -32,6 +33,7 @@
       };
     };
     home.pointerCursor = {
+      enable = true;
       package = pkgs.bibata-cursors;
       name = "Bibata-Original-Ice";
       size = 24;

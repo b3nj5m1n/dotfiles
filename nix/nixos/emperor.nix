@@ -91,7 +91,7 @@
   environment.systemPackages = with pkgs; [
     pr385029.anytype
     gamescope
-    pfui
+    # pfui
     ghostty
     eisvogel
     bemoji

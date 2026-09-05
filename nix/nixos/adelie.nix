@@ -90,7 +90,7 @@
   services.power-profiles-daemon.enable = false;
 
   environment.systemPackages = with pkgs; [
-    pfui
+    # pfui
     eisvogel
     bemoji
     wofi-calc
