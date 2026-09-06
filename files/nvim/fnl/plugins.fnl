@@ -651,5 +651,8 @@
   ; :commit "4ff8de2ac93431ee6d85a9e04177012752e6abdc"
   ; :opts {}
   :config {
-           :mappings true})
+           :mappings true
+           :graphics {
+                      :enabled true}})
+
 

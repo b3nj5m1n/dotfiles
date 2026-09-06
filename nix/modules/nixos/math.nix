@@ -20,6 +20,7 @@
       stable.typst-preview
       numbat
       lean4
+      resvg # For rendering svgs with lean.nvim
     ];
   };
 }
