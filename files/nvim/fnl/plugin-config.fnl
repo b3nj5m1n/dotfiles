@@ -94,34 +94,34 @@
 (defn nvim-colorizer []
       ((. (require :colorizer) :setup)))
 
-(defn nvim-treesitter []
-      (local parser-configs ((. (require :nvim-treesitter.parsers) :get_parser_configs)))
-      (set parser-configs.norg 
-           {:install_info {:url "https://github.com/nvim-neorg/tree-sitter-norg"
-                           :files {1 :src/parser.c 2 :src/scanner.cc}
-                           :branch :main}})
-      ((. (require :nvim-treesitter.configs) :setup) 
-       {:ensure_installed ["markdown" "rust" "lua" "fennel" "python"]
-        :highlight {:enable true}
-        :indent {:enable true}
-        ; :context_commentstring {:enable true :enable_autocmd false}
-        :rainbow
-        {:enable true
-         :colors [ "#bd93f9" "#50fa7b" "#ffb86c" "#ff79c6" "#8be9fd" "#f1fa8c"]}
-        :textobjects 
-        {:select {
-                  :enable true
-                  :keymaps {
-                            :af "@function.outer"
-                            :if "@function.inner"
-                            :ac "@class.outer"
-                            :ic "@class.inner"}}
-         :move {
-                :enable true
-                :goto_next_start {"]m" "@function.outer" "]]" "@class.outer"}
-                :goto_next_end {"]M" "@function.outer" "][" "@class.outer"}
-                :goto_previous_start {"[m" "@function.outer" "[[" "@class.outer"}
-                :goto_previous_end {"[M" "@function.outer" "[]" "@class.outer"}}}}))
+(defn nvim-treesitter [])
+      ; (local parser-configs ((. (require :nvim-treesitter.parsers) :get_parser_configs)))
+      ; (set parser-configs.norg 
+      ;      {:install_info {:url "https://github.com/nvim-neorg/tree-sitter-norg"
+      ;                      :files {1 :src/parser.c 2 :src/scanner.cc}
+      ;                      :branch :main}})
+      ; ((. (require :nvim-treesitter.configs) :setup) 
+      ;  {:ensure_installed ["markdown" "rust" "lua" "fennel" "python"]
+      ;   :highlight {:enable true}
+      ;   :indent {:enable true}
+      ;   ; :context_commentstring {:enable true :enable_autocmd false}
+      ;   :rainbow
+      ;   {:enable true
+      ;    :colors [ "#bd93f9" "#50fa7b" "#ffb86c" "#ff79c6" "#8be9fd" "#f1fa8c"]}
+      ;   :textobjects 
+      ;   {:select {
+      ;             :enable true
+      ;             :keymaps {
+      ;                       :af "@function.outer"
+      ;                       :if "@function.inner"
+      ;                       :ac "@class.outer"
+      ;                       :ic "@class.inner"}}
+      ;    :move {
+      ;           :enable true
+      ;           :goto_next_start {"]m" "@function.outer" "]]" "@class.outer"}
+      ;           :goto_next_end {"]M" "@function.outer" "][" "@class.outer"}
+      ;           :goto_previous_start {"[m" "@function.outer" "[[" "@class.outer"}
+      ;           :goto_previous_end {"[M" "@function.outer" "[]" "@class.outer"}}}}))
 
 (defn lspconfig []
       ; (local lspconfig (vim.lsp.config))

@@ -217,7 +217,7 @@
 ; [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 (paq.paq-add "nvim-treesitter" "Treesitter abstraction layer"
      "nvim-treesitter/nvim-treesitter"
-     :branch "master"
+     :branch "main"
      ; :commit "31f608e47b838594d32a7bc42028e2cefd0ddaad"
   :optional true)
 
