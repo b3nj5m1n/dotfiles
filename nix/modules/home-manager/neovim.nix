@@ -9,7 +9,7 @@
   options = {};
 
   config = {
-    home.packages = with pkgs; [luajitPackages.luarocks];
+    home.packages = with pkgs; [luajitPackages.luarocks tree-sitter];
     home.sessionVariables.EDITOR = "nvim";
     programs.neovim.enable = true;
     programs.neovim.withRuby = true;
@@ -39,5 +39,8 @@
 
       require('aniseed.env').init()
     '';
+    programs.neovim.plugins = [
+        pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+    ];
   };
 }

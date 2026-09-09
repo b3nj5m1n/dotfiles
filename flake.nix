@@ -173,7 +173,6 @@
           outputs.nixosModules.steam
           outputs.nixosModules.gitega
           outputs.nixosModules.virtual-machines
-          outputs.nixosModules.tree-sitter
           # (outputs.nixosModules args).nvidia
           outputs.nixosModules.fix-suspend
           outputs.nixosModules.open-rgb
