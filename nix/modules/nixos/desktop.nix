@@ -26,7 +26,7 @@
       thunar
       nautilus
       file-roller
-      stable.element-desktop
+      element-desktop
       mpv
       vlc
       zathura
