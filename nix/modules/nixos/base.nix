@@ -9,6 +9,7 @@
   config = {
     environment.systemPackages = with pkgs; [
       home-manager
+      comma
     ];
     time.timeZone = "Europe/Berlin";
     i18n.defaultLocale = "en_GB.UTF-8";
