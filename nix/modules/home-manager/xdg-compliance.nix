@@ -31,7 +31,7 @@
         CUDA_CACHE_PATH = "${config.home.sessionVariables.XDG_CACHE_HOME}/nv";
         DOCKER_CONFIG = "${config.home.sessionVariables.XDG_CONFIG_HOME}/docker";
         DOT_SAGE = "${config.home.sessionVariables.XDG_CONFIG_HOME}/sage";
-        DVDCSS_CACHE="${config.home.sessionVariables.XDG_DATA_HOME}/dvdcss";
+        DVDCSS_CACHE = "${config.home.sessionVariables.XDG_DATA_HOME}/dvdcss";
         ELM_HOME = "${config.home.sessionVariables.XDG_CACHE_HOME}/elm";
         ERRFILE = "${config.home.sessionVariables.XDG_CACHE_HOME}/X11/xsession-errors";
         GEM_HOME = "${config.home.sessionVariables.XDG_DATA_HOME}/gem";

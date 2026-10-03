@@ -65,7 +65,7 @@
     ];
   in rec {
     nixConfig = {
-        use-xdg-base-directories = true;
+      use-xdg-base-directories = true;
     };
 
     # Custom packages

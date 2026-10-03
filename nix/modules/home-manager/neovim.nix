@@ -40,7 +40,7 @@
       require('aniseed.env').init()
     '';
     programs.neovim.plugins = [
-        pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+      pkgs.vimPlugins.nvim-treesitter.withAllGrammars
     ];
   };
 }
