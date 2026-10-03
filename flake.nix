@@ -64,6 +64,10 @@
       # "x86_64-darwin"
     ];
   in rec {
+    nixConfig = {
+        use-xdg-base-directories = true;
+    };
+
     # Custom packages
     packages = forAllSystems (
       system: let

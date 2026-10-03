@@ -12,11 +12,17 @@
   config = {
     home = {
       shellAliases = {
+        adb = "HOME=${config.home.sessionVariables.XDG_DATA_HOME}/android adb";
         mbsync = "mbsync -c \"$XDG_CONFIG_HOME/isync/mbsyncrc\"";
+        mvn = "mvn -gs ${config.home.sessionVariables.XDG_CONFIG_HOME}/maven/settings.xml";
+        wget = "wget --hsts-file=${config.home.sessionVariables.XDG_DATA_HOME}/wget-hsts";
         yarn = "yarn --use-yarnrc \"$XDG_CONFIG_HOME/yarn/config\"";
       };
       sessionVariables = {
-        ANDROID_SDK_HOME = "${config.home.sessionVariables.XDG_CONFIG_HOME}/android";
+        ANDROID_AVD_HOME = "${config.home.sessionVariables.XDG_DATA_HOME}/android/avd";
+        ANDROID_SDK_HOME = "${config.home.sessionVariables.XDG_DATA_HOME}/android";
+        ANDROID_HOME = "${config.home.sessionVariables.XDG_DATA_HOME}/android/sdk";
+        ANDROID_USER_HOME = "${config.home.sessionVariables.XDG_DATA_HOME}/android";
         ANSIBLE_CONFIG = "${config.home.sessionVariables.XDG_CONFIG_HOME}/ansible/ansible.cfg";
         ANSIBLE_HOME = "${config.home.sessionVariables.XDG_DATA_HOME}/ansible";
         CABAL_CONFIG = "${config.home.sessionVariables.XDG_CONFIG_HOME}/cabal/config";
@@ -24,6 +30,8 @@
         CARGO_HOME = "${config.home.sessionVariables.XDG_DATA_HOME}/cargo";
         CUDA_CACHE_PATH = "${config.home.sessionVariables.XDG_CACHE_HOME}/nv";
         DOCKER_CONFIG = "${config.home.sessionVariables.XDG_CONFIG_HOME}/docker";
+        DOT_SAGE = "${config.home.sessionVariables.XDG_CONFIG_HOME}/sage";
+        DVDCSS_CACHE="${config.home.sessionVariables.XDG_DATA_HOME}/dvdcss";
         ELM_HOME = "${config.home.sessionVariables.XDG_CACHE_HOME}/elm";
         ERRFILE = "${config.home.sessionVariables.XDG_CACHE_HOME}/X11/xsession-errors";
         GEM_HOME = "${config.home.sessionVariables.XDG_DATA_HOME}/gem";
@@ -56,6 +64,7 @@
         VSCODE_PORTABLE = "${config.home.sessionVariables.XDG_DATA_HOME}/vscode";
         WGETRC = "${config.home.sessionVariables.XDG_CONFIG_HOME}/wget/wgetrc";
         WINEPREFIX = "${config.home.sessionVariables.XDG_DATA_HOME}/wine";
+        XCOMPOSECACHE = "${config.home.sessionVariables.XDG_CACHE_HOME}/X11/xcompose";
         ZDOTDIR = "${config.home.sessionVariables.XDG_CONFIG_HOME}/zsh";
         _JAVA_OPTIONS = "-Djava.util.prefs.userRoot=\\\"${config.home.sessionVariables.XDG_CONFIG_HOME}/java\\\"";
       };
