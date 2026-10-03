@@ -9,3 +9,6 @@ sync_address = "https://api.atuin.sh"
 search_mode = "fuzzy"
 
 update_check = false
+
+[logs]
+dir = "~/.local/state/atuin/logs"
