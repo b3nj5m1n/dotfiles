@@ -25,6 +25,7 @@
         "python-2.7.18.6"
         "electron-27.3.11"
         "libsoup-2.74.3"
+        "firefox-esr-140-bin-unwrapped-140.17.0esr"
       ];
     };
   };
